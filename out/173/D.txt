@@ -1,0 +1,101 @@
+N∑
+−1
+AN −⌊k/2⌋ が答えになることを以下に示します (ち
+Ai をソートして昇順にします．このとき，
+k=1
+∑
+なみに， は総和を表す記号です．たとえば上の式であれば，k = 1, 2, . . . , N −1 のときの AN −⌊k/2⌋
+
+を全て足し合わせた値を表します．便利な記法ですので，ぜひ知っておいてください)．
+最大値を証明するには，「1. この値にできる」「2. これより良い値にはできない」をそれぞれ示す
+のが定石です．ここでもこの方針を採用します．
+
+どうすれば「この値にできる」？
+フレンドリーさが高い順に移動させます．i + 1 番目に輪に加わった人の両隣に 2i + 1, 2i + 2 番目
+の人を入れるようにすると，「まだ両隣挿入の対象になっていない人 A の両隣には，A より早く来た
+人がいる」状態を常に保てることから，上の値を達成できることが言えます．
+
+どうして「これより良い値にはできない」？
+まず，フレンドリーさが高い順に移動させる状況のみを考えればよいことを示します．i 番目に移
+動する人のフレンドリーさを ai として a1 ≥ a2 ≥ · · · ≥ ak < ak+1 なる k があったとき，
+
+• k + 1 人目が割り込む位置が k 人目の隣でないとき，入れ替えてもお互い知ったこっちゃあり
+ません．
+
+• k + 1 人目が割り込む位置が k 人目の隣であるとき，その時点で x, ak , ak+1 , y と並んでいた
+とすると，min(x, y) + min(ak , y) ≤ min(x, y) + min(x, ak+1 ) なので，割り込む順番を入れ
+替えても損しません．
+したがってバブルソートの要領で，移動の順番をフレンドリーさが高い順に並べ替えても損しませ
+ん．ここからはそのような状況だけを考えることにします．
+
+AN が心地よさに寄与するのは高々 1 回です．それ以外の人はどうでしょう？ Ak の左隣に割り込
+みが起きたら，それ以降は Ak の左隣に Ak よりも後に来た人がいる状態が保たれます．右隣も同様
+のことが言えるので，結局 Ak の寄与は 2 回までです．
+
+AN (最大値) が 1 つ，A1 ∼ AN −1 が 2 つずつあり，そのうち自由に N − 1 個を選んで足し合わ
+N∑
+−1
+せるとき，最大値は
+AN −⌊k/2⌋ (冒頭に挙げた答え) です．したがって，本問の答えはこれより良
+k=1
+
+くなりません．
+以上より，この解法の正当性が示せました．ソートがボトルネックとなり，Θ(N log N ) 時間で解
+けます．Median of Medians というテクニックで Θ(N ) 時間を達成できますが，発展的内容なので
+ここでは軽く触れるにとどめます．
+
+6
+
+Sort Ai in the increasing order. Then, we will show that
+
+N∑
+−1
+k=1
+
+AN −⌊k/2⌋ is the answer (here,
+
+∑
+
+is a symbol that denotes summation. For example, in the expression above, it denotes the sum
+of all AN −⌊k/2⌋ for k = 1, 2, . . . , N − 1. It is a useful notation, so learn it now!).
+One of the common strategy to prove the maximum value is to show that “1. the value can
+be achieved” and that “2. it cannot be exceeded”, which will be used here too.
+
+How can “the value can be achieved”?
+Move them in the decreasing order of friendliness. Put the 2i + 1-st and 2i + 2-nd person in
+each side of i + 1-th person, then it always hold that “if both sides of a person A is not occupied
+with the people who will be put there, then then there are people who came earlier than person
+A in his both sides,” so it can be said that the value above can be achieved.
+
+Why can “it not be exceeded”?
+First, we will show that we can always assume that the players are moved in the decreasing
+order of friendliness. Suppose that there exists a k such that a1 ≥ a2 ≥ · · · ≥ ak < ak+1 . Then,
+• IF the k +1-st person does not cut in to next to k-th person, then whether or not swapping
+them is none of their business.
+• IF the k + 1-st person cuts in to next to k-th person, let us assume that they are aligned
+in the order of x, ak , ak+1 , y. Then, min(x, y) + min(ak , y) ≤ min(x, y) + min(x, ak+1 ), so
+swapping them does not decrease the total sum.
+Therefore, we can always move them in the decreasing order of friendliness, by swapping them
+in manner of bubble sort. Hereinafter we will only consider such situation.
+AN contribute to the total comfort at most once. How about the other people? If a person
+cut into left to Ak , then after that there is always a person who came later than Ak to the left
+of Ak . The right side is the same, so ultimately Ak contribute to it at most twice.
+Suppose that you are asked to choose N − 1 elements from a multiset consisting of one AN
+(maximum value) and two A1 ∼ AN −1 each. Then, the maximum some of the chosen value is
+
+N∑
+−1
+k=1
+
+AN −⌊k/2⌋ (which is written in the beginning). Therefore, the answer for this problem cannot
+
+exceed this.
+Thus, this solution has been justiﬁed. The problem can be solved in a total of Θ(N log N ) time,
+
+15
+
+where the sort is the bottleneck. We can also achieve a total of Θ(N ) time with the technique
+called Median of Medians, but it is beyond the editorial, so we will just introduce the name.
+
+16
+

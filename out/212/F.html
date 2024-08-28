@@ -1,0 +1,567 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 212</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 212" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc212/editorial/2362" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 212" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc212";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2021-07-31T21:00:00+09:00");
+			var endTime = moment("2021-07-31T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 212が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 212は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc212">AtCoder Beginner Contest 212</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc212/editorial/2362?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc212/editorial/2362?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc212%2Feditorial%2F2362">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc212%2Feditorial%2F2362">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc212%2Feditorial%2F2362">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210731T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-07-31 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210731T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-07-31 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc212"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc212/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc212/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc212/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc212/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc212/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc212/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc212/tasks/abc212_f">F - Greedy Takahashi</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-3.png" class="user-rating-stage-m"><a href="/users/penguinman" class="username"><span class="user-orange">penguinman</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>高橋くんが時刻 <span>\(X_i\)</span> に都市 <span>\(Y_i\)</span> から行動を開始したあと、初めて乗るバスが <span>\(j\)</span> 本目のバスであるとします。そのようなバスが存在しない場合、および <span>\(Z_i \leq S_j\)</span> である場合、明らかに高橋くんは時刻 <span>\(Z_i\)</span> の時点で都市 <span>\(Y_i\)</span> にいます。また、<span>\(S_j \lt Z_i \leq T_j\)</span> を満たす場合、高橋くんは時刻 <span>\(Z_i\)</span> の時点で <span>\(j\)</span> 本目のバスに乗っています。<br>
+これ以降は、そのいずれでもない場合について考えます。</p>
+
+<p>さて、以下の条件を満たす正整数 <span>\(k\)</span> を二分探索することを考えましょう。</p>
+
+<ul>
+<li>高橋くんが <span>\(j\)</span> 本目のバスから始めて合計 <span>\(k\)</span> 本のバスに乗ったとする。このとき、一番最後に乗ったバスを乗り終わった時刻 <span>\(k&#39;\)</span> は <span>\(Z\)</span> 以下である。</li>
+</ul>
+
+<p>このような <span>\(k\)</span> が求まってさえいれば、高橋くんが時刻 <span>\(Z_i\)</span> の時点でどのバスに乗っているか、あるいはどの都市にいるかは単純な場合分けによって求めることができます。</p>
+
+<p>判定問題を解く際に必要なものは、「一番最後に乗ったバスは（<span>\(M\)</span> 本のバスのうち）何本目のバスであるか」という情報です。この情報は、ダブリングというアルゴリズムを用いることで、前計算 <span>\(O(M \log M)\)</span>、<span>\(1\)</span> つの判定問題につき <span>\(O(\log M)\)</span> で求めることができます。</p>
+
+<p>具体的な求め方は以下の通りです。</p>
+
+<blockquote>
+<p>まず始めに、前計算として、<span>\(\lceil \log_2 M \rceil = L\)</span> として、<span>\(i=1,2,\ldots,M\)</span> 及び <span>\(j=0,1,2,\ldots,L\)</span> について、以下によって定義づけられる値 <span>\(\text{r}[i][j]\)</span> を求めておく。</p>
+
+<ul>
+<li>高橋くんが <span>\(i\)</span> 本目のバスから始めてちょうど <span>\(2^j\)</span> 回乗り換えた、即ち合計で <span>\(2^j+1\)</span> 本のバスに乗ったとき、彼が乗っているバスは（<span>\(M\)</span> 本のバスのうち）<span>\(\text{r}[i][j]\)</span> 本目のバスである。</li>
+</ul>
+
+<p>このような値 <span>\(\text{r}[i][j]\)</span> は、<span>\(1 \leq j\)</span> であるならば <span>\(\text{r}[1][j-1],\text{r}[2][j-1],\ldots,\text{r}[M][j-1]\)</span> の値を利用して求めることができるため、始めに各 <span>\(i\ (1 \leq i \leq M)\)</span> について <span>\(\text{r}[i][0]\)</span> を求めたあと、<span>\(j\)</span> の昇順に値を求めていくことで <span>\(O(ML)=O(M \log M)\)</span> 回の計算で全ての値を求めることができる。</p>
+
+<p>次に、実際に判定問題を解くことを想定する。求めるべき情報が「高橋くんが <span>\(j\)</span> 本目のバスから始めてちょうど <span>\(k\)</span> 本のバスに乗ったとき、彼が最後に乗ったバスは（<span>\(M\)</span> 本のバスのうち）何本目のバスか」というものであるとき、はじめ <span>\(j\)</span> で初期化された変数 <span>\(now\)</span> について、<span>\(i=0,1,2,\ldots,L\)</span> の順に以下を行う。</p>
+
+<ul>
+<li><span>\(k-1\)</span> を <span>\(2\)</span> 進数表記した際、<span>\(2^i\)</span> の位の数字が <span>\(1\)</span> であるなら <span>\(now\)</span> を <span>\(\text{r}[now][i]\)</span> で置き換える。</li>
+</ul>
+
+<p>この操作によって得られた最終的な <span>\(now\)</span> が、求めたかった情報である。計算量は <span>\(O(L)=O(\log M)\)</span> となる。</p>
+</blockquote>
+
+<p>以上により、この問題を解くことができました。計算量は、合計すると <span>\(O(M \log M + Q \log^2 M)\)</span> となります。</p>
+
+<p>実装例 (Python)</p>
+
+<pre class="prettyprint linenums"><code class="language-Python">N,M,Q = map(int,input().split())
+bus = [[] for i in range(N+1)]
+A = [0]*M
+B = [0]*M
+S = [0]*M
+T = [0]*M
+for i in range(M):
+    A[i],B[i],S[i],T[i] = map(int,input().split())
+    bus[A[i]].append([S[i],i])
+for i in range(N+1):
+    bus[i].sort()
+import bisect
+dp = [[0]*20 for i in range(M)]
+for i in range(M):
+    nex = bisect.bisect_left(bus[B[i]],[T[i],0])
+    if nex == len(bus[B[i]]):
+        dp[i][0] = i
+    else:
+        dp[i][0] = bus[B[i]][nex][1]
+for i in range(1,20):
+    for j in range(M):
+        dp[j][i] = dp[dp[j][i-1]][i-1]
+for i in range(Q):
+    X,Y,Z = map(int,input().split())
+    now = bisect.bisect_left(bus[Y],[X,0])
+    if now == len(bus[Y]) or Z &lt;= bus[Y][now][0]:
+        print(Y)
+        continue
+    now = bus[Y][now][1]
+    if Z &lt;= T[now]:
+        print(*[A[now],B[now]])
+        continue
+    left = 0
+    right = M
+    while left+1 &lt; right:
+        mid = (left+right)//2
+        now2 = now
+        val = mid
+        idx = 0
+        while val:
+            if val % 2:
+                now2 = dp[now2][idx]
+            val //= 2
+            idx += 1
+        if T[now2] &lt; Z:
+            left = mid
+        else:
+            right = mid
+    val = left
+    idx = 0
+    while val:
+        if val % 2:
+            now = dp[now][idx]
+        val //= 2
+        idx += 1
+    now2 = bisect.bisect_left(bus[B[now]],[T[now],0])
+    if now2 == len(bus[B[now]]) or Z &lt;= bus[B[now]][now2][0]:
+        print(B[now])
+        continue
+    now = bus[B[now]][now2][1]
+    print(*[A[now],B[now]])
+</code></pre>
+
+<p>なお、ダブリング内部で二分探索を行うことで <span>\(O((M+Q) \log M)\)</span> で解くことも可能です。この計算量を要求されることも多々あるため、覚えておいた方がよいでしょう。</p>
+
+<p>実装例 (C++)</p>
+
+<pre class="prettyprint linenums"><code class="language-C++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+	int N,M,Q; cin &gt;&gt; N &gt;&gt; M &gt;&gt; Q;
+	vector&lt;int&gt; A(M),B(M),S(M),T(M);
+	vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt; bus(N+1);
+	for(int i=0; i&lt;M; i++){
+		cin &gt;&gt; A[i] &gt;&gt; B[i] &gt;&gt; S[i] &gt;&gt; T[i];
+		bus[A[i]].push_back(make_pair(S[i],i));
+	}
+	for(auto &amp;p: bus) sort(p.begin(),p.end());
+	vector&lt;vector&lt;int&gt;&gt; table(20,vector&lt;int&gt;(M));
+	for(int i=0; i&lt;M; i++){
+		auto itr = lower_bound(bus[B[i]].begin(),bus[B[i]].end(),make_pair(T[i],-1));
+		if(itr == bus[B[i]].end()) table[0][i] = i;
+		else table[0][i] = (*itr).second;
+	}
+	for(int i=1; i&lt;20; i++){
+		for(int j=0; j&lt;M; j++){
+			table[i][j] = table[i-1][table[i-1][j]];
+		}
+	}
+	while(Q--){
+		int X,Y,Z; cin &gt;&gt; X &gt;&gt; Y &gt;&gt; Z;
+		auto itr = lower_bound(bus[Y].begin(),bus[Y].end(),make_pair(X,-1));
+		if(itr == bus[Y].end()){
+			cout &lt;&lt; Y &lt;&lt; endl;
+			continue;
+		}
+		int now = (*itr).second;
+		if(Z &lt;= S[now]){
+			cout &lt;&lt; Y &lt;&lt; endl;
+			continue;
+		}
+		if(Z &lt;= T[now]){
+			cout &lt;&lt; A[now] &lt;&lt; &#34; &#34; &lt;&lt; B[now] &lt;&lt; endl;
+			continue;
+		}
+		for(int i=19; i&gt;=0; i--){
+			int next = table[i][now];
+			if(T[next] &lt; Z) now = next;
+		}
+		itr = lower_bound(bus[B[now]].begin(),bus[B[now]].end(),make_pair(T[now],-1));
+		if(itr == bus[B[now]].end()){
+			cout &lt;&lt; B[now] &lt;&lt; endl;
+			continue;
+		}
+		int next = (*itr).second;
+		if(Z &lt;= S[next]){
+			cout &lt;&lt; B[now] &lt;&lt; endl;
+			continue;
+		}
+		cout &lt;&lt; A[next] &lt;&lt; &#34; &#34; &lt;&lt; B[next] &lt;&lt; endl;
+	}
+}
+</code></pre>
+
+<p>この他にも、あるバスからその次に乗るバスへ辺を貼ったグラフが根付き木の形になることを利用して問題を解くことも可能です。計算量はこちらも <span>\(O((M+Q) \log M)\)</span> です。</p>
+
+<p>実装例 (C++)</p>
+
+<pre class="prettyprint linenums"><code class="language-C++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+    int N,M,Q; cin &gt;&gt; N &gt;&gt; M &gt;&gt; Q;
+    vector&lt;int&gt; A(M),B(M),S(M),T(M);
+    vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt; bus(N+1);
+    for(int i=0; i&lt;M; i++){
+        cin &gt;&gt; A[i] &gt;&gt; B[i] &gt;&gt; S[i] &gt;&gt; T[i];
+        bus[A[i]].push_back(make_pair(S[i],i));
+    }
+    for(auto &amp;p: bus) sort(p.begin(),p.end());
+    vector&lt;vector&lt;int&gt;&gt; edge(M);
+    vector&lt;bool&gt; isroot(M);
+    for(int i=0; i&lt;M; i++){
+        auto itr = lower_bound(bus[B[i]].begin(),bus[B[i]].end(),make_pair(T[i],-1));
+        if(itr == bus[B[i]].end()) isroot[i] = true;
+        else edge[(*itr).second].push_back(i);
+    }
+    vector&lt;int&gt; X(Q),Y(Q),Z(Q);
+    vector&lt;vector&lt;int&gt;&gt; ans(Q),mem(M);
+    for(int i=0; i&lt;Q; i++){
+        cin &gt;&gt; X[i] &gt;&gt; Y[i] &gt;&gt; Z[i];
+        auto itr = lower_bound(bus[Y[i]].begin(),bus[Y[i]].end(),make_pair(X[i],-1));
+        if(itr == bus[Y[i]].end() || Z[i] &lt;= (*itr).first) ans[i] = {Y[i]};
+        else mem[(*itr).second].push_back(i);
+    }
+    vector&lt;int&gt; time,city;
+    function&lt;void(int)&gt; dfs = [&amp;](int now){
+        time.push_back(T[now]);
+        time.push_back(S[now]);
+        city.push_back(B[now]);
+        city.push_back(A[now]);
+        for(auto i: mem[now]){
+            int idx = lower_bound(time.rbegin(),time.rend(),Z[i])-time.rbegin();
+            if(idx == time.size()) ans[i] = {*city.begin()};
+            else if(idx%2 == 0) ans[i] = {*(city.rbegin()+idx)};
+            else ans[i] = {*(city.rbegin()+idx-1),*(city.rbegin()+idx)};
+        }
+        for(auto next: edge[now]){
+            dfs(next);
+        }
+        time.pop_back();
+        time.pop_back();
+        city.pop_back();
+        city.pop_back();
+    };
+    for(int i=0; i&lt;M; i++){
+        if(!isroot[i]) continue;
+        dfs(i);
+    }
+    for(auto p: ans){
+        for(auto q: p) cout &lt;&lt; q &lt;&lt; &#34; &#34;;
+        cout &lt;&lt; endl;
+    }
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1627687526">
+				<time class="timeago" datetime="2021/07/31 08:25:26"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1627687825">
+				<time class="timeago" datetime="2021/07/31 08:30:25"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc212/editorial/2362?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 212">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc212/rules">ルール</a></li>
+					<li><a href="/contests/abc212/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

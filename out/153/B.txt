@@ -1,0 +1,53 @@
+全ての必殺技を 1 度ずつ使ってモンスターの体力を 0 以下にできれば良いです。つまり、H −
+
+(A1 + A2 + . . . + AN ) が 0 以下のとき Yes、そうでないとき No となります。
+C 言語での実装例は次のとおりです。
+1
+
+int main(){
+
+2
+
+int H,N;
+
+3
+
+scanf("%d%d",&H,&N);
+
+4
+
+for(int i=0;i<N;i++){
+
+5
+
+int A;
+
+6
+
+scanf("%d",&A);
+It is enough if the monster’s health become 0 or below by using all the Special Move once each.
+In other words, the answer is Yes if H − (A1 + A2 + . . . + AN ) is 0 or below, and No otherwise.
+The following is a sample code in C language.
+1
+
+int main(){
+
+2
+
+int H,N;
+
+3
+
+scanf("%d%d",&H,&N);
+
+4
+
+for(int i=0;i<N;i++){
+
+5
+
+int A;
+
+6
+
+scanf("%d",&A);

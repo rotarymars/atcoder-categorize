@@ -1,0 +1,33 @@
+頂点 1 を根とする根付き木として考えます。以下のような値を定義します、
+
+dpv = 頂点 v を根とする部分木のみを考えたときの、頂点 v に 1 が書かれるような整数の書き方の数
+これは、以下の漸化式に従って、ボトムアップに計算することができます。
+
+dpv = (sizev − 1)!
+
+∏
+
+dpu
+u∈ch(v) sizeu !
+
+後は、上記の木 dp を元に全方位木 dp を行うことで、O(N ) でこの問題を解くことができます。
+
+6
+
+Consider it as a rooted tree with the root being vertex 1. We define the following value:
+dpv =The number of the ways of writing integers, in which integers are only to the subtree with
+the root being vertex v, such that 1 is written on vertex v.
+This value can be calculated bottom-up with the following recurrence equation:
+dpv = (sizev − 1)!
+
+∏
+
+dpu
+u∈ch(v) sizeu !
+
+By performing rerooting based on the tree DP above, the problem can be solved in a total of
+O(N ) time.
+
+12
+
+

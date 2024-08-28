@@ -1,0 +1,113 @@
+|𝑆| < |𝑇| の場合明らかに |𝑆| に |𝑇| を部分文字列として含むことができないので, ここでは |𝑆| ≥
+|𝑇| の場合について考えます。
+まず、文字列 𝑆 のどの連続した |𝑇| 文字が文字列 𝑇 と一致するか, というのを見つけることを考え
+ます。文字列 𝑆′ のある連続した |𝑇| 文字を 𝑋′ とし, 𝑋 (𝑋′ に対応する 𝑆 の区間) と 𝑇 を一致さ
+せることができるか, すなわち 𝑋′ の ‘?’ の部分を適切に埋めることで 𝑇 と一致させることができるかを判
+定することになります。
+同じ長さの文字列 𝐴 と 𝐵 (長さを 𝐿 とする) が一致するのは, 「1 以上 𝐿 以下の整数 𝑖 全て
+に対して, (𝐴 の 𝑖 文字目) = (𝐵 の 𝑖 文字目) が成立する」 と同じであり, つまり同じ 「𝑖 文字目」
+の文字の関係だけについて考えればよさそうです。
+つまり, (𝑋′ の 𝑖 文字目) と (𝑇 の 𝑖 文字目) の関係が重要です。それぞれの文字を 𝑥′, 𝑡 と置
+くことにして, 次の 3 パターンに分けることができます。
+a. 𝑥′ = 𝑡 のとき：これは明らかに一致します。
+b. 𝑥′ が ‘?’ ではなく, 𝑥′ ≠ 𝑡 のとき：これは明らかに一致させることができません。
+c. 𝑥′ が ‘?’ のとき：’?’ の部分を 𝑡 にすれば, 一致させることができます。
+すなわち, 「𝑋 を 𝑇 と一致させることができる」 とは, すべての 𝑖 に対して a. または c. の関係が
+成り立っていることで, もし 1 つでも b. の関係があればその文字は一致することができないので 𝑋 と 𝑇
+を一致させることができません。
+一致させることが出来る場合、𝑆′ の選んだ区間に入っていない部分の ‘?’ を全部 ‘a’ に変えることで、
+選ぶ区間が確定しているという条件の中では辞書順最小が達成できます。
+選べる区間は |𝑆| − |𝑇| + 1 個あるので, それらの区間すべてに対して 「選んだ区間が決定している
+状態での辞書順最小」 を求め, その中での辞書順最小なものが, 全部の中の辞書順最小となります。
+また, この |𝑆| − |𝑇| + 1 個の区間に対して全部一致させることができない場合は, どうやっても一致さ
+せることができないということになります。
+よって, 計算時間は 𝑂(|𝑇|(|𝑆 ′ | − |𝑇| + 1)) = 𝑂(|𝑆 ′||𝑇|) となります。
+
+In the case of |𝑆| < |𝑇|, obviously, |𝑇| cannot be existed as a substring of |𝑆|. So
+now we think about the case of |𝑆| ≥ |𝑇|.
+First, you have to search which substring in |𝑆| matches |𝑇|. oow, let’s think
+about how to check “does |𝑇| can appear in the substring between 𝑖-th character
+and (𝑖 + |𝑇| − 1)-th character?”.
+Let 𝑋′ the substring of 𝑆′ between 𝑖-th character and (𝑖 + |𝑇| − 1)-th character.
+You have to check whether it is possible to match 𝑋′ to 𝑇 with replacing character
+‘?’ in 𝑋′ to an arbitrary small-case English alphabet. You should only see the
+relationship between 𝑥′ = (𝑖-th character of 𝑋′) and 𝑡 = (𝑖-th character of 𝑇), for
+each integer 𝑖 which is between 1 and |𝑆| − |𝑇| + 1. The relation of 𝑥′ and 𝑡 can
+divide into three following patterns:
+a. Case 𝑥 ′ = 𝑡: you can match 𝑥′ to 𝑡, obviously.
+b. Case 𝑥 ′ ≠ 𝑡 and 𝑥′ is not ‘?’: you can’t match 𝑥′ to 𝑡 because you can’t
+change the character of 𝑥.
+c. Case 𝑥 ′ is ‘?’: you can match 𝑥′ to 𝑡 by changing ‘?’ to 𝑡.
+In order to establish 𝑋 = 𝑇 (let 𝑋 the substring of 𝑆 which corresponds to 𝑋′),
+you are not allowed to make an index which is 𝑋𝑖 ≠ 𝑇𝑖 . Therefore, if there at least
+one index which is in “case b.”, it is not possible to match 𝑋 to 𝑇. Otherwise, it is
+possible.
+If it is possible to match 𝑋 to 𝑇, you can make 𝑆 lexicographically smallest, in
+the condition of “𝑇 appears in selected interval in 𝑆”, with replacing ‘?’ which is not
+in selected interval to ‘a’.
+The answer is the lexicography smallest one, among “the lexicographically
+smallest 𝑆 which 𝑇 appears in selected interval in 𝑆” for all length-|𝑇| intervals in
+𝑆. If there is no interval which is possible to match 𝑋 to 𝑇, there is no answer for
+𝑆.
+Since there are |𝑆| − |𝑇| + 1 intervals to select, so you can solve this problem in
+𝑂(|𝑇|(|𝑆| − |𝑇| + 1)) = 𝑂(|𝑇||𝑆|) time complexity.
+
+Problem D: Atcoder Express
+Think about the situation that there are no speed restrictions about speed at start
+and at end, and the only restrictions are “the acceleration speed is between -1.0
+𝑚/𝑠 2 and 1.0 𝑚/𝑠 2, and the maximum speed in 𝑙 seconds from start to 𝑟 seconds
+from start is 𝑣 meters per second”. And let 𝑇 the time from start to end in seconds.
+The maximum possible speed at 𝑥 seconds from start is following:
+
+
+If 0 ≤ 𝑥 ≤ 𝑙, the maximum possible speed is 𝑣 + (𝑙 − 𝑥) meters per second.
+
+
+
+If 𝑙 ≤ 𝑥 ≤ 𝑟, the maximum possible speed is 𝑣 meters per second.
+
+
+
+If 𝑟 ≤ 𝑥 ≤ 𝑇, the maximum possible speed is 𝑣 + (𝑥 − 𝑟) meters per second.
+
+The relation graph between the time
+and maximum possible speed is like the
+figure on the right. The horizontal axis
+represents the time and the vertical axis
+represents the maximum possible speed.
+Since there are 𝑁 intervals, you can
+make 𝑁 conditions which forms “the
+acceleration speed is between −1.0 to
+1.0 𝑚/𝑠 2 , the maximum speed in 𝑙 seconds from start to 𝑟 seconds from start is 𝑣
+meters per second”.
+You also have the restriction that “the speed at start point is zero” and “the speed
+at end point is zero”. You can translate to condition which forms same as other 𝑁
+conditions:
+
+
+The speed at start point is zero: the case 𝑙 = 0, 𝑟 = 0, 𝑣 = 0
+
+
+
+The speed at end point is zero: the case 𝑙 = 𝑇, 𝑟 = 𝑇, 𝑣 = 0
+
+oow you have 𝑁 + 2 conditions, and that’s all – you need no more conditions.
+Let 𝑓𝑖 (𝑥) the maximum possible speed in 𝑖-th condition at 𝑥 seconds from start.
+The maximum possible speed at 𝑥 seconds from start (let this speed 𝑣(𝑥)) is,
+𝑣(𝑥) = min(𝑓1 (𝑥), 𝑓2 (𝑥), 𝑓3 (𝑥), … , 𝑓𝑁+2 (𝑥))
+If you make the relation graph between 𝑡 and 𝑦 = 𝑣(𝑡), the slope of the graph
+doesn’t change between 𝑡 = 𝑎 and 𝑡 = 𝑎 + 0.5 , if 𝑎 is multiple of 0.5 . So, the
+quadrilateral which is formed by the graph and lines 𝑡 = 𝑎, 𝑡 = 𝑎 + 0.5, and 𝑦 = 0
+forms a trapezoid which 𝑡 = 𝑎 and 𝑡 = 𝑎 + 0.5 are parallel.
+Since the maximum possible total moving distance is equal to the area which is
+formed by the graph and 𝑦 = 0 , you can calculate the maximum possible total
+
+moving distance by summing up the area of these trapezoids. And, the area of a
+trapezoid of interval [𝑎, 𝑎 + 0.5] is 0.25(𝑣(𝑎) + 𝑣(𝑎 + 0.5)).
+There are 2𝑇 intervals of [𝑎, 𝑎 + 0.5] because of 0 ≤ 𝑎, 𝑎 + 0.5 < 𝑇 and “ 𝑎 is
+multiple of 0.5”. And you can calculate the value of 𝑣(𝑥) in 𝑂(𝑁).
+Therefore, you can calculate the maximum possible total moving distance in
+𝑂(𝑁𝑇). Since 𝑁 ≤ 100 and 𝑇 ≤ 20000, you can write a code which is fast enough for
+time limit.
+
+

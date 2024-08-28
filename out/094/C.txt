@@ -1,0 +1,10 @@
+入力をソートしたものを Y1 ≤ Y2 ≤ · · · ≤ YN とします．このとき Bi を考えます．ソートした後に Ai が li 番目に現
+れるとします（すなわち Yli = Ai が成り立ちます）．Bi は Y1 , . . . , Yli −1 , Yli +1 , . . . , YN の中央値であることに注意しま
+す．すると，Y1 ≤ · · · ≤ Yli −1 ≤ Yli +1 ≤ · · · ≤ YN より，この N − 1 個の値のうち N2 番目の値を求めればよいことが
+わかります．これは，li ≤ N2 であれば YN/2+1 ，li ≥ N2 + 1 であれば YN/2 になることが確かめられます．
+
+3
+
+Let Y1 ≤ Y2 ≤ · · · ≤ YN be the sorted list of X. Suppose that Yli = Ai . Bi is the median of Y1 , . . . , Yli −1 , Yli +1 , . . . , YN .
+Thus, Bi is the N2 -th value of Y1 , . . . , Yli −1 , Yli +1 , . . . , YN . This is YN/2+1 if li ≤ N2 , and YN/2 if li ≥ N2 + 1.
+

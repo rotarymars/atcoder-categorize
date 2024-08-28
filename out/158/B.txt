@@ -1,0 +1,62 @@
+1 回の操作をセットで考えると考えやすいです。
+N
+N 個のうち、完全に含まれる操作の回数は ⌊ A+B
+⌋ 回です。
+
+中途半端に含まれる操作は高々 1 回分ですが、N を A + B で割った余りと A の大小関係が重要で、
+
+N を A + B で割った余りを R とすると、min(R, A) だけ含まれます。
+以下は Python での実装例です。
+1
+
+N, A, B = map(int, input().split())
+
+2
+
+ans = N // (A + B) * A
+
+3
+
+rem = N % (A + B)
+
+4
+
+ans += min(rem, A)
+
+5
+
+print(ans)
+
+2
+
+It is easy to think when one operation is considered as a set.
+N
+Among N balls, the number of operations that is completely included in is ⌊ A+B
+⌋.
+
+The number of operations that is included halfway is at most one, but the remainder of N divided
+by A + B is only important, and let R be the remainder of A + B divided by N , then there are
+min(R, A) balls.
+The following is a sample code in Python.
+1
+
+N, A, B = map(int, input().split())
+
+2
+
+ans = N // (A + B) * A
+
+3
+
+rem = N % (A + B)
+
+4
+
+ans += min(rem, A)
+
+5
+
+print(ans)
+
+8
+

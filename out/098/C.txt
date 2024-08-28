@@ -1,0 +1,29 @@
+西から i 番目の人がリーダーになった際、向く方向を変える必要のある人は、西から j(j < i) 番
+目に並んでいて西を向いている人と、西から j(j > i) 番目に並んでいて東を向いている人です。
+ここで、
+「ある範囲に存在する西 (東) を向いている人の人数」は、累積和を使うと、前処理 O(N )
+時間、1 クエリあたり O(N ) 時間で求められます。
+よって、まず最初に O(N ) 時間で累積和を求めておくと、各人について、その人がリーダーに
+なった際に向く方向を変える必要のある人の人数を求めることが O(1) 時間ででき、合計 O(N ) 時
+間で全員分求まります。あとはその中で最小値を求めればよいです。
+
+3
+
+O(N logN ) で解けます。
+6
+
+Atcoder Regular Contest Editorial
+writer : maroonrk
+平成 30 年 5 月 26 日
+
+If the i-th (from the west) person is chosen as the leader, the j-th person have to change the
+direction in the following two cases:
+• j < i and the j-th person is facing west.
+• j > i and the j-th person is facing east.
+First, let’s pre-compute prefix sums: for each i, count the number of people among the westmost i people who are facing east. This can be done in O(N ) time. After that, we can answer
+a query of the form ”How many people in a given range are facing east (west)?” in O(1) time,
+thus the two values above can be computed in O(1) after we fix the leader.
+This solution works in O(N ) time in total.
+
+1
+

@@ -1,0 +1,78 @@
+単純に全ての 2 つの整数の組に関してループで回し等しいか判定する場合、計算量が O(N 2 ) とな
+り間に合いません。
+ところが、与えられた整数列に等しい値がある場合、この整数列をソートすると隣接する場所にこ
+れらの値が集まることになります。
+そのため、一度与えられた数列をソートすると、全ての隣接する 2 項を比較し、等しい値がなけれ
+ば YES で、等しい値があれば NO です。
+
+C++ の std::set のようなデータ構造を用いて異なる要素数を取得しても大丈夫です。
+Listing 3 C++ での実装例
+
+#include <stdio.h>
+#include <algorithm>
+3 using namespace std;
+4 int A[210000];
+5 int main(){
+6
+int N;scanf("%d",&N);
+7
+for(int i=0;i<N;i++)scanf("%d",A+i);
+8
+std::sort(A,A+N);
+9
+for(int i=0;i<N-1;i++){
+10
+if(A[i]==A[i+1]){
+11
+printf("NO\n");return 0;
+12
+}
+13
+}
+14
+printf("YES\n");
+15 }
+1
+2
+
+3
+
+If you naively check for all pairs of integers and check if they are the same, it will take a total
+of O(N 2 ) time, so it won’t ﬁnish in time.
+However, if the given sequence of integers has duplicates, then after sorting this sequence of
+integers, such values gather to the consecutive positions.
+Therefore, once you sorted the given sequence, you can compare all adjacent pair of terms,
+and if none of them are the same the answer is YES, otherwise the answer is NO.
+It is OK to use data structures such as std::set in C++ to obtain the number of distinct
+elements.
+Listing 6 Sample Code in C++
+
+#include <stdio.h>
+#include <algorithm>
+3 using namespace std;
+4 int A[210000];
+5 int main(){
+6
+int N;scanf("%d",&N);
+7
+for(int i=0;i<N;i++)scanf("%d",A+i);
+8
+std::sort(A,A+N);
+9
+for(int i=0;i<N-1;i++){
+10
+if(A[i]==A[i+1]){
+11
+printf("NO\n");return 0;
+12
+}
+13
+}
+14
+printf("YES\n");
+15 }
+1
+2
+
+9
+

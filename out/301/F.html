@@ -1,0 +1,399 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc301/editorial/6331" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc301";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-05-13T21:00:00+09:00");
+			var endTime = moment("2023-05-13T22:45:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc301">パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc301/editorial/6331?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc301/editorial/6331?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc301%2Feditorial%2F6331">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc301%2Feditorial%2F6331">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc301%2Feditorial%2F6331">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230513T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-05-13 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230513T2245&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-05-13 22:45:00+0900</time></a> 
+				(105分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc301"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc301/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc301/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc301/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc301/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc301/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc301/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc301/tasks/abc301_f">F - Anti-DDoS</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-1.png" class="user-rating-stage-m"><a href="/users/kyopro_friends" class="username"><span class="user-orange">kyopro_friends</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>文字列 <span>\(S\)</span> の先頭 <span>\(i\)</span> 文字からなる文字列を <span>\(S[0:i]\)</span> と表すことにします。ただし、<span>\(i&gt;|S|\)</span> のとき「<span>\(S\)</span> の先頭 <span>\(i\)</span> 文字からなる文字列」は、<span>\(S\)</span> をprefixとし、かつ <span>\(S\)</span> をprefix とするどのような文字列とも異なると定めます。</p>
+
+<h4>問題の読み替え</h4>
+
+<p>問題を次の通り読み替えます。</p>
+
+<p>問題：<span>\(S\)</span> に含まれる <code>?</code> を、英大文字・英小文字の <span>\(52\)</span> 種の文字にそれぞれ独立にランダムに変化させたとき、<span>\(S\)</span> が <code>DDoS</code> 型文字列を部分列に持つ確率はいくらか？</p>
+
+<p>この問題の答えに <span>\(52^q\)</span> を掛けると元の問題の答えを得ることができます。</p>
+
+<p>この読み替えは必須ではありませんが、数え上げの問題を確率の問題に、あるいはその逆に読み替えることで見通しが良くなることはしばしばあります。</p>
+
+<p>例：<a href="https://atcoder.jp/contests/abc200/tasks/abc200_f" rel="nofollow">ABC200 F</a>、<a href="https://atcoder.jp/contests/dwacon6th-prelims/tasks/dwacon6th_prelims_c" rel="nofollow">第6回 ドワンゴからの挑戦状 予選 C</a></p>
+
+<h4>単純な問題</h4>
+
+<p>まずは、元の問題を単純化した次の問題を考えます。</p>
+
+<p>問題：元の問題と同様の設定の下、(<code>DDoS</code> 型文字列ではなく) <code>DDoS</code> を部分列に持たないような確率を求めてください。</p>
+
+<p>この問題は次のようなDPで解くことができます。</p>
+
+<p><span>\(DP[i][j]\)</span> = <span>\(S[0:i]\)</span> の <code>?</code> を置換してできる長さ <span>\(i\)</span> の文字列が、<code>DDoS</code><span>\([0:j]\)</span> を部分列に持ち、かつ <code>DDoS</code><span>\([0:j+1]\)</span> を部分列に持たないものになる確率</p>
+
+<h4>元の問題</h4>
+
+<p>元の問題でも単純な問題と同様のDPを考えてみます。</p>
+
+<p><span>\(DP[i][j]\)</span> = <span>\(S[0:i]\)</span> の <code>?</code> を置換してできる長さ <span>\(i\)</span> の文字列が、ある <code>DDoS</code> 型文字列の <span>\(j\)</span> 文字目までを部分列に持ち、かつ どのような <code>DDoS</code>型文字列の <span>\(j+1\)</span> 文字目までも部分列に持たないものになる確率</p>
+
+<p>この DP は、<span>\(j=1\)</span> である文字列の末尾に大文字を追加したケースを除き、単純な問題と同様に遷移を計算することができます。</p>
+
+<p><span>\(j=1\)</span> である文字列の末尾に大文字を追加したケースを考えます。このとき、追加した大文字がすでに文字列に含まれているかどうかで遷移先が変わるため、上で定義したDPでは適切に扱うことができません。<br>
+一見するとどの大文字がすでに文字列に含まれているかの情報を持つ必要があるように思えますが、種類は不要であり種類数の情報さえ持てば十分です。</p>
+
+<p>具体的な遷移を考えることで、種類数の情報を持てば十分なことを確かめましょう。<span>\(DP[i][1]\)</span> に数えられるような文字列 <span>\(T\)</span> の末尾に大文字 <span>\(c\)</span> が追加されて <span>\(T&#39;\)</span> になったとき、<span>\(T&#39;\)</span> が <span>\(DP[i+1][*]\)</span> のいずれに数えられるかを考えます。<br>
+<span>\(S[0:i]\)</span> に含まれる大文字の種類数を <span>\(x\)</span>、<span>\(T\)</span> に含まれる大文字の種類数を <span>\(y\)</span> とします。<br>
+<span>\(c\)</span> が <span>\(S[0:i]\)</span> に含まれるとき、<span>\(DP[i+1][2]\)</span> に遷移します。<br>
+そうでなく、<span>\(c\)</span> が <span>\(T\)</span> に含まれるのは、<span>\(c\)</span> が <span>\(y-x\)</span> 種のいずれかの文字列であるときです。よって <span>\(T\)</span> がそのような文字列である確率は <span>\(x=26\)</span> のとき <span>\(0\)</span> 、そうでないとき <span>\(\frac{y-x}{26-x}\)</span> です。<br>
+以上により確かめられました。</p>
+
+<h4>まとめ</h4>
+
+<p>以下のような29状態のDPで解くことができます。</p>
+
+<p><span>\(DP[i][state]\)</span> = <span>\(S[0:i]\)</span> の <code>?</code> を置換してできる長さ <span>\(i\)</span> の文字列のうち、以下の各 state に該当する文字列の個数(または確率)</p>
+
+<ul>
+<li>大文字を含まない</li>
+<li>大文字をちょうど <span>\(y\)</span> 種含み、どの大文字もちょうど <span>\(1\)</span> 度だけ含む <span>\((y=1,2,\ldots,26)\)</span></li>
+<li><span>\(2\)</span> 度以上含まれる大文字が存在し、それ以降に小文字を含まない</li>
+<li><span>\(2\)</span> 度以上含まれる大文字が存在し、それ以降に小文字を含み、それ以降に大文字を含まない</li>
+</ul>
+
+<p><a href="https://atcoder.jp/contests/abc301/submissions/41407140" rel="nofollow">Writer解(C++)</a></p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1683394142">
+				<time class="timeago" datetime="2023/05/07 02:29:02"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1684039043">
+				<time class="timeago" datetime="2023/05/14 13:37:23"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc301/editorial/6331?lang=ja" data-a2a-title="解説 - パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc301/rules">ルール</a></li>
+					<li><a href="/contests/abc301/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

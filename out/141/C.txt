@@ -1,0 +1,25 @@
+次の 2 つの操作は同等です．
+
+• 正解者以外の N − 1 人のポイントを 1 減らす．
+• N 人全員のポイントを 1 減らしてから，正解者のポイントだけ 1 増やす．
+したがって，ポイントの変動は以下のように言い換えられます．
+
+1. あらかじめ全員のポイントを Q 減らしておく (つまり，開始時点のポイントは K − Q)．
+2. Q 回の正解それぞれに対して，正解者のポイントを 1 増やす．
+あとはこれをそのまま実装すればよいです．
+
+4
+
+The following two operations are equivalent:
+• Decrease the score of N − 1 players, except for the player who gave the correct answer, by
+1.
+• Decrease the score of all N people by 1, and then increase the score of the player who gave
+the correct answer by 1.
+Therefore, the ﬂuctuation of the scores can be rephrased as follows:
+1. Decrease the scores of all the participants by Q beforehand (so the initial scores are all
+K − Q).
+2. For each of Q correct answers, increase the score of the player who gave the answer by 1.
+You can implement this straightforward.
+
+12
+

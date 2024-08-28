@@ -1,0 +1,41 @@
+• A + B + C = 0 のとき
+N は 1 以上なので、答えは No です。
+• A + B + C = 1 のとき
+いつどの二つの変数を見ても少なくとも一方は零なので、それぞれのターンでの行動が一意に
+定まります。
+
+• A + B + C >= 2 のとき
+一回目のターンで足し引きする変数が両方零であれば答えは No、そうでなければ答えは Yes
+です。後者の場合、以下のような戦略をそれぞれのターンで取ることで足し引きする変数のい
+ずれかが正である状態を保つことができます。
+
+– 足し引きする変数の片方が零でもう一方が正のとき、零である方に 1 を足し、もう一方か
+ら 1 を引く。
+
+– A + B + C = 2 であり、足し引きする変数が両方 1 であり、最後のターンでなく、次の
+ターンの文字列と現在のターンの文字列が異なるとき、次のターンで足し引きする予定が
+ある方の変数に 1 を足し、もう一方から 1 を引く。
+
+– それ以外のとき、適当に選択する
+
+7
+
+• When A + B + C = 0
+Since N is at least one, the answer is No.
+• When A + B + C = 1
+Whenever you see whatever two variables, at least one of them is zero, so the action for
+each step is uniquely determined.
+• When A + B + C >= 2
+If the two variables which you modify in the ﬁrst turn are both zero, the answer is No;
+otherwise the answer is Yes. In the latter case, you can always keep one of the two variables
+modiﬁed for each turn to be positive by the following strategy:
+– If one of the variables that will be modiﬁed is zero and the other is positive, then add
+one to the variable whose value is zero, and subtract one from the other.
+– If A + B + C = 2, the variables that will modiﬁed is both one, it is not the last turn,
+and the string for this turn and the next turn diﬀers, then add one to the variables
+that will be modiﬁed for the next time, and subtract one from the other.
+– Otherwise, choose arbitrarily
+
+14
+
+

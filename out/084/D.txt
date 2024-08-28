@@ -1,0 +1,95 @@
+
+2017-like Number
+
+1 が素数ではないことに注意しつつ、2 以上 100000 以下の数に対して、素数であるか否かを求
+めます。
+これは、エラトステネスの篩を用いて実現できます。
+具体的には、以下のような手順をとります。
+・リストに 2 から 100000 までの整数を入れる。
+・リストに入っている、まだ見ていない一番小さい数を x とする。このとき、x は素数なので、
+x の倍数 (x を除く) をリストから取り除く。
+・リストに入っている数に、まだ見ていない数がなくなったら操作を終了する。このとき、2 以
+上 100000 以下の整数のうち、リストに含まれている数は素数であり、含まれていない数は素数で
+ない。
+リストに含まれているか否かをフラグにして保管すると、十分な速さで求めることができます。
+(M 以下の数に対してエラトステネスの篩を適用した時のオーダーは O(M log(logM )) となり
+ます。)
+これにより、1 以上 100000 以下の奇数に対して、2017 に似た数 か否かが求められるようにな
+りました。
+次に、区間内の 2017 に似た数 を高速に求める方法についてです。
+これは、累積和を用いることで実現できます。
+具体的には、全ての 1 以上 100000 以下の整数 x に対して、1 以上 x 以下の数に 2017 に似た
+数 がいくつあるかを求めておきます。
+ci = 1 以上 x 以下の 2017 に似た数 の個数 とすると、
+・ci+1 = ci + 1 (i + 1 が 2017 に似た数 である場合)
+・ci+1 = ci (i + 1 が 2017 に似た数 でない場合)
+となるので、この部分に関しても十分な速さで求めることができます。
+このとき、l 以上 r 以下の整数に、2017 に似た数 は cr − cl−1 個あります。
+これらに基づいて実装すると、解くことができます。
+# include < cstdio >
+bool f [100001];
+int c [100002];
+int N ,L , R ;
+int main ()
+{
+for ( int i =2; i <=100000; i ++) if (! f [ i ]) for ( int j = i + i ;j <=100000; j += i )
+f [ j ]= true ;
+for ( int i =3; i <=100000; i +=2) if (! f [ i ]&&! f [( i +1)/2]) c [ i ]++;
+for ( int i =3; i <=100000; i ++) c [ i ]+= c [i -1];
+scanf ("% d " ,& N );
+while (N - -)
+{
+scanf ("% d % d " ,&L ,& R );
+printf ("% d \ n " , c [ R ] - c [L -1]);
+}
+}
+
+3
+
+
+2017-like Number
+
+Pay attention to the fact that 1 is not prime number,calculate if the number is prime number
+or not ,in the number from 2 to 100000.
+It could be done by using Sieve of Eratosthenes.
+In more details,do as such.
+・put the all number from 2 to 100000 in the list.
+・Assume that the minimum number you don’t check in the list , as x. x is prime number,so
+remove the multiples of x (without x) from the list.
+・If there are no number you don’t check in the list,stop this.After that,numbers from 2 to
+100000 in the list is prime number,not in the list is not prime number.
+Using flag to note whether or not the number is in the list,it could be done by reasonable
+time.(If you done Sieve of Eratosthenes in the number from 2 to M , O(M log(logM )) )
+Doing so, you can check whether or not x is similar to 2017 ,in x from 1 to 100000.
+Next,we should consider about how to solve quickly ,how many number is similar to 2017,in
+some range.
+It can be done by Cumulative sum.
+In more detail,solve how many number is similar to 2017 in range from 1 to x ,in all number
+x from 1 to 100000.
+Considering ci as showing how many number is similar to 2017 in range from 1 to x ,
+・ci+1 = ci + 1 (when i + 1 is similar to 2017)
+・ci+1 = ci (Otherwise)
+So,it could be done in reasonable time.
+And, cr − cl−1 numbers is similar to 2017 in range from l to r.
+Doing as such,you can get 400 points.
+# include < cstdio >
+bool f [100001];
+int c [100002];
+int N ,L , R ;
+int main ()
+{
+for ( int i =2; i <=100000; i ++) if (! f [ i ]) for ( int j = i + i ;j <=100000; j += i )
+f [ j ]= true ;
+for ( int i =3; i <=100000; i +=2) if (! f [ i ]&&! f [( i +1)/2]) c [ i ]++;
+for ( int i =3; i <=100000; i ++) c [ i ]+= c [i -1];
+scanf ("% d " ,& N );
+while (N - -)
+{
+scanf ("% d % d " ,&L ,& R );
+printf ("% d \ n " , c [ R ] - c [L -1]);
+}
+}
+
+6
+
+

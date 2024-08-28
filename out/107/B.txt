@@ -1,0 +1,13 @@
+まず，黒いマスが含まれる行および列をマークします．その後，マークされた行とマークされた列が交差す
+る位置の ai,j のみを出力すればよいです．
+
+• C++ のコード例: https://beta.atcoder.jp/contests/abc107/submissions/3070967
+• Java のコード例: https://beta.atcoder.jp/contests/abc107/submissions/3070968
+• Python 3 のコード例: https://beta.atcoder.jp/contests/abc107/submissions/3070969
+
+Mark all rows/columns that contain at least one black cell, and print intersections of marked rows and
+marked columns.
+• C++ Code Example: https://beta.atcoder.jp/contests/abc107/submissions/3070967
+• Java Code Example: https://beta.atcoder.jp/contests/abc107/submissions/3070968
+• Python 3 Code Example: https://beta.atcoder.jp/contests/abc107/submissions/3070969
+

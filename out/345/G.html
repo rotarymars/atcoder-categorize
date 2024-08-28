@@ -1,0 +1,513 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - モノグサプログラミングコンテスト2024（AtCoder Beginner Contest 345）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - モノグサプログラミングコンテスト2024（AtCoder Beginner Contest 345）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc345/editorial/9549" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - モノグサプログラミングコンテスト2024（AtCoder Beginner Contest 345）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc345";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2024-03-16T21:00:00+09:00");
+			var endTime = moment("2024-03-16T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>モノグサプログラミングコンテスト2024（AtCoder Beginner Contest 345）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>モノグサプログラミングコンテスト2024（AtCoder Beginner Contest 345）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc345">モノグサプログラミングコンテスト2024（AtCoder Beginner Contest 345）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc345/editorial/9549?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc345/editorial/9549?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc345%2Feditorial%2F9549">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc345%2Feditorial%2F9549">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc345%2Feditorial%2F9549">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240316T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-03-16 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240316T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-03-16 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc345"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc345/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc345/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc345/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc345/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc345/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc345/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc345/tasks/abc345_g">G - Sugoroku 5</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この解説では</p>
+
+<ul>
+<li>比較的簡潔だが低速な <span>\(\mathrm{O}(N^{1.5} \log N)\)</span> 解法</li>
+<li>高速だが発展的な知識を要求される <span>\(\mathrm{O}(N \log N)\)</span> 解法</li>
+</ul>
+
+<p>の 2 つの解法を説明しています。</p>
+
+<h2><span>\(\mathrm{O}(N^{1.5} \log N)\)</span> 解法</h2>
+
+<p><span>\(F(x)\)</span> を「サイコロを <span>\(1\)</span> 回振った時に <span>\(n\)</span> マス進む確率」の母関数とします。すなわち</p>
+<p><span>\[F(x) = \frac{1}{K} \sum_{i=1}^K x^i\]</span></p><p>です。このとき、サイコロを <span>\(n\)</span> 回振ってマス <span>\(k\)</span> <span>\((0 \leq k \lt N)\)</span> にいる確率は <span>\([x^k] F^n\)</span> と表せます。よって、「サイコロを <span>\(n\)</span> 回振ってゴールしていない確率」<span>\((0 \leq n \leq N)\)</span> を <span>\(a_n\)</span> と置くと</p>
+<p><span>\[a_n = \sum_{k=0}^{N-1} [x^k] F^n\]</span></p><p>と表すことが出来ます。「ちょうど <span>\(n\)</span> 回振ってゴールする確率」は <span>\(a_{n-1} - a_n\)</span> と表せるので <span>\(a_0, a_1, \dots, a_n\)</span> が列挙できれば答えが分かります。<br>
+式をもう少し整理します。<span>\(a_n\)</span> は <span>\(F^n\)</span> の <span>\(0\)</span> 次から <span>\(N-1\)</span> 次までの係数を集めたものなので、少し工夫すると</p>
+<p><span>\[
+\begin{aligned}
+a_n &amp;= \sum_{k=0}^{N-1} [x^k] F^n \\
+&amp;= [x^{N-1}] (1 + x + \dots + x^{N-1}) F^n
+\end{aligned}
+\]</span></p><p>という形で表すことができるのがわかります。</p>
+
+<p>ここからは <span>\(K\)</span> が大きい場合と小さい場合で <span>\(2\)</span> 種類の解法を使い分けることにします。</p>
+
+<h4><span>\(K\)</span> が大きい場合</h4>
+
+<p><span>\(a_n\)</span> をもう少し変形すると、</p>
+<p><span>\[
+\begin{aligned}
+a_n &amp;= [x^{N-1}] (1 + x + \dots + x^{N-1}) F^n \\
+&amp;= [x^{N-1}] (1+x+\dots+x^{N-1}+x^N+\dots) F^n \\
+&amp;= [x^{N-1}] \frac{F^n}{1-x} 
+\end{aligned}
+\]</span></p><p>となります。この式に</p>
+<p><span>\[F(x) = \frac{1}{K} \sum_{i=1}^K x^i = \frac{x(1-x^K)}{K(1-x)}\]</span></p><p>を代入すると</p>
+<p><span>\[
+\begin{aligned}
+a_n &amp;= [x^{N-1}] \frac{x^n (1-x^K)^n}{K^n(1-x)^{n+1}} \\
+&amp;= \frac{1}{K^n} [x^{N-1-n}] (1-x^K)^n \times \frac{1}{(1-x)^{n+1}} 
+\end{aligned}
+\]</span></p><p>となります。上式の <span>\((1-x^K)^n\)</span> の部分は非 <span>\(0\)</span> の係数が <span>\(0\)</span> 次、<span>\(K\)</span> 次、<span>\(2K\)</span> 次、<span>\(\dots\)</span> と <span>\(K\)</span> 個置きにしか存在せず、また <span>\((1-x^K)^n\)</span> と <span>\(\frac{1}{(1-x)^{n+1}}\)</span> の係数の取得は適当な階乗・階乗逆元の前計算の元 <span>\(\mathrm{O}(1)\)</span> で行えるので、<span>\(a_n\)</span> は <span>\(\mathrm{O}(N/K)\)</span> で計算することが出来ます。よって <span>\(a_0, a_1, \dots, a_N\)</span> の列挙は <span>\(\mathrm{O}(N^2 / K)\)</span> で行うことが出来ます。</p>
+
+<h4><span>\(K\)</span> が小さい場合</h4>
+
+<p><span>\(a_n\)</span> の式を再掲します。</p>
+<p><span>\[a_n = [x^{N-1}] (1 + x + \dots + x^{N-1}) F^n\]</span></p><p>実は <span>\(a_0, a_1, \dots, a_N\)</span> は、 <a href="https://atcoder.jp/contests/abc281/tasks/abc281_h" rel="nofollow">ABC281 Ex</a> でも登場した分割統治をすれば全体で <span>\(\mathrm{O}(NK \log^2 N)\)</span> で計算することが出来ます。</p>
+
+<p>分割統治の方法を説明するために、はじめに TLE する解法を載せます。下のコードは <span>\(a_0, a_1, \dots, a_N\)</span> を少し工夫した分割統治によって <span>\(\mathrm{O}(N^2 \log N)\)</span> で計算したものです。(詳細はコードを読んでください。)</p>
+
+<pre class="prettyprint linenums"><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+#include &#34;atcoder/convolution.hpp&#34;
+#include &#34;atcoder/modint.hpp&#34;
+using mint = atcoder::modint998244353;
+
+int N, K;
+vector&lt;mint&gt; f; // F = 1/K sum{i=1..K} x^i
+vector&lt;mint&gt; a; // (a_0, a_1, ..., a_N)
+
+// input  : l, r, g = (sum{i=0..N-1} x^i) F^l mod x^N
+// output : F^{r-l} mod x^N
+vector&lt;mint&gt; dc(int l, int r, vector&lt;mint&gt; g) {
+  int b = g.size();
+  if (l + 1 == r) {
+    a[l] = g.back();
+    return f;
+  }
+  int m = (l + r) / 2;
+  auto p = dc(l, m, g);
+  g = atcoder::convolution(g, p), g.resize(b);
+  auto q = dc(m, r, g);
+  auto res = atcoder::convolution(p, q);
+  if ((int)res.size() &gt; N) res.resize(N);
+  return res;
+}
+
+int main() {
+  cin &gt;&gt; N &gt;&gt; K;
+  a.resize(N + 1);
+  f.resize(K + 1);
+  for (int i = 1; i &lt;= K; i++) f[i] = mint{K}.inv();
+  dc(0, N + 1, vector&lt;mint&gt;(N, 1));
+  for (int i = 0; i &lt; N; i++) cout &lt;&lt; (a[i] - a[i + 1]).val() &lt;&lt; &#34;\n&#34;;
+}
+</code></pre>
+
+<p>このコードが <span>\(\mathrm{O}(N^2 \log N)\)</span> 掛かる理由は、再帰が呼ばれるごとに長さ <span>\(N\)</span> の形式的冪級数 <code>g</code> に関する畳み込みが行われるからです。<br>
+この <code>g</code> に手を加えることで高速化します。<code>dc(l, r, g)</code> が呼ばれた時点での <code>g</code> に対しては、高々 <span>\(r-l-1\)</span> 回しか <span>\(F\)</span> を掛けないため、<code>g</code> の項のうち必要な情報は上位 <span>\((r-l-1)K + 1\)</span> 項のみです。よって <code>g</code> の低次の項は適宜捨てても問題ないことが分かります。そこで、</p>
+
+<pre class="prettyprint linenums"><code class="language-c++">  int b = g.size();
+</code></pre>
+
+<p>の部分を</p>
+
+<pre class="prettyprint linenums"><code class="language-c++">  int b = min&lt;int&gt;(g.size(), (r - l - 1) * K + 1);
+  g.erase(begin(g), begin(g) + g.size() - b);
+</code></pre>
+
+<p>と書き換えてみます。(このように書き換えても答えが変わらないことは確認できます。) こうすることで計算量が <span>\(\mathrm{O}(N K \log^2 N)\)</span> に落ちています。この計算量は、 <code>dc(l, r, g)</code> 内部で登場する <code>g</code> および <code>p</code>, <code>q</code> の次数が <span>\(\mathrm{O}(\min((r-l)K, N))\)</span> で抑えられていることから導出できます。(注：計算量は正確には <span>\(\mathrm{\Theta}\left(N K \log N \log \frac{N}{K}\right)\)</span> と考えられます。)</p>
+
+<p>なお、類題の出題例は <a href="https://maspypy.com/%e5%88%86%e5%89%b2%e7%b5%b1%e6%b2%bbfft-%e3%81%ae%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e5%bd%a2%e3%81%ae%e3%81%b2%e3%81%a8%e3%81%a4" rel="nofollow">maspy さんの記事</a> の「パターン 2」という項にいくつか載っているので参考にしてみてください。</p>
+
+<p>以上より <span>\(\mathrm{O}(N^2 / K)\)</span> の解法と <span>\(\mathrm{O}(N K \log^2 N)\)</span> の解法の 2 つの解法を得ることが出来ました。よって、<span>\(K = \mathrm{O}(\sqrt{N} / \log N)\)</span> 付近を境界として解法を使い分けることで、この問題を <span>\(\mathrm{O}(N^{1.5} \log N)\)</span> で解くことが出来ます。</p>
+
+<p>実装は畳み込みだけ持っていれば簡潔に書ける一方、実行速度は言語によっては制約内に収めるのが困難だと思われます。ACL の畳み込みを利用して C++ で自然な実装をすれば多少の余裕を持って AC できると筆者は考えています。</p>
+
+<h2><span>\(\mathrm{O}(N \log N)\)</span> 解法</h2>
+
+<p>はじめに必要な基本知識をまとめます。</p>
+
+<blockquote>
+<h4>ニュートン法</h4>
+
+<p><span>\(G(f) = 0\)</span> を満たす <span>\(f(x)\)</span> を <span>\(n\)</span> 次の係数まで計算したいとする。(<span>\([x^0]f(x)\)</span> はあらかじめわかっているとする。)<br>
+<span>\(\hat{f} \equiv f \pmod{x^d}\)</span> がを満たす <span>\(\hat{f}\)</span> が分かっている時に</p>
+<p><span>\[f \equiv \hat{f} - \frac{G(\hat{f})}{G&#39;(\hat{f})} \pmod{x^{2d}}\]</span></p><p>が成り立つので上式から <span>\(f \bmod{x^{2d}}\)</span> を計算できるため、<span>\(f\)</span> の係数の既知の部分の長さを倍にすることができる。よって、<span>\([x^0]f \equiv f \pmod{x^1}\)</span> から始めて上式を <span>\(\mathrm{O}(\log n)\)</span> 回反復させることで <span>\(f(x)\)</span> を <span>\(n\)</span> 次まで計算できる。</p>
+
+<h4>ラグランジュの反転公式</h4>
+
+<p>形式的冪級数 <span>\(F(x), G(x)\)</span> は逆関数の関係にあるとする。(すなわち <span>\(F(G(x)) = G(F(x)) = x\)</span> が成り立つ。) 今、<span>\([x^0]F(x) = [x^0]G(x) = 0\)</span> かつ <span>\([x^1]F(x) \neq 0, [x^1]G(x) \neq 0\)</span> が成り立つ時、次の式が成り立つ。</p>
+<p><span>\[[x^n] F(x)^k = \frac{k}{n} [x^{n-k}] \left(\frac{x}{G(x)}\right)^n\]</span></p><p>特に <span>\(k=1\)</span> のときに</p>
+<p><span>\[[x^n] F(x) = \frac{1}{n} [x^{n-1}] \left(\frac{x}{G(x)}\right)^n\]</span></p><p>が成り立つ。また、任意の形式的冪級数 <span>\(H(x)\)</span> に対して次式が成り立つ。</p>
+<p><span>\[[x^n] H(F(x)) = \frac{1}{n} [x^{n-1}] H&#39;(x) \left(\frac{x}{G(x)} \right)^n\]</span></p></blockquote>
+
+<p>証明はここでは割愛します。(ニュートン法に関しては <a href="https://atcoder.jp/contests/abc260/editorial/4434" rel="nofollow">ABC260Ex 解説の末尾</a> に簡単に書かれています。ラグランジュの反転公式に関しては <a href="https://atcoder.jp/contests/abc222/editorial/2742" rel="nofollow">ABC222H 解説</a> に <span>\(k=1\)</span> の場合の証明が載っていて、同様の方針で一般の場合も証明できます。)</p>
+
+<p>さて、解法を説明します。(途中まで <span>\(\mathrm{O}(N^{1.5} \log N)\)</span> 解法と部分的に同様ですが再掲します。)<br>
+<span>\(F(x)\)</span> を「サイコロを <span>\(1\)</span> 回振った時に <span>\(n\)</span> マス進む確率」の母関数とします。すなわち</p>
+<p><span>\[F(x) = \frac{1}{K} \sum_{i=1}^K x^i\]</span></p><p>です。このとき、サイコロを <span>\(n\)</span> 回振ってマス <span>\(k\)</span> <span>\((0 \leq k \lt N)\)</span> にいる確率は <span>\([x^k] F^n\)</span> と表せます。よって、「サイコロを <span>\(n\)</span> 回振ってゴールしていない確率」<span>\((0 \leq n \leq N)\)</span> を <span>\(a_n\)</span> と置くと</p>
+<p><span>\[a_n = \sum_{k=0}^{N-1} [x^k] F^n\]</span></p><p>と表すことが出来ます。「ちょうど <span>\(n\)</span> 回振ってゴールする確率」は <span>\(a_{n-1} - a_n\)</span> と表せるので <span>\(a_0, a_1, \dots, a_n\)</span> が列挙できれば答えが分かります。<br>
+上式だと <span>\(k=0\)</span> の時に少し都合が悪いので修正します。明らかに <span>\(a_0 = 1\)</span> であり、また <span>\(n \gt 0\)</span> のとき <span>\([x^0] F^n = 0\)</span> です。よって <span>\(n\)</span> の範囲を <span>\(1 \leq n \leq N\)</span> とすれば総和を取る範囲を <span>\(1 \leq k \leq N-1\)</span> にしても問題ないので、次式を元に考えることにします。</p>
+<p><span>\[a_n = \sum_{k=1}^{N-1} [x^k] F^n\]</span></p><p>上式に反転公式を適用します。<span>\(F(x)\)</span> の逆関数を <span>\(G(x)\)</span> とします。</p>
+<p><span>\[[x^k] F(x)^n = \frac{n}{k} [x^{k-n}] \left(\frac{x}{G(x)}\right)^k\]</span></p><p>です。形式的ローラン級数 (負冪の項が有限個存在する冪級数, 形式的冪級数と同様に扱える) を持ち出して式変形すると</p>
+<p><span>\[
+\begin{aligned}
+a_n &amp;= \sum_{k=1}^{N-1} \frac{n}{k} [x^{k-n}] \left(\frac{x}{G(x)}\right)^k \\
+&amp;= \sum_{k=1}^{N-1} \frac{n}{k} [x^{-n}] \left(\frac{1}{G(x)} \right)^k \\
+&amp;= n [x^{-n}] \sum_{k=1}^{N-1} \frac{1}{k} \left(\frac{1}{G(x)} \right)^k
+\end{aligned}
+\]</span></p><p>になります。(<span>\(\frac{1}{G(x)}\)</span> は  <span>\(x^{-1}+\)</span>(形式的冪級数) という形をした冪級数であるのに注意してください。)よって</p>
+<p><span>\[H(G(x)) = \sum_{k=1}^{N-1} \frac{1}{k} \left(\frac{1}{G(x)} \right)^k\]</span></p><p>とおくと、<span>\(H(G(x))\)</span> の <span>\(-n\)</span> 次の係数から <span>\(-1\)</span> 次の係数までが計算できればこの問題を解くことが出来ると分かりました。<br>
+問題を分解します。次の 2 つの計算を行うことが出来ればよいです。</p>
+
+<ul>
+<li><span>\(F(x)\)</span> から <span>\(G(x) \bmod{x^N}\)</span> を計算する</li>
+<li><span>\(G(x) \bmod{x^N}\)</span> から <span>\(H(G(x))\)</span> の下位 <span>\(N\)</span> 次を計算する</li>
+</ul>
+
+<p>まず、<span>\(G(x) \bmod{x^N}\)</span> の計算はニュートン法を用いて <span>\(\mathrm{O}(N \log N)\)</span> で行うことが出来ます。詳しく説明すると、<span>\(G(x)\)</span> は</p>
+<p><span>\[A(G) = F(G) - x = 0, [x^0]G = 0\]</span></p><p>を満たす式なので、<span>\(\hat{G} = G \bmod{x^d}\)</span> が与えられたときに <span>\(A(\hat{G}) \bmod{x^{2d}}\)</span> と <span>\(A&#39;(\hat{G}) \bmod{x^{2d}}\)</span> が高速に計算できればニュートン法で <span>\(G\)</span> の高速な計算を行えます。<span>\(A(\hat{G})\)</span> は</p>
+<p><span>\[A(\hat{G}) = F(\hat{G}) - x = \frac{\hat{G}^{K+1} - \hat{G}}{K(\hat{G} - 1)} - x\]</span></p><p>なので形式的冪級数の inv, pow を利用すれば高速に計算できます。また、<span>\(A&#39;(\hat{G})\)</span> は連鎖律を利用すると高速に計算できます。<span>\(A&#39;(G)\)</span> と <span>\(A(G)\)</span> の間には</p>
+<p><span>\[
+\begin{aligned}
+&amp;\frac{d(A(G))}{dx} = \frac{d(A(G))}{dG} \frac{dG}{dx}\\
+&amp;\to A&#39;(G) = \frac{\frac{d}{dx} A(G)}{\frac{d}{dx} G}
+\end{aligned}
+\]</span></p><p>という関係式が成り立つので、<span>\(A(\hat{G})\)</span> を <span>\(\text{mod }x^{2d+1}\)</span> で計算しておくことで <span>\(A&#39;(\hat{G}) \bmod{x^{2d}}\)</span> も高速に計算することが出来ます。</p>
+
+<p><span>\(H(G(x))\)</span> の計算も連鎖律を利用すればよいです。</p>
+<p><span>\[
+\begin{aligned}
+\frac{d(H(G))}{dx} &amp;= \frac{d(1/G)}{dx} \frac{d(H(G))}{d(1/G)}  \\
+&amp;= \frac{-\frac{d}{dx}G}{G^2} \sum_{k=1}^{N-1} \left(\frac{1}{G} \right)^{k-1} \\
+&amp;= -\left(\frac{d}{dx} G\right) \sum_{k=2}^N \left(\frac{1}{G}\right)^k
+\end{aligned}
+\]</span></p><p>であり、右辺は <span>\(x^N\)</span> を掛けると形式的冪級数の inv, pow で計算できる形です。よって右辺を計算した後に両辺を積分すれば <span>\(H(G)\)</span> を <span>\(\mathrm{O}(N \log N)\)</span> で計算することが出来ます。<br>
+以上の方針により、この問題を <span>\(\mathrm{O}(N \log N)\)</span> で解くことが出来て、これは十分高速です。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1710145932">
+				<time class="timeago" datetime="2024/03/11 17:32:12"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1710196851">
+				<time class="timeago" datetime="2024/03/12 07:40:51"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc345/editorial/9549?lang=ja" data-a2a-title="解説 - モノグサプログラミングコンテスト2024（AtCoder Beginner Contest 345）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc345/rules">ルール</a></li>
+					<li><a href="/contests/abc345/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

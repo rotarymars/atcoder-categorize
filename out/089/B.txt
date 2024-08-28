@@ -1,0 +1,48 @@
+
+Hina Arare
+
+袋には必ず桃色、白色、緑色のひなあられが入っていることが保証されるので、3 種類か 4 種
+類かの判別は黄色のひなあられの有無で判別できます。
+よって、黄色のひなあられがあれば ‘Four‘、なければ ‘Three‘ と出力するとよいです。
+# include < cstdio >
+int N ;
+char c ;
+int main ()
+{
+scanf ("% d " ,& N );
+bool flag = false ;
+for ( int i =0; i < N ; i ++)
+{
+scanf ("% c " ,& c );
+if ( c == ’Y ’) flag = true ;
+}
+if ( flag ) puts (" Four ");
+else puts (" Three ");
+}
+
+1
+
+
+Hina Arare
+
+It is guaranteed that there are pink,white,green arare,so it is possible to distinguish the number
+of colors by the existence of yellow arare.
+So, you can get 200 points by print ‘Four‘ when yellow arare exists, ‘Three‘ otherwise.
+# include < cstdio >
+int N ;
+char c ;
+int main ()
+{
+scanf ("% d " ,& N );
+bool flag = false ;
+for ( int i =0; i < N ; i ++)
+{
+scanf ("% c " ,& c );
+if ( c == ’Y ’) flag = true ;
+}
+if ( flag ) puts (" Four ");
+else puts (" Three ");
+}
+
+4
+

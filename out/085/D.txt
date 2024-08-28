@@ -1,0 +1,59 @@
+問題文のルールでは、刀を投げてしまうとその刀を振ることはできなくなります。しかし、すでに投げてし
+まった刀も振ることができるというルールに変更しても問題の答えは変わりません。これを証明します。以
+下、問題文のルールを「旧ルール」
+、ここで定義したルールを「新ルール」と呼びます。
+新ルールで T 回攻撃して合計 D ダメージを与えることが可能であると仮定します。そのような攻撃手順の
+一つで、それぞれの刀 i (1 ≤ i ≤ N ) を xi 回振って yi 回投げるとします (0 ≤ xi , 0 ≤ yi ≤ 1)。このとき、
+旧ルールでも刀 1 を x1 回振ってから y1 回投げ、刀 2 を x2 回振ってから y2 回投げ、. . . 、刀 N を xN 回
+振ってから yN 回投げることで、同じく T 回の攻撃で合計 D ダメージを与えることが可能です。よって、新
+ルールで T 回の攻撃で魔物を退治できるとき、旧ルールでも T 回の攻撃で魔物を退治できます。逆に、旧
+ルールで T 回の攻撃で魔物を退治できるとき、新ルールでもまったく同じ攻撃手順で T 回の攻撃で魔物を退
+治できます。以上より、新ルールを採用しても問題の答えは変わりません。
+以後、新ルールの下で問題を考えます。新ルールでは、刀を振ることと投げることは直接関連せず、我々は
+攻撃力 ai の「振り刀」N 本と攻撃力 bi の「投げ刀」N 本、合計 2N 本の武器を持っていると考えることが
+できます。（攻撃力 a の振り刀は投げることはできないが何度でも振ることができ、そのたびに a ダメージを
+与えます。攻撃力 b の投げ刀は振ることはできないが一度だけ投げることができ、投げると b ダメージを与
+えます。）このときの最適な攻撃手順は以下の通りです。
+
+0. a1 , . . . , aN のうち最大の値を amax とし、攻撃力が amax 以上の投げ刀を「強い投げ刀」とする。
+1. 強い投げ刀を攻撃力が高い順に投げていく。
+2. 強い投げ刀を使い果たしたら、攻撃力 amax の振り刀を振り続ける。
+この戦略は、はじめに b1 , . . . , bN を降順にソートしておき（言語の標準ライブラリを使うべきです）、ス
+テップ 2. で割り算を使うことで、全体で O(N log(N )) 時間でシミュレートすることができます。
+
+4
+
+ABC 085 Editorial (English)
+Problems and editorial by: evima
+January 7, 2018
+
+Under the rules in the statement, when you throw a katana, you will no longer be able to wield that
+katana. However, the answer does not change if we change the rule to allow wielding a katana that you
+have already thrown. We will now prove it. Below, we will call the rules in the statement the “old rules”,
+and the rules defined here the “new rules”.
+Suppose that we can deal a total of D damage in T attacks under the new rules. Assume that, in
+one such sequence of attacks, each katana i (1 ≤ i ≤ N ) is wielded xi times and thrown yi times
+(0 ≤ xi , 0 ≤ yi ≤ 1). Then, we can also deal a total of D damage in T attacks under the old rules,
+by wielding katana 1 x1 times, then throwing katana 1 y1 times, then wielding katana 2 x2 times, then
+throwing katana 2 y2 times, . . . , then wielding katana N xN times, then throwing katana N yN times.
+Thus, if we can vanish the monster in T attacks under the new rules, we can also vanish the monster in
+T attacks under the old rules. On the other hand, if we can vanish the monster in T attacks under the
+old rules, we can also vanish the monster in T attacks under the new rules by performing exactly the
+same sequence of attacks. Therefore, the answer does not change by adopting the new rules.
+We will consider the problem under the new rules from now on. Under the new rules, wielding katana
+and throwing them is not directly related, and we can assume that we have 2N weapons, N ”wielding
+katana” of attack power ai and N ”throwing katana” of attack power bi . (A wielding katana of attack
+power ai cannot be thrown but can be wielded any number of times, and deals a damage each time we
+wield it. A throwing katana of attack power bi cannot be wielded but can be thrown only once, and
+deals b damage when we throw it.) The optimal strategy now is:
+0. Let amax be the maximum value among a1 , . . . , aN , and ”strong throwing katana” be the katana
+whose attack powers are amax or above.
+1. Throw strong throwing katana one at a time in decreasing order of attack power.
+2. When we have no more throwing katana, repeat wielding the wielding katana of attack power
+amax .
+This strategy can be simulated in O(N log(N )) time in total, by sorting b1 , . . . , bN in decreasing order
+(the standard library in your language should be used) in the beginning and use division in step 2.
+
+8
+
+

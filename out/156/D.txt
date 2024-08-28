@@ -1,0 +1,108 @@
+(原案・準備・解説: gazelle)
+まず「a, b 本の花からなる花束は作ることができない」という制約を無視して問題を解いてみます。
+このとき答えは 2n − 1 になります。これは、種類 1 の花を選ぶ / 選ばない、種類 2 の花を選ぶ / 選
+ばない、...、種類 n の花を選ぶ / 選ばないという枝分かれを考えると分かります (1 本も花を使わな
+い花束を作ることはできないので、1 を引きます)。2n mod (109 + 7) は、繰り返し二乗法と呼ばれ
+るテクニックを用いて高速に計算可能です。
+ここから a 本の花からなる花束、および b 本の花からなる花束の種類数を引くことで、元の問題を
+解くことが可能です。
+
+a 本の花からなる花束の種類数 mod (109 + 7) は、
+n Ca mod (10
+
+9
+
++ 7) =
+
+n × (n − 1) × ... × (n − a + 1)
+mod (109 + 7)
+a × (a − 1) × ... × 1
+
+として計算できます。右辺の分子の値を X 、分母の値を Y と置きます。
+
+X
+mod (109 + 7)
+Y
+をどのように計算すればいいでしょうか？ Y で割る、具体的には Y に掛けると mod (109 + 7) の世
+界で 1 になるような数 Y −1 が何であるかを探してみます。ここで 109 + 7 が素数であることから、
+フェルマーの小定理より、
+9
+
+Y × Y (10 +7)−2 mod (109 + 7) = 1
+が成り立ちます。両辺に Y −1 を掛けると、
+
+Y (10 +7)−2 mod (109 + 7) = Y −1
+9
+
+9
+
+になります。つまり mod (109 + 7) の世界では、Y で割ることと Y (10 +7)−2 を掛けることが等価に
+なっています (この部分の正確な議論については「競技プログラミング 剰余」などで検索してみてく
+ださい)。よって、
+9
+X
+mod (109 + 7) = X × Y (10 +7)−2 mod (109 + 7)
+Y
+9
+
+です。Y (10 +7)−2 の値は、2n と同様に繰り返し二乗法を用いて求めることができるので、この値は
+高速に計算可能です。
+同様の方法で b 本の花からなる花束の種類数 mod (109 + 7) も分かるので、これらを 2n − 1 から
+引くことで問題を解くことができました。
+
+7
+
+(draft, preparation, editorial: gazelle)
+First, we will solve the problem ignoring the condition that the number of ﬂowers in the bouquet
+cannot be a or b. In such case, the answer will be 2n − 1. This can be understood by considering
+a tree diagram of choosing / not choosing ﬂower 1, choosing / not choosing ﬂower 2, …, choosing
+/ not choosing ﬂower n (since a bouquet with no ﬂowers cannot be made, it is subtracted by 1).
+2n mod (109 + 7) can be calculated rapidly by a technique called fast exponentiation algorithm.
+By subtracting from it the number of bouquet with a ﬂowers and the number of bouquet with
+b ﬂowers, the original problem can be solved.
+The number of bouquet with a ﬂowers mod (109 + 7) can be calculated by
+n Ca mod (10
+
+9
+
++ 7) =
+
+n × (n − 1) × ... × (n − a + 1)
+mod (109 + 7).
+a × (a − 1) × ... × 1
+
+We denote the numerator of the left hand side by X, and the denominator by Y . How can we
+calculate
+
+X
+mod (109 + 7)?
+Y
+
+Let’s try dividing by Y , speciﬁcally let’s ﬁnd Y −1 , such integer that when multiplied by Y it will
+become 1 in a world of mod (109 + 7). Here, since 109 + 7 is a prime, by Fermat’s little theorem,
+it holds that
+
+9
+
+Y × Y (10 +7)−2 mod (109 + 7) = 1.
+multiplying Y −1 to the both sides, we obtain
+Y (10 +7)−2 mod (109 + 7) = Y −1 .
+9
+
+9
+
+Therefore, in a world of mod (109 +7), dividing by Y and multiplying by Y (10 +7)−2 are equivalent
+(for more strict discussion, please search by ”competitive programming modulo” or something).
+Therefore, it holds that
+9
+X
+mod (109 + 7) = X × Y (10 +7)−2 mod (109 + 7).
+Y
+9
+
+The value of Y (10 +7)−2 can be calculated by fast exponentiation just like 2n , so this value can
+be calculated fast.
+We can similarly calculate the number of bouquets with b ﬂowers mod (109 + 7), So by subtracting them from 2n − 1, the problem could be solved.
+
+16
+

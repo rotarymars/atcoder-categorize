@@ -1,0 +1,25 @@
+多くのプログラミング言語では、string 型の配列を標準ライブラリのソート関数 (例: C++ の std::sort)
+によって辞書順に並べることができます。
+問題文に合うようにレストランを並べるには、C++ でいう pair 型を利用すると簡単に実装できます。具
+体的には、pair<pair<string,int>,int> の配列を用意し、レストランの情報を格納します。first.first (1
+番目のソート基準) に string 型で市名を入れ、first.second (2 番目のソート基準) に int 型で点数の −1 倍を
+入れ (点数が高い順に並べたいので)、second (3 番目のソート基準) にレストランの番号を入れます。
+この pair 型をソートした後、 i 番目の要素の second には、本で i 番目に紹介するレストランの番号が格
+納されています。
+pair 型がない言語などでは、まだ本で紹介されていないレストランのうち市名が辞書順で最も早く、その中
+で最も点数が高いレストランを順次ループを回して探していくことでも求めることができます。この場合は計
+算量は O(N 2) となります。これでも間に合います。
+C++ での実装例は以下の通りです (include 等は省いています)。
+char in[120];
+pair<pair<string,int>,int> p[110];
+int main(){
+int a;scanf("%d",&a);
+for(int i=0;i<a;i++){
+int t;scanf("%s%d",in,&t);
+string tmp=in;
+p[i]=make_pair(make_pair(in,-t),i);
+}
+std::sort(p,p+a);
+for(int i=0;i<a;i++)printf("%d\n",p[i].second+1);
+}
+1

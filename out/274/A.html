@@ -1,0 +1,628 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - キーエンスプログラミングコンテスト2022（AtCoder Beginner Contest 274）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - キーエンスプログラミングコンテスト2022（AtCoder Beginner Contest 274）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc274/editorial/5075" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - キーエンスプログラミングコンテスト2022（AtCoder Beginner Contest 274）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc274";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-10-22T21:00:00+09:00");
+			var endTime = moment("2022-10-22T22:40:00+09:00");
+		</script>
+		<style>.insert-participant-box h1 {
+    font-size: 280%;
+    line-height: 120%;
+}
+
+/* キーエンステーマカラーの設定 */
+/* 上部のAtCoderメニュー部の背景と赤線 */
+.navbar-inner {
+    background-color: #404040 !important;
+    background-image: none !important;
+}
+
+.navbar {
+    background-color: #404040 !important;
+    background-image: none !important;
+    border-bottom: solid 4px #ea0437 !important;
+}
+
+/* メニュー部内の文字色 */
+.caret {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.bland-small {
+    color: #ffffff !important;
+}
+
+.navbar .nav>li>a {
+    color: #ffffff !important;
+}
+
+/* メニュー間に縦線が入るので消す */
+.navbar .divider-vertical {
+    background-color: #404040 !important;
+    border-right: none;
+}
+
+/* メニュー部と本文内のリンク色 */
+.nav-tabs a,
+#contest-statement a {
+    color: #ee0000 !important;
+}
+
+/* #outer-inner a は影響が大きいため、対象にしなかった */
+
+.wide-interview-img {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: center;
+    filter: drop-shadow(5px 5px 5px #aaa);
+}
+
+.wide-interview-img img {
+    width: min(670px, 100%);
+}
+
+.parent-flex-product-img-container {
+    display: flex;
+    flex-wrap : wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.child-flex-product-img-container {
+    display: flex;
+    flex-flow: column;
+    filter: drop-shadow(2px 2px 2px #aaa);
+    margin: 1vh 1vw 2vh;
+}
+
+.product-img-clickable {
+    text-decoration:none;
+    transition: all .2s ease-in-out;
+}
+
+.product-img-clickable:hover {
+    text-decoration:none;
+    transition: all .2s ease-in-out;
+    filter: drop-shadow(3px 3px 3px #aaa);
+}
+
+.product-img {
+    min-height: 75px;
+}
+
+.product-img img {
+}
+
+.product-info {
+
+    background-color: #ffffff;
+}
+
+.product-text h1 {
+    margin: 1vh;
+    font-size: 15px;
+    color: #474747;
+}
+
+.product-text h4 {
+    margin: 1vh 1vh 1vh 1.2vw;
+    font-size: 12px;
+    color: #575757;
+}
+
+/* 字下げ */
+div.indentBox {
+    margin-left: 20px;
+}
+
+/* span4の代替（betaでspan4が効かない対応） */
+.spanForTable {
+    width: 300px;
+    max-width: 100%;
+}
+
+/* テーブルの内容を中央揃えにする */
+.nagotable th,
+td {
+    text-align: center !important;
+}
+
+.overlay-video-wrapper{
+    position: relative; /*relativeに設定*/
+}
+
+.company-video{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    filter: drop-shadow(5px 5px 5px #aaa);
+}
+
+.overlay-video-keyence-logo{
+    position: absolute;
+    width: 12%;
+    left: 2%;
+    top: 2%;
+    background-color: transparent;
+}
+
+.overlay-video-message-box{
+    position: absolute;
+    left: 2%;
+    top: 32%;
+}
+
+.overlay-video-message-1{
+    background-color: transparent;
+    font-size: min(100px, max(30px, 5vw));
+}
+.overlay-video-message-1-key{
+    color: #EA0437;
+}
+.overlay-video-message-1-ofscience{
+    color: #FFFFFF;
+}
+.overlay-video-message-2{
+    margin-top: 3vh;
+    color: white;
+    background-color: transparent;
+    font-size: min(20px, max(12px, 2vw));
+}
+
+.border {
+    border-top: 1px dashed #868686;
+}
+
+.table-position {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 今ひとつ、全体のフォントの大きさがしっくりこないため・・・ */
+#contest-statement p,
+li,
+blockquote {
+    font-size: 90%;
+}
+</style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>キーエンスプログラミングコンテスト2022（AtCoder Beginner Contest 274）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>キーエンスプログラミングコンテスト2022（AtCoder Beginner Contest 274）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc274">キーエンスプログラミングコンテスト2022（AtCoder Beginner Contest 274）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc274/editorial/5075?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc274/editorial/5075?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc274%2Feditorial%2F5075">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc274%2Feditorial%2F5075">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc274%2Feditorial%2F5075">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221022T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-10-22 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221022T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-10-22 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc274"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc274/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc274/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc274/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc274/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc274/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc274/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc274/tasks/abc274_a">A - Batting Average</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題の本質部分だけを取り上げると「小数が与えられます。小数点第 <span>\(4\)</span> 位を四捨五入して出力することができますか？」となります。<br>
+小数の四捨五入は日常ではありふれていますが、コンテストでは見慣れない操作なので色々調べながら解いた方も多いと思います。<br>
+この解説では、プログラミングにおいて小数がどのような存在なのかを確認しながら方法を説明していきます。</p>
+
+<h4>浮動小数点数型の基本</h4>
+
+<p>多くのプログラミング言語には小数を管理するための型が存在します。C や C++ の <code>double</code> 型や Python の <code>float</code> 型がその代表例です。<br>
+このような小数型は少し特殊な方法で値を管理しています。すなわち、<code>double</code> 型の変数が 値 <span>\(x\)</span> を保持しているとき、ある整数 <span>\(a\)</span> および <span>\(1 \leq b \lt 2\)</span> である実数 <span>\(b\)</span> であって <span>\(x = 2^{a} \times b\)</span> を満たすような数の組 <span>\((a, b)\)</span> がメモリに格納されています。<br>
+これは <code>int</code> などの整数型が値をそのまま変数に保持しているのとは対照的で、このように <span>\(a\)</span> の値が <span>\(x\)</span> の値に応じて移動することから、このような小数の型を <strong>浮動小数点数型</strong> (floating-point data type) のように呼びます。</p>
+
+<ul>
+<li>たとえば <span>\(6 = 2^2 \times 1.5\)</span> なので、内部では <span>\((a,b) = (2, 1.5)\)</span> という値の組として保持されています。</li>
+</ul>
+
+<p>整数から小数、あるいはその逆への変換は <strong>キャスト演算子</strong> を利用して変換することができます。<br>
+例えば C++ では <code>int</code> 型の <code>x</code> を <code>double</code> 型に変換するには <code>double(x)</code> とすればよいです。よって、この問題の <span>\(S\)</span> を求める部分は以下のように記述すればよいです。</p>
+
+<pre class="prettyprint linenums"><code>int main() {
+  int A, B;
+  cin &gt;&gt; A &gt;&gt; B;
+  double S = double(B) / double(A);
+}
+</code></pre>
+
+<h4>C</h4>
+
+<p>まず、C 言語の <code>printf</code> 関数で <code>double</code> 型の小数を出力する場合は、以下のように <strong>出力フォーマット指定子</strong> として <code>%lf</code> を指定すればよいです。</p>
+
+<pre class="prettyprint linenums"><code>  double S = ((double)B) / ((double)A);
+  printf(&#34;%lf&#34;, S);
+</code></pre>
+
+<p>この問題では小数点以下をちょうど <span>\(3\)</span> 桁表示して、それ以降の桁は四捨五入する必要があります。これは出力フォーマット指定子を <code>%.3lf</code> とすると要求を満たすことができます。 (本当は値によっては四捨五入と異なる値が出力されますが、ここでは問題にならないので置いておきます。)</p>
+
+<pre class="prettyprint linenums"><code>#include &lt;stdio.h&gt;
+int main() {
+  int A, B;
+  scanf(&#34;%d %d&#34;, &amp;A, &amp;B);
+  double S = ((double)B) / ((double)A);
+  printf(&#34;%.3lf&#34;, S);
+}
+</code></pre>
+
+<h4>C++</h4>
+
+<p>C++ で小数を出力する方法はいくつかあります。1 つは C 言語と同様に <code>printf</code> を使う方法です。C++ では(ライブラリを適切に include すれば) C の標準ライブラリがそのまま使えるので、上述の出力フォーマット指定子を利用すればよいです。<br>
+<code>std::cout</code> を使う方法も説明します。これは少し難しいのですが、</p>
+
+<pre class="prettyprint linenums"><code>cout &lt;&lt; fixed &lt;&lt; setprecision(3);
+</code></pre>
+
+<p>のように書くと所望の条件を満たすことができます。</p>
+
+<ul>
+<li>詳細な説明：<code>fixed</code> は <code>1e9</code> のような指数表記を利用しないことを指示しています。<code>fixed</code> が指定された状態で <code>setprecision(n)</code> を指示すると、それ以降の小数は 小数点以下ちょうど <span>\(n\)</span> 桁表示されて、それ以降の桁は四捨五入されます。(こちらも正確には少しだけ四捨五入とは異なりますがここでは問題にならないので置いておきます。)</li>
+</ul>
+
+<pre class="prettyprint linenums"><code>#include &lt;iomanip&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+  int A, B;
+  cin &gt;&gt; A &gt;&gt; B;
+  double S = double(B) / double(A);
+  cout &lt;&lt; fixed &lt;&lt; setprecision(3) &lt;&lt; S &lt;&lt; endl;
+}
+</code></pre>
+
+<h4>Python</h4>
+
+<p>Python では f-string と呼ばれるリテラルによって出力の桁数を指定できます。詳しくは以下のリファレンスなどをご参照ください。</p>
+
+<ul>
+<li><a href="https://docs.python.org/ja/3/reference/lexical_analysis.html#formatted-string-literals" rel="nofollow">フォーマット済み文字列リテラル(Python 3.6.5 ドキュメント)</a></li>
+<li><a href="https://note.nkmk.me/python-f-strings/" rel="nofollow">Pythonのf文字列（フォーマット済み文字列リテラル）の使い方(note.nkmk.me)</a></li>
+</ul>
+
+<pre class="prettyprint linenums"><code>A, B = map(int, input().split())
+S = B / A
+print(f&#39;{S:.3f}&#39;)
+</code></pre>
+
+<h4>余談：コンテストで「小数点第 <span>\(n\)</span> 位を四捨五入して出力」が出題されない理由</h4>
+
+<p>「小数点第 <span>\(n\)</span> 位を四捨五入」という操作は、日常生活でも野球の打率をはじめ各所で見かける基本的な処理で、学校の算数や数学・理科の問題でも答えの小数部のどこかを四捨五入して答案に記入する形式の問題は非常に多いです。ところが、競技プログラミングでは「答えを小数点第 <span>\(4\)</span> 位で四捨五入して出力」という形式での問題はほとんど存在せず、かわりに</p>
+
+<blockquote>
+<p>想定解答との絶対誤差または相対誤差が <span>\(10^{-6}\)</span>  以下であれば正解として扱われる。</p>
+</blockquote>
+
+<p>というような特殊な形式によるジャッジが行われています。これはなぜでしょうか？</p>
+
+<p>これは 浮動小数点数型の演算の性質に起因します。整数の世界では <span>\(a \leq x \leq b\)</span> のように <span>\(x\)</span> を不等号で挟んでしまえば <span>\(x\)</span> として取り得る値は有限ですが、実数の世界は取り得る値が無限に存在します。これをどうにかプログラミングの枠組みで扱うために、 <code>double</code> 型 (Python の <code>float</code> も同様) は端数を上手く四捨五入して <span>\(x = 2^{a} \times b\)</span> という形に無理やり押し込んで取り扱っているため、 演算を行うたびに微細な <strong>誤差</strong> が発生して、計算を重ねるごとに誤差がどんどん積み重なっていきます。(例えば <code>double</code> 型では、四則演算を 1 回呼び出すたびに最大で <span>\(10^{-16}\)</span> 程度の相対誤差が発生します。)</p>
+
+<p>ところが、この「誤差が発生する」という性質は「四捨五入して出力」という形式と非常に相性が悪いです。<br>
+例えばこの問題の制約が <span>\(1 \leq A \leq 100\)</span> で、<span>\((A, B) = (80, 1)\)</span> の場合を考えてみましょう。このとき <span>\(S = \frac{1}{80} = 0.0125\)</span> で、小数点第 <span>\(4\)</span> 位がちょうど <span>\(5\)</span> なので切り上げて <code>0.013</code> が答えとなります。ところが、<span>\( B / A\)</span> を計算する過程で <span>\(S\)</span> がわずかに小さくなって <span>\(0.012499999999999999\)</span> になってしまったとします。すると小数第 <span>\(4\)</span> 位は <span>\(4\)</span> になり、これを四捨五入すると答えは <code>0.012</code> になり、誤った答えを出力してしまいます。</p>
+
+<p>このような例を見てもわかる通り、四捨五入という形式は 「値によっては少しでも誤差が発生すると答えが変わる」という性質を持っています。よって、「小数を四捨五入して出力」という問題は「誤差が発生しないようにしながら小数を扱ってください」という自家撞着したキテレツな問題になってしまうわけです。</p>
+
+<ul>
+<li>ここまでの主張はやや正確ではなく、もう少し厳密な話をすると、小数の計算過程で蓄積する誤差だけでなく、丸め誤差と呼ばれる浮動小数点数の性質に起因する誤差や、最近接偶数丸め(いわゆる「銀行家の丸め」)と呼ばれる特殊な四捨五入の形式への配慮が必要になると考えられます。(難しい話なのでここでは説明を控えます)</li>
+</ul>
+
+<p>以上のような理由から、日常生活で馴染みのある「小数を切り捨てた値を求める」という操作は、プログラミングの世界では思わぬ難題となってしまいます。こうした観点をおざなりにしたまま四捨五入をコンテストで出題すると、想定解の正当性が保証できなかったり、誤差をキチンと理解しているコンテスタントが大きく不利になったりしてしまいます。よって AtCoder のような運営に良識のあるコンテストサイトならば、このような問題は事前に reject されて出題されない、というのがコンテストに出てこない理由だと考えられます。ただしこの問題は例外で、与えられた制約下では答えが <span>\(0.001 n + 0.0005\)</span> (<span>\(n\)</span> は整数) という形で表されないこと、および小数の誤差が四捨五入後の結果を変えるほどは大きくならないことが証明できるので特別に出題を認められたと考えています。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1666192600">
+				<time class="timeago" datetime="2022/10/20 00:16:40"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1666525410">
+				<time class="timeago" datetime="2022/10/23 20:43:30"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc274/editorial/5075?lang=ja" data-a2a-title="解説 - キーエンスプログラミングコンテスト2022（AtCoder Beginner Contest 274）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc274/rules">ルール</a></li>
+					<li><a href="/contests/abc274/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

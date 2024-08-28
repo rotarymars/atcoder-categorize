@@ -1,0 +1,65 @@
+
+		公式
+		
+			
+				G - Merchant Takahashi 解説
+			
+			by MMNMM
+			
+		
+		
+		
+		
+			高橋君の移動は、高橋君が参加する市場が開催される町を順に移動するものだけを考えて構いません（そうでない移動に対して、余計な停止を取り除くことで最終的な所持金が減ることはありません）。
+
+よって、\(\operatorname{dp}[i]\coloneqq{}\)高橋君が最後に参加した市場が町 \(i\) で行われたときの所持金の最大値 のように定め、これを更新していくことを考えます。
+はじめ、\(\operatorname{dp}[1]=10 ^ {10 ^ {100}},\operatorname{dp}[i]=0\ (i\neq1)\) です（便宜上、はじめに \((T _ i,P _ i)=(1,0)\) なる市場に参加したとします）。
+
+市場の情報 \((T _ i,P _ i)\) に対して、更新は次のように行われます。
+
+\[\operatorname{dp}[T _ i]=P _ i+\max _ {1\leq j\leq N}\lbrace\operatorname{dp}[j]-C|j-T _ i|\rbrace\]
+
+この式を整理します。
+
+\[\begin{aligned}
+\operatorname{dp}[T _ i]
+&=P _ i+\max _ {1\leq j\leq N}\lbrace\operatorname{dp}[j]-C|j-T _ i|\rbrace\\
+&=P _ i+\max\Bigl\lbrace\max _ {1\leq j\lt T _ i}\lbrace\operatorname{dp}[j]-C|j-T _ i|\rbrace,\max _ {T _ i\leq j\leq N}\lbrace\operatorname{dp}[j]-C|j-T _ i|\rbrace\Bigr\rbrace\\
+&=P _ i+\max\Bigl\lbrace\max _ {1\leq j\lt T _ i}\lbrace\operatorname{dp}[j]-C(T _ i-j)\rbrace,\max _ {T _ i\leq j\leq N}\lbrace\operatorname{dp}[j]-C(j-T _ i)\rbrace\Bigr\rbrace\\
+&=P _ i+\max\Bigl\lbrace-CT _ i+\max _ {1\leq j\lt T _ i}\lbrace\operatorname{dp}[j]+Cj\rbrace,CT _ i+\max _ {T _ i\leq j\leq N}\lbrace\operatorname{dp}[j]-Cj\rbrace\Bigr\rbrace\\
+\end{aligned}\]
+
+よって、数列に対して
+
+
+一点更新（chmax）
+prefix max を求める
+
+
+が高速にできれば、この問題を解くことができます（\((\operatorname{dp}[j]-Cj) _ {1\leq j\leq N}\) の列は前後反転しているとみればよいです）。
+
+これは、セグメント木や fenwick 木などを用いるとクエリ \(O(\log N)\) で、prefix max が切り替わる点列を平衡二分探索木などで管理するとクエリ \(O(\log\min\lbrace N,M\rbrace)\) で処理することができます。
+
+実装例は以下のようになります。セグメント木を用いるものと、prefix max が切り替わる点列を管理するものの両方を示します。
+
+実装の際には、\(10 ^ {10 ^ {100}}\) は少々大きいため、計算結果に影響がない範囲で初期値を調節する必要があります。
+
+
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

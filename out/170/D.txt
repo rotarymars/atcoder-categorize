@@ -1,0 +1,28 @@
+エラトステネスの篩と同様の処理を, 数列 A の要素についてのみ行います.
+サイズ Amax の bool 配列 d p を用意し, true で初期化します.d p[i] =true のとき, i より小さい i の約
+数が A に存在しないことを表します. 数列の要素を昇順に見ます.x が数列 A に含まれているとき,
+
+x より大きい x の倍数 y について, d p[y] を false に変更します.
+同じ値について処理を複数回行わないように実装すると, 調和級数を用いた解析により, 時間計算量
+
+(
+
+)
+
+が O Amax log Amax + N log N であることが分かります.
+同じ値が複数存在する場合に, それらを答えに含めないことに注意してください.
+
+4
+
+Perform the same operations to Sieve of Eratosthenes only for the elements of the sequence A.
+Prepare a bool array d p of size Amax , and initialize them with true. d p[i] =true means that A contains
+none of the divisors of i less than i. Inspect each element in the increasing order. When x is contained
+in A, for each multiple y of x larger than x, update d p[y] to false.
+If you avoid performing operations multiple times for the same value, the total time complexity appears
+(
+)
+to be O Amax log Amax + N log N by the analysis using harmonic series. Be careful not to count the
+values that appears multiple times.
+
+10
+

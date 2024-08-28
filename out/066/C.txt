@@ -1,0 +1,64 @@
+毎回逆向きの並び替えをしていると時間がかかりすぎてしまうので (O(n2 ))、
+これを避ける方法を考えます。入力例を参考に考えると、数列の最初と最後
+に交互に ai を追加していくと答えが求まることが分かります。また、最後に
+追加した項は最初に来るはずなので、
+
+1. i と n の偶奇が一致していれば、数列の前に ai を追加する。
+2. i と n の偶奇が一致していなければ、数列の後ろに ai を追加する。
+という操作をすれば良いことが分かります。
+この操作を効率よくするためにはどうすれば良いでしょうか？C++を使っ
+ている場合は、stl::deque という標準ライブラリの機能を使うと簡単に出来
+ます。そうでない場合は、大きめの配列を確保して、真ん中あたりから順番
+に使っていくと実装できます。この方針で実装した C 言語の実装例は以下の
+とおりです。
+1 # include < stdio .h >
+2
+3 int array [512345];
+
+2
+
+4 int a [212345];
+5
+6 int main () {
+7
+int n ;
+8
+scanf ( " % d " , & n ) ;
+9
+for ( int i =0; i < n ; ++ i ) scanf ( " % d " , & a [ i ]) ;
+10
+int left =212345 , right = left +1;
+11
+for ( int i =0; i < n ; ++ i ) {
+12
+if ( i %2 == (n -1) %2) {
+13
+array [ left - -]= a [ i ];
+14
+} else {
+15
+array [ right ++]= a [ i ];
+16
+}
+17
+}
+18
+for ( int i = left +1; i < right ; ++ i ) {
+19
+printf ( " % d ␣ " , array [ i ]) ;
+20
+}
+21
+return 0;
+22 }
+
+You can observe that ai are appended to the beginning or the end, alternately.
+The last element (an ) will be appended to the beginning.
+Therefore, we start from an empty sequence, and in the order a1 , . . . , an ,
+1. If i and n have the same parity, append ai to the beginning of the
+sequence.
+2. If i and n have diﬀerent parities, append ai to the end of the sequence.
+This can be implemented in O(n) with a deque.
+
+3
+

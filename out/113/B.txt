@@ -1,0 +1,26 @@
+
+Palace
+
+地点 i の平均気温は T − Hi × 0.006 度なので、各地点の平均気温を計算し、それらの中から平
+均気温が A 度に最も近い点を求めるとよいです。
+気温は整数ではありませんが、気温を 1000 倍して計算すると浮動小数点型を用いなくても答え
+を求めることができます。
+# include < cstdio >
+int N ,T ,A , X ;
+int main ()
+{
+scanf ("% d % d % d " ,&N ,& T ,& A );
+int res =0;
+int cc =1 < <30;
+for ( int i =1; i <= N ; i ++)
+{
+scanf ("% d " ,& X );
+int d =( T *1000 - X *6) - A *1000;
+if (d <0) d = - d ;
+if ( cc > d ) cc =d , res = i ;
+}
+printf ("% d \ n " , res );
+}
+
+2
+

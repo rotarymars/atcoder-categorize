@@ -1,0 +1,14 @@
+整数 x が標準入力から与えられるので x が 1200 未満かどうか判定せよ，という問題です．
+
+C++ などのプログラミング言語では以下のように if 文と呼ばれる構文を用いることで条件分岐を
+行うことが可能です．
+
+#include <iostream>
+using namespace std;
+int main(){
+int x;
+cin >> x;
+if(x < 1200) cout << "ABC" << endl;
+else cout << "ARC" << endl;
+}
+

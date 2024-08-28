@@ -1,0 +1,26 @@
+(解説: evima)
+問題文に書かれている指示にそのまま従うと、最悪の場合にのべ 100 億個の要素を書き換えるこ
+とになります。この場合、C++ などの高速に動作する言語を使うとして少なくとも 10 秒程度の実
+行時間が欲しいところですが、この問題の実行制限時間は 2 秒であり、間に合いません。
+そこで、この問題で出力することを要求されているものが全要素の和のみであることに着目し
+ます。「値が B であるような要素をすべて C に置き換える」という操作 (これを操作 X としま
+す) を行うと、全要素の和は (C − B) × (操作が行われる直前に値が B であった要素の個数) だけ増
+加します。よって、数列 A そのものを操作する代わりに、A に値 1, . . . , 100000 が出現する個数
+
+num1 , . . . , num100000 を管理するのが合理的です。操作 X により、全要素の和のみならず各要素の
+値そのものも変化しますが、 この変化も numB と numC を操作することにより表現することができ
+ます。よって、操作を行い始める前に一度だけ時間をかけて全要素の和と num1 , . . . , num100000 を
+求めておけば、各操作を定数時間で処理することができます。
+
+(Editorial: evima)
+If you naively follow the directions in the problem statement, you will have to replace as many as 10
+billion elements in total. In this case, even if we use fast languages like C++, we want about 10-second
+execution time, but the time limit for this problem is 2 seconds, so it won’t ﬁnish in time.
+Note that we are only asked to output the sum of all elements. After performing the operation of
+“replacing every element whose value is B with C” (we denote this operation by X), the total sum
+of elements increases by (C − B) × (the number of elements whose values are B before the opration).
+Therefore, instead of manipulating sequence A itself, it is more reasonable to manage the number of appearances of 1, . . . , 100000 in A. By the operation X, not only the sum of all elements but also the value
+of each element itself also changes, but this changes can also be represented by operating numB and
+numC . Therefore, by taking time for calculating the sum of all the elements and num1 , . . . , num100000
+only once before start to perform the operations, each operation can be performed in a constant time.
+

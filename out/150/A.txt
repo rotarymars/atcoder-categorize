@@ -1,0 +1,64 @@
+高橋君が持っているお金の総額は 500 × K 円です。これを X と比較し、500 × K が X 以上なら
+ば Yes、そうでないならば No です。
+Listing 1 C++ での実装例
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(){
+
+4
+
+int K,X;
+
+5
+
+scanf("%d%d",&K,&X);
+
+6
+
+if(500*K>=X)printf("Yes\n");
+else printf("No\n");
+
+7
+8
+
+}
+
+1
+
+Takahashi has 500 × K yen. Compare this with X, and if 500 × K is greater than or equal to
+X then the answer is Yes, otherwise No.
+Listing 3 Sample code in C++
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(){
+
+4
+
+int K,X;
+
+5
+
+scanf("%d%d",&K,&X);
+
+6
+
+if(500*K>=X)printf("Yes\n");
+else printf("No\n");
+
+7
+8
+
+}
+
+7
+

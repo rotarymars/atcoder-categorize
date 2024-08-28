@@ -1,0 +1,19 @@
+K 以下の偶数は ⌊K/2⌋ 個、奇数は ⌈K/2⌉ 個あるので、これらを足し合わせればよいです。
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int k ;
+s c a n f (”%d ” , &k ) ;
+p r i n t f (”%d\n ” , ( k / 2 ) ∗ ( ( k + 1 ) / 2 ) ) ;
+}
+
+There are ⌊K/2⌋ even numbers and ⌈K/2⌉ odd numbers among positive integers up to K. The answer
+is the product of these values.
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int k ;
+s c a n f (”%d ” , &k ) ;
+p r i n t f (”%d\n ” , ( k / 2 ) ∗ ( ( k + 1 ) / 2 ) ) ;
+}
+

@@ -1,0 +1,70 @@
+
+		公式
+		
+			
+				G - OR Sum 解説
+			
+			by mechanicalpenciI
+			
+		
+		
+		
+		
+			本問題は畳込み(convolution)を用いて解く事ができます。
+
+\(A\) は \(N\) 回操作を行うと元に戻るため、操作を行う回数の候補としては \(0\leq j\leq N-1\) を考えれば十分です。
+\(j\) 回操作を行った後の \(\displaystyle\sum_{i=0}^{N-1} (A_i|B_i)\) の値は、元の与えられた(操作前の)数列 \(A,B\) を用いて
+\(\displaystyle\sum_{i=0}^{N-1} (A_{(i+j)\% N}|B_i)\) と書け、\(0\leq j\leq N-1\) の範囲におけるこの値の最大値を求めれば良いです。
+
+さて、この値を各 \(0\leq j\leq N-1\) に対して求める事を考えます。
+今回の制約では、\(0\leq A_i,B_i\leq 31\) ですが、
+論理和はbit 毎に計算できる(繰り上がり等が起きない)ため、
+\(0\leq A_i,B_i\leq 1\) の場合について解くことができれば、\(2^0,2^1,2^2,2^3,2^4\) の位についてそれぞれ計算を行う事で求める事ができます。すなわち、\(A_i,B_i\) の \(k\) bit目を \(A_{i,k},B_{i,k}\) とすれば、
+\[
+\displaystyle\sum_{i=0}^{N-1} (A_{(i+j)\% N}|B_i)
+=\displaystyle\sum_{k=0}^{4}2^k\cdot\left(\displaystyle\sum_{i=0}^{N-1} (A_{(i+j)\% N,k}|B_{i,k})\right)
+\]として計算する事ができます。
+
+\(a=(a_0,a_1,\ldots,a_{N-1})\),  \(b=(b_0,b_1,\ldots,b_{N-1})\) \((0\leq a_i,b_i\leq 1)\)に対して、
+\(\displaystyle\sum_{i=0}^{N-1} (a_{(i+j)\% N}|b_{i})\)
+を畳込みを用いて計算する事を考えます。
+まず、(この形の添字の組についての和を畳込みの計算によって得るために、)\(a\) を  \(2\) 回繋げたもの \(a'=(a'_{0},a'_{1},\ldots, a'_{2N-1})=(a_{0},a_{1},\ldots,a_{N-1},a_{0},a_{1},\ldots,a_{N-1} )\) と \(b\) を逆順にしたもの \(b'=(b'_{0},b'_{1},\ldots, b'_{N-1})=(b_{N-1},b_{N-2},\ldots,b_{0})\) に対して畳込みを行った結果を \(c'=a'*b'=(c'_0,c'_1,\ldots, c'_{3N-1})\) とすると,、
+\[
+c'_{N-1+j}=\displaystyle\sum_{i=0}^{N-1} a'_{i+j}\cdot b'_{N-1-i}=\displaystyle\sum_{i=0}^{N-1} a_{(i+j)\% N}\cdot b_i 
+\]となります。ここで、\(0\leq x,y\leq 1\)に対して、
+\(x\cdot y\)は \(x=y=1\)の時、\(x\cdot y=1\), それ以外の時 \(x\cdot y=0\) となる事から \(x\cdot y=x\& y\) (\(\&\) は論理積(AND演算))が成り立ちます。さらに、ここで、\(x\)の否定を\(\bar{x}\) として \(\overline{(x|y)}=\bar{x}\&\bar{y}\) が成り立つ事から、
+\(\bar{a'}=(\bar{a}'_{0},\bar{a}'_{1},\ldots, \bar{a}'_{2N-1})\)と
+\(\bar{b'}=(\bar{b}'_{0},\bar{b}'_{1},\ldots, \bar{b}'_{N-1})\)の畳込みを考えると、
+\[
+(\bar{a'}*\bar{b'})_{N-1+j}
+=\displaystyle\sum_{i=0}^{N-1} \bar{a}_{(i+j)\% N}\cdot \bar{b}_i
+=\displaystyle\sum_{i=0}^{N-1} \bar{a}_{(i+j)\% N}\& \bar{b}_i
+=\displaystyle\sum_{i=0}^{N-1} \overline{a_{(i+j)\% N}|b_i}
+=\displaystyle\sum_{i=0}^{N-1} (1-(a_{(i+j)\% N}|b_i))
+=N-\displaystyle\sum_{i=0}^{N-1} (a_{(i+j)\% N}|b_i)
+\]となる事から、\(0\leq j\leq N-1\) の範囲に対して
+\(\displaystyle\sum_{i=0}^{N-1} (a_{(i+j)\% N}|b_{i})\) の値を、
+\(\displaystyle\sum_{i=0}^{N-1} (a_{(i+j)\% N}|b_{i})=N-(\bar{a'}*\bar{b'})_{N-1+j}\) として、\(1\)回の畳込み(時間計算量 \(O(N\log N)\) )によって求める事ができます。
+
+後は先に述べたように各bitに対してこれを用いて計算して \(\displaystyle\sum_{i=0}^{N-1} (A_{(i+j)\% N}|B_i)\) の値を得て、そのうち最大のものを選べば良いです。
+この時、全体の計算量は\(O(N\log N\log M))\) (ただし、\(M=\max(a_0,a_1,\ldots,a_{N-1},b_0,b_1,\ldots,b_{N-1})\)) で求める事ができ、十分高速に答を求める事ができました。
+
+c++ による実装例 :
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

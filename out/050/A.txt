@@ -1,0 +1,11 @@
+整数、文字列、整数を空白区切りで読み込み、読んだ文字列が “+” か “-” で条件分岐をします。
+C++ のコード例
+
+int a , b ;
+string op ;
+cin > > a >> op >> b ;
+if ( op == "+")
+cout << a + b << endl ;
+else
+cout << a - b << endl ;
+

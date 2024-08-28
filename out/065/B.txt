@@ -1,0 +1,88 @@
+どのボタンが光るかを順にシミュレートしていき、もしボタン 2 が光ったなら、それまでにボタンを押した
+回数を出力すればよいです。
+では、ボタン 2 が永遠に光らない場合はどうでしょうか。コンピュータは有限回の操作しかできないため、
+「いつまでたってもボタン 2 は光らない」ということを直接シミュレーションで確かめることはできません。
+
+N 回ボタンを押してもボタン 2 が光らなかったとします。このとき、その間に N + 1 回いずれかのボタン
+が光るので、そのうちのある 2 つは同じボタンです。同じボタンが光っている状態から光っているボタンを
+押すことを繰り返しても、同じ順にボタンが光るだけなので、この場合ボタン 2 は永遠に光ることはありま
+せん。
+よって、N 回までボタンを押してみて、もし途中でボタン 2 が光ればそれまでにボタンを押した回数を出
+力し、そうでなければ −1 を出力すれば、この問題を解くことができます。
+以下に C++ による実装例を示します。
+
+1
+
+#i n c l u d e <s t d i o . h>
+#i n c l u d e <v e c t o r >
+#i n c l u d e <a l g o r i t h m >
+u s i n g namespace s t d ;
+i n t main ( )
+{
+int n;
+s c a n f (”%d ” , &n ) ;
+v e c t o r <i n t >v ;
+f o r ( i n t i = 0 ; i < n ; i ++)
+{
+int z ;
+s c a n f (”%d ” , &z ) ;
+z−−;
+v . push back ( z ) ;
+}
+i n t now = 0 , c = 0 ;
+for ( ; ; )
+{
+i f ( now == 1 )
+{
+p r i n t f (”%d\n ” , c ) ;
+break ;
+}
+i f ( c >= n )
+{
+p r i n t f (”−1\n ” ) ;
+break ;
+}
+c++;
+now = v [ now ] ;
+}
+}
+
+We simulate the process. If 2 is lighten up during the simulation, we get the answer. Otherwise,
+if 2 is not lighten up in the first N steps, we can prove that this button will never be lighten up,
+thus the answer is −1.
+#i n c l u d e <s t d i o . h>
+#i n c l u d e <v e c t o r >
+#i n c l u d e <a l g o r i t h m >
+u s i n g namespace s t d ;
+i n t main ( )
+{
+int n;
+s c a n f (”%d ” , &n ) ;
+v e c t o r <i n t >v ;
+f o r ( i n t i = 0 ; i < n ; i ++)
+{
+int z ;
+s c a n f (”%d ” , &z ) ;
+z−−;
+1
+
+v . push back ( z ) ;
+}
+i n t now = 0 , c = 0 ;
+for ( ; ; )
+{
+i f ( now == 1 )
+{
+p r i n t f (”%d\n ” , c ) ;
+break ;
+}
+i f ( c >= n )
+{
+p r i n t f (”−1\n ” ) ;
+break ;
+}
+c++;
+now = v [ now ] ;
+}
+}
+

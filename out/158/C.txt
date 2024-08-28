@@ -1,0 +1,15 @@
+消費税が 8% のとき A 円、消費税が 10% のとき B 円となる金額を直接求めなくても、1 ≤ A ≤
+
+B ≤ 100 の条件から、最大でも考える必要のある金額は 1009 円であるため、小さい方から計算して
+いけばよいです。
+課題 : O(1) で答えを求めてください。
+
+3
+
+Instead of directly ﬁnding the price such that the consumption tax is A and B yen when tax
+rate is 8% and 10%, by the condition of 1 ≤ A ≤ B ≤ 100, the maximum price that has to be
+considered is 1009 yen, so it is suﬃcient to calculate in the increasing order.
+Task: Find the answer in a total of O(1) time.
+
+9
+

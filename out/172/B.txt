@@ -1,0 +1,76 @@
+(解説: evima)
+問題文は厳密を期してやや堅苦しく書かれていますが、平たくいえば「S と T は何か所が異なる
+か？」という内容に過ぎません。
+主な課題は、二つの文字列の長さが一定でない上に大きいことです。「if 文」の扱いは Beginner
+
+(Editorial: evima)
+The problem statement is written rather formally for the sake of strictness, but in fact the
+problem simply asks “how many letters are diﬀerent between S and T ?”
+The main issue is that the lengths of the strings are not constant, and large. The treatment
+of “if statements” is required in Problem A of Beginner Contests, and this problem can be
+theoretically solved by repeating 200 thousands lines of if statements like
+if length(S) >= 100 and S[99] != T[99] then ans += 1
+However, the source code would have millions of characters, which is not submittable to AtCoder (The possible maximum length is about 520 thousands).
+To avoid 200 thousand if statements, most straightforward way is to use the structure called
+“for statements.” If you execute the operation of if S[i] != T[i] then ans += 1 for each
+i = 0, i = 1, . . . , i = (length of S) − 1 in the for statement, you just have to write if statement
+once. You can obtain more details of for statement by searching like “[language name] for”.
+Sample code in C++ and Python (the latter of which is as an example of an approach other
+than “for statement”)
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+string S, T;
+
+6
+
+cin >> S >> T;
+
+7
+
+int N = S.size(), ans = 0;
+
+8
+
+for(int i = 0; i < N; ++i){
+
+9
+
+if(S[i] != T[i]) ++ans;
+
+10
+
+}
+
+11
+
+cout << ans << endl;
+
+12
+
+}
+
+1
+
+S, T = input(), input()
+
+2
+
+print(len(list(filter(lambda i: S[i] != T[i], range(len(S))))))
+11
+
+12
+

@@ -1,0 +1,101 @@
+
+		公式
+		
+			
+				G - Random Walk to Millionaire 解説
+			
+			by leaf1415
+			
+		
+		
+		
+		
+			\(i\) 回目の行動後にいる頂点を \(v_i\) として、\(K\) 回の行動で通る頂点列 \(\pmb{v}\coloneqq (v_0, v_1, v_2, \ldots, v_K)\) を考えます。
+
+\(\pmb{v}\) を通るとき高橋君が獲得できるお金の合計金額 \(f(\pmb{v})\) は、\(f(\pmb{v}) = \displaystyle\sum_{\substack{i = 1, 2, \ldots, K \\ C_{v_i} = 1}} X_i^2\)
+です。ここで、\(X_i\) は \(i\) 回目の行動後の高橋君のレベルを表します。
+
+\(X_i\) は「\(1 \leq j \leq i\) かつ \(C_{v_j} = 0\) を満たす整数 \(j\) の個数」に等しいので、\(X_i^2\) は「 \(1 \leq x, y \leq i\) かつ \(C_{v_x} = C_{v_y} = 0\) を満たす整数の組 \((x, y)\) の個数」と等しいです。
+
+よって、
+
+
+頂点列 \(\pmb{w} = (w_0, w_1, \ldots, w_l)\) と、
+\(1 \leq x, y \leq l\) かつ \(C_{w_x} = C_{w_y} = 0\) を満たす整数 \(x, y\)
+
+
+の三つ組 \((\pmb{w}, x, y)\) 全体からなる集合を \(\mathcal{T}\) とおくと、\(f(\pmb{v})\) は、
+
+
+三つ組 \((\pmb{w}, x, y) \in \mathcal{T}\) であって、
+
+
+\(\pmb{w}\) は \(\pmb {v}\) の prefix 、かつ、
+\(\pmb{w}\) の末尾の頂点 \(w_{\mathrm{tail}}\) について、\(C_{w_{\mathrm{tail}}} =1\)
+
+
+を満たすものの個数
+
+
+に等しいです。
+
+したがって、本問題の答えである、頂点列 \(\pmb{v}\) がランダムに選ばれるときの \(f(\pmb{v})\) の期待値 \(E_{\pmb{v}}[f(\pmb{v})]\) は、
+
+
+すべての三つ組 \((\pmb{w}, x, y) \in \mathcal{T}\) にわたる「 \((\pmb{w}, x, y)\) が \(f(\pmb{v})\) に寄与する確率」の和
+
+
+です。これは、\(\pmb{w}\) が \(\pmb{v}\) の prefix となる確率を \(p(\pmb{w})\) とすると、
+
+\(E_{\pmb{v}}[f(\pmb{v})] = \displaystyle\sum_{\substack{(\pmb{w}, x, y) \in \mathcal{T} \\ C_{w_{\mathrm{tail}}} = 1}} p(\pmb{w}) =  \displaystyle\sum_{\substack{(\pmb{w}, x, y) \in \mathcal{T} \\ C_{w_{\mathrm{tail}}} = 1}}\prod_{i = 0}^{l-1}  \frac{1}{\mathrm{deg}(w_i)}\)
+
+です。ここで、\(\mathrm{deg}(w_i)\) は頂点 \(w_i\) の次数を表します。
+
+これは、動的計画法で求めることができます。
+具体的には、DP テーブル \(\mathrm{dp}[i][j][a][b]\) を、
+
+
+
+長さ \(i\) の頂点列 \(\pmb{w} = (w_0, w_1, \ldots, w_i)\) であって、\(w_i = j\) を満たすもの
+整数 \(x\) であって下記を満たすもの
+
+
+\(a = 1\) ならば、\(1 \leq x \leq i\) かつ \(C_{w_x} = 0\)
+\(a  = 0\) ならば、\(x = -1\)
+
+整数 \(y\) であって下記を満たすもの
+
+
+\(b = 1\) ならば、\(1 \leq y \leq i\) かつ \(C_{w_y} = 0\)
+\(b  = 0\) ならば、\(y = -1\)
+
+
+
+の三つ組 \((\pmb{w}, x, y)\) すべてにわたる \(p(\pmb{w})\) の和
+
+
+と定め、このテーブルを埋めることで、本問題の答えを
+
+\(E_{\pmb{v}}[f(\pmb{v})] = \displaystyle\sum_{\substack{(\pmb{w}, x, y) \in \mathcal{T} \\ C_{w_{\mathrm{tail}}} = 1}} p(\pmb{w}) = \sum_{i = 1}^K \sum_{\substack{j = 1, 2, \ldots, N \\ C_j = 1}} \mathrm{dp}[i][j][1][1]\)
+
+として、\(O(MK)\) 時間で求めることができます。
+
+以下に、C++ 言語による本問題の正解例を記載します。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

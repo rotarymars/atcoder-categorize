@@ -1,0 +1,140 @@
+
+		公式
+		
+			
+				Ex - 01? Queries 解説
+			
+			by leaf1415
+			
+		
+		
+		
+		
+			「 \(S\) に含まれるすべての ? をそれぞれ独立に 0 または 1 に置き換えて得られる文字列の部分列としてあり得る文字列」を、単に「 \(S\) から作れる文字列」と呼びます。ここでは便宜上、空文字列も \(S\) から作れることにします。
+
+文字列 \(S = s_1s_2\ldots s_N\) に対し、\(i = 0, 1, \ldots, N\) について
+
+
+\(\mathrm{dp}[i][0] := \) （ \(S\) の先頭 \(i\) 文字 \(s_1s_2\ldots s_i\) から作れる文字列のうち末尾が  0 のものの個数）
+\(\mathrm{dp}[i][1] := \) （ \(S\) の先頭 \(i\) 文字 \(s_1s_2\ldots s_i\) から作れる文字列のうち末尾が  1 のものの個数）
+
+
+とおきます。
+このとき、各クエリで出力すべき値は、各時点の \(S\) に対する \(\mathrm{dp}[N][0] + \mathrm{dp}[N][1]\) です。
+よって、これを計算することを考えます。
+
+ます明らかに、\(\mathrm{dp}[0][0] = \mathrm{dp}[0][1] = 0\) です。以下で、\(i = 1, 2, \ldots, N\) について、「 \(\mathrm{dp}[i-1][0]\) と \(\mathrm{dp}[i-1][1]\) の値が分かっているときに、\(\mathrm{dp}[i][0]\) と \(\mathrm{dp}[i][1]\) を求める方法」を考えます。
+
+\(s_i = \) 0 の場合を考えます。
+\(s_1s_2\ldots s_{i-1}\) から作れる文字列は、明らかに \(s_1s_2\ldots s_i\) からも作れます。
+また、\(s_1s_2\ldots s_{i-1}\) の末尾に \(s_i = \) 0 を追加することで新たに作れるようになる文字列は、
+
+
+\(s_1s_2\ldots s_{i-1}\) から作れる文字列の末尾に 0 を追加した文字列のうち、\(s_1s_2\ldots s_{i-1}\) からは作れないもの
+
+
+です。
+「 \(s_1s_2\ldots s_{i-1}\) から作れる文字列の末尾に 0 を追加した文字列」の個数は、\(s_1s_2\ldots s_{i-1}\) から作れる文字列の個数に等しく、\(\mathrm{dp}[i-1][0] + \mathrm{dp}[i-1][1] + 1\) です（末項の \(1\) は空文字列に対応します）。
+そのうち「すでに \(s_1s_2\ldots s_{i-1}\) から作れるもの」の個数は \(\mathrm{dp}[i-1][0]\) です
+（ \(s_1s_2\ldots s_{i-1}\) から作れる末尾が  0 の任意の文字列 \(t_1 t_2 \ldots t_l\) は、\(s_1s_2\ldots s_{i-1}\) から作れる文字列である \(t_1 t_2 \ldots t_{l-1}\) の末尾に 0 を追加して得られます）。
+
+よって、\(s_1s_2\ldots s_{i-1}\) の末尾に \(s_i = \) 0 を追加すると、末尾が 0 である \(\mathrm{dp}[i-1][1] + 1\) 個の文字列が新たに作れるようになります。
+
+したがって、\(s_i = \) 0 のとき、
+
+
+\(\mathrm{dp}[i][0] = \mathrm{dp}[i-1][0] + (\mathrm{dp}[i-1][1] + 1)\)
+\(\mathrm{dp}[i][1] = \mathrm{dp}[i-1][1]\)
+
+
+です。同様に、\(s_i = \) 1 のとき、
+
+
+\(\mathrm{dp}[i][0] = \mathrm{dp}[i-1][0]\)
+\(\mathrm{dp}[i][1] = \mathrm{dp}[i-1][1] + (\mathrm{dp}[i-1][0] + 1)\)
+
+
+であり、\(s_i = \) ? のとき、
+
+
+\(\mathrm{dp}[i][0] = \mathrm{dp}[i-1][0] + (\mathrm{dp}[i-1][1] + 1)\)
+\(\mathrm{dp}[i][1] = \mathrm{dp}[i-1][1] + (\mathrm{dp}[i-1][0] + 1)\)
+
+
+です。
+
+よって、
+\[
+\mathbf{A}_0 :=
+\left[\begin{matrix}
+1 & 1 & 1 \\
+0 & 1 & 0\\
+0 & 0 & 1 \\
+\end{matrix}\right],
+
+\mathbf{A}_1 :=
+\left[\begin{matrix}
+1 & 0 & 0 \\
+1 & 1 & 1\\
+0 & 0 & 1 \\
+\end{matrix}\right],
+
+\mathbf{A}_? :=
+\left[\begin{matrix}
+1 & 1 & 1 \\
+1 & 1 & 1\\
+0 & 0 & 1 \\
+\end{matrix}\right],
+\]とおくと、\(i = 1, 2, \ldots, N\) について、
+\[
+\left[\begin{matrix}
+\mathrm{dp}[i][0]\\
+\mathrm{dp}[i][1]\\
+1 \\
+\end{matrix}\right]
+= \mathbf{A}_{s_i} \left[\begin{matrix}
+\mathrm{dp}[i-1][0]\\
+\mathrm{dp}[i-1][1]\\
+1 \\
+\end{matrix}\right]
+\]であり、特に、
+\[
+\left[\begin{matrix}
+\mathrm{dp}[N][0]\\
+\mathrm{dp}[N][1]\\
+1 \\
+\end{matrix}\right]
+= \mathbf{A}_{s_N}\mathbf{A}_{s_{N-1}}\cdots \mathbf{A}_{s_1}\left[\begin{matrix}
+\mathrm{dp}[0][0]\\
+\mathrm{dp}[0][1]\\
+1 \\
+\end{matrix}\right]
+=  \mathbf{A}_{s_N}\mathbf{A}_{s_{N-1}}\cdots \mathbf{A}_{s_1}\left[\begin{matrix}
+0\\
+0\\
+1 \\
+\end{matrix}\right]
+\]です。
+
+したがって、各クエリの処理では
+\(N\) 個の行列の積 \(\mathbf{A}_{s_N}\mathbf{A}_{s_{N-1}}\cdots \mathbf{A}_{s_1}\) を計算することと、
+\(\mathbf{A}_{s_N}, \mathbf{A}_{s_{N-1}}, \ldots,  \mathbf{A}_{s_1}\) のうち \(1\) つを別の行列に変更することを行えれば良いです。
+これは、セグメント木を用いることによって、\(1\) つのクエリにつき\(\mathrm{O}(\log N)\) 時間で行うことができます。
+
+以上より、本問題を \(\mathrm{O}(N + Q\log N)\) 時間で解くことができます。
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

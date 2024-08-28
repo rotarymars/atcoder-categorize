@@ -1,0 +1,476 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - 京セラプログラミングコンテスト2023(AtCoder Beginner Contest 305)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - 京セラプログラミングコンテスト2023(AtCoder Beginner Contest 305)" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc305/editorial/6534" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - 京セラプログラミングコンテスト2023(AtCoder Beginner Contest 305)" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc305";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-06-10T21:00:00+09:00");
+			var endTime = moment("2023-06-10T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>京セラプログラミングコンテスト2023(AtCoder Beginner Contest 305)が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>京セラプログラミングコンテスト2023(AtCoder Beginner Contest 305)は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc305">京セラプログラミングコンテスト2023(AtCoder Beginner Contest 305)</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc305/editorial/6534?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc305/editorial/6534?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc305%2Feditorial%2F6534">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc305%2Feditorial%2F6534">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc305%2Feditorial%2F6534">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230610T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-06-10 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230610T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-06-10 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc305"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc305/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc305/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc305/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc305/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc305/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc305/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc305/tasks/abc305_h">Ex - Shojin</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><h4>部分問題の解法</h4>
+
+<p>まず、部分問題として <span>\(1\)</span> 日に解く問題を固定したときの疲労度の最小値を考えます。<br>
+まず、<span>\(A = 1\)</span> である問題に関しては, そのような問題を最後にまとめて解くことにしても問題ないです。<br>
+<span>\(A \geq 2\)</span> である問題の順序を考えます。解く順番が隣り合っている 2 つの問題 <span>\(p, q\)</span> がこの順番に並ぶ方が <span>\(q, p\)</span> と並ぶより疲労度が低くなるための条件は、 <span>\(p, q\)</span> を解く前の疲労度を <span>\(x\)</span> としたとき</p>
+<p><span>\[
+\begin{aligned}
+&amp;A_q(A_p x + B_p) + B_q \lt A_p(A_q x + B_q) + B_p \\
+&amp;\iff A_q B_p + B_q \lt A_p B_q + B_p \\
+&amp;\iff B_p(A_q - 1) \lt B_q(A_p - 1) \\
+&amp;\iff \frac{B_p}{A_p - 1} \lt \frac{B_q}{A_q - 1}
+\end{aligned}
+\]</span></p><p>です。よって、<span>\(A \geq 2\)</span> の問題を <span>\(\frac{B}{A-1}\)</span> 昇順に解いて(タイブレークはどの順番でもよい)、その後 <span>\(A=1\)</span> の問題を解くのが最適であるとわかります。</p>
+
+<h4>コスト関数の性質</h4>
+
+<p>上の順序付けを利用すると、元の問題を解く手掛かりとして以下の事実を確認できます。</p>
+
+<blockquote>
+<p>関数 <span>\(f(S)\)</span> を 問題集合 <span>\(S\)</span> を 1 日で解くときに消費する体力の最小値とする。<br>
+このとき、 <span>\(S \subseteq T\)</span> である 2 つの問題の集合 <span>\(S, T\)</span> および <span>\(T\)</span> に含まれていない問題 <span>\(p\)</span> に対して次の式が成り立つ。</p>
+<p><span>\[f(S \cup \lbrace p \rbrace) - f(S) \leq f(T \cup \lbrace p \rbrace) - f(T)\]</span></p></blockquote>
+
+<p>(証明) <span>\(p\)</span> が <span>\(A_p=1\)</span> である場合は前述の事実から等号が成立するのが明らかです。以下では <span>\(A_p \geq 2\)</span> であるとします。</p>
+
+<p><span>\(T \cup \lbrace p \rbrace\)</span> に含まれる問題を <span>\(\frac{B}{A-1}\)</span> 順に並べた列を <span>\(v_1, \dots,v_i, p, v_{i+1}, v_n\)</span> とします。<br>
+<span>\(S \cup \lbrace p \rbrace\)</span> に含まれる問題を <span>\(\frac{B}{A-1}\)</span> 順に並べた列を <span>\(w_1, \dots, w_j, p, w_{j+1}, \dots, w_m\)</span> とすると、<span>\(w_1, \dots, w_j\)</span> は <span>\(v_1, \dots, v_i\)</span> の部分列、<span>\(w_{j+1}, \dots, w_m\)</span> は <span>\(v_{i+1}, \dots, v_{n}\)</span> の部分列です。</p>
+
+<p>問題を解く操作をアフィン変換を作用させる操作とみなして考えます。(つまり、はじめ <span>\(x\)</span>を持っていて、問題を解くごとに <span>\(Ax+B\)</span> を作用させて、最後に <span>\(x=0\)</span> を代入する、とみなす)<br>
+問題の列 <span>\(s\)</span> が問題の列 <span>\(t\)</span> の部分列であるとき、「<span>\(s\)</span> をこの順に解いて得られる 1 次関数」と「<span>\(t\)</span> をこの順に解いて得られる 1 次関数」を比べると、後者の方が 1 次の係数・0 次の係数の両方とも前者よりも大きいことが示せます。</p>
+
+<ul>
+<li>証明の概要：次の 2 つの事実を確認することで帰納的に証明できます。
+
+<ul>
+<li><span>\(b \geq 0, a,c,d \geq 1\)</span> であるとき、アフィン変換 <span>\(ax+b\)</span> に <span>\(cx+d\)</span> を作用させると <span>\(c(ax + b) + d = ac x + bc + d\)</span> で <span>\(ac \geq a, bc + d \geq b\)</span> です。<span>\(ax+b\)</span> という状態から何か問題を 1 問解くと2 つの係数は元の状態と同じかより大きくなります。</li>
+<li>また、<span>\(1 \leq a \leq a&#39;, 0 \leq b \leq b&#39;\)</span> であるとき <span>\(c, d \geq 1\)</span> である <span>\(c,d\)</span> について <span>\(a&#39;c \geq ac, b&#39;c + d \geq bc + d\)</span> です。よって、<span>\(ax+b\)</span> と <span>\(a&#39;x + b\)</span> という 2 つの状態から同じ問題を解いたときも <span>\(a \leq a&#39;, b \leq b&#39;\)</span> という関係は維持されます。</li>
+</ul></li>
+</ul>
+
+<p>さて、</p>
+
+<ul>
+<li><span>\(w_1, \dots, w_j\)</span> に対応する 1 次関数を <span>\(ax + b\)</span></li>
+<li><span>\(v_1, \dots, v_i\)</span>  に対応する 1 次関数を <span>\(a&#39;x + b&#39;\)</span></li>
+<li><span>\(w_{j+1}, \dots, w_m\)</span> に対応する 1 次関数を <span>\(cx + d\)</span></li>
+<li><span>\(v_{i+1}, \dots, v_{n}\)</span> に対応する 1 次関数を <span>\(c&#39;x + d&#39;\)</span></li>
+<li><span>\(p\)</span> に対応する 1 次関数を <span>\(Ax + B\)</span></li>
+</ul>
+
+<p>とします。このとき</p>
+<p><span>\[
+\begin{aligned}
+&amp;f(S \cup \lbrace p \rbrace) - f(S) \\
+&amp;= \left\lbrack(c(A(ax+b) + B) + d)- (c(ax + b) + d)\right\rbrack_{x=0} \\
+&amp;= c((A-1)b + B) \\
+&amp;f(T \cup \lbrace p \rbrace) - f(T) = c&#39;((A-1)b&#39; + B)\\
+\end{aligned}
+\]</span></p><p>です。<span>\(b \leq b&#39;, c \leq c&#39;\)</span> であり <span>\(A-1, B\)</span> もともに非負なので(前者) <span>\(\leq\)</span> (後者) が確認できます。よって命題の式は示せました。(証明終わり)</p>
+
+<p>また、ここから次の事実も従います。</p>
+
+<blockquote>
+<p><span>\(S, T\)</span> を <span>\(A \geq 2\)</span> であるような問題の集合とする。このとき次の式が成り立つ。</p>
+<p><span>\[f(S) + f(T) \leq f(S \cup T) + f(S \cap T)\]</span></p></blockquote>
+
+<p>(証明) :</p>
+
+<p><span>\(S=T\)</span> の場合は等号が成立する。以下では <span>\(S \neq T\)</span> とする。<br>
+<span>\(S \cap T = U,  S \setminus T = V\)</span> とする。(<span>\(\setminus\)</span> は<a href="https://ja.wikipedia.org/wiki/%E5%B7%AE%E9%9B%86%E5%90%88" rel="nofollow">差集合</a> )<br>
+このとき、<span>\(U \subset T\)</span> かつ <span>\(V\)</span> は <span>\(T\)</span> に含まれない問題の集合なので、1 つ前の命題の式をうまく利用すると</p>
+<p><span>\[f(U \cup V) - f(U) \leq f(T \cup V) - f(T)\]</span></p><p>であることが証明できる。ところで</p>
+<p><span>\[U \cup V = (S \cap T) \cup (S \setminus T) = S\]</span></p><p><span>\[T \cup V = S \cup T\]</span></p><p>を利用して <span>\(U, V\)</span> を <span>\(S, T\)</span> に置き換えると</p>
+<p><span>\[f(S) - f(S \cap T) \leq f(S \cup T) - f(T)\]</span></p><p>になり、移項して命題を証明できる。(証明終わり)</p>
+
+<p>なお、この二つの命題で登場する式は、それぞれ(不等号の向きを逆にすると) 限界効用逓減性, 劣モジュラ性と呼ばれていて、この 2 つが同値なのは組合せ最適化の世界で知られている事実のようです。(Wikipedia にも書いてあります：<a href="https://ja.wikipedia.org/wiki/%E5%8A%A3%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%A9%E9%96%A2%E6%95%B0" rel="nofollow">リンク</a>)</p>
+
+<h4>Monge 性と Alien DP</h4>
+
+<p>元の問題を考えます。<span>\(A=1\)</span> の問題を 1 日の最後に解いてもよいことを利用すると、適切な前処理を行えば <span>\(2 \leq A_i\)</span> であるときの問題が解ければよいとわかるので、以下では <span>\(2 \leq A_i\)</span> とします。</p>
+
+<p>簡単のため最短路問題に言い換えます。頂点 <span>\(u\)</span> から頂点 <span>\(v\)</span> へ向かう有向辺(ただし <span>\(u \lt v\)</span>) の重み <span>\(c(u,v)\)</span> を <span>\([u+1, v]\)</span> を解くコストとして定義すると、元の問題における <span>\(K\)</span> 日間の精進は頂点 <span>\(0\)</span>, 頂点 <span>\(1\)</span>, <span>\(\dots\)</span>, 頂点 <span>\(N\)</span> の <span>\(N+1\)</span> 頂点からなるグラフ <span>\(G\)</span> の <span>\(K\)</span> 辺 <span>\(0-N\)</span> パスとみなすことができます。</p>
+
+<p>このとき、コスト関数の劣モジュラ性から、辺重みに関して次の不等式が成り立つのがただちに確認できます。</p>
+
+<blockquote>
+<p><span>\(0 \leq i \lt j \lt k \lt l \leq N\)</span> を満たす <span>\(i,j,k,l\)</span> に対して次の式が成り立つ。</p>
+<p><span>\[c(i, l) + c(j, k) \geq c(i, k) + c(j, l)\]</span></p></blockquote>
+
+<p>この性質は  Monge 性や quadrangle inequality(QI) と呼ばれています。</p>
+
+<p>辺コストが Monge 性を持つグラフ <span>\(G\)</span> 上の <span>\(k\)</span> 辺 <span>\(0-N\)</span> 最短路の長さを <span>\(d(k)\)</span> とします。このとき、<span>\(d(1), d(2), \dots, d(N)\)</span> について次の凸性と呼ばれる性質が成り立ちます。</p>
+
+<blockquote>
+<p><span>\(2 \leq n \leq N-2\)</span> について次の式が成り立つ。</p>
+<p><span>\[d(n) - d(n - 1) \geq d(n-1) - d(n - 2)\]</span></p></blockquote>
+
+<p>正当性は以下の記事に譲ります。<a href="https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge" rel="nofollow">noshi91 さんの記事</a></p>
+
+<p>この性質を利用すると、<span>\(K\)</span> を固定したときの <span>\(d(K)\)</span> は Alien DP と呼ばれる DP を利用すれば二分探索で計算することができます。Alien DP は以前解説に書いたので (<a href="https://atcoder.jp/contests/abc218/editorial/2621" rel="nofollow">リンク</a>) 詳しくはそちらをご参考ください。</p>
+
+<p>(余談ですが、この DP は IOI で 「Aliens」という問題が出題されたのに由来するため、「Aliens DP」 がより正確な呼称かもしれません。また、文脈によっては「wqs 二分探索」や「ラグランジュ緩和」と呼ばれることもあります。)</p>
+
+<p>さて、この問題は <span>\(d(K) \leq X\)</span> を満たす最小の <span>\(K\)</span> および <span>\(d(K)\)</span> を求める問題です。<br>
+これは Alien DP を内部で呼び出す二分探索をすると <span>\(\mathrm{O}(N \log^2 X \log N)\)</span> 程度で計算できますがおそらく TLE すると思います。(定数倍の良い実装やいくらかの自明な枝刈りと組み合わせると通る可能性はあります)<br>
+このような <span>\(K\)</span> および <span>\(d(K)\)</span> は三分探索を利用すれば求まります。(上の解説で説明した Alien DP の方法と同様に個数を持って DP して二分探索でも計算できますが、傾きが一定な部分の扱いで少し複雑になるので三分探索の方が楽です)</p>
+
+<p>三分探索の方法を簡単に説明します。</p>
+
+<ul>
+<li><span>\(F(x)\)</span> : <span>\((1, d(1)), (2, d(2)), \dots, (N, d(N))\)</span> を結んでできる凸関数</li>
+<li><span>\(G(p)\)</span> : Alien DP で 1 回の操作あたりのコストを <span>\(p\)</span> としたときのコストの最小値</li>
+</ul>
+
+<p>とします。このとき <span>\(D\)</span> は明らかに <span>\(y = F(x)\)</span> と <span>\(y = X\)</span> の交点の <span>\(x\)</span> 座標を切り上げた値ですが、Alien DP では <span>\((p, G(p))\)</span> の組 (+ 個数の情報) しか得られないので簡単には求められません。<br>
+実は <span>\(D\)</span> は以下の手順で求められます。</p>
+
+<blockquote>
+<p><span>\(D\)</span> は <span>\(p, G(p)\)</span> を用いて次の式で表せる。</p>
+<p><span>\[D = \mathrm{ceil}\left( \max_{p} \left(\frac{G(p)-X}{p}\right) \right)\]</span></p><p>そして、<span>\(\max\)</span> 内部の <span>\(\frac{G(p)-x}{p}\)</span> は上に凸な関数なので、三分探索を利用すれば <span>\(D\)</span> の値を求められる。</p>
+</blockquote>
+
+<p>最初の式はいくらかの式変形によって確認できます。<span>\(\frac{G(p)-x}{p}\)</span> が上に凸なのは、<span>\(F(x)\)</span> が凸関数であり、かつ定義域の内部での傾きが常に負であることから証明できます。</p>
+
+<p>さて、以上の内容を踏まえたうえで適切な DP を構成して三分探索を実装するとこの問題を解くことができます。</p>
+
+<ul>
+<li>DP の部分は高度なアルゴリズム(LARSCH)を使ってもよいですが、辺コストが <span>\(X\)</span> より大きい辺は無視することで自然な <span>\(\mathrm{O}(N \log X)\)</span> DP が構成できます。(これは <span>\(F(x)\)</span> の凸性が崩れる操作なので正当性は自明ではないですが、Alien DP のアルゴリズムは結局 <span>\(F(x)\)</span> の凸包を得るアルゴリズムであるのと、<span>\(X\)</span> より大きい辺を無視しても <span>\(y \leq X, D \leq x\)</span> の範囲では正当な解が得られることから正当性が確認できると考えています。)</li>
+<li>また、<span>\(p\)</span> は<span>\(X\)</span> 以下の範囲を調べればよいです。(<span>\(\frac{G(p)-X}{p}\)</span> の真の極大を取る <span>\(p\)</span> は <span>\(X\)</span> より大きいことがあるのでこれもあまり自明でないですが、そのような場合は <span>\(\mathrm{ceil} (\max_p \frac{G(p)-X}{p})\)</span> と  <span>\(\mathrm{ceil}(\frac{G(X)-X}{X})\)</span> の値が一致するため問題が起こらないことが確認できます。)</li>
+</ul>
+
+<p>計算量は適切に実装すると <span>\(\mathrm{O}(N \log^2 X)\)</span> となり十分高速です。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1685872402">
+				<time class="timeago" datetime="2023/06/04 18:53:22"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1688714750">
+				<time class="timeago" datetime="2023/07/07 16:25:50"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc305/editorial/6534?lang=ja" data-a2a-title="解説 - 京セラプログラミングコンテスト2023(AtCoder Beginner Contest 305)">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc305/rules">ルール</a></li>
+					<li><a href="/contests/abc305/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

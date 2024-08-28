@@ -1,0 +1,63 @@
+
+Special Trains
+
+駅 j に開通式開始 t 秒後に到着したとき、駅 j + 1 に向かう列車に乗れるのが開通式開始何秒
+後かを考えると、次のようになります。
+・t < Sj ならば開通式開始 Sj 秒後
+・そうでなく、t ％ Fj = 0 ならば開通式開始 t 秒後
+・そうでないなら、開通式開始 t + Fj − (t ％ Fj ) 秒後
+これに従い、全ての駅 i から出発する場合に対してシミュレーションしてみると、O(N 2 ) とな
+り、解くことができます。
+# include < cstdio >
+int N , C [500] , S [500] , F [500];
+int main ()
+{
+scanf ("% d " ,& N );
+for ( int i =0; i <N -1; i ++) scanf ("% d % d % d " ,& C [ i ] ,& S [ i ] ,& F [ i ]);
+for ( int i =0; i < N ; i ++)
+{
+int t =0;
+for ( int j = i ;j <N -1; j ++)
+{
+if (t < S [ j ]) t = S [ j ];
+else if ( t % F [ j ]==0);
+else t = t + F [ j ] - t % F [ j ];
+t += C [ j ];
+}
+printf ("% d \ n " , t );
+}
+}
+
+2
+
+
+Special Trains
+
+Fisrt,considering when it is possible to ride a train which goes to station j + 1 ,in the situation
+that arriving station j ,t seconds after the ceremony begin.
+・If t < Sj , Sj seconds after the ceremony begin.
+・If t ≧ Sj ,but t ％ Fj = 0 , t seconds after the ceremony begin.
+・Othersise, t + Fj − (t ％ Fj ) seconds after the ceremony begin.
+Considering this,simulate in every case,it would be O(N 2 ) and you can get 300 points.
+# include < cstdio >
+int N , C [500] , S [500] , F [500];
+int main ()
+{
+scanf ("% d " ,& N );
+for ( int i =0; i <N -1; i ++) scanf ("% d % d % d " ,& C [ i ] ,& S [ i ] ,& F [ i ]);
+for ( int i =0; i < N ; i ++)
+{
+int t =0;
+for ( int j = i ;j <N -1; j ++)
+{
+if (t < S [ j ]) t = S [ j ];
+else if ( t % F [ j ]==0);
+else t = t + F [ j ] - t % F [ j ];
+t += C [ j ];
+}
+printf ("% d \ n " , t );
+}
+}
+
+5
+

@@ -1,0 +1,13 @@
+答えは X − A を B で割った余りとなります。
+整数を整数で割った余りを求める演算子は多くの言語で用意されています。
+以下に C++ による実装例を示します。
+
+#include<cstdio>
+using namespace std;
+int main(){
+int X, A, B;
+scanf("%d%d%d", &X, &A, &B);
+printf("%d\n", (X - A) % B);
+return 0;
+}
+

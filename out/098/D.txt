@@ -1,0 +1,28 @@
+整数列 c1 , c2 , · · · , cm が、c1 xor c2 · · · xor cm = c1 + c2 + · · · + cm を満たす条件を考える
+と、これは、すべての k(0 ≤ k) に対して、2 進法表記したときの 2k の位が 1 であるよう ci の個数
+が 1 以下であることと同値です。これは、a + b − (a xor b) = 2 × (a and b)（ただしここで and
+はビットごとの論理積を表す）であることからわかります。
+
+l を固定したときに、(l, r) が条件を満たすような最大の r を f (l) とおきます。すると、f は l に
+対して広義単調増加です。よって、l を増加させながら尺取り法の要領で f (l) を求めることができ、
+
+O(N ) で答えを求めることが出来ます。
+この他にも、各 bit についてそのビットが立っている位置を保存することで、直接的に f (l) を求
+める解法も存在します。
+
+4
+
+Notice that a + b − (a xor b) = 2 × (a and b). The inequality a + b ≥ a xor b always hold,
+and the equality holds if and only if a and b = 0. (Intuitively, the equality holds if we get no
+”carries” when we add a and b as binary numbers.)
+Therefore, for a sequence of non-negative integers c1 , c2 , · · · , cm , the equation
+c1 xor c2 · · · xor cm = c1 + c2 + · · · + cm
+holds if and only if for all k, the number of elements among c1 , . . . , cm that contains the k-th
+bit (in binary representation) is at most one.
+For a fixed l, the interval [l, r] satisfies the condition in the statement if no bit is repeated
+among al , . . . , ar . Thus, there exists an integer f (l), and the condition is satisfied if and only if
+r ≤ f (l). Since f (l) is monotonously non-decreasing, we can compute the value of f (l) for all l
+in O(N ) time using two-pointers.
+It is also possible to directly compute f (l): for each k, list the indices of all elements that
+contains the k-th bit.
+

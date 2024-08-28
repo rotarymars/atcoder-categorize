@@ -1,0 +1,616 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - ユニークビジョンプログラミングコンテスト2023 春 (AtCoder Beginner Contest 300)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - ユニークビジョンプログラミングコンテスト2023 春 (AtCoder Beginner Contest 300)" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc300/editorial/6269" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - ユニークビジョンプログラミングコンテスト2023 春 (AtCoder Beginner Contest 300)" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc300";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-04-29T21:00:00+09:00");
+			var endTime = moment("2023-04-29T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>ユニークビジョンプログラミングコンテスト2023 春 (AtCoder Beginner Contest 300)が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>ユニークビジョンプログラミングコンテスト2023 春 (AtCoder Beginner Contest 300)は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc300">ユニークビジョンプログラミングコンテスト2023 春 (AtCoder Beginner Contest 300)</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc300/editorial/6269?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc300/editorial/6269?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc300%2Feditorial%2F6269">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc300%2Feditorial%2F6269">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc300%2Feditorial%2F6269">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230429T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-04-29 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230429T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-04-29 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc300"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc300/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc300/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc300/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc300/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc300/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc300/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc300/tasks/abc300_h">Ex - Fibonacci: Revisited</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題は、線形漸化式によって定義される数列の第 <span>\(N\)</span> 項を高速に計算するアルゴリズムをテーマとする問題です。いつものように関連する話題をまとめてから解説に移ります。</p>
+
+<h3>繰り上がりを持つ桁 DP</h3>
+
+<p>はじめに、線形漸化式の 第 <span>\(N\)</span> 項の計算と関連深い DP を紹介します。<br>
+次の例題を考えます。</p>
+
+<blockquote>
+<p><span>\(a_1\)</span> 円, <span>\(a_2\)</span> 円, <span>\(\dots\)</span> <span>\(,a_K\)</span> 円硬貨があります。<span>\(N\)</span> 円支払う方法は何通りありますか？<span>\((\text{mod }998244353)\)</span><br>
+<span>\(K \leq 100, S = \sum_i a_i \leq 1000, N \leq 10^{18}\)</span></p>
+</blockquote>
+
+<p>この例題は繰り上がりを持つ桁 DP で高速に解くことができます。簡潔に説明します。(橙 diff 程度の内容なので容易ではないかもしれません, 下の疑似コードも参考にしてください)</p>
+
+<p><span>\(a_i\)</span> 円硬貨を 使った枚数を <span>\(c_i\)</span> とします。<span>\(c_1, \dots, c_K\)</span> を下の bit から決めていくことを考えます。
+1 つの bit に注目したときは, ある硬貨を使うか使わないかを考えればよいので <span>\(dp[x] \gets dp[x] + dp[x-a]\)</span> という要領の部分和 DP で計算できます。<br>
+また、<span>\(c_1, \dots, c_K\)</span> の <span>\(x-1\)</span> bit 目までを決めた時点で, 決まっていないのは <span>\(x\)</span> bit 目以上なので金額の総和 <span>\(\text{mod }2^x\)</span> は一定になり、<span>\(x-1\)</span> bit 目が一致していない状態は取り除いてもよいことがわかります。<br>
+結局, <span>\(x-1\)</span> bit 目に対応する遷移を計算し終えた時点で <span>\(x-1\)</span> bit 目が一致していない部分を dp テーブルから取り除いてテーブルのサイズを半分にして、残りを繰り上がりとして次の bit での計算に持ち越すという DP が動作します。繰り上がるごとに値は半分になるので DP テーブルのサイズは <span>\(S + S/2 + S/4 + \dots \lt 2S\)</span> になるため、<span>\(\mathrm{O}(K S \log N)\)</span> 程度の計算量で計算できます。</p>
+
+<pre class="prettyprint linenums"><code>carry &lt;- (zero-padding array of length 2S + 1)
+carry[0] &lt;- 1
+while M != 0 do
+  for i = 1 to K do
+    for k = 2S - a_i to 0 do
+      carry[k + a_i] &lt;- carry[k + a_i] + carry[k]
+    end for
+  end for
+  for k = 0 to 2S + 1:
+    p = 2k + (N mod 2)
+    if p &lt; 2S + 1 then
+      carry[k] &lt;- carry[p]
+    else 
+      carry[k] &lt;- 0
+    end if
+  end for
+  M &lt;- floor(M / 2)
+return carry[0]
+</code></pre>
+
+<p>以下に類題をいくつかまとめたので理解の確認にお使いください。</p>
+
+<details>
+<summary>類題(ARC, CF Div.1 ネタバレ注意)</summary>
+    <ul>
+      <li><a href="https://yukicoder.me/problems/no/137" rel="nofollow">yukicoder No.137 (ほぼ同じ問題です)</a></li>
+      <li><a href="https://atcoder.jp/contests/abc271/tasks/abc271_h" rel="nofollow">ABC271 Ex の別解</a></li>
+      <li><a href="https://atcoder.jp/contests/arc156/tasks/arc156_d" rel="nofollow">ARC156 D</a></li>
+      <li><a href="https://codeforces.com/contest/1290/problem/F" rel="nofollow">CF Div.1 #616 F</a></li>
+    <ul>
+</details>
+
+<h3>桁 DP の母関数を用いた解釈</h3>
+
+<p>この章は<a href="https://qiita.com/ryuhe1/items/185e1a283f13ac638a53" rel="nofollow">Ryuhei Mori 氏による記事</a>を大きく参考にしました。</p>
+
+<p>例題を解くのに用いた桁 DP は、形式的冪級数に対する操作に言い換えることができます。以下に詳しく説明します。</p>
+
+<p>まず、この例題の数え上げる対象を母関数で表してみましょう。<br>
+<span>\(a_i\)</span> 円硬貨を <span>\(0\)</span> 枚以上使用するのに対応する母関数は</p>
+<p><span>\[
+1 + x^{a_1} + x^{2 a_1} + \dots = \frac{1}{1 - x^{a_1}}
+\]</span></p><p>という形式的冪級数で記述できます。よって</p>
+<p><span>\[
+\lbrack x^N \rbrack \frac{1}{1 - x^{a_1}} \cdot  \frac{1}{1 - x^{a_2}}  \cdot \dots \cdot  \frac{1}{1 - x^{a_K}} 
+\]</span></p><p>が求める答えになります。ここで、</p>
+<p><span>\[
+\begin{aligned}
+\frac{1}{1-x} 
+&amp;= \frac{1 + x}{1 - x^2} \\
+&amp;= \frac{(1 + x)(1 + x^2)}{1 - x^4} \\
+&amp;= \frac{(1 + x)(1 + x^2)(1 + x^4)}{1 - x^8} \\
+&amp;\vdots \\
+&amp;= \prod_{b \geq 0} (1 + x^{2^b})
+\end{aligned}
+\]</span></p><p>が成り立つのを利用すると、</p>
+<p><span>\[
+F(x) = (1 + x^{a_1})(1 + x^{a_2}) \dots (1 + x^{a_K})
+\]</span></p><p>としたとき、求めたい答えは</p>
+<p><span>\[
+\lbrack x^N \rbrack \prod_{k \geq 0} F(x^{2^k})
+\]</span></p><p>になり、<span>\(F(x^{2^k})\)</span> の積の形で表せることが分かりました。</p>
+
+<p>このように、桁 DP で解くことができる数え上げの対象は、母関数で記述すると基数を <span>\(q\)</span> として (<span>\(x^{q^0}\)</span> の関数) <span>\(\times\)</span> (<span>\(x^{q^1}\)</span> の関数) <span>\(\times\)</span> (<span>\(x^{q^2}\)</span> の関数) <span>\(\times \dots\)</span> という形の式で表せることがあります。この形の式に対して <span>\(\lbrack x^N \rbrack\)</span> を高速に求める方法を考えてみましょう。(以下では <span>\(q=2\)</span> の場合を説明します。)</p>
+
+<p>まず、形式的冪級数 <span>\(B(x)\)</span> が形式的冪級数 <span>\(Q_0(x), Q_1(x), \dots\)</span> を用いて</p>
+<p><span>\[B(x) = \prod_{k \geq 0} Q_{k}(x^{2^k})\]</span></p><p>と表せる時、<span>\(B(x)\)</span> を <strong>2-デジタル冪級数</strong> と呼ぶことにします。</p>
+
+<p>また、母関数の奇数次 / 偶数次 だけを取り出して新たな母関数を作る操作を考えます。<span>\(\mathcal{S}_i\)</span> (<span>\(i \in \lbrace 0, 1 \rbrace\)</span>) を次のように定義します。</p>
+<p><span>\[\mathcal{S}_i \left(\sum_{n \geq 0} a_n x^n \right) = \sum_{m \geq 0} a_{2m + i} x^m\]</span></p><p><span>\(\mathcal{S}_i\)</span> を 2-デジタル冪級数に作用させることを考えます。すると次の事実が成り立ちます。</p>
+
+<blockquote>
+<p>2-デジタル冪級数 <span>\(B_0(x), B_1(x), \dots\)</span> が形式的冪級数 <span>\(Q_0(x), Q_1(x), \dots\)</span> を用いて</p>
+<p><span>\[B_n(x) = \prod_{k \geq 0} Q_{n + k}(x^{2^k})\]</span></p><p>と表せるとする。また、<span>\(A(x)\)</span> を形式的冪級数とする。このとき非負整数 <span>\(N, n\)</span> に対して次の式が成り立つ。</p>
+<p><span>\[\lbrack x^N \rbrack A(x) B_n(x) = \lbrack x^{\lfloor N/2 \rfloor} \rbrack \mathcal{S}_{N \bmod 2}(A(x) Q_n(x)) B_{n+1}(x) \]</span></p></blockquote>
+
+<p>(証明) 形式的冪級数 <span>\(A(x)\)</span> と <span>\(B_n(x)\)</span> の積に <span>\(\mathcal{S}_i\)</span> を作用させると、</p>
+<p><span>\[
+\begin{aligned}
+\mathcal{S}_i \left( A(x) B_n(x) \right)
+&amp;= \mathcal{S}_i(A(x) Q_n(x)) \prod_{k \geq 1} Q_{n+k}(x^{2^{k-1}}) \\
+&amp;= \mathcal{S}_i(A(x) Q_n(x)) B_{n+1}(x)
+\end{aligned}
+\]</span></p><p>になります。また、形式的冪級数 <span>\(C(x)\)</span> について</p>
+<p><span>\[
+\lbrack x^N \rbrack C(x) = \lbrack x^{\lfloor N/2 \rfloor} \rbrack \mathcal{S}_{N \bmod 2}(C(x))
+\]</span></p><p>が成り立つので、上式の <span>\(C(x)\)</span> に <span>\(A(x) B_n(x)\)</span> を代入して</p>
+<p><span>\[
+\begin{aligned}
+\lbrack x^N \rbrack A(x) B_n(x) 
+&amp;= \lbrack x^{\lfloor N/2 \rfloor} \rbrack \mathcal{S}_{N \bmod 2}(A(x) B_n(x)) \\
+&amp;= \lbrack x^{\lfloor N/2 \rfloor} \rbrack \mathcal{S}_{N \bmod 2}(A(x) Q_n(x)) B_{n+1}(x)
+\end{aligned}
+\]</span></p><p>を得られました。(証明終わり)</p>
+
+<p>以上で証明した式は、左辺が <span>\([x^N]\)</span> を計算する式で、右辺が <span>\([x^{\lfloor N / 2 \rfloor}]\)</span> を計算する式になっているのを利用すると、以下の疑似コードのような再帰的な手順によって <span>\(\lbrack x^N \rbrack B_0(x)\)</span> を計算できると分かります。(式中の <code>S(i, F)</code> は <span>\(\mathcal{S}_i(F)\)</span> の意味)</p>
+
+<pre class="prettyprint linenums"><code>A &lt;- 1
+k &lt;- 0
+while N &gt; 0 do
+  A &lt;- S(N mod 2, A Q_k)
+  k &lt;- k + 1
+  N &lt;- floor(N / 2)
+end while
+return [x^0] A
+</code></pre>
+
+<p>計算量は <span>\(A\)</span> と <span>\(Q_k(x)\)</span> を畳み込む部分が支配的です。よって、<span>\(B_n(x)\)</span> を 2-デジタルな次数の低い式の積で表現できれば、このアルゴリズムは高速に動作します。</p>
+
+<p>例題で求めたいのは</p>
+<p><span>\[
+\lbrack x^N \rbrack \prod_{k \geq 0} F(x^{2^k})
+\]</span></p><p>でした。よって、上述のアルゴリズムに <span>\(Q_n \gets F(x)\)</span> を代入すれば母関数を利用した解法を導出できます。<span>\(A\)</span> の次数は常に <span>\(S\)</span> 以下なので畳み込み 1 回あたりの計算量は <span>\(\mathrm{O}(S \log S)\)</span> なので、アルゴリズム全体では <span>\(\mathrm{O}(S \log S \log N)\)</span> の計算量になります。<br>
+また、この解法を凝視すると、計算している内容が桁 DP の場合と完全に一致していることがわかります。(上から 4 行目の部分は部分和 DP + DP テーブルの半減、と同じ処理をしています。)</p>
+
+<h3>線形漸化式への応用</h3>
+
+<p>このように 桁 DP を母関数に一般化したアルゴリズムは、一般項が線形漸化式で表せる数列の第 <span>\(N\)</span> 項の計算に応用できます。</p>
+
+<p>数列 <span>\(a_0, a_1, a_2, \dots\)</span> の一般項 <span>\(a_n\)</span> がある定数 <span>\(c_1, \dots, c_d\)</span> を用いて</p>
+<p><span>\[a_n = \sum_{i=1}^d c_i a_{n-i}　(n \geq d)\]</span></p><p>と線形漸化式の形で表せる時、<span>\((a_n)\)</span> を <strong>線形回帰数列</strong> と呼びます。<br>
+線形回帰数列の第 <span>\(N\)</span> 項は行列累乗で <span>\(\mathrm{O}(d^3 \log N)\)</span> 程度で計算できることが知られていますが、母関数を利用した時間計算量 <span>\(\mathrm{O}(d \log d \log N)\)</span> のアルゴリズムを説明します。</p>
+
+<p>線形回帰数列の母関数は有理式(多項式を分子・分母に持つ分数)で表せることが確認できます。<span>\(a_n\)</span> の母関数を <span>\(A(x) = \sum_{n \geq 0} a_n x^n\)</span> とすると、<span>\(n \geq d\)</span> の範囲で</p>
+<p><span>\[
+\begin{aligned}
+\lbrack x^n \rbrack \left(1 - \sum_{i = 1}^d c_i x^i\right)A(x) 
+&amp;= a_n - \sum_{i=1}^d c_i a_{n - i} \\
+&amp;= 0
+\end{aligned}
+\]</span></p><p>が成り立つので、</p>
+<p><span>\[Q(x) = 1 - \sum_{i = 1}^d c_i x^i\]</span></p><p>とすると <span>\(A(x)Q(x)\)</span> は <span>\(d-1\)</span> 次以下の多項式になることがわかります。</p>
+<p><span>\[
+P(x) = \left(\sum_{n=0}^{d-1} a_n x^n \right) Q(x) \bmod{x^d}
+\]</span></p><p>とおくと <span>\(P(x) \equiv A(x) Q(x) \pmod{x^d}\)</span> が成り立つので、<span>\(A(x)\)</span> と <span>\(P(x), Q(x)\)</span> の間には</p>
+<p><span>\[A(x) = \frac{P(x)}{Q(x)}\]</span></p><p>という関係式が成り立つのが分かります。</p>
+
+<p>よって、有理式 <span>\(\frac{P(x)}{Q(x)}\)</span> <span>\((\deg(P) \lt \deg(Q))\)</span> の <span>\(N\)</span> 次の係数が計算できれば線形回帰数列の第 <span>\(N\)</span> 項が求まります。この計算は <strong>Bostan-Mori 法</strong> と呼ばれるアルゴリズムが知られているので紹介します。</p>
+
+<p>線形回帰数列 <span>\(a_0, a_1, a_2, \dots\)</span> の要素を偶数番目と奇数番目で分けると、</p>
+
+<ul>
+<li>偶数番目だけ取り出した数列：<span>\(a_0, a_2, a_4, \dots\)</span></li>
+<li>奇数番目だけ取り出した数列：<span>\(a_1, a_3, a_5, \dots\)</span></li>
+</ul>
+
+<p>の 2 種類の数列ができます。実は、これらの数列はどちらも高々 <span>\(d\)</span> 次の線形回帰数列になります(後に確認できます)。<br>
+また、<span>\((a_n)\)</span> の母関数を <span>\(A(x)\)</span> としたとき、この 2 つの数列の母関数は、<span>\(\mathcal{S}\)</span> を使うとそれぞれ <span>\(\mathcal{S}_0(A(x)), \mathcal{S}_1(A(x))\)</span> と表せます。</p>
+
+<p>よって、<span>\(A(x)\)</span> から <span>\(\mathcal{S}_i(A(x))\)</span> を高速に計算できれば、</p>
+<p><span>\[\lbrack x^N \rbrack A(x) = \lbrack x^{\lfloor N/2 \rfloor} \rbrack \mathcal{S}_{N \bmod 2} (A(x))\]</span></p><p>という関係式を利用して求めたい項を半減させていく再帰で答えを計算できます。</p>
+
+<p><span>\(\mathcal{S}_i\left(\frac{P(x)}{Q(x)}\right)\)</span> は以下の手順で計算できます。<span>\(\frac{P(x)}{Q(x)}\)</span> の分子と分母に <span>\(Q(-x)\)</span> を掛けて</p>
+<p><span>\[\frac{P(x)}{Q(x)} = \frac{P(x)Q(-x)}{Q(x)Q(-x)}\]</span></p><p>と変形すると、分母の <span>\(Q(x)Q(-x)\)</span> は偶多項式なのである多項式 <span>\(T(x)\)</span> を用いて</p>
+<p><span>\[T(x^2) = Q(x)Q(-x)\]</span></p><p>と表せます。この <span>\(T\)</span> を使うと、</p>
+<p><span>\[
+\begin{aligned}
+\mathcal{S}_i\left( \frac{P(x)}{Q(x)} \right)
+&amp;= \mathcal{S}_i\left( \frac{P(x)Q(-x)}{T(x^2)} \right) \\
+&amp;= \frac{\mathcal{S}_i (P(x) Q(-x))}{T(x)}
+\end{aligned}
+\]</span></p><p>になるのがわかります。よって <span>\(\mathcal{S}_i(A(x))\)</span> に対応する有理式は、<span>\(P(x)\)</span> と <span>\(Q(-x)\)</span>, <span>\(Q(x)\)</span> と <span>\(Q(-x)\)</span> を畳み込めば  <span>\(\mathrm{O}(d \log d)\)</span> で計算できるとわかります。</p>
+
+<p>以上より、有理式 <span>\(\frac{P(x)}{Q(x)}\)</span> の <span>\(N\)</span> 次の係数は (<span>\(\deg(Q) = d\)</span> として) 次のアルゴリズムで <span>\(\mathrm{O}(d \log d \log N)\)</span> で計算できます。</p>
+
+<pre class="prettyprint linenums"><code>input : P(x), Q(x), N
+output : [x^N] P(x) / Q(x)
+
+while N &gt; 0 do
+  P(x) &lt;- S(N mod 2, P(x) Q(-x))
+  Q(x) &lt;- S(0, Q(x) Q(-x))
+  N &lt;- floor(N / 2)
+end while
+return P(0) / Q(0)
+</code></pre>
+
+<p>そして、このアルゴリズムは前章で説明したアルゴリズムの一種としても説明できます。すなわち、<span>\((Q_n(x))_{n \geq 0}\)</span> を <span>\(Q_0(x) = Q(x), Q_{n+1}(x^2) = Q_n(x) Q_n(-x)\)</span> を満たす多項式の列としておくと</p>
+<p><span>\[
+\begin{aligned}
+\frac{P(x)}{Q(x)}
+&amp;= \frac{P(x)Q_0(-x)}{Q_0(x)Q_0(-x)} \\
+&amp;= P(x)Q_0(-x) \times \frac{1}{Q_1(x^2)} \\
+&amp;= P(x)Q_0(-x) \times \frac{Q_1(-x^2)}{Q_1(x^2)Q_1(-x^2)} \\
+&amp;= P(x)Q_0(-x) \times Q_1(-x^2) \times \frac{1}{Q_2(x^4)} \\
+&amp;\vdots \\
+&amp;= P(x) Q_0(-x) \times \prod_{n \geq 1} Q_n(-x^{2^n})
+\end{aligned}
+\]</span></p><p>になるため <span>\(\frac{P(x)}{Q(x)}\)</span> は 2-デジタル冪級数です。そして、前章のアルゴリズムをそのまま適用すると上のアルゴリズムと一致します。</p>
+
+<h3>問題の解法</h3>
+
+<p>元の問題の解法に移ります。<span>\(K\)</span>-bonacci 数列は線形回帰数列なので、元の問題を母関数に言い換えると次のようになります。</p>
+
+<ul>
+<li><span>\(\deg(P) \lt \deg(Q) = K\)</span> であるような有理式 <span>\(\frac{P(x)}{Q(x)}\)</span> が与えられる。<span>\(m \text{ AND } N = m\)</span> であるような <span>\(m\)</span> に対して <span>\(\lbrack x^m \rbrack \frac{P(x)}{Q(x)}\)</span> の和を計算せよ。</li>
+</ul>
+
+<p>2 通りの解法を説明します。<br>
+1 つは Bostan-Mori 法を応用した解法です。<br>
+今までの話をまとめると、Bostan-Mori 法は次の操作を <span>\(i\)</span> 昇順に行うアルゴリズムです。(解法から見ている方へ：ここで <span>\(\mathcal{S}_i\)</span> は母関数の偶数次/奇数次だけを取り出して新たな母関数を作る操作とします。つまり <span>\(\mathcal{S}_i \left(\sum_{n \geq 0} a_n x^n \right) = \sum_{m \geq 0} a_{2m + i} x^m\)</span> です)</p>
+
+<ul>
+<li><span>\(N\)</span> の i bit 目が <span>\(0\)</span> ならば <span>\(A(x) \gets \mathcal{S}_0(A(x))\)</span></li>
+<li><span>\(N\)</span> の i bit 目が <span>\(1\)</span> ならば <span>\(A(x) \gets \mathcal{S}_1(A(x))\)</span></li>
+</ul>
+
+<p>元の問題の「<span>\(m \text{ AND }N = m\)</span> を満たす <span>\(m\)</span> 」という部分は、「<span>\(N\)</span> の <span>\(i\)</span> bit 目が <span>\(1\)</span> ならば <span>\(m\)</span> の <span>\(i\)</span> bit 目は <span>\(0\)</span> か <span>\(1\)</span>, <span>\(N\)</span> の i bit 目が <span>\(0\)</span> ならば <span>\(0\)</span> を選べる」と言い換えられます。よって、上の場合分けを</p>
+
+<ul>
+<li><span>\(N\)</span> の i bit 目が <span>\(0\)</span> ならば <span>\(A(x) \gets \mathcal{S}_0(A(x))\)</span></li>
+<li><span>\(N\)</span> の i bit 目が <span>\(1\)</span> ならば <span>\(A(x) \gets \mathcal{S}_0(A(x)) + \mathcal{S}_1(A(x))\)</span></li>
+</ul>
+
+<p>して、あとは Bostan-Mori 法と同様の再帰を行えばよいとわかります。</p>
+
+<p>もう 1 つは「桁 DP の母関数を用いた解釈」で登場したアルゴリズムを利用した解法です。求めたい答えは, <span>\(K\)</span>-bonacci 数列の母関数を <span>\(F(x)\)</span> として</p>
+<p><span>\[\lbrack x^N \rbrack F(x) \left(\sum_{m \text{ AND } N = m} x^m\right)\]</span></p><p>と表すことができます。<span>\(F(x)\)</span> は有理式なので 2-デジタルで、シグマで表される項も</p>
+<p><span>\[\prod_{2^b \text{ AND } N = 2^b} \left(1 + x^{2^b} \right)\]</span></p><p>という形で表されるので 2-デジタルです。よって「桁 DP の母関数を用いた解釈」の <span>\(Q_n(x)\)</span> に適切に式を代入するアルゴリズムが動作します。</p>
+
+<p>実装するとわかりますが、2 つの解法は結果的に同じアルゴリズムに帰着します。計算量は <span>\(\mathrm{O}(K \log K \log N)\)</span> で、十分高速です。</p>
+
+<ul>
+<li>実装例(C++)</li>
+</ul>
+
+<pre class="prettyprint linenums"><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+#include &#34;atcoder/convolution.hpp&#34;
+#include &#34;atcoder/modint.hpp&#34;
+using mint = atcoder::modint998244353;
+
+int main() {
+  long long K, N;
+  cin &gt;&gt; K &gt;&gt; N;
+  vector&lt;mint&gt; Q(K + 1, -1);
+  Q[0] = 1;
+  vector&lt;mint&gt; P = atcoder::convolution(Q, vector&lt;mint&gt;(K, 1));
+  P.resize(K);
+  for (; N; N &gt;&gt;= 1) {
+    vector&lt;mint&gt; Q2{Q};
+    for (int i = 1; i &lt;= K; i += 2) Q2[i] = -Q2[i];
+    P = atcoder::convolution(P, Q2);
+    Q = atcoder::convolution(Q, Q2);
+    vector&lt;mint&gt; S(K), T(K + 1);
+    for (int i = 0; i &lt; K; i++) S[i] = P[i * 2] + (N % 2 ? P[i * 2 + 1] : 0);
+    for (int i = 0; i &lt; K + 1; i++) T[i] = Q[i * 2];
+    P = S, Q = T;
+  }
+  cout &lt;&lt; (P[0] * (Q[0].inv())).val() &lt;&lt; &#34;\n&#34;;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1682340568">
+				<time class="timeago" datetime="2023/04/24 21:49:28"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1682694417">
+				<time class="timeago" datetime="2023/04/29 00:06:57"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc300/editorial/6269?lang=ja" data-a2a-title="解説 - ユニークビジョンプログラミングコンテスト2023 春 (AtCoder Beginner Contest 300)">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc300/rules">ルール</a></li>
+					<li><a href="/contests/abc300/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

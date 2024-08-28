@@ -1,0 +1,137 @@
+実際に各項が数かどうかを判定し、数ならば足すことで答えを求めることができます。
+1
+
+int main(){
+
+2
+
+int n;
+
+3
+
+scanf("%d",&n);
+
+4
+
+long long ans=0;
+
+5
+
+for(int i=1;i<=n;i++){
+if(i%3!=0 && i%5!=0)ans+=i;
+
+6
+7
+
+}
+
+8
+
+printf("%lld\n",ans);
+
+9
+
+}
+
+なお、この問題は O(1) で解くこともできます。
+1
+
+long long sum(long long n){return n*(n+1)/2;}
+
+2
+
+int main(){
+
+3
+
+int n;
+
+4
+
+scanf("%d",&n);
+
+5
+
+long long ans;
+
+6
+
+ans=sum(n)-sum(n/3)*3-sum(n/5)*5+sum(n/15)*15;
+printf("%lld\n",ans);
+
+7
+8
+
+}
+
+2
+
+You can ﬁnd the answer by actually checking if each term is a number or not, and adding up
+if it is a number.
+1
+
+int main(){
+
+2
+
+int n;
+
+3
+
+scanf("%d",&n);
+
+4
+
+long long ans=0;
+
+5
+
+for(int i=1;i<=n;i++){
+if(i%3!=0 && i%5!=0)ans+=i;
+
+6
+7
+
+}
+
+8
+
+printf("%lld\n",ans);
+
+9
+
+}
+
+This problem can also be solved in a total of O(1) time.
+1
+
+long long sum(long long n){return n*(n+1)/2;}
+
+2
+
+int main(){
+
+3
+
+int n;
+
+4
+
+scanf("%d",&n);
+
+5
+
+long long ans;
+
+6
+
+ans=sum(n)-sum(n/3)*3-sum(n/5)*5+sum(n/15)*15;
+printf("%lld\n",ans);
+
+7
+8
+
+}
+
+8
+

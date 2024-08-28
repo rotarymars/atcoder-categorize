@@ -1,0 +1,104 @@
+(解説: evima)
+プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice
+
+contest」(https://atcoder.jp/contests/practice/) の問題 A「はじめてのあっとこーだー」を
+お試しください。言語ごとに解答例が掲載されています。
+「はじめての〜」に正解するソースコードがあれば、今回の問題でも入出力は行えるはずです。以下
+では、お釣りの金額を求めることに集中します。
+支払う千円札の枚数を計算する方針も考えられますが、ここでは価格 N の下三桁に注目します。
+千円札のみで支払いを行う以上、N の下三桁のみがお釣りの金額に関係します。この下三桁に対応す
+る数値は、多くの言語に存在する剰余演算子 % を用いて N % 1000 と求められます。
+この値が 0 であればお釣りは 0 円、そうでなければ 1000 からその値を引いたものがお釣りの金額
+です。ここでは if 文を使うこともできますが、1000 - N % 1000 をさらに 1000 で割った余りを計
+算することでも対処できます。以下は後者を C++ で実装した例です。(説明は次頁へ続きます)
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+int N;
+
+5
+
+cin >> N;
+
+6
+
+cout << (1000 - N % 1000) % 1000 << endl;
+
+7
+
+}
+
+1
+
+言語によっては、「負の整数 % 正の整数」が負になりません。そのような言語では、以下の Ruby
+での実装例のように楽をすることもできます。
+
+1
+
+puts -gets.to_i % 1000
+
+2
+
+(Editorial: evima)
+If you are a beginner of studying programming and have no idea what to start with, then try
+solving “Welcome to AtCoder”, Problem A from the “practice contest” (https://atcoder.jp/
+contests/practice/). There you can ﬁnd sample codes for each language.
+If you have a code which is accepted for “Welcome to —”, then you will be able to perform
+input and output for this problem to. We will now focus on ﬁnding the amount of change.
+We may consider the number of 1000-yen bills, but this time, let us focus on the lower three
+digits of N . Since we use only 1000-yen bills for the payment, the charge is only dependent on
+the last three digits. The number that corresponds to the last three digits can be calculated as
+N % 1000, where % denotes modulus operator, which is available in many languages.
+If this value is 0, then the charge is 0 yen, and otherwise the amount of charge is 1000 subtracted
+by that value. Here we can use if statements, but we can also handle with it by calculating the
+modulo of 1000 - N % 1000 divided by 1000 once again. The following is sample code in C++,
+implemented in the latter way. (The explanation goes on to the next page.)
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+int N;
+
+5
+
+cin >> N;
+
+6
+
+cout << (1000 - N % 1000) % 1000 << endl;
+
+7
+
+}
+In some languages, “negative integer % positive integer“ does not result in a negative number.
+In such languages, the implementation can be simpliﬁed as the following Ruby sample code.
+
+1
+
+puts -gets.to_i % 1000
+
+10
+

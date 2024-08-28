@@ -1,0 +1,16 @@
+タスクを完了する順序を全通り調べて最小値を求める方法でも解けますが、実装が若干大変です。実は、Ai
+の小さいタスクから順に、または Ai の大きいタスクから順に完了したときに最小となり、A1 , A2 , A3 の最大
+値と最小値の差が答えになります。
+
+C++ 言語による解答例
+# include < iostream >
+# include < algorithm >
+using namespace std ;
+int main () {
+int A1 , A2 , A3 ; cin >> A1 >> A2 >> A3 ;
+int ans = max ({ A1 , A2 , A3 }) - min ({ A1 , A2 , A3 });
+cout << ans << endl ;
+}
+
+1
+

@@ -1,0 +1,58 @@
+
+Postal Code
+
+S の A + 1 文字目がハイフンであり、それ以外の全ての文字が 0 以上 9 以下である場合に ‘Yes‘、
+そうでない場合に ‘No‘ を出力するとよいです。
+# include < cstdio >
+int A , B ;
+char s [12];
+int main ()
+{
+scanf ("% d % d " ,&A ,& B );
+scanf ("% s " ,& s );
+for ( int i =0; i < A ; i ++) if (!( ’0 ’ <= s [ i ]&& s [ i ] <= ’9 ’))
+{
+puts (" No "); return 0;
+}
+if ( s [ A ]!= ’ - ’)
+{
+puts (" No "); return 0;
+}
+for ( int i = A +1; i <= A + B ; i ++) if (!( ’0 ’ <= s [ i ]&& s [ i ] <= ’9 ’))
+{
+puts (" No "); return 0;
+}
+puts (" Yes ");
+}
+
+1
+
+
+Postal Code
+
+You can get 200 point by print ‘Yes‘ when (A + 1) -th character of S is a hyphen and the
+other characters are digits from ‘0‘ through ’9’,‘No‘ otherwise.
+# include < cstdio >
+int A , B ;
+char s [12];
+int main ()
+{
+scanf ("% d % d " ,&A ,& B );
+scanf ("% s " ,& s );
+for ( int i =0; i < A ; i ++) if (!( ’0 ’ <= s [ i ]&& s [ i ] <= ’9 ’))
+{
+puts (" No "); return 0;
+}
+if ( s [ A ]!= ’ - ’)
+{
+puts (" No "); return 0;
+}
+for ( int i = A +1; i <= A + B ; i ++) if (!( ’0 ’ <= s [ i ]&& s [ i ] <= ’9 ’))
+{
+puts (" No "); return 0;
+}
+puts (" Yes ");
+}
+
+4
+

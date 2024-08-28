@@ -1,0 +1,121 @@
+N 個のりんごのおいしさは、L,L + 1,L + 2,...,L + N − 1 です。また、この中から、最もおいしさの絶対値
+の小さいりんごを食べるのが、最適なので、そのりんごを除いた全てのりんごのおいしさの和を出力すればい
+いことが分かります。
+以下が、C++ のサンプルコードです。
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main() {
+
+5
+6
+
+int N,A;
+
+7
+
+cin>>N>>A;
+
+8
+9
+
+int L=A;
+
+10
+
+int R=A+N-1;
+
+11
+12
+
+int eat;
+
+13
+
+if(R<=0)eat=R;
+
+14
+
+else if(L>=0)eat=L;
+
+15
+
+else eat=0;
+
+16
+
+int answer=(R+L)*(R-L+1)/2-eat;
+
+17
+18
+
+cout<<answer<<endl;
+
+19
+20
+
+return 0;
+
+21
+22
+23
+
+}
+
+3
+
+The ﬂavor of the N apples are L,L + 1,L + 2,...,L + N − 1. It is optimal to
+eat the apple whose absolute value of taste is minimum, so it appears that
+you have to print the sum of all the apples except for that apple.
+The following is a sample code in C++.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+
+#include<iostream>
+using namespace std;
+int main() {
+int N,A;
+cin>>N>>A;
+int L=A;
+int R=A+N-1;
+int eat;
+if(R<=0)eat=R;
+else if(L>=0)eat=L;
+else eat=0;
+int answer=(R+L)*(R-L+1)/2-eat;
+cout<<answer<<endl;
+return 0;
+
+}
+
+11
+

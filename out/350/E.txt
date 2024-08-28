@@ -1,0 +1,125 @@
+
+		公式
+		
+			
+				E - Toward 0 解説
+			
+			by kyopro_friends
+			
+		
+		
+		
+		
+			この問題はメモ化再帰により解くことができます。
+
+問題1
+
+まずは次の問題を考えます。
+
+
+設定は元の問題と同じ。ただし、操作は次の1種類である。
+
+
+\(Y\) 円払う。\(2\) 以上 \(6\) 以下の整数が等確率で出るサイコロを振る。その出目を \(b\) としたとき、\(N\) を \(\left\lfloor\frac{N}{b}\right\rfloor\) に置き換える。
+
+
+
+求める期待値を \(f(N)\) とします。このとき、
+
+\(f(N)=Y
++\frac{1}{5}f\left(\left\lfloor\frac{N}{2}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{3}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{4}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{5}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{6}\right\rfloor\right)
+\)
+
+となります。よってメモ化再帰により求めることができます。（計算量については後述）
+
+問題2
+
+続いて次の問題を考えます。
+
+
+設定は元の問題と同じ。ただし、操作は次の1種類である。
+
+
+\(Y\) 円払う。\(1\) 以上 \(6\) 以下の整数が等確率で出るサイコロを振る。その出目を \(b\) としたとき、\(N\) を \(\left\lfloor\frac{N}{b}\right\rfloor\) に置き換える。
+
+
+
+求める期待値を \(f(N)\) とします。このとき、
+
+\(f(N)=Y
++\frac{1}{6}f\left(\left\lfloor\frac{N}{1}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{2}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{3}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{4}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{5}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{6}\right\rfloor\right)
+\)
+
+となります。右辺にも \(f(N)\) があるため再帰で計算することはできないように見えますが、左辺に移項し全体に \(\frac{6}{5}\) を掛けることで
+
+\(f(N)= \frac{6}{5}Y
++\frac{1}{5}f\left(\left\lfloor\frac{N}{2}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{3}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{4}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{5}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{6}\right\rfloor\right)
+\)
+
+となり、メモ化再帰により求めることができます。（計算量については後述）
+
+元の問題
+
+元の問題を考えます。求める期待値を \(f(N)\) とします。操作が \(2\) 種類あるので、期待値が小さい方を採用するのが最適です。すなわち
+
+\(f(N)=\min\left(X+f\left(\left\lfloor\frac{N}{A}\right\rfloor\right), 
+\frac{6}{5}Y
++\frac{1}{5}f\left(\left\lfloor\frac{N}{2}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{3}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{4}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{5}\right\rfloor\right)
++\frac{1}{5}f\left(\left\lfloor\frac{N}{6}\right\rfloor\right)
+\right)\)
+
+となり、メモ化再帰により求めることができます。
+
+\(f(N)\) を求めるために計算する必要がある ものは、\(\displaystyle \left\lfloor\frac{\left\lfloor\frac{N}{a}\right\rfloor}{b}\right\rfloor=\left\lfloor\frac{N}{ab}\right\rfloor\) に注意すると、\(m=2^p3^q5^r\) と書けるような整数 \(m\)  によって \(f\left(\left\lfloor\frac{N}{m}\right\rfloor\right)\) と書かれるものに限ります。
+
+このような \(m\) は高々 \(O((\log N)^3)\) 個しか存在しないため、全体の計算量は \(O((\log N)^3)\) となります。
+
+\(\ \)
+
+追記
+
+なお、\(f(N)\) の定義式
+\(f(N)=\min\left(X+f\left(\left\lfloor\frac{N}{A}\right\rfloor\right), 
+Y
++\frac{1}{6}f\left(\left\lfloor\frac{N}{1}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{2}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{3}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{4}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{5}\right\rfloor\right)
++\frac{1}{6}f\left(\left\lfloor\frac{N}{6}\right\rfloor\right)
+\right)
+\)
+を \(f(N)\) に関する方程式だと思って直接解くことでも \(f(N)\) の値を直ちに求めることができます。
+（\(X\) に関する方程式 \(X=\min(c,pX+q)\) は \(p<1\) のとき常にちょうど1つの解を持ちます（証明略））
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

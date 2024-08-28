@@ -1,0 +1,104 @@
+X を 2Y で割った切り捨て ⌊ 2XY ⌋ は
+⌊ YX−1 ⌋
+X
+⌊ Y⌋=⌊ 2
+⌋
+2
+2
+これは、任意の正整数 X, b1 , b2 について、
+
+⌊X ⌋
+X
+⌊ b1 ⌋ = ⌊
+⌋
+b2
+b1 b2
+であるためです。まず、これを示します。
+
+Proof. X を b1 で割った商を q1 、余りを r1 とすると ⌊ bX1 ⌋ = q1 であり、
+X = b1 q1 + r1 (0 ≤ r1 ≤ b1 − 1)
+が成り立ちます。逆にこれが成り立つような非負整数 q1 , r1 は一意なので、そのような q1 , r1 に対し
+⌊X⌋
+
+て ⌊ bX1 ⌋ = q1 です。次に、⌊ bX1 ⌋ = q1 を b2 で割った商を q2 、余りを r2 とすると、⌊ bb12 ⌋ = q2 で
+あり
+
+q1 = b2 q2 + r2 (0 ≤ r2 ≤ b2 − 1)
+が成り立ちます。したがって、
+
+X = b1 q1 + r1 = (b1 b2 )q2 + (r1 + b1 r2 )
+であり、
+
+0 ≤ r1 + b1 r2 ≤ (b1 − 1) + b1 (b2 − 1) = b1 b2 − 1
+なので ⌊ b1Xb2 ⌋ = q2 です。
+したがって、品物を順番に購入し、割引券を品物ごとにまとめて使う代わりに、
+「割引券を 1 枚使う
+たびに 1 つの品物を選んで値段を半額 (小数点以下切り捨て) にする」として構いません。よって、最
+も値段が高い品物に割引券を 1 枚使うことを M 回行えば良いです。なぜなら、まだ割引券が余って
+いるのに今最も高いもの (品物 X とする) に割引券を今後使わないとすると、最後に割引券を使った
+ものの代わりに品物 X に割引券を使ったほうがお得だからです。しかし、これを愚直に実装すると、
+時間計算量が O(N M ) となり間に合いません。そこで優先度付きキュー (Priority Queue) の出番で
+す。優先度付きキューを使えば
+
+• 値の追加
+• 値の削除
+• 最大値の取得
+
+5
+
+がそれぞれ O(log |Q|), O(log |Q|), O(1) でできます。ここで、|Q| は優先度付きキューに入っている
+値の数です。これを使うことで、1 回の操作 (最高額の品物を選んで半額にする) を O(log N ) の時間
+計算量でできるため、全体としては O(M log N ) となり間に合います。
+
+6
+
+The rounded down quotient of X divided by 2Y , ⌊ 2XY ⌋, is
+⌊ YX−1 ⌋
+X
+⌋
+⌊ Y⌋=⌊ 2
+2
+2
+This is because, for any positive integer X, b1 , b2 ,
+⌊X ⌋
+X
+⌊ b1 ⌋ = ⌊
+⌋
+b2
+b1 b2
+holds. Here is the proof.
+Proof. Let q1 be the quotient of X divided by b1 , and r1 be the remainder, then ⌊ bX1 ⌋ = q1 holds,
+and
+X = b1 q1 + r1 (0 ≤ r1 ≤ b1 − 1)
+holds. Conversely, the pair of non-negative integer q1 , r1 such that satisﬁes the equation above
+is unique, so for such q1 , r1 , ⌊ bX1 ⌋ = q1 holds. Next, Let q2 be the quotient of ⌊ bX1 ⌋ = q1 divided
+⌊X⌋
+
+by b2 , and r2 be the remainder, then it holds that ⌊ bb12 ⌋ = q2 and
+q1 = b2 q2 + r2 (0 ≤ r2 ≤ b2 − 1)
+holds. Therefore,
+X = b1 q1 + r1 = (b1 b2 )q2 + (r1 + b1 r2 )
+holds, and
+0 ≤ r1 + b1 r2 ≤ (b1 − 1) + b1 (b2 − 1) = b1 b2 − 1
+holds, so ⌊ b1Xb2 ⌋ = q2 .
+Therefore, instead of buying items one by one and using discount tickets at once for each item,
+you can assume that ”every time you use a discount ticket, choose one item and halve its price
+(rounded down to the nearest integer.” Therefore, all you have to do is performing operations of
+choosing the item with the highest price and use a discount ticket to it M times. This is because,
+assume that you decided not to apply a discount ticket to the current most expensive item (let
+it be item X), then the total price would be cheaper if you apply the discount ticket to item X
+rather than to the item you applied it the last time. However, if you naively implement it, it will
+need a total of O(N M ) time, so it won’t ﬁnish in time. Time for using Priority Queue. If you
+use priority queue, you can
+• add value
+• remove value
+13
+
+• get the maximum value
+in a O(log |Q|), O(log |Q|), O(1) time each, where |Q| is the number of values stored in the priority
+queue. By making use of it, you can perform each operation (of choosing the most expensive
+item and halve its price) in a O(log N ) time, so it takes a total of O(M log N ) time, so you can
+make it in time.
+
+14
+

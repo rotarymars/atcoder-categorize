@@ -1,0 +1,33 @@
+X が A の半公倍数である条件は、以下のように言い換えられます。
+•
+
+任意の k(1 ≤ k ≤ N ) に対して、X = (ak /2) ∗ (2p + 1) を満たす負でない整数 p が存在
+する。
+
+X が ak /2 の奇数倍であることから、これは以下のような二つの条件に分割できます。
+• 任意の k(1 ≤ k ≤ N ) に対して、X は ak /2 の倍数である。
+• 任意の k(1 ≤ k ≤ N ) に対して、X が 2 で割り切れる回数と ak /2 が 2 で割り切れる回数は
+同じである。
+
+ai が 2 で割り切れる回数と aj が 2 で割り切れる回数が異なるような i, j が存在するとき、条件を
+満たす X はありません。
+そのような i, j が存在しないときについて考えます。a1 /2, a2 /2, ..., aN /2 の最小公倍数を T とし
+ます。すると、T を奇数倍したものが条件を満たすので、条件を満たす X の個数が求まります。
+
+4
+
+The condition that X is a semi-common multiple of A can be rephrased as follows:
+• For all k(1 ≤ k ≤ N ), there exists a non-negative integer p such that X = (ak /2) ∗ (2p + 1).
+Since X is an odd-number-times multiple of ak /2, it can be divided into the following two
+conditions:
+• For all k(1 ≤ k ≤ N ), X is a multiple of ak /2.
+• For all k(1 ≤ k ≤ N ), the number of times X is divided by 2 is equal to the number of
+times ak /2 is divided by 2.
+If there exist i, j such that the number of times ai is divided by 2 and the number of times aj
+is divided by 2, then there does not exists X such that satisﬁes the conditions.
+Assume that there doesn’t exist such i, j. Let T be the least common multiple of T . Then,
+odd-number-times multiples of T satisﬁes the conditions, so you can ﬁnd the number of X that
+meets the conditions.
+
+10
+

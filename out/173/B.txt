@@ -1,0 +1,282 @@
+(解説: evima)
+仮にテストケース数 N が 3 などの値に固定されていれば、if 文のみでも処理することができます。
+しかし、現実には N は 1 以上 10 万以下と一定でない上に大きく、for 文の出番です。
+最も単純な方針は、以下の疑似コードの内容を実装することです。
+
+1
+
+N := input
+
+2
+
+C0, C1, C2, C3 := 0, 0, 0, 0
+
+3
+
+for i = 0, ..., N-1:
+
+4
+
+S := input
+
+5
+
+if S == "AC": C0 = C0 + 1
+
+6
+
+else if S == "WA": C1 = C1 + 1
+
+7
+
+else if S == "TLE": C2 = C2 + 1
+
+8
+
+else: C3 = C3 + 1
+
+9
+
+print C0, C1, C2, C3
+多くの言語で、この疑似コードを言語に合わせて修正することでこの問題を解くことができます。
+ただし、文字列を比較する際に言語によっては特別な注意を要します。言語ごとの詳細な情報は、検
+索エンジンで「[言語名] for 文」「[言語名] 文字列 比較」などと検索すれば手に入るはずです。以下
+に、疑似コードを Java のソースコードに変換したものを挙げます。
+
+1
+
+import java.util.*;
+
+2
+
+public class Main {
+
+3
+
+public static void main(String[] args){
+
+4
+
+Scanner sc = new Scanner(System.in);
+
+5
+
+int N = sc.nextInt();
+
+6
+
+int C0 = 0, C1 = 0, C2 = 0, C3 = 0;
+
+7
+
+for(int i = 0; i < N; ++i){
+
+8
+
+String S = sc.nextLine();
+
+9
+
+if(S.equals("AC")) ++C0;
+
+10
+
+else if(S.equals("WA")) ++C1;
+
+11
+
+else if(S.equals("TLE")) ++C2;
+
+12
+
+else ++C3;
+
+3
+
+13
+
+}
+
+14
+
+System.out.println("AC x " + C0);
+
+15
+
+System.out.println("WA x " + C1);
+
+16
+
+System.out.println("TLE x " + C2);
+
+17
+
+System.out.println("RE x " + C3);
+}
+
+18
+19
+
+}
+もちろん、上記の疑似コードと見た目が異なるコードを書くことも可能です。その一例として、以
+下に Python での実装例を挙げます。
+
+1
+
+N = int(input())
+
+2
+
+s = [input() for i in range(N)]
+
+3
+
+for v in ['AC', 'WA', 'TLE', 'RE']:
+
+4
+
+print('{0} x {1}'.format(v, s.count(v)))
+
+4
+
+(Editorial: evima)
+If the number of test case N is a constant, for example, 3, then we only have to use if statement.
+However, in reality N is a large non-constant number between 1 and 100 thousands, so it’s time
+to use for statements.
+The most simple way is to implement the content of the following pseudocode.
+
+1
+
+N := input
+
+2
+
+C0, C1, C2, C3 := 0, 0, 0, 0
+
+3
+
+for i = 0, ..., N-1:
+
+4
+
+S := input
+
+5
+
+if S == "AC": C0 = C0 + 1
+
+6
+
+else if S == "WA": C1 = C1 + 1
+
+7
+
+else if S == "TLE": C2 = C2 + 1
+
+8
+
+else: C3 = C3 + 1
+
+9
+
+print C0, C1, C2, C3
+In many languages, this problem can be solved by adjusting this pseudocode to those languages.
+Note that extra attention may be needed to be paid when comparing strings in some languages.
+For detailed information for each language, use searching engine with keywords “[language name]
+for statement” or “[language name] string comparison”. The following is the pseudocode transpiled into Java.
+
+1
+
+import java.util.*;
+
+2
+
+public class Main {
+
+3
+
+public static void main(String[] args){
+
+4
+
+Scanner sc = new Scanner(System.in);
+
+5
+
+int N = sc.nextInt();
+
+6
+
+int C0 = 0, C1 = 0, C2 = 0, C3 = 0;
+
+7
+
+for(int i = 0; i < N; ++i){
+
+8
+
+String S = sc.nextLine();
+
+9
+
+if(S.equals("AC")) ++C0;
+
+10
+
+else if(S.equals("WA")) ++C1;
+
+11
+
+else if(S.equals("TLE")) ++C2;
+
+11
+
+else ++C3;
+
+12
+13
+
+}
+
+14
+
+System.out.println("AC x " + C0);
+
+15
+
+System.out.println("WA x " + C1);
+
+16
+
+System.out.println("TLE x " + C2);
+
+17
+
+System.out.println("RE x " + C3);
+}
+
+18
+19
+
+}
+Of course you can write a code that looks diﬀerent to the pseudocode above. As an example,
+we will show a sample code in Python.
+
+1
+
+N = int(input())
+
+2
+
+s = [input() for i in range(N)]
+
+3
+
+for v in ['AC', 'WA', 'TLE', 'RE']:
+
+4
+
+print('{0} x {1}'.format(v, s.count(v)))
+
+12
+

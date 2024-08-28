@@ -1,0 +1,119 @@
+実際に D1 , D2 , ..., DN +1 を漸化式に従って生成し、それぞれの要素が X 以下かどうか判定すればよいで
+す。時間計算量と空間計算量は O(N ) です。
+実装例をソースコード 2 に示します。
+Listing 2 Bounding 実装例
+1
+2
+
+#include <bits/stdc++.h>
+using namespace std;
+
+3
+4
+
+int main() {
+int N, X; cin >> N >> X;
+
+5
+6
+
+vector<int> D(N + 1);
+
+7
+
+D[0] = 0;
+
+8
+
+for (int i = 0; i < N; ++i) {
+int x; cin >> x;
+
+9
+
+D[i + 1] = D[i] + x;
+
+10
+11
+
+}
+
+12
+
+int ans = 0;
+
+13
+
+for (int i = 0; i <= N; ++i) {
+if (D[i] <= X) {
+
+14
+
+ans++;
+
+15
+
+}
+
+16
+17
+
+}
+
+18
+
+cout << ans << endl;
+return 0;
+
+19
+20
+
+}
+
+2
+
+For this problem, we care about the location of the ball at each bounce. The
+location of the ball at the ﬁrst bounce is always 0. The location of the ball at
+for subsequent bouce i is the location of the ball at the previous bounce plus
+L[i], the length traveled from the previous bounce. This is the same thing
+as taking preﬁx sums. Now that we know the location of all the bounces, we
+can check each location and count the number of locations that are <= X.
+The runtime is O(N ).
+Listing 2: Bounding
+1 #include <bits/stdc++.h>
+2 using namespace std;
+3
+4 int main() {
+5
+int N, X; cin >> N >> X;
+6
+vector<int> D(N + 1);
+7
+D[0] = 0;
+8
+for (int i = 0; i < N; ++i) {
+9
+int x; cin >> x;
+10
+D[i + 1] = D[i] + x;
+11
+}
+12
+int ans = 0;
+13
+for (int i = 0; i <= N; ++i) {
+14
+if (D[i] <= X) {
+15
+ans++;
+16
+}
+17
+}
+18
+cout << ans << endl;
+19
+return 0;
+20 }
+
+9
+

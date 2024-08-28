@@ -1,0 +1,416 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 240</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 240" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc240/editorial/3422" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 240" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc240";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-02-20T21:00:00+09:00");
+			var endTime = moment("2022-02-20T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 240が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 240は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc240">AtCoder Beginner Contest 240</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc240/editorial/3422?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc240/editorial/3422?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc240%2Feditorial%2F3422">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc240%2Feditorial%2F3422">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc240%2Feditorial%2F3422">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220220T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-02-20 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220220T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-02-20 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc240"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc240/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc240/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc240/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc240/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc240/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc240/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc240/tasks/abc240_f">F - Sum Sum Max</a> 解説
+			
+			<span class="small">by <a href="/users/KoD" class="username"><span class="user-red">KoD</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p><span>\(\displaystyle z_i = \sum_{k = 1}^i y_k\)</span> と定めます。ただし、<span>\(z_0 = 0\)</span> とします。</p>
+
+<p><span>\(z_{i - 1} \lt k \leq z_i\)</span> のときつねに <span>\(C_k = x_i\)</span>  が成り立ちます。このことを用いて、<span>\(A_{z_{i - 1} + 1}, \dots, A_{z_{i}}\)</span> の最大値を求める方法を説明します。<br>
+便宜上 <span>\(A_0 = B_0 = 0\)</span> とすると、<span>\(1 \leq n \leq z_i - z_{i - 1}\)</span> に対して</p>
+<p><span>\[
+\begin{aligned}
+B_{z_{i - 1} + n}  &amp;= B_{z_{i - 1}} +  \sum_{k = 1}^n C_{z_{i - 1} + k} \\
+&amp;= B_{z_{i - 1}}  + \sum_{k = 1}^n x_i \\
+&amp;= B_{z_{i - 1}}  + x_i n
+\end{aligned}
+\]</span></p><p><span>\[
+\begin{aligned}
+A_{z_{i - 1} + n}  &amp;= A_{z_{i - 1}}  +  \sum_{k = 1}^n B_{z_{i - 1} + k} \\
+&amp;= A_{z_{i - 1}}  +  \sum_{k = 1}^n  (B_{z_{i - 1}} + x_i k)  \\
+&amp;= A_{z_{i - 1}} + B_{z_{i - 1}}n + x_i \times \frac{n(n + 1)}{2}
+\end{aligned}
+\]</span></p><p>が成り立ちます。よって、<span>\(A_{z_{i - 1} + n} = an^2 + bn + c\)</span> の形で表せることがわかります。右辺を <span>\(f(n)\)</span> とおくと、<span>\(f(1), \dots, f(z_i - z_{i - 1})\)</span> の最大値を求める問題に言い換えられます。</p>
+
+<hr>
+
+<h4>[1] <span>\(a \geq 0\)</span> のとき</h4>
+
+<p><span>\(f(n + 1) - f(n) = 2an + a + b\)</span>  は <span>\(n\)</span> について単調増加であるので、次の条件をともに満たす整数 <span>\(1 \leq m \leq z_i - z_{i - 1}\)</span> が存在します。</p>
+
+<ul>
+<li><span>\(f(1) \geq \dots \geq f(m) \)</span></li>
+<li><span>\(f(m) \lt \dots \lt f(z_i - z_{i - 1})\)</span></li>
+</ul>
+
+<p>よって <span>\(f(1), f(z_i - z_{i - 1})\)</span> のいずれかが最大値を与えます。</p>
+
+<hr>
+
+<h4>[2] <span>\(a \lt 0\)</span> のとき</h4>
+
+<p><span>\(f(n + 1) - f(n) = 2an + a + b\)</span>  は <span>\(n\)</span> について単調減少であるので、次の条件をともに満たす整数 <span>\(1 \leq m \leq z_i - z_{i - 1}\)</span> が存在します。</p>
+
+<ul>
+<li><span>\(f(1) \leq \dots \leq f(m) \)</span></li>
+<li><span>\(f(m) \gt \dots \gt f(z_i - z_{i - 1})\)</span></li>
+</ul>
+
+<p><span>\(f(m)\)</span> が最大値を与えます。</p>
+
+<p><strong>三分探索</strong>という手法を用いて <span>\(m\)</span> を高速に求める方法を説明します。<br>
+まず、<span>\(l := 0, r := z_i - z_{i - 1} + 1\)</span> と定めます。<span>\(l &lt; m &lt; r\)</span> という条件を保ちながら <span>\(r - l\)</span> の値を小さくしていくと、<span>\(r - l = 2\)</span> となった時点で <span>\(m\)</span> の値が分かります。<br>
+<span>\(r - l &gt; 2 \)</span> のとき、<span>\(l &lt; m_1 &lt; m_2 &lt; r\)</span> となる <span>\(m_1, m_2\)</span> をとり、次の操作を行います。</p>
+
+<ul>
+<li><span>\(f(m_1) \leq f(m_2)\)</span> ならば <span>\(l\)</span> を <span>\(m_1\)</span> で置き換える。</li>
+<li><span>\(f(m_1) \gt f(m_2)\)</span> ならば <span>\(r\)</span> を <span>\(m_2\)</span> で置き換える。</li>
+</ul>
+
+<p>このとき、<span>\(l &lt; m &lt; r\)</span> が保たれることを示します。<span>\(g(n) = f(n + 1) - f(n)\)</span> とおくと <span>\(f(m_2) - f(m_1) = g(m_1) + \dots + g(m_2 - 1)\)</span> であるので、</p>
+
+<ul>
+<li><span>\(f(m_1) \leq f(m_2)\)</span> のとき <span>\(g(m_1) + \dots + g(m_2 - 1) \geq 0\)</span> であるので、<span>\(g(n)\)</span> が単調減少であることとあわせて <span>\(g(m_1) \geq 0\)</span> を得る。したがって <span>\(f(m_1) \leq f(m_1 + 1)\)</span> より <span>\(m_1 \lt m\)</span> である。</li>
+<li><span>\(f(m_1) \gt f(m_2)\)</span> のとき <span>\(g(m_1) + \dots + g(m_2 - 1) \lt 0\)</span> であるので、<span>\(g(n)\)</span> が単調減少であることとあわせて <span>\(g(m_2 - 1) \lt 0\)</span> を得る。したがって <span>\(f(m_2 - 1) \gt f(m_2)\)</span> より <span>\(m \lt m_2\)</span> である。</li>
+</ul>
+
+<p>いずれの場合も <span>\(l &lt; m &lt; r\)</span> が保たれることが分かります。<br>
+<span>\(m_1, m_2\)</span> として <span>\(\displaystyle m_1 = \left\lfloor \frac{l + r}{2}  \right\rfloor, m_2 =  \left\lfloor \frac{l + r}{2}  \right\rfloor + 1\)</span> を選ぶことで、<span>\(r - l\)</span> の値が <span>\(1\)</span> ステップごとに約半分になるので、<span>\(O(\log(z_{i} - z_{i - 1}))\)</span> の計算量で <span>\(m\)</span> を求めることができます。</p>
+
+<hr>
+
+<p>以上から、<span>\(i = 1, \dots, N\)</span> の順に <span>\(A_{z_{i - 1} + 1}, \dots, A_{z_{i}}\)</span> の最大値を求めていくことにより、この問題を <span>\(O(N \log M)\)</span> で解くことができました。なお、<span>\(A_{z_{i - 1}}, B_{z_{i - 1}}\)</span> の値が必要となりますが、これらは <span>\(A_{z_{i - 1} + n}, B_{z_{i - 1} + n}\)</span> の式から定数時間で計算していくことができます。</p>
+
+<p><a href="https://atcoder.jp/contests/abc240/submissions/29492199" rel="nofollow">実装例 (C++)</a></p>
+
+<h3>補足</h3>
+
+<p>関数 <span>\(f : \mathbb{Z} \mapsto \mathbb{R}\)</span> について <span>\(g(n) = f(n + 1) - f(n)\)</span> とおいたとき、<span>\(g(n)\)</span> が単調増加であるならば <span>\(f(n)\)</span> は<strong>下に凸である</strong>といい、<span>\(g(n)\)</span> が単調減少であるならば <span>\(f(n)\)</span> は<strong>上に凸である</strong>といいます。凸関数の極値を求めるために<strong>三分探索</strong>や<strong>黄金分割探索</strong>などの手法が頻繁に用いられます。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1645083089">
+				<time class="timeago" datetime="2022/02/17 16:31:29"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1645334393">
+				<time class="timeago" datetime="2022/02/20 14:19:53"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc240/editorial/3422?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 240">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc240/rules">ルール</a></li>
+					<li><a href="/contests/abc240/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

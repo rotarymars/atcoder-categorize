@@ -1,0 +1,42 @@
+最長の文字列を作るにはできるだけ多く文字を使ったほうがいいです。答え
+となる文字列に使える a の数を ca とします。また、cb , . . . , cz についても同
+様に定義します。
+すぬけ君が文字列を作る時に a を k 個使うためには、どの文字列にも a
+が k 個出てきている必要があります。よって、ca は、
+「a が最も少ない文字列」
+に出てくる a の個数となります。同じことが他の b から z までの文字につい
+ても言えます。
+辞書順で最小の文字列にするためには、a から順番に並べればよいので、
+答えは
+. . . b} . . . zz
+. . . }z
+aa
+. . . a} bb
+| {z
+| {z
+| {z
+ca 個
+
+cb 個
+
+cz 個
+
+となります。
+
+Let ca be the maximum integer such that each string contains at least ca
+occurrences of the character ’a’. Define cb , . . . , cz similarly.
+The answer is
+aa
+. . . a}
+| {z
+
+bb
+. . . b} . . . zz
+. . . }z
+| {z
+| {z
+
+ca occurrences cb occurrences
+
+cz occurrences
+

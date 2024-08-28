@@ -1,0 +1,7 @@
+二つの長方形の面積の max を出力すればよいです。
+C++ のコード例
+
+int a ,b ,c , d ;
+cin > > a >> b >> c >> d ;
+cout < < max ( a *b , c * d ) << endl ;
+

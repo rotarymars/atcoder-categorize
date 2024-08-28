@@ -1,0 +1,39 @@
+区間に対するクエリに答えるというと、Range Minimum Query などに用いられる SegmentTree
+が知られていますが、集合のマージには時間がかかってしまいます。
+全体で左から k 番目かそれより左にある玉だけに注目したとき、それぞれの色で最も右にある玉を
+
+k についての良い玉と呼ぶことにします。すると、i 番目のクエリに対する答えは [li , ri ] にある ri に
+ついての良い玉の個数になります。
+クエリを ri の昇順にソートし、良い玉の集合を管理しながらクエリに答えて行きます。良い玉の
+集合は以下の二つのデータ構造を用いて管理すると良いです。
+
+• 色 i の良い玉が存在するか、存在するならその場所はどこかを管理し、集合の更新をするため
+の配列
+
+• 良い玉のある場所が 1 、それ以外が 0 であるような数列を管理し、区間和を取ることでクエリ
+に答えるための Fenwick Tree
+計算量は O(N + QlogN ) です。
+解答例
+
+https://atcoder.jp/contests/abc174/submissions/15644133
+
+7
+
+When it comes to answering queries for segments, well known is SegmentTree that is used for
+problems like Range Minimum Query, but merging sets requires long time.
+For each k, let us call a ball “good ball for k” if it is one of the leftmost k balls such that no
+other ball in the right of the ball out of those k balls has the same color to that ball. Then, the
+answer for the i-th query is the number of good ball for ri that is in [li , ri ].
+Sort the queries in the increasing order of ri , and answer to the query while managing the set
+of good balls. Set of good balls can be managed eﬃciently by the following two data structures:
+• an array that manages whether a good ball of color i exists, and its position (if exists),
+which is used to update the set
+• a Fenwick tree that manage an array whose element is 1 if there is a good ball at that
+position, or otherwise 0, that enables to answer the queries by taking segment sums
+The total time complexity is O(N + QlogN ).
+Sample code
+https://atcoder.jp/contests/abc174/submissions/15644133
+
+14
+
+

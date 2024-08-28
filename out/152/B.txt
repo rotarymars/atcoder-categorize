@@ -1,0 +1,149 @@
+考えられる方法の一つは、2 つの文字列を実際に作り、辞書順比較することです。辞書順比較は、
+例えば C++ ならば string 型同士で比較をすることで可能です。
+しかし、a を b 回繰り返した文字列は a で始まり、b を a 回繰り返した文字列は b で始まるため、
+
+a < b ならば常に a を b 回繰り返した文字列の方が辞書順で小さいですし、a > b ならば常に b を a
+回繰り返した文字列の方が辞書順で小さいです。また、a = b なら二つの文字列が等しくなるのでど
+ちらを出力しても同じになります。
+Listing 1 C++ での実装例 1
+
+#include <stdio.h>
+#include <string>
+3 #include <algorithm>
+4 using namespace std;
+5 char in[110];
+6 int main(){
+7
+int a,b;scanf("%d%d",&a,&b);
+8
+for(int i=0;i<b;i++)in[i]='0'+a;
+9
+string L=in;
+10
+for(int i=0;i<a;i++)in[i]='0'+b;
+11
+in[a]=0;
+12
+string R=in;
+13
+printf("%s\n",min(L,R).c_str());
+14 }
+1
+2
+
+Listing 2 C++ での実装例 2
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(){
+
+4
+
+int a,b;scanf("%d%d",&a,&b);
+
+5
+
+if(a<b){
+for(int i=0;i<b;i++)printf("%d",a);
+
+6
+
+}else{
+
+7
+
+for(int i=0;i<a;i++)printf("%d",b);
+
+8
+
+}
+
+9
+
+printf("\n");
+
+10
+11
+
+}
+
+2
+
+One possible way is constructing to strings actually and compare lexicographically. This can
+be achieved by, for example in C++, comparing between string type.
+However, the concatenation of b copies of a starts with a, and the concatenation of a copies of
+b starts with b, so if a < b then the concatenation of b copies of a is the smaller lexicographically,
+and if a < b then the concatenation of a copies of b is the smaller lexicographically. Also, if a = b,
+the two strings are the same, so you will obtain the same result by printing either of them.
+Listing 3 Sample Code in C++ 1
+
+#include <stdio.h>
+#include <string>
+3 #include <algorithm>
+4 using namespace std;
+5 char in[110];
+6 int main(){
+7
+int a,b;scanf("%d%d",&a,&b);
+8
+for(int i=0;i<b;i++)in[i]='0'+a;
+9
+string L=in;
+10
+for(int i=0;i<a;i++)in[i]='0'+b;
+11
+in[a]=0;
+12
+string R=in;
+13
+printf("%s\n",min(L,R).c_str());
+14 }
+1
+2
+
+Listing 4 Sample Code in C++ 2
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(){
+
+4
+
+int a,b;scanf("%d%d",&a,&b);
+
+5
+
+if(a<b){
+for(int i=0;i<b;i++)printf("%d",a);
+
+6
+
+}else{
+
+7
+
+for(int i=0;i<a;i++)printf("%d",b);
+
+8
+
+}
+
+9
+
+printf("\n");
+
+10
+11
+
+}
+
+8
+

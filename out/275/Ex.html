@@ -1,0 +1,562 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 275</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 275" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc275/editorial/5128" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 275" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc275";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-10-29T21:00:00+09:00");
+			var endTime = moment("2022-10-29T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 275が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 275は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc275">AtCoder Beginner Contest 275</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc275/editorial/5128?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc275/editorial/5128?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc275%2Feditorial%2F5128">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc275%2Feditorial%2F5128">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc275%2Feditorial%2F5128">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221029T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-10-29 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221029T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-10-29 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc275"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc275/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc275/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc275/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc275/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc275/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc275/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc275/tasks/abc275_h">Ex - Monster</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-4.png" class="user-rating-stage-m"><a href="/users/mechanicalpenciI" class="username"><span class="user-orange">mechanicalpenciI</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<h4>1. 区間の限定と二分木構造の形成</h4>
+
+<p>まず、高橋君の魔法の使用順序は体力変化や魔力の使用量に影響しないため、各区間を何度選んだかのみが重要となります。さらに、魔法を使用するとき、消費する魔力を変化させない限り、なるべく広い範囲を選んで損になることはありません。すなわち、<span>\(1\leq r\leq N\)</span> をみたす <span>\((l,r)\)</span> のうち、</p>
+
+<ul>
+<li><span>\(l\leq j\leq r\)</span> をみたす任意の <span>\(j\)</span> に対して <span>\(B_{l-1}&gt;B_j\)</span> または <span>\(l=1\)</span></li>
+<li><span>\(l\leq j\leq r\)</span> をみたす任意の <span>\(j\)</span> に対して <span>\(B_{r+1}&gt;B_j\)</span> または <span>\(r=N\)</span></li>
+</ul>
+
+<p>の <span>\(2\)</span> 条件をともにみたすもののみを使用するとして良いです。
+そのような区間は、その区間において、 <span>\(B_i\)</span> が最大となる <span>\(i\)</span> (複数ある場合はそのうち最大の <span>\(i\)</span>, 以下このような <span>\(i\)</span> をとる時も同様 )と対応させることで、次のように <span>\(l_i,r_i\)</span> を定義したときの <span>\((l_i,r_i)\)</span> として書くことができます。</p>
+
+<ul>
+<li><span>\(j&lt;i\)</span>かつ<span>\(B_j&gt;B_i\)</span>をみたす最大の <span>\(j\)</span> に対して, <span>\(l_i=j+1\)</span>, そのような <span>\(j\)</span> が存在しないならば <span>\(l_i=1\)</span></li>
+<li><span>\(j&gt;i\)</span>かつ<span>\(B_j\geq B_i\)</span>をみたす最小の <span>\(j\)</span> に対して, <span>\(r_i=j-1\)</span>, そのような <span>\(j\)</span> が存在しないならば <span>\(r_i=N\)</span></li>
+</ul>
+
+<p>よって、これらの区間に対してのみ操作を行う場合を考えて良いです。(余計な区間が含まれている場合がありますが、使用しなければ問題ありません。)</p>
+
+<p>ここで、これらの区間について、 <span>\(B_1,\ldots,B_N\)</span> の中で <span>\(B_i\)</span> が最大であるような頂点 <span>\(i\)</span> を根とした、次のような二分木構造を考える事ができます。(根 <span>\(R\)</span> について <span>\((l_R,r_R)=(1,N)\)</span> であることに注意)</p>
+
+<ul>
+<li>頂点 <span>\(i\)</span> は、<span>\(l_i&lt; i\)</span>ならば、<span>\(l_i\leq j\leq i-1\)</span> をみたす <span>\(j\)</span> のうち、<span>\(B_j\)</span> が最大のものを(直接の)左の子として持つ。そうでないならば左の子を持たない。</li>
+<li>頂点 <span>\(i\)</span> は、<span>\(i&lt;r_i\)</span>ならば、<span>\(i+1\leq j\leq r_i\)</span> をみたす <span>\(j\)</span> のうち、<span>\(B_j\)</span> が最大のものを(直接の)右の子として持つ。そうでないならば右の子を持たない。</li>
+</ul>
+
+<p>このとき、頂点 <span>\(i\)</span> について、</p>
+
+<ul>
+<li>頂点 <span>\(i\)</span> が左の子 <span>\(x\)</span> を持つならば <span>\((l_x,r_x)=(l_i,i-1)\)</span></li>
+<li>頂点 <span>\(i\)</span> が右の子 <span>\(y\)</span> を持つならば <span>\((l_y,r_y)=(i+1,r_i)\)</span></li>
+</ul>
+
+<p>が成り立ちます。</p>
+
+<h4>2. DPの設定と更新</h4>
+
+<p><span>\(dp[i][j]\)</span>で, <span>\(N&#39;=r_i-l_i+1\)</span>, <span>\(A&#39;=(A_{l_i}-j,A_{l_i+1}-j,\ldots,A_{r_i}-j)\)</span>, <span>\(B&#39;=(B_{l_i},B_{l_i+1}, \ldots,B_{r_i})\)</span> とした時の問題に対する答え（使用する魔力の総和の最小値）を表すとします。<br>
+求めたいものは、<span>\(dp[R][0]\)</span> となります。</p>
+
+<p>これを<span>\(i\)</span> について、 <span>\(B_i\)</span> の値が小さい順に求めていくことを考えます。<br>
+また、同時に、この時、<span>\(dp[i][j]\)</span> が <span>\(j\)</span> について単調減少であり、 <span>\((dp[i][j]-dp[i][j+1]\)</span>) も単調減少である事を帰納法で示します。</p>
+
+<p>まず、<span>\(l_i=r_i=i\)</span> であるとき、</p>
+<p><span>\[
+dp[i][j]=
+\begin{cases}
+(A_i-j)B_i &amp; (0\leq j\leq A_i) \\
+0 &amp; (A_i\leq j)
+\end{cases}
+\]</span></p><p>となります。この時、仮定もみたしています。</p>
+
+<p>そうでない時、頂点 <span>\(i\)</span> が左右の子 <span>\(x,y\)</span> を持つとします。
+ここで、二分木や区間の定義から、 <span>\(B_x\leq B_i\)</span>, <span>\(B_y&lt;B_i\)</span> であるため、<span>\(dp[x][j],dp[y][j]\)</span> がすでに求まっていることに注意します。
+また、いずれかの子が存在しない場合は以下の方針で <span>\(dp[x][j](またはdp[y][j])\equiv 0\)</span> とすれば良いです。</p>
+
+<p>高橋君は座標 <span>\(i\)</span> のモンスターの体力を削る必要がある事から,
+このとき,</p>
+<p><span>\[
+dp[i][j]=\displaystyle\min_{\max(A_i-j,0)\leq k} \{kB_i+ dp[x][j+k]+dp[y][j+k]\}
+\]</span></p><p>となります。<span>\(k\)</span> を <span>\(1\)</span> 増加させた時の、
+<span>\(kB_i+ dp[x][j+k]+dp[y][j+k]\)</span> の変位は、 <span>\(B_i-(dp[x][j+k]-dp[x][j+k+1])-(dp[y][j+k]-dp[y][j+k+1])\)</span> であり、これは帰納法の仮定より、単調増加です。
+よって、ある <span>\(j_0\geq A_i\)</span> において、</p>
+
+<ul>
+<li><span>\(j_0=A_i\)</span> または
+<span>\(B_i-(dp[x][j_0-1]-dp[x][j_0])-(dp[y][j_0-1]-dp[y][j_0])\leq 0\)</span></li>
+<li><span>\(B_i-(dp[x][j_0]-dp[x][j_0+1])-(dp[y][j_0]-dp[y][j_0+1])&gt; 0\)</span></li>
+</ul>
+
+<p>の<span>\(2\)</span>つをみたします。まず、この時、<span>\(j\leq j_0\)</span> ならば、</p>
+<p><span>\[
+dp[i][j]=(j_0-j)B_i+ dp[x][j_0]+dp[y][j_0]
+\]</span></p><p>となります。そうでない時、すなわち <span>\(j\geq j_0\)</span> の時、<span>\(k\)</span>を<span>\(0\)</span> から増加させる利点がないため、</p>
+<p><span>\[
+dp[i][j]=dp[x][j]+dp[y][j]
+\]</span></p><p>となります。帰納法の仮定から、<span>\(dp[i][j]\)</span>は単調減少であり、
+<span>\(B_i&gt;(dp[x][j_0]+dp[y][j_0])-(dp[x][j_0+1]+dp[y][j_0+1])\)</span> から
+<span>\(dp[i][j]-dp[i][j+1]\)</span>も単調減少となります。</p>
+
+<p>よって、帰納的に <span>\(dp[i][j]\)</span> の値を求める方法が分かりました。</p>
+
+<h4>3.折れ線である事を利用した高速化</h4>
+
+<p>さて、この<span>\(dp[i][j]\)</span> ですが、<span>\(j\)</span> の添字の範囲を考えたとき、<span>\(j\geq \max(A_{l_i},\ldots,A_{r_i})\)</span> ならば <span>\(dp[i][j]=0\)</span> となりますが、逆に言えば その付近、つまり最大で <span>\(j\simeq 10^9\)</span> あたりまで計算しなくてはならず、間に合いません。そこで、先ほどのものを見るとほとんどの点で<span>\(dp[i][j]\)</span>が等間隔に減少している事がわかり、<span>\(dp[i][j]-dp[i][j+1]\)</span> が変化している点はその頂点を根とする部分木の頂点数程度しかありません。よって、<span>\(dp[i][j]\)</span> の値を陽に持つ代わりに、
+<span>\(dp[i][0]\)</span>, <span>\(dp[i][0]-dp[i][1]\)</span> の値および</p>
+<p><span>\[
+S_i=\{(j,(dp[i][j-1]-dp[i][j])-(dp[i][j]-dp[i][j+1]))|  (dp[i][j-1]-dp[i][j])\neq (dp[i][j]-dp[i][j+1]) なる j\}
+\]</span></p><p>を持つ事を考えます。この時、更新は <span>\(2\)</span> つの段階からなります。</p>
+
+<ol>
+<li><p><span>\(dp[x][j]\)</span>と <span>\(dp[y][j]\)</span> の併合(<span>\(dp&#39;\)</span>,<span>\(S&#39;_i\)</span> はこれらの値や集合が計算途中であり、最終的なものとは異なることを表す)</p>
+
+<ul>
+<li><span>\(dp&#39;[i][0]=dp[x][0]+dp[y][0]\)</span></li>
+<li><span>\(dp&#39;[i][0]-dp&#39;[i][1]=(dp[x][0]-dp[x][1])+(dp[y][0]-dp[y][1])\)</span></li>
+<li><span>\(S&#39;_i=S_x\bigcup S_y\)</span></li>
+</ul></li>
+
+<li><p><span>\((A_i,B_i)\)</span>の情報の追加</p>
+
+<ul>
+<li>1. の情報を用いて,  <span>\(dp&#39;[i][j]\)</span> を前から順に計算していき、 <span>\(j\geq A_i\)</span> かつ <span>\(B_i&gt;dp&#39;[i][j]-dp&#39;[i][j+1](=(dp[x][j]+dp[y][j])-(dp[x][j+1]+dp[y][j+1]))\)</span>なる最小の <span>\(j=j_0\)</span> を見つける。</li>
+<li><span>\(dp[i][0]=dp&#39;[i][j_0]+j_0B_i\)</span></li>
+<li><span>\(dp[i][0]-dp[i][1]=B_i\)</span></li>
+<li><span>\(j\leq j_0\)</span>なる <span>\((j,x)\in S&#39;_i\)</span> は集合から取り除く</li>
+<li><span>\((j_0,B_i-(dp&#39;[i][j_0]-dp&#39;[i][j_0+1]))\)</span> を <span>\(S&#39;\)</span> に加える。</li>
+</ul></li>
+</ol>
+
+<p>このようにして更新していくことができます。</p>
+
+<p>最後に、計算量についてです。
+<span>\(S_x\)</span> と <span>\(S_y\)</span> の併合は、<span>\(S_x\)</span>, <span>\(S_y\)</span> のうち大きい方に併合してそれを新たに <span>\(S_i\)</span> とすることによって、各 <span>\(S_i\)</span> への挿入が合計で <span>\(O(N\log N)\)</span> 回となります。また、2.で<span>\(dp&#39;[i][j]\)</span>を <span>\(j=j_0\)</span> まで計算する部分についても、一度参照された <span>\(S_i\)</span> の要素は高々<span>\(1\)</span> つを除いて削除される事から、こちらも全体で <span>\(O(N\log N)\)</span> 回程度の計算で終わります。<span>\(S_i\)</span> を 順序付き多重集合や優先度付きキューなどで管理する事によって、挿入・参照・削除が <span>\(O(\log N)\)</span> で行えるため、dpの更新にかかる計算量は全体で <span>\(O(N\log^2 N)\)</span>となります。なお、他の <span>\(l_i\)</span> や <span>\(r_i\)</span> を求めるパートは順序集合等で <span>\(O(N\log N)\)</span>で行えるため、問題全体で <span>\(O(N\log^2 N)\)</span> であり、十分高速にこの問題を解く事ができました。</p>
+
+<p>c++ による実装例 :</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+#define N 100010
+#define INF (long long)4e+18
+
+int main() {
+  int n;
+  long long a[N];
+  long long b[N];
+  int c[N][2];
+  int x,y;
+  set&lt;int&gt;st;
+  set&lt;int&gt;::iterator itr;
+	vector&lt;pair&lt;long long,int&gt; &gt;ord;
+ 
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++)cin&gt;&gt;a[i];
+	for(int i=1;i&lt;=n;i++){
+    cin&gt;&gt;b[i];
+    ord.push_back({b[i],i});
+  }
+  b[0]=INF;
+  b[n+1]=INF;
+
+  sort(ord.begin(),ord.end());
+  for(int i=1;i&lt;=n;i++)for(int j=0;j&lt;2;j++)c[i][j]=-1;
+  st.insert(0);
+  st.insert(n+1);
+  for(int i=n-1;i&gt;=0;i--){
+    itr=st.upper_bound(ord[i].second);
+    y=(*itr);
+    itr--;
+    x=(*itr);
+    if(b[x]&lt;=b[y])c[x][1]=ord[i].second;
+    else c[y][0]=ord[i].second;
+    st.insert(ord[i].second);
+  }
+
+  int k;
+  int p[N];
+  long long dp0[N];
+  long long d[N];
+  long long cur;
+  multiset&lt;pair&lt;long long,long long&gt; &gt;mst[N];
+  multiset&lt;pair&lt;long long,long long&gt; &gt;::iterator mstitr;
+  pair&lt;long long,long long&gt; z;
+  
+	for(int i=1;i&lt;=n;i++)p[i]=i;
+ 
+	for(int i=0;i&lt;n;i++){
+		k=ord[i].second;
+		if((c[k][0]==-1)&amp;&amp;(c[k][1]==-1)){
+			dp0[k]=a[k]*b[k];
+			d[k]=b[k];
+			mst[k].insert({a[k],b[k]});
+			continue;
+		}
+		if(c[k][0]==-1)p[k]=p[c[k][1]];
+		else if(c[k][1]==-1)p[k]=p[c[k][0]];
+    else if(mst[p[c[k][0]]].size()&lt;mst[p[c[k][1]]].size()){
+      p[k]=p[c[k][1]];
+      dp0[p[k]]+=dp0[p[c[k][0]]];
+      d[p[k]]+=d[p[c[k][0]]];      
+      mst[p[k]].merge( mst[p[c[k][0]]]);
+    }
+    else{
+      p[k]=p[c[k][0]];
+      dp0[p[k]]+=dp0[p[c[k][1]]];
+      d[p[k]]+=d[p[c[k][1]]];   
+      mst[p[k]].merge( mst[p[c[k][1]]]);
+    }
+
+		cur=0;
+		while(!mst[p[k]].empty()){
+      mstitr=mst[p[k]].begin();
+			z=(*mstitr);
+			if((z.first&lt;=a[k])||(d[p[k]]&gt;=b[k])){
+				dp0[p[k]]-=(z.first-cur)*d[p[k]];
+				d[p[k]]-=z.second;
+				cur=z.first;
+				mst[p[k]].erase(mstitr);
+			}
+			else break;
+		}
+		if(cur&lt;a[k]){
+			dp0[p[k]]-=(a[k]-cur)*d[p[k]];
+			cur=a[k];
+		}
+      	mst[p[k]].insert({cur,b[k]-d[p[k]]});
+		dp0[p[k]]+=(cur*b[k]);
+		d[p[k]]=b[k];
+	}
+	cout&lt;&lt;dp0[p[ord[n-1].second]]&lt;&lt;endl;
+ 
+	return 0;
+}
+</code></pre>
+
+<p>(追記 : なお、この問題には<span>\(O(N\log N)\)</span>解法も存在します。)</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1666962724">
+				<time class="timeago" datetime="2022/10/28 22:12:04"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1667050520">
+				<time class="timeago" datetime="2022/10/29 22:35:20"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc275/editorial/5128?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 275">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc275/rules">ルール</a></li>
+					<li><a href="/contests/abc275/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

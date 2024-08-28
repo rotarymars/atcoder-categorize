@@ -1,0 +1,20 @@
+3 つの整数の和の偶奇は操作によって不変です。また、整数を減少させることはできないので、3 つの整数
+が等しくなったならば、その時の値は 3 つの整数の最大値 (以下これを M とする) 以上です。よって、もし
+
+3M と最初の 3 つの整数の和の偶奇が等しいなら、3 つの整数が等しくなった時の値は M 以上、そうでなけ
+れば M + 1 以上です。
+逆に、この下限が達成できることは簡単にわかるので、この問題を解くことができました。
+
+Suppose that when you finish the operations, all integers are X. Since the sum of three integers always
+increases by two in each operation, the total number of operations is (3X − (A + B + C))/2. Thus, we
+want to minimize X.
+Let M be the maximum of A, B, C. Since we can never decrease integers, X ≥ M must hold. Also,
+since we can never change the parity of sum of three integers, 3X ≡ A + B + C (mod 2) must hold. (It’s
+easy to see that these are suﬃcient conditions).
+Therefore,
+• If 3M ≡ A + B + C (mod 2), X = M .
+• Otherwise, X = M + 1.
+and we should print (3X − (A + B + C))/2.
+
+3
+

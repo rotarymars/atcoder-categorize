@@ -1,0 +1,9 @@
+16 進数に直さずとも，実は入力した文字の ASCII コードを比較するだけ
+で十分です (C, C++ならば char 型のまま比較すれば ASCII コードで比較で
+きます)。
+想定解
+
+1
+
+https://abc078.contest.atcoder.jp/submissions/1751369
+

@@ -1,0 +1,455 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc264/editorial/4588" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc264";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-08-13T21:00:00+09:00");
+			var endTime = moment("2022-08-13T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc264">freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc264/editorial/4588?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc264/editorial/4588?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc264%2Feditorial%2F4588">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc264%2Feditorial%2F4588">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc264%2Feditorial%2F4588">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220813T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-08-13 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220813T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-08-13 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc264"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc264/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc264/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc264/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc264/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc264/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc264/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc264/tasks/abc264_f">F - Monochromatic Path</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-2.png" class="user-rating-stage-m"><a href="/users/leaf1415" class="username"><span class="user-orange">leaf1415</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>以下では、<span>\((1, 1)\)</span> から <span>\((H, W)\)</span> へ<strong>白いマス</strong>のみからなる移動経路を作る最小費用を求めます。
+黒いマスのみからなる場合の最小費用も同様の方法で求めることができるので、両者の最小値を本問題の答えとして出力すれば良いです。</p>
+
+<p>まず、操作を複数回行う場合、その順番は結果に影響しません。
+また、同じ行（または列）に対して操作を <span>\(2\)</span> 回行うと、その行（または列）の状態は元に戻ります。
+よって、私たちが実際に決定するのは、各行と各列について「操作を <span>\(0\)</span> 回行うか <span>\(1\)</span> 回行うか」です。
+実は、<span>\(1\)</span> 行目を反転するかを決め、通りたい移動経路 <span>\(1\)</span> つを選ぶと、選んだ経路のすべてのマスを白色にするためにはどの行および列を反転しなければならないかが一意に定まります。</p>
+
+<p>実際にマス <span>\((1, 1)\)</span> から <span>\(1\)</span> マスずつ移動しながら、白いマスのみからなる移動経路を <span>\(1\)</span> つ作ることを考えます。その過程では、反転しなければならないことが確定した行および列を随時反転していきます。
+具体的には以下の手順を考えます。</p>
+
+<ul>
+<li>まず、<span>\(R_1\)</span> 円払って <span>\(1\)</span> 行目を反転しても良い。</li>
+<li>その後、<span>\((1, 1)\)</span> の現在の色が黒なら、<span>\(C_1\)</span> 円払って <span>\(1\)</span> 列目を反転する。</li>
+<li>次に、マス <span>\((1, 1)\)</span> に立ち、次に進む方向として、右または下の好きな向きを向く。</li>
+<li>以降、<span>\((H, W)\)</span> に到達するまで以下を繰り返す。
+
+<ol>
+<li>現在いるマスを <span>\((i, j)\)</span> とし、現在向いている向きに <span>\(1\)</span> マス進んだ先のマスを <span>\((i&#39;, j&#39;)\)</span> とする。</li>
+<li><span>\((i&#39;, j&#39;)\)</span> の現在の色が黒ならば、
+
+<ul>
+<li>現在下を向いているなら <span>\(R_{i&#39;}\)</span> 円払って <span>\(i&#39;\)</span> 行目を反転する。</li>
+<li>現在右を向いているなら <span>\(C_{j&#39;}\)</span> 円払って <span>\(j&#39;\)</span> 列目を反転する。</li>
+</ul></li>
+<li><span>\((i, j)\)</span> から <span>\((i&#39;, j&#39;)\)</span> に移動し、次に進む方向として、右または下の好きな向きを向く。</li>
+</ol></li>
+</ul>
+
+<p>白いマスのみからなる移動経路を作る最小費用を求めるには、
+上記の手順でマス <span>\((H, W)\)</span> に到達までにかかる最小費用を求めれば良いです。
+これを動的計画法（ DP ）によって求めます。</p>
+
+<p>DP の状態としては、現在いるマス <span>\((i, j)\)</span> と現在の向き <span>\(d\)</span> に加え、
+上記の手順 2. で「 <span>\((i&#39;, j&#39;)\)</span> の現在の色」を取得するための情報が必要です。<span>\((i&#39;, j&#39;)\)</span> は以前に行われた <span>\(i&#39;\)</span> 行目または <span>\(j&#39;\)</span> 列目への操作によって、初期状態と比べて色が反転している可能性があります。
+<span>\((i&#39;, j&#39;)\)</span> がすでに反転されているかを知るには、<strong>現在向いている行（または列）</strong>（すなわち、いま右を向いているなら <span>\(i\)</span> 行目、現在下を向いているなら <span>\(j\)</span> 列目）に対して今までに反転操作を行っているかわかれば十分です。
+以上を踏まえて、下記のDP テーブルによる DP を行います。</p>
+
+<blockquote>
+<p><span>\(\mathrm{dp}[i][j][d][l] := \)</span>（現在マス <span>\((i, j)\)</span> に <span>\(d (=\)</span> 右 or 下 <span>\()\)</span>の向きで立っており、現在向いている行（または列）に対して <span>\(l (=0\)</span> or <span>\(1)\)</span> 回の操作を行っているときの、現在までにかかった合計費用としてあり得る最小値）</p>
+</blockquote>
+
+<p>各状態からは、現在の向きに <span>\(1\)</span> マス進んだ後つぎにどちらの向きを向くかという <span>\(2\)</span> つの選択肢に対応した <span>\(2\)</span> 本の遷移を行えば良いです。</p>
+
+<p>以下に、C++ 言語による正解例を記載します。</p>
+
+<pre class="prettyprint linenums"><code>#include &lt;iostream&gt;
+#define inf 1e18
+using namespace std;
+typedef long long ll;
+
+ll h, w;
+ll r[2005], c[2005];
+char a[2005][2005];
+ll dp[2005][2005][2][2];
+ll di[2] = {1, 0}, dj[2] = {0, 1};
+
+ll solve()
+{
+  for(int i = 1; i &lt;= h; i++) for(int j = 1; j &lt;= w; j++){
+    for(int d = 0; d &lt;= 1; d++) for(int f = 0; f &lt;= 1; f++){
+      dp[i][j][d][f] = inf;
+    }
+  }
+  for(int r1 = 0; r1 &lt;= 1; r1++){
+    int c1 = (a[1][1]^r1);
+    dp[1][1][0][c1] = r1*r[1] + c1*c[1];
+    dp[1][1][1][r1] = r1*r[1] + c1*c[1];
+  }
+  
+  for(int i = 1; i &lt;= h; i++){
+    for(int j = 1; j &lt;= w; j++){
+      for(int d = 0; d &lt;= 1; d++){
+        for(int l = 0; l &lt;= 1; l++){
+          int ni = i + di[d], nj = j + dj[d];
+          if(ni &gt; h || nj &gt; w) continue;
+          
+          int flip = a[ni][nj]^l, cost = 0;
+          if(d == 0) cost = r[ni]*flip;
+          else cost = c[nj]*flip;
+          
+          for(int nd = 0; nd &lt;= 1; nd++){
+            int nl = l;
+            if(d != nd) nl = flip;
+            dp[ni][nj][nd][nl] = min(dp[ni][nj][nd][nl], dp[i][j][d][l] + cost);
+          }
+        }
+      }
+    }
+  }
+
+  ll ret = inf;
+  for(int d = 0; d &lt;= 1; d++) for(int f = 0; f &lt;= 1; f++) ret = min(ret, dp[h][w][d][f]);
+  return ret;
+}
+
+int main(void)
+{
+  cin &gt;&gt; h &gt;&gt; w;
+  for(int i = 1; i &lt;= h; i++) cin &gt;&gt; r[i];
+  for(int i = 1; i &lt;= w; i++) cin &gt;&gt; c[i];
+  for(int i = 1; i &lt;= h; i++) for(int j = 1; j &lt;= w; j++) cin &gt;&gt; a[i][j], a[i][j] -= &#39;0&#39;;
+
+  ll ans = solve();
+  for(int i = 1; i &lt;= h; i++) for(int j = 1; j &lt;= w; j++) a[i][j] ^= 1;
+  ans = min(ans, solve());
+  cout &lt;&lt; ans &lt;&lt; endl;
+
+  return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1660317387">
+				<time class="timeago" datetime="2022/08/13 00:16:27"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1660386765">
+				<time class="timeago" datetime="2022/08/13 19:32:45"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc264/editorial/4588?lang=ja" data-a2a-title="解説 - freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc264/rules">ルール</a></li>
+					<li><a href="/contests/abc264/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,16 @@
+順列 X が辞書順で k 番目であることと、X より辞書順で小さい順列が k − 1 個あることは同値で
+す。よって、大きさ N の順列をすべて生成して、そのうちに P, Q それぞれより小さいものがいく
+つあるかを数えることで、この問題を解くことができます。
+順列の生成には、深さ優先探索などの探索を行う他に、C++ の next permutation 関数のような
+順列生成用の関数を利用することも可能です。
+
+3
+
+X is the k-th in a lexicographical order if and only if there exist k − 1 permutations that are
+lexicographically smaller than X. Therefore, you can solve this problem by generating all the
+permutations of length N , and counting how many permutations are smaller than P, Q.
+When generating permutations, you can perform searching such as Depth-First Search, or you
+can also utilize functions generating permutations such as next permutation function in C++.
+
+9
+

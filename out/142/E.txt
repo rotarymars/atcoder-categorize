@@ -1,0 +1,40 @@
+動的計画法により解くことが出来ます.
+
+0 以上 2N 未満の整数 j が,「1 以上 N 以下の整数 k について, 現在購入している鍵で宝箱 k を開けら
+れることと,j を 2 進数表記した際に k − 1 桁目が 1 であることが同値」という状態を表すこととしま
+す.
+
+dp テーブルを以下のように定義します.
+
+dpi,j = i + 1 番目以降の鍵は購入せずに状態を j にする為に必要な最小費用
+1 以上 N 以下の整数 i について,0 以上 2N 未満の整数 di を,「1 以上 N 以下の整数 k について, 鍵 i
+で宝箱 k を開けられることと,di を 2 進数表記した際に k − 1 桁目が 1 であることが同値」となるよ
+うに定めます. このとき, 動的計画法の遷移式は
+
+dpi,j or di = min (dpi−1,j or di , dpi−1,j + ai )
+(
+
+)
+
+となります. 時間計算量は O 2N M です.
+
+C++ による解答例:https://atcoder.jp/contests/abc142/submissions/7731316
+
+5
+
+It can be solved by Dynamic Programming.
+Assume that an integer j in the range from 0 (inclusive) to 2N (exclusive) represents the state
+that ”for each integer k from 1 to N , you can open the treasure box k if and only if the k − 1-th
+bit of j is 1 when j is binary notated.”
+Let define a dp table as follows:
+
+dpi,j = minimum cost to achieve the statejwithout usingi + 1-th and later keys
+For each integer i from 1 to N , let’s define an integer di in the range from 0 (inclusive) to 2N
+(exclusive) such that ”for each integer k from 1 to N , you can open the treasure box k if and
+only if the k − 1-th bit of j is 1 when di is binary notated.” Then the recurrence formula will be
+dpi,j or di = min (dpi−1,j or di , dpi−1,j + ai ) .
+This solution costs a total of o (2n m) time.
+An example solution in C++:https://atcoder.jp/contests/abc142/submissions/7731316
+
+11
+

@@ -1,0 +1,34 @@
+(原案: yosupo, 準備・解説: evima)
+以下、具材 1, . . . , N は価値の大きい順に番号がつけられているとして (はじめに具材をソートしてそのよ
+うに番号を付け替えます)、合成の過程を下図のように木構造として表すことを考えます (#1 は具材 1、#12
+は具材 1, 2 を合成して得られる具材を表します)。
+
+この図で具材 i を表す葉から最終的な具材を表す根までの距離 (間の辺の数) を di とすると、最終的な具
+材の価値は v1 /2d1 + . . . + vN /2dN と書けます。最大の結果を得るには、d1 ≤ d2 ≤ . . . ≤ dN であるような
+合成過程のみ考えれば十分です（そうでなければ、具材の番号を付け替えることで最終結果が向上するため）。
+さらに考えると、最大の結果を得るには次の図のように d1 = 1, d2 = 2, . . . , dN −1 = dN = N − 1 とする
+べきです。これは、簡潔に述べると、d1 ≤ d2 ≤ . . . ≤ dN を満たすこれ以外の合成過程 (例えば上図のよう
+な) は、もっとも浅い「違反」した「左の子」以下を最も深い「右の子」以下に「移植」することで最終結果が
+向上するためです。
+
+3
+
+(Original writer: yosupo, preparation and editorial: evima)
+Let’s assume that ingredients 1, . . . , N are indexed in the decreasing order of value (you can first sort
+the ingredients and change the indices in such way), and represent the process of composition with tree
+structures like the following diagram (where #1 denotes ingredient 1, and #12 denotes the ingredient
+that can be obtained by composing ingredients 1 and 2).
+
+Let di be the distance from the leaf that denotes ingredients to the root (the number of edges between
+them), then the value of the final ingredients will be v1 /2d1 + . . . + vN /2dN . To obtain the maximum
+result, you only have to think about the composition process such that d1 ≤ d2 ≤ . . . ≤ dN (otherwise,
+you can swap some indices of ingredients so that the total result will increase).
+Moreover, to obtain the maximum result, it should be that d1 = 1, d2 = 2, . . . , dN −1 = dN = N − 1.
+This is because, briefly speaking, if you have a composition process such that d1 ≤ d2 ≤ . . . ≤ dN other
+than that (for example, like the diagram above), then you can increase the final result by transplanting
+the violating ”left-side child” nearest to the root under the ”right-side child” farthest from the root.
+
+9
+
+10
+

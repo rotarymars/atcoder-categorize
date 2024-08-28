@@ -1,0 +1,31 @@
+それぞれの文字が 1 か 0 かを判定して 1 の数を数えればよいです．マスの数は高々 3 つなので，for 文を使わなくて
+も簡単に実装できます．
+
+#include <iostream>
+#include <string>
+using namespace std;
+int ans;
+string s;
+int main(){
+cin >> s;
+if(s[0]=='1') ans++;
+if(s[1]=='1') ans++;
+if(s[2]=='1') ans++;
+cout << ans << endl;
+}
+
+1
+
+#i n c l u d e <i o s t r e a m >
+#i n c l u d e <s t r i n g >
+u s i n g namespace s t d ;
+i n t ans ;
+string s ;
+i n t main ( ) {
+c i n >> s ;
+i f ( s [ 0 ] = = ’ 1 ’ ) ans++;
+i f ( s [ 1 ] = = ’ 1 ’ ) ans++;
+i f ( s [ 2 ] = = ’ 1 ’ ) ans++;
+c o u t << ans << e n d l ;
+}
+

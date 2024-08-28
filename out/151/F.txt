@@ -1,0 +1,56 @@
+この問題は以下のような問題と同値です。
+問題’: N 個の点 (xi , yi ) が与えられる。それぞれの点を中心とし、半径が r の円のいずれにも含
+まれる点が存在するための r の最小値を求めよ。
+ある半径 R に対し、考えられる N 個の半径 R の円に共通部分が存在するなら、そのどこかに 2
+円の交点が存在します。この交点は、もちろん N 個の円どれからも距離 R 以下です。
+よって、以下のように求める答えについての二分法をすれば答えが求められます。
+
+• 半径 R を決める。
+• N 個の半径 R の円を列挙し、2 つの円の交点を全列挙します。
+• それぞれの交点に対し、N 個の点どれからも距離が R 以下かを判定します。
+• 上記の条件を満たす交点が 1 つでも存在したら、求める答えは R 以下です。そうでないなら
+R よりも大きいです。
+以上の二分法は、各ステップ O(N 3 ) であり、50 回程度回せば十分です。(ただし誤差に気をつけ
+てください。候補となっている点が 2 つの円の交点なので、それらの円の中心からはちょうど距離 R
+なので、そのような点をスキップするか、非常に小さい値を足して判定する必要があります)
+半径が等しい 2 つの円の交点は、以下のように求められます。
+
+• 2 つの交点間の距離 h を求める (三平方の定理より、円と円の距離と円の半径から求められま
+す。ただし円と円の距離が遠く、交点が存在しない場合気をつけてください)
+
+• 2 つの円の中心の中点から、2 つの円の中心を結ぶ直線と垂直方向に距離 h の点を取る (2 つ
+あります)
+
+• それら 2 つの点が 2 つの円の交点である。
+
+6
+
+This problem is equivalent to the following problem.
+Problem’: You are given N points, (xi , yi ). Find minimum r such that there exists a point
+contained in all the circles of radius r whose centers are the given points.
+For a radius r, if there exists an intersection area of N circles of radius R, then it contains an intersection point of some two circles somewhere. Of course, the distance between this intersection
+point and any center of circle is less than or equal to R.
+Therefore, the answer can be found by a binary search for the desired answer.
+• Fix a radius R.
+• Enumerate the N circles of radius R, and then enumerate all the intersection points of all
+pair of circles.
+• For each intersection, check if the distance from the N points are less than or equal to R
+or not.
+• If any intersection satisﬁes the condition above, then the answer is less than or equal to
+R. Otherwise it is more than R.
+The binary search above costs O(N 3 ) time for each step, and it is enough to loop about 50
+times. (Be careful of the precision error. The candidate point is an intersection of two circles, so
+the distance from the centers of those two circles are exactly R, so you have to skip such points
+or judge by adding very small value.)
+The intersection of two circles of same radius can be found by the following steps:
+• Find the distance h between the two intersection (by the Pythagorean theorem, this can
+be found from the distance between the two circles and the radius of the circles. Note that
+you have to take care of the cases where the circles are far from each other and intersections
+do not exist)
+• Find a vector of length h starting from the midpoint of the centers of two circles and take
+its endpoint (there are two of them)
+• Those two points are the intersections of the two circles.
+
+12
+
+

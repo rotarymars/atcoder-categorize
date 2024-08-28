@@ -1,0 +1,70 @@
+2 つの文字列 S, T を順に読み込み、T , S の順にスペースを空けずに出力することで目的の文字
+列を出力したことになります。(T ,S の順に文字列を連結することで新しい文字列を作っても良い
+です。)
+Listing 1 C++ での実装例
+1
+
+#include <stdio.h>
+
+2
+3
+
+char S[110];
+
+4
+
+char T[110];
+
+5
+6
+
+int main(){
+
+7
+
+scanf("%s%s",S,T);
+
+8
+
+printf("%s%s\n",T,S);
+
+9
+
+}
+
+1
+
+Receive two strings S, T in this order, and output them in the order of T , S without printing
+whitespaces, then you will have outputted the desired string. (You can also make a new string
+by concatenating the strings in the order of T , S.)
+Listing 2 Sample Code in C++
+1
+
+#include <stdio.h>
+
+2
+3
+
+char S[110];
+
+4
+
+char T[110];
+
+5
+6
+
+int main(){
+scanf("%s%s",S,T);
+
+7
+
+printf("%s%s\n",T,S);
+
+8
+9
+
+}
+
+7
+

@@ -1,0 +1,45 @@
+「残りの体力が最も多い魔物を中心に爆発を起こすことを繰り返す」のは最適な戦略ではありますが、この
+戦略を素直にシミュレートしてしまうと、例えば体力 109 の魔物が 105 体存在して A = 2, B = 1 の場合に
+長大な時間を要します。
+整数 T に対し、 enough(T ) を「T 回以内の爆発ですべての魔物を消すことは可能か？」という問いの答
+え (Yes または No) とします。このとき、求めたい答えは enough(T ) = Yes であるような T の最小値です。
+
+enough は単調性を持つ (enough(X) = Yes であれば X ≤ Y のとき enough(Y ) = Yes) ため、この最小値
+を二分探索*2 で求めることができます。
+定められた T の値に対して enough(T ) を判定するには、爆発を起こすことを以下のように捉え直すとよい
+でしょう:「すべての魔物の体力を B ずつ減らし、魔物を一体選んでその体力をさらに A − B 減らす」
+。
+すると、T 回の爆発を起こすことは、すべての魔物の体力を B × T ずつ減らし、その上で T 回にわたっ
+て一体の魔物の体力を A − B 減らすこと（以下、この行為を「追加ダメージを与える」と表現します）
+と同等です。すべての魔物を消すには、体力が B × T より高い魔物 i それぞれに対して追加ダメージを
+
+⌈(hi − B × T )/(A − B)⌉ 回与える必要があり（⌈x⌉ は x 以上の最小の整数を表します）、この回数の合計が
+T 以下であれば enough(T ) = Yes、合計が T を超える場合は enough(T ) = No と判定できます。
+以上により、一つの T の値に対する enough(T ) の判定を時間計算量 O(N ) で行うことができ、この解法
+の全体の時間計算量は O(N log(hmax /B)) となります。
+
+*2 二分探索自体の説明は省きます。例えば、日本語版 Wikipedia の当該記事に詳細な記述があります。
+
+3
+
+It is indeed optimal to repeatedly cause an explosion centered at the monster with the most health
+remaining, but straight-forward simulation of this strategy will take a long time when, for example, there
+are 105 monsters with 109 health each and A = 2, B = 1.
+For an integer T , let enough(T ) be the answer to the question “is it possible to vanish all the monster
+in at most T explosions?”: either “yes” or “no”. Then, the answer we seek is the minimum value of T
+such that enough(T ) = yes. Since enough is monotonic (that is, if enough(X) = yes, enough(Y ) = yes
+when X ≤ Y ), we can perform binary search*2 to find this minimum.
+In order to determine enough(T ) for a fixed value of T , it would be useful to understand causing an
+explosion in the following way: “decrease the health of all the monsters by B, then further decrease the
+health of one selected monster by A − B.” Causing T explosions is now equivalent to decreasing the
+healths of all the monsters by B × T , then do the following T times: further decrease the health of one
+selected monster by A − B (we will call this an “extra attack”). In order to vanish all the monsters, we
+need to deliver ⌈(hi − B × T )/(A − B)⌉ extra attacks to each monster i with a health greater than B × T .
+If the total required number of extra attacks is at most T , enough(T ) = yes, and otherwise no.
+We can now determine enough(T ) for a fixed value of T in O(N ) time, which leads to the total time
+complexity of O(N log(hmax /B)).
+
+*2 We will not explain the notion of binary search itself here. Resources can be found in, for example, Wikipedia.
+
+4
+

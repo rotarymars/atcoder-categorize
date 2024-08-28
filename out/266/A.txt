@@ -1,0 +1,44 @@
+
+		公式
+		
+			
+				A - Middle  Letter 解説
+			
+			by nok0
+			
+		
+		
+		
+		
+			プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice contest」(https://atcoder.jp/contests/practice/) の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。
+また、プログラミングコンテストの問題に慣れていない方は、「AtCoder Beginners Selection」(https://atcoder.jp/contests/abs) の問題をいくつか試すことをおすすめします。
+「競プロ典型 90 問」(https://atcoder.jp/contests/typical90) では、プログラミングコンテストで扱われる典型的な 90  問の問題に挑戦可能です。
+「C++入門 AtCoder Programming Guide for beginners (APG4b)」(https://atcoder.jp/contests/APG4b) は、競技プログラマー向けのC++入門用コンテンツです。
+
+
+
+文字列の長さは、 c++ では s.size()、python では len(s) で取得できます。多くの言語では 0-indexed が採用されていることには注意してください。
+
+実装例(c++):
+
+
+
+実装例(python):
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

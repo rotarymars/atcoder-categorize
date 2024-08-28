@@ -1,0 +1,164 @@
+(解説: evima)
+まず、入力されるデータの量が文字 1 個で固定であった問題 A と異なり、今回は価格が入力さ
+れる果物の数 N が 1 以上 1000 以下と一定ではありません。これに対応するための一般的なキー
+ワードは「for 文」
+「配列」であり、検索エンジンで「[言語名] for」などと検索することで言語ごと
+の情報が得られるはずです。ただし、言語によってはこれらのキーワードからややかけ離れた構文
+や要素も有用であることがあります。
+さて、この問題で N 種類の果物から購入する K 種類を選ぶ際は、もちろん価格が低い方から K
+種類を選ぶべきです。すなわち、N 個の整数 p1 , . . . , pN のうち最も小さいもの、2 番目に小さいも
+の、. . .、K 番目に小さいものの和がこの問題の答えで、これをプログラムにどのように求めさせる
+かが課題となります。結論としては、多くの言語に「ソート」
+、すなわち複数の値を小さい順に並べ
+替える機能があらかじめ実装されており、これを用いて N 個の整数を小さい順に並べ替えてから
+先頭の K 個を選択するのが最も簡単です。やはり「[言語名] ソート」などで情報が手に入ります。
+
+C++ での実装例:
+
+1
+
+#include <algorithm>
+
+2
+
+#include <iostream>
+
+3
+
+using namespace std;
+
+// sort
+
+4
+5
+
+int N, K, p[1010];
+
+6
+7
+
+int main(){
+
+8
+
+cin >> N >> K;
+
+9
+
+for(int i = 0; i < N; ++i) cin >> p[i];
+
+10
+
+sort(p, p + N);
+
+11
+
+int ans = 0;
+
+12
+
+for(int i = 0; i < K; ++i) ans += p[i];
+
+13
+
+cout << ans << endl;
+
+14
+
+}
+
+Python での実装例 (「for 文」からややかけ離れた要素が有用であるような言語の例として):
+
+1
+
+N, K = map(int, input().split())
+
+2
+
+p = list(map(int, input().split()))
+
+3
+
+print(sum(sorted(p)[:K]))
+
+(Editorial: evima)
+First, unlike Problem A, in which the amount of input data is ﬁxed to a single character, this time, N,
+the number of fruits whose prices are provided, is not constant. General keywords to deal with them
+are “for statements” and “arrays,” and you will obtain the information for each language by searching
+like “[language name] for”. Note that, however, rather diﬀerent syntax or elements might be useful
+sometimes.
+In this problem, when choosing K kinds of fruits to buy out of N kinds of fruits, choosing K kinds
+of cheapest fruits is optimal of course. That is, the answer of this problem is the sum of the smallest,
+the second smallest, . . ., and the K-th smallest ones out of N integers p1 , . . . , pn , and the task is how
+to instruct the program to ﬁnd them. In conclusion, most languages have functionalities of “sorting,”
+that is, the function of arranging multiples values in the ascending order, so the easiest way is to use
+this function to sort N integers in the ascending order and choosing the ﬁrst K elements. Still you can
+obtain information by “[language name] sort”.
+Sample code in C++:
+
+1
+
+#include <algorithm>
+
+2
+
+#include <iostream>
+
+3
+
+using namespace std;
+
+// sort
+
+4
+5
+
+int N, K, p[1010];
+
+6
+7
+
+int main(){
+
+8
+
+cin >> N >> K;
+
+9
+
+for(int i = 0; i < N; ++i) cin >> p[i];
+
+10
+
+sort(p, p + N);
+
+11
+
+int ans = 0;
+
+12
+
+for(int i = 0; i < K; ++i) ans += p[i];
+
+13
+
+cout << ans << endl;
+
+14
+
+}
+
+Sample code in Python (as an example of languages in which rather diﬀerent elements to “for statements” are useful):
+
+1
+
+N, K = map(int, input().split())
+
+2
+
+p = list(map(int, input().split()))
+
+3
+
+print(sum(sorted(p)[:K]))
+

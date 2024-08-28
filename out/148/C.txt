@@ -1,0 +1,20 @@
+A の正の倍数を小さい順に見ていき、それが B の倍数であるかを確認すればよいです。このとき、
+A × B は明らかに両方の倍数となるので、高々 B 回確認すれば十分なことがわかります。
+以下は C++ による解答例です。オーバーフローに注意してください。
+
+https://atcoder.jp/contests/abc148/submissions/9083476
+余談ですが、このような数は A と B の最小公倍数と呼ばれており、O(log(min(A, B))) の計算量
+で求めることも可能です。
+
+4
+
+It will be enough to look up each of the multiples of A in the increasing order, and check if
+it is multiple of B. Since A × B is obviously multiple of both A and B, it turn out that it is
+enough to check at most B times.
+The following is a sample code by C++. Be careful of overﬂows.
+https://atcoder.jp/contests/abc148/submissions/9083476
+Just an aside, such integer is called the least common multiple of A and B, and it can be found
+in a O(log(min(A, B))) time.
+
+11
+

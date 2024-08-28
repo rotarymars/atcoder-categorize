@@ -1,0 +1,12 @@
+猫の数は，B 匹すべてが犬のときに最小 (A 匹) になります．一方，B 匹すべてが猫のときに最大 (A + B 匹) になり
+ます．
+よって，X が A 以上 A + B 以下かどうか判定すればよいです．
+
+• C++ による解答例: https://abc094.contest.atcoder.jp/submissions/2343785
+• Python による解答例: https://abc094.contest.atcoder.jp/submissions/2344330
+
+1
+
+• C++ example: https://abc094.contest.atcoder.jp/submissions/2343785
+• Python example: https://abc094.contest.atcoder.jp/submissions/2344330
+

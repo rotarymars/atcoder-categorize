@@ -1,0 +1,69 @@
+縦、横、高さをそれぞれ a, b, c とおくと、a + b + c = L をみたす中で abc を最大化する問題とな
+ります。
+1
+
+相加相乗平均不等式より、 (abc) 3 ≤ a+b+c
+、すなわち abc ≤
+3
+
+( a+b+c )3
+3
+
+です。等号成立条件は
+
+a = b = c です。
+3
+
+L
+よって、a = b = c = L
+3 のとき体積最大となり、その時の体積は 27 となります。
+
+Listing 1 C++ での実装例
+
+#include <stdio.h>
+int main(){
+3
+int L;
+4
+scanf("%d",&L);
+5
+printf("%.12f\n",(double)L*L*L/27);
+6 }
+1
+2
+
+3
+
+Let a, b, c be the depth, width and height respectively, then this problem asks to maximize abc
+subject to a + b + c = L.
+1
+
+By the inequality of arithmetic and geometric means, (abc) 3 ≤ a+b+c
+, hence abc ≤
+3
+
+( a+b+c )3
+3
+
+The equality holds when a = b = c.
+3
+
+Therefore, the volume is maximum when a = b = c = L3 , in which case the volume is L27 .
+Listing 2 Sample Code in C++
+
+#include <stdio.h>
+int main(){
+3
+int L;
+4
+scanf("%d",&L);
+5
+printf("%.12f\n",(double)L*L*L/27);
+6 }
+1
+2
+
+9
+
+.
+

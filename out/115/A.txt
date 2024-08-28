@@ -1,0 +1,63 @@
+正解までの道のりを細かく分割すると次の通りです。
+
+1. 標準入力から整数 D を受け取る。
+2. X から何らかの方法で答えとなる文字列 Christmas... を得る。
+3. 得た文字列を標準出力に出す。
+手順 1, 3 については practice contest 問題 A の言語別サンプルコードが参考になります。手順 2 につい
+ては if 文を使う、for 文を 25 − D 周回す (100 点問題の要求レベルを少し超える)、文字列に + や * といっ
+た演算子を使う (あれば) といった手が考えられます。C++, Python3 による実装例を示します。
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+int D;
+
+5
+
+cin >> D;
+
+6
+
+string ans;
+
+7
+
+if(D == 25) ans = "Christmas";
+
+8
+
+else if(D == 24) ans = "Christmas Eve";
+
+9
+
+else if(D == 23) ans = "Christmas Eve Eve";
+
+10
+
+else ans = "Christmas Eve Eve Eve";
+
+11
+
+cout << ans << endl;
+
+12
+
+}
+
+1
+
+print('Christmas' + ' Eve' * (25 - int(input())))
+
+1
+

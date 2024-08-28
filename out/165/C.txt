@@ -1,0 +1,30 @@
+結論から述べると, 問の条件を満たす数列を全探索します.
+問の条件を満たす数列は, N 個の仕切りと M − 1 個のボールを並び替えた列と一対一に対応します.
+実際, 各列に対して,
+
+Ai = i 番目の仕切りより左側に存在するボールの数 + 1
+とすれば, 前述の一対一対応が得られます.
+
+N 個の仕切りと M − 1 個のボールを並び替える列の数は, N +M −1 CN 通り存在します (N + M − 1
+個の場所から仕切りを置く N 箇所を選ぶ方法の数え上げに相当).
+各数列を深さ優先探索で生成する場合, 各数列の生成に要する時間は O (N ) ですから, 全ての数列の
+生成に要する時間は O (N N +M −1 CN ) です.
+数列を決めればその数列のスコアは O (Q) で計算出来ます.
+以上より, この問題は O ((N + Q) N +M −1 CN ) で解けました.
+
+3
+
+To come to the point, perform a brute-force search through all the sequences that satisﬁes the
+conditions given in the problem.
+A sequence that satisﬁes the conditions corresponds one-to-one to a rearranged sequence of N
+bars and M − 1 balls. Actually, for each sequence, let
+Ai = the number of balls that are left to the i-th bar,
+then the aforementioned one-to-one correspondence can be obtained. The number of arrangements of N bars and M − 1 balls is N +M −1 CN (which is equivalent to counting the number of
+ways of choosing the positions of N bars out of N + M − 1 places).
+When generating each sequence with depth-ﬁrst searching, each sequence needs a total of O (N )
+time to be generated, so the total time needed to generate all the sequences is O (N N +M −1 CN ).
+Once a sequence is ﬁxed, its score can be calculated in a total of O (Q) time.
+Therefore, this problem could be solved in a total of O ((N + Q) N +M −1 CN ) time.
+
+9
+

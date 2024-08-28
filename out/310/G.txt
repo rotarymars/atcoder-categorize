@@ -1,0 +1,88 @@
+
+		公式
+		
+			
+				G - Takahashi And Pass-The-Ball Game 解説
+			
+			by MMNMM
+			
+		
+		
+		
+		
+			まず、\(1\) 回操作した後の状態を考え、操作回数を \(0\) 回から \(K-1\) 回とします。
+答えの \(K\) 倍を考え、最後に \(K\) で割ることにします。
+するとこの問題は \(K\) 回操作を行い、それぞれの高橋くんについて各操作の直前に持っているボールの個数の合計を求める問題になります。
+
+ボールの個数を足すことで連続する \(2\) 回の操作を \(1\) 回の操作にまとめることができるため、\(K\) を半分にした問題へ帰着してこの問題をダブリングで解くことができます。
+\(K\) が奇数の場合は初期状態と \(1\) 回以上操作した状態に分けてから同様にできます。
+
+
+
+数式による表現
+
+\(\{1,2,\ldots,N\}\) からなる長さ \(N\) の数列 \(S=(S _ 1,S _ 2,\ldots,S _ N),T=(T _ 1,T _ 2,\ldots,T _ N)\) および長さ \(N\) の \(\mathbb{F}_p\) の元の列 \(\bm{x}=(x _ 1,x _ 2,\ldots,x _ N),\bm{y}=(y _ 1,y _ 2,\ldots,y _ N)\) 、非負整数 \(n\) に対して、次のように演算を定めます。
+
+\[\bm x+\bm y=(x _ 1+y _ 1,x _ 2+y _ 2,\ldots,x _ N+y _ N)\]
+\[S\times\bm x=\left(\sum _ {S _ j=i}x _ j\right) _ {i=1,2,\ldots,N}\]
+\[S\times T=(S _ {T _ 1},S _ {T _ 2},\ldots,S _ {T _ N})\]
+\[S ^ n=\left\{\begin{matrix}(1,2,\ldots,N)&(n=0)\\S ^ {n-1}\times S&(n\gt 0)\end{matrix}\right.\]
+
+一番めの演算は \(2\) 種類のボールの状態を合計します。
+二番めの演算は「\(i\) 番目の高橋くんが \(x _ i\) 個のボールを持っている状態から、\(i\to S _ i\) にボールを渡した直後のボールの所持状態」を表します。
+三番めの演算は「\(i\to T _ i\) の後に \(i\to S _ i\) にボールを渡したとき、\(i\) 番目の高橋くんが持っていたボールは何番目の高橋くんが持っているか」を表します。
+四番めの演算は「\(i\to S _ i\) の操作を \(n\) 回行ったときに、はじめ \(i\) 番目の高橋くんが持っていたボールは何番目の高橋くんが持っているか」を表します。
+
+上 \(3\) つの演算は \(O(N)\) 時間で計算可能です。
+
+これらの演算を用いて、求める答えは次のように書けます。
+
+\[\bm b+(A ^ 1\times\bm b)+\cdots+(A ^ {K-1}\times\bm b)\]
+
+ただし、\(A\) は入力で与えられる \((A _ i)\) で、\(\bm b=(b _ i) _ i\) は \(1\) 回操作した後 \(i\) 番目の高橋くんが持っているボールの数です。
+
+関数 \(f(S,\bm x,k)\coloneqq\bm x+(S\times\bm x)+\cdots+(S ^ {k-1}\times\bm x)\) を計算することを考えます。
+求める答えは \(f(A,\bm b,K)\) です。
+
+\[\begin{aligned}
+&f(S,\bm x,k)\\
+={}&\bm x+(S\times\bm x)+\cdots+(S ^ {k-1}\times\bm x)\\
+={}&\bm x+(S\times\bm x)+(S\times(S\times\bm x))+\cdots+(S^{k-2}\times(S\times\bm x))\\
+={}&\bm x+f(S,S\times\bm x,k-1)
+\end{aligned}\]
+
+\[\begin{aligned}
+&f(S,\bm x,2k)\\
+={}&\bm x+(S\times\bm x)+\cdots+(S ^ {2k-1}\times\bm x)\\
+={}&(\bm x+S\times\bm x)+(S ^ 2\times(\bm x+S\times\bm x))+\cdots+((S ^ 2) ^ {k - 1}\times(\bm x+S\times\bm x))\\
+={}&f(S ^ 2,\bm x+S\times\bm x,k)
+\end{aligned}\]
+
+ただし、上で定めた演算において \(S\times(\bm x+\bm y)=(S\times\bm x)+(S\times\bm y)\) や \((A\times B)\times\bm x=A\times(B\times\bm x)\) などが成り立つことを利用しています。
+
+以上より、\(1\) 小さいサイズの問題と半分のサイズの問題に \(O(N)\) 時間で帰着できるため、この問題を \(O(N\log K)\) 時間で解くことができます。
+
+
+これを実装することで、この問題を \(O(N\log K+\log\operatorname{mod})\) 時間で解くことができます。
+
+上の定式化は末尾再帰の形になっているので、while 文で書くこともできます。
+
+また、functional graph (\(i\to A _ i\) の形の \(N\) 本の有向辺からなるグラフ) の性質を利用することで \(O(N+\log\operatorname{mod})\) 時間でこの問題を解くこともできます。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

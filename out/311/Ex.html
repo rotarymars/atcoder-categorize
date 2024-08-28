@@ -1,0 +1,501 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc311/editorial/6814" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc311";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-07-22T21:00:00+09:00");
+			var endTime = moment("2023-07-22T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc311">トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc311/editorial/6814?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc311/editorial/6814?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc311%2Feditorial%2F6814">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc311%2Feditorial%2F6814">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc311%2Feditorial%2F6814">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230722T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-07-22 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230722T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-07-22 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc311"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc311/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc311/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc311/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc311/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc311/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc311/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc311/tasks/abc311_h">Ex - Many Illumination Plans</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>以下ではまず <span>\(v=1\)</span> の場合の答え <span>\(F(1)\)</span> を計算する問題を考えます。</p>
+
+<h4>自然な DP, <span>\(\mathrm{O}(N X^2)\)</span></h4>
+
+<p>まず、自然な木 DP を実装してみましょう。すると次のようになり、<span>\(\mathrm{O}(N X^2)\)</span> で計算できるアルゴリズムを構成できます。</p>
+
+<ul>
+<li>以降の疑似コードでは <code>c</code>, <code>Dp[0]</code>, <code>Dp[1]</code> は次の意味を持つ一時変数として利用されています。
+
+<ul>
+<li><code>c</code> : 現在見ている頂点</li>
+<li><code>Dp[0], Dp[1]</code> : 長さ <span>\(X+1\)</span> の DP テーブル</li>
+</ul></li>
+</ul>
+
+<pre class="prettyprint linenums"><code>function dfs(c):
+  Dp[0] &lt;- (DP table corresponding to empty set)
+  Dp[1] &lt;- (DP table corresponding to empty set)
+  for d in {children of c} do
+  	ep = dfs(d)
+  	Dp[0] &lt;- max_plus_convolution(Dp[0], ep[0])
+  	Dp[1] &lt;- max_plus_convolution(Dp[1], ep[1])
+  end for
+  for i = 0 to X - W[c] do
+    chmax(Dp[C[c]][i + W[c]], Dp[1 - C[c]][i] + B[c])
+  end for
+  return Dp
+</code></pre>
+
+<p>このアルゴリズムでは max-plus convolution の部分が <span>\(\mathrm{O}(X^2)\)</span> かかってしまい全体で <span>\(\mathrm{O}(NX^2)\)</span> の計算量となりますが、<span>\(X\)</span> が非常に大きい制約下で AC するのは困難でしょう。</p>
+
+<h4>重軽再帰 DP (HLRecDP), <span>\(\mathrm{O}(N^{1.59} X)\)</span></h4>
+
+<p>以降の解説は <a href="https://qiita.com/tmaehara/items/4b2735e56843bad89949" rel="nofollow">tmaehara 氏による記事</a>, <a href="https://arxiv.org/abs/1807.04942" rel="nofollow">論文</a> を参考にしました。</p>
+
+<p>この問題は <strong>重軽再帰 DP (HLRecDP)</strong> と呼ばれるテクニックを利用することで <span>\(\mathrm{O}(\mathrm{poly}(N) X)\)</span> で解くことができます。</p>
+
+<p><span>\(\mathrm{O}(NX^2)\)</span> の DP は部分木ごとに DP テーブルをボトムアップにマージしていくアルゴリズムでしたが、マージに <span>\(\mathrm{O}(X^2)\)</span> かかるという問題点がありました。<br>
+では、逆にマージを発生させないようにトップダウンに DP を計算することを考えてみましょう。すると、次の再帰関数で <code>dfs(root, initial dp table)</code> を呼び出すことで根が <code>root</code>  であるときの DP テーブルの値を計算できるとわかります。(これは慣れない DP なので少し頭を使います。人によっては DSU on Tree  アルゴリズムの気持ちで考えると理解できるかもしれません)</p>
+
+<ul>
+<li>注 1 : <code>dfs(c, dp)</code> の <code>dp</code> は <strong>参照渡し</strong> です。(ただし <code>dp</code> 自体を更新することはないので C++ では const reference で渡せばよい)</li>
+<li>注 2 : ボトムアップ型の DP と違って、途中の <code>dfs(c, dp)</code> の返り値は 「<code>c</code> を根とする部分木に対する答え」にならないことに注意が必要です。</li>
+</ul>
+
+<pre class="prettyprint linenums"><code>function dfs(c, dp)
+  Dp[0] &lt;- dp
+  Dp[1] &lt;- dp
+  for d in {children of c} do
+    Dp[0] &lt;- dfs(d, Dp[0])[0]
+    Dp[1] &lt;- dfs(d, Dp[1])[1]
+  end for
+  for i = 0 to X - W[c] do
+    chmax(Dp[C[c]][i + W[c]], Dp[C[c] ^ 1][i] + B[c])
+  end for
+  return Dp
+</code></pre>
+
+<p>ただしこの DFS は1 つ深い頂点に進むごとに呼び出しが 2 倍になっているので計算量は <span>\(\mathrm{O}^{\ast}(2^N)\)</span> になっています。</p>
+
+<p>重軽分解を利用して工夫してみましょう。はじめ <code>Dp[0] = Dp[1] = dp</code> を代入して、その後 <code>dfs(d, Dp[*])</code> を呼んでいるのに注目すると、DFS で最初に訪問する子は DFS 呼び出しを 1 回に済ますことができます。このような子に heavy child を割り当てると次のアルゴリズムになります。</p>
+
+<pre class="prettyprint linenums"><code>function dfs(c, dp)
+  if c is not leaf then
+    h = (heavy child of c)
+    Dp &lt;- dfs(h, dp)
+    for d in {children of c} / {h} do
+      Dp[0] &lt;- dfs(d, Dp[0])[0]
+      Dp[1] &lt;- dfs(d, Dp[1])[1]
+    end for
+  else 
+    Dp[0] &lt;- dp
+    Dp[1] &lt;- dp
+  end if
+  for i = 0 to X - W[c] do
+    chmax(Dp[C[c]][i + W[c]], Dp[C[c] ^ 1][i] + B[c])
+  end for
+  return Dp
+</code></pre>
+
+<p>計算量を考えます。今見ている部分木の頂点数が <span>\(n\)</span> で、子の部分木の頂点数が <span>\(n_1, n_2, \dots, n_k\)</span> であるとします。 (ただし <span>\(n_1 \geq n_2 \geq \dots \geq n_k\)</span>) このとき、<code>dfs(c, dp)</code> の計算量を <span>\(f(n)\)</span> とすると</p>
+<p><span>\[f(n) \leq f(n_1) + 2(f(n_2) + \dots + f(n_k)) + \mathrm{O}(X)\]</span></p><p><span>\[n - 1 = n_1 + n_2 + \dots + n_k\]</span></p><p>という式が成り立ちます。</p>
+
+<ul>
+<li><code>for d in {children of c} / {h} do</code> の部分では返り値を参照渡し (C++ でのムーブ) すれば <span>\(\mathrm{O}(1)\)</span> で DP テーブルを渡せるので、 <span>\(X\)</span> に依存する部分は <span>\(\mathrm{O}(kX)\)</span> ではなく <span>\(\mathrm{O}(X)\)</span> になります。</li>
+</ul>
+
+<p>ここで、<span>\(f(n)\)</span> は <span>\(n\)</span> に関する多項式なので <span>\(n_2, n_3, \dots, n_k\)</span> の部分については <span>\(n_3=n_4=\dots=n_k=0\)</span> にするのが最大です。よって</p>
+<p><span>\[f(n) \leq f(n_1) + 2 f(n_2) + \mathrm{O}(X)\]</span></p><p><span>\[n - 1 = n_1 + n_2, n_1 \geq n_2\]</span></p><p>という式が成り立ちます。右辺は <span>\(n_1 \geq n_2\)</span> を踏まえると <span>\(n_1 = n_2 = \dfrac{n-1}{2}\)</span> のときが最大なので</p>
+<p><span>\[f(n) \leq 3 f\left(\frac{n-1}{2}\right) + \mathrm{O}(X)\]</span></p><p>となり、これを解いて</p>
+<p><span>\[f(n) = \mathrm{O}(n^{\log_2{3}} X) = \mathrm{O}(n^{1.59} X)\]</span></p><p>を得られます。</p>
+
+<ul>
+<li>余談ですが、空間計算量については、 light child に潜るごとに新たに <span>\(\mathrm{O}(X)\)</span> の DP テーブルが確保されているので <span>\(\mathrm{O}(X \log N)\)</span> であるとわかります。</li>
+</ul>
+
+<h4><span>\(F(1), F(2), \dots, F(N)\)</span> の列挙</h4>
+
+<p>さて、この問題は全ての根付き木に対して答えを列挙する問題でした。愚直に全ての頂点に対して dfs 関数を呼び出すと <span>\(\mathrm{O}(N^{2.59} X)\)</span> かかり TLE するので計算量改善が必要です。<br>
+<code>dfs</code> 関数を観察すると、<code>dfs(c, dp)</code> は heavy child に親から来る DP テーブルをそのまま子に渡す挙動をしているのがわかります。よって、<code>dfs</code> 関数に <code>dfs(root, initial dp table)</code> を渡すと、<code>root</code> から heavy path で結ばれた頂点列に含まれる頂点 <span>\(u\)</span> に対して <code>dfs(u, initial dp table)</code> が呼び出されることがわかります。</p>
+
+<p>ここから、全ての heavy path に対して、heavy path の根側の頂点を <span>\(u\)</span> として、 <code>dfs(u, initial dp table)</code> を呼び出すアルゴリズムが導出できます。</p>
+
+<p>計算量を考えます。根を固定したときのアルゴリズムの計算量を <span>\(f(n) = \mathrm{O}(N^{1.59} X)\)</span>, 全ての根に対して列挙するときの計算量を <span>\(g(n)\)</span> とします。今見ている部分木の頂点数が <span>\(n\)</span> で、子の部分木の頂点数が <span>\(n_1, n_2, \dots, n_k\)</span> ですると</p>
+<p><span>\[g(n) \leq f(n_1) + g(n_1) + g(n_2) + g(n_3) + \dots + g(n_k)\]</span></p><p>になり、前と同様に <span>\(n_1 = n_2 = (n-1)/2, n_3 = \dots = n_k = 0\)</span> とするのが最大なので</p>
+<p><span>\[g(n) \leq 2 g((n-1)/2) + f(n)\]</span></p><p>となり、この式を解いて <span>\(g(n) = \mathrm{O}(N^{1.59} X)\)</span> を得られます。<br>
+以上よりこの問題を <span>\(\mathrm{O}(N^{1.59} X)\)</span> で解くことができて、これは十分高速です。</p>
+
+<ul>
+<li>実装例(C++)</li>
+</ul>
+
+<pre class="prettyprint linenums"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+using ll = long long;
+using vl = vector&lt;ll&gt;;
+constexpr int nmax = 1010;
+#define rep(i, n) for (int i = 0; i &lt; int(n); i++)
+#define rep1(i, n) for (int i = 1; i &lt; int(n); i++)
+
+int N, X, W[nmax], C[nmax];
+long long B[nmax], ans[nmax];
+vector&lt;int&gt; g[nmax];
+
+void chmax(ll&amp; a, ll b) { a = max(a, b); }
+array&lt;vl, 2&gt; dfs(int c, const vl&amp; dp, bool memo) {
+  array&lt;vl, 2&gt; Dp;
+  if (g[c].empty()) {
+    Dp[0] = Dp[1] = dp;
+  } else {
+    Dp = dfs(g[c][0], dp, memo);
+    rep1(i, g[c].size()) rep(t, 2) Dp[t] = dfs(g[c][i], Dp[t], false)[t];
+  }
+  rep(i, X - W[c] + 1) chmax(Dp[C[c]][i + W[c]], Dp[C[c] ^ 1][i] + B[c]);
+  if (memo) {
+    rep(i, X - W[c] + 1) chmax(ans[c], Dp[C[c] ^ 1][i] + B[c]);
+    rep1(i, g[c].size()) dfs(g[c][i], dp, true);
+  }
+  return Dp;
+}
+
+int main() {
+  cin &gt;&gt; N &gt;&gt; X;
+  vector&lt;int&gt; P(N, -1), sub(N, 1);
+  for (int c = 1, p; c &lt; N; c++) cin &gt;&gt; p, P[c] = --p, g[p].push_back(c);
+  for (int i = N - 1; i &gt;= 0; i--) {
+    if (i) sub[P[i]] += sub[i];
+    sort(begin(g[i]), end(g[i]), [&amp;](int j, int k) { return sub[j] &gt; sub[k]; });
+  }
+  rep(i, N) cin &gt;&gt; B[i] &gt;&gt; W[i] &gt;&gt; C[i];
+  vl init(X + 1, -2e18);
+  init[0] = 0;
+  dfs(0, init, true);
+  rep(i, N) cout &lt;&lt; ans[i] &lt;&lt; &#34;\n&#34;;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1689494891">
+				<time class="timeago" datetime="2023/07/16 17:08:11"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1690038018">
+				<time class="timeago" datetime="2023/07/23 00:00:18"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc311/editorial/6814?lang=ja" data-a2a-title="解説 - トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc311/rules">ルール</a></li>
+					<li><a href="/contests/abc311/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

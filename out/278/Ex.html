@@ -1,0 +1,466 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 278</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 278" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc278/editorial/5210" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 278" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc278";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-11-19T21:00:00+09:00");
+			var endTime = moment("2022-11-19T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 278が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 278は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc278">AtCoder Beginner Contest 278</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc278/editorial/5210?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc278/editorial/5210?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc278%2Feditorial%2F5210">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc278%2Feditorial%2F5210">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc278%2Feditorial%2F5210">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221119T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-11-19 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221119T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-11-19 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc278"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc278/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc278/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc278/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc278/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc278/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc278/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc278/tasks/abc278_h">Ex - make 1</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>今回の問題は簡単にいうと、基底の線形結合に関する条件がついたベクトルの集合を数え上げる問題です。<br>
+このような問題では、 <span>\(q^n - q^m\)</span> のような少し扱いづらい式の積や和が登場しがちです。実はこの <span>\(q^n-q^m\)</span> を <span>\(m\)</span> を動かして積を取った数は <strong>q-二項係数</strong> (ガウスの二項係数) という名前の付いた数の定数倍になり、いくつかの便利な事実が知られています。<br>
+今回は q-二項係数に関連する話を簡単にまとめました。</p>
+
+<h4>q-類似</h4>
+
+<p><span>\(q \to 1\)</span> を取ると元のものに一致するように <span>\(q\)</span> を導入することを <strong>q-類似</strong> と呼びます。<br>
+例えば、自然数 <span>\(n\)</span> の q-類似 <span>\(\lbrack \mathbf{n} \rbrack_q\)</span> は次のように定義されます。</p>
+<p><span>\[\lbrack \mathbf{n} \rbrack_q := 1 + q + \dots + q^{n-1} = \frac{1-q^n}{1-q}\]</span></p><p>同様に、階乗や二項係数の q-類似は次のようになり、これらは <strong>q-階乗</strong> や <strong>q-二項係数</strong> と呼ばれています。</p>
+<p><span>\[\lbrack \mathbf{n} \rbrack_q ! := \prod_{m=1}^n \lbrack \mathbf{m} \rbrack_q\]</span></p><p><span>\[\binom{\mathbf{n}}{\mathbf{r}}_q  := \frac{\lbrack \mathbf{n} \rbrack_q !}{\lbrack \mathbf{r} \rbrack_q !\lbrack \mathbf{n-r} \rbrack_q !}\]</span></p>
+<h4>部分空間の数え上げ(典型)</h4>
+
+<p>q-二項係数は実はベクトル空間上の数え上げと関わりがある値です。代表例として部分空間の数え上げを考えます。</p>
+
+<blockquote>
+<p><span>\(q\)</span> を素数とする。<span>\(V\)</span> を <span>\(\mathbb{F}_q\)</span> 上の <span>\(n\)</span> 次元ベクトル空間とする。このとき、<span>\(V\)</span> の <span>\(r\)</span> 次元部分空間の個数は <span>\(\binom{\mathbf{n}}{\mathbf{r}}_q\)</span> である。</p>
+</blockquote>
+
+<p>いくつかの証明を紹介します。(これらの証明を押さえておけば q-二項係数絡みの基本的な問題はだいたい対処できると思います)</p>
+
+<p>以下では求める答えである (<span>\(\mathbb{F}_q\)</span> 上の<span>\(n\)</span> 次元ベクトル空間の <span>\(r\)</span> 次元部分空間の個数) を便宜上 <span>\(a_{n, r}\)</span> と置きます。また、下付きの <span>\(q\)</span> は適宜省略します。</p>
+
+<h5>証明 1</h5>
+
+<p>ベクトルからなる <span>\(r\)</span> 要素の列であって、それらが <span>\(n\)</span> 次元ベクトル空間の <span>\(r\)</span> 次元部分空間の基底をなすものの個数を <span>\(f(n,r)\)</span> とします。<br>
+<span>\(f(n, r)\)</span> について、明らかに</p>
+<p><span>\[a_{n, r} \times f(r, r) = f(n, r)\]</span></p><p>が成り立つので、<span>\(a_{n,r}\)</span> は <span>\(\frac{f(n,r)}{f(r,r)}\)</span> と一致します。よって <span>\(f(n, r)\)</span> が計算できればよいです。</p>
+
+<p><span>\(f(n,r)\)</span> は空の列に今まで選んだベクトルからなる空間と独立なベクトルを <span>\(1\)</span> 本ずつ追加していく操作の通り数に言い換えられます。追加する通り数は、<span>\(1\)</span> 本目は <span>\(q^n -  1\)</span> 通り, <span>\(2\)</span> 本目は <span>\(q^n - q\)</span> 通り, <span>\(\dots\)</span>, <span>\(r\)</span> 本目は <span>\(q^n - q^{r-1}\)</span> 通りです。よって</p>
+<p><span>\[f(n,r) = (q^n - 1) (q^n - q) \dots (q^n - q^{r-1})\]</span></p><p>となります。そして、<span>\(n\)</span> 次元ベクトル空間の <span>\(r\)</span> 次元部分空間の通り数は、いくらかの式変形により</p>
+<p><span>\[\frac{f(n,r)}{f(r,r)} = \frac{[\mathbf{n}]!}{[\mathbf{n-r}]![\mathbf{r}]!} = \binom{\mathbf{n}}{\mathbf{r}}\]</span></p><p>になることが確認できます。</p>
+
+<h5>証明 2</h5>
+
+<p>基底に 1 対 1 対応するベクトル列を定めて、それを数え上げる方針で解きます。<br>
+<span>\(\mathbb{F}_q\)</span> ベクトル <span>\(v\)</span> に対して <span>\(\mathrm{top}(v)\)</span> を <span>\(v_i \neq 0\)</span> であるような最大の <span>\(i\)</span> として定めます。(そのような <span>\(i\)</span> が無い場合は <span>\(\mathrm{top}(v) = -1\)</span> )</p>
+
+<p>このとき、<span>\(n\)</span> 次元ベクトル空間の <span>\(r\)</span> 次元部分空間は次の条件を満たす  <span>\(r\)</span> 個のベクトル <span>\(b_1, \dots, b_r\)</span> と1 対 1 対応します。</p>
+
+<ul>
+<li><span>\(0 \leq \mathrm{top}(b_1) \lt \dots \lt \mathrm{top}(b_r) \leq n-1\)</span></li>
+<li><span>\(b_i\)</span> の <span>\(\mathrm{top}(b_i)\)</span> 番目の要素は <span>\(1\)</span> である。</li>
+<li>すべての整数の組 <span>\((i, j)\)</span> <span>\((1 \leq i \lt j \leq r)\)</span> について <span>\(b_j\)</span> の <span>\(\mathrm{top}(b_i)\)</span> 番目の要素は <span>\(0\)</span> である。</li>
+</ul>
+
+<p>このように正規化されたベクトル列の個数を数え上げる問題を考えると、<span>\(a_{n, r}\)</span> について以下の漸化式が成り立つことがわかります。</p>
+<p><span>\[a_{n, r} = q^{n-r} a_{n-1, r-1} + a_{n-1, r}\]</span></p><p>ところで、 q-二項係数について次の式が成り立ちます。</p>
+<p><span>\[\binom{\mathbf{n}}{\mathbf{r}} = q^{n-r} \binom{\mathbf{n-1}}{\mathbf{r-1}} + \binom{\mathbf{n-1}}{\mathbf{r}} \]</span></p><p>よって、命題は帰納的に証明できます。</p>
+
+<h5>証明 3</h5>
+
+<p>母関数を利用して求めることもできます。
+証明 2 に登場する正規化されたベクトルの個数を母関数で記述すると</p>
+<p><span>\[a_{n, r} = q^{-r(r+1)/2} [x^r]\prod_{i=1}^{n} (q^i x + 1)\]</span></p><p>になるので、これを求めればよいです。<br>
+<span>\(b_{n,r} = a_{n,r} q^{r(r-1)/2}, f_n(x) =\sum_{r} b_{n,r} x^r = \prod_{i=1}^{n}  (q^i x + 1)\)</span> と置きます。すると</p>
+<p><span>\[f_n(x) (q^{n+1} x + 1) = f_n (qx) (qx + 1)\]</span></p><p>が成り立ち、両辺の <span>\(r\)</span> 次の係数を見ると</p>
+<p><span>\[
+\begin{aligned}
+&amp;q^{n+1} b_{n,r-1} + b_{n,r} = q^r (b_{n,r-1} +  b_{n,r})\\
+&amp;\to b_{n,r} = \frac{q^r - q^{n+1}}{1-q^r}a_{n,r-1}
+\end{aligned}
+\]</span></p><p>を得られます。<span>\(b_{n,0} = 1\)</span> とあわせて</p>
+<p><span>\[
+\begin{aligned}
+b_{n,r} &amp;= \frac{(q^1 - q^{n+1}) \dots (q^r - q^{n+1})}{(1-q^1) \dots (1-q^r)}\\
+&amp;= q^{r(r+1)/2}\frac{(1 - q^n) \dots (1 - q^{n+1} - r)}{(1-q^1) \dots (1-q^r)}\\
+&amp;=q^{r(r+1)/2} \binom{\mathbf{n}}{\mathbf{r}} 
+\end{aligned}
+\]</span></p><p>となり、ここから <span>\(a_{n,r} = \binom{\mathbf{n}}{\mathbf{r}}_q\)</span> が確認できます。</p>
+
+<p>さて、競技プログラミングにおける q-二項係数のポイントとしては、q-二項係数も通常の二項係数と同様に、<span>\(\lbrack \mathbf{n} \rbrack_q !\)</span> およびその逆元を前計算すれば <span>\(\binom{\mathbf{n}}{\mathbf{r}}\)</span> が <span>\(\mathrm{O}(1)\)</span> で求まるという点が挙げられます。<br>
+末尾に出題例を何問か挙げましたが、出題例の一部、および今回の問題はこの点を利用して高速化することを要求しています。</p>
+
+<h2>解法</h2>
+
+<p>求めたい答えは</p>
+
+<ol>
+<li>(長さ <span>\(N\)</span> の良い数列) から</li>
+<li>(長さ <span>\(N-1\)</span> の良い数列) <span>\(\times (2^B - N + 1)\)</span> を 引いたもの</li>
+</ol>
+
+<p>です。1, 2 はともに「長さ <span>\(N\)</span> の良い数列 <strong>でない</strong> 数列の個数」が求まればただちに計算できるので、これを求める問題に言い換えて考えます。</p>
+
+<p>少し変則的な包除原理を利用します。</p>
+
+<ul>
+<li><p><span>\(F(s) :=\)</span> (問題文の操作を <span>\(s\)</span> 回やった時に得られる、良い数列でない <span>\(A\)</span> の個数)</p></li>
+
+<li><p><span>\(G(s) := \)</span> (<span>\([0, 2^B)\)</span> から 1 つ選んで <span>\(A\)</span> に push するのを <span>\(s\)</span> 回繰り返したときに得られる、良い数列でない <span>\(A\)</span> の個数)</p></li>
+</ul>
+
+<p>と置きます。<span>\(F(\ast)\)</span> と <span>\(G(\ast)\)</span> の関係を考えると</p>
+<p><span>\[G(s) = \sum_{t=0}^s {s \brace t} F(t)\]</span></p><p>になり、反転して</p>
+<p><span>\[F(s) = \sum_{t=0}^s (-1)^{s-t} {s \brack t} G(t)\]</span></p><p>となります。<span>\({s \brack 1}, \dots, {s \brack s}\)</span> は <span>\(\mathrm{O}(N \log N)\)</span> で列挙できるので、 <span>\(G(1), G(2), \dots, G(N)\)</span> を列挙すればこの問題を解くことができます。</p>
+
+<p><span>\(G(s)\)</span> を求める問題を考えます。<span>\(G(s)\)</span> の数え上げの対象である <span>\(A\)</span> のうち、<span>\(A\)</span> を <span>\(S \times B\)</span> の <span>\(\mathbb{F}_2\)</span> 係数行列とみなしたときの rank が <span>\(r\)</span> である場合の答えを <span>\(G(s, r)\)</span> とすると、「部分空間の数え上げ」の章における考察を応用すれば</p>
+<p><span>\[G(s, r) = 2^{\frac{r(r+1)}{2}} \frac{\lbrack \mathbf{B-1} \rbrack_2 !}{\lbrack \mathbf{B-1-r} \rbrack_2 !} \binom{\mathbf{s}}{\mathbf{r}}_2\]</span></p><p>であるとわかります。よって</p>
+<p><span>\[
+\begin{aligned}
+G(s) &amp;= \sum_{r=0}^s G(s, r) \\
+&amp;=\sum_{r=0}^s 2^{\frac{r(r+1)}{2}} \frac{\lbrack \mathbf{B-1} \rbrack!}{\lbrack \mathbf{B-1-r} \rbrack!} \binom{\mathbf{s}}{\mathbf{r}} \\
+&amp;=\lbrack \mathbf{B-1} \rbrack! \lbrack \mathbf{s} \rbrack ! \sum_{r=0}^s \left( \frac{2^{\frac{r(r+1)}{2}} }{ \lbrack \mathbf{B-1-r} \rbrack! \lbrack \mathbf{r} \rbrack!}\right) \left(\frac{1}{\lbrack \mathbf{s-r} \rbrack!}\right)
+\end{aligned}
+\]</span></p><p>になり、上式を利用すると <span>\(G(1), G(2), \dots, G(N)\)</span> は畳み込みで <span>\(\mathrm{O}(N \log N + B)\)</span> で列挙できます。<br>
+以上よりこの問題を全体で <span>\(\mathrm{O}(N \log N + B)\)</span> で解くことができて、これは十分高速です。</p>
+
+<h3>関連問題</h3>
+
+<p>q-二項係数を利用して解ける問題を (想定解・非想定解を問わず) 以下にまとめました。</p>
+
+<p><details>
+<summary> (ネタバレ防止用に畳んでいます)</summary></p>
+
+<ul>
+<li><a href="https://atcoder.jp/contests/arc139/tasks/arc139_f" rel="nofollow">ARC139 F</a></li>
+<li><a href="https://atcoder.jp/contests/arc146/tasks/arc146_c" rel="nofollow">ARC146 C</a></li>
+<li><a href="https://atcoder.jp/contests/cf16-exhibition-final-open/tasks/cf16_exhibition_final_h" rel="nofollow">CODE FESTIVAL 2016 Grand Final H</a> :  rank を求める部分を除いて <span>\(\mathrm{O}(N)\)</span> で計算できます。</li>
+<li><a href="https://codeforces.com/problemset/problem/1603/F" rel="nofollow">CodeForces Round #752 Div.1 F</a></li>
+</ul>
+
+<p></details></p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1668242815">
+				<time class="timeago" datetime="2022/11/12 17:46:55"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1668877109">
+				<time class="timeago" datetime="2022/11/20 01:58:29"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc278/editorial/5210?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 278">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc278/rules">ルール</a></li>
+					<li><a href="/contests/abc278/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

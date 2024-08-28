@@ -1,0 +1,434 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 335（Sponsored by Mynavi）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 335（Sponsored by Mynavi）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc335/editorial/9038" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 335（Sponsored by Mynavi）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc335";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2024-01-06T21:00:00+09:00");
+			var endTime = moment("2024-01-06T22:40:00+09:00");
+		</script>
+		<style>.video-container {
+    width: 60%; /* 動画の幅を60%に設定 */
+    margin: 0 auto; /* 中央揃え */
+}
+
+.video-container iframe {
+    width: 100%; /* iframeの幅をコンテナの幅に合わせる */
+    height: auto; /* 高さを自動調整 */
+    aspect-ratio: 16 / 9; /* アスペクト比を16:9に保持 */
+}</style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 335（Sponsored by Mynavi）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 335（Sponsored by Mynavi）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc335">AtCoder Beginner Contest 335（Sponsored by Mynavi）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc335/editorial/9038?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc335/editorial/9038?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc335%2Feditorial%2F9038">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc335%2Feditorial%2F9038">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc335%2Feditorial%2F9038">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240106T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-01-06 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240106T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-01-06 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc335"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc335/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc335/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc335/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc335/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc335/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc335/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc335/tasks/abc335_f">F - Hop Sugoroku</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-1.png" class="user-rating-stage-m"><a href="/users/physics0523" class="username"><span class="user-orange">physics0523</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>黒く塗られたマスの集合と駒の進め方とは対応するので、ありうる駒の進め方を数え上げれば良いです。</p>
+
+<p>このもとで、今回の問題を計算量を気にせずに解くことを考えましょう。以下のような擬似コードの DP を書くことになると思います。</p>
+
+<pre class="prettyprint linenums"><code>dp={1,0,...,0};
+for(i=1;i&lt;=N;i++)
+  for(j=i+A[i];j&lt;=N;j+=A[i])
+    dp[j]+=dp[i];
+print(sum(dp));
+</code></pre>
+
+<p><span>\(A_i\)</span> が大きいケースでは <span>\(j\)</span> ループが回る回数は少なく済むのでこの方針がそのまま使えそうですが、例えば <span>\(A_i=(1,1,\dots,1)\)</span> のようなケースでは <span>\(O(N^2)\)</span> の時間計算量を要するので、このままではこの問題に正解することは難しいです。</p>
+
+<p>では、 <span>\(A_i\)</span> が小さいケースについて <span>\(dp\)</span> 配列を高速に更新する方法を考えましょう。</p>
+
+<p><span>\(i&lt;j\)</span> について、 <span>\(dp[i]\)</span> から <span>\(dp[j]\)</span> に遷移させる条件は、 <span>\((j-i)\)</span> が <span>\(A_i\)</span> の倍数であること ( すなわち、 <span>\(i\)</span> を <span>\(A_i\)</span> で割ったあまりと <span>\(j\)</span> を <span>\(A_i\)</span> で割ったあまりとが一致すること ) です。</p>
+
+<p>このことから、 <span>\(dp2[d][r] = \)</span> { <span>\(d\)</span> で割った余りが <span>\(r\)</span> である場合 } のような配列を作ればこの問題を解くことができそうです。( 実際に、この方針から正解することができます。 )</p>
+
+<p>では、 <span>\(A_i\)</span> が小さい、大きいとはどのようなことでしょうか?<br>
+仮に、 <span>\(A_i \le b\)</span> が <span>\(A_i\)</span> が小さいか大きいかの境界であったとしましょう。</p>
+
+<ul>
+<li><span>\(A_i\)</span> が小さい場合の処理をかけるとその部分の時間計算量は全体で <span>\(O(Nb)\)</span></li>
+<li><span>\(A_i\)</span> が大きい場合の処理をかけるとその部分の時間計算量は全体で <span>\(O(N \times \frac{N}{b})\)</span></li>
+</ul>
+
+<p>となります。 <span>\(O(Nb + N \times \frac{N}{b})\)</span> の評価をなるだけ良くするには、 <span>\(b=\sqrt{N}\)</span> とすればよいです ( 略証: 相加相乗平均の関係 ) 。<br>
+実装上では、 <span>\(b\)</span> を <span>\(\sqrt{\max N}\)</span> 付近の適当な定数にしてしまっても構いません。また、各部分の定数倍によっては、最適な <span>\(b\)</span> が <span>\(\sqrt{N}\)</span> から少し遠い値になることもあるので、局面によっては色々試すのも良いでしょう。</p>
+
+<p>ここから正しい実装に辿り着くのは読者への課題とします。解説の最後に実装例を示します。</p>
+
+<p>このように、問題を <span>\(\sqrt{N}\)</span> を境に区切ったり、 <span>\(\sqrt{N}\)</span> 個に問題を分割して部分問題を高速に解いたりするテクニックを <strong>平方分割</strong> と呼ぶことがあります。</p>
+
+<p>実装例 (C++):</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+#define mod 998244353
+#define BD 500
+
+int dp[200005]={0};
+int dp2[505][505]={0};
+
+int main(){
+  int n;
+  cin &gt;&gt; n;
+  dp[0]=1;
+  for(int i=0;i&lt;n;i++){
+    int a;
+    cin &gt;&gt; a;
+    for(int d=1;d&lt;=BD;d++){
+      dp[i]+=dp2[d][i%d];
+      if(dp[i]&gt;=mod){dp[i]-=mod;}
+    }
+
+    if(a&lt;=BD){
+      dp2[a][i%a]+=dp[i];
+      if(dp2[a][i%a]&gt;=mod){dp2[a][i%a]-=mod;}
+    }
+    else{
+      for(int j=i+a;j&lt;n;j+=a){
+        dp[j]+=dp[i];
+        if(dp[j]&gt;=mod){dp[j]-=mod;}
+      }
+    }
+  }
+
+  int res=0;
+  for(int i=0;i&lt;n;i++){
+    res+=dp[i];
+    if(res&gt;=mod){res-=mod;}
+  }
+  cout &lt;&lt; res &lt;&lt; &#34;\n&#34;;
+  return 0;
+}
+</code></pre>
+
+<p>注: <span>\(998244353\)</span> での除算を条件分岐を利用して回避しています。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1704443352">
+				<time class="timeago" datetime="2024/01/05 17:29:12"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1704457458">
+				<time class="timeago" datetime="2024/01/05 21:24:18"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc335/editorial/9038?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 335（Sponsored by Mynavi）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc335/rules">ルール</a></li>
+					<li><a href="/contests/abc335/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

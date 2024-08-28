@@ -1,0 +1,67 @@
+人の向きを以下の図のように矢印で表すことにします。この図では、同じ向きの人が連続している
+部分の矢印を繋げて 1 つの矢印で表しています。また、簡単のため、N 人の左側には右向きの人が無
+限に並んでいて、右側には左向きの人が無限に並んでいることとします。
+
+幸福である人数を数える代わりに、幸福でない人を数えましょう。すなわち、上図の赤い点線で
+囲った部分の数をできるだけ減らしたいです。赤い点線の部分 1 箇所につき幸福でない人は基本的に
+は 2 人ですが、この部分が (N 人の) 左端や右端にある場合には 1 人です。
+
+(l, r) を選んで反転する操作を行うと、これらの赤・青の点線の部分はどのように変化するでしょう
+か。反転した区間の端以外では、増えも減りもせず、赤、青の点線の部分はそれぞれ赤、青の点線の
+ままです。したがって、1 回の操作では選ぶ区間の端として赤い点線部分と青い点線部分を選び、赤
+い点線部分を 1 箇所を消すことができますが、それ以外の選び方では消すことができません。
+また、左には右向きの人が無限に並んでいて、右には左向きの人が無限に並んでいることから、全
+体として赤または青の点線の部分の数は必ず奇数で、赤、青、赤、青、…、赤と並んでいます。これ
+から分かることとして、赤い点線部分が M 箇所あるとすると、青い点線部分は M − 1 箇所である
+ため、何回操作ができたとしても赤い点線部分は必ず 1 箇所残り、また、M − 1 回の操作で M − 1
+箇所の赤い点線部分を消すことができます。したがって、可能な限り内側の (端でない) 赤い点線部分
+を消し (1 回あたり幸福な人は 2 人増える)、最後に残った赤い点線部分が内側にあるならそれを端に
+移動させる (幸福な人は 1 人増える) のが最適です。なぜなら、1 回の操作で幸福な人は高々 2 人しか
+増えませんが、実際に 2 人ずつ増やすことができるからです。
+すなわち、結局は幸福な人 +2 人を X 回でき、+1 人を Y 回でき、K 回までの操作で何人幸福
+な人を増やせるか、といった問題になります。X, Y は赤い点線部分の数、すなわち S 中に登場する
+
+‘RL’ の数と、S1 , SN により定まります。この解法の時間計算量は O(N ) です。
+別解として、文字列 S を LL...L, RR...R, ..., LL...L のように分解し、奇数番目の RR...R または
+
+LL...L の塊について前から順にそれぞれ 1 回の操作で向きを反転させていき、最後に幸福な人数を数
+える方法もあり、こちらも O(N ) で動作します。
+
+4
+
+Let’s represent the directions of the people with arrows like the following diagram. In this
+diagram, a continuous sequence of people with same directions are represented in one arrow.
+Also, for simplicity, assume that there are inﬁnite people facing right in the left side of N people,
+and there are inﬁnite people facing left in the right side.
+
+Instead of counting happy people, let’s count the number of unhappy people. That is, you
+want to decrease the number of places surrounded by red dotted circle in the diagram above.
+For each place with red dotted circle, there are basically two unhappy people, except when it is
+at the leftmost or rightmost (of N people), in which case there are one unhappy people.
+What will happen to those red and blue dotted places when you perform the selection of
+choosing (l, r) and reversing? At the places other than the endpoints of the segment, the red
+and blue dotted part remains the same. Therefore, in one operation you can choose red dotted
+place and blue dotted place and remove one red dotted part, but otherwise you cannot remove.
+Also, there are inﬁnite number of people facing right at the left, and there are inﬁnite number
+of people facing left at the right, so overall there are always odd number of red or blue dotted
+place, lined up in an order of red, blue, red blue, …, red. From this fact we can see that, assume
+that there are M red-dotted part, then there are M − 1 blue-dotted part, so no matter how many
+operations you can perform, there remains at least one red-dotted part, and you can remove M −1
+red part in M − 1 operations. Therefore, the optimal strategy is, ﬁrst erasing red-dotted part
+(not at endpoint) as much as possible (so that the number of happy people increases by two),
+and at last, if there exists a red-dotted part inside, move to the endpoint (so that the number of
+happy people increases by one). This is because you can increase at most two happy people in
+each operation, and you can actually increase it by two.
+Therefore, the problem can be rephrased by: you can perform an operation of increasing happy
+people by +2 for X times, by +1 for Y times, then what is the maximum number of happy people
+you can increase by performing K operations? X, Y is determined by the number of red-dotted
+point, that is, the number of ‘RL’ appears in S, and S1 , SN . The overall time complexity of this
+solution is O(N ).
+As another solution, you can split S like LL...L, RR...R, ..., LL...L, reverse the cluster of RR...R
+or LL...L at the odd index in one operation each from the beginning, and ﬁnally ﬁnd the number
+10
+
+of happy people. This also works in a total of O(N ) time.
+
+11
+

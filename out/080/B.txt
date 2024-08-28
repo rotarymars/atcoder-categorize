@@ -1,0 +1,44 @@
+
+Harshad Number
+
+f (N ) の計算方法だが、例えば以下の方法が考えられる。
+1: t = N 、c = 0 とする。
+2: c に、t を 10 で割った余りを加算する。
+3: t に、t を 10 で割った商を代入する。
+4: t > 0 ならば 2 に戻る。そうでないなら終了する。このとき c = f (N ) となる。
+f (N ) を求めた後、N が f (N ) で割り切れるかを判定すればよい。
+# include < cstdio >
+int N ;
+int main ()
+{
+scanf ("% d " ,& N );
+int t =N , c =0;
+while (t >0) c += t %10 , t /=10;
+if ( N % c ==0) puts (" Yes ");
+else puts (" No ");
+}
+
+1
+
+
+Harshad Number
+
+For example,f (N ) can be calculated as such.
+1: Set t = N ,c = 0.
+2: Add to c ,the remainder of t divided by 10.
+3: Substitute the quotient of t divided by 10 ,for t.
+4: If t > 0,go 2. If t = 0,quit. Then c = f (N ).
+After that, it is good to check is N can be divided by f (N ) or not.
+# include < cstdio >
+int N ;
+int main ()
+{
+scanf ("% d " ,& N );
+int t =N , c =0;
+while (t >0) c += t %10 , t /=10;
+if ( N % c ==0) puts (" Yes ");
+else puts (" No ");
+}
+
+4
+

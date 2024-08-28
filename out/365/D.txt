@@ -1,0 +1,49 @@
+
+		公式
+		
+			
+				D - AtCoder Janken 3 解説
+			
+			by MMNMM
+			
+		
+		
+		
+		
+			\(\operatorname{dp} _ i[H]\ (H\in\lbrace\)R, P, S\(\rbrace)\) を、
+
+
+\(\operatorname{dp} _ i[H]\coloneqq i\) 回目に出した手が \(H\) であるような \(i\) 回目までの手の出し方で高橋くんが出す手の条件を満たすものに対する、青木くんに勝った回数の最大値
+
+
+として定義します（ここで、便宜上 \(\operatorname{dp} _ 0[H]=0\) とします）。
+
+高橋くんが \(i\) 回目に出すことができた手は、青木くんが \(i\) 回目に出した手と高橋くんが \(i-1\) 回目に出した手のみから決まります。
+
+よって、\(\operatorname{dp} _ i[H]\ (H\in\lbrace\)R, P, S\(\rbrace)\) は \(\operatorname{dp} _ {i-1}\ (H\in\lbrace\)R, P, S\(\rbrace)\)（および \(S _ i\) の値）から求めることができます。
+
+具体的には、\(\operatorname{janken}(a,b)\) を \(a\) が \(b\) に勝つなら \(1\) 、あいこなら \(0\) 、負けるなら \(-1\) となる関数として、
+
+\[\operatorname{dp} _ i[H]=\begin{cases}\displaystyle\max _ {H^\prime\neq H}\operatorname{dp} _ {i-1}[H^\prime]&\ &(\operatorname{janken}(H,S _ i)=0)\\1+\displaystyle\max _ {H^\prime\neq H}\operatorname{dp} _ {i-1}[H^\prime]&&(\operatorname{janken}(H,S _ i)=1)\\0&&(\operatorname{janken}(H,S _ i)=-1)\end{cases}\]
+
+とするとよいです（負けるときの DP テーブルの値を \(-\infty\) にしてもよいですが、\(0\) としても正しい値が得られることが証明できます）。
+
+実装例は以下のようになります。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

@@ -1,0 +1,163 @@
+(解説: evima)
+
+√
+
+一般に、正整数 X に対して、f (X) つまり X の約数の個数は O( X) 時間で求められます*2 。し
+かし、X = 1, . . . , 107 のすべてに対してこれを行う時間はありません。
+そこで、1, . . . , N の約数の個数を求めることなく問題で要求された値を計算することを考えます。
+要求された値は、以下の疑似コードが出力する値であると考えられます。
+1
+
+ans = 0
+
+2
+
+for i = 1, ..., N:
+for j = 1, ..., N:
+
+3
+
+if i % j == 0 then ans += i
+
+4
+5
+
+print ans
+
+ここで、4 行目は結局のところ (i, j) = (1, 1), . . . , (1, N ), (2, 1), . . . , (N, N ) の N 2 通りのペアに
+対して実行されるため、次のように 2, 3 行目の for 文を入れ替えても結果は変わりません。
+1
+
+ans = 0
+
+2
+
+for j = 1, ..., N:
+for i = 1, ..., N:
+
+3
+
+if i % j == 0 then ans += i
+
+4
+5
+
+print ans
+
+このコードの挙動を考えると、問題は次のように言い換えられます。
+
+
+
+正整数 j に対し、j の倍数であって N 以下であるものの総和を g(j) とする。
+
+∑N
+
+
+
+j=1 g(j) を求
+
+めよ。
+
+
+
+
+
+この g(X) は等差数列の和であり、f (X) より高速に求めることができます。具体的には、Y =
+
+⌊N/X⌋ (N/X 以下の最大の整数) とすると g(X) = X + 2X + . . . + Y X = (1 + 2 + . . . + Y )X =
+Y (Y + 1)X/2 であり、この式を用いれば O(N ) 時間で問題が解けます。
+(一部の言語では、上の式を用いても実行制限時間に間に合わない可能性があります。その場合は、
+心苦しいですが、他の言語を用いてくださいというほかありません。制約における N の上限を小さ
+
+√
+
+くしてしまうと、X = 1, . . . , N のすべてに対して O( X) 時間で約数を列挙する方針を C++ など
+の言語で実装すれば間に合いかねないため、このような制約となりました。)
+
+√
+X⌋ ( X 以下の最大の整数) のそれぞれについて X を割り切るか確かめ、割り切るなら i と X/i は
+X の約数である、とすることで X のすべての約数が得られます
+
+*2 i = 1, . . . , ⌊
+
+√
+
+6
+
+(Editorial: evima)
+Generally, for a positive integer X, the number of divisors of X, f (X), can be calculated in
+√
+a total of O( X) time. *4 . However, the time limit is not long enough to execute this for all
+K = 1, . . . , 107 .
+Then, let us consider ﬁnding the value desired in the problem statement without ﬁnding the
+number of divisors of 1, . . . , N . The desired answer can be considered as the value that the
+following pseudocode outputs.
+1
+
+ans = 0
+
+2
+
+for i = 1, ..., N:
+
+3
+
+for j = 1, ..., N:
+if i % j == 0 then ans += i
+
+4
+5
+
+print ans
+
+Here, line 4 is executed for all N 2 pairs of (i, j) = (1, 1), . . . , (1, N ), (2, 1), . . . , (N, N ), so you
+can swap the for statements in the lines 2 and 3 without changing the result.
+1
+
+ans = 0
+
+2
+
+for j = 1, ..., N:
+
+3
+4
+5
+
+for i = 1, ..., N:
+if i % j == 0 then ans += i
+print ans
+
+Considering the behavior of the code, the problem can be reworded as follows:
+
+
+
+
+For a positive integer j, we deﬁne g(j) as the sum of multiples of j that does not exceed N .
+∑N
+Find j=1 g(j),
+
+
+This g(X) is a sum of an arithmetic progression, and can be calculated faster than f (X).
+Speciﬁcally, let Y = ⌊N/X⌋ (the maximum integer that does not exceed N/X), then g(X) =
+X + 2X + . . . + Y X = (1 + 2 + . . . + Y )X = Y (Y + 1)X/2, so by using this formula, the problem
+can be solved in a total of O(N ) time.
+(In some language, even if you use the equations above, your program may not ﬁnish in the
+time limit. In such case, regretfully, there is no way but using other languages. If the upper
+√
+bound of N is smaller, iterating all the divisors of all X = 1, . . . , N in O( X) time each might
+√
+X⌋ (maximum integer not exceeding X), check if it divides X, and if it does, then
+i and X/i are the divisors of X; by doing so you can obtain all the divisors of X
+
+*4 For each i = 1, . . . , ⌊
+
+√
+
+15
+
+be ﬁnish in the time limit when implemented in languages like C++, and this is the reason for
+such constraints.)
+
+16
+

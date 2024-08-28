@@ -1,0 +1,11 @@
+体力の高い方から K 体のモンスターに必殺技を使い、残りのモンスターに攻撃するのが最適です。
+モンスターを体力の順にソートすることで O(N log N ) で解くことができます。
+
+3
+
+It is optimal to use Special Move for K monsters with the largest health, and to Attack to the
+other monsters. By sorting the monsters by the monsters’ healths, it can be solved in a total of
+O(N log N ) time.
+
+9
+

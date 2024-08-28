@@ -1,0 +1,29 @@
+N 枚のカードに書かれた数の総和を X とする．カードの山の先頭 i 枚のカードに書かれた数の
+総和が xi であったとすると，残ったカードたちに書かれた数の和 yi は X − xi であり，|yi − xi |
+は |X − 2xi | となる．
+
+1 から N − 1 までの全ての i について |X − 2xi | を試せばよい．これは O(N ) で実行可能であ
+り，十分高速である．
+
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+int n;
+long long X=0,x=0,ans=1000000000000000000LL;
+cin>>n;
+vector<long long> a(n);
+for(int i=0;i<n;i++){
+cin>>a[i];
+X+=a[i];
+}
+for(int i=0;i<n;i++){
+x+=a[i];
+if(i+1<n)ans=min(ans,abs(X-2*x));
+}
+cout<<ans<<endl;
+}
+
+3
+

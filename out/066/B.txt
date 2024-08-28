@@ -1,0 +1,73 @@
+偶文字列かどうかを調べるためには、文字列の前半と後半が全く同じかどう
+かを調べれば良いです。
+偶文字列の長さは必ず偶数長なので、偶数の文字列についてのみ調べれば
+十分です。最長のものを探しているので、長さ |S| − 2 の文字列、長さ |S| − 4
+
+1
+
+の文字列、…という順に調べて、条件に合うものが見つかった時にその長さ
+を出力すると答えが求まります。
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+# include < stdio .h >
+# include < string .h >
+int main () {
+char str [222];
+scanf ( " % s " , str ) ;
+int n = strlen ( str ) ;
+for ( int i =n -2; i ; i -=2) {
+if ( strncmp ( str , str + i /2 , i /2) ==0) {
+printf ( " % d \ n " ,i ) ;
+return 0;
+}
+}
+return 0;
+}
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+# include < stdio .h >
+# include < string .h >
+int main () {
+char str [222];
+scanf ( " % s " , str ) ;
+int n = strlen ( str ) ;
+for ( int i =n -2; i ; i -=2) {
+if ( strncmp ( str , str + i /2 , i /2) ==0) {
+printf ( " % d \ n " ,i ) ;
+return 0;
+}
+}
+return 0;
+}
+
+2
+

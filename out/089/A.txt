@@ -1,0 +1,26 @@
+
+Grouping 2
+
+3 人以上のグループは最大で ⌊N/3⌋ 個作れます。
+よって、 ⌊N/3⌋ を出力するとよいです。
+# include < cstdio >
+int N ;
+int main ()
+{
+scanf ("% d " ,& N );
+printf ("% d \ n " , N /3);
+}
+
+
+Grouping 2
+
+The maximum number of groups consisting of three or more students is ⌊N/3⌋ .
+So,you can get 100 points by print ⌊N/3⌋.
+# include < cstdio >
+int N ;
+int main ()
+{
+scanf ("% d " ,& N );
+printf ("% d \ n " , N /3);
+}
+

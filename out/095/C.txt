@@ -1,0 +1,48 @@
+まず、AB ピザを奇数枚買って 1 枚余らせるのは無意味なので、AB ピザは 2 枚 1 組で考えます。つまり、
+
+2C 円で A ピザ 1 枚と B ピザ 1 枚を買えると考えることにし、この 2 枚の組み合わせをこれ以降 AB セッ
+トと呼ぶことにします。
+この問題の重要な制約は、X, Y ≤ 105 です。これは、A ピザ、B ピザ、AB セットのどれについても、買
+う個数は 10 万個以下でよいことを意味します。したがって、この三種類のうちどれか一種類を選んで、それ
+*4
+を買う個数を 0 から 10 万まですべて試す、という方針が考えられます。
+
+さて、三つのうちどれについて購入個数を全列挙するべきでしょうか？結論を述べると、AB セットです。
+
+AB セットを i 個 (0 ≤ i ≤ 105 ) 購入した場合、i ≥ X であれば A ピザを買い増す必要はなく、i < X であれ
+ば A ピザを X − i 枚買い増す必要があります。これらをまとめて、買い増すべき A ピザの数は max(0, X − i)
+枚であるということもできます。同様に、B ピザを max(0, Y − i) 枚買い増す必要があります。以上から、
+
+AB セットを i 枚購入した場合の所要金額は i × 2C + max(0, X − i) × A + max(0, Y − i) × B 円であり、こ
+の値を 0 以上 10 万以下のすべての整数 i について計算して最小値を取ることで答えが求まります。
+なお、定数時間で答えを求めることもできます。練習問題として解説は省きます。
+
+*4 なお、二種類を選んでしまうと考慮する可能性の数が約 100 億通りになり、2018 年現在の一般的な計算機が 2 秒で探索するには
+
+厳しいです。今日の一般的な計算機が 1 秒あたりに処理できる式の数はおよそ 1 億個といったところで、短い単純な式であれば
+10 億個程度まで伸び、逆に実数の割り算など複雑な演算を伴う場合は数千万個程度に落ちます。
+
+3
+
+First, since buying an odd number of AB-pizzas and having one leftover is nonsense, we will always
+buy these in pairs. That is, we will assume that we can buy one A-pizza and one B-pizza for 2C yen,
+and we will call this set an AB-set.
+The important constraint in this problem is X, Y ≤ 105 . This means that we need to buy at most
+100000 A-pizzas, at most 100000 B-pizzas and at most 100000 AB-sets. Thus, we can select one of these
+three menus and try every possible number of that menu purchased from 0 to 100000. *4
+Which among the three should we focus on? Our conclusion is AB-sets. When we buy i AB-sets
+(0 ≤ i ≤ 105 ), we don’t need to buy extra A-pizzas if i ≥ X, and we need to buy X − i extra Apizzas if i < X. In other words, we should buy max(0, X − i) extra A-pizzas. Similarly, we should buy
+max(0, Y − i) extra B-pizzas. Therefore, we need i × 2C + max(0, X − i) × A + max(0, Y − i) × B yen
+if we buy i AB-sets, and the answer can be found by computing this value for every integer i from 0 to
+100000, and taking the minimum obtained value.
+A constant time solution is also possible, which is left as an exercise.
+
+*4 If we select two, there are about 10 billion possibilities to consider, which is too much for an ordinary computer today
+
+to enumerate in 2 seconds. A rough guess of the number of formula that an ordinary computer today can process in
+1 second is about 100 million. This number can grow up to about 1 billion if the formula is a short, simple one. On
+the other hand, it can decline down to about several ten millions if the formula involves complex operation such as
+division of real numbers.
+
+9
+

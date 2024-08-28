@@ -1,0 +1,60 @@
+1 回目のコンテストで A 位、2 回目のコンテストで B 位を取ることを (A, B) を取ると呼ぶことにします。
+高橋君が (A, B) を取ったとします。A ≤ B として一般性を失いません。
+
+A = B の場合、高橋君よりスコアが小さい人は 1 回目のコンテストまたは 2 回目のコンテストで A − 1 位
+以内の順位を取っています。よって、そのような人の人数は 2A − 2 人以下です。逆に、(1, 2A − 1), · · · , (A −
+
+1, A + 1), (A + 1, A − 1), · · · , (2A − 1, 1) を取った人が存在する場合、その上限値を達成できます。
+A + 1 = B の場合、高橋君よりスコアが小さい人は 1 回目のコンテストで A − 1 位以内を取るか、2 回目の
+コンテストで A 位以内を取っています。また、2 回目のコンテスト A 位を取った人のスコアが高橋君より小
+さくなるためには、その人は 1 回目のコンテストで A − 1 位以内を取る必要があります。よって、高橋君より
+スコアが小さい人の人数は 2A − 2 人以下です。逆に、(1, 2A), · · · , (A − 1, A + 2), (A + 2, A − 1), · · · , (2A, 1)
+を取った人が存在する場合、その上限値を達成できます。
+そうでない場合、C 2 < AB を満たす最大の整数 C を取ります。
+
+C(C + 1) ≥ AB のとき、高橋君よりスコアが小さい人は 1 回目のコンテストまたは 2 回目のコンテスト
+2
+
+で C 位以内の順位を取っています。1 回目のコンテストで C 位を取った人のスコアが高橋君のスコアより小
+さくなるためには、その人は 2 回目のコンテストで C 位以内を取らなければなりません。よって、高橋君よ
+りスコアが小さい人の人数は 2C − 2 人以下です。逆に、(1, A + B − 1), · · · , (A − 1, B + 1), (A + 1, 2C −
+
+A − 1), · · · , (C, C), · · · , (2C − 1, 1) を取った人が存在する場合、その上限値を達成できます。
+C 2 < AB のとき、高橋君よりスコアが小さい人は 1 回目のコンテストまたは 2 回目のコンテストで C
+位以内の順位を取っています。よって、高橋君よりスコアが小さい人の人数は 2C − 1 人以下です。逆に、
+
+(1, A + B − 1), · · · , (A − 1, B + 1), (A + 1, 2C − A), · · · , (C, C + 1), (C + 1, C), · · · , (2C, 1) を取った人が
+存在する場合、その上限値を達成できます。
+以上の場合で尽くされるので、この問題を解くことができました。
+
+Let us denote a participant who was ranked x-th in the first contest and y-th in the second contest as
+(x, y). Takahashi is (A, B). Without loss of generality, assume that A ≤ B.
+One possible way to solve the problem is to consider the following cases:
+• If A = B, the answer is at most 2A − 2 because you must get top A − 1 places in at least one
+contest to beat Takahashi. We can achieve this value by (1, 2A − 1), · · · , (A − 1, A + 1), (A + 1, A −
+1), · · · , (2A − 1, 1). Thus, the answer is 2A − 2.
+• If A + 1 = B, the answer is at most 2A − 2 because you must get top A − 1 places in at least one
+contest to beat Takahashi. (Note that the A-th place in the first contest is filled by Takahashi,
+and getting the A + 1-th in the first and A-th in the second is not enough.) We can achieve this
+value by (1, 2A), · · · , (A − 1, A + 2), (A + 2, A − 1), · · · , (2A, 1). Thus, the answer is 2A − 2.
+• Otherwise, let C be the maximum integer such that C 2 < AB.
+– If C(C + 1) ≥ AB, the answer is at most 2C − 2 because you must get top C − 1 places in the
+first contest or top C places in the second contest to beat Takahashi. (Note that one of ”the
+top C − 1 places in the first contest” is Takahashi, we shouldn’t count him.) We can achieve
+this value by (1, A + B − 1), · · · , (A − 1, B + 1), (A + 1, 2C − A − 1), · · · , (C, C), · · · , (2C − 1, 1).
+Thus, the answer is 2C − 2.
+– If C(C + 1) < AB, the answer is at most 2C − 1 because you must get top C places in the first
+contest or top C places in the second contest to beat Takahashi. (Note that one of ”the top C
+places in the first contest” is Takahashi, we shouldn’t count him.) We can achieve this value
+by (1, A + B − 1), · · · , (A − 1, B + 1), (A + 1, 2C − A), · · · , (C, C + 1), (C + 1, C), · · · , (2C, 1).
+Thus, the answer is 2C − 1.
+Another possible solution is binary search on the answer: for a fixed X, we want to know the following:
+• Consider the smallest X positive integers except for A.
+• Consider the smallest X positive integers except for B, and reverse the order.
+• Check if for all i, the product of the i-th integer in the first list and the i-th integer in the second
+list is smaller than AB.
+To do this, use the fact that the lists are ”piecewise” arithmetic sequences (and the number of pieces
+is constant).
+
+4
+

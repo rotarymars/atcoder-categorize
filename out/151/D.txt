@@ -1,0 +1,15 @@
+スタート地点を決めたとき、ゴール地点はスタート地点から最も遠い箇所にすべきです。そのよう
+な地点は BFS などにより O(HW ) で求めることができます。したがって、各マスをスタート地点と
+した場合についてをそれぞれ計算することで O((HW )2 ) で問題が解けました。なお、ワーシャルフ
+ロイド法を用いて O((HW )3 ) で全点間最短距離を求めることでも解けます。
+
+4
+
+When a starting square is ﬁxed, it is optimal to set the goal square to be the furthest square
+from the starting square. Such square can be found by BFS or any other algorithms in a total of
+O(HW ) time. Therefore, by calculating for each square as a starting square, this problem could
+be solved in a total of O((HW )2 time. Note that you can also calculate in a total of O((HW )3 )
+time by applying Warshall ‒ Floyd Algorithm.
+
+10
+

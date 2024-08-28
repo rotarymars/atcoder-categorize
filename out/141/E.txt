@@ -1,0 +1,45 @@
+Z-Algorithm と呼ばれるアルゴリズムを使うと、長さ N の文字列 S について、 i = 2, 3, ..., N で
+の S の i 文字目以降から成る文字列と S の最長共通接頭辞の長さを O (N ) で求めることが出来ま
+す。
+これにより、 l1 = 1 に制限した場合の答えは、 O (N ) で求めることが出来ます。
+あとは、同様の処理を S[2 : N ], S[3 : N ], ..., S[N : N ] についても行うことにより、問題の答えを得
+
+(
+
+)
+
+ることが出来ます。全体での時間計算量は O N 2 です。
+別解として、ローリングハッシュを用いて文字列比較を O (1) で処理すると、二分法及び平衡二分探
+
+(
+
+索木を用いたハッシュ値の既出判定を行うことにより、O N (log N )
+ます。ハッシュ値の衝突には十分に注意してください。
+
+7
+
+2
+
+)
+
+で答えを求めることが出来
+
+Given a string S of length N , for each i = 2, 3, ..., N , you can ﬁnd the longest common preﬁx
+of S and the substring after the i-th character of S in a O (N ) time by applying the algorithm
+called Z-Algorithm.
+Therefore, if you ﬁx l1 = 1, you can ﬁnd the answer in a O (N ) time.
+All that left is do the same operations for S[2 : N ], S[3 : N ], ..., S[N : N ] and you can ﬁnd the
+( )
+answer for the original problem. It needs a total of O N 2 time.
+As an another solution, if each string comparison are performed in a O (1) time with rolling hash,
+by performing binary search on self-balancing
+binary)search tree to check existence of hash value,
+(
+2
+
+you can ﬁnd the answer in a total of O N (log N )
+
+15
+
+time. Be very careful of hash collisions.
+

@@ -1,0 +1,69 @@
+条件を満たすような Bi を決めたとします。このとき K = A1 B1 とおくと、条件より全ての
+
+j > 1 について K = A1 B1 = Aj Bj となります。よって K は A1 , ..., AN の公倍数です。逆に L を
+A1 , ..., AN の最小公倍数とおいたとき、Bi = L/Ai と定めると、このような Bi たちは条件を満た
+∑
+します。よって求める答えは、 L/Ai です。しかし、L は非常に大きな数となることがあるため、
+そのまま計算することはできません。そこで、L を素因数分解した形で保持し、計算することを考え
+ます。
+
+∏ ei
+∏ e′i
+pi , Y =
+pi と*1 素因数分解されているとします (ei , e′i の一方は 0
+∏ max(ei ,e′i )
+でもよい)。このとき、X と Y の最小公倍数は
+pi
+になります。このことを用いると、
+pi を素数とし、X =
+
+A1 , ..., AN の最小公倍数を素因数分解された形で求めることができます。
+√
+以上より、この問題は A = max Ai として、O(N A) で解くことができました。また、適当な前
+計算により素因数分解を高速化するなどの工夫により O(A + N log A) で求めることもできます。
+
+*1 記号
+
+∏
+
+は、
+
+∑
+
+の”掛け算バージョン”です
+
+5
+
+Assume that Bi satisfying the given conditions are determined. Then let K = A1 B1 , then
+by the constraints K = A1 B1 = Aj Bj holds for all j > 1. Therefore K is common multiple of
+A1 , ..., AN . Conversely, let L be the least common multiple of A1 , ..., AN , and let Bi = L/Ai ,
+∑
+then such Bi s satisﬁes the conditions. Therefore, the desired answer is
+L/Ai . However, L can
+be a very big number, so it can’t be calculated directly. Then let’s consider calculating, holding
+L in a factorized form.
+
+∏ ei
+∏ e′
+pi , Y = pi i *1 (either
+∏ max(ei ,e′i )
+of ei , e′i may be 0). Then the least common multiple of X and Y is given by pi
+. By
+Let pi be primes, and assume that factorizations are given by X =
+
+using this, the least common multiple of A1 , ..., AN can be obtained in a factorized form.
+√
+Therefore, this problem can be solved in a total of O(N A) time, where A = max Ai . Also, by
+speeding up the prime factorization with proper precalculations, the answer can also be obtained
+in a total of O(A + N log A) time.
+
+*1 The symbol
+
+∏
+
+is a ”product version” of
+
+∑
+
+11
+

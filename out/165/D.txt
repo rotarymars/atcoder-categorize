@@ -1,0 +1,20 @@
+f (x) = f loor(Ax/B) − A × f loor(x/B) とします。
+f (x + B) = f (x) であることは実際に代入することで容易に分かります。なので、0 ≤ x ≤ B − 1
+の場合のみを考えます。
+このとき、f (x) = f loor(Ax/B) − A × f loor(x/B) = f loor(Ax/B) で、f loor(Ax/B) は広義単
+調増加なので、与えられた制約 (0 ≤ x ≤ B − 1, 0 ≤ x ≤ N ) の中で最も大きい x について、f (x)
+が求める最大値です。
+よって、答えは f (min(B − 1, N )) です。
+
+4
+
+Let us deﬁnef (x) = f loor(Ax/B) − A × f loor(x/B).
+It can be seen easily that f (x + B) = f (x) by actually assigning. So, we consider only
+0 ≤ x ≤ B − 1.
+Then, f (x) = f loor(Ax/B) − A × f loor(x/B) = f loor(Ax/B), and since f loor(Ax/B) is
+monotonically non-decreasing, so for the maximum x within the given constraints (0 ≤ x ≤ B −1,
+0 ≤ x ≤ N ), f (x) is the desired maximum value.
+Therefore, the answer is f (min(B − 1, N )).
+
+10
+

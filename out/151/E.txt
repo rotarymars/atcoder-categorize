@@ -1,0 +1,60 @@
+A は予めソートされているとします。また、N までの階乗とその逆元を予め計算しておくことで、
+二項係数は高速に求められるとして良いです。
+
+max と min について、それぞれ別々に和をとることを考えます。すなわち
+∑
+∑
+( max S) − ( min S) を考えます。
+
+∑
+
+f (S) ではなく
+
+簡単のために、Ai は相異なるとします。max S の値としてありえるのは A の要素のいずれかで
+す。したがって、各 i について max S = Ai となるような S がいくつあるかがわかれば、
+
+∑
+
+max S
+
+を求めることができます。max S = Ai となる必要十分条件は「S は Ai を含み、かつ、Ai より小さ
+なもの K − 1 個を含む」であるので、このようなものは二項係数を用いて直ちに計算することができ
+ます。
+
+∑
+
+min S も同様にして求めることができます。
+
+Ai が重複するものを持つ場合、値が等しい Ai たちの間には勝手な大小関係を入れても、上で述べ
+た説明は成立することが確かめられます (例えば (Ai , i) の辞書順による順序を考え、max S = (Ai , i)
+となるものの個数を考えます)。したがって、この場合も全く同様に求められます。
+
+5
+
+Assume that A is sorted beforehand. Also, you can assume that you can calculate binomial
+coeﬃcients fast by precalculating the factorials till N and their inverses.
+Consider calculating the sum separately for min and max.
+∑
+∑
+∑
+( max S) − ( min S) instead of
+f (S).
+
+In other words, consider
+
+For simplicity, assume that Ai is distinct from each other. Possible value of max S is any
+element of A. Therefore, by counting the number of S such that max S = Ai for each i, you
+∑
+can ﬁnd
+max S. The necessary and suﬃcient condition of max S = Ai is “S contains Ai , and
+also contains K − 1 elements less than Ai ,” so such number can be directly calculated by using
+∑
+binomial coeﬃcients. You can calculate
+min S similarly.
+If Ai contains duplicates, you can prove that the explanation above also holds if you assume
+arbitrary order between Ai s with same value (for example, consider a lexicographical order of
+(Ai , i and count the number of elements satisfying max S = (Ai , i). Therefore, you can also
+process in the same way in this case.
+
+11
+

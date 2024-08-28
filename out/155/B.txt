@@ -1,0 +1,141 @@
+「偶数であるにもかかわらず，3 でも 5 でも割り切れない」ような整数が書類上にあれば DENIED，
+さもなくば APPROVED とすればよいです．
+
+C 言語での実装例は次のとおりです．
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main (void) {
+int i;
+
+4
+5
+6
+
+int a[100];
+
+7
+
+for (i = 0; i < n; i++) {
+
+8
+
+scanf("%d", &a[i]);
+
+}
+
+9
+10
+
+for (i = 0; i < n; i++) {
+
+11
+
+if (a[i] % 2 == 0 && a[i] % 3 != 0 && a[i] % 5 != 0) {
+
+12
+
+puts("DENIED");
+
+13
+
+return 0;
+
+14
+
+}
+
+15
+16
+
+}
+
+17
+
+puts("APPROVED");
+
+18
+
+return 0;
+
+19
+20
+
+}
+
+2
+
+If there exists a integer such that ”although it is an even number, it is not divisible by 3 nor
+5,” on the document then the answer is DENIED, otherwise the answer is APPROVED.
+The following is a sample code in C Language.
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main (void) {
+int i;
+
+4
+5
+6
+
+int a[100];
+
+7
+
+for (i = 0; i < n; i++) {
+
+8
+
+scanf("%d", &a[i]);
+
+}
+
+9
+10
+
+for (i = 0; i < n; i++) {
+
+11
+
+if (a[i] % 2 == 0 && a[i] % 3 != 0 && a[i] % 5 != 0) {
+
+12
+
+puts("DENIED");
+
+13
+
+return 0;
+
+14
+
+}
+
+15
+16
+
+}
+
+17
+
+puts("APPROVED");
+
+18
+
+return 0;
+
+19
+20
+
+}
+
+9
+

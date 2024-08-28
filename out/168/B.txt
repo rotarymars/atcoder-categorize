@@ -1,0 +1,181 @@
+長さが K 以下かどうか判定し，上回っていれば問題文通りの文字列操作を行ってから出力すれば
+いいです．
+
+PHP には truncate というそのものずばりな機能があり，これを使うのも手です．
+Listing 2 C++ での実装例
+
+#include <iostream>
+using std::cin;
+3 using std::cout;
+1
+2
+
+4
+5
+6
+
+#include <string>
+using std::string;
+
+7
+8
+
+int main(void) {
+
+9
+
+int k;
+
+10
+
+string s;
+
+11
+12
+
+cin >> k;
+
+13
+
+cin >> s;
+
+14
+
+if (s.size() > k) {
+
+15
+
+s = s.substr(0, k) + "...";
+
+16
+
+}
+
+17
+18
+
+cout << s << '\n';
+
+19
+20
+
+return 0;
+
+21
+22
+
+}
+Listing 3 Python3 での実装例
+
+1
+
+k = int(input())
+
+2
+
+s = input()
+
+3
+4
+5
+
+if len(s) > k:
+s = s[:k] + "..."
+
+6
+7
+
+print(s)
+
+3
+
+Check if the length is more than K letters, perform the operations described in the problem
+statement if needed, and print it.
+PHP has a straightforward function called truncate, so that will be an option as well.
+Listing 6 Sample Code in C++
+
+#include <iostream>
+using std::cin;
+3 using std::cout;
+1
+2
+
+4
+5
+6
+
+#include <string>
+using std::string;
+
+7
+8
+
+int main(void) {
+
+9
+
+int k;
+
+10
+
+string s;
+
+11
+12
+
+cin >> k;
+
+13
+
+cin >> s;
+
+14
+
+if (s.size() > k) {
+
+15
+
+s = s.substr(0, k) + "...";
+
+16
+
+}
+
+17
+18
+
+cout << s << '\n';
+
+19
+20
+
+return 0;
+
+21
+22
+
+}
+Listing 7 Sample Code in Python3
+
+1
+
+k = int(input())
+
+2
+
+s = input()
+
+3
+4
+5
+
+if len(s) > k:
+s = s[:k] + "..."
+
+6
+7
+
+print(s)
+
+9
+

@@ -1,0 +1,20 @@
+x 回目の ABC が黒橋君が初めて参加する ABC としてふさわしいかどうかは，各桁の数字を見ることで確かめられ
+ます．なので，x = N から始めて，条件を満たすまで 1 ずつ x を大きくしていけば解くことができます．
+ところで，この問題では，100 ≤ N ≤ 999 という条件から，答えとなる x は必ず 3 桁になります．3 桁で条件を満た
+す x はすべて 111 の倍数（逆もしかり）なので，N 以上の最小の 111 の倍数を求める方法でも解くことができます．
+
+• C++ による解答例: https://beta.atcoder.jp/contests/abc111/submissions/3279754
+• Java による解答例: https://beta.atcoder.jp/contests/abc111/submissions/3279759
+• Python 3 による解答例: https://beta.atcoder.jp/contests/abc111/submissions/3279761
+• Ruby による解答例: https://beta.atcoder.jp/contests/abc111/submissions/3279762
+• Rust による解答例: https://beta.atcoder.jp/contests/abc111/submissions/3279784
+• Bash による解答例: https://beta.atcoder.jp/contests/abc111/submissions/3279843
+
+Some example implementations:
+• C++: https://beta.atcoder.jp/contests/abc111/submissions/3279754
+• Java: https://beta.atcoder.jp/contests/abc111/submissions/3279759
+• Python 3: https://beta.atcoder.jp/contests/abc111/submissions/3279761
+• Ruby: https://beta.atcoder.jp/contests/abc111/submissions/3279762
+• Rust: https://beta.atcoder.jp/contests/abc111/submissions/3279784
+• Bash: https://beta.atcoder.jp/contests/abc111/submissions/3279843
+

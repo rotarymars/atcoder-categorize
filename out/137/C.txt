@@ -1,0 +1,51 @@
+(原案: yokozuna57, 準備・解説: evima)
+まず、二つの文字列 s, t が与えられた際に s が t のアナグラムであるかを判定する方法には次の二つがあ
+ります。
+
+1. 26 種のアルファベットそれぞれが s と t にそれぞれ何回出現するか数え、どのアルファベットについ
+ても出現回数が同じか確認する。
+
+2. 両方の文字列をソートし、一致するか確認する。
+今回の問題では最大で 10 万個の文字列が与えられ、すべてのペア (最大で 50 億個程度) について上の方
+法をそのまま実行すると 2 秒という時間制限を過ぎてしまうでしょう。しかし、上の方法で文字列から得る
+「エッセンス」を元に文字列をグループに分けることで計算を効率化できます。入力例 3 を用いて、方法 2 を
+元に効率化した計算の例を以下に示します。
+
+1. s1 = abaaaaaaaa をソートして aaaaaaaaab を得る。
+2. s2 = oneplustwo をソートして elnoopstuw を得る。
+3. s3 = aaaaaaaaba をソートして aaaaaaaaab を得る。この結果はすでに 1 回現れているので、答えに
+1 を足す。
+4. s4 = twoplusone をソートして elnoopstuw を得る。この結果はすでに 1 回現れているので、答えに
+1 を足す。
+5. s5 = aaaaaaaaba をソートして aaaaaaaaab を得る。この結果はすでに 2 回現れているので、答えに
+2 を足す。
+「この結果はすでに 1 回現れているので」などの部分は、ハッシュテーブル (C++ の undered map, Java
+の HashMap, Python の dictionary など) を用いて実装すれば線形時間で動作します。他に、 N 個の文字
+列から得られる N 個の「エッセンス」をソートするという解法も考えられますが、こちらは言語によっては
+実行が間に合わないかもしれません。
+
+3
+
+(Original writer: yokozuna57, preparation and editorial: evima)
+First, given two strings s, t, there are the following two ways to check if s is an anagram of t:
+1. For 26 kinds of alphabets, check if how many of them appears in s and t, and check if those
+alphabets appears same the same time.
+2. Sort both strings and check if it corresponds.
+This time there are at most 100 million strings, so if you try to check for all pairs (at most about 5
+billions), it will not ﬁnish in time limit. The following is the optimized version of the second way, using
+the third input example:
+1. Sort s1 = abaaaaaaaa and get aaaaaaaaab .
+2. Sort s2 = oneplustwo and get elnoopstuw .
+3. Sort s3 = aaaaaaaaba and get aaaaaaaaab . It has been appeared 1 time before, so add 1 to the
+answer.
+4. Sort s4 = twoplusone and get elnoopstuw . It has been appeared 1 time before, so add 1 to the
+answer.
+5. Sort s5 = aaaaaaaaba and get aaaaaaaaab . It has been appeared 2 time before, so add 2 to the
+answer.
+The step of calculating ”it has been appeared 1 times” and so on can be implemented with hash
+tables (C++’s unordered map, Java’s HashMap, Python’s dictionary etc.) so that it works in a linear
+time. Otherwise, you can sort N ”essences” obtained from N strings, but it may not ﬁt the time limit,
+depending on programming languages.
+
+11
+

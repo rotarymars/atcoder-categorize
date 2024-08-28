@@ -1,0 +1,396 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - Ｓｋｙ株式会社プログラミングコンテスト2023（AtCoder Beginner Contest 289）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - Ｓｋｙ株式会社プログラミングコンテスト2023（AtCoder Beginner Contest 289）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc289/editorial/5712" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - Ｓｋｙ株式会社プログラミングコンテスト2023（AtCoder Beginner Contest 289）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc289";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-02-11T21:00:00+09:00");
+			var endTime = moment("2023-02-11T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>Ｓｋｙ株式会社プログラミングコンテスト2023（AtCoder Beginner Contest 289）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>Ｓｋｙ株式会社プログラミングコンテスト2023（AtCoder Beginner Contest 289）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc289">Ｓｋｙ株式会社プログラミングコンテスト2023（AtCoder Beginner Contest 289）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc289/editorial/5712?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc289/editorial/5712?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc289%2Feditorial%2F5712">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc289%2Feditorial%2F5712">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc289%2Feditorial%2F5712">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230211T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-02-11 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230211T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-02-11 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc289"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc289/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc289/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc289/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc289/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc289/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc289/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc289/tasks/abc289_h">Ex - Trio</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題は <strong>多項式の逆元</strong> の練習問題です。多項式・形式的冪級数の逆元の計算に帰着できる数え上げは各所で出題されているので、数え上げの知識をつけたい人はこの問題で練習してみましょう。</p>
+
+<p>まず、<span>\(f(t)\)</span> を次のように定めます。求めたい答えは <span>\(f(T)\)</span> です。</p>
+
+<ul>
+<li><span>\(f(t)\)</span> <span>\(:=\)</span> (時刻 <span>\(0\)</span> に 3 人がそれぞれ <span>\(A, B, C\)</span> にいて、時刻 <span>\(t\)</span> に <strong>はじめて</strong> 同じ地点に集まる確率)</li>
+</ul>
+
+<p>条件の「<strong>はじめて</strong>」という部分が厄介なので、まずはこれを取り除いた場合を数えて、そこから <span>\(f(t)\)</span> を計算する、という手順で計算してみましょう。<br>
+<span>\(g(t), h(t)\)</span> を次のように定めます。</p>
+
+<ul>
+<li><p><span>\(g(t)\)</span> <span>\(:=\)</span> (時刻 <span>\(0\)</span> に 3 人がそれぞれ <span>\(A, B, C\)</span> にいて、時刻 <span>\(t\)</span> に同じ地点に集まる確率)</p></li>
+
+<li><p><span>\(h(t)\)</span> <span>\(:=\)</span> (時刻 <span>\(0\)</span> に 3 人がそれぞれ <span>\(0, 0, 0\)</span> にいて、時刻 <span>\(t\)</span> に同じ地点に集まる確率)</p></li>
+</ul>
+
+<p>あらかじめ <span>\(g(t), h(t)\)</span> <span>\((0 \leq t \leq T)\)</span> が計算出来ているとします。すると、<span>\(f(T)\)</span> は次の <span>\(f(t), g(t), h(t)\)</span> 間の関係式を用いて <span>\(\mathrm{O}(T^2)\)</span> で計算できます。(俗に「除原理」と呼ばれている DP です)</p>
+<p><span>\[f(t) = g(t) - \sum_{0 \leq u \lt t} f(u) h(t - u)\]</span></p><p>この DP を高速化しましょう。まず、上式は右辺が <span>\(f\)</span> に関する畳み込みの形をしているので、<a href="https://atcoder.jp/contests/abc213/editorial/2396" rel="nofollow">ABC212 の H 問題の解説</a> でも説明した分割統治 FFT によって <span>\(\mathrm{O}(T \log^2 T)\)</span> で計算できます。この解法でも AC するのに十分高速ですが、母関数を利用するとさらに高速化できます。<br>
+<span>\(f, g, h\)</span> の通常型母関数 <span>\(F, G, H\)</span> は次の通りです。</p>
+<p><span>\[F(x) = \sum_{i=0}^\infty f(i) x^i, G(x) = \sum_{i=0}^\infty g(i) x^i, H(x) = \sum_{i=0}^\infty h(i) x^i\]</span></p><p><span>\(F\)</span> を <span>\(G, H\)</span> の関係式で表してみましょう。これは先の漸化式を利用すれば、</p>
+<p><span>\[
+\begin{aligned}
+&amp;\sum_{t=0}^\infty f(t) x^t = \sum_{t=0}^\infty \left( g(t) - \sum_{0 \leq u \lt t} f(u) h(t - u) \right)  x^t \\
+&amp;\to F(x) = G(x) - F(x) (H(x) - h(0))
+\end{aligned}
+\]</span></p><p>で、<span>\(h(0) = 1\)</span> を利用すると、</p>
+<p><span>\[
+\begin{aligned}
+&amp;\to F(x) = G(x) - F(x) (H(x) - 1) \\
+&amp;\to F(x) H(x) = G(x) \\
+&amp;\to F(x) = \frac{G(x)}{H(x)}
+\end{aligned}
+\]</span></p><p>と表せます。よって <span>\(H(x)\)</span> の乗法的逆元 <span>\(\frac{1}{H(x)}\)</span> が <span>\(T\)</span> 次の係数まで計算できれば <span>\(F(x)\)</span> の <span>\(T\)</span> 次の係数を計算できます。形式的冪級数の逆元は <a href="https://atcoder.jp/contests/abc260/editorial/4434" rel="nofollow">ABC260 Ex の解説</a> でも書いた通り <span>\(\mathrm{O}(T \log T)\)</span> で計算できます。</p>
+
+<p>以上の考察により、<span>\(g, h\)</span> が計算できれば <span>\(f(T)\)</span> を <span>\(\mathrm{O}(T \log T)\)</span> で計算できるとわかりました。<span>\(g, h\)</span> を計算するために次の部分問題を解いていきましょう。</p>
+
+<blockquote>
+<p>時刻 <span>\(0\)</span> に 3 人がそれぞれ <span>\(X, Y, Z\)</span> にいます。時刻 <span>\(t\)</span> に3 人が同じ地点にいる確率を <span>\(p(t)\)</span> とします。 <span>\(p(0), p(1), \dots, p(T)\)</span> を列挙してください。</p>
+</blockquote>
+
+<p>(以下では <span>\(K\)</span> が負である場合や整数でない場合に  <span>\(\frac{1}{K!} = 0, \binom{N}{K} = 0\)</span> と定義します。)</p>
+
+<p><span>\(t\)</span> 秒後に地点 <span>\(w\)</span> に 3 人が集まる確率を <span>\(p(t, w)\)</span> とします。<span>\(p(t, w)\)</span> は</p>
+<p><span>\[p(t, w) = \frac{1}{2^{3t}} \binom{t}{\frac{t + w - X}{2}} \binom{t}{\frac{t + w - Y}{2}} \binom{t}{\frac{t + w - Z}{2}}\]</span></p><p>と表せます。</p>
+<p><span>\[q(i) = \frac{1}{\left(\frac{i-X}{2}\right)! \left(\frac{i-Y}{2}\right)!\left(\frac{i-Z}{2}\right)!}\]</span></p><p><span>\[r(i) = \frac{1}{\left(\frac{i+X}{2}\right)! \left(\frac{i+Y}{2}\right)!\left(\frac{i+Z}{2}\right)!}\]</span></p><p>とすると</p>
+<p><span>\[p(t, w) = \frac{(t!)^3}{2^{3t}} q(t + w) r(t - w)\]</span></p><p>と表せるので、<span>\(t  + w = u\)</span> と置換して</p>
+<p><span>\[p(t) = \sum_w p(t, w) =  \frac{(t!)^3}{2^{3t}}  \sum_u q(u) r(2t - u)\]</span></p><p>という式を得られます。よって、二項係数を前計算して <span>\(q, r\)</span> の列を生成して、<span>\(q\)</span> と <span>\(r\)</span> を畳み込んた列の <span>\(2t\)</span> <span>\((0 \leq t \leq T)\)</span> 番目の値を取り出して <span>\(\frac{(t!)^3}{2^{3t}}\)</span> 倍すれば <span>\(p(t)\)</span> を <span>\(0 \leq t \leq T\)</span> について列挙できます。(<span>\(u\)</span> や <span>\(2t - u\)</span> が負の index を取り得るので、畳み込みの際に適宜 offset を取るなどの工夫が必要なのに注意してください。)</p>
+
+<p>以上よりこの問題を <span>\(\mathrm{O}((A+B+C+T) \log (A+B+C+T))\)</span> や <span>\(\mathrm{O}(T \log T + A + B + C)\)</span> で計算出来て、 これは十分高速です。(逆元の計算に <span>\(\mathrm{O}(T \log^2 T)\)</span> かける解法でも AC できると思います。)</p>
+
+<p>Bonus : 人数を <span>\(3\)</span> 人から <span>\(N\)</span> 人 <span>\((N \leq 10^5)\)</span> に一般化した場合を解いてみましょう。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1675933591">
+				<time class="timeago" datetime="2023/02/09 18:06:31"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1676042573">
+				<time class="timeago" datetime="2023/02/11 00:22:53"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc289/editorial/5712?lang=ja" data-a2a-title="解説 - Ｓｋｙ株式会社プログラミングコンテスト2023（AtCoder Beginner Contest 289）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc289/rules">ルール</a></li>
+					<li><a href="/contests/abc289/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

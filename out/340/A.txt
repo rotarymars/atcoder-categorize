@@ -1,0 +1,49 @@
+
+		公式
+		
+			
+				A - Arithmetic Progression 解説
+			
+			by kyopro_friends
+			
+		
+		
+		
+		
+			
+
+初心者の方へ
+
+プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは practice contest の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。  
+また、プログラミングコンテストの問題に慣れていない方は、 AtCoder Beginners Selection の問題をいくつか試すことをおすすめします。  
+C++入門 AtCoder Programming Guide for beginners (APG4b) は、競技プログラミングのための C++ 入門用コンテンツです。
+
+
+
+
+
+問題で求められていることを平易な言葉で言い直すと「\(A\) から始めて、\(D\) ずつ値を大きくしながら \(B\) まで出力せよ」となります。for 文または while 文を適切に用いることで実装できます。
+
+実装例(C++)
+
+
+
+実装例(Python)
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

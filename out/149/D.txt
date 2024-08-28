@@ -1,0 +1,45 @@
+まず前提として、 a 回目にこちらが出す手と b 回目にこちらが出す手は、a mod K != b mod K
+ならば、独立に選べます (どちらかの選択がもう片方の選択に制限を与えることはない)。
+
+N 回のじゃんけんを、mod K によって K 個のグループに分けることを考えます。この時、各グ
+ループに対して、以下の sub 問題を解くことができれば、この問題を解くことができます。
+
+• sub 問題 このグループに属するじゃんけんで、最大何点とれるか？ただし、連続で同じ手を出
+すことはできない。
+以下が、sub 問題への解法です。
+
+解法 1(DP)
+前から順に、前回にどんな手を出したかを保持しておきながら DP をします。各 sub 問題に対して
+の時間計算量は O(N/K) なので、トータルでの時間計算量は O(N) です。
+
+解法 2(貪欲法)
+貪欲法でも解けます (こっちの方が実装は楽です)。具体的には前から順に、
+
+• 勝てるならば勝てる手を出す。
+• (前回自分が出した手の制限のせいで) 勝てない場合は、次の手の邪魔にならない手を出す。
+以上のようにすることで最適な解が求まります。
+
+4
+
+First, as a premise, you can choose the a-th hand and the b-th hand independently if a mod
+K != b mod K (one choice does not restrict another choice).
+Consider distributing N rounds of Rock Papers Scissors into K groups depending on mod K.
+Then, if the following sub problem can be solved for each group, this problem can also be solved.
+• sub problem: what is the maximum score earned in the rounds belonging to this group?
+You cannot use the same hand contiguously.
+The following is the solution for the sub problem.
+
+Solution 1(DP)
+From the begin to the end, perform DP while retaining the last hand you used. The time
+complexity for each sub problem is O(N/K), so the total time complexity is O(N).
+
+Solution 2(Greedy Algorithm)
+You can also solve with greedy algorithm (the implementation is simpler). Specifically, from
+the beginning to the end,
+• If you can win, use the hand that you can win.
+• If you cannot win (because of the hand last you used), use that hand that does not obstruct
+the next hand.
+By doing so, you can find the optimal solution.
+
+10
+

@@ -1,0 +1,31 @@
+与えられる文字列の長さを n とします。
+
+k 文字目と k + 1 文字目が異なるとします。このとき、すべての文字を 0 にするためには、k 文字目と k + 1
+文字目の片方のみを書き換えるような操作を 1 回以上行わなければなりません。すなわち、max(k, n − k) 文
+字以下の連続する部分を書き換えるような操作が必要となります。
+
+S の、k 文字目と k + 1 文字目が異なるような箇所のうちの、max(k, n − k) の最小値を T (S) とします。
+K ≥ T (S) のとき、T の値の最小値をとる k をとり、k = max(k, n − k) なら最初 k 文字を、そうでないな
+ら最後 n − k 文字を書きかえれば、連続する文字が異なるような箇所の個数を、T (S) を減らさずに 1 減らす
+ことができます。また、T (S) = 0 のとき、もし全文字が 0 ならこれが目的の文字列であり、そうでないなら
+全体に対して操作を行えば目的の文字列を作ることができます。
+よって答えは最初の文字列 S における T (S) の値で、これは O(n) 時間で求められます。
+
+2
+
+Let n be the length of the string.
+If the k-th and the k + 1-th (1-based) characters of the string are diﬀerent, in order to achieve the goal,
+we must perform at least one operation that flips exactly one of the two characters. In this operation,
+we flip at most max(k, n − k) consecutive characters.
+Let T (S) be the minimum vaule of max(k, n − k) such that the k-th and the k + 1-th characters of S
+are diﬀerent. As we see above, K must be at most T (S).
+On the other hand, we can prove that when K = T (S), we can achieve the goal.
+• If i <= N − K, we can flip a single character Si by flipping [i, N ] and [i + 1, N ].
+• Similarly, if i > K, we can flip a single character Si .
+• By the definition of T (S), all characters between the N − K + 1-th and the K-th are the same.
+Thus, by repeating the first two types of operations, we can make all characters equal, and (possibly
+by performing the third operation once) we can achieve the goal.
+Therefore, the answer is T (S), and it can be computed in O(n) time.
+
+3
+

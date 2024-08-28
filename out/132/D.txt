@@ -1,0 +1,47 @@
+K 個の青いボールを回収するのに高橋君がちょうど i 回操作をする必要があるというのは、K 個の青ボー
+ルが赤いボールによって i 箇所に区切られているということを意味します。
+そこで、次のように組み合わせを考えていくことにしましょう。
+
+1. まず、赤いボールを N − K 個一列に並べます。
+2. この中で赤いボールと赤いボールの間、左端、右端の中から i 箇所を選んでそこに青いボールを K 個
+置くことを考えます。これらの選び方は、 N −K+1 Ci 通りあります。
+
+3. それぞれの選び方について、青いボールをそれぞれの隙間に何個割り当てていくかを考えます。それぞ
+れに 1 個以上割り当てる必要があるので、この決め方は K−1 Ci−1 通りあります。(*)
+よって、それぞれの i について、答えは N −K+1 Ci ×K−1 Ci−1 となります。コンビネーションの計算は、
+n!
+階乗、逆元、階乗の逆元を前計算しても良いですが、今回は N ≤ 2000 なの
+n Ck = k!(n−k)! であることを利用し、
+
+で、パスカルの三角形を上から求めていく要領で C[i][j] =i Cj を DP で (C[i][j] = C[i−1][j]+C[i−1][j −1])
+求めてもよいです。
+
+(*) K 個のボールを並べて、 K − 1 個のボールとボールの間から i − 1 箇所選び、そこで切り分けると i
+箇所に分かれる。各部分は最小 1 個のボールを含んでおり、ボールの総数は K 個になる。
+
+4
+
+When Takahashi needs exactly i moves to collect all K blue balls, K blue
+balls are separated by red balls into i segments.
+Then let’s think about the combination in the following steps:
+1. First, arrange the N − K red balls into a line.
+2. Choose i spots out of the places between the red balls or the left or
+right endpoint, and place the K blue balls to them; there are N −K+1 Ci
+ways to do so.
+3. For each ways of choosing, decide how many balls to distribute to each
+spots. You have to put at least 1 ball into each spot, so there are
+K−1 Ci−1 ways to do so. (*)
+Therefore, for each i, the answer will be N −K+1 Ci ×K−1 Ci−1 . To calculate
+n!
+binomial coeﬃcients, you can make use of the formula n Ck = k!(n−k)!
+and
+calculate each factorials, inverse element, and factorials of inverse element;
+or alternatively, since N ≤ 2000, you can calculate each C[i][j] =i Cj with
+DP (C[i][j] = C[i − 1][j] + C[i − 1][j − 1]), in manner of Pascal’s triangle.
+(*) When you arrange K balls into a line and put bars into i − 1 spots
+out of K − 1 spots between the balls, the balls will be separated into i parts
+by them. Each segment contains at least 1 ball and the total number of balls
+is K.
+
+10
+

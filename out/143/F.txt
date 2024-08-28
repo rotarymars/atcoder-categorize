@@ -1,0 +1,127 @@
+与えられた数列から、長さ K(1 ≤ K ≤ N ) の狭義単調増加数列を最大何個取り出すことができる
+かという問題です（要素の順番を入れ替えてもよい）。
+
+X(1 ≤ X ≤ N ) 個の列を取り出すときの最大の長さを表す関数 f (X) を考えます。
+これは、 Cj を Ai = j なる i の個数として、
+
+⌊ ∑N
+f (X) =
+
+j=1 min(Cj , X)
+
+⌋
+
+X
+
+という式で表せます。また、Dk を Cj = k なる j の個数とすると、
+
+⌊ ∑N
+f (X) =
+
+j=1 min(Cj , X)
+
+⌋
+
+X
+
+と変形できます。したがって、
+
+⌊∑
+=
+
+∑X
+
+N
+k=0 min(k, X) × Dk
+
+k=0 kDk と
+
+X
+
+⌋
+
+⌊ ∑X
+=
+
+k=0 kDk + X
+
+∑N
+
+k=X+1 Dk
+
+⌋
+
+X
+
+∑N
+
+k=X+1 Dk を累積和を用いて計算することで、全て
+
+の f (X) の値を O(N ) で求めることができます。その後、各 K について、 K ≤ f (X) を満たすよ
+うな最大の X を求めればいいです（存在しなければ 0）
+。
+
+6
+
+In this problem you are asked to ﬁnd how many arrays you can take from the given array, each
+of which is strictly increasing array of length K(1 ≤ K ≤ N ).
+Let f (X) be the maximum length of array when extracting X(1 ≤ X ≤ N ) arrays.
+Let Cj be the number of i such that Ai = j, then f (X) can be represented like
+⌊ ∑N
+f (X) =
+
+j=1 min(Cj , X)
+
+⌋
+
+X
+
+Moreover, let Dk be the number of j such that Cj = k, then it can be deformed like
+⌊ ∑N
+f (X) =
+
+j=1 min(Cj , X)
+
+⌋
+
+X
+
+Therefore, by calculating
+
+∑X
+
+⌊∑
+=
+
+N
+k=0 min(k, X) × Dk
+
+k=0 kDk and
+
+X
+
+⌋
+
+⌊ ∑X
+=
+
+k=0 kDk + X
+
+∑N
+
+k=X+1 Dk
+
+⌋
+
+X
+
+∑N
+
+k=X+1 Dk with cumulative sum, you can calculate
+
+all the value of f (X) in a total of O(N ) time. Then, for each K, you can ﬁnd a maximum X
+such that K ≤ f (X) (0 if there doesn’t exist).
+
+12
+
+

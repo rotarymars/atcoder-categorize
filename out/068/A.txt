@@ -1,0 +1,32 @@
+まず、標準入力から n を入力します。
+次に、ABC という文字列を出力します。
+最後に、最初に入力した n を出力し、改行文字を出力します。
+
+C++のコード例は以下です。
+
+#include <iostream>
+using namespace std;
+int main() {
+int n;
+cin >> n; // n を入力
+cout << "ABC"; // ABC を出力
+cout << n; // n を出力
+cout << endl; // 改行文字
+return 0;
+}
+
+1
+
+#i n c l u d e <i o s t r e a m >
+u s i n g namespace s t d ;
+i n t main ( ) {
+int n;
+c i n >> n ;
+c o u t << ”ABC” ;
+c o u t << n ;
+c o u t << e n d l ;
+return 0;
+}
+
+1
+

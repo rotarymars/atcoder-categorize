@@ -1,0 +1,43 @@
+i 番目の山に降った雨の量 (答え) を Xi とします。すると、
+A1 + ... + AN = X1 + ... + XN
+が成り立ちます。この和を S とおきます。
+また、便宜上 XN +1 = X1 とすると
+
+Xi + Xi+1
+= Ai
+2
+より
+
+Xi + Xi+1 = 2Ai
+です。
+したがって、
+
+X1 = S − (X2 + ... + XN ) = S − 2(A2 + A4 + ... + AN −1 )
+と X1 を求めることができます。同様に X2 , X3 , ..., XN を求めることができますが、O(N 2 ) の時間はかけら
+れないため、実装が少し大変です。
+そこで、Xi + Xi+1 = 2Ai を利用し、Xi+1 = 2Ai − Xi の漸化式に従って X2 , X3 , ..., XN を前から順に計
+算していきます。
+このアルゴリズムは時間計算量 O(N ) で動作し、十分間に合います。
+
+4
+
+Let Xi be the amount of rain that the i-th mountain received (the answer). Then it holds that
+A1 + ... + AN = X1 + ... + XN
+. Let S be this sum.
+Also, let XN +1 = X1 for simplicity, then
+Xi + Xi+1
+= Ai
+2
+holds, so it holds that
+Xi + Xi+1 = 2Ai
+.
+Therefore, you can ﬁnd X1 with the equation
+X1 = S − (X2 + ... + XN ) = S − 2(A2 + A4 + ... + AN −1 )
+. Similarly, you can calculate X2 , X3 , ..., XN , but you cannot spend O(N 2 ) time, so it’s a bit troublesome
+to implement.
+Since Xi + Xi+1 = 2Ai , you can use the recurrence relation Xi+1 = 2Ai − Xi and calculate
+X2 , X3 , ..., XN one by one from the beginning.
+This algorithm works in O(N ), so it’s suﬃciently fast.
+
+11
+

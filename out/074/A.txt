@@ -1,0 +1,15 @@
+N × N のマス目にはマスが N 2 個あります。そのうち A マスを白く塗る
+ので、黒く塗るマスは N 2 − A 個あります。
+したがって、入力から N , A を読み込んで N 2 − A を出力すればよいこと
+になります。
+以下に C++ によるコード例を示します。
+
+#include<cstdio>
+using namespace std;
+int main(){
+int N, A;
+scanf("%d%d", &N, &A);
+printf("%d\n", N * N - A);
+return 0;
+}
+

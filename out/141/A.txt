@@ -1,0 +1,49 @@
+与えられた文字列に対し、対応する文字列を出力する問題です。
+条件文を 3 つ列挙することで解くことができます。
+以下は C++ における実装例です。
+
+#include <iostream>
+2 #include <string>
+3 using namespace std;
+4 int main(){
+5
+string s;
+6
+cin>>s;
+7
+if(s=="Sunny"s) cout<<"Cloudy"<<endl;
+8
+if(s=="Cloudy"s) cout<<"Rainy"<<endl;
+9
+if(s=="Rainy"s) cout<<"Sunny"<<endl;
+10
+return 0;
+11 }
+1
+
+1
+
+This is a problem of outputting the corresponding string to the given string.
+You can enumerate three conditions to solve it.
+The following is an implementation example in C++.
+#include <iostream>
+2 #include <string>
+3 using namespace std;
+4 int main(){
+5
+string s;
+6
+cin>>s;
+7
+if(s=="Sunny"s) cout<<"Cloudy"<<endl;
+8
+if(s=="Cloudy"s) cout<<"Rainy"<<endl;
+9
+if(s=="Rainy"s) cout<<"Sunny"<<endl;
+10
+return 0;
+11 }
+1
+
+9
+

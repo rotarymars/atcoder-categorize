@@ -1,0 +1,748 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 351</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 351" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc351/editorial/9868" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 351" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc351";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2024-04-27T21:00:00+09:00");
+			var endTime = moment("2024-04-27T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 351が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 351は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc351">AtCoder Beginner Contest 351</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc351/editorial/9868?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc351/editorial/9868?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc351%2Feditorial%2F9868">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc351%2Feditorial%2F9868">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc351%2Feditorial%2F9868">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240427T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-04-27 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240427T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-04-27 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc351"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc351/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc351/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc351/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc351/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc351/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc351/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc351/tasks/abc351_g">G - Hash on Tree</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題はいくつかの解法がありますが、この解説では <strong>Static top tree</strong> と呼ばれるデータ構造を利用した <span>\(\mathrm{O}( (N+Q) \log N)\)</span> 解法を説明します。</p>
+
+<h2>目標 : 木 DP をセグ木に載せる !?</h2>
+
+<p>はじめに、この問題を解くためにはどのような操作が必要となるかを考えてみます。</p>
+
+<p>まず、この問題をクエリあたり <span>\(\mathrm{O}(N)\)</span> の計算量で解くことを考えてみましょう。これは簡単で、典型的な木 DP を行えばよいです。すなわち、次のような <span>\(f(n)\)</span> をボトムアップに計算するコードを書いて、<span>\(A\)</span> を更新するたびに毎回 (頂点 <span>\(0\)</span> を根として) <code>calc_dp(0)</code> を呼び出せばよいです。しかしながらこの方法では <span>\(\mathrm{O}(NQ)\)</span> の計算量がかかり TLE してしまいます。</p>
+
+<pre class="prettyprint linenums"><code class="language-c++">using mint = atcoder::modint998244353;
+
+vector&lt;vector&lt;int&gt;&gt; g; // 根付き木の隣接リスト
+mint A[n_max];
+mint calc_dp(int v) {
+  if(g[v].empty()) return A[v];
+  mint prod = 1;
+  for(auto&amp; child : g[v]) prod *= calc_dp(child);
+  return A[v] + prod;
+}
+</code></pre>
+
+<p>さて、この問題は次の 2 種類のクエリを処理する問題とみなすことが出来ます。</p>
+
+<blockquote>
+<h4>問題をクエリ形式で言い換えたもの</h4>
+
+<ul>
+<li><span>\(N\)</span> 頂点の根付き木と数列 <span>\((A_1, A_2, \dots, A_N)\)</span> が与えられる。次の 2 種類のクエリを処理
+
+<ul>
+<li><span>\(A_v\)</span> の値を <span>\(x\)</span> に更新</li>
+<li>上記の木 DP を計算して、<span>\(f(1)\)</span> を出力</li>
+</ul></li>
+</ul>
+</blockquote>
+
+<p>つまり、この問題は木 DP に関して「頂点の値を更新」「全体の値を取得」という 2 種類のクエリを要求しています。<br>
+このような形式の問題は木においては珍しいですが、列に関する問題では頻出なのは皆さんもご存じの通りかと思います。</p>
+
+<blockquote>
+<h4>典型的な列の問題</h4>
+
+<ul>
+<li>列 <span>\(A_1, A_2, \dots, A_N\)</span> が与えられる。次の 2 種類のクエリを処理
+
+<ul>
+<li><span>\(A_i\)</span> の値を <span>\(x\)</span> に更新</li>
+<li><span>\(A_1 \oplus A_2 \oplus \dots \oplus A_N\)</span> を計算 (<span>\(\oplus\)</span> は何らかのモノイド和)</li>
+</ul></li>
+</ul>
+</blockquote>
+
+<p>列の問題は、セグメント木を利用することでクエリあたり <span>\(\mathrm{O}(\log N)\)</span> で高速に処理することができるようになります。また、木の場合でもクエリが列に関するクエリに帰着できる場合は (例 : パス上の頂点に載っているモノイドの和) 、重軽分解とセグメント木を組み合わせて処理することが出来ます。</p>
+
+<p>一方、元の問題は、木 DP を計算する過程をデータ構造とみなした時に、木 DP の 1 点更新・全体取得に相当する操作が要求されています。この問題はいわば、「木 DP をセグメント木に載せる」ような処理が求められているとも言えるでしょう。(当然ですが通常のセグメント木には載りません)</p>
+
+<p>では、木 DP をどのようにしてセグメント木状のデータ構造に載せればよいかを考えてみることにします。</p>
+
+<h2>考察 1 : 完全二分木の場合の解法</h2>
+
+<p>簡単なコーナーケースとして、根付き木が完全二分木の場合に問題を解く方法を考えてみましょう。</p>
+
+<p>上述した木 DP を付け焼き刃的に高速化する方法として次のようなコードが考えられます。</p>
+
+<pre class="prettyprint linenums"><code class="language-c++">using mint = atcoder::modint998244353;
+
+vector&lt;vector&lt;int&gt;&gt; g; // 根付き木の隣接リスト
+vector&lt;int&gt; P;         // 親の頂点 (ただし P[0] = -1)
+mint A[n_max], f[n_max];
+mint precalc(int v) {
+  if(g[v].empty()) return f[v] = A[v];
+  mint prod = 1;
+  for(auto&amp; child : g[v]) prod *= precalc(child);
+  return f[v] = A[v] + prod;
+}
+
+void update(int v, mint x) {
+  A[v] = x;
+  for(; v != -1; v = P[v]) {
+    if(g[v].empty()) f[v] = A[v];
+    mint prod = 1;
+    for(auto&amp; child : g[v]) prod *= f[child];
+    f[v] = A[v] + prod;
+  }
+}
+</code></pre>
+
+<p>コードの概要を説明します。 まず、あらかじめ前計算で <span>\(f(1), f(2), \dots f(n)\)</span> の値をメモしておきます。そして、<code>A[v]</code> の値を更新したときに <span>\(f(n)\)</span> の値が変わるのは <span>\(v\)</span> および <span>\(v\)</span> の祖先の頂点だけなので、それ以外の頂点に関する情報は前計算したものを使用しながら、<span>\(v\)</span> の祖先の情報をボトムアップに再計算するというものです。</p>
+
+<p>この解法は特定のケースに対しては非常に高速に動作するようになります。それが根付き木が完全二分木である場合です。完全二分木は深さが <span>\(\mathrm{O}(\log N)\)</span> であり、各頂点の子が高々 <span>\(2\)</span> 個しかなく各頂点の再計算も <span>\(\mathrm{O}(1)\)</span> で済むため、クエリあたり <span>\(\mathrm{O}(\log N)\)</span> で DP の結果を再計算することが出来ます。</p>
+
+<p>もちろん、一般の木ではこの解法は最悪計算量が <span>\(\mathrm{O}(NQ)\)</span> のままで改善できていません。具体的には、</p>
+
+<ul>
+<li>深さが最悪 <span>\(\mathrm{O}(N)\)</span> である</li>
+<li><span>\(1\)</span> つの頂点が持つ子の個数が最悪 <span>\(\mathrm{O}(N)\)</span> である</li>
+</ul>
+
+<p>という 2 つの要因により最悪計算量がクエリあたり <span>\(\mathrm{O}(N)\)</span> のままです。この解法を応用するためには、一般の木の持つ上記の 2 つの性質をクリアするような、何らかの深さが <span>\(\mathrm{O}(\log N)\)</span> の二分木に変換する必要がありそうです。</p>
+
+<h2>考察 2 : 木の分解と木 DP の関係性</h2>
+
+<p>考察を発展させるために、木 DP を別の角度から解釈してみます。実は、木 DP は実は「部分木をマージして根付き木を生成する過程に情報を載せたもの」と捉えることが出来ます。今からこのことを説明します。</p>
+
+<p>マージにより木を生成する過程を考えるには、その逆、木を分解する過程を考えるのが有用です。そこではじめに木を分解する過程を説明します。<br>
+次の (1) ～ (3) を木から辺が無くなるまで再帰的に繰り返すことで、根付き木を頂点と辺に分解することができます。(下図も参照してください)</p>
+
+<ul>
+<li>(1) 根の頂点を取り除く。ただし根に隣接する辺は取り除かず、そのような辺は「情報を持たない頂点」を端点の一方に持つものとみなす。 (このような頂点を以降では <strong>virtual な頂点</strong> と呼ぶ。)</li>
+<li>(2) virtual な頂点で集約されている部分木たちを、virtual な頂点を分裂させることで分割する。</li>
+<li>(3) 各部分木の virtual な頂点および virtual な頂点に隣接する辺を取り除く。部分木は再び通常の根付き木になる。</li>
+</ul>
+
+<p><img src="https://img.atcoder.jp/abc351/1d95833aa7c30d78e72209d7a205a8f1.jpg" alt="image1"/></p>
+
+<p>この操作手順を逆順に行っていくことで、部分木がだんだんとマージされていき最終的に 1 つの根付き木を得ることが出来ます。<br>
+マージする過程を関数として表してみましょう。次の 4 種類の関数を定義します。以降では、頂点は情報を持ち区別できるが、辺同士は情報を持たず区別できないものとします。</p>
+
+<ul>
+<li><code>vertex(v)</code> : 頂点 <span>\(v\)</span> を生成する関数。</li>
+<li><code>add_vertex(t, v)</code> : (1) の逆手順を行う関数。つまり、根が virtual な木 <span>\(t\)</span> の根に <span>\(v\)</span> を代入する関数。</li>
+<li><code>merge(x, y)</code> : (2) の逆手順を行う関数。つまり、virtual な根を持つ 2 つの木 <span>\(x, y\)</span> を 1 つにする関数。</li>
+<li><code>add_edge(t)</code> : (3) の逆手順を行う関数。つまり、根付き木 <span>\(t\)</span> に virtual な根を生やす関数。</li>
+</ul>
+
+<p>そして、関数 <code>generate_tree(v)</code> を、隣接リスト <span>\(g\)</span> が表す根付き木の頂点 <span>\(v\)</span> を根とする部分木を生成する関数とします。すると、<code>generate_tree(v)</code> は次のようになります。</p>
+
+<pre class="prettyprint linenums"><code class="language-c++">vector&lt;vector&lt;int&gt;&gt; g; // 根付き木の隣接リスト
+
+Tree generate_tree(int v) {
+  if(g[v].empty()) return vertex(v);
+  vector&lt;Tree&gt; children;
+  for(auto&amp; child : g[v]) {
+    Tree t = generate_tree(child);
+    children.push_back(add_edge(t));
+  }
+  Tree t = children[0];
+  for(int i = 1; i &lt; (int)children.size(); i++) {
+    t = merge(t, children[i]);
+  }
+  return add_vertex(t, v);
+}
+</code></pre>
+
+<p>この部分木をマージして新たな部分木を生成する手順は木 DP の手順と一致しています。例えば先に上げた木 DP は、抽象化することで次のように書き換えられます。</p>
+
+<pre class="prettyprint linenums"><code class="language-c++">using mint = atcoder::modint998244353;
+
+using T = mint;
+T vertex(int v) { return A[v]; }
+T add_vertex(T x, int v) { return x + A[v]; }
+T merge(T x, T y) { return x * y; }
+T add_edge(T x) { return x; } 
+
+vector&lt;vector&lt;int&gt;&gt; g; // 根付き木の隣接リスト
+
+T calc_dp(int v) {
+  if(g[v].empty()) return vertex(v);
+  vector&lt;T&gt; children;
+  for(auto&amp; child : g[v]) {
+    T t = calc_dp(child);
+    children.push_back(add_edge(t));
+  }
+  T t = children[0];
+  for(int i = 1; i &lt; (int)children.size(); i++) {
+    t = merge(t, children[i]);
+  }
+  return add_vertex(t, v);
+}
+</code></pre>
+
+<p><code>generate_tree(v)</code> 関数と <code>calc_dp(v)</code> 関数の 2 つが全く同じ形をしていることが注視すれば確認できると思います。</p>
+
+<p>このような視点から考察すると、木 DP は部分木のマージ過程に情報を載せたものとして解釈できます。詳しく説明すると次のようになります。</p>
+
+<ul>
+<li>葉の頂点からスタートして「頂点の追加」「辺の追加」「根が virtual な根付き木同士のマージ」という 3 種類の操作を繰り返して部分木をマージしていくことを考える。</li>
+<li>マージする過程で生成される部分木全てに対して、部分木に関連する何らかの情報を定義する。</li>
+<li>そして、情報同士をマージする関数を適切に定義することで、部分木のマージによって新たに生成される部分木に対応する情報を計算することができる。</li>
+</ul>
+
+<p>さて、今までの話をまとめると次のようになります。</p>
+
+<ul>
+<li>木が深さ <span>\(\mathrm{O}(\log N)\)</span> の二分木であれば<span>\(\mathrm{O}(\log N)\)</span> で木 DP を再計算できる</li>
+<li>一般の木は次の 2 つの特徴を持ち、これが効率的な再計算を阻害する
+
+<ul>
+<li>深さが最悪 <span>\(\mathrm{O}(N)\)</span> である</li>
+<li><span>\(1\)</span> つの頂点が持つ子の個数が最悪 <span>\(\mathrm{O}(N)\)</span> である</li>
+</ul></li>
+<li>ところで木 DP は部分木をマージする過程に情報を載せたものである
+
+<ul>
+<li>部分木をマージする過程は、木を分解する過程の逆を辿ることで生成できる</li>
+</ul></li>
+</ul>
+
+<p>この 2 つの事実から次の帰結を得ることが出来ます。</p>
+
+<ul>
+<li>深さが <span>\(\mathrm{O}(\log N)\)</span> で二分木状である部分木のマージ過程を生成できれば、それを辿ることで効率よく木 DP を再計算できる？</li>
+</ul>
+
+<p>このような木のマージ手順を実現したものが <strong>Static top tree</strong> になります。</p>
+
+<h2>Static top tree</h2>
+
+<h4>注意 : Static top tree は Top tree の名を冠していますが、(狭義の) Top tree とは全く構造が異なるデータ構造です。Top tree を勉強したい方は混同しないようご注意ください。</h4>
+
+<ul>
+<li>より正確には、Static top tree は「Link/Cut tree の normal edge が持つ情報を Splay tree でまとめ上げることで出来る、Top tree の機能のほとんどを代替できるデータ構造」(広義の Top tree) を static にしたものです。
+
+<ul>
+<li>なお、(狭義の) Top tree を static にすることで Static top tree を構成することも可能で、そのようなデータ構造を Static top tree と呼ぶ人もいます。ここでは説明を割愛しますが、興味がある方は <a href="https://atcoder.jp/contests/joisp2024/submissions/51887735" rel="nofollow">tatyam さんの実装およびコメント</a> を参考にしてください。</li>
+</ul></li>
+</ul>
+
+<p>Static top tree とは、「部分木をマージする過程を表した深さ <span>\(\mathrm{O}(\log N)\)</span> の二分木」です。(正確には「部分木」ではない。後述)</p>
+
+<p>Static top tree を構成する方法を説明するために、まずはマージする過程の逆、木を分解する手順を説明します。<br>
+はじめに木を重軽分解して各辺に heavy edge, light edge を割り当てます。(重軽分解を知らない方は <a href="https://atcoder.jp/contests/abc269/editorial/4838" rel="nofollow">ABC269 Ex の解説</a> を参考にしてください。)<br>
+そして、次の (1) ～ (4) を木から辺が無くなるまで再帰的に繰り返します。(先に挙げた分解の手順と異なる部分を <strong>太字</strong> で表しています。図も参照してください)</p>
+
+<ul>
+<li>(1) <strong>根につながる heavy path を選び、そこから heavy edge を取り除く。</strong></li>
+<li>(2) 根の頂点を取り除く。ただし根に隣接する辺は取り除かず、そのような辺は virtual な頂点を端点の一方に持つものとみなす。</li>
+<li>(3) virtual な頂点で集約されている部分木たちを、virtual な頂点を分裂させることで分割する。</li>
+<li>(4) 各部分木の virtual な頂点および virtual な頂点に隣接する <strong>light edge</strong> を取り除く。部分木は再び通常の根付き木になる。</li>
+</ul>
+
+<p><img src="https://img.atcoder.jp/abc351/95bc2ae83181f951e9075e0a87619777.jpg" alt="image2"/></p>
+
+<p>ここで注記しておく点として、分解の過程で登場するグラフは根付き木の部分木に限らないという点が挙げられます。というのも、(1) の手順で辺を取り除く時に、辺を取り除く順番によっては途中で 「根付き木と呼べないもの」が発生するからです。そのため、以降では Top tree の用語を借りて、分解の過程で得られるグラフを <strong>cluster</strong> と呼ぶことにします。</p>
+
+<p>図を見ると分かる通り、木を分解する過程において次の 2 種類の cluster が生成されます。</p>
+
+<ul>
+<li>virtual でない頂点を根とする部分木が <span>\(0\)</span> 本以上の heavy edge でパス状につながってできる cluster</li>
+<li>virtual な頂点を根とする部分木の形をした cluster</li>
+</ul>
+
+<p>こちらも Top tree の用語を借りて、前者を <strong>path cluster</strong> 、後者を <strong>point cluster</strong> と呼ぶことにします。(根につながる heavy edge が存在しない path cluster は path とは少し呼びづらいですが、ここでは気にしないことにします)</p>
+
+<p><img src="https://img.atcoder.jp/abc351/09f981f7cf3fcbb45f0be32b2fd1f0e0.png" alt="image3"/></p>
+
+<p>次に、分解する手順を逆順に辿ることで cluster を二分木状にマージしていくことを考えます。
+分解する過程において、cluster 同士の merge は「path cluster 同士の merge」「point cluster 同士の merge 」の 2 種類が発生します。これもまた Top tree の用語を借りて、path cluster 同士の merge を <strong>compress</strong> 、point cluster 同士の merge を <strong>rake</strong> と呼ぶことにします。</p>
+
+<p>さて、cluster を二分木状にマージする際に一工夫を入れることで深さを <span>\(\mathrm{O}(\log N)\)</span> に抑えるのが Static top tree のポイントです。とはいえ一工夫入れると言っても (2), (4) の逆手順は工夫の入れようがないので、工夫を入れる余地があるのは</p>
+
+<ul>
+<li>(1) 根につながる heavy path を選び、そこから heavy edge を取り除く。</li>
+<li>(3) virtual な頂点で集約されている部分木たちを、virtual な頂点を分裂させることで分割する。</li>
+</ul>
+
+<p>の逆手順です。これらは直感的には次の戦略に従って cluster をマージしていくのが良さそうです。</p>
+
+<ul>
+<li>(1) の逆手順 : path cluster を compress でマージしていく時に、マージ過程が完全二分木状になるようにマージする</li>
+<li>(3) の逆手順 : point cluster を rake でマージしていく時に、マージ過程が完全二分木状になるようにマージする</li>
+</ul>
+
+<p>これは非常に合理的な戦略です。なぜならば、一般の木が持つ効率的な再計算を阻害する 2 つの性質は</p>
+
+<ul>
+<li>深さが最悪 <span>\(\mathrm{O}(N)\)</span> である</li>
+<li><span>\(1\)</span> つの頂点が持つ子の個数が最悪 <span>\(\mathrm{O}(N)\)</span> である</li>
+</ul>
+
+<p>という 2 つでしたが、前者を compress によるマージが、後者を rake によるマージが解消することになるからです。<br>
+しかしながら、この戦略は最悪ケースで木の深さが <span>\(\mathrm{O}(\log^2 N)\)</span> になってしまいます。(詳細は略します。重軽分解 + セグメント木でパスクエリを処理する際に自然な実装だと worst <span>\(\mathrm{O}(\log ^2 N)\)</span> かかるのと同じ理屈です。)</p>
+
+<p>そこで、さらにもう一工夫します。cluster を完全二分木状になるようにマージするとは、言い換えると「左右の子の含む cluster の個数ができるだけ等しくなるようにマージする」という操作になります。これを少し変更して、「cluster が含む頂点数ができるだけ左の子と右の子で等しくなるようにマージする」ということにします。実は、そのようにすることでマージ過程全体を表す木の深さを <span>\(\mathrm{O}(\log N)\)</span> に抑えられることが証明できます。(こちらも詳細は略します。重軽分解 + セグメント木でパスクエリを処理する際に少し工夫すると worst <span>\(\mathrm{O}(\log N)\)</span> になるのと同じ理屈です。参考 : <a href="https://www.mathenachia.blog/mergetech-and-logn/" rel="nofollow">Nachia さんの記事</a>, <a href="https://codeforces.com/blog/entry/104997" rel="nofollow">errorgorn さんの記事の “Balanced HLD” の項</a>)</p>
+
+<p>以上の方法により、cluster をマージする過程を深さ <span>\(\mathrm{O}(\log N)\)</span> の二分木で表すことが出来ました。</p>
+
+<p><a href="https://atcoder.jp/contests/abc351/submissions/52777033" rel="nofollow">実装例(5 行目～ 74 行目)</a> :  実装の際は maspy さんと tatyam さんの実装を参考にしました。</p>
+
+<h2>元の問題の解法</h2>
+
+<p>さて、Static top tree を使用して元の問題を解く方法を説明します。<br>
+cluster をマージする過程で必要なのは次の 5 種類の関数です。</p>
+
+<ul>
+<li><code>vertex(v)</code> : 頂点 <span>\(v\)</span> のみからなる path cluster を生成する関数。</li>
+<li><code>compress(p, c)</code> : (1) の逆手順を行う関数。つまり、path cluster <span>\(p, c\)</span> (<span>\(p\)</span> が根に近い側にある) をマージする関数。</li>
+<li><code>add_vertex(t, v)</code> : (2) の逆手順を行う関数。つまり、point cluster <span>\(t\)</span> の根に頂点 <span>\(v\)</span> を代入して path cluster にする関数。</li>
+<li><code>rake(x, y)</code> : (3) の逆手順を行う関数。つまり、point cluster <span>\(x, y\)</span> をマージする関数。</li>
+<li><code>add_edge(t)</code> : (4) の逆手順を行う関数。つまり、path cluster <span>\(t\)</span> に virtual な根を生やして point cluster にする関数。</li>
+</ul>
+
+<p>木 DP を行う時と同様に、木に載せる情報を定義して、これら 5 種類の関数に対応する DP の遷移を構成することでこの問題を解くことが出来ます。</p>
+
+<p>この中で一番難しいのは path cluster 同士のマージである compress です。なぜならば、point cluster は木 DP における部分木と対応しているため、木 DP 同様の情報を載せて rake でも同様の遷移を実装すれば基本的にどうにかなる一方、path cluster 同士のマージは「変な形をした何か」同士のマージになるからです。</p>
+
+<p>ここで、cluster の外部との接点を、Top tree の用語を借りて <strong>boundary vertex</strong> と呼ぶことにします。path cluster は基本的に「根に近い方の boundary vertex」「根から遠い方の boundary vertex」という 2 つの boundary vertex を持ちます。(path cluster が根付き木の場合は例外で、2 つの boundary vertex が同一の頂点になります。) 問題によっては、この 2 つの boundary vertex に注目することで DP の遷移を構成しやすくなります。</p>
+
+<p>適切な観察により、path cluster は「根から遠い方の boundary vertex にハッシュ値が <span>\(x\)</span> である根付き木が結合した時に、根に近い方の boundary vertex を根とする根付き木のハッシュ値は <span>\(ax+b\)</span> になる」となる値 <span>\((a, b)\)</span> を持てば良いことがわかります。このように path cluster に載せる情報を定義すると compress はアフィン関数の合成として定義することが出来ます。その他の関数も適切な考察により次のような関数を実装すればよいことがわかります。</p>
+
+<pre class="prettyprint linenums"><code class="language-c++">using mint = atcoder::modint998244353;
+
+vector&lt;int&gt; A;
+struct Path {
+  mint a, b;
+};
+using Point = mint;
+Path vertex(int i) { return {1, A[i]}; }
+Path compress(Path p, Path c) { return {p.a * c.a, p.a * c.b + p.b}; };
+Point rake(Point l, Point r) { return l * r; };
+Point add_edge(Path d) { return d.b; };
+Path add_vertex(Point d, int i) { return {d, A[i]}; };
+</code></pre>
+
+<p>Static top tree を適切に抽象化すれば、基本的に上の 5 種類の関数を実装するだけで問題を解くことが出来るようになります。これはセグメント木が 2 種類の関数を実装すれば使えるのに似ていますね。</p>
+
+<ul>
+<li>余談ですが、セグメント木は当初は完全二分木に限らず平衡な二分木全般に対するアルゴリズムとして定義されていたようです。(<a href="https://kmyk.github.io/blog/blog/2020/03/04/segment-tree-is-not-complete-binary-tree/" rel="nofollow">参考</a>)このような解釈に則ると、Static top tree を用いた木 DP の更新はセグメント木の類似と捉えることができそうです。</li>
+</ul>
+
+<p>後はクエリを処理する関数を実装すればよく、これは DP を計算・更新する過程を適切に実装すればよいです。</p>
+
+<p><a href="https://atcoder.jp/contests/abc351/submissions/52777033" rel="nofollow">実装例(76 行目～ 134 行目)</a></p>
+
+<h2>Static top tree の応用</h2>
+
+<p>Static top tree の応用例を簡単にまとめます。</p>
+
+<p>この問題では初等的な DP を Static top tree に載せただけでしたが、木 DP は非常に様々な種類があります。どのような木 DP であっても、compress をうまく定義することができれば木 DP を Static top tree に載せることが出来ます。<br>
+例えば以下の 2 つの問題は元の問題とは毛色の異なる問題ですが、 どちらも Static top tree を利用すればクエリあたり <span>\(\mathrm{O}(\log N)\)</span> で処理することが出来ます。(練習問題として考えてみましょう)</p>
+
+<blockquote>
+<p>(木における最大独立集合) : <span>\(N\)</span> 頂点の木がある。各頂点には <code>B</code>, <code>R</code>, <code>?</code> の 3 状態のいずれかが割り当てられている。次の 2 種類のクエリを処理</p>
+
+<ul>
+<li>頂点を 1 つ選んで状態を変更</li>
+<li>次の条件を全て満たす頂点の集合の最大サイズを出力
+
+<ul>
+<li>状態が <code>B</code> の頂点は集合に含まれる</li>
+<li>状態が <code>R</code> の頂点は集合に含まれない</li>
+<li>集合に含まれるどの 2 個の頂点も木上で隣り合っていてはならない</li>
+</ul></li>
+</ul>
+</blockquote>
+
+<div></div>
+
+<blockquote>
+<p>(木の直径) : <span>\(N\)</span> 頂点の辺重み付き木がある。次の 2 種類のクエリを処理</p>
+
+<ul>
+<li>辺を 1 本選んで重みを変更</li>
+<li>木の直径の長さ、および直径のうちどれか 1 つの両端点を取得
+
+<ul>
+<li>ヒント : 辺重み付き木を Static top tree に載せる場合は「Static top tree を辺の情報も扱えるように改造する」「辺を頂点とみなした <span>\(2N-1\)</span> 頂点のグラフを考える」という方法が考えられます(後者の方が追加実装が少なく済むため楽です)</li>
+</ul></li>
+</ul>
+</blockquote>
+
+<p>高難度コンテストにおける Static top tree を適用可能な問題の出題例もいくつか載せておきます。</p>
+
+<details>
+<summary>出題例(UCup, JOI, Codeforces div.1 ネタバレ注意)</summary>
+<ul>
+    <li><a href="https://contest.ucup.ac/contest/1487/problem/8133" rel="nofollow">The 2nd Universal Cup. Stage 19 F: When Anton Saw This Task He Reacted With 😩</a></li>
+    <li><a href="https://atcoder.jp/contests/joisp2024/tasks/joisp2024_h" rel="nofollow">JOI 2023/2024 春季トレーニング: JOI ツアー</a></li>
+    <li><a href="https://codeforces.com/contest/1942/problem/H" rel="nofollow">CodeTON Round 8 H: Farmer John&#39;s Favorite Intern</a></li>
+</ul>
+</details>
+
+<p>また、Static top tree をうまく利用すると、木 DP だけでなく全方位木 DP の 1 点更新が可能になります。具体的には次のような問題も解くことが出来ます。(詳細は略します)</p>
+
+<blockquote>
+<p><a href="https://www.spoj.com/problems/QTREE6/" rel="nofollow">SPOJ QTREE6</a> ：<span>\(N\)</span> 頂点の木がある。各頂点は黒か白で塗られている。次の 2 種類のクエリを処理</p>
+
+<ul>
+<li>頂点を 1 個選んで色を反転</li>
+<li>頂点を 1 個選んで、その頂点と連結な頂点の個数を出力。ここで頂点 <span>\(u\)</span> と頂点 <span>\(v\)</span> が連結であるとは、頂点 <span>\(u\)</span> から頂点 <span>\(v\)</span> までのパス上の頂点 (両端点も含む) の色が全て一致していることを言う</li>
+</ul>
+</blockquote>
+
+<p>Static top tree の用途は木 DP の更新の高速化だけではありません。<br>
+列に対する操作と木に対する操作の対比を考えてみましょう。Static top tree は列で言うところの「列をセグメント木状に分割する操作」に相当します。これらは深さが <span>\(\mathrm{O}(\log N)\)</span> の二分木状に全体をマージしていく木構造のデータ構造である点が共通しています。このような対比を考えると、列をセグメント木状に分割する操作を経て出来るアルゴリズムは、木でも同じことが出来ると予想されます。例えば今までに扱った「木 DP の 1 点更新」は「セグメント木の 1 点更新・全体取得」の木 version と言えます。<br>
+列をセグメント木状に分割する操作はセグメント木以外でも有用です。例えば、列の分割統治では列をセグメント木状に分割します。逆に言うと、Static top tree 上で分割統治をすることで木上の分割統治を行うことが出来る、ということになります。具体的には、Static top tree を利用すれば次の問題を <span>\(\mathrm{O}(N \log^2 N)\)</span> で解くことが出来ます。</p>
+
+<blockquote>
+<ul>
+<li><a href="https://atcoder.jp/contests/abc269/tasks/abc269_h" rel="nofollow">ABC269Ex Antichain</a> : <span>\(N\)</span> 頂点の根付き木がある。(頂点 <span>\(a\)</span> が頂点 <span>\(b\)</span> の子孫) <span>\(\iff (a \leq b)\)</span> となるように二項関係を定義する。<span>\(k=1, 2, \dots, N\)</span> について、サイズ <span>\(k\)</span> の Antichain の個数 <span>\(\text{mod }998244353\)</span> を計算</li>
+</ul>
+</blockquote>
+
+<div></div>
+
+<blockquote>
+<ul>
+<li><a href="https://yukicoder.me/problems/no/2595" rel="nofollow">yukicoder No.2595 Parsing Challenge</a> : <code>1</code> ~ <code>9</code>, <code>+</code>, <code>-</code>, <code>*</code>, <code>(</code>, <code>)</code> からなる長さ <span>\(N\)</span> の数式を計算 (ヒント : 構文木を考える)</li>
+</ul>
+</blockquote>
+
+<p>このような観点から考えると、 Static top tree には「木 DP を 1 点更新」だけでなく幅広い用途があると考えられます。</p>
+
+<p>さて、現代の競技プログラミングでは「平衡二分木」や「Link/Cut tree」はコンテストに出題されることはほとんどありませんが、これらの機能を制限して static にしたデータ構造である「セグメント木」や「重軽分解 + セグメント木」は主要なアルゴリズムの 1 つに数えられるほどにコンテストで出題されています。<br>
+Static top tree は短時間コンテストで tier 1 のアルゴリズムになることは無いと予想していますが、セグメント木と同様に抽象化すれば軽実装になるのは魅力的で、さらに載せる演算が少し非自明なのはいくらか面白味があるので、今後何かの拍子で Static top tree が Top tree 状のデータ構造の static 版として局所的にメジャーになることもあるかもしれませんね。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1713938315">
+				<time class="timeago" datetime="2024/04/24 14:58:35"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1714221661">
+				<time class="timeago" datetime="2024/04/27 21:41:01"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc351/editorial/9868?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 351">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc351/rules">ルール</a></li>
+					<li><a href="/contests/abc351/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

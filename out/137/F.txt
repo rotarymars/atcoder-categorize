@@ -1,0 +1,70 @@
+(原案: potetisensei, 準備・解説: evima)
+以下、整数 i (1 ≤ i ≤ p − 1) に対し、ij ≡ 1 (mod p) であるような整数 j (1 ≤ j ≤ p − 1) を i の逆数と
+呼びます。p が素数のとき、このような整数は必ず存在し、かつ一つに定まります (詳しくは後述します)。
+式 f (i) ≡ ai (mod p) に i = 0, 1, . . . , p − 1 を実際に代入することで b0 , b1 , . . . , bp−1 に関する n 本の方程
+式が得られ、これをあたかも実数の連立一次方程式を解くかのように (ただし割り算を行おうとする際は代わ
+りに割る数の逆数を掛ける) 掃き出し法を用いて解けば O(p3 ) 時間で (唯一の) 解が求まりますが、これでは
+間に合いません。解をより直接的に構成する必要があります。
+天下り的になってしまいますが、鍵を握るのはフェルマーの小定理 (Wikipedia の記事へのリンク):「a が
+
+p の倍数でない整数のとき ap−1 ≡ 1 (mod p)」です。この先を読む前に、この定理を元にして条件を満たす
+多項式を得る方法を考案されることを勧めます。
+
+(次のページへ続く)
+
+7
+
+多項式の構成方法を述べます。フェルマーの小定理より、整数 j (0 ≤ j ≤ p − 1) に対して値 1 − (x − j)p−1
+は x = j のときのみ 1、それ以外のとき 0 となります。この値を aj = 1 であるようなすべての j に対して
+足し合わせれば所望の多項式が得られます。
+あとは与えられた j に対して (x − j)p−1 の展開を O(p) 時間で行えれば O(p2 ) 時間で解が求まります。
+これには二項係数
+
+(p−1)
+i
+
+の計算が必要であり、この計算は 0!, 1!, . . . , (p − 1)! の逆数を事前に求めておけば
+
+(p − 1)! に i! の逆数と (p − 1 − i)! の逆数を掛けることで行えます。
+最後に、与えられた整数に対する逆数の求め方と存在性に関して述べます (今回は逆数を全探索しても間に
+合いますが)。再びフェルマーの小定理を用いると整数 i (1 ≤ i ≤ p − 1) の逆数は ip−2 を p で割った余りと
+して求められ、これは繰り返し二乗法を用いて高速に計算できます。
+
+8
+
+ABC 137 Editorial
+DEGwer, drafear, evima, gazelle, IH19980412, potetisensei, yokozuna57
+August 10, 2019
+
+(Original writer: potetisensei, preparation and editorial: evima)
+For an integer i (1 ≤ i ≤ p − 1), we call an integer j (1 ≤ j ≤ p − 1) such that ij ≡ 1 (mod p) as
+”inverse of i.” When p is prime, there always exists such an integer, and it’s always unique (which will
+be explained later).
+By assigning i = 0, 1, . . . , p − 1 to the equations f (i) ≡ ai (mod p), we will obtain n simultaneous
+equations, and with row reduction just like solving normal linear equations series (except that instead
+of dividing with some integer, multiplying its inverse), the (unique) solution can be found in a total of
+O(p3 ) time, but it is not enough. You have to ﬁnd a solution more directly.
+It’s a bit kind of sudden, but the key is Fermat’s little theorem (Link to Wikipedia article: ”if a is an
+integer that is not a multiple of p, then ap−1 ≡ 1 (mod p).” Before reading further, we recommend you
+consider the ways to obtain a polynomial that meets the conditions.
+(Continue to next page)
+
+16
+
+Here is a way of construction. By Fermat’s little theorem, for any integer j (0 ≤ j ≤ p − 1), the value
+of 1 − (x − j)p−1 is 1 only if x = j, and 0 otherwise. If you sum them up for all j, that will be the desired
+answer.
+The remaining task is to expand (x − j)p−1 in O(p) time, in which case the answer can be found
+( )
+in a total of O(p2 ) time. For this task you need to calculate binominal coeﬃcients p−1
+i , and if you
+precalculate inverses of 0!, 1!, . . . , (p − 1)!, those can be calculated by multiplying (p − 1! by inverse of i!
+and inverse of (p − 1 − i)!.
+Finally, we will explain how to obtain the inverse of a given number, and its existence (this time
+though, brute forcing inverses will meet the time). Applying Fermat’s little theorem again, the inverse of
+an integer i (1 ≤ i ≤ p − 1) can be found as a remainder of ip−2 divided by p, and this can be calculated
+by ”exponentiation by squaring.”
+
+17
+
+

@@ -1,0 +1,75 @@
+与えられた順列に対し、各要素のソート後のインデックスを求める問題です。
+
+rev[Ai ] = i となるような配列 rev を求めればいいです。
+以下は C++ における実装例です。
+
+#include <iostream>
+2 #include <vector>
+3 using namespace std;
+4 int main(){
+5
+int N;
+6
+cin>>N;
+7
+vector<int> A(N);
+8
+for(int i=0;i<N;i++) cin>>A[i];
+1
+
+9
+10
+
+vector<int> rev(N);
+
+11
+
+for(int i=0;i<N;i++) rev[A[i]-1]=i+1;
+for(int i=0;i<N;i++) cout<<rev[i]<<endl;
+return 0;
+
+12
+13
+14
+
+}
+
+3
+
+In this problem you are asked to sort a given permutation and find the indices of the elements
+after sorted.
+You can find an array rev such that rev[Ai ] = i.
+The following is an implementation example in C++.
+#include <iostream>
+2 #include <vector>
+3 using namespace std;
+4 int main(){
+5
+int N;
+6
+cin>>N;
+7
+vector<int> A(N);
+8
+for(int i=0;i<N;i++) cin>>A[i];
+1
+
+9
+10
+
+vector<int> rev(N);
+
+11
+
+for(int i=0;i<N;i++) rev[A[i]-1]=i+1;
+for(int i=0;i<N;i++) cout<<rev[i]<<endl;
+return 0;
+
+12
+13
+14
+
+}
+
+9
+

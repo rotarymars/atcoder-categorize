@@ -1,0 +1,82 @@
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+int A, B;
+
+6
+
+cin >> A >> B;
+
+7
+
+if(A + B >= 10){
+cout << "error" << endl;
+
+8
+
+}else{
+
+9
+
+cout << A + B << endl;
+
+10
+
+}
+
+11
+12
+
+}
+
+1
+
+方針 1: 「正攻法」
+すべての問題の配点の合計を S とします。
+
+• S が 10 の倍数でない場合、S が画面に表示される最大の成績です。
+• S が 10 の倍数である場合、画面に 0 でない成績を表示させるためには一問以上の問題で不正解する必
+要があります。もし、配点が 10 の倍数でないような問題が一問以上存在するなら、それらのうち配点
+が最も低い一問のみで不正解することで、画面に表示される最大の成績を得られます。配点が 10 の倍
+数でないような問題が一問も存在しない場合は、画面に 0 が表示されることを防げません。
+
+方針 2: 「オーバーキル」
+動的計画法を用いて、「解いた問題の配点の合計」として可能性のあるすべての値を時間計算量 O(N
+
+∑
+
+si )
+
+で列挙することができます（詳細は省きます）
+。これは、答えを求めるのに十分過ぎる情報です。
+
+Solution 1: “Straight-forward”
+Let S be the total points allocated to all the problems.
+• If S is not a multiple of 10, S is the maximum value we seek.
+• If S is a multiple of 10, in order to display a value other than 0, we need to incorrectly answer
+at least one question. If there is at least one question with a score which is not a multiple of 10,
+incorrectly answer one of the problems with the lowest score allocated among them, and we can
+obtain the maximum grade that can be correctly displayed. If there is no such question, there is
+no way to prevent the system from displaying 0.
+
+Solution 2: “Overkill”
+By Dynamic Programming, we can enumerate all the possible candidates of “the total score allocated
+∑
+to correctly answered problems” in O(N si ) time (we will omit the detail). This is more than enough
+to find the answer.
+
+3
+

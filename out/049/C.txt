@@ -1,0 +1,15 @@
+文字列 S を dream, dreamer, erase, eraser に分解していくことを考えます。先頭から分解していこうとす
+ると、例えば dreamer まで読んだとき、dream で切るべきなのか、dreamer で切るべきなのか判定するこ
+とができません。(dreameraser は dream eraser と切らなければならないので、dreamer まで読んだときに
+
+dream で切らなければいけない場合が存在することが分かります)
+逆に、後ろから読んでみましょう。4 つの単語を後ろから読むと、それぞれ maerd, remaerd, esare, resare
+となります。この 4 つの文字列は、ある文字列が他の文字列の接頭辞 (prefix) になっていないため、後ろか
+ら読んで当てはまるものが見つかれば即座に分解するしかありません。(参考: 語頭符号) S を最終的に分解す
+ることができなかった場合 NO を、そうでない場合 YES を出力します。
+
+Reverse the strings. Then, the four words will be: maerd, remaerd, esare, resare. This way you can
+determine the composition greedily.
+
+1
+

@@ -1,0 +1,80 @@
+社員番号 x の社員の直属の部下は Ai = x を満たします。つまり、各数が A に何度登場するかを
+求めればよいです。
+1
+
+int a[200010];
+
+2
+
+int ans[200010];
+
+3
+
+int main(){
+
+4
+
+int n;
+
+5
+
+scanf("%d",&n);
+
+6
+
+for(int i=2;i<=n;i++)scanf("%d",&a[i]);
+
+7
+
+for(int i=2;i<=n;i++)ans[a[i]]++;
+
+8
+
+for(int i=1;i<=n;i++)printf("%d\n",ans[i]);
+
+9
+
+}
+
+4
+
+The immediate subordinates of the member numbered x satisﬁes Ai = x. Therefore, it is
+enough to ﬁnd how many times each number appears in A.
+1
+
+int a[200010];
+
+2
+
+int ans[200010];
+
+3
+
+int main(){
+
+4
+
+int n;
+
+5
+
+scanf("%d",&n);
+
+6
+
+for(int i=2;i<=n;i++)scanf("%d",&a[i]);
+
+7
+
+for(int i=2;i<=n;i++)ans[a[i]]++;
+
+8
+
+for(int i=1;i<=n;i++)printf("%d\n",ans[i]);
+
+9
+
+}
+
+10
+

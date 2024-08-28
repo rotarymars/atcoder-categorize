@@ -1,0 +1,29 @@
+条件を満たす B 以下の整数の個数から条件を満たす A − 1 以下の整数の個数を引いたものが答えです。以
+下、条件を満たす B 以下の整数の個数を求めることを考えましょう。同様にして、条件を満たす A − 1 以下
+の整数の個数も求めることができます。
+
+B 以下の整数の個数 (B 個) から、B 以下の C の倍数の個数と B 以下の D の倍数の個数を引き、重複し
+て引いたものを足し戻せばよいです。B 以下の C, D の倍数の個数はそれぞれ B/C, B/D の小数点以下を切
+り捨てた数です。重複して引いた数は、C, D の最小公倍数を l として、B/l の小数点以下を切り捨てた数で
+す。l は、C, D の最大公約数を g として CD/g と求められます。g は Euclid の互除法などを用いて求めら
+れるため、この問題を解くことができました。
+
+4
+
+The answer is the number of integers less than or equal to B that satisﬁes
+the condition, subtracted by the number of integers less than or equal to
+A − 1 that satisﬁes the condition. Let’s ﬁrst think about how to ﬁnd the
+number of integers less than or equal to B that satisﬁes the number; you can
+similarly get the number of integers less than or equal to A − 1 that satisﬁes
+the condition.
+The number is equal to the number of the integers no less than B (=
+B), subtracted by the number of multiples of C no less than B and the
+number of multiples of C no less than C, then added by the duplicate of
+them. The number of multiples of C, D is equal to B/C and B/D, rounded
+down, respectively. The number of duplicates are B/l rounded down, where l
+is the least common multiplier of C and D. l is equal to CD/g where g is the
+greatest common divisor of C, D. You can get g with Euclidean Algorithm,
+so here the problem could be solved.
+
+12
+

@@ -1,0 +1,20 @@
+N が奇数のとき A の中央値以上 B の中央値以下のすべての整数、N が偶数のとき A の中央値以
+上 B の中央値以下のすべての 12 の倍数が X の中央値になり得ます。X の値のうちひとつを 1 増や
+したときの中央値の変化は、N が奇数なら 0 か 1 、偶数なら 0 か 21 であり、X の値のうちひとつを
+
+1 増やす操作の繰り返しで X の中央値を A から B へ変化させることができることを踏まえると、
+その経路上に先に述べた実数のすべてが中央値として現れることがわかります。それ以外の実数は
+中央値として現れないため、これで十分です。
+
+6
+
+If N is odd, then the median of X can be every integer between the median of A and the median of
+B, and if N is even, then the median of X can be every multiple of 12 between the median of A and the
+median of B, inclusive. The variation of the median of X when one of its elements is increased by one
+is either 0 or 1 when N is odd, and either 0 or 12 when N is even. Considered that the median of X can
+be increased from A to B by repeating the operation of increasing one of the elements of X by 1, it can
+be seen that all of the real numbers mentioned above appears on that path as the median. The other
+real number cannot appear as the median, so it is suﬃcient.
+
+13
+

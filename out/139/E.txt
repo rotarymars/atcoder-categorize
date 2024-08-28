@@ -1,0 +1,44 @@
+(原案: wo01, 準備・解説: evima)
+二つの条件は次のようにまとめられます。
+
+• 各 i, j に対し、選手 i 対 選手 Ai,j+1 の試合は選手 i 対 選手 Ai,j の試合を行った日の翌日以
+降にしか行えない。
+すなわち、選手自体にさほど重要性はなく、単に何個かの試合のペアに対してどちらを先に行うべ
+きかが定められていると考えられます。
+以下、N (N − 1)/2 試合のそれぞれを頂点に見立て、試合 y が試合 x を行った翌日以降にしか行え
+ないときに辺 x → y が存在するような有向グラフを考えます。このグラフに閉路が存在する場合は
+条件を満たせません。閉路が存在しない場合は、毎日、入次数が 0 であるような頂点 (辺が
+て
+
+刺さっ
+
+いない頂点) に対応する試合をすべて行ってそれらの頂点とそれらから出る辺をすべて削除すれ
+
+ば、最小の日数で全試合を行えます。(入次数が 0 であるような頂点に対応する試合を翌日以降に繰
+り越す意義がないため。) この日数はグラフに存在する最長のパスに含まれる頂点の数に等しくなり
+ます。
+以上から、閉路検出と最大パス長の算出を深さ優先探索により行うことで、頂点と辺の総数に対し
+て線形時間、すなわち O(N 2 ) 時間でこの問題を解くことができます。
+
+5
+
+(Original writer: wo01, preparation and editorial: evima)
+The two conditions can be simplified as follows:
+• For each i, j, the match of Player i vs Player Ai,j+1 can only be scheduled one or more
+days after the day of the match of Player Ai and Player Ai,j .
+Namely, the players themselves are not so important, and we can assume that the only constraint is the order of schedule between some pairs of matches.
+Let’s assume a directed graph consisting of N (N − 1)/2 vectors, each of which corresponds
+to each match, such that if match y can only be scheduled one or more days after the match
+x, there exists an edge x → y. If this graph contains any cylces, it is impossible to meet the
+conditions. If there are no cycles in it, you can schedule all the matches in minimum days in the
+following way: for each day, do all the matches whose corresponding vectors’ indegree is0 (the
+vectors without any incoming edges), and remove the vectors and all the outgoing edges from
+them. (This is because it is meaningless to postpone the matches whose corresponding vectors’
+indegree is 0.) The minimum number of days is equal to the number of vectors in the longest
+path in the graph.
+Therefore, if you scan cycles and calculate the length of longest path with DFS, you can solve
+the problem in a total of linear time of the number of vectors and edges, that is, in a total of
+O(N 2 ) time.
+
+13
+

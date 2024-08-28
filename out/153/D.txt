@@ -1,0 +1,30 @@
+体力が H のモンスター 1 体に勝つために必要な攻撃回数を f (H) とします。このとき
+
+
+2 × f (⌊H/2⌋) + 1
+f (H) =
+1
+
+(H > 1)
+(H = 1)
+
+となります。この定義に従って再帰的に計算することで答えを求めることができます。
+
+4
+
+Let f (H) be the number of attacks needed to defeat one monster of health H. Then the
+following relation holds:
+
+{
+f (H) =
+
+2 × f (⌊H/2⌋) + 1
+1
+
+(H > 1)
+(H = 1)
+
+The answer can be found by calculating recursively following the deﬁnition above.
+
+10
+

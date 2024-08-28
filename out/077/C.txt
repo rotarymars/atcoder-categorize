@@ -1,0 +1,22 @@
+Ai < Bj < Ck なる組(i, j, k) の個数を数える問題です。j を固定すれば、求める個数はAi < Bj
+なる i の個数と、Bj < Ck なる k の個数の積となります。
+よって、全ての j に対し、上述の i, k の個数を数えて掛け合わせ、足し合わせればよいです。
+では、i の個数や k の個数はどのように求めればいいでしょうか？ 愚直に配列をすべて見る
+と、O(N 2) となり間に合いません。
+配列A, C をあらかじめソートしておきます。すると、i やk の個数は、二分探索を用いて求めるこ
+とができます。C++ の場合、標準ライブラリに用意されている lower bound 関数や upper bound
+関数を用いるのが良いでしょう。
+時間計算量は O(N logN ) となり、間に合います
+
+We want to compute the number of triplets (i, j, k) such that Ai < Bj < Ck . If we fix j, the
+number of such triplets is the product of the number of i such that Ai < Bj and the number of
+k such that Bj < Ck . Therefore, for each j, we compute the number of i, k mentioned above,
+and we can get the answer.
+How can we compute the number of such i (or k) for all j? Straightforward solution works in
+O(N 2 ) and too slow.
+Let’s sort A, C in advance. Then, the number of such i (or k) can be computed using a binary
+search.
+This solution works in O(N logN ) time.
+
+3
+

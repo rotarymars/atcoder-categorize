@@ -1,0 +1,140 @@
+(解説: evima)
+要するに、
+「1 行目を赤く塗るか？ 2 行目を塗るか？ · · · H 行目を塗るか？ 1 列目を塗るか？ 2 列
+目を塗るか？ · · · W 列目を塗るか？」という H + W 個の二者択一の問いに「Yes, No, Yes, Yes,
+
+· · · 」などと答えることが求められています。このような Yes/No 列は 2H+W 通り考えられ、今回の
+制約 H, W ≤ 6 のもとでは最大でも 212 = 4096 通りです。この程度であれば、全通りの Yes/No 列
+を試して実際に黒いマスが K 個残るようなものの数を数えても時間切れの心配はありません。
+あとは Yes/No 列を列挙するというプログラミングの課題です。再帰関数などを用いる方針も考え
+られますが、ここでは Yes/No 列を二進数と対応づけて列挙することにします。以下、0b で始まる
+数は二進数です (例: 0b0101 = 4 + 1 = 5)。
+しばらく行についてのみ考えます。例えば H = 3 のとき、3 個の列に対して 23 = 8 通りの
+
+Yes/No 列が考えられます。そして、「No, No, No」を 0b000 = 0、「Yes, No, No」を 0b001 = 1、
+「No, Yes, No」を 0b010 = 2、
+「Yes, Yes, No」を 0b011 = 3、· · · 、
+「Yes, Yes, Yes」を 0b111 = 7
+に対応させれば、23 通りの Yes/No 列と 0 から 23 − 1 = 7 までの整数が一対一に対応します (左右
+が反転していますが、整数の表記では大きい桁ほど左に置かれるためです)。
+同様に、行の数がいくつであっても、Yes/No 列の前から i 番目の要素を二進数の 2i の位の桁に紐
+付けることで、2H 通りの Yes/No 列と 0 から 2H − 1 までの整数が一対一に対応します。列に関し
+ても 2W 通りの Yes/No 列を 0 から 2W − 1 までの整数と一対一に対応させれば、以下の疑似コー
+ドのように二重ループで 2H+W 通りすべてのシナリオを列挙することができます。
+
+1
+
+H, W, K, c := input
+
+2
+
+ans := 0
+
+3
+
+for maskR = 0, ..., (1 << H) - 1:
+
+4
+
+for maskC = 0, ..., (1 << W) - 1:
+
+5
+
+black := 0
+
+6
+
+for i = 0, ..., H-1:
+for j = 0, ..., W-1:
+
+7
+8
+
+if ((maskR >> i) & 1) == 0 and ((maskC >> j) & 1) == 0
+
+9
+
+and c[i][j] == '#': black = black + 1
+
+10
+11
+
+if black == K: ans = ans + 1
+print ans
+
+5
+
+(Editorial: evima)
+In short, you are asked to answer H + W number of Yes-No questions, each of which is like
+“Will we paint red the ﬁrst row? Will we paint the second row? · · · Will we paint the H-th
+row? Will we paint the ﬁrst column? Will we paint the second column? · · · Will we paint the
+W -th row?”, the answers of which will be like “Yes, No, Yes, Yes, · · · ” and so on. There are
+2H+W number of such Yes-No sequences, and under the constraint H, W ≤ 6 for this problem,
+there are at most 212 = 4096 of them. So we do not have to care about time limit even if we try
+all the possible Yes-No sequences, whose number is fairly small, and actually check if K black
+squares remain.
+All the left is a programming task to enumerate Yes-No sequences. We may use recursive
+functions, but here we consider mapping Yes-No sequences to binary integers. Hereinafter the
+number starting with 0b is a binary integer (e.g. 0b0101 = 4 + 1 = 5).
+Let us consider only about rows for a while. For example, when H = 3, there are 23 = 8
+number of Yes-No sequences in total that have to be considered. By associating “No, No, No”
+with 0b000 = 0, “Yes, No, No” with 0b001 = 1 “No, Yes, No” with 0b010 = 2, “Yes, Yes, No”
+with 0b011 = 3 · · · and “Yes, Yes, Yes” with 0b111 = 7, 23 number of Yes-No sequences and
+integers from 0 to 23 − 1 = 7 are mapped one-by-one. (The order is reversed because, in binary
+notation, the larger digits are written to the left).
+Similarly, no matter how many rows are there, there is a one-to-one correspondence between
+2
+
+H
+
+number of Yes-No sequence and integers from 0 to 2H − 1, by associating the i-th element
+
+of a Yes-No sequence to the 2i ’s digit of binary integer. Similar correspondence can be formed
+between 2W number of Yes-No sequence and integers from 0 to 2W − 1. Therefore we can
+enumerate all the possible 2H+W scenarios with a dual loop like the following pseudocode.
+
+1
+
+H, W, K, c := input
+
+2
+
+ans := 0
+
+3
+
+for maskR = 0, ..., (1 << H) - 1:
+
+4
+
+for maskC = 0, ..., (1 << W) - 1:
+
+5
+
+black := 0
+
+6
+
+for i = 0, ..., H-1:
+
+7
+
+for j = 0, ..., W-1:
+13
+
+8
+
+if ((maskR >> i) & 1) == 0 and ((maskC >> j) & 1) == 0
+
+9
+
+and c[i][j] == '#': black = black + 1
+
+10
+11
+
+if black == K: ans = ans + 1
+print ans
+
+14
+

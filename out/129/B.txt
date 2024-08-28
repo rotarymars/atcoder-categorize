@@ -1,0 +1,91 @@
+実際に 1 ≤ T < N を全て試してみましょう。すると、それぞれのグループの和を実際に求めることで最
+小値を求めることができます。愚直に和を求めると時間計算量は O(N 2 ) で、正解することができます。しか
+し、先頭から連続する和と、全体からその和を引いたものの差の絶対値を求めていけばよいので、和を保持し
+ながら先頭から見ていくことで O(N ) でも解くことができます。
+実装例をソースコード 1 に示します。
+Listing 1 B 実装例
+1
+2
+
+#include <bits/stdc++.h>
+using namespace std;
+
+3
+4
+
+int main() {
+
+5
+
+int N;
+
+6
+
+cin >> N;
+
+7
+
+vector<int> a(N);
+
+8
+
+int sum = 0;
+
+9
+
+for (int i = 0; i < N; ++i) {
+
+10
+11
+
+cin >> a[i];
+
+12
+
+sum += a[i];
+
+}
+
+13
+14
+15
+
+int mini = sum;
+
+16
+
+int prefix_sum = 0;
+
+17
+
+for (int i = 0; i < N; ++i) {
+
+18
+
+cin >> a[i];
+
+19
+
+prefix_sum += a[i];
+mini = min(mini, abs(prefix_sum - (sum - prefix_sum)));
+
+20
+
+}
+
+21
+22
+
+cout << mini << endl;
+
+23
+
+return 0;
+
+24
+25
+
+}
+
+1
+

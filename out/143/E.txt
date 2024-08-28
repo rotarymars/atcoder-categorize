@@ -1,0 +1,43 @@
+(
+
+)
+
+ワーシャルフロイド法というアルゴリズムを用いると、O N 3 で全点間の最短距離を求めること
+が出来ます。
+まず、各町を頂点とし、各道を辺とした重み付き無向グラフを作ります。各辺の距離は、問題におけ
+る道の距離とします。
+このグラフにワーシャルフロイド法を適用することで、各町間の最短距離を求めることが出来ます。
+次に、もう 1 つグラフを作ります。各町を頂点とし、最短距離が L 以下である町の組の間に、距離 1
+の辺を張ります。
+このグラフにワーシャルフロイド法を適用することで、各町間を移動する際に必要な燃料補給回数の
+最小値が求められます。
+
+(
+
+)
+
+あとは、この結果に基づいて各クエリに答えれば良いです。時間計算量は O N 3 + Q です。
+
+C++ による解答例:https://atcoder.jp/contests/abc143/submissions/8034843
+
+5
+
+With Warshall ‒ Floyd Algorithm, you can ﬁnd the sortest paths between every pair of vertices
+( )
+in a total of O N 3 time.
+First, make an undirected weighted graph such that each town corresponds to its vertex and
+each road corresponds to its edge.
+By appying Warshall ‒ Floyd Algorithm to this graph, you can ﬁnd the shortest path between
+every pair of towns.
+Next, make another graph; each town corresponds to its vertex, and for each pair of town such
+that minimum distance is less than or equal to L, there exist a vertex of distance 1.
+By appying Warshall ‒ Floyd Algorithm to this graph, you can ﬁnd the minimum number of
+times he needs to full his tank when travelling between any two towns.
+
+(
+)
+All that left is to answer each query according to the result. The time complexity is O N 3 + Q .
+Sample answer in C++:https://atcoder.jp/contests/abc143/submissions/8034843
+
+11
+

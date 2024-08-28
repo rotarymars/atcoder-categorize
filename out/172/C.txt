@@ -1,0 +1,258 @@
+if length(S) >= 100 and S[99] != T[99] then ans += 1
+といった行を 20 万行並べて理論上は解くことができます。しかし、ソースコードが数百万文字以
+上の長さになり、AtCoder に提出できません (提出可能な最大長は 52 万文字程度です)。
+
+20 万行の if 文を不要にするには、「for 文」と呼ばれるループ構造を使うのが最も素直です。
+if S[i] != T[i] then ans += 1 という処理を for ループ内で i = 0, i = 1, . . . , i = (S の長さ)−1
+のそれぞれに対して実行させれば、一個の if 文で済みます。
+「for 文」の言語ごとの詳細は検索エンジ
+ンで「[言語名] for」などと検索することで得られるはずです。
+
+C++, Python での実装例 (後者は「for 文」以外のアプローチの例として):
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+string S, T;
+
+6
+
+cin >> S >> T;
+
+7
+
+int N = S.size(), ans = 0;
+
+8
+
+for(int i = 0; i < N; ++i){
+
+9
+
+if(S[i] != T[i]) ++ans;
+
+10
+
+}
+
+11
+
+cout << ans << endl;
+
+12
+
+}
+
+1
+
+S, T = input(), input()
+
+2
+
+print(len(list(filter(lambda i: S[i] != T[i], range(len(S))))))
+
+3
+
+(解説: evima)
+結局のところ、机 A, B からそれぞれ何冊の本を読むか以外に行うべき選択はありません。a0 =
+
+0, a1 = A1 , a2 = A1 +A2 , a3 = A1 +A2 +A3 , . . . , aN = A1 +· · ·+AN とします。b0 , b1 , . . . , bM も同
+様に定義します。これらの値をプログラムで求める際は、a1 = a0 +A1 , a2 = a1 +A2 , a3 = a2 +A3 , . . .
+などとします (毎回 A1 から足していくと時間切れになります)。すると、机 A から i 冊、机 B から
+
+j 冊読むことを考えれば、問題は次のように言い換えられます。
+
+
+
+
+整数 i, j (0 ≤ i ≤ N, 0 ≤ j ≤ M ) を ai + bj ≤ K となるように選ぶとき、i + j がとりうる最
+大の値を求めよ。
+
+
+
+
+
+N, M がある程度小さければ、(i, j) = (0, 0), (0, 1), . . . , (0, M ), (1, 0), . . . , (N, M ) という (N +
+1) × (M + 1) 通りすべての選択を実際に試すことでこの問題を解くことができます。しかし、
+N = M = 200000 の場合には少なくとも数十秒の実行時間が必要で、間に合いません。
+そこで、i についてのみ i = 0, 1, . . . , N というすべての選択を試し、このそれぞれについて選択可
+能な j の最大値、つまり bj ≤ K − ai であるような j の最大値を求めることにします。
+まず、i = 0 のときに選択可能な j の最大値を求めます。これは、j = M, M − 1, . . . と降順に走査
+すると、bj ≤ K − a0 が最初に成立した j として求まります。この j の値を best0 とします。
+次に、i = 1 のときに選択可能な j の最大値を求めます。ここで、本一冊を読むのにかかる時間が
+正であること (a, b がともに単調増加数列であること) から、この最大値は best0 以下です。よって、
+降順の走査を j = M から始める必要はなく、j = best0 から始めることができます。
+この要領で i = N まで計算を続ける (ただし ai > K となったら打ち切る) ことで、計算量を大幅
+に削減することができます。次ページの実装例 (Python のコードではありますが、主要部である 11
+行目から 18 行目まではほぼ疑似コードといえるでしょう) で考えると、15, 16 行目の while ループ
+の内部は合計で M 回以下しか実行されないため、時間計算量は O(N + M ) となります。
+
+4
+
+Python での実装例:
+
+1
+
+N, M, K = map(int, input().split())
+
+2
+
+A = list(map(int, input().split()))
+
+3
+
+B = list(map(int, input().split()))
+
+4
+5
+
+a, b = [0], [0]
+
+6
+
+for i in range(N):
+
+7
+8
+9
+
+a.append(a[i] + A[i])
+for i in range(M):
+b.append(b[i] + B[i])
+
+10
+11
+
+ans, j = 0, M
+
+12
+
+for i in range(N + 1):
+
+13
+
+if a[i] > K:
+
+14
+
+break
+
+15
+16
+17
+18
+
+while b[j] > K - a[i]:
+j -= 1
+ans = max(ans, i + j)
+print(ans)
+
+5
+
+(Editorial: evima)
+After all, the only choice you can make is how many books to read from desk A and B. Let
+a0 = 0, a1 = A1 , a2 = A1 + A2 , a3 = A1 + A2 + A3 , . . . , aN = A1 + · · · + AN . We also deﬁne
+b0 , b1 , . . . , bM similarly. When calculating those value in programs, we calculating in the way
+like a1 = a0 + A1 , a2 = a1 + A2 , a3 = a2 + A3 , . . . (if you sum up from A1 every time, it will
+exceed time limit). Then, considering reading i books from desk A and j books from desk B,
+the problem can be rephrased as follows:
+
+
+
+
+For integers i, j (0 ≤ i ≤ N, 0 ≤ j ≤ M ) such that ai + bj ≤ K, ﬁnd the maximum possible
+value of i + j.
+
+
+
+
+If N and M are fairly small, we can solve this problem by trying all possible (N + 1) × (N + 1)
+combinations of (i, j) = (0, 0), (0, 1), . . . , (0, M ), (1, 0), . . . , (N, M ) However, when N = M =
+200000, we need at least tens of seconds of execution time, which will exceed the time limit.
+Then, let us try exhaustive search for only i = 0, 1, . . . , N , and for each i, ﬁnd the maximum
+choosable j, that is, maximum j such that bj ≤ K − ai .
+First, let us ﬁnd the maximum choosable j when i = 0. This can be found as the ﬁrst j such
+that bj ≤ K − a0 when scanning in the order of j = M, M − 1, . . .. Let such j be best0 .
+Next, we will ﬁnd the maximum choosable j when i = 1. Since the time needed to read a
+book is positive (therefore a and b are both monotonic increasing sequence), the maximum value
+no more than best0 . Therefore, you don’t have to start scanning in the decreasing order from
+j = M ; instead, you can start it from j = best0 .
+By continuing calculation until i = N in the similar way (stopping when ai > K though), you
+can dramatically decrease the execution time. In the sample code on the next page (although
+it is written in Python, the cardinal part of line 11 to 18 is readable as pseudocode), the while
+loop on line 15 and 16 is at most executed M times, so the total time complexity is O(N + M ).
+
+13
+
+Sample code in Python:
+
+1
+
+N, M, K = map(int, input().split())
+
+2
+
+A = list(map(int, input().split()))
+
+3
+
+B = list(map(int, input().split()))
+
+4
+5
+
+a, b = [0], [0]
+
+6
+
+for i in range(N):
+
+7
+8
+9
+
+a.append(a[i] + A[i])
+for i in range(M):
+b.append(b[i] + B[i])
+
+10
+11
+
+ans, j = 0, M
+
+12
+
+for i in range(N + 1):
+
+13
+
+if a[i] > K:
+
+14
+
+break
+
+15
+16
+17
+18
+
+while b[j] > K - a[i]:
+j -= 1
+ans = max(ans, i + j)
+print(ans)
+
+14
+

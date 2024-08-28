@@ -1,0 +1,17 @@
+湖の周りを家によって N 個の区間に分けます。セールスマンが全ての家を訪れるとき、N 個の区間
+のうち通らないものは高々 1 つです。また、N 個の区間のうち最も長いものを通らず、かつ、それ以
+外の区間をちょうど 1 度だけ通るようにしてすべての家を訪ねることができます。したがってそのよ
+うな移動方法をとると最短距離となります。最長の区間は O(N ) で求めることができるのでこの問題
+が解けました。実装上は真北 (座標 0) をまたいだ区間の扱いに気を付けてください。
+
+3
+
+Split the circumference of the pond into the N segments by the houses When the salesman
+visits all the house, there are at most 1 segment out of the N segments which the salesman does
+not pass. Also, it is possible to visit all the houses so that the salesman does not pass the longest
+segment of the N segments while passing the other segments exactly once. The longest segment
+can be found in a total of O(N ) time, so the problem could be solved. When implementing, be
+careful of the treatment of the segment that strides over the due north.
+
+9
+

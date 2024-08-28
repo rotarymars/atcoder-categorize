@@ -1,0 +1,23 @@
+各文字 (a, b, ..., z) 毎に文字列中に現れる場所の集合を管理することを考えます。
+例えば、set(平衡二分探索木) を使えば、type 1 のクエリは erase 関数と insert 関数を用いて O (log N )
+で処理可能であり、type 2 のクエリは各文字ごとに lower bound 関数で lq 文字目以降初めて存在す
+る場所を求め、その値と rq を比較することにより、O (log N ) で処理可能です。以上より、全体の時
+間計算量 O ((Alphabet Size) Q log N ) で処理可能です。
+他にも、Segment Tree や平方分割により各文字が各区間に表れる回数を管理したり、各区間に表れ
+る文字の集合を管理したりすることによって、クエリを高速に処理することも可能です。
+
+5
+
+Consider managing the set of positions such that each alphabets (a, b, ..., z) appears in the
+string.
+For example, by using a set (self-balancing binary search tree), a query of type 1 can be processed
+in a O (log N ) time using erase function and insert function, and a query of type 2 can be
+processed in a O (log N ) time by ﬁnd the position of the ﬁrst appearance after lq -th letter, and
+then comparing it with rq , using lower bound function. Therefore, the overall queries can be
+processed in a total of O ((Alphabet Size) Q log N ) time.
+Otherwise, the query can be processed fast by managing the number of appearances of each
+alphabet in each segment, or the set of alphabets that appear in each segment, using Segment
+Tree or square-root splitting.
+
+12
+

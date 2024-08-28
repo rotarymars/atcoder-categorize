@@ -1,0 +1,13 @@
+もし「縦方向にしか割れない」という条件があれば、左端から順に貪欲にとることで問題を解くこ
+とができます。よって、
+「横方向にどう割るか」を 2H−1 通り全探索し、それぞれの場合について「縦
+方向にしか割れない」問題を解けばよいです。計算量は O(2H HW ) です。
+
+5
+
+If there is a constraints that ”divisions can be done only vertically,” then the problem can
+be solved by greedily taking from left to right. Therefore, it is enough to solve the ”onlyvertical” problem for all 2H−1 combinations of ways of dividing vertically. The time complexity
+is O(2H HW ).
+
+11
+

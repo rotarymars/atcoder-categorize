@@ -1,0 +1,66 @@
+1 から N までループを回し、i 回目のループでは S の i 文字目を出力する、その後 T の i 文字目を
+空白を開けずに出力する、ということを繰り返すと、最終的に目的の新しい文字列が出力されます。
+以下は C++ による実装例です (include 等は省略しています)。
+1
+
+char S[110];
+
+2
+
+char T[110];
+
+3
+
+int main(){
+
+4
+
+int a;scanf("%d",&a);
+
+5
+
+scanf("%s%s",S,T);
+
+6
+
+for(int i=0;i<a;i++)printf("%c%c",S[i],T[i]);printf("\n");
+
+7
+
+}
+
+3
+
+Perform loop from 1 to N : in the i-th loop, output i-th letter of S, and then output i-th letter
+of T without printing whitespace. Then the desired new string is printed in the end.
+The following is an implementation example in C++ (include etc. are abbreviated).
+1
+
+char S[110];
+
+2
+
+char T[110];
+
+3
+
+int main(){
+
+4
+
+int a;scanf("%d",&a);
+
+5
+
+scanf("%s%s",S,T);
+
+6
+
+for(int i=0;i<a;i++)printf("%c%c",S[i],T[i]);printf("\n");
+
+7
+
+}
+
+10
+

@@ -1,0 +1,138 @@
+たとえば A = B かつ B ̸= C を C 言語における式で表すと A == B && B != C となります．
+これを踏まえて，過不足なく場合分けして書くと下の実装例のようになります。
+
+C 言語での実装例は次のとおりです．
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(void){
+int a, b, c;
+
+4
+5
+
+scanf("%d%d%d", &a, &b, &c);
+
+6
+7
+8
+
+int ispoor = 0;
+
+9
+
+if (a == b && b != c) ispoor = 1;
+
+10
+
+if (b == c && c != a) ispoor = 1;
+
+11
+
+if (c == a && a != b) ispoor = 1;
+
+12
+
+if (ispoor) {
+
+13
+
+puts("Yes");
+
+14
+
+} else {
+
+15
+
+puts("No");
+
+16
+
+}
+
+17
+18
+
+return 0;
+
+19
+20
+
+}
+
+1
+
+For example, the condition of A = B and B ̸= C can be represented as A == B && B != C in
+C Language.
+By splitting cases correctly based on this, it will be like the following implementation example.
+The following is a sample code in C Language.
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(void){
+int a, b, c;
+
+4
+5
+
+scanf("%d%d%d", &a, &b, &c);
+
+6
+7
+8
+
+int ispoor = 0;
+
+9
+
+if (a == b && b != c) ispoor = 1;
+
+10
+
+if (b == c && c != a) ispoor = 1;
+
+11
+
+if (c == a && a != b) ispoor = 1;
+
+12
+
+if (ispoor) {
+
+13
+
+puts("Yes");
+
+14
+
+} else {
+
+15
+
+puts("No");
+
+16
+
+}
+
+17
+18
+
+return 0;
+
+19
+20
+
+}
+
+8
+

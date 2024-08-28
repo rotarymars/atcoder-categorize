@@ -1,0 +1,30 @@
+整数として読み込むよりも、文字列として読み込んで連結したものを整数に直すのが簡単かもしれません。
+
+C++ には標準で文字列を整数に直す stoi 関数があります。この整数は高々 100100 なので、平方数かどうか
+は、1 × 1, 2 × 2, .. , 1000 × 1000 くらいまでのどれかと一致するかループを回して確かめれば良いです。
+int main (){
+string s , t ;
+cin > >s > > t ;
+int x = stoi ( s + t );
+for ( int i =1; i <=1000; i ++){
+if ( i * i == x ){
+puts (" Yes ");
+return 0;
+}
+}
+puts (" No ");
+}
+
+int main (){
+string s , t ;
+cin > >s > > t ;
+int x = stoi ( s + t );
+for ( int i =1; i <=1000; i ++){
+if ( i * i == x ){
+puts (" Yes ");
+return 0;
+}
+}
+puts (" No ");
+}
+

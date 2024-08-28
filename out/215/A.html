@@ -1,0 +1,885 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 215</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 215" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc215/editorial/2479" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 215" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc215";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2021-08-21T21:00:00+09:00");
+			var endTime = moment("2021-08-21T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 215が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 215は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc215">AtCoder Beginner Contest 215</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc215/editorial/2479?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc215/editorial/2479?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc215%2Feditorial%2F2479">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc215%2Feditorial%2F2479">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc215%2Feditorial%2F2479">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210821T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-08-21 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210821T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-08-21 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc215"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc215/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc215/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc215/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc215/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc215/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc215/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc215/tasks/abc215_a">A - Your First Judge</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-1.png" class="user-rating-stage-m"><a href="/users/physics0523" class="username"><span class="user-orange">physics0523</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>プログラムに対する入力を文字列 <span>\(S\)</span> として受け取り、 <span>\(S\)</span> が <code>Hello,World!</code> と一致するかどうかを判定すればよいですが、ポイントとなる点が <span>\(2\)</span> 点あります。</p>
+
+<h5>・入力を受け取る/答えを出力する</h5>
+
+<p>あなたが用いるプログラミング言語によって、入力を <span>\(1\)</span> つの文字列として受け取ったり、答えを出力したりするときにとるべき方法は大きく異なります。また、一部のプログラミング言語にとってはこれは難しいことであるかもしれません。<br>
+標準入出力の方法を調べるためには、以下のような方法が考えられます。</p>
+
+<ul>
+<li>その言語に関するドキュメントや記事などを参照する。</li>
+<li>過去に開催されたコンテストなどで、その言語で行われた提出を参照する。</li>
+</ul>
+
+<h5>・文字列同士を比較する</h5>
+
+<p>文字列同士の比較の方法も、プログラミング言語によって大きく異なります。文字列同士の比較演算子の定義が言語によって微妙に異なったり、そもそも文字列型が存在する言語と存在しない言語があったりもします。<br>
+しかし、大抵の言語には文字列を比較するためになんらかの方法が用意されているので、その使い方を理解しておくことが肝要です。</p>
+
+<p>以下に様々な言語による実装例を示します。<br>
+<strong>一部の言語では copy ボタンで正常に copy&amp;paste が行えません。ご注意ください。</strong><br>
+<details><summary>C</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-c">#include&lt;stdio.h&gt;
+
+int main(){
+  char s[32];
+  scanf(&#34;%s&#34;,s);
+  if(strcmp(s,&#34;Hello,World!&#34;)==0){printf(&#34;AC\n&#34;);}
+  else{printf(&#34;WA\n&#34;);}
+  return 0;
+}
+</code></pre>
+
+<p></details>
+<details><summary>C++</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+int main(){
+  string s;
+  cin &gt;&gt; s;
+  if(s==&#34;Hello,World!&#34;){cout &lt;&lt; &#34;AC\n&#34;;}
+  else{cout &lt;&lt; &#34;WA\n&#34;;}
+  return 0;
+}
+</code></pre>
+
+<p></details>
+<details><summary>Java</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-java">import java.util.*;
+public class Main {
+  public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    String s = sc.next();
+    String ac = new String(&#34;Hello,World!&#34;);
+    if(s.equals(ac)){System.out.println(&#34;AC&#34;);}
+    else{System.out.println(&#34;WA&#34;);}
+  }
+}
+</code></pre>
+
+<p></details>
+<details><summary>Python</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-python">s = input()
+
+if (s==&#34;Hello,World!&#34;):
+  print(&#34;AC&#34;)
+else:
+  print(&#34;WA&#34;)
+</code></pre>
+
+<p></details>
+<details><summary>Bash</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-bash">#!/bin/bash
+
+read -r s
+
+if [ $s = &#34;Hello,World!&#34; ]; then
+    echo AC
+else
+    echo WA
+fi
+</code></pre>
+
+<p></details>
+<details><summary>Awk</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-awk">{print $1==&#34;Hello,World!&#34;?&#34;AC&#34;:&#34;WA&#34;}
+</code></pre>
+
+<p></details>
+<details><summary>C#</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-c#">using System;
+class Program{
+  static void Main(string[] args){
+    string s = Console.ReadLine();
+    string ac = &#34;Hello,World!&#34;;
+    if(s.Equals(ac)){Console.WriteLine(&#34;AC&#34;);}
+    else{Console.WriteLine(&#34;WA&#34;);}
+  }
+}
+</code></pre>
+
+<p></details>
+<details><summary>Clojure</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-clojure">(println (if (= (read-line) &#34;Hello,World!&#34;) &#34;AC&#34; &#34;WA&#34;))
+</code></pre>
+
+<p></details>
+<details><summary>Crystal</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-crystal">s = read_line
+puts s==&#34;Hello,World!&#34; ? &#34;AC&#34; : &#34;WA&#34;
+</code></pre>
+
+<p></details>
+<details><summary>D</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-d">import std.stdio;
+import std.string;
+import std.conv;
+void main(){
+  string s=chomp(readln());
+  writefln(&#34;%s&#34;,s==&#34;Hello,World!&#34;?&#34;AC&#34;:&#34;WA&#34;);
+}
+</code></pre>
+
+<p></details>
+<details><summary>Dart</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-dart">import &#39;dart:io&#39;;
+
+main(List&lt;String&gt; args) {
+  String s = stdin.readLineSync();
+  if(s==&#34;Hello,World!&#34;){print(&#34;AC&#34;);}
+  else{print(&#34;WA&#34;);}
+}
+</code></pre>
+
+<p></details>
+<details><summary>Erlang</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-erlang">-module(&#39;Main&#39;).
+-export([main/1]).
+
+calc(&#34;Hello,World!&#34;) -&gt; true;
+calc(_) -&gt; false.
+
+solve() -&gt;
+  [S] = input(&#34;~s&#34;),
+  io:format(&#34;~s~n&#34;, [case calc(S) of true -&gt; &#34;AC&#34;; false-&gt; &#34;WA&#34; end]),
+  ok.
+
+main(_) -&gt;
+  solve(),
+  halt().
+
+input(Pat) -&gt;
+  {ok, L} = io:fread(&#34;&#34;, Pat),
+  L.
+</code></pre>
+
+<p></details>
+<details><summary>Elixir</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-elixir">defmodule Main do
+  def main do
+    s = IO.read(:line) |&gt; String.trim
+    if (s == &#34;Hello,World!&#34;), do: IO.puts(&#34;AC&#34;), else: IO.puts(&#34;WA&#34;)
+  end
+end
+</code></pre>
+
+<p></details>
+<details><summary>F#</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-f#">open System
+
+let s = stdin.ReadLine()
+if (s = &#34;Hello,World!&#34;) then &#34;AC&#34; else &#34;WA&#34;
+|&gt; printfn &#34;%s&#34;
+</code></pre>
+
+<p></details>
+<details><summary>Fortran</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-fortran">program abc215a
+
+implicit none
+
+character(32)::s
+read(*, &#34;(a)&#34;) s
+
+if(s==&#34;Hello,World!&#34;) then
+  print&#34;(a)&#34;,&#34;AC&#34;
+else
+  print&#34;(a)&#34;,&#34;WA&#34;
+end if
+
+end program abc215a
+</code></pre>
+
+<p></details>
+<details><summary>Go</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-go">package main
+
+import &#34;fmt&#34;
+
+func main() {
+  var s string
+  fmt.Scan(&amp;s)
+  if(s==&#34;Hello,World!&#34;){
+    fmt.Println(&#34;AC&#34;)
+  }else{
+    fmt.Println(&#34;WA&#34;)
+  }
+}
+</code></pre>
+
+<p></details>
+<details><summary>Haskell</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-haskell">import Control.Applicative
+
+main :: IO ()
+main = do
+  s &lt;- getLine
+  putStrLn $ if s==&#34;Hello,World!&#34; then &#34;AC&#34; else &#34;WA&#34;
+</code></pre>
+
+<p></details>
+<details><summary>Haxe</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-haxe">import haxe.io.Input;
+
+class Main {
+  static function main() {
+    var input : Input = Sys.stdin();
+    var s = input.readLine();
+    if(s==&#34;Hello,World!&#34;) Sys.print(&#34;AC&#34;) else Sys.print(&#34;WA&#34;);
+  }
+}
+</code></pre>
+
+<p></details>
+<details><summary>JavaScript</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-JavaScript">function main(input) {
+  const S = input.split(&#39;\n&#39;)[0];
+  if(S == &#39;Hello,World!&#39;){
+    console.log(&#39;AC&#39;);
+  }else{
+      console.log(&#39;WA&#39;);
+  }
+}
+main(require(&#39;fs&#39;).readFileSync(&#39;/dev/stdin&#39;, &#39;utf8&#39;));
+</code></pre>
+
+<p></details>
+<details><summary>Julia</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-julia">s = readline()
+if s==&#34;Hello,World!&#34;
+  println(&#34;AC&#34;)
+else
+  println(&#34;WA&#34;)
+end
+</code></pre>
+
+<p></details>
+<details><summary>Kotlin</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-kotlin">fun main(args: Array&lt;String&gt;){
+  val s = readLine()!!
+  println(if(s==&#34;Hello,World!&#34;) &#34;AC&#34; else &#34;WA&#34;)
+}
+</code></pre>
+
+<p></details>
+<details><summary>Lua</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-lua">s = io.read()
+
+if s==&#34;Hello,World!&#34; then
+  print(&#34;AC&#34;)
+else
+  print(&#34;WA&#34;)
+end
+</code></pre>
+
+<p></details>
+<details><summary>Nim</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-nim">import strutils
+
+var s =  readLine(stdin)
+
+if s==&#34;Hello,World!&#34;:
+  echo &#34;AC&#34;
+else:
+  echo &#34;WA&#34;
+</code></pre>
+
+<p></details>
+<details><summary>Objective-C</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-objective-c">#import &lt;Foundation/Foundation.h&gt;
+#import &lt;stdarg.h&gt;
+
+@interface StdIO : NSObject
++(NSString*)stringFromStdIn;
++(void)printf:(NSString*)format, ...;
+@end
+
+@implementation StdIO
++(NSString*)stringFromStdIn
+{
+    NSFileHandle *handle = [NSFileHandle fileHandleWithStandardInput];
+    NSMutableString *result = [NSMutableString string];
+    NSData *data = [handle availableData];
+    while ([data length] &gt; 0) {
+        [result appendString:[[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]];
+        data = [handle availableData];
+    }
+    NSUInteger length = [result length];
+    if (length &gt;= 1 &amp;&amp; [result characterAtIndex:length-1] == &#39;\n&#39;) {
+        [result deleteCharactersInRange:NSMakeRange(length-1,1)];
+    }
+    return result;
+}
++(void)printf:(NSString*)format, ...
+{
+    va_list arguments;
+    va_start(arguments, format);
+    NSString *string = [[[NSString alloc] initWithFormat:format arguments:arguments] autorelease];
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleWithStandardOutput];
+    [fileHandle writeData:[string dataUsingEncoding:NSUTF8StringEncoding]];
+    va_end(arguments);
+}
+@end
+
+int main() {
+    @autoreleasepool {
+        NSString *S = [StdIO stringFromStdIn];
+        if([S isEqualToString:@&#34;Hello,World!&#34;]){[StdIO printf:@&#34;AC&#34;];}
+        else{[StdIO printf:@&#34;WA&#34;];}
+    }
+}
+</code></pre>
+
+<p></details>
+<details><summary>Common Lisp</summary></p>
+
+<pre class="prettyprint linenums"><code>(defun solve(s)
+  (if (string= s &#34;Hello,World!&#34;)
+    &#34;AC&#34;
+    &#34;WA&#34;))
+(format t &#34;~A~%&#34; (solve(read-line)))
+</code></pre>
+
+<p></details>
+<details><summary>Ocaml</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-ocaml">let () = Scanf.scanf &#34;%s&#34; (fun s -&gt; print_endline @@ if s = &#34;Hello,World!&#34; then &#34;AC&#34; else &#34;WA&#34;)
+</code></pre>
+
+<p></details>
+<details><summary>Octave</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-octave">s=scanf(&#39;%s&#39;, &#39;C&#39;);
+
+if strcmp(s,&#39;Hello,World!&#39;)
+  printf(&#39;AC&#39;);
+else
+  printf(&#39;WA&#39;);
+end
+</code></pre>
+
+<p></details>
+<details><summary>Pascal</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-pascal">program abc215a;
+uses SysUtils;
+var
+  s: string;
+begin
+  readln(s);
+  if s=&#39;Hello,World!&#39; then writeln(&#39;AC&#39;) else writeln(&#39;WA&#39;);
+end.
+</code></pre>
+
+<p></details>
+<details><summary>Perl</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-perl">my $s=&lt;&gt;;
+chomp($s);
+print $s eq &#34;Hello,World!&#34;?&#34;AC&#34;:&#34;WA&#34;;
+</code></pre>
+
+<p></details>
+<details><summary>Raku</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-raku">my $s;
+$s=get;
+say $s eq &#34;Hello,World!&#34;??&#34;AC&#34;!!&#34;WA&#34;;
+</code></pre>
+
+<p></details>
+<details><summary>PHP</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-php">&lt;?php
+fscanf(STDIN, &#34;%s&#34;, $s);
+echo $s==&#34;Hello,World!&#34;?&#34;AC&#34;:&#34;WA&#34;.&#34;\n&#34;;
+?&gt;
+</code></pre>
+
+<p></details>
+<details><summary>Prolog</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-prolog">get_string(String) :-
+  current_input(Input),
+  read_string(Input, &#39; \n&#39;, &#39;&#39;, _, String).
+
+main :-
+  get_string(S),
+  S == &#34;Hello,World!&#34; -&gt;
+    write(&#39;AC&#39;);
+    write(&#39;WA&#39;).
+
+:- main.
+</code></pre>
+
+<p></details>
+<details><summary>Racket</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-racket">#lang racket
+(define s (read-line))
+(display (if (equal? s &#34;Hello,World!&#34;) &#34;AC&#34; &#34;WA&#34;))
+(newline)
+</code></pre>
+
+<p></details>
+<details><summary>Ruby</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-ruby">s = gets.chomp
+puts (s==&#34;Hello,World!&#34;) ? &#39;AC&#39; : &#39;WA&#39;
+</code></pre>
+
+<p></details>
+<details><summary>Rust</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-rust">use proconio::input;
+
+fn main() {
+    input! {
+      s: String,
+    }
+    let answer = if s==&#34;Hello,World!&#34; { &#34;AC&#34; } else { &#34;WA&#34; };
+    println!(&#34;{}&#34;, answer)
+}
+</code></pre>
+
+<p></details>
+<details><summary>Scala</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-scala">object Main {
+  def main(args:Array[String]) = {
+    val s = io.StdIn.readLine
+    println(if(s==&#34;Hello,World!&#34;) &#34;AC&#34; else &#34;WA&#34;)
+  }
+}
+</code></pre>
+
+<p></details>
+<details><summary>Scheme</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-scheme">(define s (read-line))
+(display (if (equal? s &#34;Hello,World!&#34;) &#34;AC&#34; &#34;WA&#34;))
+(newline)
+</code></pre>
+
+<p></details>
+<details><summary>Standard ML</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-sml">val SOME s = TextIO.inputLine TextIO.stdIn
+
+val () =
+  print(if s = &#34;Hello,World!\n&#34; then &#34;AC\n&#34; else &#34;WA\n&#34;)
+</code></pre>
+
+<p></details>
+<details><summary>Swift</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-swift">let s=readLine()!
+print(s==&#34;Hello,World!&#34; ? &#34;AC&#34; : &#34;WA&#34;)
+</code></pre>
+
+<p></details>
+<details><summary>Typescript</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-typescript">import * as fs from &#39;fs&#39;;
+ 
+const input = fs.readFileSync(&#34;/dev/stdin&#34;, &#34;utf8&#34;).split(&#34;\n&#34;);
+const s = input[0];
+const ac = new String(&#34;Hello,World!&#34;);
+
+console.log(s==ac?&#34;AC&#34;:&#34;WA&#34;)
+</code></pre>
+
+<p></details>
+<details><summary>Visual Basic</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-vb">module abc215a
+  sub Main(ByVal args() as String)
+    dim s as string
+    s=Console.ReadLine()
+    Console.Write(IF(s=&#34;Hello,World!&#34;,&#34;AC&#34;,&#34;WA&#34;))
+  end sub
+end module
+</code></pre>
+
+<p></details>
+<details><summary>Zsh</summary></p>
+
+<pre class="prettyprint linenums"><code class="language-zsh">read s
+
+if [ $s = &#34;Hello,World!&#34; ]; then
+    echo &#34;AC&#34;
+else
+    echo &#34;WA&#34;
+fi
+</code></pre>
+
+<p></details></p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1629291914">
+				<time class="timeago" datetime="2021/08/18 22:05:14"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1629471963">
+				<time class="timeago" datetime="2021/08/21 00:06:03"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc215/editorial/2479?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 215">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc215/rules">ルール</a></li>
+					<li><a href="/contests/abc215/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

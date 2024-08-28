@@ -1,0 +1,110 @@
+全ての宿題をするためにかかる日数は A1 +. . .+AM です。したがって、最大で N −(A1 +. . .+AM )
+日間遊ぶことができます。
+宿題を終わらせることが不可能な場合に注意してください。
+1
+
+int a[10010];
+
+2
+
+int main(){
+
+3
+
+int n,m;
+
+4
+
+scanf("%d%d",&n,&m);
+
+5
+
+for(int i=0;i<m;i++)scanf("%d",&a[i]);
+
+6
+
+int s=0;
+
+7
+
+for(int i=0;i<m;i++)s+=a[i];
+
+8
+
+if(s>n){
+printf("-1\n");
+
+9
+
+}else{
+
+10
+
+printf("%d\n",n-s);
+
+11
+
+}
+
+12
+13
+
+}
+
+3
+
+The total days needed to ﬁnish all the assignments are A1 + . . . + AM . Therefore, he can hang
+out N − (A1 + . . . + AM ) days at most.
+Be careful of the cases where it is impossible to ﬁnish the assignments.
+1
+
+int a[10010];
+
+2
+
+int main(){
+
+3
+
+int n,m;
+
+4
+
+scanf("%d%d",&n,&m);
+
+5
+
+for(int i=0;i<m;i++)scanf("%d",&a[i]);
+
+6
+
+int s=0;
+
+7
+
+for(int i=0;i<m;i++)s+=a[i];
+
+8
+
+if(s>n){
+printf("-1\n");
+
+9
+
+}else{
+
+10
+
+printf("%d\n",n-s);
+
+11
+
+}
+
+12
+13
+
+}
+
+9
+

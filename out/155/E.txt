@@ -1,0 +1,15 @@
+各桁について，金額のその桁までを見たときの「ピッタリ払うときの最小」
+「1 余分に払うときの最
+小」を上の桁から計算すればよいです．
+
+DP の遷移は桁ごとに定数時間で出来るので，桁数に対して線形時間で解けました．
+
+6
+
+For each digit, calculate ”the minimum when paying exactly” and ”the minimum when paying
+one more” when focusing on the preﬁx of the price until the digit, from the higher to the lower.
+Since each DP transition can be performed in a constant time for each digit, the problem has
+been solved in a linear time of the number of digits.
+
+13
+

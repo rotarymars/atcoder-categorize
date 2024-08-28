@@ -1,0 +1,51 @@
+問題文の条件を言い換えると、次のようになります。
+
+1. 1 ≤ i ≤ n − 1 を満たす各 i について Wi の最後の文字と Wi+1 の最初の文字が等しい
+2. 1 ≤ i < j ≤ n を満たす各 i, j について Wi ̸= Wj
+これを C++ で実装した例を以下に示します。
+
+# include < iostream >
+# include < vector >
+using namespace std ;
+bool solve ( const vector < string >& W ) {
+const int n = W . size ();
+// condition 1
+for ( int i = 0; i < n -1; ++ i ) {
+if ( W [ i ]. back () != W [ i +1]. front ()) {
+return false ;
+}
+}
+// condition 2
+for ( int i = 0; i < n ; ++ i ) {
+for ( int j = i +1; j < n ; ++ j ) {
+if ( W [ i ] == W [ j ]) {
+return false ;
+}
+}
+}
+return true ;
+}
+vector < string > input () {
+int n ; cin >> n ;
+vector < string > W ( n );
+for ( int i = 0; i < n ; ++ i ) {
+cin >> W [ i ];
+}
+return W ;
+}
+
+3
+
+int main () {
+const vector < string > W = input ();
+if ( solve ( W )) {
+cout << " Yes " << endl ;
+}
+else {
+cout << " No " << endl ;
+}
+}
+余談: std::set を用いてより高速に判定することもできますが、今回の場合はこれで十分です。
+
+4
+

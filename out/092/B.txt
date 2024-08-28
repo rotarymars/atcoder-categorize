@@ -1,0 +1,44 @@
+i 人目の参加者は合宿中にチョコレートを 1 + ⌊(D − 1)/Ai ⌋ 個食べます。ここで、⌊x⌋ は x を超えない最
+大の整数です。
+よって、答えは
+
+X+
+
+∑
+1≤i≤N
+
+⌋
+D−1
+)
+(1 +
+Ai
+⌊
+
+となります。
+以下に C++ による実装例を示します。C++ を含む多くの言語で、正の整数同士の除算の際はあまりが切
+り捨てられます。
+
+1
+
+#include<cstdio>
+using namespace std;
+const int MAX_N = 100;
+int N;
+int A[MAX_N];
+int D;
+int X;
+int main(){
+scanf("%d", &N);
+scanf("%d%d", &D, &X);
+for(int i = 0; i < N; ++i){
+scanf("%d", A + i);
+}
+int ans = X;
+for(int i = 0; i < N; ++i){
+int tmp = (D - 1) / A[i] + 1;
+ans += tmp;
+}
+printf("%d\n", ans);
+return 0;
+}
+

@@ -1,0 +1,165 @@
+いくつかの方針が考えられます。
+
+• ループを二重に組み合わせ、1 ≤ i < j ≤ |S| であるような添字のペア (i, j) すべてについて Si と Sj
+が異なるか確認する（|S| が大きいと遅くなりますが、今回は |S| ≤ 26 であり問題ありません*1 ）
+
+• S に含まれる文字をアルファベット順にソートし、同じ文字が二つ隣り合わないか確認する
+• 26 種類の文字それぞれについて S での出現回数を数え、どの文字の出現回数も 1 以下であるか確認
+する
+以下に、最初の方針の C++ での実装の例を示します。
+
+1
+
+#include <algorithm>
+
+2
+
+#include <iostream>
+
+3
+
+using namespace std;
+
+4
+5
+
+int main(){
+
+6
+
+string S;
+
+7
+
+cin >> S;
+
+8
+
+int N = S.size();
+
+9
+
+string ans = "yes";
+
+10
+
+for(int i = 0; i < N; ++i){
+for(int j = i + 1; j < N; ++j){
+
+11
+
+if(S[i] == S[j]){
+
+12
+
+ans = "no";
+
+13
+
+}
+
+14
+
+}
+
+15
+16
+
+}
+
+17
+
+cout << ans << endl;
+
+18
+
+}
+
+*1 この問題の制約に反しますが、仮に |S| = 105 であったとすると、実行制限時間の 2 秒に間に合わないでしょう。余談ですが、
+
+鳩の巣原理より |S| > 26 のときに直ちに no と出力すれば、そのような長さの入力に対しても実行が間に合います。
+
+2
+
+There are several solutions:
+• Nest two loops and check if Si and Sj diﬀers for all pairs of indices (i, j) such that 1 ≤ i < j ≤ |S|
+(slower if |S| is larger, but fine in this problem since |S| ≤ 26*1 )
+• Sort the characters in S in alphabetical order, and check if no two adjacent letters are the same
+• For each of the 26 letters, count the occurrences in S, and check if no letter appears more than
+once
+C++ implementation of the first solution follows:
+
+1
+
+#include <algorithm>
+
+2
+
+#include <iostream>
+
+3
+
+using namespace std;
+
+4
+5
+
+int main(){
+
+6
+
+string S;
+
+7
+
+cin >> S;
+
+8
+
+int N = S.size();
+
+9
+
+string ans = "yes";
+
+10
+
+for(int i = 0; i < N; ++i){
+for(int j = i + 1; j < N; ++j){
+
+11
+
+if(S[i] == S[j]){
+
+12
+
+ans = "no";
+
+13
+
+}
+
+14
+
+}
+
+15
+16
+
+}
+
+17
+
+cout << ans << endl;
+
+18
+
+}
+
+*1 The constraints in this problem does not allow this, but if |S| = 105 , it would not fit within the execution time limit
+
+of 2 seconds. A little oﬀ-topic, but if we immediately print “no” when |S| > 26 by pigeonhole principle, it will run
+in time.
+
+2
+

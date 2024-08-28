@@ -1,0 +1,47 @@
+各 i について、sum(i) = Ai1 B1 + Ai2 B2 + ... + AiM BM を計算し、sum(i) + C > 0 であるような i の個
+数が答えになります。これを実装できれば正答することができますが、実装に慣れていない場合特に入力を受
+け取る部分の実装が難しいと思います。以下の実装例では、
+
+1. 入力を受け取り、変数に格納する
+2. 計算し、答えを求める
+3. 答えを出力する
+の 3 つのパートに分けて実装しています。他の問題でも、入力・計算・出力 に分けて実装するのが分かりや
+すいのでおすすめです。今回の場合、変数の型としては、A は整数型の 2 次元配列、B は整数型の 1 次元配
+列、N, M, C は整数型とするのが良いでしょう。
+
+# include < bits / stdc ++. h >
+using namespace std ;
+int main () {
+// input
+int N , M , C ; cin >> N >> M >> C ;
+vector < int > B ( M );
+for ( int i = 0; i < M ; ++ i ) {
+cin >> B [ i ];
+}
+vector < vector < int > > A (N , vector < int >( M ));
+for ( int i = 0; i < N ; ++ i ) {
+for ( int j = 0; j < M ; ++ j ) {
+cin >> A [ i ][ j ];
+}
+}
+// compute
+int ans = 0;
+for ( int i = 0; i < N ; ++ i ) {
+// check whether i - th source code solves this problem
+int sum = 0;
+for ( int j = 0; j < M ; ++ j ) {
+sum += A [ i ][ j ] * B [ j ];
+}
+if ( sum + C > 0) {
+
+2
+
+++ ans ;
+}
+}
+// output
+cout << ans << endl ;
+}
+
+3
+

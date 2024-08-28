@@ -1,0 +1,24 @@
+b を固定して考えましょう。b = 1, 2, · · · N に対し、a を b で割った余りが K 以上であるような 1 ≤ a ≤ N
+の個数が高速に求められれば良いです。簡単のため、a = 0 も許すことにして、あとで a = 0 の場合 (これは
+簡単に求められます) を引くことにしましょう。
+さて、整数 p, q を用いて N = pb + r(0 ≤ r < b) という形で N を一意的に表したとき、a を 0 から N ま
+で順に動かせば、a を b で割った余りを順に並べたものは、0, 1, 2, · · · b − 1 という列が p 回繰り返され、最
+後に 0, 1, 2, · · · r という列が付け加わったものになります。
+
+0, 1, 2, · · · b − 1 という列が p 回繰り返される部分には条件を満たす a の個数は p × max(0, b − K) 個、最
+後の部分には max(0, r − K + 1) 個あるので、条件を満たす a の個数が O(1) 時間で求められ、O(N ) 時間
+でこの問題を解くことができました。
+
+Let’s fix b. For each b = 1, 2, · · · N , we want to count the number of a that satisfies both 1 ≤ a ≤ N
+and a%b ≥ K. For simplicity, we allow a = 0 and assume that 0 ≤ a ≤ N (and subtract the cases with
+a = 0 later).
+For a fixed b, we want to count the number of terms that are greater than or equal to K, in the
+sequence 0%b, 1%b, · · · , N %b. If N = pb + r(0 ≤ r < b) (we can represent N in this form uniquely using
+two integers p, r), the sequence starts with p repetitions of 0, 1, 2, · · · b − 1, followed by 0, 1, 2, · · · r.
+In the former part, there are p × max(0, b − K) terms that are greater than or equal to K. In the latter
+part, there are max(0, r − K + 1) terms that are greater than or equal to K. Thus, for a fixed b, we can
+compute the number of such as in O(1) time.
+This solution works in O(N ) time in total.
+
+2
+

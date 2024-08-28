@@ -1,0 +1,75 @@
+P の各要素について、Pi = XL,R となるような組 (L, R) の個数を Ci とすると、
+N
+−1
+∑
+
+N
+∑
+
+XL,R =
+
+N
+∑
+
+Pi × C i
+
+i=1
+
+L=1 R=L+1
+
+となります。また、Pi = XL,R となる組 (L, R) について、P が順列であることから、L ≤ i ≤ R を
+満たします。以降、Ci を求めます。
+集合 Si = {j|j < i, Pi < Pj }, Ti = {j|j > i, Pi < Pj } を考えます。Si の中で二番目に大きい要素
+を wi 、最大の要素を xi とし、Ti の中で最小の要素を yi 、二番目に小さい要素を zi とします。Si , Ti
+はインデックスの集合であることに注意してください。このとき、wi < xi < i < yi < zi です。
+
+Pi = XL,R となるのは、wi < L ≤ xi < i ≤ R < yi < zi のときと、wi < xi ≤ L < i < yi ≤ R < zi
+のときに限られることがわかります。したがって、Ci = (xi − wi ) × (yi − i) + (i − xi ) × (zi − yi )
+となります。
+
+P の要素を大きい順番に見ていくことにすると、 ある時点までに見た全ての要素は、その時点で
+見ている要素より大きい要素になっています。したがって、順序集合を扱うデータ構造 (C++ にお
+ける set, multiset など) を用いてインデックスの集合を管理することで、wi , xi , yi , zi は 各 i に対し
+
+O(log N ) で求めることができます。また番兵として Si に 0 を二つ、Ti に N + 1 を二ついれておく
+と、境界条件を簡潔に実装することができます。全体の計算量は O(N log N ) です。
+
+5
+
+For each element of P , let Ci be the number of pairs (L, R) such that Pi = XL,R , then it holds
+that
+
+N
+−1
+∑
+
+N
+∑
+
+XL,R =
+
+N
+∑
+
+Pi × C i
+
+i=1
+
+L=1 R=L+1
+
+Also, for any pair (L, R) such that Pi = XL,R , it holds that L ≤ i ≤ R, because P is a
+permutation. Hereinafter, let’s ﬁnd Ci .
+Consider a set Si = {j|j < i, Pi < Pj }, Ti = {j|j > i, Pi < Pj }. Let wi be the second largest
+element of Si , xi be the largest element of Si , yi be the smallest element of Ti , and zi be the
+second smallet element. Note that Si and Ti are both set of indices. Here, wi < xi < i < yi < zi
+holds. Pi = XL,R holds only if wi < L ≤ xi < i ≤ R < yi < zi or wi < xi ≤ L < i < yi ≤ R < zi .
+Therefore, Ci = (xi − wi ) × (yi − i) + (i − xi ) × (zi − yi ) holds.
+Assume that the elements are processed in a decreasing order, then the elements that has been
+seen at some time are larger than the element that are currently being processed. Therefore, by
+managing a set of indices with a data structure that handles with ordered set (set or multiset in
+C++), you can ﬁnd wi , xi , yi , zi in a time of O(log N ) for each i. Also, if you put two 0’s to Si
+and two N + 1’s to Ti as sentinels, you can easily implement the boundary conditions. The time
+complexity overall is O(N log N ).
+
+12
+

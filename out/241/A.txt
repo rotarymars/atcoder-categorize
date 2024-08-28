@@ -1,0 +1,43 @@
+
+		公式
+		
+			
+				A - Digit Machine 解説
+			
+			by sugarrr
+			
+		
+		
+		
+		
+			プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice contest」(https://atcoder.jp/contests/practice/) の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。
+また、プログラミングコンテストの問題に慣れていない方は、「AtCoder Beginners Selection」(https://atcoder.jp/contests/abs) の問題をいくつか試すことをおすすめします。
+「競プロ典型 90 問」(https://atcoder.jp/contests/typical90) では、プログラミングコンテストで扱われる典型的な 90  問の問題に挑戦可能です。
+「C++入門 AtCoder Programming Guide for beginners (APG4b)」(https://atcoder.jp/contests/APG4b) は、競技プログラマー向けのC++入門用コンテンツです。
+
+
+
+画面に表示されている数を \(num\) とします。
+はじめ、\(num = 0\) です。
+
+\(1\) 回ボタンを押すと、\(num\) は \(a_{num}\) に変化するので、これを \(3\) 回繰り返せば良いです。
+
+C++での実装例を以下に示します。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

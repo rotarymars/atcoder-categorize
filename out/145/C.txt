@@ -1,0 +1,58 @@
+解法 1
+N ! 通りの経路を全探索し, 各経路の長さを計算し, その平均値を出力します.
+N ! 通りの経路の全探索は, 例えば C++ では next permutation 関数を使うと容易に実装出来ます.
+時間計算量は O (N !N ) です.
+
+C++ による解答例:https://atcoder.jp/contests/abc145/submissions/8474526
+
+解法 2
+次の問題を考えます.
+
+• N 個の互いに区別出来るボールを 1 列に並べる. 特定の 2 つのボールが隣り合うような並べ方
+は何通りあるか.
+「特定の 2 つのボール」を一纏めにして考えて, この 2 つのボールの並び順も考慮すると, この問題の
+答えは 2 (N − 1)! 通りであることが分かります.
+これより, 元の問題における N ! 通りの経路において, 各町のペア間の移動が発生するような経路は,
+
+2 (N − 1)! 個であることが分かります.
+これにより, 各町のペア間の距離の総和の
+
+(
+
+時間計算量は O N
+
+)
+2
+
+2(N −1)!
+= N2 倍が答えであることが分かります.
+N!
+
+です.
+
+C++ による解答例:https://atcoder.jp/contests/abc145/submissions/8474573
+
+3
+
+Solution 1
+Brute force all the N ! paths, calculate each legnth, and output their average.
+When brute-forcing through N ! paths, for example in C++ you can use next permutation function to implement easily.
+The total time complexity is O (N !N ).
+Sample code in C++:https://atcoder.jp/contests/abc145/submissions/8474526
+
+Solution 2
+Let’s consider the following question:
+• How many ways are there to align N distinguishable balls, so that speciﬁc two balls are
+adjacent to each other?
+By regarding ”2 speciﬁc balls” as one bunch, and also considering the permutations of those two
+balls, the answer will be 2 (N − 1)!.
+Therefore, within N ! paths in the original problem, the number of paths in which there exists a
+move between each pair of towns is 2 (N − 1)!.
+= 2 times the sum of distance between each pair of towns.
+Therefore, the answer will be 2(NN−1)!
+( ! 2) N
+The total time complexity is O N .
+Sample code in C++:https://atcoder.jp/contests/abc145/submissions/8474573
+
+9
+

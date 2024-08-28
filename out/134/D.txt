@@ -1,0 +1,26 @@
+大きい数が書かれた箱からボールを入れるかを決めていくことにします。こうすると、整数 i が書かれ
+た箱にボールを入れるか決めるとき、i 以外の i の倍数が書かれた箱については、すでにボールを入れるか
+が決まっています。それらの箱に入ったボールの総和の偶奇が ai と異なる場合は箱にボールを入れて、そ
+うでないときはボールを入れないことにします。このようにしてボールを入れるかを決めていくと、与え
+られた条件をすべて満たすようにボールを入れることができます。このアルゴリズムを愚直に実装すると
+2
+O( N1 + N2 + ... + N
+N ) 程度の計算量がかかります。これは一見 O(N ) に見えますが、丁寧に解析すると
+
+O(N logN ) で抑えることができます。よって十分高速です。
+
+4
+
+Let’s decide whether to put the ball in a decreasing order of box’s indices. This way, when you consider
+whether or not to put a ball into box i, the boxes whose index is multiple of i except for i itself are
+already conﬁrmed whether to put balls. If the parity of the number of balls in such boxes are diﬀerent
+than desired ai , put a ball into the box; otherwise, don’t put the box. If you determine the choices in
+this way, you can ﬁnd the optimal way of putting balls that satisﬁes all the given conditions. A naive
+2
+implementation of this algorithm needs about O( N1 + N2 + ... + N
+N ). At ﬁrst glance it seems O(N ),
+
+but a careful analysis shows that it’s at most O(N logN ). So, it’s fast enough.
+
+10
+

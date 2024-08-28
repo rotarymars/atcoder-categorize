@@ -1,0 +1,87 @@
+(Ai , Bi ) = (0, 0) のイワシは他のどの個体とも仲が悪いので，「(Ai , Bi ) = (0, 0) なイワシをどれか
+1 匹だけ選ぶ」「(Ai , Bi ) = (0, 0) なイワシをどれも選ばない」のいずれかです．勿論，前者の選び方
+はそのようなイワシの個数に等しいので，以下では (Ai , Bi ) = (0, 0) なイワシを除外して考えます．
+Ai
+イワシの「傾き」を B
+として，これを既約分数で表すことを考えます．具体的には，次のように
+i
+
+決めます．
+
+• Bi = 0 のとき，傾きは 1/0．
+Ai
+Bi
+• Bi > 0 のとき，傾きは gcd(A
+/
+．
+i ,Bi ) gcd(Ai ,Bi )
+Ai
+Bi
+• Bi < 0 のとき，傾きは − gcd(A
+/ − gcd(A
+．
+i ,Bi )
+i ,Bi )
+
+ちょっとした場合分けから，傾きと仲の悪さの関係について次のことが言えます．
+
+• 傾き 1/0 のイワシと仲が悪いのは，傾き 0/1 のイワシ全てのみ．逆もまた然り．
+• 傾き a/b (a, b ̸= 0) のイワシと仲が悪いのは，傾き −b/a (を a の符号で通分したもの) のイ
+ワシ全てのみ．逆もまた然り．
+たとえば以下の傾きが，互いに ”仲の悪いつがい” です．
+
+1/0 ←→ 0/1
+5/3 ←→ −3/5
+−2/1 ←→ 1/2
+したがって，”仲の悪いつがい” になる傾きのペア (高々 N 通り) 全てについて，連想配列などを
+使って各傾きになるイワシの個数が求まれば，その後は基礎的な数え上げの範疇です．オーバーフ
+ローには気を付けてください．
+
+Ai , Bi の制約が大きいので，傾きを有理数の代わりに実数で表現しようとすると (long double で
+も) 精度が足りないおそれがあります．
+
+6
+
+Since a sardine of (Ai , Bi ) = (0, 0) is on bad terms with every other individuals, so either
+“choose one sardine such that (Ai , Bi ) = (0, 0)” or “never choose sardines such that (Ai , Bi ) =
+(0, 0)” is possible. Of course, the number of the former ways of choosing is equal to the number of
+such sardines, in the further discussion the sardines such that (Ai , Bi ) = (0, 0) will be excluded.
+Ai
+and consider representing them by irreducible fractions.
+Deﬁne the “slope” of a sardine by B
+i
+
+Speciﬁcally, we will deﬁne them by:
+• When Bi = 0 , the slope is 1/0．
+Ai
+Bi
+• When Bi > 0 , the slope is gcd(A
+/
+．
+i ,Bi ) gcd(Ai ,Bi )
+Ai
+Bi
+• When Bi < 0 , the slope is − gcd(A
+/ − gcd(A
+．
+i ,Bi )
+i ,Bi )
+
+By a little case division, the following dependency of the relationships on the slope can be
+found:
+• The sardines of slope 1/0 is on bad terms with, and only with, all the sardines of slope
+0/1, and vice versa.
+• The sardines of slope a/b (a, b ̸= 0) is on bad terms with, and only with, all the sardines
+of slope −b/a (normalized by the sign of a), and vice versa.
+For example, the following slopes are “the pairs on bad terms with each other.”
+
+1/0 ←→ 0/1
+5/3 ←→ −3/5
+−2/1 ←→ 1/2
+Therefore, for all pairs of slopes on bad terms with each other, count the number of sardines of such slopes using data structures such as associative arrays, and all the left is a basic
+combinatorics. Be careful of overﬂows.
+Since the constraints of Ai , Bi is large, representing the slope with real numbers instead of
+rationals may not hold enough precision.
+
+13
+

@@ -1,0 +1,72 @@
+話を簡単にするため，X ≥ Y ≥ 0 としてよいです (適当に変換することで帰着できます)．n をスコアの最
+小値とします．
+
+K が偶数，X + Y が奇数のときは不可能です．逆に，それ以外のケースでは常に，以下のどちらかの形式
+で構築できます．
+タイプ A:
+Kn−X+Y
+2
+
+O
+Kn−X−Y
+2
+
+X
+タイプ B (常に n = 3):
+K+X−Y
+2
+
+K −X +Y
+
+O
+K −X
+X + K+X−Y
+2
+
+c := (K − (X + Y mod K)) mod K とします．X + Y < K かつ X + Y が奇数のときタイプ B が，それ
+以外のときは次のように n の値を決めることでタイプ A が適用できます．
+
+• X + Y < K かつ X + Y が偶数のとき，n = 2．
+• X + Y ≥ K かつ c が偶数のとき，n = ⌈ X+Y
+K ⌉．
+• X + Y ≥ K かつ c が奇数のとき，n = ⌈ X+Y
+K ⌉ + 1．
+これらの構築方法が正しいことの証明は容易です．
+
+5
+
+For simplicity, you can assume that X ≥ Y ≥ 0 (you can apply some appropriate transformations to
+achieve this).
+If K is even and X + Y is odd, it’s impossible. Otherwise, you can construct the answer by either of
+the following two ways:
+Type A:
+Kn−X+Y
+2
+
+O
+Kn−X−Y
+2
+
+X
+Type B (alyaws n = 3):
+K+X−Y
+2
+
+K −X +Y
+
+O
+K −X
+X + K+X−Y
+2
+
+Let c := (K − (X + Y mod K)) mod K. If X + Y < K and X + Y is odd, type B can be applied;
+otherwise type A can be applied by determining n with the following steps:
+• If X + Y < K and X + Y is even, n = 2.
+• If X + Y ≥ K and c is even, n = ⌈ X+Y
+K ⌉.
+• If X + Y ≥ K and c is odd, n = ⌈ X+Y
+K ⌉ + 1.
+It is easy to prove that the construction procedures are rightful.
+
+12
+

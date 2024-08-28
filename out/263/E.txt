@@ -1,0 +1,45 @@
+
+		公式
+		
+			
+				E - Sugoroku 3 解説
+			
+			by PCTprobability
+			
+		
+		
+		
+		
+			\(\mathrm{DP}[i]=\) マス \(i\) からマス \(N\) にたどり着くまでにサイコロを振る回数の期待値とした動的計画法を行います。
+
+まず、\(\mathrm{DP}[N]=0\) です。
+
+\(i=N-1,N-2,\dots,1\) の順に \(\mathrm{DP}[i]\) を求めます。
+
+もしサイコロが \(1\) 以上 \(A_i\) 以下の値のみを等確率で出す場合は \(\mathrm{DP}[i]=\frac{\sum_{j=1}^{A_i} \mathrm{DP}[i+j]}{A_i} + 1\) となります。
+
+上記を元に考えると、マス \(i\) にいるときにサイコロで \(0\) を出す回数の期待値を \(X\) とすると \(\mathrm{DP}[i]=\frac{\sum_{j=1}^{A_i} \mathrm{DP}[i+j]}{A_i} + X + 1\) となります。
+
+\(X\) を求めることを考えます。\(X=\sum_{j=0}^{\infty} j \times \frac{A_i}{(A_i+1)^{j+1}}\) が成り立ちます。
+
+\(\sum_{i=0}^{\infty} \frac{i}{x^i}=\frac{x}{(1-x)^2}\) であるため \(\sum_{j=0}^{\infty} \frac{j}{(A_i+1)^j} = \frac{A_i+1}{A_i^2}\) です。
+
+\(X=\left(\sum_{j=0}^{\infty} \frac{j}{(A_i+1)^j}\right) \times \frac{A_i}{A_i+1}\) より \(X=\frac{A_i+1}{A_i^2} \times \frac{A_i}{A_i+1} = \frac{1}{A_i}\) と求まります。
+
+より、累積和や segmenttree を用いることによりこの問題を \(\mathrm{O}(N\log \bmod)\) などで解くことができます。
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

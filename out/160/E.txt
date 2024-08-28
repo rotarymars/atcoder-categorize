@@ -1,0 +1,17 @@
+元から赤色のリンゴを X 個以上食べることはないので、美味しさの大きい方から X 個以外は捨て
+ます。元から緑色のリンゴを Y 個以上食べることもないので、美味しさの大きい方から Y 個以外は
+捨てます。すると残ったリンゴからどのように X + Y 個のリンゴを選んでも、無色のリンゴを適切
+に着色することで赤色のリンゴ X 個と緑色のリンゴ Y 個にすることができます。よって、残ったリ
+ンゴを美味しさの大きい方から X + Y 個食べれば良いです。
+
+5
+
+Since no more than X red apples will be eaten, we can abandon the apples other than X apples
+with the largest deliciousnesses. Also, since no more than Y green apples will be eaten, we can
+abandon the apples other than Y apples with the largest deliciousnesses. Then, no matter how
+we choose X + Y apples out of the apples left, by properly painting the colorless apples, we can
+obtain X red apples and Y green apples Therefore, it is optimal to eat the X + Y apples with
+the largest deliciousness out of the apples left.
+
+11
+

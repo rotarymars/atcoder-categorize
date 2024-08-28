@@ -1,0 +1,197 @@
+直感的には，〆切の差し迫っている仕事から片付けるのがよさそうです．実際にこの直感は正しく，仕事を
+
+Bi の小さい順に順番に行うのが最適です．つまり，以下のことが言えます．
+仕事 N 件の並べ替えであって，この順に行えば全ての仕事が〆切に間に合うようなものを「いい順序付け」
+と呼ぶことにすると，
+答えが Yes となる条件 Bi の小さい順に仕事を行えば，それが「いい順序付け」となる．
+証明
+
+十分性は明らかなので，必要性を示します．つまり，
+「いい順序付け」
+(A1 , B1 ), (A2 , B2 ), . . . , (AN , BN )
+があるとき，Bi の昇順に並べ替えてもまた「いい順序付け」となることを示します．
+
+k 番目の仕事が〆切に間に合う条件は，それまでの仕事にかかる時間の合計が〆切の時刻を上回ら
+ないことです (つまり A1 + A2 + · · · , Ak ≤ Bk )．Bk > Bk+1 のとき，(Ak , Bk ), (Ak+1 , Bk+1 ) の順
+序を入れ替えても「いい順序付け」のままです．したがって，バブルソートの要領で Bi の昇順にソー
+トしてもまた「いい順序付け」となります．
+
+C++ や Python3 などの多くのプログラミング言語では，標準で用意されている関数などを用いることで
+ソートをできます．実装例を以下に示します．
+Listing 4 C++ での実装例
+1
+
+// include, using 略
+
+2
+3
+
+int n;
+
+4
+
+vector<pair<int, int> > tasks;
+
+5
+6
+
+int main(void){
+
+7
+
+cin >> n;
+
+8
+
+for (int i = 0; i < n; i++) {
+
+9
+
+int a, b;
+
+10
+
+cin >> a >> b;
+tasks.emplace_back(b, a); // 〆切 (, 所要時間)
+
+11
+12
+
+}
+
+13
+14
+
+sort(tasks.begin(), tasks.end());
+
+15
+
+int sum = 0;
+
+16
+
+bool isyes = true;
+
+17
+
+for (auto v : tasks) {
+sum += v.second;
+
+18
+19
+
+if (sum > v.first) {
+
+20
+
+isyes = false;
+
+21
+
+break;
+
+22
+
+}
+
+23
+24
+
+}
+
+25
+
+5
+
+cout << (isyes ? "Yes" : "No") << endl;
+
+26
+27
+
+return 0;
+
+28
+29
+
+}
+
+6
+
+Intuitively, it seems to be good to ﬁnish the job with earlier deadline formerly.
+Actually this intuition is right; it is optimal to ﬁnish the job in the increasing
+order of Bi . In other words,
+Let ”good permutation” be the permutation of N jobs, where you can
+complete all the jobs within the deadlines.
+The condition where the answer is Yes If you do the work in the ascending order of Bi , that will be the ”good permutation.”
+Proof The suﬃciency is obvious. Now let’s show the necessity: that is,
+if there exists a ”good permutation” (A1 , B1 ), (A2 , B2 ), . . . , (AN , BN ),
+after the permutation is sorted by the order of Bi , it still stays a ”good
+order.” You can ﬁnish the k-th job by the deadline if the time to take
+the k jobs so far is no less than the deadline of the job (that is, A1 +
+A2 + · · · , Ak ≤ Bk ). If Bk > Bk+1 , the permutation stays ”good”
+if you swapped (Ak , Bk ), (Ak+1 , Bk+1 ). Therefore, you can sort the
+permutation in the manner of bubble sort so that the Bi will be a
+ascending order.
+In most programming language like C++ and Python3, you can make
+use of standard library function for sorting. The implementation is below.
+Listing 4: Implementation Example in C++
+1 // include, using omitted
+2
+3 int n;
+4 vector<pair<int, int> > tasks;
+5
+6 int main(void){
+7
+cin >> n;
+8
+for (int i = 0; i < n; i++) {
+9
+int a, b;
+10
+cin >> a >> b;
+11
+tasks.emplace_back(b, a);
+
+required)
+12
+13
+14
+15
+16
+
+}
+sort(tasks.begin(), tasks.end());
+int sum = 0;
+bool isyes = true;
+
+13
+
+// (deadline, time
+
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29 }
+
+for (auto v : tasks) {
+sum += v.second;
+if (sum > v.first) {
+isyes = false;
+break;
+
+}
+}
+cout << (isyes ? "Yes" : "No") << endl;
+return 0;
+
+14
+

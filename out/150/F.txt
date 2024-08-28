@@ -1,0 +1,38 @@
+数列の添え字は断りなく modN で考えるものとし、XOR を ⊕ で表すこととします。
+
+(1) すべての i で a′i = bi
+となるためには
+
+(2) すべての i で a′i ⊕ a′i+1 = bi ⊕ bi+1
+が成立していることが必要です。ここで a′i ⊕ a′i+1 = (ai+k ⊕ x) ⊕ (ai+k+1 ⊕ x) = ai+k ⊕ ai+k+1 で
+あることから、(2) の条件は k のみによって決まります。この条件を満たす k は、KMP 法などを用
+いることで、O(N ) で列挙することができます。（ci = ai ⊕ ai+1 、di = bi ⊕ bi+1 として、d の中から
+
+c を検索します）
+逆に (2) を満たすような k に対しては、x が bi ⊕ ai+k であるとき、その時に限り (1) の条件を満
+たします。したがって、各 k に対してこのような x は定数時間で求めることができます。以上によ
+りこの問題は O(N ) で解けました。
+
+XOR になじみがない人は、まず XOR の代わりに足し算で同様のことを考えてみるとわかりやす
+いかもしれません。その場合 (2) の条件は a′i − a′i+1 = bi − bi+1 となります。
+
+6
+
+We assume suﬃxes to be modN , and ⊕ denotes XOR.
+(1) a′i = bi for all i
+implies that
+
+(2) a′i ⊕ a′i+1 = bi ⊕ bi+1 for all i
+
+. Here, it holds that a′i ⊕ a′i+1 = (ai+k ⊕ x) ⊕ (ai+k+1 ⊕ x) = ai+k ⊕ ai+k+1 , so condition (2)
+depends on only k. Such k can be enumerated by KNP algorithm or any other in a total of O(N )
+time. (Let ci = ai ⊕ ai+1 , di = bi ⊕ bi+1 , and ﬁnd c in d)
+Conversely, for such k that satisﬁes (2), condition (1) is satisﬁed if and only if x is bi ⊕ ai+k .
+Therefore, for each k you can ﬁnd such x in a constant time. As above this problem can be
+solved in a total of O(N ) time.
+If you are not familiar with XOR, it may be easier to understand if you ﬁrst consider the same
+things with sums instead of XOR. In such case condition (2) will be a′i − a′i+1 = bi − bi+1 .
+
+12
+
+

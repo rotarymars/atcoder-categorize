@@ -1,0 +1,47 @@
+各桁ごとに独立して N 通りの数字を設定出来ますから、答えは N 3 です。
+
+N を入力として受け取り、 N 3 を計算して、その値を出力することにより、AC となります。
+以下は C++ による実装例です。
+1
+2
+3
+4
+5
+6
+7
+8
+
+#include <iostream>
+using namespace std;
+int main(){
+int N;
+cin >> N;
+cout << N * N * N << endl;
+return 0;
+}
+
+1
+
+You can independently determine N kinds of number for each digit, so the answer is N 3 . You
+can receive N as input, calculate N 3 , and print it to get AC. The following is an implementation
+example by C++.
+1
+2
+3
+4
+5
+6
+7
+8
+
+#include <iostream>
+using namespace std;
+int main(){
+int N;
+cin >> N;
+cout << N * N * N << endl;
+return 0;
+}
+
+7
+

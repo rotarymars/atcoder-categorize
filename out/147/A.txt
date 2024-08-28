@@ -1,0 +1,62 @@
+3 つの整数を受け取り、その合計が 22 以上かそうでないかによって条件分岐します。以下は C 言
+語での実装例です。
+1
+
+#include<stdio.h>
+
+2
+
+int main(){
+
+3
+
+int a,b,c;
+
+4
+
+scanf("%d%d%d",&a,&b,&c);
+
+5
+
+if(a+b+c>=22)puts("bust");
+else puts("win");
+
+6
+7
+
+}
+
+1
+
+Receive 3 integers and switch cases depending on whether their sum is equal to or more than
+22 or not. The following is an implementation example in C Language.
+1
+
+#include<stdio.h>
+
+2
+
+int main(){
+
+3
+
+int a,b,c;
+
+4
+
+scanf("%d%d%d",&a,&b,&c);
+
+5
+
+if(a+b+c>=22)puts("bust");
+
+6
+
+else puts("win");
+
+7
+
+}
+
+7
+

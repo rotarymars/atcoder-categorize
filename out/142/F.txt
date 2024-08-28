@@ -1,0 +1,29 @@
+閉路が存在しないとき、条件を満たす誘導部分グラフは存在しません。そうでないとき、以下の手
+順を実行します。
+手順 1 ： 閉路をひとつ探し、閉路に含まれる頂点の誘導部分グラフを残す。
+手順 2 ： そのグラフが条件を満たすとき、終了する。
+手順 3 ： 閉路に用いられない辺が存在するので、その辺の終点から閉路をたどり、その辺の始点
+に到達したらやめる。このとき通過した頂点集合の誘導部分グラフを残し、手順 2 に戻る。
+手順 3 を行うたび誘導部分グラフの頂点数が必ず減少し、また手順 2, 3 を通して誘導部分グラフ
+は常に閉路を持ちます。閉路を持つ頂点数が 2 のグラフは条件を満たすため、必ず条件を満たす誘導
+部分グラフが得られます。愚直に実装すれば計算量は O(N (N + M )) となり、正答できます。
+
+6
+
+If the graph does not contain a cycle, then induced subgraph that satisfies the conditions does
+not exist. Otherwise, perform the procedure below.
+Step 1 : Find a cycle from the graph, and retain the induced subgraph consisting of the vertices
+on the cycle.
+Step 2 : If the graph satisfies the condition, exit the procedure.
+Step 3 : There exists an edge that is not part of the cycle. Walk through the cycle from the
+ending vertex of the edge, until reaching the starting vertex of the edge. Retain the induced
+subgraph consisting of the vertices you passed through, and go back to Step 2.
+Every time Step 3 is performed the number of vertices decreases, and through the Steps 2
+and 3, the induced subgraph always contains a cycle. Since a graph consisting of two vertices
+that contains a cycle satisfies the conditions, so you can always obtain a induced subgraph that
+satisfies the conditions. If you implement it naively, the time complexity will be O(N (N + M )),
+so you can get accepted.
+
+12
+
+

@@ -1,0 +1,18 @@
+t0 = 0, (x0 , y0 ) = (0, 0) と置きます。各 0 以上 N − 1 以下の i について、時刻 ti に場所 (xi , yi ) にいた後、
+時刻 ti+1 に場所 (xi+1 , yi+1 ) にいることができるか、を判定して、どれか一つでも不可能なら No を、全て可
+能なら Yes を出力すれば良いです。
+
+1
+
+この判定は、t := ti+1 − ti , d := abs(xi − xi+1 ) + abs(yi − yi+1 ) とおくと、d ≤ t ∧ t%2 = d%2 で判定で
+きます。(d ≤ t でないと不可能なのは明らか、毎秒 x + y の偶奇は変わるので 2 で割ったあまりは一致する
+必要がある。 逆に d, t がこれを満たすなら実際に条件のように動くことが可能)
+
+Let t0 = 0, (x0 , y0 ) = (0, 0). For each i between 0 and N − 1, we check the following: can we reach
+(xi+1 , yi+1 ) at time ti+1 if we start (xi , yi ) at time ti ? If the answer is no for at least one i, we print
+”No”, otherwise we print ”Yes”.
+We can check this as follows. Let t := ti+1 − ti , d := abs(xi − xi+1 ) + abs(yi − yi+1 ). If d ≤ t and
+t%2 = d%2, the answer is yes, otherwise the answer is no.
+
+1
+

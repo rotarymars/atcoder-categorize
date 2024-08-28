@@ -1,0 +1,95 @@
+答えは ﬂoor
+
+(N )
+2
+
+です (ﬂoor (x) は x より小さくない最大の整数を表す)。
+
+例えば、C++ では N を int 型の変数とすると、これは (N + 1) /2 として求めることが出来ます。
+以下は C++ での実装例です。
+1
+
+#include <bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+
+int main() {
+
+4
+
+int N;
+
+5
+
+cin >> N;
+
+6
+
+int ans = (N + 1) / 2;
+
+7
+
+cout << ans << endl;
+return 0;
+
+8
+9
+
+}
+
+1
+
+The answer is ﬂoor
+
+(N )
+2
+
+(where ﬂoor (x) denotes the maximum integer that is not less than
+
+x)。
+例えば、C++ では N を int 型の変数とすると、これは (N + 1) /2 として求めることが出来ます。
+
+For example in C++, when N is a variable of type int, this can be calculated by (N + 1) /2.
+The following is a sample code in C++.
+1
+
+#include <bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+
+int main() {
+
+4
+
+int N;
+
+5
+
+cin >> N;
+
+6
+
+int ans = (N + 1) / 2;
+
+7
+
+cout << ans << endl;
+
+8
+
+return 0;
+
+9
+
+}
+
+8
+

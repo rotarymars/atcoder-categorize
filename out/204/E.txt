@@ -1,0 +1,59 @@
+
+		公式
+		
+			
+				E - Rush Hour 2 解説
+			
+			by kyopro_friends
+			
+		
+		
+		
+		
+			時間を任意に潰すことができるので、各都市へ最も早く到達するような方法のみについて考えれば十分です。
+
+まずは道路が \(1\) 本の次のような問題を考えます
+
+問題：道路 \(i\) を使って都市 \(A_i\) から都市 \(B_i\) に移動する。時刻 \(T\) に都市 \(A_i\) にいるとき、都市 \(B_i\) には最短でいつ着けるか？
+
+都市 \(A_i\) を時刻 \(t\) に出発したときに都市 \(B_i\) に着く時刻は \(f(t):=t+C_i+\left\lfloor \frac{D_i}{t+1}\right\rfloor\) となります。この \(f(t)\) に対して、次の主張が成り立ちます。
+
+主張：\(f(t)=t+C+\left\lfloor \frac{D}{t+1}\right\rfloor\) は非負整数から非負整数の関数として \(t=\lfloor \sqrt{D}\  \rceil -1\) のとき最小値をとり、\(0\leq t  \leq \lfloor \sqrt{D}\  \rceil -1\) で広義単調減少、\(\lfloor \sqrt{D}\  \rceil -1 \leq t\) で広義単調増加する。（\(\lfloor x \rceil\) は\(x\) に最も近い整数を表す）
+
+主張の証明
+$f(t)$ から定数を引いても最小値を取る $t$ と $f$ の凸性は不変です。なので、$C-1$ を引いて $f(t)=t+1+\left\lfloor \frac{D}{t+1}\right\rfloor$ で考えて良いです。さらに $t$ を 1ずらしたものを $g(t)=t+\left\lfloor \frac{D}{t}\right\rfloor$ とします。
+
+
+ $\frac{D}{t} -  \frac{D}{t+1}>1$ のとき、$\left\lfloor \frac{D}{t}\right\rfloor - \left\lfloor \frac{D}{t+1}\right\rfloor \geq1$ なので $g(t)-g(t+1) \geq 0$ となります。したがってこの範囲で $g(t)$ は広義単調減少です。
+
+
+ $\frac{D}{t} - \frac{D}{t+1} \leq1$ のとき、$\left\lfloor \frac{D}{t}\right\rfloor - \left\lfloor \frac{D}{t+1}\right\rfloor \leq1$ なので $g(t)-g(t+1) \leq 0$ となります。したがってこの範囲で $g(t)$ は広義単調増加です。
+
+
+以上より、$\frac{D}{t} - \frac{D}{t+1} \leq1$ を満たす最小の $t$ のとき、$g(t)$ は最小値をとります。方程式を解き、$t=\left\lceil \frac{-1+\sqrt{4D+1}}{2}\right\rceil$ となります( $\lceil x \rceil$ は $x$ 以上の最小の整数を表す)。これを注意深く整理すると $\left\lceil \frac{-1+\sqrt{4D+1}}{2}\right\rceil=\lfloor \sqrt{D}\  \rceil$ となることがわかり、結局 $f$ の最小値は $g$ から 1ずれた $t=\lfloor \sqrt{D}\  \rceil-1$ のときに達成されます。
+
+
+
+この主張から、\(T\leq \lfloor \sqrt{D_i} \rceil -1\) なら時刻 \(\lfloor \sqrt{D_i} \rceil -1\) まで待ってから移動を行い、そうでないなら即座に移動を行うことで、都市 \(B_i\) に最速で着くことができます。
+
+以上を踏まえて、変則的なダイクストラ法を用いることでこの問題を \(O(N+M\log N)\) で解くことができます。
+
+\( \lfloor \sqrt{D_i} \rceil -1\) が最適になることは \(D_i\) が小さなケースを実験することなどによっても気付くことができます。また、\(\sqrt{D}\) 付近が最適になることが確認できれば、\(\sqrt{D}-2\) から \(\sqrt{D}+2\) までの範囲を全探索するなどして解くことも出来ます。
+
+なお、最適解を求める際にそのまま三分探索を用いる方法はうまくいきません。理由を考えてみましょう。
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

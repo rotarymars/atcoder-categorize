@@ -1,0 +1,33 @@
+2r ≤ L なる最大の r を取ります (r ≤ 19 に注意)。まず、以下のようにすれば、長さ 0 以上 2r − 1 以下の
+パスをすべて 1 本ずつ作ることができます。
+
+• r + 1 個の頂点 1, ..., r + 1 を用意し、N = r + 1 とする
+• 頂点 i から 頂点 i + 1 へ、長さ 0 の辺と長さ 2i の辺を 1 本ずつ張る
+さて、こうして作ったグラフの頂点 t から頂点 N に長さ X の辺を張れば、長さ X, X + 1, ..., X + 2t−1 − 1
+のパスを 1 本ずつ作ることができます。よって、t = N − 1, ..., 1 の順に見て、L − 2t−1 ≥ 2r なら頂点 t か
+ら頂点 N に長さ L − 2t−1 の辺を張り、L を 2t−1 だけ減らし、そうでなければ何もしないことを繰り返せば
+よいです。
+
+Solution 1.
+Let’s take the maximum integer r such that 2r ≤ L.
+First, consider the following graph:
+• There are N = r + 1 vertices numbered 1, . . . , N .
+• For each i, add two edges from vertex i to vertex i + 1. One of them has length 0, and the other
+has length 2i−1 .
+In this graph, there are 2r paths from vertex 1 to vertex N , and their lengths are 0, . . . , 2r − 1.
+What happens if we add an edge of length X from vertex t to vertex N ? This way we can add
+X, X + 1, . . . , X + 2t−1 − 1 to the set of lengths.
+By adding edges of this type properly (by writing L as a sum of powers of two using binary representation), we can get a desired graph.
+
+Solution 2.
+Suppose that we have a graph G that satisfies the condition for L = X. We’ll show how to construct
+solutions for L = X + 1 and L = 2X using this graph. By repeating these operations properly, we can
+get a desired graph.
+• L = X + 1 is easy: just add an edge of length X from source to sink to G.
+• L = 2X can be constructed as follows. First, double the lengths of all edges in G. Now the set
+of lengths is 0, 2, . . . , 2X − 2. Then, add a new vertex to G (it will be the new sink), and add
+two edges from the old sink to the new sink, with lengths 0 and 1. Now the set of lengths is
+0, 1, 2, . . . , 2X − 1, and this is what we want.
+
+2
+

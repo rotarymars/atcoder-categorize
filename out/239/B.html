@@ -1,0 +1,461 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc239/editorial/3390" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc239";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-02-19T21:00:00+09:00");
+			var endTime = moment("2022-02-19T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc239">デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc239/editorial/3390?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc239/editorial/3390?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc239%2Feditorial%2F3390">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc239%2Feditorial%2F3390">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc239%2Feditorial%2F3390">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220219T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-02-19 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220219T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-02-19 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc239"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc239/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc239/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc239/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc239/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc239/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc239/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc239/tasks/abc239_b">B - Integer Division</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題は、競技プログラミングに頻出である <strong>切り捨て除算</strong> を正しく行うことができるか？を問うている問題です。この問題が解けなかった / 長い時間を費やしてしまった という人はこの際に是非正しい切り捨て除算のやり方を覚えてください。</p>
+
+<p>細かい解説は後に書くとして、ポイントは大きく <span>\(2\)</span> つあります。</p>
+
+<h4>1. 小数を使わない</h4>
+
+<p>これは Python ユーザーの方にありがちなミスですが、切り捨て除算を <code>C = int(A / B)</code> のように小数を経由して計算する人がいます。これは一見正しい計算ができているようですが、 <strong>将来的にバグの原因となる危険な計算方法</strong> なので出来るだけ控えた方が良いです。</p>
+
+<p>Python の <code>float</code> や C++ の <code>double</code> のような一般的な浮動小数点数型は高々 (<span>\(2\)</span> 進 <span>\(53\)</span> 桁) <span>\(\simeq\)</span> (<span>\(10\)</span> 進 <span>\(16\)</span> 桁) 程度の精度しか持ちません。よって、<span>\(10^{18}\)</span> のような大きい数を計算する時には誤差が発生して正しい計算が出来なくなります。</p>
+
+<pre class="prettyprint linenums"><code>n1 = 10**18 - 42
+n2 = int(float(n1))
+print(n1) #  999999999999999958 が出力される
+print(n2) # 1000000000000000000 が出力される
+</code></pre>
+
+<h4>2. 負数の除算に注意する</h4>
+
+<p>この問題では<span>\(X\)</span> の範囲が <span>\(-10^{18}\)</span> 以上となり、割られる数が負の場合の除算が発生します。一見割られる数が正の場合と変わらないようですが、実は <strong>負数の除算はいくつか定義があり、プログラム言語によって定義が異なる</strong> という大きな問題があります。</p>
+
+<ul>
+<li>詳しい話は以下で説明しますが、例えば <span>\(-24\)</span> を割られる数、 <span>\(10\)</span> を割る数として整数除算した時の答えは言語によって <span>\(-2\)</span> になったり <span>\(-3\)</span> になったりします。</li>
+</ul>
+
+<p>もしも「自分が思っていた負数の除算の挙動」と「実際の除算の挙動」が異なっていた場合、人によっては WA が出た時にどこが間違っているのか気づかず苦労してしまうかもしれません。</p>
+
+<p>これらの例のように、自分が思っていた動作と正しい動作が異なるのに気づかずに「こう書けばきっと正しく動くはず」と思い込んで実装してバグを埋め込んでしまう、というのはプログラムを書く上で本当によくあるミスだと思います。<br>
+プログラマーに関するミームとして「プログラムは思った通りには動かない。書いた通りに動く」という言葉があります。これは言い換えると「うっかり間違って書いてしまうと思い通りに動かない」という話である意味当たり前のことですが、世の中のバグの大半はこうした「思い込み」によってできたものなのを考えると、なかなか侮れない言葉だと思います。<br>
+また、競技プログラミングでの経験の中で、もしも WA が出た時に、「自分が思った挙動」と「実際の挙動」を擦り合わせてどこが間違っているのかを発見できる能力を身に着けられると、実装できるプログラムの幅が大きく広がると思います。</p>
+
+<p>さて、そろそろ詳しい解説に入りましょう。2. の理由から、この問題は言語によって適切な答え方が変わる問題です。 解説では C++ と Python での解法を載せますが、他の言語を使用している方は上の「提出結果」から上位の解答を読んでみるなどしてやり方を調べることを推奨します。</p>
+
+<h4>Python</h4>
+
+<p>Python では以下のように簡潔に書くことができます。</p>
+
+<pre class="prettyprint linenums"><code>X = int(input())
+print(X // 10)
+</code></pre>
+
+<p>なぜならば、Python の切り捨て除算演算子  <code>//</code> は、分数に対して問題文に定義されている通りの floor 関数 <span>\(\lfloor \ \rfloor\)</span> を適用したものになっているからです。</p>
+
+<p><a href="https://docs.python.org/ja/3/reference/expressions.html#binary-arithmetic-operations" rel="nofollow">参考：Python 言語リファレンス 6.7 二項算術演算</a></p>
+
+<pre class="prettyprint linenums"><code>print(47 // 10)   # 4  が出力される
+print(-24 // 10)  # -3 が出力される
+</code></pre>
+
+<p>よって、<code>//</code> を使って自然に実装すればこの問題を解くことができます。</p>
+
+<p>一般に、<code>A</code> を <code>B</code> で切り捨て除算したい場合も、<code>A // B</code> と書けば正しく動作します。普段 <code>int(A / B)</code> と実装していた人はこれを機に <code>A // B</code> を使用することを推奨します。</p>
+
+<h4>C++</h4>
+
+<p>問題は C++ の場合です。 C++ では <code>/</code> で切り捨て除算を行うことができますが、実はこれをそのまま使うだけではうまくいきません。<br>
+試しにサンプルを実行してみると次のようになります。</p>
+
+<pre class="prettyprint linenums"><code>#include &lt;iostream&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  cout &lt;&lt; 47 / 10 &lt;&lt; endl;  // 4  が出力される
+  cout &lt;&lt; -24 / 10 &lt;&lt; endl; // -2 が出力される
+}
+</code></pre>
+
+<p>どうして <code>-24 / 10</code> が <code>-2</code> になるのかというと、C++ (正確には C++11 以降) における除算は「小数部分を無視した数学的な商」を計算しているからです。</p>
+
+<ul>
+<li>例えば <code>-24/10</code> の場合、 <span>\(-24/10 = -2.4\)</span> で、<span>\(.4\)</span> の部分を取り除くと <span>\(-2\)</span> となりこれが答えとなります。</li>
+</ul>
+
+<p><a href="https://cpprefjp.github.io/international-standard.html" rel="nofollow">参考: C++ 国際標準規格</a></p>
+
+<p>以上の理由から、 C++ の整数除算では、「割られる数が負である」 + 「余りが発生している」場合に本来切り捨てられるべき部分が切り上げられてしまいます。よってそのようなケースでは出てくる答えに <span>\(1\)</span> を引けば正しい答えを求めることができます。</p>
+
+<p>以上の話をまとめると、次のような実装をすればこの問題を AC することができます。</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  long long X;
+  cin &gt;&gt; X;
+  if (X &lt; 0 and X % 10 != 0) {
+    cout &lt;&lt; X / 10 - 1 &lt;&lt; &#34;\n&#34;;
+  } else {
+    cout &lt;&lt; X / 10 &lt;&lt; &#34;\n&#34;;
+  }
+}
+</code></pre>
+
+<p>別解として剰余演算子 <code>%</code> を用いる方法もあります。 C++ では <code>%</code> は <code>(a / b) * b + a % b = a</code> を満たす演算子として定義されているので、切り上げが発生するのは 「<code>a % b</code> が負である」ときのみであるとわかります。</p>
+
+<p>よって次のような書き方をしてもこの問題を AC することができます。</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  long long X;
+  cin &gt;&gt; X;
+  cout &lt;&lt; X / 10 - (X % 10 &lt; 0) &lt;&lt; &#34;\n&#34;;
+}
+</code></pre>
+
+<p>一般に、<code>A</code> を <code>B</code> で切り捨て除算したい場合は、</p>
+
+<ul>
+<li><code>A,B</code> ともに正の場合 <code>A / B</code></li>
+<li><code>A,B</code> が負を取り得る場合  <code>A / B - (A % B &lt; 0)</code></li>
+</ul>
+
+<p>で上手くいくので、これを機に覚えておくとよいでしょう。</p>
+
+<p>解説は以上となります。普段とは少し毛色の異なる難しさを含んだ問題だったと思いますが、切り捨て除算はこれまでも、そしてこれからも何度も出てくる演算だと思うので是非ともここで正しいやり方を覚えていただけるとありがたいです。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1644314308">
+				<time class="timeago" datetime="2022/02/08 18:58:28"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1645262748">
+				<time class="timeago" datetime="2022/02/19 18:25:48"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc239/editorial/3390?lang=ja" data-a2a-title="解説 - デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc239/rules">ルール</a></li>
+					<li><a href="/contests/abc239/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

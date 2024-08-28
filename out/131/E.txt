@@ -1,0 +1,59 @@
+N 頂点の連結グラフには少なくとも N − 1 本の辺が存在します。これらの辺によって結ばれた頂点間の最
+短距離は 1 になるため、K >
+逆に K ≤
+
+N (N −1)
+−2)
+− (N − 1) = (N −1)(N
+のとき解が存在しないのは明らかです。
+2
+2
+
+(N −1)(N −2)
+のとき解が存在することを、条件を満たすグラフを実際に構成することで示します。
+2
+
+頂点 1 とそれ以外の任意の頂点とを結ぶ N − 1 本の辺だけが存在するグラフを考えます（このようなグ
+ラフをスターまたはうにと言います）。このグラフでは頂点 1 を除く任意の頂点間の最短距離は 2 であり、
+−2)
+K = (N −1)(N
+のときの解になっています。ここで、このグラフの最短距離が 2 である頂点同士を結ぶ辺
+2
+
+を追加すると、他の頂点間の最短距離に影響を与えずに、その最短距離を 1 にすることができます。
+よって、この操作を
+
+(N −1)(N −2)
+− K 回くり返すことで条件を満たすグラフを作ることができます。
+2
+
+7
+
+A N -vertices connected graph has at least N −1 edges. The shortest distance
+of these each pair is equal to 1, so obviously, it is clear that there doesn’t
+−2)
+exist a solution if K > N (N2−1) − (N − 1) = (N −1)(N
+.
+2
+−2)
+Conversely, now we’re showing that there exist a solution if K ≤ (N −1)(N
+2
+by constructing a graph that satisﬁes the condition.
+First, let’s consider the graph where vertex 1 and the all other vertices
+are connected, respectively, with N − 1 edges in total (such graph is called
+”star”, or in Japanese, ”sea urchin”). In this graph, the shortest distance
+of an arbitrary pair of vertices without vertex 1 is equal to 2, so this can
+−2)
+be the answer for K = (N −1)(N
+. Here, if you add an edge to the pair
+2
+of vertices where the shortest distance is 2, it will change to 1, while the
+shortest distances of other pairs remain unchanged.
+Therefore, you can obtain the satisfying graph by repeating this operation
+−2)
+− K times.
+for (N −1)(N
+2
+
+15
+

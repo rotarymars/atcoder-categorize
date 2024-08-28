@@ -1,0 +1,53 @@
+
+		公式
+		
+			
+				A - Election 2 解説
+			
+			by MtSaka
+			
+		
+		
+		
+		
+			
+
+初心者の方へ
+
+プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは practice contest の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。  
+また、プログラミングコンテストの問題に慣れていない方は、 AtCoder Beginners Selection の問題をいくつか試すことをおすすめします。  
+C++入門 AtCoder Programming Guide for beginners (APG4b) は、競技プログラミングのための C++ 入門用コンテンツです。
+Python入門 AtCoder Programming Guide for beginners (APG4bPython) は、競技プログラミングのための Python 入門用コンテンツです。
+
+
+
+
+
+まず、高橋氏または青木氏の勝利が確定しているかの条件について考えます。どちらかの候補者の票数がすでに \(\lceil \frac{N}{2} \rceil\) 以上のとき、もう一方の候補者が未開票の票をすべて獲得しても勝者は変わりません。逆に、どちらの候補者も\(\lceil \frac{N}{2} \rceil\) 票未満であるとき、どちらも勝つことができるので勝者は確定していません。
+
+この条件をif文を用いて場合分けを実装します。
+\(T \geq \lceil \frac{N}{2} \rceil\) または \(A \geq \lceil \frac{N}{2} \rceil \) を満たすかを判定します。 一般的なプログラミング言語では N / 2 は切り捨て除算となります。実際に \( \lceil \frac{N}{2} \rceil \) を求める際は (N + 1) / 2 と計算するとよいです。
+
+実装例(C++):
+
+
+
+実装例(Python):
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

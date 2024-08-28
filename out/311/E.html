@@ -1,0 +1,417 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc311/editorial/6819" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc311";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-07-22T21:00:00+09:00");
+			var endTime = moment("2023-07-22T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc311">トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc311/editorial/6819?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc311/editorial/6819?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc311%2Feditorial%2F6819">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc311%2Feditorial%2F6819">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc311%2Feditorial%2F6819">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230722T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-07-22 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230722T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-07-22 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc311"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc311/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc311/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc311/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc311/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc311/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc311/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc311/tasks/abc311_e">E - Defect-free Squares</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>動的計画法でこの問題を解くことを考えます。</p>
+
+<ul>
+<li><span>\(\mathrm{dp}[i][j] :=\)</span> (マス <span>\((i, j)\)</span> を右下とする穴のない正方形のうち、一辺の長さ <span>\(n\)</span> の最大値。ただし、そのような正方形が存在しない場合は <span>\(0\)</span>)</li>
+</ul>
+
+<p>とします。(ただし <span>\((i, j)\)</span> が <span>\(1 \leq i \leq H, 1 \leq j \leq W\)</span> の範囲外である場合は <span>\(\mathrm{dp}[i][j] = 0\)</span>)</p>
+
+<p>このとき、この問題の答えは <span>\(\mathrm{dp}[i][j]\)</span> を用いて次の式で表せます。</p>
+<p><span>\[\sum_{i=1}^H \sum_{j=1}^W \mathrm{dp}[i][j]\]</span></p><p>(証明) 全ての穴のない正方形は、どこかのマスをちょうど 1 個だけ右下に持ちます。また、<span>\(\mathrm{dp}[i][j] = k\)</span> であるとき、<span>\(n=1, 2, \dots, k\)</span> 全てについて <span>\((i, j)\)</span> を右下とする縦横 <span>\(n\)</span> の正方形領域は穴のない正方形です。よって、全ての穴のない正方形は上式でちょうど 1 回ずつ数えられます。(証明終わり)</p>
+
+<ul>
+<li>ラフな説明で言い換えると、次のようなお気持ちを持つと上記の内容にたどり着くことができます。
+
+<ul>
+<li>「全ての穴のない正方形を数える」という問題を解きたい</li>
+<li>これは「右下が <span>\((i, j)\)</span> である穴のない正方形を数える」という部分問題を全てのマス <span>\((i, j)\)</span> に対して解けば求められる</li>
+<li>部分問題を DP で計算しよう！</li>
+</ul></li>
+</ul>
+
+<p>さて、<span>\(\mathrm{dp}[i][j]\)</span> を <span>\(1 \leq i \leq H, 1 \leq j \leq W\)</span> の範囲で全て計算できればこの問題を解くことができます。</p>
+
+<p>いくらかの観察により、<span>\(\mathrm{dp}[\ast][\ast]\)</span> について次の漸化式が成り立つとわかります。</p>
+<p><span>\[
+\mathrm{dp}[i][j] = 
+\begin{cases}
+\min\lbrace \mathrm{dp}[i-1][j], \mathrm{dp}[i][j-1], \mathrm{dp}[i-1][j-1] \rbrace + 1 &amp; S[i][j] = \mathrm{o}\\
+0 &amp; S[i][j] = \mathrm{x}
+\end{cases}
+\]</span></p><p>正当性については、マス <span>\((i, j)\)</span> と正整数 <span>\(n\)</span> に関して、次の 1. と (2. かつ 3. かつ 4. かつ 5.) が同値であることを確認すると示せます。(図を書いてみると式の意味が理解しやすいです。)</p>
+
+<ol>
+<li><span>\((i, j)\)</span> を右下とする一辺の長さが <span>\(n\)</span> の正方形領域に穴が無い。</li>
+<li><span>\((i, j-1)\)</span> を右下とする 一辺の長さが <span>\(n-1\)</span> の正方形領域に穴が無い。</li>
+<li><span>\((i-1, j)\)</span> を右下とする 一辺の長さが <span>\(n-1\)</span> の正方形領域に穴が無い。</li>
+<li><span>\((i-1, j-1)\)</span> を右下とする 一辺の長さが <span>\(n-1\)</span> の正方形領域に穴が無い。</li>
+<li><span>\((i, j)\)</span> は穴が無いマスである。</li>
+</ol>
+
+<p>よって、この DP の式に従って <span>\(\mathrm{dp}[i][j]\)</span> <span>\((1 \leq i \leq H, 1 \leq j \leq W)\)</span> を <span>\(i\)</span> 昇順 -&gt; <span>\(j\)</span> 昇順 の順に計算していけばよいです。<br>
+計算量は <span>\(\mathrm{O}(HW + N)\)</span> で十分高速です。</p>
+
+<ul>
+<li>実装例 (C++)</li>
+</ul>
+
+<pre class="prettyprint linenums"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+constexpr int nmax = 3030;
+int hole[nmax][nmax];
+int dp[nmax][nmax];
+
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
+  int H, W, N;
+  cin &gt;&gt; H &gt;&gt; W &gt;&gt; N;
+  for (int i = 0, a, b; i &lt; N; i++) {
+    cin &gt;&gt; a &gt;&gt; b, hole[a][b] = 1;
+  }
+  long long ans = 0;
+  for (int i = 1; i &lt;= H; i++) {
+    for (int j = 1; j &lt;= W; j++) {
+      if (hole[i][j]) continue;
+      dp[i][j] = min({dp[i - 1][j - 1], dp[i][j - 1], dp[i - 1][j]}) + 1;
+      ans += dp[i][j];
+    }
+  }
+  cout &lt;&lt; ans &lt;&lt; &#34;\n&#34;;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1689682428">
+				<time class="timeago" datetime="2023/07/18 21:13:48"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1690034015">
+				<time class="timeago" datetime="2023/07/22 22:53:35"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc311/editorial/6819?lang=ja" data-a2a-title="解説 - トヨタ自動車プログラミングコンテスト2023#4(AtCoder Beginner Contest 311)">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc311/rules">ルール</a></li>
+					<li><a href="/contests/abc311/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

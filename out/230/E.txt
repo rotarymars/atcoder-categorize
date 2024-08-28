@@ -1,0 +1,48 @@
+
+		公式
+		
+			
+				E - Fraction Floor Sum 解説
+			
+			by mechanicalpenciI
+			
+		
+		
+		
+		
+			任意の\(1\leq i\leq N\) に対して、\(1\leq \left[  \frac{N}{i} \right] \leq N\)が成り立つことに注意します。
+
+\(k_0= [\sqrt{N}]\)とし、
+\(k=1,2,\ldots,k_0\) に対して、
+\(  \left[  \frac{N}{i} \right]=k\) をみたす \(i\) の個数を数えることを考えます。
+\(\left[  \frac{N}{i} \right]=k\) すなわち \(k\leq \frac{N}{i}<k+1\)は
+\(\frac{N}{k+1}<i\leq \frac{N}{k}\) と書き換えられ、これをみたす整数 \(i\) は \(\left(  \left[  \frac{N}{k} \right]-\left[  \frac{N}{k+1} \right]\right) \) 個存在します。
+
+次に、そうでない、すなわち\(\left[  \frac{N}{i} \right]\geq k_0+1\) となるようなものを考えます。
+このとき、 \(\frac{N}{i}\geq k_0+1\) より、\(i\leq \frac{N}{k_0+1}<\sqrt{N}\) であり、そのような正整数 \(i\) は高々 \(\sqrt{N}\) 個しか存在せず、\(1\) つずつ足し上げて行くことができます。
+
+よって答えは、
+\[
+\sum_{k=1}^{k_0} \left(  \left(  \left[  \frac{N}{k} \right]-\left[  \frac{N}{k+1} \right]\right) \times k\right)+
+\sum_{i=1}^{\left[  \frac{N}{k_0+1} \right]} \left[  \frac{N}{i} \right] 
+\]と求められ、どちらの項も \(O(\sqrt{N})\)で求められるため、よってこの問題を解く事が出来ました。
+
+c++による実装例:
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

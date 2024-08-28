@@ -1,0 +1,393 @@
+6 − A − B を計算し，その値を出力すればよいです．
+入力および出力の方法は言語によって異なりますが，たとえば C++ であれば cin, cout を使うこ
+とで実現できます．
+Listing 1 C での実装例
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(void){
+
+4
+
+int A, B;
+
+5
+
+scanf("%d%d", &A, &B); // 入力からA, B を受け取る
+
+6
+7
+
+int result = 6 - A - B; // 6-A-B を計算し，変数result に格納する
+
+8
+
+printf("%d\n", result); // 出力
+
+9
+
+return 0;
+
+10
+11
+
+}
+Listing 2 ferNANDo での実装例
+
+1
+
+r a7 a6 a5 a4 a3 a2 a1 a0
+
+2
+
+r f e r n a nn d o
+
+3
+
+r b7 b6 b5 b4 b3 b2 b1 b0
+
+4
+
+d a7 b7
+
+5
+
+e a7 d
+
+6
+
+f b7 d
+
+7
+
+x7 e f
+
+8
+
+d a6 b6
+
+9
+
+e a6 d
+
+1
+
+10
+
+f b6 d
+
+11
+
+x6 e f
+
+12
+
+d a5 b5
+
+13
+
+e a5 d
+
+14
+
+f b5 d
+
+15
+
+x5 e f
+
+16
+
+d a4 b4
+
+17
+
+e a4 d
+
+18
+
+f b4 d
+
+19
+
+x4 e f
+
+20
+
+d a3 b3
+
+21
+
+e a3 d
+
+22
+
+f b3 d
+
+23
+
+x3 e f
+
+24
+
+d a2 b2
+
+25
+
+e a2 d
+
+26
+
+f b2 d
+
+27
+
+x2 e f
+
+28
+
+d a1 b1
+
+29
+
+e a1 d
+
+30
+
+f b1 d
+
+31
+
+x1 e f
+
+32
+
+d a0 b0
+
+33
+
+e a0 d
+
+34
+
+f b0 d
+
+35
+
+x0 e f
+
+36
+
+x4 x4 x4
+
+37
+
+x5 x5 x5
+
+38
+
+x7 x6 x5 x4 x3 x2 x1 x0
+
+2
+
+It would be enough to calculate 6 − A − B and output the value.
+The way of input and output depends on languages. For example, in C++, you can implement
+by using cin and cout.
+Listing 3 Implementation example in C
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(void){
+
+4
+
+int A, B;
+
+5
+
+scanf("%d%d", &A, &B); // receive A and B from input
+
+6
+7
+
+int result = 6 - A - B; // calculate 6-A-B and store into the variable
+
+8
+
+printf("%d\n", result); // output
+
+result
+9
+
+return 0;
+
+10
+11
+
+}
+Listing 4 Implementation example in ferNANDo
+
+1
+
+r a7 a6 a5 a4 a3 a2 a1 a0
+
+2
+
+r f e r n a nn d o
+
+3
+
+r b7 b6 b5 b4 b3 b2 b1 b0
+
+4
+
+d a7 b7
+
+5
+
+e a7 d
+
+6
+
+f b7 d
+
+7
+
+x7 e f
+
+8
+
+d a6 b6
+
+9
+
+e a6 d
+
+10
+
+f b6 d
+
+11
+
+x6 e f
+
+12
+
+d a5 b5
+
+13
+
+e a5 d
+
+14
+
+f b5 d
+
+15
+
+x5 e f
+
+16
+
+d a4 b4
+
+17
+
+e a4 d
+
+18
+
+f b4 d
+
+19
+
+x4 e f
+
+20
+
+d a3 b3
+
+8
+
+21
+
+e a3 d
+
+22
+
+f b3 d
+
+23
+
+x3 e f
+
+24
+
+d a2 b2
+
+25
+
+e a2 d
+
+26
+
+f b2 d
+
+27
+
+x2 e f
+
+28
+
+d a1 b1
+
+29
+
+e a1 d
+
+30
+
+f b1 d
+
+31
+
+x1 e f
+
+32
+
+d a0 b0
+
+33
+
+e a0 d
+
+34
+
+f b0 d
+
+35
+
+x0 e f
+
+36
+
+x4 x4 x4
+
+37
+
+x5 x5 x5
+
+38
+
+x7 x6 x5 x4 x3 x2 x1 x0
+
+9
+

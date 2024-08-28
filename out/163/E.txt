@@ -1,0 +1,28 @@
+はじめ左から i 番目にいる幼児の移動先を pi とすると、求めるものは Ai ∗ |i − pi | を足し合わ
+せた値の最大値になります。|x − y| = max(x − y, y − x) であることから、” Ai ∗ |i − pi | をスコア
+に足す” と言う代わりに ” Ai ∗ (i − pi ) と Ai ∗ (pi − i) の好きな方を選んでスコアに足す” と言い換
+えても同値な問題になります。
+すると、Ai ∗ (i − pi ) の方を選んだ添字 i の集合に対しては Ai の値の大きい方から pi を 1, 2, 3, . . .
+とし、Ai ∗(pi −i) の方を選んだ添字 i の集合に対しては Ai の大きい方から pi を N, N −1, N −2, . . .
+とするのが最適だということが言えます。
+以上のことを踏まえれば、原始的な動的計画法を用いることで O(N 2 ) の計算量で答えを求めるこ
+とができます。具体的には、DP [x][y] を活発度の高い方から x + y 人を既に配置しそのうち x 人で
+は Ai ∗ (i − pi ) を選択し y 人では Ai ∗ (pi − i) を選択したときのスコアの最大値と定義し、x + y の
+昇順に計算していけば良いです。
+
+6
+
+Let pi be the destination of the child who are initially at the i-th position from the left, then
+the desired answer is the maximum sum of Ai ∗ |i − pi |. Since |x − y| = max(x − y, y − x), instead
+of “adding Ai ∗ |i − pi | to score,” one can “choose either Ai ∗ (i − pi ) or Ai ∗ (pi − i) arbitrarily
+and add to the score” without changing the answer of the problem.
+Then, it appears that it is optimal to, for the set of indices i where Ai ∗ (i − pi ) was chosen,
+assign 1, 2, 3, . . . to pi in the decreasing order of Ai , and for the set of indices i where Ai ∗ (pi − i)
+are chosen, assign N, N − 1, N − 2, . . . to pi in the decreasing order of Ai .
+From the above, you can ﬁnd the answer in a total of O(N 2 ) time using primitive Dynamic
+Programming. Speciﬁcally, let DP [x][y] be the maximum score when children with the x + y
+highest activity is conﬁgured, where Ai ∗ (i − pi ) are chosen for the x children of them, and where
+Ai ∗ (pi − i) are chosen for the y children of them; then calculate in the increasing order of x + y.
+
+12
+

@@ -1,0 +1,89 @@
+選んだ 2 つのボールに書かれている数の和が偶数になるのは、 2 つのボールに書かれている数が
+共に偶数であるか、共に奇数である場合に限ります。したがって、そのようなボールの選び方の数を
+求めればよいです。これは、
+
+(N )
+
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+2
+
+( )
++ M
+2 通りです。以下は C++ における実装例です。
+
+3
+4
+
+int main(){
+
+5
+
+int N,M;
+
+6
+
+cin>>N>>M;
+
+7
+8
+
+cout<<N*(N-1)/2+M*(M-1)/2<<endl;
+
+9
+
+return 0;
+
+10
+
+}
+
+1
+
+The sum of integers on the chosen two balls is an even number only if the integers on the two
+balls are both even numbers, or both odd numbers. Therefore, it is enough to ﬁnd the number
+( ) ( )
+of such ways of choosing. This is equal to N2 + M
+2 . The following is a sample code in C++.
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+int N,M;
+
+6
+
+cin>>N>>M;
+
+7
+
+cout<<N*(N-1)/2+M*(M-1)/2<<endl;
+
+8
+
+return 0;
+
+9
+10
+
+}
+
+7
+

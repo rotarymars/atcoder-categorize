@@ -1,0 +1,208 @@
+(解説: evima)
+まず、1015 という数は現代の我々の計算機にとっても大きく、何らかの処理をこの程度の回数
+行って実行時間を 2 秒以内に収めることは不可能です。
+素直な方針は、問題文で「(以下省略)」となっている部分を計算し、まず番号 N の犬の名前の長
+さを求めることでしょう。以下、「番号 N の犬の名前」を「名前 N 」と書きます。i = 1, 2, . . . のそ
+れぞれに対し、長さが i であるような名前は 26i 個存在します。よって、名前 1, . . . , 26 の長さは
+
+1、名前 26 + 1, . . . , 26 + 262 の長さは 2、名前 26 + 262 + 1, . . . , 26 + 262 + 263 の長さは 3、. . . で
+す。26 + 262 + 263 + . . . + 2611 = 3817158266467286 > 1015 + 1 より、長さ 11 での計算までに名
+前 N の長さが判明します。これにより、名前 N の長さが l であると判明したとします。
+すると、長さが l であるような 26l 個の名前の中で、名前 N が辞書順で N − (26 + 262 + . . . + 26l−1 )
+
+(この値を k とします) 番目の名前であることもわかります。残る問題は「長さが l であるような文
+字列の中で、辞書順で k 番目のものを求めよ」というものです。
+こ の 問 題 の 解 き 方 が よ く わ か ら な け れ ば 、ア ル フ ァ ベ ッ ト が a, b, . . . , j の 10 文 字 で
+あ っ た と し て 考 え る と わ か り や す い で し ょ う 。例 え ば 、こ の 状 況 で は 長 さ 3 の 名 前 は
+
+aaa, aab, . . . , aaj, aba, . . . , jjj の 103 = 1000 個存在します。このうち、例えば辞書順で 246 番目
+のものは bde です。このように、k − 1 の十進表記での一の位が辞書順で k 番目の名前の最後の文
+字に、十の位が名前の最後から 2 番目の文字に、. . .、10i の位が名前の最後から i + 1 番目の文字に
+対応します (a, b, . . . , j が 0, 1, . . . , 9 に対応しています)。
+アルファベットが 26 文字の場合も同様に、k − 1 の「二十六進表記」における 26i の位が名前の
+最後から i 番目の文字に対応します。これらの位の値の求め方の例は次の通りです。(この手法に
+関しても、動作原理がよくわからなければ十進表記の場合で考えるとわかりやすいでしょう。)
+
+• 変数 x を k − 1 で初期化し、 x が 0 となるまで以下の操作を繰り返す。
+• x を 26 で割った商が q、余りが r であるとする。この操作が i 回目に実行されたときの r が
+k − 1 の下から i 番目の桁である。 x を q で置き換える。
+
+Python での実装例:
+
+1
+
+N = int(input())
+
+2
+
+ans = ''
+
+3
+
+for i in range(1, 99):
+
+4
+
+if N <= 26 ** i:
+
+5
+
+N -= 1
+
+6
+
+for j in range(i):
+
+7
+
+ans += chr(ord('a') + N % 26)
+
+8
+
+N //= 26
+break
+
+9
+10
+
+else:
+N -= 26 ** i
+
+11
+12
+
+print(ans[::-1])
+
+# reversed
+
+(付録) より簡潔な実装例:
+
+1
+
+N = int(input())
+
+2
+
+ans = ''
+
+3
+
+while N > 0:
+
+4
+
+N -= 1
+
+5
+
+ans += chr(ord('a') + N % 26)
+
+6
+
+N //= 26
+
+7
+
+print(ans[::-1])
+
+(Editorial: evima)
+First, the number 1015 is so large even for our modern machine that it is impossible to perform some
+operation this number of times within two seconds.
+A simple way is to ﬁnd the length of the name of the dog numbered N by calculating the “and so
+on”-part found in the problem statement. By “Name X”, we denote the name of the dog numbered
+N. For each i = 1, 2, . . ., there are 26i names of length i. Therefore, Names 1, . . . , 26 have lengths 1,
+Names 26 + 1, . . . , 26 + 262 have lengths 2, Names 26 + 262 + 1, . . . , 26 + 262 + 263 have lengths 3,
+3, . . . and so on. Since 26 + 262 + 263 + . . . + 2611 = 3817158266467286 > 1015 + 1, by the time we
+calculate the length 11, we can ﬁnd the length of Name N. We assume that Name N appeared to have
+length l.
+Then we can see that, Name N is the N − (26 + 262 + . . . + 26l−1 ) (let the value be k)-th name among
+26l names of lengths l. Now we want to ﬁnd “the k-th among the strings of length l.”
+If yo are not sure how to answer this question, you can simplify it by considering the situation where
+only 10 alphabets,a, b, . . . and j, are available. For example, under that assumption, the number of the
+name of length 3 is 103 = 1000: aaa, aab, . . . , aaj, aba, . . . and jjj. Among them, for instance, the
+246-th one is bde. Likewise, in the decimal representation of k − 1, the ones’ place corresponds to the
+last letter, the tens’ place corresponds to the second last letter, and the 10i s’ place corresponds to the
+i + 1-th last letter (a, b, . . . , j correspond to 0, 1, . . . , 9).
+Similarly, when 26 kinds of alphabets are used, in the notation of base-26, the 26i s’ place corresponds to the i + 1-th last letter. You can ﬁnd each digit by the following procedures for example:
+• Initialize variable x with k − 1, and repeat until x becomes 0.
+• Let q and r be the quotient and remainder of x divided by 26, respectively. The i-th result of r
+in this operation is the i-th last digit of k − 1. Replace x with q.
+
+Sample code in Python:
+
+1
+
+N = int(input())
+
+2
+
+ans = ''
+
+3
+
+for i in range(1, 99):
+
+4
+
+if N <= 26 ** i:
+
+5
+
+N -= 1
+
+6
+
+for j in range(i):
+
+7
+
+ans += chr(ord('a') + N % 26)
+
+8
+
+N //= 26
+break
+
+9
+10
+
+else:
+N -= 26 ** i
+
+11
+12
+
+print(ans[::-1])
+
+# reversed
+
+(Appendix) a simpler implementation example:
+
+1
+
+N = int(input())
+
+2
+
+ans = ''
+
+3
+
+while N > 0:
+
+4
+
+N -= 1
+
+5
+
+ans += chr(ord('a') + N % 26)
+
+6
+
+N //= 26
+
+7
+
+print(ans[::-1])
+

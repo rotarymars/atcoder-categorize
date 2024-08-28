@@ -1,0 +1,44 @@
+
+Train Ticket
+
+op1,op2,op3 の決め方は高々 8 通りであるため、これらを全て試して当てはまるものがあれば 1
+つ出力するとよいです。
+# include < cstdio >
+char s [5];
+int main ()
+{
+scanf ("% s " ,& s );
+int a = s [0] - ’0 ’ , b = s [1] - ’0 ’ , c = s [2] - ’0 ’ , d = s [3] - ’0 ’;
+if (a -b -c - d ==7) printf ("% d -% d -% d -% d =7\ n " ,a ,b ,c , d );
+else if (a -b - c + d ==7) printf ("% d -% d -% d +% d =7\ n " ,a ,b ,c , d );
+else if (a - b +c - d ==7) printf ("% d -% d +% d -% d =7\ n " ,a ,b ,c , d );
+else if (a - b + c + d ==7) printf ("% d -% d +% d +% d =7\ n " ,a ,b ,c , d );
+else if ( a +b -c - d ==7) printf ("% d +% d -% d -% d =7\ n " ,a ,b ,c , d );
+else if ( a +b - c + d ==7) printf ("% d +% d -% d +% d =7\ n " ,a ,b ,c , d );
+else if ( a + b +c - d ==7) printf ("% d +% d +% d -% d =7\ n " ,a ,b ,c , d );
+else if ( a + b + c + d ==7) printf ("% d +% d +% d +% d =7\ n " ,a ,b ,c , d );
+}
+
+
+Train Ticket
+
+There are no more than 8 pattern to decide op1,op2,op3 ,so you can solve it by try all patterns
+and output one case which is answer.
+# include < cstdio >
+char s [5];
+int main ()
+{
+scanf ("% s " ,& s );
+int a = s [0] - ’0 ’ , b = s [1] - ’0 ’ , c = s [2] - ’0 ’ , d = s [3] - ’0 ’;
+if (a -b -c - d ==7) printf ("% d -% d -% d -% d =7\ n " ,a ,b ,c , d );
+else if (a -b - c + d ==7) printf ("% d -% d -% d +% d =7\ n " ,a ,b ,c , d );
+else if (a - b +c - d ==7) printf ("% d -% d +% d -% d =7\ n " ,a ,b ,c , d );
+else if (a - b + c + d ==7) printf ("% d -% d +% d +% d =7\ n " ,a ,b ,c , d );
+else if ( a +b -c - d ==7) printf ("% d +% d -% d -% d =7\ n " ,a ,b ,c , d );
+else if ( a +b - c + d ==7) printf ("% d +% d -% d +% d =7\ n " ,a ,b ,c , d );
+else if ( a + b +c - d ==7) printf ("% d +% d +% d -% d =7\ n " ,a ,b ,c , d );
+else if ( a + b + c + d ==7) printf ("% d +% d +% d +% d =7\ n " ,a ,b ,c , d );
+}
+
+3
+

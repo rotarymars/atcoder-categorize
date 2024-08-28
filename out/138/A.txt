@@ -1,0 +1,44 @@
+(原案: tozangezan, 準備・解説: evima)
+practice contest の問題 A で足し算の代わりに条件分岐をさせるような問題です。入出力の行い方はそち
+らのサンプルコードを参照していただき、あとは if 文や条件演算子 (?: など) と比較演算子 (>= など) を組
+み合わせて a と 3200 の大小に応じて出力を変える処理を加えれば完成です。（抽象的な記述で終わってしま
+い恐縮ですが、個別の言語について述べるにはこの PDF は狭すぎます。Google 検索を活用してください）
+以下は Python(3) での実装例です。
+
+1
+
+a = int(input())
+
+2
+
+s = input()
+
+3
+
+print(s if a >= 3200 else 'red')
+
+1
+
+(Original writer: tozangezan, preparation and editorial: evima)
+This problem is like problem A of practice contest, but instead of addition, you are asked to write a
+conditional statement. For the ways of input and output, please refer to the sample code there, and then
+you can add a process to change the output depending on which of a and 3200 is larger, combining the
+if statement or conditional operator (e.g. ?:) with comparison operator (e.g. >=), and that’s it. (Sorry
+to end up with abstract explanation, but the margin of PDF is too narrow to explain the ways of each
+languages. Please make use of Google search)
+The following is an implementation example in Python(3).
+
+1
+
+a = int(input())
+
+2
+
+s = input()
+
+3
+
+print(s if a >= 3200 else 'red')
+
+7
+

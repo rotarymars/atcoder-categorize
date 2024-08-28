@@ -1,0 +1,32 @@
+i 番目の宝石を選ぶことによって X − Y は Vi − Ci だけ変化します。したがって、コストよりも価値が高
+いような宝石のみを手に入れるのが最適です。
+実装では、はじめに全ての入力を受け取ってから処理する方法をとるのが良いでしょう。なぜなら、V1 を
+知ったとしても C1 を知る前に V2 , V3 , ..., VN を読み込む必要があるためです。V1 , V2 , ..., VN は配列に保存し
+ておくと後から値を知ることができます。C++ での実装例を挙げます。
+
+# include < bits / stdc ++. h >
+using namespace std ;
+int main () {
+// input
+int N ; cin >> N ;
+vector < int > V ( N );
+for ( int i = 0; i < N ; ++ i ) {
+cin >> V [ i ];
+}
+vector < int > C ( N );
+for ( int i = 0; i < N ; ++ i ) {
+cin >> C [ i ];
+}
+// compute
+int ans = 0;
+for ( int i = 0; i < N ; ++ i ) {
+if ( V [ i ] > C [ i ]) {
+ans += V [ i ] - C [ i ];
+}
+}
+// output
+cout << ans << endl ;
+}
+
+2
+

@@ -1,0 +1,19 @@
+積が負のペア，0 のペア，正のペアの各個数は簡単に求まるので，答えが負・0・正のどれになるか
+はこれでわかります．
+答えが負になる場合は，負の数と正の数を 1 つずつ選んで x 以上になるペアがいくつあるかを数
+えることが尺取り法によって可能なので，二分探索を用いて答えが求まります．
+答えが正になる場合も全く同様ですが，同じ要素を 2 回選ぶこと，それを差し引くと各ペアをちょ
+うど 2 回数えることを考慮しましょう．
+
+5
+
+The number of pairs such that the products are negative, 0 or positive can be calculated easily,
+so it is determined whether the answer is negative, 0 or positive.
+When the answer is negative, we can count the number of the pairs such that a negative number
+and a positive number are chosen and the product is more than x by using sliding window, so
+the answer can be found by binary searching.
+The answer can be found likewise when the answer is positive too, but note that you may
+choose the same element twice, and when they are eliminated each pair is counted twice.
+
+12
+

@@ -1,0 +1,76 @@
+各すぬけ君について, お菓子を持っているか否かを調べます.
+以下は C++ での実装例です.
+1
+
+#include <bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+4
+
+int N, K;
+
+5
+
+vector<int> d;
+
+6
+
+vector<vector<int>> A;
+
+7
+8
+
+void input() {
+
+9
+
+cin >> N >> K;
+
+10
+
+d.resize(K);
+
+11
+
+For each Snuke, judge if he has snacks or not.
+The following is a sample code in C++.
+1
+
+#include <bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+4
+
+int N, K;
+
+5
+
+vector<int> d;
+
+6
+
+vector<vector<int>> A;
+
+7
+8
+
+void input() {
+
+9
+
+cin >> N >> K;
+
+10
+
+d.resize(K);
+
+11
+

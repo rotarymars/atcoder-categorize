@@ -1,0 +1,39 @@
+まず、K 回の操作で A に対してどのような操作ができるか考えてみましょう。A1 +d1 , A2 +d2 , · · · AN +dN
+になるとします。
+このとき、各操作で和が変化しないことに注目すると、d1 + d2 + · · · + dN = 0 である必要があります。ま
+た、d のうち正のものの和が K より大きい場合はありえません。負についても同様であり (和が 0 の時は自
+動的に満たされますが)、これら全てが満たされる場合はそのように操作可能であることが帰納的に示せます。
+答え (d とします) の候補としては、S = A1 + A2 + · · · + AN としたとき、d が S の約数である必要があ
+ります。d を S の約数全て試すことにして固定しましょう。このような d の候補は O(sqrt(N ∗ max(A)))
+個あります。
+まず、A1 , · · · AN を d で割った余りを r1 , r2 , · · · rN としましょう。0 であるものはなく、これは小さい順
+にソートされているとします。このとき、d を正にするものについては最低 (d − ri ) の和の回数の操作が必要
+です。d を負にするものについては最低 ri の和の回数の操作が必要です。それぞれ、d の倍数回の操作は余
+分に行うことができます。よって、r の小さい方から途中までを d を負に設定し、そこからは正になるように
+する形のみを考えればよく (r の和が d の倍数であることに注意しましょう)、累積和などを用いて全ての区
+切り方の d が正のものの回数の和と負のものの回数を求めることができます。
+よって、d を固定した場合には O(N logN ) で解けるので、この問題は O(sqrt(N ∗ max(A)) ∗ N logN ) で
+解けました。
+
+5
+
+First, let’s think what kind of modiﬁcation can be applied to A by performing K operation. Suppose
+that it is changed into A1 + d1 , A2 + d2 , · · · AN + dN .
+Since each operation does not change the sum of the array, d1 +d2 +· · ·+dN = 0 has to be 0. Moreover,
+the sum of positive elements of d cannot be more than K. So does that of negative elements (if the sum
+is 0, it is automatically fulﬁlled, though), and it can be proved inductively that if all of these conditions
+holds, the operations can be performed in such way.
+Let S = A1 + A2 + · · · + AN , then the candidate of answer (let’s denote it as d) should be divisor of
+S. Let’s ﬁx some d among the divisor of S. There are O(sqrt(N ∗ max(A))) candidates of such d.
+First, let r1 , r2 , · · · rN be the remainder of A1 , · · · AN divided by d. Suppose that there aren’t 0 in it,
+and they are sorted in increasing order. Then, for the element such that d is positive, the number of
+operations that shuold be performed is at least sum of (d − ri ), and for the element of negative, it’s at
+least sum of ri . Therefore, it is optimal that d is set to negative value for the former part of r until
+certain element, and set to positive for the rest (note that the sum of r is multiple of d), and you can try
+all the borders and calculate the sum of positive elements of d and that of negative elements by using
+cumulative sum.
+Therefore, when d is ﬁxed it can be solved in O(N logN ), so this problem can be solved in O(sqrt(N ∗
+max(A)) ∗ N logN ).
+
+11
+

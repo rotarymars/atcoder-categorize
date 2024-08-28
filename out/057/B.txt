@@ -1,0 +1,114 @@
+
+Checkpoints
+
+各学生がどのチェックポイントに移動するかを調べます。まず、全てのチェックポイント間のマンハッタン距離
+を計算します。多くのプログラミング言語では、絶対値を求める処理はライブラリで提供されています。次に、マ
+ンハッタン距離が最小となるチェックポイントの番号を求めていきます。これはマンハッタン距離の最小値とその
+チェックポイントの番号を管理する 2 つの変数を用いて、ループで求めることが可能です。以上のことから、時間
+計算量は O(N M ) となり、これは間に合います。
+
+C++のコード例
+
+1
+
+int main(void){
+
+2
+
+int N,M;
+
+3
+
+cin >> N >> M;
+
+4
+5
+
+const int NMMAX=50;
+
+6
+
+int A[NMMAX],B[NMMAX],C[NMMAX],D[NMMAX];
+
+7
+
+1
+
+9
+
+for(int i=0;i<N;++i){
+cin >> A[i] >> B[i];
+
+10
+
+}
+
+8
+
+11
+
+for(int j=0;j<M;++j){
+
+12
+
+cin >> C[j] >> D[j];
+
+13
+
+}
+
+14
+15
+
+for(int i=0;i<N;++i){
+
+16
+
+int min_dist=abs(A[i]-C[0])+abs(B[i]-D[0]),checkpoint=1;
+
+17
+18
+
+for(int j=1;j<M;++j){
+
+19
+20
+
+const int cur_dist=abs(A[i]-C[j])+abs(B[i]-D[j]);
+
+21
+
+if(min_dist>cur_dist){
+
+22
+
+min_dist=cur_dist;
+
+23
+
+checkpoint=j+1;
+}
+
+24
+
+}
+
+25
+26
+
+cout << checkpoint << endl;
+
+27
+
+}
+
+28
+29
+
+return 0;
+
+30
+31
+
+}
+

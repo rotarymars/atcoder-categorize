@@ -1,0 +1,450 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - パナソニックグループプログラミングコンテスト2022（AtCoder Beginner Contest 251）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - パナソニックグループプログラミングコンテスト2022（AtCoder Beginner Contest 251）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc251/editorial/3954" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - パナソニックグループプログラミングコンテスト2022（AtCoder Beginner Contest 251）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc251";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-05-14T21:00:00+09:00");
+			var endTime = moment("2022-05-14T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>パナソニックグループプログラミングコンテスト2022（AtCoder Beginner Contest 251）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>パナソニックグループプログラミングコンテスト2022（AtCoder Beginner Contest 251）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc251">パナソニックグループプログラミングコンテスト2022（AtCoder Beginner Contest 251）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc251/editorial/3954?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc251/editorial/3954?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc251%2Feditorial%2F3954">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc251%2Feditorial%2F3954">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc251%2Feditorial%2F3954">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220514T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-05-14 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220514T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-05-14 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc251"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc251/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc251/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc251/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc251/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc251/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc251/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc251/tasks/abc251_h">Ex - Fill Triangle</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>問題の解説に入る前に、二項係数 <span>\(\binom{n}{r} \bmod p\)</span> に関するいくつかの性質を取り上げたいと思います。</p>
+
+<h4><span>\(\binom{p^k}{n} \bmod{p}\)</span></h4>
+
+<blockquote>
+<p>任意の素数 <span>\(p\)</span> および正整数 <span>\(k\)</span> について以下の式が成り立つ。</p>
+<p><span>\[(x+1)^{p^k} \equiv x^{p^k} + 1 \pmod{p}\]</span></p><p>言い換えると、整数 <span>\(i\)</span> <span>\((0 \leq i \leq p^k)\)</span> について次の事実が成り立つ。</p>
+<p><span>\[\binom{p^k}{n} \bmod p = \begin{cases} 1 &amp; n = 0, p^k \\ 0 &amp; \mathrm{otherwise} \end{cases}\]</span></p></blockquote>
+
+<p>(証明) 数学的帰納法を用います。</p>
+
+<p><span>\(k=1\)</span> のとき、明らかに <span>\(\binom{p}{0}=\binom{p}{p}=1\)</span> です。また、<span>\(1 \leq n \leq p-1\)</span> のとき</p>
+<p><span>\[\binom{p}{n} = \frac{p(p-1) \cdots (p-n+1) }{n!}\]</span></p><p>で分母は <span>\(p\)</span> で割り切れないので <span>\(\binom{p}{n} \equiv 0 \pmod{p}\)</span> です。</p>
+
+<p><span>\(m \geq 1\)</span> について <span>\(k = m\)</span> のとき命題が成り立つとします。このとき <span>\(k = m+1\)</span> の場合は <span>\(k=m\)</span> の場合を用いて</p>
+<p><span>\[
+(x+1)^{p^{m+1}}\equiv ((x+1)^{p^m})^p\equiv (x^{p^m} + 1)^p \pmod{p}
+\]</span></p><p>と変形できるので <span>\(k=1\)</span> の場合と同様に示せます。(証明終わり)</p>
+
+<p>また、より発展的な定理として、 <span>\(\binom{N}{k}\)</span> が <span>\(p\)</span> で割り切れる回数をクンマーの定理によって計算することができます。</p>
+
+<ul>
+<li>参考：<a href="https://manabitimes.jp/math/1330" rel="nofollow">高校数学の美しい物語(日本語)</a>, <a href="https://en.wikipedia.org/wiki/Kummer%27s_theorem" rel="nofollow">Wikipedia(英語)</a></li>
+</ul>
+
+<h4>リュカの定理</h4>
+
+<blockquote>
+<p>非負整数 <span>\(n,k\)</span> を <span>\(p\)</span> 進表記したとき以下のように表されるとする。</p>
+<p><span>\[n = a_r p^r + \cdots + a_1 p + a_0\]</span></p><p><span>\[k = b_r p^r + \cdots + b_1 p + b_0\]</span></p><p>このとき次の式が成り立つ。</p>
+<p><span>\[\binom{n}{k} \equiv \prod_{i=0}^r \binom{a_i}{b_i} \pmod p\]</span></p></blockquote>
+
+<p>証明は <span>\((1+x)^n\)</span> を先に示した定理を利用して式変形を進めればよいです。</p>
+<p><span>\[
+\begin{aligned}
+&amp;[x^k] (1+x)^n \\
+&amp;\equiv [x^k]\prod_{i=0}^r ((1+x)^{p^i})^{a_i} \\
+&amp;\equiv [x^k]\prod_{i=0}^r (1 + x^{p^i})^{a_i} \\
+&amp;\equiv \prod_{i=0}^r [x^{p^i b_i}](1 + x^{p^i})^{a_i}\\
+&amp;\equiv \prod_{i=0}^r \binom{a_i}{b_i}
+\end{aligned}
+\]</span></p>
+<ul>
+<li>余談ですが、<span>\(\binom{p^k}{n} \bmod{p}\)</span> やリュカの定理は大学入試の数論に関する問題やその背景としてしばしば登場しています。高校生以下の AtCoder 参加者の皆さんはこの機会に上の話を理解しておくと学業に役立つかも？</li>
+</ul>
+
+<h4>二項係数 <span>\(\text{mod }2\)</span> とフラクタル</h4>
+
+<p>元の問題の話からは逸れますが、リュカの定理に関連してこのテーマを最近 AtCoder で見かけたので簡単に触れておきます。</p>
+
+<p>リュカの定理を <span>\(p=2\)</span> に適用すると、二項係数 <span>\(\text{mod }2\)</span> は次のような式で表すことができます。 (<span>\(\mathrm{AND}\)</span> はビットごとの論理積)</p>
+<p><span>\[\binom{n}{k} \bmod 2 = \begin{cases} 1 &amp; n \text{ AND } k = k \\ 0 &amp; \mathrm{otherwise} \end{cases}\]</span></p><p>また、これに関連して、パスカルの三角形の値が奇数の部分(すなわち二項係数 <span>\(\text{mod }2\)</span> が <span>\(1\)</span> になる部分)を塗りつぶすと、シェルピンスキーのギャスケットと呼ばれるフラクタル構造が出現します。これは <span>\(n\)</span> と <span>\(k\)</span> のビット積が偶奇に関連している性質から証明できます。</p>
+
+<ul>
+<li>参考 : <a href="https://manabitimes.jp/math/1042" rel="nofollow">高校数学の美しい物語(日本語)</a>,  <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle" rel="nofollow">Wikipedia(英語)</a></li>
+</ul>
+
+<p>さて、解説に入ります。</p>
+
+<h3>解法 1 ：<span>\(p^k\)</span> ずつ「ジャンプ」する解法</h3>
+
+<p><span>\(\binom{p^k}{n} \bmod{p}\)</span> が <span>\(n=0,p^k\)</span> のときだけ <span>\(1\)</span> になる性質を使うと次の事実が言えます。</p>
+<p><span>\[B_{i,j} \equiv B_{i+7^k,j} + B_{i+7^k,j+7^k} \pmod{7}\]</span></p><p>さて、<span>\(i\)</span> 段目を連長圧縮した列を <span>\(R(i)\)</span> と表します。このとき <span>\(R(i+7^k)\)</span> から <span>\(R(i)\)</span> は上の事実を用いると <span>\(\mathrm{O}(|R(i+7^k)|)\)</span> で計算できます。(以下ではこの遷移を「ジャンプ」と表現します)</p>
+
+<p>そこで、値を連長圧縮した状態で管理したまま <span>\(k\)</span> の大きい方から <span>\(7^k\)</span> ずつジャンプしていきましょう。より形式的には、<span>\(t\)</span> を <span>\(N-K \lt 7^t\)</span> を満たす最小の整数として、次の疑似コードで表されるアルゴリズムを考えます。</p>
+
+<pre class="prettyprint linenums"><code>// Calculate r = R(K)
+r &lt;- R(N)
+n &lt;- N
+for i = t-1 to 0 do
+    while n - K &gt;= 7^i do
+        r &lt;- sequence jumping 7^i from r
+        n &lt;- n - 7^i
+    end while
+end for
+</code></pre>
+
+<p>計算量を解析しましょう。上のアルゴリズムの計算量は、各 while 文が終了した時点での <span>\(r\)</span> の長さの和の <span>\(7\)</span> 倍で抑えられるので、<span>\(r\)</span> の長さの上界を評価すればよいです。<br>
+ここで <span>\(i = s\)</span> のときの while 文が終了した時点での <span>\(r\)</span> の長さの上界について、次の 2 つのことが言えます。</p>
+
+<ul>
+<li>ジャンプ幅が変わらない間、連長圧縮した列のサイズは最大で <span>\(7\)</span> 倍にしかならないので、<span>\(\mathrm{O}(M 7^{t-s})\)</span> である。</li>
+<li>while 文が終了した時点で <span>\(n \lt K + 7^s\)</span> であり、<span>\(r\)</span> の長さはそれより小さい。よって <span>\(\mathrm{O}(K + 7^s)\)</span> である。</li>
+</ul>
+
+<p><span>\(7^t = \mathrm{O}(N)\)</span> なので、正の数 <span>\(x\)</span> について <span>\(\min(\frac{MN}{x}, x + K)\)</span> を評価できれば良く、これは常に <span>\(\sqrt{MN} + K\)</span> 以下であることが初等的に確認できます。よって上のアルゴリズムは <span>\(\mathrm{O}((\sqrt{MN} + K) \log N)\)</span> で動作します。</p>
+
+<ul>
+<li>より厳密に評価すると <span>\(\Theta(\sqrt{MN} + K \log N)\)</span> になって、<span>\(M \leq 5000\)</span> 程度の制約でもこの解法で解くことができます。</li>
+</ul>
+
+<p><a href="https://atcoder.jp/contests/abc251/submissions/31623465" rel="nofollow">実装例, C++</a></p>
+
+<h3>解法 2 ：リュカの定理を利用する解法</h3>
+
+<p>別解としてリュカの定理を用いる解法もあります。簡単に説明します。</p>
+<p><span>\[B_{K,s} = \sum_{i=0}^{N-K} A_{s+i} \binom{N-K}{i}\]</span></p><p>を <span>\(1 \leq s \leq K\)</span> の範囲で列挙できればいいです。
+以下では計算しやすいように <span>\(P\)</span> のかわりに <span>\(Q_i = (a_{i}-a_{i+1}, \sum_{j\leq i}c_j)\)</span> (ただし <span>\(a_{M+1}=0\)</span>) を満たす列 <span>\(Q\)</span> を使うと以下の式が成り立ちます。</p>
+<p><span>\[B_{K,s} = \sum_{(a,c) \in Q} a \times \sum_{i=0}^{\min(N-K,c-s)}\binom{N-K}{i}\]</span></p><p>この式の</p>
+<p><span>\[\sum_{i=0}^n \binom{N-K}{i}\]</span></p><p>の部分はリュカの定理 と (桁 DP  or 再帰) を用いれば <span>\(\mathrm{O}(\log N)\)</span> で計算できるので、とりあえず <span>\(\mathrm{O}(MK \log N)\)</span> で計算できる形になりました。(このままでは TLE です)</p>
+
+<p>さらに高速化します。上の式を差分更新しながら <span>\(B_{K,s}\)</span> を求めることを目指すと、詳細は略しますが、ある <span>\(L,R\)</span> に対して</p>
+<p><span>\[\binom{N-K}{L}, \binom{N-K}{L+1},\dots, \binom{N-K}{R}\]</span></p><p>を高速に列挙する問題に帰着して、こちらもリュカの定理を使いつつ再帰を行うと <span>\(\mathrm{O}(\log N + R - L)\)</span> で計算できます。<br>
+結局、差分更新を用いれば全体で <span>\(\mathrm{O}((M + \log N) K + M \log N)\)</span> の計算量で計算できます。</p>
+
+<p><a href="https://atcoder.jp/contests/abc251/submissions/31644007" rel="nofollow">実装例,C++</a></p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1652197344">
+				<time class="timeago" datetime="2022/05/11 00:42:24"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1652607546">
+				<time class="timeago" datetime="2022/05/15 18:39:06"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc251/editorial/3954?lang=ja" data-a2a-title="解説 - パナソニックグループプログラミングコンテスト2022（AtCoder Beginner Contest 251）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc251/rules">ルール</a></li>
+					<li><a href="/contests/abc251/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

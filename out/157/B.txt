@@ -1,0 +1,236 @@
+問題文の指示通りに各マスにマークが付いているか否かを管理し、ビンゴが成立している列が存在
+するかを確かめます。
+ビンゴカードの管理には二次元配列が便利です。
+以下は C++ での実装例です。
+1
+
+#include <bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+
+int N, A[3][3], b[10];
+
+4
+
+bool appear[3][3];
+
+5
+
+int main() {
+for(int i = 0; i < 3; i++) {
+
+6
+
+for(int j = 0; j < 3; j++) cin >> A[i][j];
+
+7
+8
+
+}
+
+9
+
+cin >> N;
+
+10
+
+for(int i = 0; i < N; i++) cin >> b[i];
+
+11
+
+for(int i = 0; i < N; i++) {
+
+12
+
+for(int j = 0; j < N; j++) {
+
+13
+
+appear[i][j] = false;
+
+14
+
+for(int k = 0; k < N; k++) {
+if(A[i][j] == b[k]) appear[i][j] = true;
+
+15
+
+}
+
+16
+
+}
+
+17
+18
+
+}
+
+19
+
+string ANS = "No";
+
+20
+
+for(int i = 0; i < 3; i++) {
+if(appear[i][0] and appear[i][1] and appear[i][2]) ANS = "Yes";
+
+21
+22
+
+}
+
+23
+
+for(int i = 0; i < 3; i++) {
+if(appear[0][i] and appear[1][i] and appear[2][i]) ANS = "Yes";
+
+24
+25
+
+}
+
+26
+
+if(appear[0][0] and appear[1][1] and appear[2][2]) ANS = "Yes";
+
+27
+
+if(appear[0][2] and appear[1][1] and appear[2][0]) ANS = "Yes";
+
+28
+
+cout << ANS << endl;
+
+29
+
+return 0;
+
+30
+
+}
+
+2
+
+Follow the problem statement’s instruction and manage if each square is marked or not, and
+check if there is a row that forms a bingo.
+When managing the bingo card, two-dimensional array is useful.
+The following is a sample code in C++.
+1
+
+#include <bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+
+int N, A[3][3], b[10];
+
+4
+
+bool appear[3][3];
+
+5
+
+int main() {
+for(int i = 0; i < 3; i++) {
+
+6
+
+for(int j = 0; j < 3; j++) cin >> A[i][j];
+
+7
+8
+
+}
+
+9
+
+cin >> N;
+
+10
+
+for(int i = 0; i < N; i++) cin >> b[i];
+
+11
+
+for(int i = 0; i < N; i++) {
+
+12
+
+for(int j = 0; j < N; j++) {
+
+13
+
+appear[i][j] = false;
+
+14
+
+for(int k = 0; k < N; k++) {
+if(A[i][j] == b[k]) appear[i][j] = true;
+
+15
+
+}
+
+16
+
+}
+
+17
+18
+
+}
+
+19
+
+string ANS = "No";
+
+20
+
+for(int i = 0; i < 3; i++) {
+if(appear[i][0] and appear[i][1] and appear[i][2]) ANS = "Yes";
+
+21
+22
+
+}
+
+23
+
+for(int i = 0; i < 3; i++) {
+if(appear[0][i] and appear[1][i] and appear[2][i]) ANS = "Yes";
+
+24
+25
+
+}
+
+26
+
+if(appear[0][0] and appear[1][1] and appear[2][2]) ANS = "Yes";
+
+27
+
+if(appear[0][2] and appear[1][1] and appear[2][0]) ANS = "Yes";
+
+28
+
+cout << ANS << endl;
+
+29
+
+return 0;
+
+30
+
+}
+
+9
+

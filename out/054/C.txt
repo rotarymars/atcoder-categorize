@@ -1,0 +1,209 @@
+
+One-stroke Path
+
+簡単のために、与えられた無向グラフを隣接行列を用いて受け取ります。与えられた無向グラフに対して、頂点
+
+1 を始点とする深さ優先探索 (DFS) を用いて、候補となるパスを数え上げることを考えます。まず、頂点 1 を訪
+問済みとします。その後に、頂点 1 を引数として以下の再帰関数を呼びます。この再帰関数は、隣接頂点が全て訪
+問済みとなるまでグラフを辿っていくことで、パスを列挙します。
+1: procedure DFS(現在の頂点 v)
+
+if 全ての頂点を訪問済み then
+
+2:
+
+答えを 1 増やす。
+
+3:
+
+5:
+
+return
+end if
+
+6:
+
+for 頂点 i: 頂点 v に隣接しているかつ未訪問 do
+
+4:
+
+7:
+
+頂点 i を訪問済みとする。
+
+8:
+
+DFS(i)
+
+9:
+
+頂点 i を未訪問とする。
+
+10:
+
+end for
+
+11:
+
+return
+
+12: end procedure
+
+ここで、候補となるパスの数の上限を考えます。パスの始点は頂点 1 かつ全ての頂点は 1 度しか訪れないため、
+
+2 番目から N 番目までに訪れる頂点は {2, . . . , N } の順列で表されます。このため、パスの候補は最大で (N − 1)!
+通りです。頂点数の上限は N ≤ 8 であるため、最大で 7! = 5040 通りしか存在しません。この解法の時間計算量
+は、O(N !) となるため間に合います。
+別解としては、{2, . . . , N } の順列を列挙を行い、条件を満たしたパスを数え上げます。先ほどと同様に、この
+解法の時間計算量は、O(N !) となります。
+より高速な解法として、bitDP を用いた時間計算量 O(2N N 2 ) となる解法が存在します。(詳細は略)
+
+C++のコード例 (DFS 解)
+
+const int nmax=8;
+2 bool graph[nmax][nmax];
+1
+
+3
+4
+
+int dfs(int v,int N,bool visited[nmax]){
+
+5
+6
+
+bool all_visited=true;
+
+7
+8
+
+for(int i=0;i<N;++i){
+if(visited[i]==false)
+
+9
+
+all_visited=false;
+
+10
+11
+
+}
+
+12
+13
+
+if(all_visited){
+return 1;
+
+14
+15
+
+}
+3
+
+16
+
+int ret=0;
+
+17
+18
+
+for(int i=0;i<N;++i){
+
+19
+20
+
+if(graph[v][i]==false) continue;
+
+21
+
+if(visited[i]) continue;
+
+22
+
+visited[i]=true;
+
+23
+24
+
+ret+=dfs(i,N,visited);
+
+25
+
+visited[i]=false;
+}
+
+26
+27
+
+return ret;
+
+28
+29
+
+}
+
+30
+31
+
+int main(void){
+
+32
+
+int N,M;
+
+33
+
+cin >> N >> M;
+
+34
+
+for(int i=0;i<M;++i){
+
+35
+36
+
+int A,B;
+
+37
+
+cin >> A >> B;
+
+38
+
+graph[A-1][B-1]=graph[B-1][A-1]=true;
+}
+
+39
+40
+
+bool visited[nmax];
+for(int i=0;i<N;++i){
+
+41
+42
+
+visited[i]=false;
+
+43
+
+}
+
+44
+45
+46
+
+visited[0]=true;
+
+47
+
+cout << dfs(0,N,visited) << endl;
+
+48
+
+return 0;
+
+49
+
+}
+

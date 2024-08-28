@@ -1,0 +1,49 @@
+数列 a のうち，取り除く N 要素を黒色で，a′ の前半 N 要素を赤色で，a′ の後半 N 要素を青色で表示す
+ることにします．例えば，数列 (8, 2, 2, 7, 4, 6, 5, 3, 8) の最適解は (8, 2, 2, 7, 4, 6, 5, 3, 8) となります．
+次の条件が成り立つような整数 k を N ≤ k ≤ 2N の範囲で全探索することにします．
+
+• a の前半 k 要素は黒色または赤色のみで，a の後半 3N − k 要素は黒色または青色のみである．
+各 k について答えを求められれば，それらの最大値が全体の答えとなります．では，各 k について答えを求
+める方法を考えていきましょう．
+
+k をひとつ固定します．このとき，a の前半 k 要素のうち，ちょうど N 要素が赤色で，残りの要素が黒色です．
+同様に，a の後半 3N −k 要素のうち，ちょうど N 要素が青色で，残りの要素が黒色です．ここで，赤い要素の選
+び方と青い要素の選び方は独立であることに注意してください．答えは (赤い要素の総和) − (青い要素の総和)
+の最大値なので，(赤い要素の総和) をできるだけ大きくし，(青い要素の総和) をできるだけ小さくすればよ
+いことが分かります．以降は，(赤い要素の総和) の最大値の求め方のみを考えることにします．
+
+(赤い要素の総和) をできるだけ大きくするためには，a の前半 k 要素のうち大きい方から N 要素を赤くす
+ればよいです．これは，a の前半 k 要素を大きい順にソートし，前半 N 要素の総和を求めれば，可能ではあ
+ります．しかし，この方法をすべての k (N ≤ k ≤ 2N ) について行うと，全体の計算量は O(N 2 log N ) と
+なって TLE してしまいます．すべての k について，a の前半 k 要素のうち大きい方から N 要素の総和を求
+める効率的な方法はないでしょうか？
+これは，優先度付きキューと呼ばれるデータ構造を用いて簡単に行うことができます．優先度付きキュー
+は，
+「要素の push」
+「最小要素の pop」がともに O(log N ) 時間で行えるキューです．あらかじめ，キューに a
+の前半 N 要素を push しておきます．また，現在キューに入っている要素の総和を保持しておきます．以降，
+
+k を N から 2N までインクリメントしていきますが，a の前半 k 要素のうち大きい方から N 要素がキュー
+に入っている状態を常に保つことにします．これは，要素 ak をキューに push した後，キューの最小要素を
+
+pop すれば可能です．また，現在キューに入っている要素の総和も，push / pop された要素の分だけ足し引
+きすれば，保持できます．以上の方法で，すべての k について (赤い要素の総和) が O(N log N ) 時間で求ま
+ります．
+同 様 に し て ，す べ て の k に つ い て (青い要素の総和) を 求 め て お け ば ，あ と は 各 k に つ い て
+
+(赤い要素の総和) − (青い要素の総和) を計算し，それらの最大値を取れば全体の答えが求まります．
+
+Let’s color the removed elements black, the first N elements of a′ red, and the last N elements of
+a′ blue. For example, one optimal solution for the sequence (8, 2, 2, 7, 4, 6, 5, 3, 8) can be represented as
+(8, 2, 2, 7, 4, 6, 5, 3, 8).
+There exists an integer k(N ≤ k ≤ 2N ) such that:
+• The first k elements of a are either red or black.
+• The last 3N − k elements of a are either blue or black.
+Fix such an integer k. Obviously, we should choose the largest N integers from the first k elements
+as red elements, and the smallest N integers from the last 3N − k elements as blue elements. For each
+k(N ≤ k ≤ 2N ), we compute the sum of the largest N integers among a1 , . . . , ak . This is a well-known
+task, and it can be done in O(N logN ) using priority queue. Similarly, we can compute the sum of blue
+elements for each k, and the answer is the maximum of red minus blue.
+
+2
+

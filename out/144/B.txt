@@ -1,0 +1,98 @@
+A × B = N となるような 1 以上 9 以下の整数 A, B が存在するかどうか全探索で確かめます。以
+下は C 言語での実装例です。
+1
+
+#include<stdio.h>
+
+2
+
+int main(){
+
+3
+
+int n;
+
+4
+
+scanf("%d",&n);
+
+5
+
+for(int a=1;a<=9;a++)for(int b=1;b<=9;b++){
+if(a*b==n){
+
+6
+7
+
+puts("Yes");
+
+8
+
+return 0;
+
+}
+
+9
+
+}
+
+10
+
+puts("No");
+
+11
+12
+
+}
+
+2
+
+Check if there exists a pair of integers A, B in a range of 1 to 9 (inclusive) such that A×B = N
+by brute forcing. The following is an implementation example in C.
+1
+
+#include<stdio.h>
+
+2
+
+int main(){
+
+3
+
+int n;
+
+4
+
+scanf("%d",&n);
+
+5
+
+for(int a=1;a<=9;a++)for(int b=1;b<=9;b++){
+if(a*b==n){
+
+6
+7
+
+puts("Yes");
+
+8
+
+return 0;
+
+}
+
+9
+
+}
+
+10
+
+puts("No");
+
+11
+12
+
+}
+
+9
+

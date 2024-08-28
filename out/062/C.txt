@@ -1,0 +1,26 @@
+分割の方法は次図の 4 ケースを考えれば十分です．
+
+左の 2 ケースについて答えを求める方法があれば，H, W を入れ替えて同じ方法を用いることで右の 2
+ケースについても答えを求められます．これら 2 通りの答えの最小値が全体の答えとなります．
+では，左の 2 ケースについて答えを求める方法を考えましょう．まず，長方形 A の縦幅 h (1 ≤ h ≤ H − 1)
+を全探索します．105 オーダーの計算回数ならば，TLE の心配はありません．これで，長方形 A の面積 SA
+は SA = hW と決まります．あとは，下半分の長方形を長方形 B, C へ分割する方法を決めればよいです．
+下半分の長方形を分割する方法は，縦 2 つに分割するケースと，横 2 つに分割するケースがあります．こ
+れらはどちらも試すことにしましょう．ここでは，横 2 つに分割するケースを説明します．先程と同様に，長
+方形 B の横幅を全探索したいところですが，全体で 1010 オーダーの計算回数となり，TLE してしまいます．
+実は，Smax − Smin をできるだけ小さくするためには，下半分の長方形もできるだけ均等に分割するのがよ
+いことが示せます．できるだけ均等に分割しようとすると，長方形 B の横幅 w は w = ⌊W/2⌋ となります．
+すると，長方形 B の面積 SB は SB = (H − h)w，長方形 C の面積 SC は SC = (H − h)(W − w) と決まり
+ます．SA , SB , SC がすべて決まったので，この分割における Smax − Smin が求まります．以上すべての分
+割における Smax − Smin の最小値が，左の 2 ケースについての答えです．
+
+2
+
+There are four cases:
+
+In the first two cases, we fix the height h of the rectangle A (and try all possible values of h).
+The diﬀerence between B and C should be as small as possible. In the first case, the heights of B
+and C should be f loor((H − h)/2) and ceil((H − h)/2), and in the second case, the widths of B and C
+should be f loor(W/2) and ceil(W/2).
+The last two cases are similar to the first two cases.
+

@@ -1,0 +1,35 @@
+i = 1, 2, ..., N に対して、 ci := #{1 ≤ j ≤ N |Aj = i} と定義します。
+k(1 ≤ k ≤ N ) を 1 つ固定して考えます。 k に対する問題の答えは、
+• N 個のボールから、書かれている整数が等しいような異なる 2 つのボールを選び出す方法の数
+• k 番目のボールを除いた N − 1 個のボールから、 k 番目のボールと同じ整数が書かれたボー
+ルを選び出す方法の数
+をそれぞれ求めて、前者から後者を引けば求まります。
+前者は、
+
+∑ N (c i )
+i=1
+
+2
+
+, 後者は cAk − 1 となります。 前者の値は k によらないので、事前に O(N )
+
+で計算しておけばよいです。後者は、各 k に対して O(1) で求められます。
+以上より、この問題を O(N ) で解くことができました。
+
+4
+
+For i = 1, 2, . . . , N , we deﬁne ....
+Fix a k(1 ≤ k ≤ N ). Then, to ﬁnd the answer of the problem for k, ﬁnd the following two
+values:
+• The number of ways to choose two distinct balls from the N balls so that the integers
+written on them are equal
+• The number of ways to choose s ball from the N − 1 balls other than the k-th ball so that
+the integer written on it is same to that on the k-th ball
+Then, subtract the latter from the former, which will be the answer.
+∑N ( )
+The former is i=1 c2i and the latter is cAk − 1. Since the former is independent of k, it can
+be precalculated in an O(N ) time. The latter can be calculated in a O(1) time each for each k.
+Therefore, the problem could be solved in a total of O(N ) time.
+
+10
+

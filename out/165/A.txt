@@ -1,0 +1,117 @@
+いろいろな方法がありますが，ここでは B 以下の最大の K の倍数を求め，それが A 以上かどう
+か確かめる方法を採ってみましょう．
+実装はたとえば以下のようになります．
+Listing 1 C での実装例
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(void) {
+int k, a, b;
+
+4
+5
+6
+
+scanf("%d", &k);
+
+7
+
+scanf("%d%d", &a, &b);
+
+8
+9
+
+int largest = (b / k) * k;
+
+10
+
+if (a <= largest) {
+puts("OK");
+
+11
+
+} else {
+
+12
+
+puts("NG");
+
+13
+
+}
+
+14
+15
+
+return 0;
+
+16
+17
+
+}
+
+1
+
+There are many ways to solve this problem, but let us introduce the following way: ﬁnd the
+maximum multiple of K which is less than or equal to B, and check if it is equal to A.
+The implementation would be as follows for example.
+Listing 2 Sample Code in C
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(void) {
+int k, a, b;
+
+4
+5
+6
+
+scanf("%d", &k);
+
+7
+
+scanf("%d%d", &a, &b);
+
+8
+9
+
+int largest = (b / k) * k;
+
+10
+
+if (a <= largest) {
+
+11
+
+puts("OK");
+
+} else {
+
+12
+
+puts("NG");
+
+13
+
+}
+
+14
+15
+
+return 0;
+
+16
+17
+
+}
+
+7
+

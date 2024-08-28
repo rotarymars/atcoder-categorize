@@ -1,0 +1,105 @@
+B 口以上になるまで、電源タップを 1 つずつ使うシミュレーションを行うことで答えを求めるこ
+とができます。すなわち、最初差込口を 1 口として、差込口が B 口未満である間、電源タップ 1 つ
+と差込口 1 口を使って差込口を A 口増やすことを続けます。これを C++ 言語で実装した例を以下
+に示します。
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int A, B; cin >> A >> B;
+7
+int ans = 0;
+8
+int outlet = 1;
+9
+while (outlet < B) {
+10
+--outlet;
+11
+outlet += A;
+12
+++ans;
+13
+}
+14
+cout << ans << endl;
+15 }
+5
+6
+
+他の解法としては、電源タップを 1 つ使うごとに差込口が A − 1 口増え、最終的に初期状態から
+
+B − 1 口増やしたいと考えれば、答えは ⌈ B−1
+A−1 ⌉ (B − 1 を A − 1 で割った切り上げ) になります。
+B−1+A−2
+⌈ B−1
+⌋ なので、切り捨てで計算することもできます。
+A−1 ⌉ = ⌊
+A−1
+
+さらなる別解 (苦肉の策) として、入力の約 400 通りを手計算して埋め込んでも正答することがで
+きますが、おすすめはしません。
+
+2
+
+You can find the answer by the simulation of using power strips one by one, until the number
+of sockets becomes more than or equal to B. Namely, first assume that there are 1 socket, and
+while there are less than B empty sockets, repeat using one power strip and one empty socket
+so as to increase the number of empty socket by A. The following is an implementation example
+in C++.
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int A, B; cin >> A >> B;
+7
+int ans = 0;
+8
+int outlet = 1;
+9
+while (outlet < B) {
+10
+--outlet;
+11
+outlet += A;
+12
+++ans;
+13
+}
+14
+cout << ans << endl;
+15 }
+5
+6
+
+Another solution is like this: every time you use one power strip, the number of empty socket
+increases by A − 1, and you ultimately want to increase the number of power socket by B − 1
+compared to the beginning, so the answer will be ⌈ B−1
+A−1 ⌉ (B − 1 divided by A − 1, rounded up).
+B−1+A−2
+⌋ holds, so it can be calculated rounded-down.
+Since ⌈ B−1
+A−1 ⌉ = ⌊
+A−1
+
+As one more solution (or last resort), you can get AC by calculating all the 400 patterns by
+hand and embed into the source code, but it’s not recommended.
+
+10
+

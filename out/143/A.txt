@@ -1,0 +1,49 @@
+答えは，A > 2B のときは A − 2B であり，A ≤ 2B のときは 0 です.
+
+A, B を入力として受け取り，答えを計算し，それを出力することにより，AC となります.
+尚，答えを計算する際には if 文を用いても構いませんが，max 関数を用いるとより簡潔に書くことが
+出来ます.
+以下は C++ での実装例です.
+
+#include <iostream>
+2 using namespace std;
+3 int main(){
+4
+int A, B, ans;
+5
+cin >> A >> B;
+6
+ans = max(0, A - 2 * B);
+7
+cout << ans << endl;
+8
+return 0;
+9 }
+1
+
+1
+
+The answer is A − 2B if A > 2B, and 0 if A ≤ 2B.
+Receive A, B as input, compute the answer, and output it, and you can get AC.
+Here, when calculating the answer you may use if statement, but with max function it will be
+more simple.
+The following is an implementation example in C++.
+
+#include <iostream>
+2 using namespace std;
+3 int main(){
+4
+int A, B, ans;
+5
+cin >> A >> B;
+6
+ans = max(0, A - 2 * B);
+7
+cout << ans << endl;
+8
+return 0;
+9 }
+1
+
+7
+

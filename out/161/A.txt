@@ -1,0 +1,213 @@
+実際にシミュレーションを行えばよいです。以下は C++ における実装例です。
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+int a,b,c;
+
+6
+
+cin>>a>>b>>c;
+
+7
+
+swap(a,b);
+
+8
+
+swap(a,c);
+
+9
+
+cout<<a<<"␣"<<b<<"␣"<<c<<endl;
+return 0;
+
+10
+11
+
+}
+
+1
+
+
+4
+
+S = sum(A)
+
+5
+
+if A[M-1] >= S / (4*M):
+
+6
+7
+8
+
+print("Yes")
+else:
+print("No")
+
+1
+その他、「総得票数の 4M
+以上の票を獲得している商品が M 個以上あれば YES、そうでなければ
+
+NO」として解くこともできます。この場合ソートは不要です。
+1
+
+N, M = map(int,input().split())
+
+2
+
+A = list(map(int,input().split()))
+
+3
+
+S = sum(A)
+
+4
+
+cnt = 0
+
+5
+
+for a in A:
+
+6
+
+if a >= S / (4*M):
+cnt += 1
+
+7
+8
+9
+10
+11
+
+if cnt >= M:
+print("Yes")
+else:
+print("No")
+
+なお、C++,Java などの言語を利用している場合、除算の挙動に注意してください (整数型変数同
+士の除算では、結果は整数に切り捨てられます)。
+
+2
+
+You can actually perform the simulation. The following is a sample code in C++.
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+int a,b,c;
+
+6
+
+cin>>a>>b>>c;
+
+7
+
+swap(a,b);
+
+8
+
+swap(a,c);
+
+9
+
+cout<<a<<"␣"<<b<<"␣"<<c<<endl;
+
+10
+
+return 0;
+
+11
+
+}
+
+7
+
+
+4
+
+S = sum(A)
+
+5
+
+if A[M-1] >= S / (4*M):
+
+6
+7
+8
+
+print("Yes")
+else:
+print("No")
+
+Otherwise, it can also be solved by ”if there are more than or equal to M items with more
+1
+than or equal to 4M
+of the total number of votes, then the answer is YES, otherwise the answer
+
+is NO.” In such case, there is no need of sorting.
+1
+
+N, M = map(int,input().split())
+
+2
+
+A = list(map(int,input().split()))
+
+3
+
+S = sum(A)
+
+4
+
+cnt = 0
+
+5
+
+for a in A:
+
+6
+
+if a >= S / (4*M):
+cnt += 1
+
+7
+8
+9
+10
+11
+
+if cnt >= M:
+print("Yes")
+else:
+print("No")
+
+Be careful of the behavior of division if you are using languages like C++ or Java (quotient
+between the integers are rounded down).
+
+8
+

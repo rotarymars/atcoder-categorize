@@ -1,0 +1,81 @@
+一つの方法として考えられるのは、25 種類の入力に対して if 文を書き、出力する文字を決めると
+いうものです。
+しかし、英小文字は文字コード上で順に並んでいるため、入力に 1 を足すことで正解を得られま
+す。(実は厳密にはどのような環境でも文字コード上で順に並んでいることが保証されているわけで
+はありません。しかし AtCoder を含む現代のパソコン上では、ほとんどの場合このように順に並ん
+でいます。)
+Listing 1 C++ での実装例
+1
+
+#include <stdio.h>
+
+2
+3
+
+char in[2];
+
+4
+
+int main(){
+
+5
+
+scanf("%s",in);
+
+6
+
+in[0]++;
+printf("%s\n",in);
+
+7
+8
+
+}
+
+1
+
+正答数が 1 増え, ペナルティが「その問題で WA が出た回数」だけ増加します.
+以上の処理は O (N + M ) であり, 十分高速です.
+
+C++ での解答例: https://atcoder.jp/contests/abc151/submissions/9430678
+
+3
+
+One possible way is to write if statements for 25 kinds of input and determine the character
+to output.
+However, the lowercase English letters are aligned consecutively on the character codes, so
+you can obtain the answer by adding 1 to the input. (Actually, it is not guaranteed that those
+are aligned consecutively on the character codes in every environment. However, in the modern
+computers including AtCoder, in most case they are aligned consecutively like this.)
+Listing 2 Sample Code in C++
+1
+
+#include <stdio.h>
+
+2
+3
+
+char in[2];
+
+4
+
+int main(){
+
+5
+
+scanf("%s",in);
+
+6
+
+in[0]++;
+
+7
+
+printf("%s\n",in);
+
+8
+
+}
+
+7
+

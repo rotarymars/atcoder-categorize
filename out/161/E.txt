@@ -1,0 +1,19 @@
+ある期間内に働く日数を最大化するためには、前から貪欲に働く日を決めるのが最適です。した
+がって前から貪欲に働く日を決めた場合を考えることで「x 回目に働く日は L[x] 日目以降」とい
+う配列 L を求めることができます。同様に後ろから貪欲に働く日を決めた場合を考えることで「x
+回目に働く日は R[x] 日目以前」という配列 R を求めることができます。i 日目に必ず働くのは、
+
+L[x] = R[x] = i となる x が存在するときそのときに限るので、この問題は O(N ) で解けました。
+
+5
+
+To maximize the number of workdays in a certain period, it is optimal to greedily determining
+the workdays. Therefore, by considering determining the workdays greedily from the beginning
+to the end, one can obtain an array K such that ”the x-th workday is no earlier than Day L[x].”
+Similarly, by considering determining the workdays greedily from the end to the beginning, one
+can obtain an array R such that ”the x-th workday is no later than Day R[x].” He is bound to
+work on i-th day if and only if there exists a x such that L[x] = R[x] = i, so the problem can be
+solved in a total of O(N ) time.
+
+11
+

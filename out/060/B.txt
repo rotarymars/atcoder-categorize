@@ -1,0 +1,22 @@
+A の倍数はいくつ足しても A の倍数です。よって、実は選ぶ数は 1 個だけ
+で良いです (いくつか選んで足さなくても、最終的な総和を直接選べます)。
+次に、A%B, 2A%B, 3A%B, ... という数列を考えます。なお A%B は A を
+
+B で割ったあまりを表します。
+ここで、(k + B)A%B = (kA + BA)%B = kA%B に注目すると、この数
+列は周期的で、最初の B 個の要素を繰り返す数列になっていることがわかり
+ます。
+よって、この問題は A から BA まで、愚直に B で割った余りを求めて調
+べれば良いです。
+
+2
+
+The sum of multiples of A is always a multiple of A. Thus, we can assume
+that we choose only one integer.
+Consider the sequence A%B, 2A%B, 3A%B, .... Since (k + B)A%B =
+(kA + BA)%B = kA%B, this sequence has a period of B.
+Therefore, we can check the first B elements of this sequence by brute
+force.
+
+2
+

@@ -1,0 +1,52 @@
+N を文字列として受け取り、7 を含むかどうかで判定できます。
+1
+
+int main(){
+
+2
+
+char s[4];
+
+3
+
+scanf("%s",s);
+
+4
+
+if(s[0]=='7'||s[1]=='7'||s[2]=='7')puts("Yes");
+
+5
+
+else puts("No");
+
+6
+
+}
+
+1
+
+You can judge by receiving N as a string and check if it contains 7.
+1
+
+int main(){
+
+2
+
+char s[4];
+
+3
+
+scanf("%s",s);
+
+4
+
+if(s[0]=='7'||s[1]=='7'||s[2]=='7')puts("Yes");
+else puts("No");
+
+5
+6
+
+}
+
+7
+

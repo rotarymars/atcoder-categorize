@@ -1,0 +1,10 @@
+s の文字を昇順にソートし，t の文字を降順にソートした後，s < t を判定すればよいです．
+• C++ のコード例 : https://beta.atcoder.jp/contests/abc082/submissions/1872811
+• Java のコード例 : https://beta.atcoder.jp/contests/abc082/submissions/1872812
+• Python 3 のコード例 : https://beta.atcoder.jp/contests/abc082/submissions/1872814
+
+Sort s, sort t, reverse t, and check if s < t.
+• C++ Code Example : https://beta.atcoder.jp/contests/abc082/submissions/1872811
+• Java Code Example : https://beta.atcoder.jp/contests/abc082/submissions/1872812
+• Python 3 Code Example : https://beta.atcoder.jp/contests/abc082/submissions/1872814
+

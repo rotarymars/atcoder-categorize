@@ -1,0 +1,16 @@
+N = pe11 × ... × pekk と素因数分解されるとします。このとき、各 pi に対して、 z = p1i , p2i , ... と順
+番に選んでいくのが最適です。したがって、 N を素因数分解することができれば十分です。これ
+
+√
+
+は O( N) で実装することができ、十分高速です。
+
+5
+
+Assume that it can be factorized as N = pe11 × . . . × pekk . Then, for each pi , it is optimal to choose in
+the order of p1i , p2i , . . .. Therefore, it is suﬃcient to factorize N. This can be implemented in a total of
+√
+O( N) time, which is fast enough.
+
+12
+

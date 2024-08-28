@@ -1,0 +1,85 @@
+(解説: evima)
+「何をすればいいか全く分からない！」という場合、まずは「practice contest」(https://atcoder.
+
+jp/contests/practice/) の問題 A「はじめてのあっとこーだー」をお試しください。言語ごとに
+解答例が掲載されています。
+*1
+今回の問題に移ります。突然ですが、架空の言語で正解例を示します。
+
+1
+
+read X as int
+
+2
+
+if X >= 30:
+
+3
+4
+5
+
+write "Yes"
+else:
+write "No"
+これをお使いの言語に合わせて書き換えれば問題を解けます。以下、各行について述べます。
+
+1 行目: 入力された気温 X を整数として読み込みます。「はじめての〜」で整数 a を読み込むのと
+同様に行えるはずです。
+
+3, 5 行目: 文字列 Yes または No を出力します。「はじめての〜」で入力された文字列 s を出力す
+るソースコードの s を "Yes" と書き換えればほとんどの言語で動作するはずです。もし動作しなけ
+れば、検索エンジンで「(言語名) 文字列 出力」などと検索してください。(次頁へ続く)
+
+*1 なぜそのようなことを？というと、AtCoder では数十の言語が使用可能で、それらをできるだけ平等に扱うためです。
+
+1
+
+2, 4 行目: 読み込んだ整数 X が 30 以上であれば 3 行目、そうでなければ 5 行目を実行させます。
+言語ごとの if 文の書き方については、検索エンジンで「(言語名) if 文」などと検索してください。整
+数の大小比較については、X >= 30 と書けば多くの言語で動作するはずですが、もし動作しなければ
+検索エンジンで「(言語名) 大小比較」などと検索してください。
+
+2
+
+(Editorial: evima)
+If you are like “I have no idea where to start¡‘, then ﬁrst try Problem A “Welcome to AtCoder”
+in the “practice contest” (https://atcoder.jp/contests/practice/). There you can ﬁnd
+sample codes for each language.
+Let’s move on to the problem in this contest. It’s a bit abrupt, but here is a sample answer in
+an imaginary language.*5
+
+1
+
+read X as int
+
+2
+
+if X >= 30:
+
+3
+4
+5
+
+write "Yes"
+else:
+write "No"
+If you rewrite this to the language you use, you will be able to solve the problem. The following
+is explanation for each line.
+The 1st line: read the input temperature X as an integer. It should be done in the same way
+as reading integer a in “Welcome to—”.
+The 3rd and 5th lines: output string Yes or No. You can achieve it in most language by
+replacing s to "Yes" in the source code which outputs the input string s in the “Welcome to—”.
+If it doesn’t work, use a search engine with the keywords like “(language name) string output”.
+(Continued on the next page)
+The second and the fourth line: If the input integer X is more than or equal to 30, then the
+third line will be executed; otherwise the ﬁfth line will be. For the syntax of if statements in
+each language, use search engine with keywords “(language name) if statement”. As for integer
+comparisons, X >= 30 should work in the most languages, but if it doesn’t, use a search engine
+with the keywords like “(language name) comparing”.
+
+*5 Some of you may wonder why do we do such thing, but actually this is to treat tens of languages available
+
+in AtCoder equally.
+
+8
+

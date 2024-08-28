@@ -1,0 +1,80 @@
+
+		公式
+		
+			
+				G - Not Too Many Balls 解説
+			
+			by leaf1415
+			
+		
+		
+		
+		
+			本問題は、最大フロー問題に帰着できます。具体的には、
+
+
+ボールの各色に対応する頂点 \(x_1, x_2, \ldots, x_N\) 、
+各箱に対応する頂点 \(y_1, y_2, \ldots, y_M\) 、
+始点 \(s\) 、終点 \(t\)
+
+
+の合計 \((N+M+2)\) 個の頂点を持ち、
+
+
+タイプ A： 各 \(i = 1, 2, \ldots, N\) について \(s\) から \(x_i\) に容量 \(A_i\) の辺、
+タイプ B：各 \(j = 1, 2, \ldots, M\) について \(y_j\) から \(T\) に容量 \(B_j\) の辺、
+タイプ C： 各 \(i = 1, 2, \ldots, N\) と \(j = 1, 2, \ldots, M\) の組について、\(x_i\) から \(y_j\) に容量 \(i \times j\) の辺
+
+
+を張ったグラフの最大 \(s\) - \(t\) フローが本問題の答えです。
+しかし、このグラフはサイズが大きいので、Dinic 法などの最大フローを求めるアルゴリズムで直接求めるのは難しいです。
+そこで、最大フロー最小カット定理より、最小 \(s\) - \(t\) カットを求めれば良いことに注目します。
+
+\(X\coloneqq \lbrace x_1, x_2, \ldots, x_N\rbrace, Y \coloneqq \lbrace y_1, y_2, \ldots, y_M\rbrace\) とすると、
+\(s\) - \(t\) カットを \(1\) つ選ぶことは、\(X\) のうちカットの \(s\) 側に属する頂点の集合 \(P \subseteq X\) と、\(Y\) のうちカットの \(s\) 側に属する頂点の集合 \(Q \subseteq Y\) を選ぶことになります。
+\(P, Q\) を選んだときのカットの容量は、タイプ A の辺の寄与が
+\(\sum_{x_i \in X\setminus P} A_i\) 、タイプ B の辺の寄与が \(\sum_{x_i \in P} \sum_{y_j \in Y\setminus Q} ij\) 、タイプ C の辺の寄与が
+\(\sum_{y_j \in Q} B_j\) ですので、最小カットの容量は
+\[\min_{P \subseteq X} \min_{Q \subseteq Y}  \left( \sum_{x_i \in X\setminus P} A_i 
++   \sum_{x_i \in P} i \sum_{y_j \in Y\setminus Q} j
++  \sum_{y_j \in Q} B_j \right) 
+\]です。
+
+ここで、\(k \coloneqq \sum_{x_i \in P}i\) の値で場合分けすることを考えると、\(k\) の取り得る範囲は \(0\) 以上 \(L \coloneqq N(N+1)/2\) 以下なので、上式は
+\[
+\begin{aligned}
+\min_{0 \leq k \leq L}\min_{\substack{P \subseteq X, \\ \sum_{x_i \in P} i = k}} \min_{Q \subseteq Y}  \left( \sum_{x_i \in X\setminus P} A_i 
++   k\sum_{y_j \in Y\setminus Q} j
++  \sum_{y_j \in Q} B_j \right)
+&= \min_{0 \leq k \leq L}\left(
+\min_{\substack{P \subseteq X, \\ \sum_{x_i \in P} i = k}}   \sum_{x_i \in X\setminus P} A_i 
++ \min_{Q \subseteq Y}  \left(\sum_{y_j \in Y\setminus Q} jk
++  \sum_{y_j \in Q} B_j \right) \right)\\
+&= \min_{0 \leq k \leq L}\left(
+\min_{\substack{P \subseteq X, \\ \sum_{x_i \in P} i = k}}   \sum_{x_i \in X\setminus P} A_i 
++ \sum_{y_j \in Y}  \min \lbrace jk, B_j \rbrace 
+ \right)
+\end{aligned}
+\]と書けます。
+
+各 \(k = 0, 1, \ldots, L\) に対する \(\displaystyle
+\min_{\substack{P \subseteq X, \\\sum_{i \in P} i = k}}   \sum_{i \in X\setminus P} A_i\) を求めるのは、DP によって全ての \(k\) についてまとめて \(O(NL) = O(N^3)\) 時間で可能です。
+
+各 \(k = 0, 1, \ldots, L\) に対する \(\sum_{y_j \in Y}  \min\lbrace jk, B_j \rbrace\) は、\(k\) の昇順に求めていくことが可能です。
+具体的には、全ての \(y_j \in Y\) で \(jk\) 側を採用する初期状態からはじめ、\(k\) の昇順に見ていく過程で、\(jk \gt B_j\) になった \(y_j \in Y\) については随時 \(B_j\) 側を採用するように切り替えていくことで、\(O(L+M) = O(N^2+M)\) 時間で求められます。
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

@@ -1,0 +1,20 @@
+500 円硬貨が無限枚あるので, 使う 1 円硬貨を最小化することを考えます.
+𝑁 円を超えないようにできるだけ多くの 500 円硬貨を使うと 1 円硬貨の枚数は最小化されます.
+そのとき, 500 円硬貨は 「𝑁 を 500 で割ったときの商」 枚使われることになります.
+この場合、使用する 1 円硬貨の枚数は 𝑁 を 500 で割ったあまりになるので、これが持っている 𝑁
+円硬貨の枚数 𝐴 以下であれば “Yes”, そうでなけでば “No” と出力します.
+サンプルコード (C++)
+
+
+https://beta.atcoder.jp/contests/abc088/submissions/2105041
+
+There are infinite number of 500-yen coins. So, to minimize the number of 1yen coins, he has to maximize the number of 500-yen coins. In this case the number
+of 500-yen coin is “the quotient when 𝑁 is divided by 500”.
+In this case, the number of 1-yen coins is “the remainder when 𝑁 is divided by
+500”, so you should check if the remainder when 𝑁 is divided by 500 is greater than
+𝐴 or not.
+Sample Code (C++)
+
+
+https://beta.atcoder.jp/contests/abc088/submissions/2105041
+

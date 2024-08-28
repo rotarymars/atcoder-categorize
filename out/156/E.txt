@@ -1,0 +1,86 @@
+(原案・準備・解説: gazelle)
+現在、部屋 i にいる人の数を ci として、非負整数列 c1 , c2 , ..., cn が満たすべき条件を考えます。
+まず、明らかに
+
+∑n
+
+i=1 ci = n である必要があります。また、ci = 0 である i の個数は k 以下でな
+
+くてはなりません。というのも、1 回の人の移動で、そのような i の個数は高々 1 しか増えないから
+です。
+実は逆に、この条件を満たしている数列 c1 , c2 , ..., cn に対して、その結果を与えるような人の移動
+の列が存在します。以下にこのことを示します。
+
+ci = 0 である i が 0 個の場合
+まず、最初に部屋 1 にいた人が部屋 2 に移動して、そのあと k − 2 回、部屋 2 と 3 を行った
+り来たりして、最後に部屋 1 に戻ればいいです。
+
+ci = 0 である i が 1 個の場合
+一般性を失わずに c1 = 0, c2 = 2 であると仮定します。このとき、最初に部屋 1 にいた人が
+
+k − 1 回、部屋 1 と 3 を行ったり来たりして、最後に部屋 2 に行けばいいです。
+ci = 0 である i が 2 個以上の場合
+ci = 0 である i の数が m (2 ≤ m < n) 個であるとして、一般性を失わずに c1 = 0, c2 =
+0, ..., cm = 0 であると仮定します。このとき、最初に部屋 1 にいた人が k − m 回、部屋 1
+と 2 を行ったり来たりして、そのあとで最初に部屋 1 から m までにいた人が 1 人ずつ、条件
+を満たすように番号 m + 1 以上の部屋に移動していけばいいです。
+以上より、この問題は先述の条件を満たす非負整数列 c1 , c2 , ..., cn の数え上げに帰着されました。
+次に、そのような数列を数え上げる方法を考えます。
+
+ci = 0 である個数が m となるような数列の数は、
+n Cm ×n−m Hm
+
+と表せます。ここで x Hy は、x 種類のものから重複を許して y 個を選ぶ場合の数 (重複組合せ) を
+意味します。一般に x Hy =x+y−1 Cx−1 が成り立ちます。これは、x − 1 個の仕切りと y 個のボール
+を一列に並べて、一番左の仕切りより左側にあるボールの数だけ種類 1 のものを選び、一番左の仕切
+りと二番目に左の仕切りとの間にあるボールの数だけ種類 2 のものを選び、……、と対応付けること
+が可能なことからも分かります。
+適切な前処理を行っておけば、この式の計算に必要な二項係数は全て O(1) で計算することができ
+ます。従って m = 0, 1, ..., n − 1 の各場合について式の値を求めて、その総和を計算するアルゴリズ
+ムが十分高速に動作します。
+
+8
+
+(draft, preparation, editorial: gazelle)
+Let ci be the number of people in room i currently, and let us consider the condition that the
+sequence of non-negative integers c1 , c2 , ..., cn should satisfy.
+∑n
+First, obviously i=1 ci = n should hold. Also, the number of i such that ci = 0 should be no
+more than k. That is, in one move, such i increases by at most 1.
+Actually, conversely, for any sequence c1 , c2 , ..., cn such that satisﬁes the condition mentioned
+above, there exists a sequence of move that gives such results. We will prove that.
+If no i satisﬁes ci = 0
+If the person who initially was in room 1 ﬁrst moves to room 2, then moves back and forth
+between room 2 and 3 for k − 2 times, then at last goes back to room 1, then the ﬁnal
+state satisﬁes the conditions.
+If there exists exactly one i such that ci = 0
+Without loss of generality, we assume that c1 = 0, c2 = 2. In such case, if the person who
+initially was in room i moves back and forth between room 1 and 3 for k − 1 times, and
+then at last goes to room 2, then the ﬁnal state satisﬁes the conditions.
+If there exist more than one i such that ci = 0
+Assume that the number of i such that ci = 0 is m (2 ≤ m < n), and without loss of
+generality, we assume that c1 = 0, c2 = 0, ..., cm = 0. In such case, if the person who
+initially was in room 1 moves back and forth between room 1 and 2, then each of the
+people who were initially in between room 1 to m can move to the room with index more
+than m so that the ﬁnal state satisﬁes the conditions.
+Therefore, the problem has been attributed to a problem of counting the number of sequence
+of non-negative integers c1 , c2 , ..., cn such that satisﬁes the condition mentioned above. Next, we
+will consider how to count such sequences.
+The number of sequence such that the number of i such that ci = 0 is m can be represented
+as:
+n Cm ×n−m Hm ,
+
+where x Hy denotes the number of combination of choosing y items from x types of items,
+possibly with duplicates of types (multiset coeﬃcient). In general, it holds that x Hy =x+y−1
+Cx−1 . This can be understood from the fact that it can be associated to the arrangement of
+x − 1 bars and y balls in a row, where the number of balls left to the leftmost bar represents the
+number of the ﬁrst type, the number of balls between the leftmost and the second leftmost bar
+17
+
+represents the number of the second type, … and so on.
+With proper precauculations, all the binomial coeﬃcients needed to calculate this expression
+can be calculated in a O(1) time each. Therefore, an algorithm of calculating the expression for
+each m = 0, 1, ..., n − 1, and then ﬁnding the sum of them works fast enough.
+
+18
+

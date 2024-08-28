@@ -1,0 +1,64 @@
+明らかに，s = n の場合は n + 1 が答えである．
+それ以外の場合，はじめに 2 ≤ b ≤
+
+√
+
+n および f (b, n) = s を満たす整数 b が存在するかどうか全探索す
+
+る．もしもそのような b が存在するならば，その最小値が答えである．
+
+√
+
+そうでない場合には， n < b ≤ n および f (b, n) = s を満たす整数 b が存在するかどうか検証する必要
+
+がある．ここで，b >
+
+√
+
+n である場合には，n は b 進表記で 2 桁となることに着目する．すなわち，上位桁
+
+を p，下位桁を q (1 ≤ q < b, 0 ≤ q < b) とすると，
+
+n = pb + q
+
+(1)
+
+p+q =s
+
+(2)
+
+と書くことができる．また，題意より
+
+が成立する．ところで b >
+
+√
+
+n であるから，式 1 より n = pb + q ≥ pb > p2 となり，p <
+
+√
+
+n が導かれる．
+
+そこで，上位桁 p を全探索すればよい．式 1,2 より b = (n − s)/p + 1 となるから，p から b は一意に定ま
+る．最後に，そのような b について，実際に f (b, n) = s を満たすか確認すればよい．
+
+√
+
+計算量は全体で O( n) 時間となり，満点が得られる．
+
+Consider two cases: b ≤ sqrt(n) or b > sqrt(n).
+
+The former case is easy. Just try all possible values of b.
+In the latter case, when you write n as a base-b number, the number of
+digits will be at most two.
+If you write n as a base-b number, you get n = pb + q for some p, q < b.
+From the statement, you get p + q = s. By comparing these two equations,
+you get n − s = (pb + q) − (p + q), which is equivalent to (p − 1)b = n − s.
+
+1
+
+Thus, except for the special case n − s, b must be a divisor of n − s, and
+
+again you can try all possible divisors of n − s as candidates for b.
+The total complexity is O(sqrt(n)).
+

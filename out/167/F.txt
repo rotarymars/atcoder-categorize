@@ -1,0 +1,60 @@
+概要
+文字列のうち ’(’ と ’)’ が連続している箇所があれば、その 2 文字を予め取り除いても結果に影響し
+ません。この操作を繰り返すことで、各 Si は「’)’ が 0 個以上連続したあと、’(’ が 0 個以上連続す
+るような文字列 (空文字列含む)」となります。このときの’)’ の個数を Ai , ’(’ の個数を Bi とします。
+
+Si たちを次の順にソートして連結したものが括弧列になっていれば Yes、そうでなければ No が答
+えです。
+前半： Bi − Ai ≥ 0 であるような Si たちを、Ai が小さい順に並べたもの
+後半： Bi − Ai < 0 であるような Si たちを、Bi が大きい順に並べたもの
+正当性は、「もしこのような順になっていない隣接 2 項があれば、その 2 項の順序を入れ替えても
+損をしない」という方針で示すことができます。
+
+気持ち
+括弧列は、
+「全ての括弧がうまくペアになっている文字列」です。文字列を前から順に見て「すでに
+全ての括弧がペアになっているにも関わらず’)’ が登場した」とき、そのときに限り、その文字列は括
+弧列ではありません。なので、’(’ が増える文字列を先に使うのが良さそうです。すでにある’(’ の貯
+金分以上の’)’ をつなげることは出来ないので、Ai の小さい順に使うのが良さそうです。
+また、文字列が括弧列であることと、文字列全体を反転し、’(’ を’)’ に、’)’ を’(’ に置き換えた文字
+列が括弧列であることは同値です。したがって後半も同様の条件を得ることができます。
+
+実装
+Ai , Bi は括弧を取り除く操作を実際に行うことなく、次のようにして文字列長に対して線形な時間
+で求めることができます。
+
+Ai = Si の preﬁx についての、’)’ の個数 − ’(’ の個数 の最大値
+Bi = Si の suﬃx についての、’(’ の個数 − ’)’ の個数 の最大値
+
+6
+
+Summary
+If a string contains a consecutive pair of letters ’(’ and ’)’, then removing those two letters does
+not aﬀect the result. By repeating this operation, each Si becomes “a (possibly empty) string
+consisting of 0 or more repetition of ’)’, followed by 0 or more repetition of ’(’.” Then let Ai be
+the number of ’)’, and Bi be the number of ’(’.
+The answer is Yes if the concatenation of Si in the following order forms a bracket sequence;
+otherwise the answer is No.
+The former part: Si such that Bi − Ai ≥ 0, in the increasing order of Ai
+The latter part: Si such that Bi − Ai ≤ 0, in the decreasing order of Bi
+It can be justiﬁed mainly by the fact that “if adjacent two elements are not in that order, then
+swapping them does not make the situation worse.”
+
+Intuition
+A bracket sequence is “a string such that every bracket forms proper pairs.” A string is not a
+bracket sequence if and only if “despite all the brackets so far are already paired, another ’)’ has
+appeared” at some point in the string. So, it seems to be better to use strings that increase the
+number of ’(’. Since a string in which the number of ’)’ exceeds the deposit of ’(’s so far cannot
+be connected, it seems to be better to use in the increasing order of Ai .
+Also, if a string is a bracket sequence, then the reversed string, ’(’ replaced with ’)’ and ’)’
+replaced with ’(’, is also a bracket sequence. Therefore, we can obtain the conditions for the
+latter part akin to the former part.
+
+Implementation
+Ai , Bi can be obtained in a linear time as follows, without actually removing the brackets:
+Ai = maximum of (the number of ’)’) − (the number of ’(’) for all preﬁxes of Si
+Bi = minimum of (the number of ’(’) − (the number of ’)’) for all suﬃxes of Si
+
+12
+
+

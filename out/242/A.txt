@@ -1,0 +1,51 @@
+
+		公式
+		
+			
+				A - T-shirt 解説
+			
+			by physics0523
+			
+		
+		
+		
+		
+			プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice contest」(https://atcoder.jp/contests/practice/) の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。
+また、プログラミングコンテストの問題に慣れていない方は、「AtCoder Beginners Selection」(https://atcoder.jp/contests/abs) の問題をいくつか試すことをおすすめします。
+「競プロ典型 90 問」(https://atcoder.jp/contests/typical90) では、プログラミングコンテストで扱われる典型的な 90  問の問題に挑戦可能です。
+「C++入門 AtCoder Programming Guide for beginners (APG4b)」(https://atcoder.jp/contests/APG4b) は、競技プログラマー向けのC++入門用コンテンツです。
+
+
+
+以下の流れで答えを求めていけばよいです。
+
+
+もし \(X \le A\) なら、答えは \(1\)
+そうでなく、 \(X \le B\) なら、答えは \(\frac{C}{B-A}\)
+そうでないなら、答えは \(0\)
+
+
+これは if 文を用いて実装可能です。
+
+実数の出力方法に注意しましょう。特に、出力する桁数が不足して不正解となる場合があります。
+言語によって対応方法は様々ですが、例えば C++ における解決策のひとつとして、 printf を用いると便利です。実装例では実数を小数点以下 \(12\) 桁出力することを指定しています。
+
+実装例(C++):
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

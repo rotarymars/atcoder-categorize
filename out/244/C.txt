@@ -1,0 +1,47 @@
+
+		公式
+		
+			
+				C - Yamanote Line Game 解説
+			
+			by leaf1415
+			
+		
+		
+		
+		
+			本問題に正解するには、問題文にある通りに高橋君の行動をシミュレーションするプログラムを作成すれば良いです。
+
+ゲームの過程では、\(i = 1, 2, \ldots, 2N+1\) について「整数 \(i\) がどちらかのプレイヤーによってすでに宣言されているか？」をブーリアン型配列等で記録し、高橋君が次に宣言する整数を選ぶ際に使用します。
+
+プログラミングコンテストではしばしば本問題のようなインタラクティブな問題が出題されます。
+本問題のようにジャッジプログラムとゲームで対戦する問題や、ジャッジプログラムが持つ秘密の情報をジャッジプログラムに対する質問を繰り返して推定する問題が典型的です。
+
+AtCoderでの出題例を以下でいくつか挙げます。
+
+
+practice contest B - Interactive Sorting ( https://atcoder.jp/contests/practice/tasks/practice_2 )
+AtCoder Petrozavodsk Contest 001 C - Vacant Seat ( https://atcoder.jp/contests/apc001/tasks/apc001_c )
+AtCoder Regular Contest 078 E - Awkward Response ( https://atcoder.jp/contests/arc078/tasks/arc078_c )
+AtCoder Regular Contest 070 F - HonestOrUnkind ( https://atcoder.jp/contests/arc070/tasks/arc070_d )
+
+
+C++ 言語による正解例を以下に記載します。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

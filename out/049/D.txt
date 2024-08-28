@@ -1,0 +1,15 @@
+配列 ar で、都市 i と都市 j が道路で連結しているとき ar[i] = ar[j]、そうでないとき ar[i] ̸= ar[j] となる
+ようなものを取ります。これは、道路の辺を使い深さ優先探索をしたり、道路で直接結ばれた都市をつないだ
+
+Union-Find での根の都市の番号を取ることにより実現できます。
+同様に、配列 br で、都市 i と都市 j が鉄道で連結しているとき br[i] = br[j]、そうでないとき br[i] ̸= br[j]
+となるようなものを取ります。
+このとき、i と j が鉄道・道路の両方で連結している ⇔ ar[i] = ar[j] ∧ br[i] = br[j] です。よって、各 i に
+ついて、(ar[i], br[i]) のようにペアとし、同じペアがいくつ出てくるかを配列のソートや連想配列などを用い
+求めることで解くことができます。O(K + L + N logN ) です。
+
+Construct a graph with roads and find the connected components in it. Then, you can assign values ai
+to each city i such that the cities p and q are reachable using roads iﬀ ap = aq . Similarly, define values
+bi for railways.
+Then, a pair of two cities satisfies the conditions iﬀ their (a, b) values are the same.
+

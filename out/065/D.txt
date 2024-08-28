@@ -1,0 +1,30 @@
+最小全域木を求める問題です。素直にグラフを構築し、最小全域木を求めた場合、辺数が O(N 2 ) 本となり、
+間に合いません。
+さて、座標 (a, b) の点と座標 (c, d) の点を結ぶコストは min(|a − c|, |b − d|) ですが、最小全域木を求める
+上では、(多重辺はコストが最小のもののみ考えればいいので) コスト |a − c| の辺とコスト |b − d| の辺がそ
+れぞれ存在すると考えても構いません。
+さて、x 座標と点の番号の組がそれぞれ (s, i) < (t, j) < (u, k) (ただし、不等号は辞書式順序で入れる) で
+ある 3 点を考えたときに、もし 1 番目の点と 3 番目の点をコスト u − s の辺で結ぶ辺を全域木に使うならば、
+その代わりに 1, 2 番目の点を結ぶコスト u − t の辺と 2, 3 番目の点を結ぶコスト t − s の辺を使うことにし
+ても、全域木のコストは大きくなりません。よって、1, 3 番目の点を直接結ぶコスト u − t の辺は、考えなく
+ていいことが分かります。(点の番号を一緒にして並べているのは、同じ x 座標の点が出現した場合に順序を
+つけるための便宜的な措置です)
+以上より、点たちを x 座標でソートした列において隣接する 2 点と、y 座標でソートした列において隣接
+する 2 点の間にそれぞれ辺を張ったグラフの最小全域木を求めればよいです。辺の本数は O(N ) 本に減った
+ため、全体で O(N logN ) 時間でこの問題を解くことができます。
+
+We are asked to compute the minimum spanning tree.
+Between two points (a, b) and (c, d), instead of adding an edge of cost min(|a − c|, |b − d|), we
+add two edges: one edge with cost |a − c| and one edge with cost |b − d|.
+Suppose that there are three points p, q, r, and their x-coordinates satisfy xp < xq < xr . Then,
+the edge between p and r with cost xr − xp never appear in the MST (it is better to use an edge
+between p and q with cost xq − xp and an edge between q and r with cost xr − xq ).
+Thus, we only need to consider the following 2(N − 1) edges:
+• We sort the point by their x-coordinates, and for each adjacent pair of points add an edge
+between them (the cost is the diﬀerence of their x-coordinates).
+• We sort the point by their y-coordinates, and for each adjacent pair of points add an edge
+between them (the cost is the diﬀerence of their y-coordinates).
+2
+
+We compute the MST of these edges. This can be done in O(N logN ).
+

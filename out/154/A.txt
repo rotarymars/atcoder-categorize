@@ -1,0 +1,90 @@
+S = U, T = U のどちらであるか判定し、場合分けすればよいです。以下は C++ における実装例
+です。
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+string S,T,U;
+
+6
+
+int A,B;
+
+7
+
+cin>>S>>T>>A>>B>>U;
+
+8
+
+if(S==U)A--;
+
+9
+
+else B--;
+
+10
+
+cout<<A<<"␣"<<B<<endl;
+
+11
+
+}
+
+1
+
+It is enough splitting conditions by judging whether S = U or T = U . The following is the
+sample code in C++.
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+string S,T,U;
+
+6
+
+int A,B;
+
+7
+
+cin>>S>>T>>A>>B>>U;
+
+8
+
+if(S==U)A--;
+
+9
+
+else B--;
+
+10
+
+cout<<A<<"␣"<<B<<endl;
+
+11
+
+}
+
+7
+

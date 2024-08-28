@@ -1,0 +1,499 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editorial - Toyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="en">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="AtCoder is a programming contest site for anyone from beginners to experts. We hold weekly programming contests online.">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="Editorial - Toyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）" />
+	<meta property="og:description" content="AtCoder is a programming contest site for anyone from beginners to experts. We hold weekly programming contests online." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc290/editorial/5769" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="Editorial - Toyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "en";
+		var userScreenName = "";
+		var csrfToken = "8rWVQ/XvwySD42D7xiQhAIFRQzhcRf/ZXI5n03z2hbc="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc290";
+			var remainingText = "Remaining Time";
+			var countDownText = "Contest begins in";
+			var startTime = moment("2023-02-19T21:00:00+09:00");
+			var endTime = moment("2023-02-19T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Contest started</h4>
+			</div>
+			<div class="modal-body">
+				<p>Toyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290） has begun.</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Contest is over</h4>
+			</div>
+			<div class="modal-body">
+				<p>Toyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290） has ended.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc290">Toyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc290/editorial/5769?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc290/editorial/5769?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc290%2Feditorial%2F5769">Sign Up</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc290%2Feditorial%2F5769">Sign In</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc290%2Feditorial%2F5769">
+		<input type="hidden" name="csrf_token" value="8rWVQ/XvwySD42D7xiQhAIFRQzhcRf/ZXI5n03z2hbc=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				Contest Duration:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230219T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-02-19 21:00:00+0900</time></a> - <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230219T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-02-19 22:40:00+0900</time></a> (local time)
+				(100 minutes)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">Back to Home</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc290"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Top</a></li>
+		
+			<li><a href="/contests/abc290/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Tasks</a></li>
+		
+
+		
+			<li><a href="/contests/abc290/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Clarifications <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Results<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc290/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> All Submissions</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc290/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> Standings</a></li>
+				
+			
+				
+					<li><a href="/contests/abc290/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> Virtual Standings</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc290/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Editorial</a></li>
+		
+		
+			
+			
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">Official</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc290/tasks/abc290_h">Ex - Bow Meow Optimization</a> Editorial
+			
+			<span class="small">by <a href="/users/yuto1115" class="username"><span class="user-red">yuto1115</span></a></span>
+			
+		</h2>
+		<span class="grey">解説</span>
+		<hr class="mt-1">
+		
+			<div><p>不満度の定義式のうち、<span>\(A_i\)</span> または <span>\(B_i\)</span> の部分を<strong>不満係数</strong>、<span>\(|x-y|\)</span> の部分を<strong>偏り</strong>と呼びます (すなわち、不満度は不満係数と偏りの積です)。また、犬と猫を合わせて単に動物と呼びます。</p>
+
+<h3>1. 最適解の構造</h3>
+
+<p>実は、最適解は必ず以下の図のような構造になっています (「<span>\(N\)</span>  が偶数、<span>\(M\)</span> が奇数」の場合は「 <span>\(N\)</span> が奇数、<span>\(M\)</span> が偶数」の場合と同様なので扱いません)。</p>
+
+<p>図の説明：赤い丸は犬を、青い丸は猫を、白い丸は犬と猫のいずれかを表しています。また、丸の部分列の上に書かれた矢印は、その部分列内において、矢印の方向に向かって不満係数が昇順となるように並んでいることを意味します。例えば一番上の図は、「<span>\(\frac{N-1}{2}\)</span> 匹の犬と <span>\(\frac{M-1}{2}\)</span> 匹の猫を不満係数の昇順に並べた列」、「<span>\(A_i\)</span> が最大の犬」、「<span>\(B_i\)</span> が最大の猫」、「<span>\(\frac{N-1}{2}\)</span> 匹の犬と <span>\(\frac{M-1}{2}\)</span> 匹の猫を不満係数の降順に並べた列」をこの順に連結したものを表しています。</p>
+
+<p><br>
+<img src="https://img.atcoder.jp/abc290/35f593d24dcd874815e0fe33b89b3a2f.jpg" alt="最適解の構造"></p>
+
+<p><br>
+それぞれのパターンについて最適性を証明していきます。</p>
+
+<p><a href="#calc" rel="nofollow">証明を飛ばしたい方はこちら</a></p>
+
+<h4><span>\(N\)</span> が奇数、<span>\(M\)</span> が奇数の場合</h4>
+
+<p>証明すべき事柄を以下のように分割します。</p>
+
+<ol>
+<li>中央の犬 (左から <span>\(\frac{N+1}{2}\)</span> 番目の犬) と中央の猫 (左から <span>\(\frac{M+1}{2}\)</span> 番目の猫) は隣接する</li>
+<li>中央の犬/猫には、それぞれの種族内で不満係数が最大のものが割り当てられる</li>
+<li>中央の犬&amp;猫の両端にある列は、中央に近づくほど不満係数が高くなるように並んでいる</li>
+</ol>
+
+<h5>1. 中央の犬と中央の猫は隣接する</h5>
+
+<p>中央の犬と中央の猫の間に他の動物が入っている場合は、</p>
+
+<p><img src="https://img.atcoder.jp/abc290/9379c587d20f2cf3d07242725e0aa8e8.jpg" alt="中央の犬と中央の猫の間に挟まった動物を外に追い出す"></p>
+
+<p>この図のように、元々間に挟まっていた犬は中央の猫の横に、元々間に挟まっていた猫は中央の犬の横に追い出す操作を考えましょう。この操作によって偏りが増加する動物はいないため、解は悪化しません。よって、最適解において中央の犬と中央の猫は隣接するとして良いです。</p>
+
+<h5>2. 中央の犬/猫には、それぞれの種族内で不満係数が最大のものが割り当てられる</h5>
+
+<p>中央の犬と中央の猫が隣接しているとき、中央の犬/猫の偏りはどちらも <span>\(1\)</span> で、これは偏りの最小値ですから、不満係数最大のものを割り当てるのが最適です（並び替え不等式）。</p>
+
+<h5>3. 中央の犬&amp;猫の両端にある列は、中央に近づくほど不満係数が高くなるように並んでいる</h5>
+
+<p>各列の中で隣接する <span>\(2\)</span> 匹の動物であって、中央に近いものの方が不満係数が小さいようなペアがあったとします。このペア内で順序を入れ替えた場合、</p>
+
+<ul>
+<li><span>\(2\)</span> 匹がどちらも犬またはどちらも猫ならば、偏りは変化しないので、不満度も変化しません。</li>
+<li><span>\(2\)</span> 匹のうち一方が犬で他方が猫ならば、元々中央に近かった方の偏りが <span>\(2\)</span> 増加し、他方の偏りが <span>\(2\)</span> 減少します。不満係数の大小関係に関する仮定から、不満度の総和は減少します。</li>
+</ul>
+
+<p>よって、不満係数の大小が逆転している隣接ペアがある限りそのペア内で順序を入れ替えることによって、解を悪化させることなく「中央に近づくほど不満係数が高くなるように並んでいる」状態にすることができます。</p>
+
+<h4><span>\(N\)</span> が奇数、<span>\(M\)</span> が偶数の場合</h4>
+
+<p>中央の犬が左から <span>\(\frac{M}{2}\)</span> 番目の猫と <span>\(\frac{M}{2}+1\)</span> 番目の猫の間にいない場合、</p>
+
+<p><img src="https://img.atcoder.jp/abc290/d2aa40b042a390db8470c40262531e7a.jpg"></p>
+
+<p>このような操作をしても解は悪化しません。あとは <span>\(N\)</span> が奇数、<span>\(M\)</span>  が奇数の場合と同様に示せます。</p>
+
+<h4><span>\(N\)</span> が偶数、<span>\(M\)</span> が偶数の場合</h4>
+
+<p>同様に、下図のような操作を考えます。</p>
+
+<p><img src="https://img.atcoder.jp/abc290/9fc94417a1494511e38537ec0d76b346.jpg"></p>
+
+<p>左から <span>\(\frac{N}{2}\)</span> 番目の犬、<span>\(\frac{N}{2}+1\)</span> 番目の犬、<span>\(\frac{M}{2}\)</span> 番目の猫、<span>\(\frac{M}{2}+1\)</span> 番目の猫の <span>\(4\)</span> 匹だけを取り出して位置関係を考えたとき、上の操作によって「犬犬猫猫」「猫猫犬犬」のパターンはなくなり、「犬猫犬猫」「猫犬猫犬」「犬猫猫犬」「猫犬犬猫」の <span>\(4\)</span> 択になります。いずれにせよ、全体の左半分 <span>\(\frac{N+M}{2}\)</span> 匹の中には犬 <span>\(\frac{N}{2}\)</span> 匹と猫 <span>\(\frac{M}{2}\)</span> 匹が含まれるので、全体の左半分と右半分それぞれについて <span>\(N\)</span> が奇数、<span>\(M\)</span>  が奇数の場合の 3. と同様の議論が回ります。</p>
+
+<p><div id="calc"></div></p>
+
+<h3>2. 求値</h3>
+
+<p><span>\(N\)</span> や <span>\(M\)</span> が奇数の場合は、中央の動物を適切な前処理の上除いておくことで <span>\(N\)</span> も <span>\(M\)</span> も偶数の場合に帰着できます。</p>
+
+<p>以下、 <span>\(N\)</span> も <span>\(M\)</span> も偶数の場合を考えます。上述したとおり、最適解を与える列として考える必要があるのは以下のものに限られます。</p>
+
+<ul>
+<li><span>\(\frac{N}{2}\)</span> 匹の犬と<span>\(\frac{M}{2}\)</span> 匹の猫を不満係数の昇順に並べた <span>\(2\)</span> つの列 <span>\(P,Q\)</span> に対して、<span>\(P\)</span> と「<span>\(Q\)</span> を反転した列」をつなげたもの (ただし、それぞれの動物は <span>\(P\)</span>  と <span>\(Q\)</span> のどちらか一方のみに現れる)。</li>
+</ul>
+
+<p>よって、<span>\(N+M\)</span> 匹の動物を不満係数の昇順に見ていきながら、順に <span>\(P\)</span> または <span>\(Q\)</span> の末尾に追加していく動的計画法をすれば良いです。</p>
+
+<p>具体的には、</p>
+<p><span>\[\mathrm{dp}[i][j][k] = \text{不満係数の昇順に i 匹見て、P の中に犬が j 匹・猫が k 匹含まれるときの不満度の総和の最小値}\]</span></p><p>と定義すると、<span>\(i,j,k\)</span> の値から新しく追加する動物の偏りが計算でき、 <span>\(O(1)\)</span> で遷移可能です。<span>\(\mathrm{dp}[N+M][\frac{N}{2}][\frac{M}{2}]\)</span> が求める答えになります。</p>
+
+<p>計算量は <span>\(O(NM(N+M))\)</span>  です。</p>
+
+<p>追記 : <span>\(O((N+M)\log (N+M ))\)</span> で解けるようです (<a href="https://atcoder.jp/contests/abc290/editorial/5800" rel="nofollow">tatyamさんによる予想</a>、<a href="https://atcoder.jp/contests/abc290/editorial/5802" rel="nofollow">noshiさんによる証明</a>)。</p>
+
+<p>想定解 (C++) :</p>
+
+<pre class="prettyprint linenums"><code>#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+using ll = long long;
+
+void chmin(ll &amp;a, ll b) {
+    a = min(a, b);
+}
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+    vector&lt;int&gt; a(n), b(m);
+    for (int &amp;i: a) cin &gt;&gt; i;
+    for (int &amp;i: b) cin &gt;&gt; i;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    ll ans = 0;
+    if (n &amp; 1) {
+        if (m &amp; 1) ans += a.back();
+        ans += accumulate(b.begin(), b.end(), 0LL);
+        a.pop_back();
+        --n;
+    }
+    if (m &amp; 1) {
+        ans += accumulate(a.begin(), a.end(), 0LL);
+        b.pop_back();
+        --m;
+    }
+    // pair の第 1 引数 : A_i または B_i
+    //        第 2 引数 : 犬ならば 0、猫ならば 1
+    vector&lt;pair&lt;int, int&gt;&gt; v;
+    for (int i = 0; i &lt; n; i++) v.emplace_back(a[i], 0);
+    for (int i = 0; i &lt; m; i++) v.emplace_back(b[i], 1);
+    sort(v.begin(), v.end());
+    
+    vector dp(n + m + 1, vector(n + 1, vector&lt;ll&gt;(m + 1, 1LL &lt;&lt; 60)));
+    dp[0][0][0] = 0;
+    int dog = 0, cat = 0;
+    for (int i = 0; i &lt; n + m; i++) {
+        ll now = v[i].first;
+        if (v[i].second == 0) {
+            for (int j = 0; j &lt;= dog; j++) {
+                for (int k = 0; k &lt;= cat; k++) {
+                    chmin(dp[i + 1][j + 1][k], dp[i][j][k] + now * (m - k * 2));
+                    chmin(dp[i + 1][j][k], dp[i][j][k] + now * (m - (cat - k) * 2));
+                }
+            }
+            ++dog;
+        } else {
+            for (int j = 0; j &lt;= dog; j++) {
+                for (int k = 0; k &lt;= cat; k++) {
+                    chmin(dp[i + 1][j][k + 1], dp[i][j][k] + now * (n - j * 2));
+                    chmin(dp[i + 1][j][k], dp[i][j][k] + now * (n - (dog - j) * 2));
+                }
+            }
+            ++cat;
+        }
+    }
+    ans += dp[n + m][n / 2][m / 2];
+    cout &lt;&lt; ans &lt;&lt; endl;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				posted:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1676479660">
+				<time class="timeago" datetime="2023/02/16 01:47:40"></time>
+			</span>
+				<br>
+				last update:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1676895484">
+				<time class="timeago" datetime="2023/02/20 21:18:04"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc290/editorial/5769?lang=en" data-a2a-title="Editorial - Toyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_telegram"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc290/rules">Rule</a></li>
+					<li><a href="/contests/abc290/glossary">Glossary</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">Terms of service</a></li>
+				<li><a href="/privacy">Privacy Policy</a></li>
+				<li><a href="/personal">Information Protection Policy</a></li>
+				<li><a href="/company">Company</a></li>
+				<li><a href="/faq">FAQ</a></li>
+				<li><a href="/contact">Contact</a></li>
+				
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Page Top</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,64 @@
+各色について、その色を一度も通らないようなパスを数え上げることができればよいです。以降、
+頂点 v と頂点 w を結ぶ単純パスを、Pv,w と表します。
+適当な頂点を根として DFS を行います。頂点 v では、それぞれの子 u に対して以下を計算します。
+
+• u を根とする部分木の中で、u から色が cv であるような頂点を一度も通らずに移動できる頂
+点の数
+頂点 v を根とする部分木に含まれる頂点の集合を Sv とすると、上記の値は以下の式で表すことが
+できます。(2020/4/20 修正)
+
+|Su | −
+
+∑
+
+|Sw |
+
+w∈Su ,cw =cv ,f (Pv,w )=2
+
+ただし、f (Pv,w ) = |{x | x ∈ Pv,w , cx = cv }| とします。
+
+∑
+
+各色について
+
+|Sw | の値を計算することを考えます。
+
+w∈Su ,cw =cv ,f (Pv,w )=2
+
+これは、頂点 v に入った時点での値 Xv を保持しておき、出るときに Xv + |Sv | で更新すればよい
+ことがわかります。
+詳しくは実装例を確認してください。計算量は O(N ) です。
+実装例: https://atcoder.jp/contests/abc163/submissions/12125379
+
+7
+
+It is suﬃcient to, for each color, count the number of paths that does not visit the vertices
+with the color at all. Hereinafter we denote the simple path connecting vertex v and vertex w
+by Pv,w . Take an arbitrary root and perform a DFS from it.
+At the vertex v, calculate the value below for each children u.
+• The number of vertices in the subtree whose root is u which can be reached from u without
+visiting the vertices of color cv
+Let Sv be the set of vertices in the subtree whose root is v, then the value above can represented
+by the following equations:
+|Su | −
+
+∑
+
+|Sw |
+
+w∈Su ,cw =cv ,f (Pv,w )=2
+
+In the above equation, we deﬁne f (Pv,w ) = |{x | x ∈ Pv,w , cx = cv }|.
+∑
+Consider calculating the value
+|Sw | for each color.
+w∈Su ,cw =cv ,f (Pv,w )=2
+
+This can be calculated by the following steps: hold the value Xv when entering the vertex v,
+and update to Xv + |Sv | when exiting.
+For details, please check the sample code. The total time complexity is O(N ).
+Sample Code: https://atcoder.jp/contests/abc163/submissions/12125379
+
+13
+
+

@@ -1,0 +1,86 @@
+N 個の整数を入力し、そのうち K 以上の整数がいくつあるかを数える問題です。
+各整数について K 以上であるかを判定すればいいです。
+以下は C++ における実装例です。
+
+#include <iostream>
+2 using namespace std;
+3 int main(){
+4
+int N,K;
+5
+cin>>N>>K;
+1
+
+6
+
+int cnt=0;
+for(int i=0;i<N;i++){
+int h;
+cin>>h;
+if(h>=K) cnt++;
+}
+
+7
+8
+9
+10
+11
+12
+13
+14
+
+cout<<cnt<<endl;
+
+15
+
+return 0;
+
+16
+
+}
+
+2
+
+In this problem you are asked to input N integers and find the number of integers that is more
+than or equal to K.
+You can judge if each integer is more than or equal to K.
+The following is an implementation example in C++.
+#include <iostream>
+2 using namespace std;
+3 int main(){
+4
+int N,K;
+5
+cin>>N>>K;
+1
+
+6
+
+int cnt=0;
+for(int i=0;i<N;i++){
+int h;
+cin>>h;
+if(h>=K) cnt++;
+}
+
+7
+8
+9
+10
+11
+12
+13
+14
+
+cout<<cnt<<endl;
+
+15
+
+return 0;
+
+16
+
+}
+
+8
+

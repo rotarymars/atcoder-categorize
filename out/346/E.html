@@ -1,0 +1,538 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - ユニークビジョンプログラミングコンテスト2024 春（AtCoder Beginner Contest 346）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - ユニークビジョンプログラミングコンテスト2024 春（AtCoder Beginner Contest 346）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc346/editorial/9637" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - ユニークビジョンプログラミングコンテスト2024 春（AtCoder Beginner Contest 346）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc346";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2024-03-23T21:00:00+09:00");
+			var endTime = moment("2024-03-23T22:40:00+09:00");
+		</script>
+		<style>    #contest-statement .lang-ja  hr {
+        margin: 50px 0px;
+        border: none;
+        border-top: 10px dotted #e50050;
+    }
+    #contest-statement h4 {
+        margin-top: 20px;
+    }
+    .icon {
+        height: 1em;
+    }
+    .leaf1 {
+        color: #ffaaaa;
+        position: fixed;
+        top: -5%;
+    }
+    .leaf2 {
+        color: #aaffaa;
+        position: fixed;
+        top: -5%;
+    }
+    .l1 {
+        font-size: 25px;
+        animation: s1 6s linear infinite;
+    }
+    .l2{
+        font-size: 20px;
+        animation: s2 11s linear infinite;
+    }
+    .l3 {
+        font-size: 50px;
+        animation: s3 4s linear infinite;
+    }
+    .l4 {
+        font-size: 50px;
+        animation: s4 8s linear infinite;
+    }
+    
+    @keyframes s1 {
+        0% {
+            top:100%;
+            left: 50%;
+            transform:rotate(0deg);
+        }
+        100% {
+            top: -50%;
+            left: 20%;
+            transform:rotate(360deg);
+        }
+    }
+    @keyframes s2 {
+        0% {
+            top:100%;
+            left: 50%;
+            transform:rotate(0deg);
+        }
+        100% {
+            top: -50%;
+            left: 80%;
+            transform:rotate(720deg);
+        }
+    }
+    @keyframes s3 {
+        0% {
+            top:100%;
+            left: 50%;
+            transform:rotate(0deg);
+        }
+        100% {
+            top: -50%;
+            left: 50%;
+            transform:rotate(1080deg);
+        }
+    }
+    @keyframes s4 {
+        0% {
+            top:100%;
+            left: 80%;
+            transform:rotate(0deg);
+        }
+        100% {
+            top: -50%;
+            left: 50%;
+            transform:rotate(1080deg);
+        }
+    }
+
+
+    /* 桜を表示するコンテナのスタイル */
+.cherry-blossom-container {
+  position: relative;
+  width: 100%; /* コンテナの横幅 */
+  overflow: hidden; /* コンテナからはみ出した要素を隠す */
+}
+
+/* 桜の花びらのスタイル */
+.petal {
+  position: absolute;
+  border-radius: 150% 0 150% 0;
+  animation: animate-petal 10s linear;
+}
+
+.petal::after {
+  content: "";
+  position: absolute;
+  top: -14%;
+  left: -10%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 150% 0 150% 0;
+  transform: rotate(15deg);
+}
+
+/* 花びらが降るアニメーション */
+@keyframes animate-petal {
+  0% {
+    top: 0%;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 100%;
+    transform: rotate(3000deg);
+  }
+}</style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>ユニークビジョンプログラミングコンテスト2024 春（AtCoder Beginner Contest 346）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>ユニークビジョンプログラミングコンテスト2024 春（AtCoder Beginner Contest 346）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc346">ユニークビジョンプログラミングコンテスト2024 春（AtCoder Beginner Contest 346）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc346/editorial/9637?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc346/editorial/9637?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc346%2Feditorial%2F9637">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc346%2Feditorial%2F9637">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc346%2Feditorial%2F9637">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240323T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-03-23 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240323T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-03-23 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc346"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc346/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc346/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc346/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc346/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc346/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc346/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc346/tasks/abc346_e">E - Paint</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-3.png" class="user-rating-stage-m"><a href="/users/cn449" class="username"><span class="user-orange">cn449</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>すべてのマスに対して、最終的なマスの色はそのマスに対する最後の操作により決まります。このような状況では、操作を逆順から考えることにより扱いやすくなるケースが多いです。</p>
+
+<p>操作を逆順から考えることにより、問題における一連の操作は以下と等価であることがわかります。</p>
+
+<blockquote>
+<p><span>\(H\)</span> 行 <span>\(W\)</span> 列のグリッドが与えられ、はじめすべてのマスの色は未確定である。</p>
+
+<p><span>\(i = M,M-1,\ldots,1\)</span> の順で以下の操作を行う。</p>
+
+<ul>
+<li><p><span>\(T_i = 1\)</span> のとき、<span>\(A_i\)</span> 行目のマスであって、マスの色が未確定であるものの色を <span>\(X_i\)</span> であると確定させる。</p></li>
+
+<li><p><span>\(T_i = 2\)</span> のとき、<span>\(A_i\)</span> 列目のマスであって、マスの色が未確定であるものの色を <span>\(X_i\)</span> であると確定させる。</p></li>
+</ul>
+
+<p>以上の操作を終えた後に色が未確定であるマスの色が色 <span>\(0\)</span> であると確定させる。</p>
+</blockquote>
+
+<p>このように整理すると、 <span>\(i = M,M-1,\ldots, 1\)</span> の順で <span>\(1\)</span> 度以上操作を行った行・列の個数、各行・列に対して操作を行ったかどうか、各色の確定したマスの個数の情報を持ちながら計算することで答えを計算できることがわかります。</p>
+
+<p>具体的には、<span>\(A_i\)</span> 行目に対する操作はそれ以前に <span>\(A_i\)</span> 行目に対する操作が行われていないときに限り行われると考えてよく、その操作においては操作を行われたことのない列の個数だけ色 <span>\(X_i\)</span> であると確定するマスの個数が増え、<span>\(A_i\)</span> 列目に対する操作でも同様です。</p>
+
+<p>実装例</p>
+
+<pre class="prettyprint linenums"><code>#include &lt;bits/stdc++.h&gt;
+#define rep(i, n) for (ll i = 0; i &lt; (n); i++)
+using namespace std;
+using ll = long long;
+
+int main() {
+    int h, w, m;
+    cin &gt;&gt; h &gt;&gt; w &gt;&gt; m;
+    vector&lt;bool&gt; f(h), g(w); // 操作が行われたことがあるか
+    ll hc = h, wc = w; // 操作が行われていない行・列の個数
+    vector&lt;int&gt; t(m), a(m), x(m);
+    rep(i, m) cin &gt;&gt; t[i] &gt;&gt; a[i] &gt;&gt; x[i];
+    rep(i, m) a[i]--;
+    int X = 200010;
+    vector&lt;ll&gt; cnt(X); // 各色の確定したマスの個数
+    for (int i = m - 1; i &gt;= 0; i--) {
+        if (t[i] == 1) {
+            if (!f[a[i]]) {
+                hc--;
+                f[a[i]] = true;
+                cnt[x[i]] += wc;
+            }
+        }
+        else {
+            if (!g[a[i]]) {
+                wc--;
+                g[a[i]] = true;
+                cnt[x[i]] += hc;
+            }
+        }
+    }
+    cnt[0] += hc * wc;
+    vector&lt;pair&lt;ll, ll&gt;&gt; ans;
+    rep(i, X) if (cnt[i]) ans.push_back({ i,cnt[i] });
+    cout &lt;&lt; ans.size() &lt;&lt; &#39;\n&#39;;
+    for (auto p : ans) cout &lt;&lt; p.first &lt;&lt; &#39; &#39; &lt;&lt; p.second &lt;&lt; &#39;\n&#39;;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1711185365">
+				<time class="timeago" datetime="2024/03/23 18:16:05"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1711185365">
+				<time class="timeago" datetime="2024/03/23 18:16:05"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc346/editorial/9637?lang=ja" data-a2a-title="解説 - ユニークビジョンプログラミングコンテスト2024 春（AtCoder Beginner Contest 346）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc346/rules">ルール</a></li>
+					<li><a href="/contests/abc346/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

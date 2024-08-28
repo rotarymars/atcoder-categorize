@@ -1,0 +1,12 @@
+x 座標・y 座標それぞれを重複を除いてソートし，十分なサイズの 2 次元グリッド上に各線分を刻
+み込んでから BFS すれば，O(N M ) 時間となって十分間に合います．
+
+7
+
+Sort the x and y coordinates without duplicates, inscribe each segment into a two-dimensional
+grid of suﬃcient size and perform the BFS, then it will be in a total of O(N M ) time, which is
+fast enough.
+
+14
+
+

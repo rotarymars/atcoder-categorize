@@ -1,0 +1,66 @@
+ti ≤ T を満たす i のうち ci の最小値を求めつつ、そのような i が存在するか調べていきます。これを実現
+するアルゴリズムとして、例えば次のようなアルゴリズムが考えられます。
+アルゴリズム 1
+
+1. ans := ∞ とする
+2. i = 1, 2, ..., N と順に、ti ≤ T かつ ci < ans なら ans := ci とする
+3. ans = ∞ なら条件を満たす i は存在しないので TLE と出力し、そうでなければ ans を出力する
+アルゴリズム 2
+
+1. ti ≤ T であるような i について ci を集めた配列を c′ とする
+2. c′ が空なら TLE と出力し、そうでなければ c′ の最小値を求めて出力する
+以下は、これらのアルゴリズムをそれぞれ C++ で実装した例です。
+アルゴリズム 1
+
+#include <i o s t r e a m >
+
+using namespace s t d ;
+const int i n f { int ( 1 e9 ) } ;
+int main ( ) {
+int N, T ; c i n >> N >> T ;
+int ans { i n f } ;
+fo r ( int i = 0 ; i < N; ++i ) {
+int c , t ; c i n >> c >> t ;
+i f ( t < T && c < ans ) {
+ans = c ;
+}
+}
+i f ( ans == i n f ) {
+c o u t << ”TLE” << e n d l ;
+}
+else {
+c o u t << ans << e n d l ;
+}
+}
+
+2
+
+アルゴリズム 2
+
+#include <i o s t r e a m >
+#include <v e c t o r >
+#include <a l g o r i t h m >
+
+using namespace s t d ;
+int main ( ) {
+int N, T ; c i n >> N >> T ;
+v e c t o r <int> c (N) , t (N ) ;
+fo r ( int i = 0 ; i < N; ++i ) {
+c i n >> c [ i ] >> t [ i ] ;
+}
+v e c t o r <int> f i l t e r e d c ;
+fo r ( int i = 0 ; i < N; ++i ) {
+i f ( t [ i ] <= T) {
+f i l t e r e d c . push back ( c [ i ] ) ;
+}
+}
+i f ( f i l t e r e d c . s i z e ( ) == 0 ) {
+c o u t << ”TLE” << e n d l ;
+}
+else {
+c o u t << ∗ min element ( f i l t e r e d c . b e g i n ( ) , f i l t e r e d c . end ( ) ) << e n d l ;
+}
+}
+
+3
+

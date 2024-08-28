@@ -1,0 +1,416 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 332</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 332" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc332/editorial/7901" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 332" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc332";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-12-10T21:00:00+09:00");
+			var endTime = moment("2023-12-10T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 332が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 332は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc332">AtCoder Beginner Contest 332</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc332/editorial/7901?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc332/editorial/7901?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc332%2Feditorial%2F7901">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc332%2Feditorial%2F7901">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc332%2Feditorial%2F7901">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20231210T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-12-10 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20231210T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-12-10 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc332"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc332/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc332/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc332/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc332/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc332/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc332/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc332/tasks/abc332_c">C - T-shirts</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-4.png" class="user-rating-stage-m"><a href="/users/mechanicalpenciI" class="username"><span class="user-orange">mechanicalpenciI</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>まず、予定のない日が入るたびに全てのTシャツを洗濯でき、着用できるTシャツの枚数がリセットされることから、<span>\(N\)</span> 日間の予定のうち <code>0</code> で区切られている部分についてはそれぞれ独立に考えることができます。  また、問題文の条件より、追加で <span>\(a\)</span> 枚ロゴ入りの T シャツを購入すれば条件をみたすように着用できるとき、<span>\(a\)</span> 枚以上であれば何枚購入しても条件をみたすように着用できます。<br>
+よって、<span>\(S\)</span> の中に <code>0</code>が<span>\(c_0\)</span> 個含まれており、具体的には <span>\(d_1,d_2,\ldots, d_{c_0}\)</span> 文字目が <code>0</code> であった時、
+<span>\(1\)</span> 日目から <span>\((d_1-1)\)</span> 日目まで、
+<span>\((d_1+1)\)</span> 日目から <span>\((d_2-1)\)</span> 日目まで、
+<span>\(\ldots\)</span> 、
+<span>\((d_{c_0-1}+1)\)</span> 日目から <span>\((d_{c_0}-1)\)</span> 日目まで、
+<span>\((d_{c_0}+1)\)</span> 日目から <span>\(N\)</span> 日目まで
+のぞれぞれの予定において、その予定に対する条件をみたすように T シャツを着用するために購入する必要のあるロゴ入りの T シャツの最低枚数が求まれば、求めるべき答えはそれらのうちの最大値として求めることができます。</p>
+
+<p><br></p>
+
+<p>次に、<code>1</code> と <code>2</code> のみからなる長さ <span>\(k\)</span> の文字列 <span>\(T\)</span> に対応する予定について条件をみたすように T シャツを着用するために最低何枚の T シャツを購入する必要があるかについて考えます。<br>
+<span>\(T\)</span> の中に <code>1</code> が <span>\((k-x)\)</span> 個、 <code>2</code> が <span>\(x\)</span> 個含まれているとき、少なくとも次の <span>\(2\)</span> つの条件がみたされる必要があります。</p>
+
+<ul>
+<li>ロゴ入りのT シャツを <span>\(x\)</span> 枚以上所持している。</li>
+<li>無地の T シャツとロゴ入りのT シャツをあわせて <span>\(k\)</span> 枚以上所持している。</li>
+</ul>
+
+<p>これは、それぞれ、競技プログラミングのイベントがある日にはロゴ入りの T シャツを着用する必要があること、食事またはイベントがある日にはいずれかの T シャツを <span>\(1\)</span> 枚着用しなければならないことから明らかです。</p>
+
+<p>逆にこれが満たされるとき、すなわち高橋君が <span>\(y=\max(x,k-M)\)</span> 枚以上ロゴ入り T シャツを購入していたとき、高橋君は次のようにして条件を満たすように T シャツを着用することができます。</p>
+
+<ul>
+<li>食事の予定がある時、洗濯済みの無地の T シャツが残っているならばそのうちの <span>\(1\)</span> 枚を、そうでないならばロゴ入りの T シャツを着用する。</li>
+<li>競技プログラミングのイベントがあるとき、ロゴ入りの T シャツを着用する。</li>
+</ul>
+
+<details>
+  <summary>証明</summary>
+高橋君が $y=\max(x,k-M)$ 枚以上ロゴ入り T シャツを購入し、上記のように服を着用したとき、$t$ $(1\leq t\leq k)$ 日目に着用できる Tシャツが存在しなかったとします。両方の T シャツがあわせて $k$ 枚以上あることから、（無地とロゴ入りあわせて）少なくとも $1$ 枚の T シャツは洗濯済みの状態で存在しています。よって、あり得るならば競技プログラミングのイベントがある日に無地の T シャツのみ着用可能であるような状況となります。しかし、このとき（上で述べたシャツの選び方から） $t-1$ 日目までの食事の予定でロゴ入りの T シャツを着用していることはないため、$t$ 日目までに競プロのイベントが $y+1$ 回以上行われたことになります。しかし、$k$ 日間の間に競技プログラミングのイベントは高々 $x(\leq y)$回しか行われないためこれはあり得ません。よって$k$ 日間の間に着用できる Tシャツが存在しなることはなく、高橋君は $k$ 日間条件を満たすように T シャツを着用することができます。
+</details>
+
+<p><br></p>
+
+<p>これらの事から、<span>\((k-x)\)</span> 個の <code>1</code> と、<span>\(x\)</span> 個の <code>2</code> からなるような <span>\(T\)</span> に対応する<span>\(k\)</span> 日間の予定について、条件をみたすように T シャツを着用するために購入する必要のある最小枚数は <span>\(\max(x,k-M)\)</span> 枚であることが分かります。</p>
+
+<p>あとは、<code>0</code> で区切られた各文字列についてこの値を求め、さらにその中の最大値を求めれば良いです。</p>
+
+<p>これを求めるには例えば、<code>1</code> と <code>2</code> の登場回数を数えながら <span>\(S\)</span> を左から見ていき、<code>0</code> または文字列の終端が来るたびに <span>\(y=\max(x,k-M)\)</span> を求めカウントをリセットすれば良いです。
+このとき、<span>\(S\)</span> の各文字を <span>\(2\)</span> 回以上参照する必要はなく、計算量は <span>\(O(N)\)</span> となるため、十分高速です。<br>
+よって、この問題を解くことができました。<br>
+なお、<span>\(S\)</span> の末尾に <code>0</code> を付け加えることで文末と <code>0</code> が来た時の処理を統一して行うことができます。</p>
+
+<p>c++ による実装例:</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(void){
+	int n,m;
+	int ans=0;
+	int x=0,y=0;
+	string s;
+
+	cin&gt;&gt;n&gt;&gt;m;
+	cin&gt;&gt;s;
+	s+=&#34;0&#34;;
+
+	for(int i=0;i&lt;=n;i++){
+		if(s[i]==&#39;0&#39;){
+			ans=max(ans,max(x+y-m,y));
+			x=0,y=0;
+		}
+		if(s[i]==&#39;1&#39;)x++;
+		if(s[i]==&#39;2&#39;)y++;
+	}
+	
+	cout&lt;&lt;ans&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1702020372">
+				<time class="timeago" datetime="2023/12/08 16:26:12"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1702177496">
+				<time class="timeago" datetime="2023/12/10 12:04:56"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc332/editorial/7901?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 332">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc332/rules">ルール</a></li>
+					<li><a href="/contests/abc332/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

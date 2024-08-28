@@ -1,0 +1,183 @@
+(原案: kort0n, 準備・解説: gazelle)
+コンテストの参加回数によって、内部レーティングと表示レーティングの間に成り立つ関係式が異
+なっています。よって、高橋君のコンテスト参加回数 N が 10 以上かどうかで場合分けをして考え
+ることにします。
+
+N が 10 以上の場合
+このとき、内部レーティングと表示レーティングは等しくなるので、入力として受け取った高
+橋君の表示レーティングの値を、そのまま高橋君の内部レーティングの値として出力すればい
+いです。
+
+N が 10 未満の場合
+このとき、
+表示レーティング = 内部レーティング − 100 × (10 − N )
+の関係が成り立っています。よって高橋君の内部レーティングの値は、表示レーティングの値
+に 100 × (10 − N ) を足したものに等しいことが分かります。
+以上のロジックの C++ での実装例を Listing 1 に示します。
+なお Listing 2 のコードのように、min 関数を用いて if 文を使わないコードにすることも可能です。
+Listing 1 C++ による実装例
+1
+
+#include<bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main() {
+
+5
+
+int N, R;
+
+6
+
+cin >> N >> R;
+
+7
+
+if(N >= 10) cout << R << endl;
+
+1
+
+8
+
+else cout << R + 100 * (10 - N) << endl;
+
+9
+
+return 0;
+
+10
+
+}
+Listing 2 C++ による実装例 2
+
+1
+
+#include<bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main() {
+
+5
+
+int N, R;
+
+6
+
+cin >> N >> R;
+
+7
+
+cout << R + 100 * (10 - min(10, N)) << endl;
+
+8
+
+return 0;
+
+9
+
+}
+
+2
+
+(draft: kort0n, preparation, editorial: gazelle)
+Depending on the number of participation in the contest, the relational expression between
+the Inner Rating and Displayed Rating is diﬀerent. Therefore, we will split into case depending
+on whether the number of Takahashi’s participation in contest, N , is 10 or more, or not.
+If N is more than or equal to 10
+In such case, the Inner Rating and the Displayed Rating is the same, so you can directly
+output the value of Takahashi’s displayed rating you received as an input as the value of
+Takahashi’s Inner Rating as an output.
+If N is less than 10
+In such case, a relational expression of
+Displayed rating = Inner rating − 100 × (10 − N )
+holds. Therefore, it appears that the value of Takahashi’s Inner rating is equal to the value
+of the Displayed Rating, added by 100 × (10 − N ).
+We will show an implementation example of the logic mentioned above in C++ in Listing 6.
+Also, like the code in Listing 7, you can also write a code without if statement by using min
+function.
+Listing 6 Sample Code in C++
+1
+
+#include<bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main() {
+
+5
+
+int N, R;
+
+6
+
+cin >> N >> R;
+
+7
+
+if(N >= 10) cout << R << endl;
+
+8
+
+else cout << R + 100 * (10 - N) << endl;
+
+9
+
+return 0;
+
+10
+
+}
+Listing 7 Sample Code in C++ 2
+
+1
+
+#include<bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main() {
+
+5
+
+int N, R;
+
+10
+
+6
+
+cin >> N >> R;
+
+7
+
+cout << R + 100 * (10 - min(10, N)) << endl;
+return 0;
+
+8
+9
+
+}
+
+11
+

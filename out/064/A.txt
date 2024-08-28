@@ -1,0 +1,10 @@
+3 つの 1 桁の整数 𝑟, 𝑔, 𝑏 をこの順に並べた数は 100𝑟 + 10𝑔 + 𝑏 となります。
+これが 4 の倍数か判定するだけです。「𝑛 が 4 の倍数」 は 「𝑛 を 4 で割った余りが 0」 であるのと同
+じなので、多くのプログラミング言語では n % 4 == 0 が true であれば “Yes”, false であれば “No”
+と出力することで正解が得られます。
+サンプルコード (C++)
+
+The number that AtCoDeer reads is 100𝑎 + 10𝑏 + 𝑐. You can calculate with the
+remainder of 100𝑎 + 10𝑏 + 𝑐 divided by 4.
+C++ code example:
+

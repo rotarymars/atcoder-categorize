@@ -1,0 +1,510 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc301/editorial/6344" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc301";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-05-13T21:00:00+09:00");
+			var endTime = moment("2023-05-13T22:45:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc301">パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc301/editorial/6344?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc301/editorial/6344?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc301%2Feditorial%2F6344">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc301%2Feditorial%2F6344">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc301%2Feditorial%2F6344">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230513T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-05-13 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230513T2245&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-05-13 22:45:00+0900</time></a> 
+				(105分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc301"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc301/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc301/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc301/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc301/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc301/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc301/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc301/tasks/abc301_h">Ex - Difference of Distance</a> 解説
+			
+			<span class="small">by <a href="/users/yuto1115" class="username"><span class="user-red">yuto1115</span></a></span>
+			
+		</h2>
+		<span class="grey">解説</span>
+		<hr class="mt-1">
+		
+			<div><p>与えられるグラフにおいて、重みが <span>\(n\)</span> 以下である辺のみを残したグラフを <span>\(G_n\)</span> とおきます。</p>
+
+<p>元のグラフにおける <span>\(d(S_j,T_j)\)</span> の値を <span>\(D_j\)</span> とします。また、元のグラフにおいて頂点 <span>\(S_j\)</span> と頂点 <span>\(T_j\)</span> を結ぶパスのうち、「パス上の辺の重みの最大値」が <span>\(D_j\)</span> に等しいようなパスの集合を <span>\(\mathcal P\)</span> とします。</p>
+
+<ul>
+<li><p><span>\(W_{A_j} &gt; D_j\)</span> のとき : 任意の <span>\(P \in \mathcal P\)</span> について、<span>\(P\)</span> は辺 <span>\(A_j\)</span> を含まないので、辺 <span>\(A_j\)</span> の重みが増えても <span>\(P\)</span> 上の辺の重みの最大値は変わらず <span>\(D_j\)</span> です。したがって <span>\(d(S_j,T_j)\)</span> も変化しません。</p></li>
+
+<li><p><span>\(W_{A_j} &lt; D_j\)</span> のとき : 辺 <span>\(A_j\)</span> の重みが <span>\(1\)</span> 増えても <span>\(W_{A_j} \leq D_j\)</span> であるため、任意の <span>\(P \in \mathcal P\)</span> について、 (<span>\(P\)</span> が辺 <span>\(A_j\)</span> を含むかどうかに関わらず) <span>\(P\)</span> 上の辺の重みの最大値は変わらず <span>\(D_j\)</span> です。したがって <span>\(d(S_j,T_j)\)</span> も変化しません。</p></li>
+
+<li><p><span>\(W_{A_j} = D_j\)</span> のとき : 辺 <span>\(A_j\)</span> を含まないようなパス <span>\(P \in \mathcal P\)</span> が存在するならば、<span>\(P\)</span> 上の辺の重みの最大値は変わらず <span>\(D_j\)</span> なので、 <span>\(d(S_j,T_j)\)</span> は変化しません。逆に、全ての <span>\(P \in \mathcal P\)</span> について <span>\(P\)</span> が辺 <span>\(A_j\)</span> を含むならば、<span>\(d(S_j,T_j)\)</span> の値は <span>\(1\)</span> 増加します。</p></li>
+</ul>
+
+<p><span>\(W_{A_j}\)</span> と <span>\(D_j\)</span> の大小関係については、<span>\(G_{W_{A_j}}\)</span> および <span>\(G_{W_{A_j}-1}\)</span> において頂点 <span>\(S_j\)</span> と頂点 <span>\(T_j\)</span> が連結であるかどうかが分かればよいので、union-find を使うことで簡単に求められます。</p>
+
+<p>残る課題は、<span>\(W_{A_j} = D_j\)</span> を満たす各クエリについて、辺 <span>\(A_j\)</span> を含まないようなパス <span>\(P \in \mathcal P\)</span> が存在するかどうかを判定することです。ここで、「辺 <span>\(A_j\)</span> を含まないようなパス <span>\(P \in \mathcal P\)</span> が存在<strong>しない</strong>」という条件は以下のように言い換えられます。</p>
+
+<ul>
+<li><span>\(G_{W_{A_j}}\)</span> において、重みが <span>\(W_{A_j}\)</span> 未満の辺をすべて縮約したグラフを考える。このグラフにおいて辺 <span>\(A_j\)</span> は橋であり、辺 <span>\(A_j\)</span> を削除したときに新たにできる <span>\(2\)</span> つの連結成分の一方に頂点 <span>\(S_j\)</span> が、もう一方に頂点 <span>\(T_j\)</span> が含まれる。</li>
+</ul>
+
+<p>ただし、グラフにおける橋とは、その辺を削除すると連結成分の数が増えるような辺のことを指す用語です。頂点数 <span>\(V\)</span>、辺数 <span>\(E\)</span> のグラフが与えられたとき、そのグラフ上の橋を列挙する問題は、lowlink とよばれるアルゴリズムによって <span>\(O(V+E)\)</span> で解くことができます。</p>
+
+<p>よって、「<span>\(G_{W_{A_j}}\)</span> において、重みが <span>\(W_{A_j}\)</span> 未満の辺をすべて縮約したグラフ」において、</p>
+
+<ul>
+<li>辺 <span>\(A_j\)</span> が橋であるかどうか</li>
+<li>辺 <span>\(A_j\)</span> が橋であるならば、辺 <span>\(A_j\)</span> を削除したときに新たにできる <span>\(2\)</span> つの連結成分の一方に頂点 <span>\(S_j\)</span> が、もう一方に頂点 <span>\(T_j\)</span> が含まれるかどうか</li>
+</ul>
+
+<p>を判定すればよいです。前者は lowlink で、後者は DFS-order を用いることで高速に判定可能です。よって本問題を解くことができました。計算量は、下記の実装例では <span>\(O(N+M\alpha (N) + Q\log Q +(M+Q) \log M)\)</span> になります。</p>
+
+<p>おまけ：計算量は悪化しますが、lowlink の部分は <a href="https://atcoder.jp/contests/abc295/tasks/abc295_g" rel="nofollow">ABC295-G</a> と同様のアルゴリズムによって代替可能です。</p>
+
+<p>実装例 (C++) :</p>
+
+<pre class="prettyprint linenums"><code>#include&lt;bits/stdc++.h&gt;
+#include &#34;atcoder/dsu&#34;
+
+using namespace std;
+using namespace atcoder;
+
+class lowlink {
+    int n;
+    vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt; G;
+    vector&lt;int&gt; in, out, low;
+    unordered_map&lt;int, int&gt; bridge;
+    
+    void dfs(int u, int p, int &amp;k) {
+        in[u] = low[u] = k++;
+        for (auto [v, id]: G[u]) {
+            if (in[v] &lt; 0) {
+                dfs(v, id, k);
+                low[u] = min(low[u], low[v]);
+                if (low[v] &gt; in[u]) bridge[id] = v;
+            } else if (id != p) {
+                low[u] = min(low[u], in[v]);
+            }
+        }
+        out[u] = k;
+    }
+    
+    void init() {
+        n = G.size();
+        in.assign(n, -1);
+        out.assign(n, -1);
+        low.assign(n, -1);
+        int k = 0;
+        for (int i = 0; i &lt; n; i++) {
+            if (in[i] &lt; 0) dfs(i, -1, k);
+        }
+    }
+
+public:
+    lowlink(const vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt; &amp;G) : G(G) { init(); }
+    
+    bool query(int a, int s, int t) {
+        assert(0 &lt;= s and s &lt; n);
+        assert(0 &lt;= t and t &lt; n);
+        assert(s != t);
+        if (!bridge.count(a)) return false;
+        int l = in[bridge[a]], r = out[bridge[a]];
+        s = in[s], t = in[t];
+        return (l &lt;= s and s &lt; r) xor (l &lt;= t and t &lt; r);
+    }
+};
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+    vector&lt;int&gt; u(m), v(m), w(m);
+    vector&lt;vector&lt;int&gt;&gt; weight(m);
+    for (int i = 0; i &lt; m; i++) {
+        cin &gt;&gt; u[i] &gt;&gt; v[i] &gt;&gt; w[i];
+        --u[i], --v[i], --w[i];
+        weight[w[i]].push_back(i);
+    }
+    int q;
+    cin &gt;&gt; q;
+    vector&lt;int&gt; a(q), s(q), t(q);
+    for (int i = 0; i &lt; q; i++) {
+        cin &gt;&gt; a[i] &gt;&gt; s[i] &gt;&gt; t[i];
+        --a[i], --s[i], --t[i];
+    }
+    vector&lt;int&gt; ans(q, -1);
+    vector&lt;int&gt; ord(q);
+    iota(ord.begin(), ord.end(), 0);
+    sort(ord.begin(), ord.end(), [&amp;](int i, int j) { return w[a[i]] &lt; w[a[j]]; });
+    
+    // 元々の d(s[j], t[j]) が w[a[j]] と一致しないクエリを処理
+    dsu uf(n);
+    int l = 0;
+    for (int i = 0; i &lt; m; i++) {
+        int r = l;
+        while (r &lt; q and w[a[ord[r]]] == i) ++r;
+        for (int j = l; j &lt; r; j++) {
+            if (uf.same(s[ord[j]], t[ord[j]])) ans[ord[j]] = 0;
+        }
+        for (int j: weight[i]) {
+            uf.merge(u[j], v[j]);
+        }
+        for (int j = l; j &lt; r; j++) {
+            if (!uf.same(s[ord[j]], t[ord[j]])) ans[ord[j]] = 0;
+        }
+        l = r;
+    }
+    
+    uf = dsu(n);
+    int it = 0;
+    for (int i = 0; i &lt; m; i++) {
+        vector&lt;int&gt; ls; // 現在の連結成分のうち重み i の辺と接続しているものの代表元の集合
+        for (int j: weight[i]) {
+            ls.push_back(uf.leader(u[j]));
+            ls.push_back(uf.leader(v[j]));
+        }
+        sort(ls.begin(), ls.end());
+        ls.erase(unique(ls.begin(), ls.end()), ls.end());
+        int sz = ls.size();
+        vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt; G(sz); // edge = (to, id)
+        for (int j: weight[i]) {
+            int nu = lower_bound(ls.begin(), ls.end(), uf.leader(u[j])) - ls.begin();
+            int nv = lower_bound(ls.begin(), ls.end(), uf.leader(v[j])) - ls.begin();
+            if(nu != nv) {
+                G[nu].emplace_back(nv, j);
+                G[nv].emplace_back(nu, j);
+            }
+        }
+        lowlink lk(G);
+        while (it &lt; q and w[a[ord[it]]] == i) {
+            int now = ord[it++];
+            if (ans[now] != -1) continue;
+            int ns = lower_bound(ls.begin(), ls.end(), uf.leader(s[now])) - ls.begin();
+            int nt = lower_bound(ls.begin(), ls.end(), uf.leader(t[now])) - ls.begin();
+            assert(ns != nt);
+            assert(ns &lt; sz and nt &lt; sz);
+            assert(ls[ns] == uf.leader(s[now]) and ls[nt] == uf.leader(t[now]));
+            // G 上において、ns-nt パスは必ず辺 a[now] を含むかどうか判定
+            ans[now] = lk.query(a[now], ns, nt);
+        }
+        for (int j: weight[i]) {
+            uf.merge(u[j], v[j]);
+        }
+    }
+    
+    for (int i = 0; i &lt; q; i++) cout &lt;&lt; ans[i] &lt;&lt; &#39;\n&#39;;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1683906115">
+				<time class="timeago" datetime="2023/05/13 00:41:55"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1683985215">
+				<time class="timeago" datetime="2023/05/13 22:40:15"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc301/editorial/6344?lang=ja" data-a2a-title="解説 - パナソニックグループプログラミングコンテスト2023（AtCoder Beginner Contest 301）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc301/rules">ルール</a></li>
+					<li><a href="/contests/abc301/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

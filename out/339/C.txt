@@ -1,0 +1,41 @@
+
+		公式
+		
+			
+				C - Perfect Bus 解説
+			
+			by cn449
+			
+		
+		
+		
+		
+			はじめにバスに乗っている乗客の人数を \(x\) 人とします。
+
+\(i\) 回目の停車での乗客の乗り降りの直後の乗客の人数は \(x + \displaystyle\sum_{k = 1}^{i} A_k\) 人です。
+
+よって条件を整理すると、各 \(0 \leq i \leq N\) について \(x + \displaystyle\sum_{k = 1}^{i} A_k \geq 0\) が成り立つという条件下での \(x + \displaystyle\sum_{k = 1}^{N} A_k\) の最小値が本問題の答えとなります( \(i = 0\) のときは \(\displaystyle\sum_{k = 1}^{i} A_k = 0\) としています)。
+
+各 \(0 \leq i \leq N\) について \(x + \displaystyle\sum_{k = 1}^{i} A_k \geq 0\) が成り立つことは \(\min(x + \displaystyle\sum_{k = 1}^{i} A_k) \geq 0\) が成り立つことと同値で、\(\min(x + \displaystyle\sum_{k = 1}^{i} A_k)  = x + \min(\displaystyle\sum_{k = 1}^{i} A_k)\) より \(m \coloneqq \min(\displaystyle\sum_{k = 1}^{i} A_k)\) として \(x + m \geq 0\) のもとで \(x + \displaystyle\sum_{k = 1}^{N} A_k\) を最小化すればよいことがわかります。
+
+これは \(x = -m\) ととればよく、\(m\) の値は累積和の要領で線形時間で計算できます。
+
+実装例
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

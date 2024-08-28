@@ -1,0 +1,30 @@
+条件を満たす文字列は長さ |S | + K であり，次のような形をしています．
+
+ここで，"[ˆS i ]*" は S i でない英小文字からなる長さ 0 以上の文字列を，".*" は任意の英小文
+字からなる長さ 0 以上の文字列を指します．英小文字の数は 26 であることに注意してください．
+
+|S | + K 文字のうちの S 1 ∼ S N の位置を固定してみたときの，S i 以外の位置の文字を選ぶ通り数
+を考えると，文字は互いに影響を及ぼさず独立に選べるので単純に各位置の候補数を掛け合わせれ
+ばよく，通り数は 25K−(S N 以降の文字数) × 26(S N 以降の文字数) となります．
+また， S N の位置を固定したとき，S 1 ∼ S N−1 の位置を選ぶ通り数は |S |+K−(S N 以降の文字数)−1C N−1 と
+なります (「二項係数」で調べるとこの式の意味が分かります)．
+したがって，S N の位置を全て試し，各々における [S 1 ∼ S N−1 の位置の選び方] × [S i 以外の文
+字の選び方] を足し合わせることで，求める値が得られます．
+適切に前処理をして，時間・空間ともに Θ(|S | + K) で解けます．
+
+Each string that satisﬁes the given conditions is of length |S | + K, which has the following form:
+
+Here, "[ˆS i ]*" denotes a string consisting of English alphabets other than S i of 0 or more length,
+and ".*" denotes a string consisting of any English alphabets of 0 or more length. Note that there are
+26 kinds of English alphabets.
+Assume that the positions of S 1 ∼ S N among |S | + K letters are ﬁxed. Then, the coices of alphabets at the positions other than those of S I are independent of each other, so the number of such
+combinations can be calculated by simple multiplications: there are 25K−(the number of letters before S N ) ×
+26(the number of letters after S N ) combinations.
+Also, when the positions S N is ﬁxed, the number of combinations of positions of S 1 ∼ S N−1 is
+|S |+K−(The number of letters after S N )−1 C N−1 (search for “binomial coeﬃcient” for the meaning of this formula.
+
+There, try all possible positions of S N , and for each of them, calculate [the choices of positions of
+S 1 ∼ S N−1 ] × [the choices of alphabets other than S i ], then the sum is the desired answer.
+After a proper precalculation, this problem can be solved in a total of Θ(|S | + K).
+
+

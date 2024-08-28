@@ -1,0 +1,34 @@
+実際にシミュレーションをする方法としては、L を固定して R を順に +1 していきながら Union
+
+Find 木などで連結成分を管理することで、連結成分の個数を実際に全ての L, R について計算するこ
+とができますが、この時間計算量は O(N 2 α(N )) となり遅いです。
+元のグラフが木であることを利用するために、まず固定された L, R に対して f (L, R) の値がどう
+なるか考えてみましょう。S = {x|L ≤ x ≤ R} が誘導する部分グラフは、各連結成分が木であるよ
+うなグラフ (森) になります。木の場合、頂点数は辺の本数 +1 であるので、森の場合には 頂点数 =
+辺の本数 + 連結成分 (木) の個数 となります。
+よって、連結成分数 (= 頂点数 − 辺数) に各頂点と辺が寄与していると見なすことで、連結成分
+数の和を求める代わりに、各頂点・辺が何回足し引きされるかを考えればいいことがわかります。こ
+れは、頂点についてはその頂点を含む S の個数、辺についてはその両端点を含む S の個数をそれぞ
+れ計算すれば良いので、実は答えを入力を読みながら直接計算することができ、時間計算量は O(N )
+です。
+
+9
+
+To actually perform simulation, ﬁx L and increment R while managing the connected components with Union Find tree etc., then the number of connected components can actually be
+counted for all L, R. However it needs a total of O(N 2 α(N )) time, which is slow.
+To make use of the fact that the original graph is a tree, let’s ﬁrst consider the value f (L, R)
+for some ﬁxed L, R. Each connected component of subgraph induced by S = {x|L ≤ x ≤ R} is
+a tree (i.e. the induced subgraph is a forest). In a tree, the number of vertices is the number of
+edges +1, so in a forest, the number of vertices = the number of edges + the number of connected
+components (trees).
+Therefore, by regarding that each vertex and edge contributes to the number of connected
+components (= the number of vertices − the number of edges), instead of counting the sum of
+the numbers of connected components, we can consider how many times each vertex and edge
+is added or subtracted. It can be calculated by, for each vertex, counting the number of S that
+contains the vertex, and for each edge, counting the number of S that contains both endpoints, so
+actually the value can be directly calculated while reading the input, where the time complexity
+is O(N ).
+
+19
+
+

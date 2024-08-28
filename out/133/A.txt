@@ -1,0 +1,50 @@
+電車を使った場合は N × A 円、タクシーを使った場合は B 円かかります。よって、N × A と B の小さい
+方を出力すれば良いことになります。これを C++ で実装した例を以下に示します。
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int N, A, B; cin >> N >> A >> B;
+7
+int ans = min(N * A, B);
+8
+cout << ans << endl;
+9 }
+5
+6
+
+1
+
+If you use train it costs N × A yen, and if you use taxi it costs B yen. So you have to print the smaller
+value of either N × A or B. The following is an example implemented in C++.
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+6
+int N, A, B; cin >> N >> A >> B;
+7
+int ans = min(N * A, B);
+8
+cout << ans << endl;
+9 }
+5
+
+8
+

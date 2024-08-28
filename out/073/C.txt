@@ -1,0 +1,69 @@
+
+Write and Erase
+
+まず、どのような場合に数が最後に紙に書かれており、どのような場合に書かれてい
+ないかを考えてみる。
+Ai に一度しか登場しなければ、その数は最後まで紙に残る。 Ai に二度登場すれば、
+その数は最後には紙に残っていない。同様に考えていくと、 Ai に偶数回登場する数は最
+後に紙には書かれていないが、奇数回登場する数は最後に紙に書かれているとわかる。
+よって、求めるのは奇数回登場する数が何種類あるかで良いことがわかる。
+N は最大で 100000、Ai は最大で 109 であり、 O(N 2 ) 回かけて数えたり、 109 個の
+フラグを持つような手法はとることができず、異なる方法を考える必要がある。
+Ai をソートすると、同じ数が隣り合うように並べ替えられる。これを左から順にみて
+いくと、奇数回登場する数が何種類あるかを数えることができる。
+ソート部分が O(N logN ) 、 左から見ていく部分が O(N ) より、これで間に合う。
+また、C++における set のようなデータ構造を用いて紙に書かれている数を持っておき、
+実際にシミュレーションしても解くことができる。
+# include < cstdio >
+# include < algorithm >
+using namespace std ;
+int N , ptr , res ;
+int A [100000];
+int main ()
+{
+scanf ( " % d " ,& N );
+for ( int i =0; i < N ; i ++) scanf ( " % d " ,& A [ i ]);
+sort (A , A + N );
+while ( ptr < N )
+{
+int cc = A [ ptr ] , f =0;
+while ( ptr < N && A [ ptr ]== cc ) f ++ , ptr ++;
+res += f %2;
+}
+printf ( " % d \ n " , res );
+}
+
+
+Write and Erase
+
+First,thinking about which type of number remains on the paper,and which doesn’t.
+If a number appears once in Ai , it will remain. If appears twice, it will not remain.
+Thinking as such, you can understand that numbers which appears in Ai even-numbers
+time will not remain,and which did in Ai odd-numbers time will remain.
+So, it is OK to count the variety of number which appears in Ai odd-numbers time.
+By sorting Ai ,we can make Ai such that same numbers occupies continuous locations
+in array.So, you can solve it by looking this array from left or right.
+And, it is OK to solve by simulating this.
+
+# include < cstdio >
+# include < algorithm >
+using namespace std ;
+int N , ptr , res ;
+int A [100000];
+int main ()
+{
+scanf ( " % d " ,& N );
+
+4
+
+for ( int i =0; i < N ; i ++) scanf ( " % d " ,& A [ i ]);
+sort (A , A + N );
+while ( ptr < N )
+{
+int cc = A [ ptr ] , f =0;
+while ( ptr < N && A [ ptr ]== cc ) f ++ , ptr ++;
+res += f %2;
+}
+printf ( " % d \ n " , res );
+}
+

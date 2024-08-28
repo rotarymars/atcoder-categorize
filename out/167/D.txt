@@ -1,0 +1,15 @@
+町 1 から愚直に移動をシミュレートしていくと，N 回以内に既に来た町にもう一度帰りつきます．
+そこでその町を「香り高い町」として，香り高い町から移動を続けて何度目に香り高い町に帰りつく
+かを (これまた愚直に) 求めます．あとは，残りの移動回数をこれで割ったあまりは N 未満なので，
+愚直にシミュレートすればよいです．
+
+4
+
+If you naively simulate the movement starting from town 1, you will come back to the town
+you have already visited before using the teleporter more than N times. Let us call the town
+the “fragrant town.” Then, starting from the fragrant town, how many times the teleporter is
+needed to be used in order to go back to the fragrant town, naively again. Lastly, the remainder
+of the remaining number of moves divided by it is less than N , so it can be naively simulated.
+
+10
+

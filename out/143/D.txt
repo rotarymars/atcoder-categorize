@@ -1,0 +1,40 @@
+(
+
+)
+
+全ての棒の組について三角形が作れるかをチェックすると，時間計算量が O N 3 となり，間に合
+いません.
+三角形を構成する棒のうち，1 番目と 2 番目に長いものを固定します (ただし，同じ長さを持つ棒が
+複数存在する場合は，予め適当に大小関係を定めておきます).
+このとき，3 番目に長い棒として使える棒は，「2 番目の棒より短く，一定以上の長さを持つもの」で
+す.
+このような棒の数は，予め棒の長さをソートしておくと，二分探索で効率的に求めることが出来ます.
+
+(
+
+以上より，1 番目に長い棒と 2 番目に長い棒の選び方について探索すると，時間計算量 O N 2 log N
+で答えを求めることが出来ます.
+
+C++ による解答例:https://atcoder.jp/contests/abc143/submissions/8034764
+
+4
+
+)
+
+If you loop through all the triplets of sticks and check if it is possible to make a triangle, it
+( )
+needs a total of O N 3 time and does not ﬁt in time limit.
+Let’s ﬁx the ﬁrst- and the second- longest sticks composing a triangle (here, if some sticks have
+the same length, assume some order between them).
+Then, the sticks that can be used as the third longest stick are those whose length is shorter
+than that of the second stick, but is longer than some extent.
+If the sticks are sorted by their lengths beforehand, the number of such sticks can be counted
+eﬃciently by using binary search.
+Therefore, by iterating through the ﬁrst- and the second- longest sticks, the solution can be
+)
+(
+found in a total of O N 2 log N time.
+Sample answer in C++:https://atcoder.jp/contests/abc143/submissions/8034764
+
+10
+

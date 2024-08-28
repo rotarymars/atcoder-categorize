@@ -1,0 +1,90 @@
+以下，X = max{x1 , . . . , xN , A} とおく．
+
+3.1 部分点解法
+部分点制約では N が小さいので，すべてのカードの選び方 (2N − 1 通り) を試すことができる．全通
+
+り試すにはビット演算を用いるのが楽である．具体的には ABC 014 B 問題 (http://abc014.contest.
+
+atcoder.jp/tasks/abc014_2) などを参照するとよい．計算量は全体で O(N · 2N ) となる．
+
+3.2 満点解法 1
+以下の 3 次元配列 dp[j][k][s] (ただし 0 ≤ j ≤ N , 0 ≤ k ≤ N , 0 ≤ s ≤ N X) を考える．
+
+dp[j][k][s] = (x1 , . . . , xj から k 枚選んで xi の合計を s にするような選び方の総数)
+この配列は次のように計算することができる．
+
+⎧
+1
+⎪
+⎪
+⎪
+⎨dp[j − 1][k][s]
+dp[j][k][s] =
+⎪
+dp[j − 1][k][s] + dp[j − 1][k − 1][s − xj ]
+⎪
+⎪
+⎩
+0
+
+(j = 0, k = 0, s = 0 のとき)
+(j ≥ 1, s < xj のとき)
+(j ≥ 1, k ≥ 1, s ≥ xj のとき)
+(上記いずれでもないとき)
+
+さて，選んだカードの xi の平均を A にするには，各 k (1 ≤ k ≤ N ) について，k 枚選んだときの合計が
+
+kA であればよい．すなわち
+
+%N
+
+k=1 dp[N ][k][kA] が答えとなる．
+3
+
+動的計画法を用いるることで，計算量は全体で O(N X) 時間となる．
+
+3.3 満点解法 2
+「選んだカードの xi の平均が A」であることは，
+「選んだカードの (xi − A) の合計が 0」と言い換えるこ
+
+とができる．すなわち，各カード i について yi = xi − A と定義すると，選んだカードの yi の合計が 0 と
+なるようなカードの選び方の総数を求めればよいことになり，選んだ枚数を考慮する必要がなくなる．この
+考え方に基づく，O(N 2 X) 時間の解法も存在する．
+実装においては，yi が負となりうることを考慮し，以下の 2 次元配列 dp[j][t] (ただし 0 ≤ j ≤ N ,
+
+0 ≤ t ≤ 2N X) を考えるとよい．
+
+dp[j][t] = (y1 , . . . , yj から 0 枚以上選んで yi の合計を t − N X にするような選び方の総数)
+この配列は次のように計算することができる．
+
+⎧
+1
+⎪
+⎪
+⎪
+⎨dp[j − 1][t]
+dp[j][t] =
+⎪dp[j − 1][t] + dp[j − 1][t − yj ]
+⎪
+⎪
+⎩
+0
+
+(j = 0, t = N X のとき)
+(j ≥ 1，かつ，t − yj < 0 または t − yj > 2N X のとき)
+(j ≥ 1, 0 ≤ t − yj ≤ 2N X のとき)
+(上記いずれでもないとき)
+
+1 枚も選ばないパターンを除外する必要があるため，答えは dp[N ][N X] − 1 となる．
+
+2
+
+This problem can be solved by dp.
+Let dp[i][j][k] be the number of ways to choose j numbers among the first
+i numbers such that the sum becomes k. You can update this array from
+smaller i, and when i > 0, dp[i][j][k] = dp[i − 1][j][k] + dp[i − 1][j − 1][k − xi ].
+(Make sure that you don’t access to negative indices).
+Then, the answer is the sum of dp[N ][t][At] for 0 ≤ t ≤ N .
+
+Exercise: the algorithm above is O(N 4 ). Can you improve it to O(N 3 )?
+

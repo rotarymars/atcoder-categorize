@@ -1,0 +1,41 @@
+文字列 S の 長さを N とします。
+
+N −1
+N +3
+文字目, S の
+文字目から N 文字目 がすべて回文であるかどう
+2
+2
+かを調べ、すべてが回文であるときに ”Yes” , そうでないときに ”No” を出力すればよいです。
+
+S, S の 1 文字目から
+
+S が回文であるかどうかを調べる方法としては例えば以下の方法などがあります。
+1. すべての i (1 ≤ i ≤ N ) について、S の i 文字目と S の (N − i − 1) 文字目が等しいことを
+確認する。
+
+2. S を反転した文字列と S が等しいかどうかを調べる。
+C++ での実装例 : https://atcoder.jp/contests/abc159/submissions/11091525
+
+2
+
+Let N be the length of the string S.
+
+N +3
+N −1
+-th letters of S and the
+-th to the N -th
+2
+2
+letters are all palindromes, and output ”Yes” if all of them are palindromes and ”No” otherwise.
+
+It is enough to check if S, the 1-st to the
+
+To check if S is a palindrome, for example the followings method is available.
+1. For all i (1 ≤ i ≤ N ), check if the i-th letter of S and (N − i − 1)-th letter of S are the
+same.
+2. Check if S and the reversed string of S are the same.
+Sample Code in C++ : https://atcoder.jp/contests/abc159/submissions/11091525
+
+8
+

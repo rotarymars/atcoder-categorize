@@ -1,0 +1,24 @@
+i 番目のマスに降り立つと xi マス進めるとします。すると、答えは max{x1 , x2 , ..., xN } になりま
+すが、愚直に求めようとすると時間計算量が O(N 2 ) となり間に合いません。この数列 {xi } を眺め
+ると、{3, 2, 1, 0, 2, 1, 0, 0, 5, 4, 3, 2, 1, 0} のようになるため、まず x1 を愚直に求めて、次に xx1 +2 を
+求めて、... としていけば O(N ) で求めることができます。数列を眺めなくとも、左端から x1 マス進
+めるなら、その途中のマスからスタートしてもより良くはならないため、左端からスタートし、進め
+るまで進み、今度は次のマスからスタートした場合を考え、... と考えることができます。
+他の考え方としては、xi ≥ xi+1 なら i + 1 番目のマスに降り立つよりも i 番目のマスに降り立っ
+たほうがより良いため、そのようなマスから始めた場合を求めない、といった考え方もあります。
+
+3
+
+Assume that if you land on i-th square you can move xi times. Then the anwser will be
+max{x1 , x2 , ..., xN }, but if you try to calculate naively, it will need a total of O(N 2 ) time
+and it won’t finish in time. If you look at the sequence {xi }, it appears that it will be like
+{3, 2, 1, 0, 2, 1, 0, 0, 5, 4, 3, 2, 1, 0}, so you can compute x1 naively, then compute xx1 +2 naively, ...
+and so on, you can find the answer in a total of O(N ) time. Or otherwise, without looking at the
+sequence, you can think like the following: if you can move x1 times from the leftmost squares,
+you can’t move more times if you start halfway, so think of starting from the next square, .. and
+so on.
+Another idea is that, if xi ≥ xi+1 , then it is better to land on i-th square instead of i + 1-th
+square, so avoid computing the case of starting from such squares.
+
+11
+

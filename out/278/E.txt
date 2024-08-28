@@ -1,0 +1,64 @@
+
+		公式
+		
+			
+				E - Grid Filling 解説
+			
+			by MMNMM
+			
+		
+		
+		
+		
+			この問題は、 \(0\leq k\leq H,0\leq l\leq W,0\leq x\lt N\) について
+
+
+\(\operatorname{count}[k][l][x]:=\) \(k\lt i\leq H,l\lt j\leq W\) を満たすマス \((i,j)\) のうち、\(x\) が書かれているマスの個数
+
+
+が計算できていれば \(O(HWN)\) 時間で解くことができます。
+実際、\((k+1,l+1)\) から \((k+h,l+w)\) までを塗りつぶしたとき、塗りつぶされていないマスのうち \(x\) が書かれているマスの個数は
+
+\[\operatorname{count}[0][0][x]-\operatorname{count}[k][l][x]+\operatorname{count}[k][l+w][x]-\operatorname{count}[k+h][l+w][x]+\operatorname{count}[k+h][l][x]\]
+
+個であるため、\((k,l)\) に対する答えを \(O(N)\) 時間で求めることができます。
+
+\(\operatorname{count}[k][l][x]\) を求めるには、二次元累積和を使えばよいです。
+
+具体的な方法を以下に述べます。
+
+
+\(\operatorname{count}[k][l][x]=\) \((k+1,j+1)\) に \(x\) が書かれているとき \(1\) 、そうでないとき \(0\)
+
+
+とすることは \(O(HWN)\) 時間で可能です。
+\((k,j,x)\) を適切な順序でわたって \(\operatorname{count}[k][l][x]\leftarrow\operatorname{count}[k][l][x]+\operatorname{count}[k][l+1][x]\) と更新することで、
+
+
+\(\operatorname{count}[k][l][x]=\) \(k\lt l\leq W\) を満たすマス \((k+1,l)\) のうち、\(x\) が書かれているマスの個数
+
+
+が成り立っているようにできます。
+同様に \(\operatorname{count}[k][l][x]\leftarrow\operatorname{count}[k][l][x]+\operatorname{count}[k+1][l][x]\) と更新することで、欲しい \(\operatorname{count}\) の値が得られます。
+
+以上より、全体で \(O(HWN)\) 時間でこの問題を解くことができました。
+
+実装例は以下のようになります。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

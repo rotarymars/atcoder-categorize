@@ -1,0 +1,466 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 246</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 246" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc246/editorial/3702" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 246" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc246";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-04-02T21:00:00+09:00");
+			var endTime = moment("2022-04-02T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 246が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 246は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc246">AtCoder Beginner Contest 246</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc246/editorial/3702?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc246/editorial/3702?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc246%2Feditorial%2F3702">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc246%2Feditorial%2F3702">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc246%2Feditorial%2F3702">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220402T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-04-02 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220402T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-04-02 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc246"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc246/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc246/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc246/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc246/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc246/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc246/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc246/tasks/abc246_e">E - Bishop 2</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-1.png" class="user-rating-stage-m"><a href="/users/physics0523" class="username"><span class="user-orange">physics0523</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<h3>前知識: 01-bfs</h3>
+
+<p>以下の問題を解くことを考えてみましょう。</p>
+
+<blockquote>
+<p><strong>全ての辺の長さが <span>\(0\)</span> か <span>\(1\)</span> である</strong> ような(有向)グラフが与えられます。<br>
+このグラフの頂点 <span>\(S\)</span> から各頂点までの最短距離を求めてください。</p>
+</blockquote>
+
+<p>ABCのE問題に挑む方であれば、この問題が dijkstra 法などの最短経路問題を解くアルゴリズムによって解けることはご存じかと思います。今回は、それよりも効率的な解法を紹介します。<br>
+早速、 01-bfs とは何かを具体的に見ていきましょう。</p>
+
+<ul>
+<li>まず、空の <a href="https://ja.wikipedia.org/wiki/%E4%B8%A1%E7%AB%AF%E3%82%AD%E3%83%A5%E3%83%BC" rel="nofollow">deque</a> を用意する。</li>
+<li>暫定的な最短距離 <span>\(D[\)</span> 頂点番号 <span>\(]=\{\)</span> 暫定距離 <span>\(\}\)</span> を以下のように定義する。
+
+<ul>
+<li><span>\(D[S]=0\)</span></li>
+<li><span>\(S\)</span> 以外の頂点 <span>\(x\)</span> について、 <span>\(D[x]=\infty\)</span></li>
+</ul></li>
+<li>deque の唯一の要素として、頂点 <span>\(S\)</span> を入れる。</li>
+<li>deque が空になるまで、以下を繰り返す。
+
+<ul>
+<li>deque の先頭から要素をひとつ取り出し、これを頂点 <span>\(V\)</span> とする。</li>
+<li><span>\(V\)</span> が未探索であれば、以下の操作を行った上で <span>\(V\)</span> を探索済みとする。
+
+<ul>
+<li><span>\(V\)</span> に隣接する全ての頂点 <span>\(W\)</span> について、以下を行う。
+
+<ul>
+<li>もし <span>\(V\)</span> と <span>\(W\)</span> を結ぶ辺の長さが <span>\(0\)</span> であり、 <span>\(D[W]&gt;D[V]\)</span> であれば、 deque の先頭に <span>\(W\)</span> を入れて、 <span>\(D[W]=D[V]\)</span> とする。</li>
+<li>もし <span>\(V\)</span> と <span>\(W\)</span> を結ぶ辺の長さが <span>\(1\)</span> であり、 <span>\(D[W]&gt;D[V]+1\)</span> であれば、 deque の末尾に <span>\(W\)</span> を入れて <span>\(D[W]=D[V]+1\)</span> とする。</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>大まかな流れは dijkstra 法と同じですが、特徴的なのは deque の操作です。<br>
+dijkstra 法の priority_queue の役割を deque が担っているような流れになっているので、 deque から要素を取り出すときにそれが距離の昇順になっていればこのアルゴリズムは上手くいき、実際にこのアルゴリズムは上手くいきます。</p>
+
+<details><summary>dequeから要素を取り出すときに距離の昇順に出てくることの証明</summary>
+deque に距離が $(x,x,\dots,x,x+1,x+1,\dots,x+1)$ であるような情報が詰まっている ($x+1$ の情報はひとつもない可能性があります) 状態を、「まともな状態」と呼びます。<br>
+まず、はじめ頂点 $S$ だけが詰まっている状態は「まともな状態」です。<br>
+ここで、 $1$ 段階ステップを進めてもまともな状態になることを示します。 $1$ 段階ステップを進める際に、前から距離 $x$ の情報を取り出すことになりますが、この時行われる操作としてありうるものは deque の先頭に距離 $x$ の情報を詰める操作か末尾に距離 $x+1$ の情報を詰める操作かのどちらかです。<br>
+よって、 $1$ 段階ステップを進めても「まともな状態」が維持されることが示されました。<br>
+これにより、 01-bfs での deque は dijkstra 法における priority_queue と同じ役割を果たせることが分かりました。
+</details>
+
+<h3>本問題の解法</h3>
+
+<p>では、本問題を 01-bfs で解いてみましょう。<br>
+<span>\((\)</span> マスの <span>\(x\)</span> 座標 , マスの <span>\(y\)</span> 座標 ,  直前の移動方向 <span>\()\)</span> という情報の <span>\(3\)</span> つ組を <span>\(1\)</span> つの頂点として 01-bfs  を行います。<br>
+このとき、直前の移動方向と変化があれば必要手数が <span>\(1\)</span> 手増加し、変化がなければ直前の遷移と同じ手で移動できるので必要手数が <span>\(0\)</span> 手増加します。<br>
+よって、本問題を 01-bfs に帰着することができました。<br>
+計算量は <span>\(O(N^2)\)</span> です。(ただし、実行時間制限に余裕があるので高速な言語であれば 01-bfs の部分を dijkstra 法として実装する <span>\(O(N^2 \log N)\)</span> でも正答可能です。)</p>
+
+<p>実装例(C++):</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+using pi=pair&lt;int,int&gt;;
+using ppi=pair&lt;pi,int&gt;;
+
+int dx[4]={-1,-1,1,1};
+int dy[4]={-1,1,-1,1};
+
+int main(){
+  int n,ax,ay,bx,by;
+  cin &gt;&gt; n &gt;&gt; ax &gt;&gt; ay &gt;&gt; bx &gt;&gt; by;
+  ax--;ay--;bx--;by--;
+  vector&lt;string&gt; s(n);
+  for(auto &amp;nx : s){cin &gt;&gt; nx;}
+
+  vector&lt;vector&lt;vector&lt;int&gt;&gt;&gt; d(n,vector&lt;vector&lt;int&gt;&gt;(n,vector&lt;int&gt;(4,1e9)));
+  vector&lt;vector&lt;vector&lt;bool&gt;&gt;&gt; fl(n,vector&lt;vector&lt;bool&gt;&gt;(n,vector&lt;bool&gt;(4,false)));
+
+  deque&lt;ppi&gt; dq;
+  for(int i=0;i&lt;4;i++){
+    int cx=ax+dx[i];
+    int cy=ay+dy[i];
+    if(!(0&lt;=cx &amp;&amp; cx&lt;n)){continue;}
+    if(!(0&lt;=cy &amp;&amp; cy&lt;n)){continue;}
+    if(s[cx][cy]==&#39;#&#39;){continue;}
+    d[cx][cy][i]=1;
+    dq.push_back({{cx,cy},i});
+  }
+
+  while(!dq.empty()){
+    ppi od=dq.front();dq.pop_front();
+    if(od.first==make_pair(bx,by)){
+      cout &lt;&lt; d[bx][by][od.second] &lt;&lt; &#39;\n&#39;;
+      return 0;
+    }
+    int cx=od.first.first;
+    int cy=od.first.second;
+    if(fl[cx][cy][od.second]){continue;}
+    fl[cx][cy][od.second]=true;
+    int cd=d[cx][cy][od.second];
+
+    for(int i=0;i&lt;4;i++){
+      int nx=cx+dx[i];
+      int ny=cy+dy[i];
+      if(!(0&lt;=nx &amp;&amp; nx&lt;n)){continue;}
+      if(!(0&lt;=ny &amp;&amp; ny&lt;n)){continue;}
+      if(s[nx][ny]==&#39;#&#39;){continue;}
+
+      int nd=cd;
+      if(i!=od.second){nd++;}
+      if(d[nx][ny][i]&gt;nd){
+        d[nx][ny][i]=nd;
+        if(i==od.second){dq.push_front({{nx,ny},i});}
+        else{dq.push_back({{nx,ny},i});}
+      }
+    }
+  }
+  cout &lt;&lt; &#34;-1\n&#34;;
+  return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1648711450">
+				<time class="timeago" datetime="2022/03/31 16:24:10"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1648888286">
+				<time class="timeago" datetime="2022/04/02 17:31:26"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc246/editorial/3702?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 246">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc246/rules">ルール</a></li>
+					<li><a href="/contests/abc246/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

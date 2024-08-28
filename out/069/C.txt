@@ -1,0 +1,115 @@
+1 と書き，1 回ならば ⃝
+2 と書き，2 回
+2 で割り切れる回数によって a の要素を分類します．0 回ならば ⃝
+4 と書くことにします．また，⃝
+1, ⃝
+2, ⃝
+4 の個数をそれぞれ b1 , b2 , b4 とします．すると，
+以上ならば ⃝
+「隣り
+1 と隣り合う要素は ⃝
+4 でなければならない」という条件
+合う要素の積が 4 の倍数である」という条件は，
+「⃝
+
+へ言い換えられます．
+2 が存在しない場合を考えます．この場合，⃝
+1⃝
+4⃝
+1⃝
+4⃝
+1 のように並べるのが最適です．よって，
+まず，⃝
+
+b1 ≤ b4 + 1 ならば Yes，そうでないならば No となります．
+2 が存在する場合を考えます．例として ⃝
+2⃝
+4⃝
+1⃝
+4⃝
+2⃝
+2⃝
+4⃝
+2⃝
+2 と並べてみます．この例を見ると，
+次に，⃝
+2 は単体の ⃝
+1 と等価であることが分かります．⃝
+1 はできるだけ少ない方が嬉しいので，
+ひと繋がりの ⃝
+
+⃝
+2 はすべてまとめてひと繋がりにするのが最適です．すると，⃝
+1 を 1 個だけ増やした上で，⃝
+2 が存在し
+
+1
+
+ない場合へ帰着できます．よって，b1 ≤ b4 ならば Yes，そうでないならば No となります．具体的には，
+
+⃝
+1⃝
+4⃝
+1⃝
+4⃝
+1⃝
+4⃝
+2⃝
+2⃝
+2 のように並べるのが最適です．
+
+1.
+• When an element in a is an odd number, we represent it as ⃝
+2.
+• When an element in a is an even number but not divisible by 4, we represent it as ⃝
+4.
+• When an element in a is divisible by 4, we represent it as ⃝
+1, ⃝
+2, ⃝
+4 . We want to arrange them such that all elements that are
+Let b1 , b2 , b4 , be the number of ⃝
+1 are ⃝
+4.
+adjacent to ⃝
+
+In case b2 = 0
+1⃝
+4⃝
+1⃝
+4⃝
+1 . If b1 ≤ b4 + 1, the answer is Yes, otherwise the
+The optimal arrangement will look like ⃝
+
+answer is No.
+
+In case b2 > 0
+2⃝
+4⃝
+1⃝
+4⃝
+2⃝
+2⃝
+4⃝
+2⃝
+2 . Here, a maximal consecutive sequence
+For example an arrangement will look like ⃝
+2 is equivalent to ⃝
+1 . Thus, we should concatenate all ⃝
+2 and handle them like a single ⃝
+1 . If
+of ⃝
+
+1
+
+b1 ≤ b4 , the answer is Yes, otherwise the answer is No. In particular, we should arrange them like
+⃝
+1⃝
+4⃝
+1⃝
+4⃝
+1⃝
+4⃝
+2⃝
+2⃝
+2.
+

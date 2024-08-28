@@ -1,0 +1,52 @@
+添字が負でもよい数列 an = n5 − (n − 1)5 すなわち ...781, 211, 31, 1, 1, 31, 211, 781... を考えます。
+この数列は、a0 から左に、a1 から右に向けて値が大きくなっていくことがわかります。数列の値がは
+じめて 109 を超えるのは、a120 = 1205 −1195 = 1019663401 のときと、a−119 = (−119)5 −(−120)5 =
+
+1019663401 のときになります。よって、A − B = 1 を仮定すると、−118 ≤ A ≤ 119 のケースだけ
+考えれば良いことがわかります。
+そして、n5 が n に対して単調増加であることに注意すると、A−B > 1 の場合でも −118 ≤ A ≤ 119
+のケースだけ見ていれば十分だとわかります。同じ A の値に対して、A − B の値が大きくなって B
+の値が小さくなれば、B 5 の値も小さくなって、A5 − B 5 の値は大きくなるためです。A − B = 1 の
+ときと同様に数列 an = n5 − (n − 2)5 や an = n5 − (n − 3)5 などについて考えることで更に A の
+範囲を狭くすることができますが、今回は計算時間に余裕があるためその必要はありません。
+
+A と B が整数かつ 1 ≤ A5 − B 5 より A − B ≥ 1 なので、これですべての場合が網羅されていま
+す。B に対しても同じ考察をすると −118 ≤ A ≤ 119 かつ −119 ≤ B ≤ 118 なる整数の組 (A, B)
+に候補を絞ることができ、これらの候補が実際に式を満たすかどうか判定していくことで解くことが
+できます。
+
+5
+
+Consider a sequence that allows negative index an = n5 − (n − 1)5 , i.e. ...781, 211, 31, 1, 1, 31, 211, 781....
+This sequence is increasing toward left from a0 , and toward right from a1 .
+ments exceed 10
+
+9
+
+for the ﬁrst time when a120 = 120 − 119
+5
+
+5
+
+The ele-
+
+= 1019663401 and when
+
+a−119 = (−119) − (−120) = 1019663401. Therefore, assuming that A − B = 1, it appears that
+5
+
+5
+
+it is suﬃcient to consider only the range of −118 ≤ A ≤ 119.
+Moreover, considering the increasing monotonicity of n5 to n, it appears that it is suﬃcient to
+consider only the range of −118 ≤ A ≤ 119 even when A − B > 1. When A is ﬁxed, if A − B
+increases and B decreases, then B 5 decreases too and A5 −B 5 increases. As with when A−B = 1,
+you can restrict the range of A even narrower by considering sequences an = n5 − (n − 2)5 or
+an = n5 − (n − 3)5 , but this time there is a plenty of execution time, so there is no need to do so.
+Since A and B are integers and 1 ≤ A5 − B 5 , it holds that A − B ≥ 1, so all the cases are
+covered by them. By applying the same observations for B, you can narrow down the candidates
+of ranges to the pairs of integers (A, B) such that −118 ≤ A ≤ 119 and −119 ≤ B ≤ 118, And
+check if those candidates actually satisﬁes the equation.
+
+12
+

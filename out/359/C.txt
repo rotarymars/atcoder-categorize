@@ -1,0 +1,73 @@
+
+		公式
+		
+			
+				C - Tile Distance 2 解説
+			
+			by MMNMM
+			
+		
+		
+		
+		
+			簡単のため、スタートとゴールはタイルの左側にあることにしてよいです（つまり、\(S _ x+S _ y\) が奇数なら \(S _ x\) を \(1\) 減らしておきます）。
+
+論理的な導出
+
+タイルの左側と右側は自由に行き来できるので、左側を出発して左側へ到着する移動を一塊として考えます。
+
+交通量を \(1\) 支払うことで次の \(2\) つの行動のどちらかができます。
+
+
+上下方向に \(1\) 移動し、左右方向に \(1\) 移動する
+左右方向に \(2\) 移動する
+
+
+前者を \(a\) 回、後者を \(b\) 回 \((0\leq a,0\leq b)\) 行うことで \((S _ x,S _ y)\) から \((T _ x,T _ y)\) へ移動できたとします。
+
+このとき、次が成り立ちます。
+
+
+\(\lvert S _ y-T _ y\rvert\leq a\)
+\(\lvert S _ x-T _ x\rvert\leq a+2b\)
+\(a\gt0\) もしくは \(S _ x-T _ x\equiv2b\pmod4\)
+
+
+逆に、非負整数の組 \((a,b)\) が上の条件を満たすならば、前者を \(a\) 回と後者を \(b\) 回行うことで \((S _ x,S _ y)\) から \((T _ x,T _ y)\) へ移動できます。
+
+よって、\(0\leq a,0\leq b\) と上の条件のもとで通行料 \(a+b\) を最小化したいです。
+
+\(0\leq b,\lvert S _ y-T _ y\rvert\leq a\) より、\[\lvert S _ y-T _ y\rvert\leq a+b\quad\cdots\ (1)\] が必要です。
+\(\lvert S _ y-T _ y\rvert\leq a,\lvert S _ x-T _ x\rvert\leq a+2b\) より、\[\dfrac{\lvert S _ y-T _ y\rvert+\lvert S _ x-T _ x\rvert}2\leq a+b\quad\cdots\ (2)\] が必要です。
+
+逆に、\((a,b)=\left(\lvert S _ y-T _ y\rvert,\max\left\lbrace0,\dfrac{\lvert S _ x-T _ x\rvert-\lvert S _ y-T _ y\rvert}2\right\rbrace\right)\) はすべての条件を満たし、\((1),(2)\) のどちらかが等号で成立します。
+
+
+
+よって、求める通行料の最小値は \[\max\left\lbrace\lvert S _ y-T _ y\rvert,\dfrac{\lvert S _ x-T _ x\rvert+\lvert S _ y-T _ y\rvert}2\right\rbrace=\dfrac{\lvert S _ y-T _ y\rvert+\max\lbrace\lvert S _ x-T _ x\rvert,\lvert S _ y-T _ y\rvert\rbrace}2\] のように表せることがわかります。
+折りたたみ部で述べたように条件を整理することによって導出することもできますが、小さなケースで実験し、規則性を予測・証明することでもこの式を導出することができるでしょう。
+下の図のように平面を少し変形することでも、この式を思いつきやすくなるかもしれません。
+
+
+
+実装例は以下のようになります。
+
+
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

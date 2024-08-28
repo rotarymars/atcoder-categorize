@@ -1,0 +1,479 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - ユニークビジョンプログラミングコンテスト2022（AtCoder Beginner Contest 248）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - ユニークビジョンプログラミングコンテスト2022（AtCoder Beginner Contest 248）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc248/editorial/3795" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - ユニークビジョンプログラミングコンテスト2022（AtCoder Beginner Contest 248）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc248";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-04-16T21:00:00+09:00");
+			var endTime = moment("2022-04-16T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>ユニークビジョンプログラミングコンテスト2022（AtCoder Beginner Contest 248）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>ユニークビジョンプログラミングコンテスト2022（AtCoder Beginner Contest 248）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc248">ユニークビジョンプログラミングコンテスト2022（AtCoder Beginner Contest 248）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc248/editorial/3795?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc248/editorial/3795?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc248%2Feditorial%2F3795">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc248%2Feditorial%2F3795">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc248%2Feditorial%2F3795">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220416T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-04-16 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220416T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-04-16 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc248"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc248/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc248/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc248/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc248/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc248/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc248/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc248/tasks/abc248_g">G - GCD cost on the tree</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-4.png" class="user-rating-stage-m"><a href="/users/mechanicalpenciI" class="username"><span class="user-orange">mechanicalpenciI</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>根付き木として考え、木DPにより解くことを考えます。</p>
+
+<p>また、以下では、木上の頂点 <span>\(u,v\)</span> について、
+<br>
+<span>\(f(u,v)\)</span> で<span>\(u=v\)</span> ならば <span>\(1\)</span>, <span>\(u\neq v\)</span>ならば <span>\(u\)</span> と <span>\(v\)</span> の結ぶ単純パス上の端点を含む頂点数として定義します。
+<br>
+すなわち、<span>\(2\)</span> 頂点間の距離 <span>\(d(u,v)\)</span> に対してつねに <span>\(f(u,v)=d(u,v)+1\)</span> です。
+<br>
+また、<span>\(g(u,v)\)</span> を <span>\(u=v\)</span> ならば <span>\(A_u\)</span>, <span>\(u\neq v\)</span> ならば <span>\(u\)</span> と <span>\(v\)</span> の結ぶ単純パス上おける <span>\(\gcd(A_{p_1},\ldots,A_{p_k})\)</span> の値として定義します。
+<br>
+ここで、相異なる <span>\(2\)</span> 頂点について、 <span>\(C(u,v)=f(u,v)g(u,v)\)</span> です。</p>
+
+<p>最初、各頂点が独立している状態から、深さ優先探索の帰りがけ順にしたがって、根が <span>\(r\)</span> である木 <span>\(T\)</span> に根が <span>\(r&#39;\)</span> である木 <span>\(T&#39;\)</span> を「<span>\(r\)</span> の直接の子に<span>\(r&#39;\)</span> を追加する」という操作でマージするという操作を繰り返すことで元の木を作ることができます。この操作は元の木の辺数 <span>\(|T|-1\)</span> 回だけ行われます。</p>
+
+<p>この過程で出来る各木 <span>\(T\)</span> について、その木に対する答え <span>\(ans(T)=\displaystyle\sum_{i=1}^{|T|-1}\sum_{j=i+1}^{|T|}C(i,j)\)</span> を求め、更新していくことを考えます。
+ここで、<span>\(r\)</span> を根とする根付き木 <span>\(T\)</span> について、<span>\(cnt(T,x)\)</span> で
+<span>\(T\)</span> の頂点 <span>\(v\)</span> であって、<span>\(g(r,v)=x\)</span> であるようなものの個数、
+<span>\(sum(T,x)\)</span> で
+<span>\(T\)</span> の頂点 <span>\(v\)</span> であって、<span>\(g(r,v)=x\)</span> であるようなものについて、<span>\(f(r,v)\)</span> を足し合わせたものとします。</p>
+
+<p>もし <span>\(T_0\)</span> ( 根は <span>\(r_0\)</span>  ), <span>\(T&#39;\)</span>  ( 根は <span>\(r&#39;\)</span>  )についてそれぞれの値が求まっていたとすると、これをマージした木 <span>\(T\)</span> ( 根は <span>\(r_0\)</span> )
+ における答え <span>\(ans(T)\)</span> の値は</p>
+<p><span>\[
+ans(T)=ans(T_0)+ans(T&#39;)+\displaystyle\sum_{x}\sum_{y} \gcd(x,y)\times \left\{ cnt(T_0,x) sum(T&#39;,y)+ sum(T_0,x) cnt(T&#39;,y) 
+ \right\}
+\]</span></p><p>として求めることができます。第 <span>\(1,2\)</span> 項は <span>\(ans(T_0)+ans(T&#39;)\)</span> はそれぞれの木上の頂点同士について <span>\(f(u,v)g(u,v)\)</span> を足し合わせたものであり、第 <span>\(3\)</span> 項については、一方が <span>\(T_0\)</span>, 他方が <span>\(T&#39;\)</span> に属するような頂点対において、<span>\(g(u,v)=\gcd(x,y)\)</span> であるようなものについて <span>\(f(u,v)\)</span> の総和を足し合わせていると解釈することができます。
+<br>
+また、<span>\(cnt(T,x)\)</span> と <span>\(sum(T,x)\)</span> は、
+<br>
+<span>\(cnt(T,x)=cnt(T_0,x)+\displaystyle\sum_{\gcd(r,y)=x}cnt(T&#39;,y)\)</span> および  <span>\(sum(T,x)=sum(T_0,x)+\displaystyle\sum_{\gcd(r,y)=x}(sum(T&#39;,y)+cnt(T&#39;,y))\)</span>
+<br>
+で求めることができます。</p>
+
+<p>なお, <span>\(1\)</span> 頂点 <span>\(v\)</span> のみからなる初期状態においては、<span>\(cnt(T,x)=sum(T,x)=(x=A_v\)</span> ならば <span>\(1\)</span> , それ以外の時 <span>\(0)\)</span> , <span>\(ans(T)=0\)</span> となります。</p>
+
+<p>このようにして、マージ操作を繰り返すことで最終的に元の木における答えを求めることができます。
+計算量を考えてみましょう。</p>
+
+<p><span>\(cnt(T,x)=0\)</span> であるような <span>\(x\)</span> については <span>\(cnt(T,x), sum(T,x)\)</span> の値を持つ必要はありません。そうでないような <span>\(x\)</span> は <span>\(A_r\)</span> の約数の個数以下かつ <span>\(|T|\)</span> 個以下であるので、<span>\(10^5\)</span> 以下の正整数の約数の個数の最大値を <span>\(D\)</span> として、<span>\(\min(|T|,D)\)</span> で上から抑えられます。このとき、マージの際の計算回数は<span>\(\min(|T_0|,D)\cdot \min(|T&#39;|,D)\cdot \log(\max(A_i))+\min(|T_0|,D)+\min(|T&#39;|,D)\)</span> であり、<span>\(C_0=\log(\max(A_i))+2\)</span> として、<span>\(C_0\min(|T_0|,D)\min(|T&#39;|,D)\)</span> で抑えることができます。</p>
+
+<p>このことから、<span>\(N\)</span> 頂点の木に対する計算回数の最大値を <span>\(h(N)\)</span> で表すと、</p>
+<p><span>\[
+h(N)\leq \displaystyle\max_{1\leq i\leq N-1}(h(i)+h(N-i)+C_0\min(i,D)\min(N-i,D))
+\]</span></p><p>が成り立ちます。
+また、<span>\(h(1)=1\leq\frac{1}{2}C_0\)</span> と抑えることができます。
+このとき、<span>\(N\leq 2D\)</span> の範囲で <span>\(h(N)\leq \frac{1}{2}C_0N^2\)</span> が成り立ち、さらに<span>\(N&gt; 2D\)</span> の範囲で <span>\(h(N)\leq \frac{1}{2}C_0( 3N-2D)D\)</span> が成り立ちます。
+よって、計算量は<span>\(O(ND\log(\max(A_i)))\)</span> となります。
+<span>\(N=10^5\)</span> において <span>\(D=128\)</span> であるので、これは十分間に合います。よって、この問題を解くことができました。</p>
+
+<p>c++による実装例 :</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+#define N 100000
+#define D 130
+#define MOD 998244353
+#define rep(i, n) for(int i = 0; i &lt; n; ++i)
+#define pil pair&lt;int, long long&gt;
+
+vector&lt;int&gt;e[N];
+bool used[N];
+int a[N];
+long long ans;
+
+int gcd(int x, int y) {
+	if (x &gt; y)swap(x, y);
+	if (x == 0)return y;
+	return gcd(y%x, x);
+}
+
+vector&lt;pair&lt;int, pil&gt; &gt; dfs(int k) {
+	used[k] = true;
+	vector&lt;pair&lt;int, pil&gt; &gt; list1, list2;
+	int idx[D];
+	int g;
+	long long x, y, z;
+	list1.push_back({ a[k],{1,1LL} });
+	int sz = e[k].size();
+	int sz1, sz2, defalut_sz;
+	rep(ii, sz) {
+		if (!used[e[k][ii]]) {
+
+			list2 = dfs(e[k][ii]);
+			sz1 = list1.size();
+			sz2 = list2.size();
+			defalut_sz = sz1;
+
+			rep(j, sz2) {
+				idx[j] = -1;
+				rep(i, sz1) {
+					if (i &lt; defalut_sz) {
+						g = gcd(list1[i].first, list2[j].first);
+						if (i == 0)list2[j].first = g;
+						x = (list1[i].second.second*list2[j].second.first) % MOD;
+						y = (list2[j].second.second*list1[i].second.first) % MOD;
+						z = ((x + y)*g) % MOD;
+						ans = (ans + z) % MOD;
+					}					
+					if (list1[i].first == list2[j].first)idx[j] = i;
+				}
+				if (idx[j] == -1) {
+					idx[j] = sz1;
+					list1.push_back({ list2[j].first,{0,0LL} });
+					sz1++;
+				}
+			}
+
+			rep(j, sz2) {
+				list1[idx[j]].second.first += list2[j].second.first;
+				list1[idx[j]].second.second += list2[j].second.first + list2[j].second.second;
+				if (list1[idx[j]].second.second &gt;= MOD)list1[idx[j]].second.second -= MOD;
+			}
+
+		}
+	}
+	return list1;
+}
+
+int main() {
+	int n, x, y;
+	cin &gt;&gt; n;
+	rep(i, n)cin &gt;&gt; a[i];
+	rep(i, n - 1) {
+		cin &gt;&gt; x &gt;&gt; y;
+		e[x - 1].push_back(y - 1);
+		e[y - 1].push_back(x - 1);
+	}
+	ans = 0;
+	rep(i, n)used[i] = false;
+	dfs(0);
+	cout &lt;&lt; ans &lt;&lt; endl;
+	return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1650094922">
+				<time class="timeago" datetime="2022/04/16 16:42:02"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1650115772">
+				<time class="timeago" datetime="2022/04/16 22:29:32"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc248/editorial/3795?lang=ja" data-a2a-title="解説 - ユニークビジョンプログラミングコンテスト2022（AtCoder Beginner Contest 248）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc248/rules">ルール</a></li>
+					<li><a href="/contests/abc248/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

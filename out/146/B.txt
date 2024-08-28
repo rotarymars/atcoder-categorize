@@ -1,0 +1,118 @@
+まず元の文字がアルファベットの何番目の文字かを 0-indexed で求め、それに N を加えて 26 で
+割った余りを求めると、出力するべき文字が分かります。
+
+1
+
+#include<stdio.h>
+
+2
+
+#include<string.h>
+
+3
+
+int main(){
+
+4
+
+int n;
+
+5
+
+char s[10010];
+
+6
+
+scanf("%d␣%s",&n,s);
+
+7
+
+int len=strlen(s);
+
+8
+
+for(int i=0;i<len;i++){
+
+9
+
+int x=s[i]-'A';
+
+10
+
+x=(x+n)%26;
+putchar('A'+x);
+
+11
+12
+
+}
+
+13
+
+putchar('\n');
+
+14
+
+}
+
+2
+
+First ﬁnd the 0-indexed index of original character in the alphabet table, then add N and get
+the remainder divided by 26, then you will ﬁnd which character to output.
+
+1
+
+#include<stdio.h>
+
+2
+
+#include<string.h>
+
+3
+
+int main(){
+
+4
+
+int n;
+
+5
+
+char s[10010];
+
+6
+
+scanf("%d␣%s",&n,s);
+
+7
+
+int len=strlen(s);
+
+8
+
+for(int i=0;i<len;i++){
+
+9
+
+int x=s[i]-'A';
+
+10
+
+x=(x+n)%26;
+putchar('A'+x);
+
+11
+12
+
+}
+
+13
+
+putchar('\n');
+
+14
+
+}
+
+8
+

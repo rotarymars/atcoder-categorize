@@ -1,0 +1,28 @@
+
+September 9
+
+整数 N は二桁なので、N の十の位と一の位の少なくとも一方が 9 であるとき「Yes」、
+そうでないとき「No」を出力すればよい。
+# include < cstdio >
+int N ;
+int main ()
+{
+scanf ( " % d " ,& N );
+if ( N %10==9|| N /10==9) puts ( " Yes " );
+else puts ( " No " );
+}
+
+
+September 9
+
+N is a two-digit number,so you can get 100 points by output ”Yes” when ten’s digit
+or one’s digit (or both of them) of N is 9, ”No” otherwise.
+# include < cstdio >
+int N ;
+int main ()
+{
+scanf ( " % d " ,& N );
+if ( N %10==9|| N /10==9) puts ( " Yes " );
+else puts ( " No " );
+}
+

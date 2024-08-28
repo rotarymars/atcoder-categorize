@@ -1,0 +1,14 @@
+i = 1, ..., N に対して、Mi := min{Pj |1 ≤ j ≤ i} と定義します。すると、i(1 ≤ i ≤ N ) を固定し
+て考えたときに、 Mi = Pi であることと、 任意の j(1 ≤ j ≤ i) に対して Pi ≤ Pj であることが同
+値となります。したがって、 Mi をすべて計算することができれば十分です。これは、 i が小さいほ
+うから順に計算していけばよく、 O(N ) でこの問題を解くことができました。
+
+3
+
+For i = 1, ..., N we deﬁne Mi := min{Pj |1 ≤ j ≤ i}. Then, when i(1 ≤ i ≤ N ) is ﬁxed,
+Mi = Pi holds if and only if for all j(1 ≤ j ≤ i), Pi ≤ Pj holds. Therefore, it is enough to
+calculate all the Mi . These can be calculated in the increasing order of i, so the problem could
+be solved in a total of O(N ) time.
+
+9
+

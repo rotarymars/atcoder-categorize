@@ -1,0 +1,9 @@
+A, B, C を入力し，A + B ≥ C を判定すれば良いです。
+[https://beta.atcoder.jp/contests/abc091/submissions/2218039]
+
+1
+
+[https://beta.atcoder.jp/contests/abc091/submissions/2218039]
+
+7
+

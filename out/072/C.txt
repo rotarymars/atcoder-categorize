@@ -1,0 +1,19 @@
+X を先に選んでから数に対する操作をすることにします。X を決めると、この個数を最大にするには、
+• すべての X − 1 に +1 する
+• すべての X をそのままにする
+• すべての X + 1 に −1 する
+をすると他は関係ないので、(X − 1 の個数)+(X の個数)+(X + 1 の個数) となります。従って先に各数の個
+数を数えておき、この X を考えうる範囲で全て試すことで答えが求まります。
+
+1
+
+Let’s choose X first. For a fixed X, the optimal choices are:
+• Add 1 to all X − 1.
+• Do nothing for all X.
+• Subtract 1 from all X + 1.
+The number of X after these operations is (the number of X − 1 in the initial sequence) + (the number
+of X in the initial sequence) + (the number of X + 1 in the initial sequence). We can compute the
+optimal value by trying all possible values for X.
+
+1
+

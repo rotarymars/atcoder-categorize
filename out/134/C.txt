@@ -1,0 +1,51 @@
+N が数千以下 (言語によっては数万以下) なら、各問で Ai 以外の N − 1 個の要素すべてに対してループ
+を回して最大値を直接求めても実行制限時間の 2 秒に間に合います。しかし実際には N は最大で 20 万であ
+り、この方針では C++ でも間に合う望みはありません。計算時間を削減する方針を以下に二つ示します。
+
+方針 1: 場合分け
+ほとんどの場合、問いの答えは N 個すべての要素のうちの最大の値 Amax です。唯一の例外は問いで取り
+除かれる値 Ai が Amax と等しい場合で、この場合の答えはすべての要素のうち 2 番目に大きい値 Asecond
+
+(数列中に Amax が複数回現れる場合は Asecond = Amax とします) です。問いの処理を始める前に Amax と
+Asecond をあらかじめ求めておけば、各問を直ちに処理できます。なお、Asecond を最も簡単な実装で求める
+方法は、与えられた数列をコピーして言語の標準ライブラリでソートすることでしょう (やや「余計」な計算
+をすることになりますが十分高速です)。
+
+方針 2: 両端から攻める
+j = 0, 1, . . . , N − 1 に対し、A1 , A2 , . . . , Aj のうちの最大の値を leftj とします (ただし left0 = 0 としま
+す)。j ≥ 1 のとき leftj = max(leftj−1 , Aj ) *1 であることに注意すると、これらの値は一周のループですべ
+て求められます。また、j = 2, . . . , N + 1 に対し、Aj , Aj+1 , . . . , AN のうちの最大の値を rightj とします
+
+(ただし rightN +1 = 0 とします)。j ≤ N のとき rightj = max(rightj+1 , Aj ) であることに注意すると、こ
+れらの値も一周のループですべて求められます。問いの処理を始める前にこれらの値をあらかじめ求めておけ
+ば、各問 i の答えを max(lefti−1 , righti+1 ) として直ちに求められます。
+
+*1 max(a, b) は a と b のうち大きい方 (より厳密には小さくない方) を表します
+
+3
+
+If N is less than around thousands (or around tens of thousands, dependening on languages), even
+if you tried to ﬁnd the maximum value of N − 1 elements except for Ai using loops for each query, it
+will meet the time limit of 2 seconds. But practically N is at most 200 thousand and this is not a good
+strategy. There are two ways to reduce the execution time:
+
+Strategy 1: Case Splitting
+In most case, the answer is the maximum value of all N elements, Amax . The only exception is that
+the excluded value ai is equal to Amax , in which case the second largest value Asecond (if Amax appears
+multiples times, let Asecond = Amax ) is the answer. If you precalculate Amax and Asecond before handling
+the queries, each queries can be immediately answered. The easiest implementation to ﬁnd Asecond would
+be copying the array and sort it with the language’s standard library (it needs some ”extra” computation
+but it’s fast enough).
+
+Strategy 2: Calculating from the Both Sides
+For all j = 0, 1, . . . , N − 1, let leftj be the maximum value among left0 = 0 (here, let left0 = 0).
+Since leftj = max(leftj−1 , Aj ) *1 when j ≥ 1 , those values can be obtained in a single loop. Also, for
+all j = 2, . . . , N + 1, let rightj be the maximum value among Aj , Aj+1 , . . . , AN (let rightN +1 = 0 ).
+Since rightj = max(rightj+1 , Aj ) when j ≤ N , these values can also be obtained in a single loop. By
+precalculating those values before hanlding the queries, you can respond to each query immediately with
+the answer max(lefti−1 , righti+1 ).
+
+*1 max(a, b) represent the greater value of (more strictly, not less) value
+
+9
+

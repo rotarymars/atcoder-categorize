@@ -1,0 +1,28 @@
+(4 月 27 日: 誤りを訂正しました。)
+S の長さを n、S の左から k 番目の数字を ak とします。
+左から k + 1 文字目以降の数字列を整数とみなした時の値 an + 10an−1 + ... + 10n−k−1 ak+1 を
+
+Tk とします (Tn = 0)。 すると、(i, j) が条件をみたすのは Ti−1 == Tj (mod2019) のときです。
+各 Ti mod2019 を計算し、mod の値が同じごとに個数を計算して足したものが答えです。Ti =
+
+Ti+1 + 10n−i−1 ai より、これは DP で計算でき、mod ごとに m(m − 1)/2 (m は Ti mod2019 があ
+る値になる 0 ≤ i ≤ n の個数) を足せば良いです。
+
+4
+
+(Corrected on April 27.)
+Let n be the length of S, and ak be the k-th leftmost digit of S.
+(i, j) satisﬁes the condition when aj + 10aj−1 + 100aj−2 + ... + 10j−i ai is a multiple of 2019.
+By the way, 2019 is not divisible by 2 or 5, so there exists the inverse of 10 in mod2019. So 10n
+is a multiple of 2019 if and only if n is a multiple of n. (2020 does not satisfy such conditions,
+so 2019 is used for this problem.)
+Let Tk be the digits after the k + 1-th digit, represented as an integer, that is, an + 10an−1 +
+...+10n−k−1 ak+1 (Tn = 0). Then, (i, j) satisﬁes the condition when Ti−1 == Tj (mod2019) (Here
+the discussion above was used).
+Ultimately, it appears that it is suﬃcient to calculate each Ti mod2019, and count the number
+for the elements with the same mod and sum them up. Since, Ti = Ti+1 + 10n−i−1 ai , this can be
+calculated by DP, and it is suﬃcient to add m(m − 1)/2 for each mod (where m is the number
+of i such that Ti mod2019 is equal to that remainder).
+
+10
+

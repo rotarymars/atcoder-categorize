@@ -1,0 +1,81 @@
+
+March
+
+‘M‘ から始まる名前の人が m 人、‘A‘ から始まる名前の人が a 人、‘R‘ から始まる名前の人が
+r 人、‘C‘ から始まる名前の人が c 人、‘H‘ から始まる名前の人が h 人いるとします。
+例えば、「‘M‘ から始まる名前の人」と「‘A‘ から始まる名前の人」と「‘R‘ から始まる名前の
+人」の 3 人を選ぶ方法は、m × a × r 通りです。
+3 人を選ぶとき、3 人の名前の頭文字の組み合わせは高々 10 通りとなります。
+よって、m, a, r, c, h を求めた後、10 通りの組み合わせ全てを試せばよいです。
+# include < cstdio >
+# include < iostream >
+using namespace std ;
+typedef long long ll ;
+string s ;
+int N ;
+ll m ,a ,r ,c , h ;
+ll D [5];
+int P [10]={0 ,0 ,0 ,0 ,0 ,0 ,1 ,1 ,1 ,2};
+int Q [10]={1 ,1 ,1 ,2 ,2 ,3 ,2 ,2 ,3 ,3};
+int R [10]={2 ,3 ,4 ,3 ,4 ,4 ,3 ,4 ,4 ,4};
+int main ()
+{
+scanf ("% d " ,& N );
+for ( int i =0; i < N ; i ++)
+{
+cin > > s ;
+if ( s [0]== ’ M ’) m ++;
+if ( s [0]== ’ A ’) a ++;
+if ( s [0]== ’ R ’) r ++;
+if ( s [0]== ’ C ’) c ++;
+if ( s [0]== ’ H ’) h ++;
+}
+D [0]= m , D [1]= a , D [2]= r , D [3]= c , D [4]= h ;
+ll res =0;
+for ( int d =0; d <10; d ++)
+res += D [ P [ d ]]* D [ Q [ d ]]* D [ R [ d ]];
+printf ("% lld \ n " , res );
+}
+
+2
+
+
+March
+
+Considering as m means the number of people the name begins with ‘M‘, a - ‘A‘,r - ‘R‘,c ‘C‘,h - ‘H‘.
+For example,the way to choose people the name begins with ‘M‘,‘A‘,‘R‘ is m × a × r.
+When choosing 3 people,there are no more than 10 patterns of the first character of those
+names.
+So,it is OK to calculate m, a, r, c, h and try all 10 patterns.
+# include < cstdio >
+# include < iostream >
+using namespace std ;
+typedef long long ll ;
+string s ;
+int N ;
+ll m ,a ,r ,c , h ;
+ll D [5];
+int P [10]={0 ,0 ,0 ,0 ,0 ,0 ,1 ,1 ,1 ,2};
+int Q [10]={1 ,1 ,1 ,2 ,2 ,3 ,2 ,2 ,3 ,3};
+int R [10]={2 ,3 ,4 ,3 ,4 ,4 ,3 ,4 ,4 ,4};
+int main ()
+{
+scanf ("% d " ,& N );
+for ( int i =0; i < N ; i ++)
+{
+cin > > s ;
+if ( s [0]== ’ M ’) m ++;
+if ( s [0]== ’ A ’) a ++;
+if ( s [0]== ’ R ’) r ++;
+if ( s [0]== ’ C ’) c ++;
+if ( s [0]== ’ H ’) h ++;
+}
+D [0]= m , D [1]= a , D [2]= r , D [3]= c , D [4]= h ;
+ll res =0;
+for ( int d =0; d <10; d ++)
+res += D [ P [ d ]]* D [ Q [ d ]]* D [ R [ d ]];
+printf ("% lld \ n " , res );
+}
+
+5
+

@@ -1,0 +1,146 @@
+次のようにシミュレーションを行うことで答えを求めることができます。まず、A1 種類目の料理
+を食べるので、BA1 の満足度を得ます。次に、A2 種類目の料理を食べるので、BA2 の満足度と、
+
+A2 = A1 + 1 ならば CA1 の満足度を得ます。i (2 ≤ i ≤ N ) 番目には Ai 種類目の料理を食べるの
+で、BAi の満足度と Ai = Ai−1 + 1 ならば CAi−1 の満足度を得ます。これを C++ 言語で実装した
+例を以下に挙げます。
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int N; cin >> N;
+7
+// input
+8
+vector<int> A(N);
+9
+for (int i = 0; i < N; ++i) {
+10
+cin >> A[i];
+11
+--A[i];
+12
+}
+13
+vector<int> B(N);
+14
+for (int i = 0; i < N; ++i) {
+15
+cin >> B[i];
+16
+}
+17
+vector<int> C(N-1);
+18
+for (int i = 0; i < N; ++i) {
+19
+cin >> C[i];
+20
+}
+21
+// calc
+22
+int ans = 0;
+23
+for (int i = 0; i < N; ++i) {
+24
+ans += B[A[i]];
+25
+if (i > 0 && A[i] == A[i-1]+1) {
+26
+ans += C[A[i-1]];
+27
+}
+28
+}
+29
+// output
+30
+cout << ans << endl;
+31 }
+5
+6
+
+2
+
+You can ﬁnd the answer by performing simulation as follows: First, he will eat A1 -th dish, so
+he will gain BA1 satisfaction points. Next, he will eat A2 -th dish, so he will gain BA2 satisfaction
+points. and if A2 = A1 + 1, then he will gain CA1 satisfaction points. The i-th dish (2 ≤ i ≤ N )
+he will eat is Ai -th dish, so he will gain BAi satisfactory points, and if Ai = Ai−1 + 1, then he
+will gain CAi−1 satisfactory points. The implementation example in C++ language is given as
+follows.
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int N; cin >> N;
+7
+// input
+8
+vector<int> A(N);
+9
+for (int i = 0; i < N; ++i) {
+10
+cin >> A[i];
+11
+--A[i];
+12
+}
+13
+vector<int> B(N);
+14
+for (int i = 0; i < N; ++i) {
+15
+cin >> B[i];
+16
+}
+17
+vector<int> C(N-1);
+18
+for (int i = 0; i < N; ++i) {
+19
+cin >> C[i];
+20
+}
+21
+// calc
+22
+int ans = 0;
+23
+for (int i = 0; i < N; ++i) {
+24
+ans += B[A[i]];
+25
+if (i > 0 && A[i] == A[i-1]+1) {
+26
+ans += C[A[i-1]];
+27
+}
+28
+}
+29
+// output
+30
+cout << ans << endl;
+31 }
+5
+6
+
+8
+

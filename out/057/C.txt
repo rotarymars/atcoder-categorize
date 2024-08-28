@@ -1,0 +1,123 @@
+
+Digits in Multiplication
+
+まず、F (A, B) について考えます。
+「A の桁数と B の桁数のうち大きい方」とは、M = max(A, B) の桁数です。
+整数 M の桁数は次のような方法で求められます。
+
+• M を 10 進表記の文字列に変換したときの文字列の長さ
+• M を 0 になるまで 10 で繰り返し割った時の回数
+次に、正の整数 N に N = A × B を満たす 2 つの正の整数の組 (A, B) について考えます。このとき、A, B はと
+もに N の約数です。そこで、N の約数を全列挙することを考えます。考えられる方法としては 1 ≤ A ≤ N を満
+たす A についてループを回して、N が A で割り切れるかを試します。しかし、この方法では時間計算量が O(N )
+となるため間に合いません。そこで、交換法則 N = A × B = B × A が成り立つことを利用します。このことか
+√
+ら、A ≤ B を満たす A を列挙すれば良いことがわかります。この場合、1 ≤ A ≤ N を満たし、時間計算量は
+√
+O( N ) となるため間に合います。なお、32bit 整数型によるオーバーフローに注意してください。
+
+C++のコード例
+
+1
+
+using ll=long long;
+
+2
+
+2
+
+int cnt_digits(ll N){
+4
+int digits=0;
+3
+
+5
+
+while(N>0){
+
+6
+
+N/=10;
+
+7
+
+digits++;
+
+8
+
+}
+
+9
+10
+
+return digits;
+
+11
+12
+
+}
+
+13
+14
+
+int main(void){
+
+15
+
+ll N;
+
+16
+
+cin >> N;
+
+17
+
+int ans=cnt_digits(N); // 1*N=N max(cnt_digits(1),cnt_digits(N))=cnt_digits(N)
+
+18
+19
+
+for(ll A=1LL;A*A<=N;++A){
+
+20
+21
+
+if(N%A!=0) continue;
+
+22
+
+const ll B=N/A;
+
+23
+
+const int cur=max(cnt_digits(A),cnt_digits(B));
+
+24
+25
+26
+
+if(ans>cur){
+
+27
+
+ans=cur;
+}
+
+28
+
+}
+
+29
+30
+31
+
+cout << ans << endl;
+
+32
+
+return 0;
+
+33
+
+}
+

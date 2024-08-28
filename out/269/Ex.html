@@ -1,0 +1,499 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - UNICORNプログラミングコンテスト2022(AtCoder Beginner Contest 269)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - UNICORNプログラミングコンテスト2022(AtCoder Beginner Contest 269)" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc269/editorial/4838" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - UNICORNプログラミングコンテスト2022(AtCoder Beginner Contest 269)" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc269";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-09-17T21:00:00+09:00");
+			var endTime = moment("2022-09-17T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>UNICORNプログラミングコンテスト2022(AtCoder Beginner Contest 269)が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>UNICORNプログラミングコンテスト2022(AtCoder Beginner Contest 269)は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc269">UNICORNプログラミングコンテスト2022(AtCoder Beginner Contest 269)</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc269/editorial/4838?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc269/editorial/4838?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc269%2Feditorial%2F4838">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc269%2Feditorial%2F4838">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc269%2Feditorial%2F4838">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220917T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-09-17 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220917T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-09-17 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc269"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc269/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc269/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc269/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc269/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc269/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc269/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc269/tasks/abc269_h">Ex - Antichain</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>はじめに、問題自体の解説を読みたい方は、ページ下方の「この問題の解説」から読むことを推奨します。</p>
+
+<p>はじめに、この問題を解くのに必要な <strong>重軽分解</strong> と呼ばれるテクニックを説明します。</p>
+
+<h2>重軽分解</h2>
+
+<p><strong>重軽分解</strong>(Heavy Light Decomposition, 以下 HLD と表記) とは、根付き木を いくつかのパスに分割するテクニックのことを言います。<br>
+HLD を利用して木をいくつかのパスに変換することで、列に対して適用できるアルゴリズムを木に対しても適用することができるようになります。</p>
+
+<h4>アルゴリズム</h4>
+
+<ul>
+<li>注：以下に説明するアルゴリズムは 正確には HLD ではなく <strong>Centroid Path Decomposition</strong> と呼ばれるアルゴリズムだと考えられますが、日本の競技プログラミング界隈ではこのアルゴリズムが HLD として広く知られており、実装も簡単なのでこちらを紹介します。</li>
+</ul>
+
+<p>頂点 <span>\(1\)</span> を根とする <span>\(N\)</span> 頂点の根付き木を考えます。<br>
+まず、すべての頂点に対して部分木の大きさを前計算します。そして、各頂点 <span>\(v\)</span> について、<span>\(v\)</span> から子へ伸びる辺を heavy edge / light edge のいずれかに分類します。heavy edge / light edge は以下のような方法で分類します。</p>
+
+<ul>
+<li>頂点 <span>\(v\)</span> の子のうち、部分木が一番大きい頂点を選び、<span>\(v\)</span> と heavy edge で結ぶ。(複数ある場合はどれでも良い)</li>
+<li>それ以外の子は <span>\(v\)</span> と light edge で結ぶ。</li>
+</ul>
+
+<p>以下では heavy edge / light edge で結ばれた子を heavy child, light child と表現します。<br>
+このとき、各頂点から子の方向へ伸びる heavy edge は高々 1 本なので、heavy path で結ばれた頂点の集合は path graph をなします。これを heavy path と呼びます。<br>
+以上の操作により、木をいくつかの heavy path と light edge の集まりに分解することができました。</p>
+
+<ul>
+<li>分解の例 (赤い太線が heavy edge, 青い点線が light edge)</li>
+</ul>
+
+<p><img src="https://img.atcoder.jp/ghi/10f6e9130453d58ef029f3bf88168ace.png" alt="image"/></p>
+
+<h4>性質</h4>
+
+<p>HLD は次の性質を持ちます。</p>
+
+<ul>
+<li>任意の頂点 <span>\(v\)</span> から根 <span>\(1\)</span> までのパスは、 <span>\(\mathrm{O}(\log n)\)</span> 本の heavy path と light edge に分解できる。</li>
+</ul>
+
+<p>正当性を確認します。<span>\(v\)</span> から根に向かって移動することを考えます。今、 light edge を経由して頂点 <span>\(s\)</span> から頂点 <span>\(t\)</span> へ移動したとします。このとき</p>
+
+<ul>
+<li>(<span>\(s\)</span> の部分木のサイズ) <span>\(\geq\)</span> <span>\(2 \times\)</span> (<span>\(t\)</span> の部分木のサイズ)</li>
+</ul>
+
+<p>が成り立ちます。 なぜならば <span>\(s\)</span> は、<span>\(t\)</span> の部分木のサイズよりも大きい部分木をなす子を heavy child として持つからです。よって light edge は高々 <span>\(\lceil \log_2 N \rceil\)</span> 本 しか通らず、heavy edge が path graph をなすことと合わせると正当性が確認できます。</p>
+
+<p>同様に、任意の頂点 <span>\(v\)</span> から根への path に含まれる頂点の列は、 <span>\(\mathrm{O}(\log N)\)</span> 本の heavy path 上の頂点の列で表すことができます。さらに LCA と組み合わせると、任意の 2 頂点 <span>\(u-v\)</span> 間のパスを <span>\(\mathrm{O}(\log N)\)</span> 本の heavy path に分解することができます。</p>
+
+<p>よって、あらかじめ heavy path を列として管理しておくことで、任意のパスに対する処理を <span>\(\mathrm{O}(\log N)\)</span> 本の列への処理に変換することができます。</p>
+
+<h4>行きがけ順を利用した実装</h4>
+
+<p>実装は行きがけ順と併用するのが一番楽だと思います。</p>
+
+<p>はじめに各頂点の部分木のサイズを計算して、 heavy edge と light edge を分類します。以下のように隣接リスト <code>g</code> の <code>g[c][0]</code> に <span>\(c\)</span> のheavy child を格納するのが簡潔です。</p>
+
+<pre class="prettyprint linenums"><code>vector&lt;vector&lt;int&gt;&gt; g; // 根付き木の隣接リスト
+int sub[N_MAX + 3];    // i を根とする部分木のサイズ
+
+int dfs_hld(int c) {
+  sub[c] = 1;
+  for(auto&amp; d : g[c]) {
+    sub[c] += dfs_hld(d);
+    // 今見ている部分木が g[c][0] を根とする部分木より大きい場合 swap
+    if(sub[d] &gt; sub[g[c][0]]) swap(d, g[c][0]);
+  }
+  return sub[c];
+}
+</code></pre>
+
+<p>その後、DFS で <code>g</code> の行きがけ順を求めます。また、行きがけ順を計算するついでに (<span>\(n\)</span> を含む heavy path の根の側の端点) も計算しておきます。(以下のコードの <code>head</code> です)</p>
+
+<pre class="prettyprint linenums"><code>int order[N_MAX + 3]; // i が行きがけ順で何番目に来るか
+int head[N_MAX + 3];  // i を含む heavy path の端点
+void dfs2(int c, int &amp;i) {
+  order[c] = i++;
+  for(auto&amp; d : g[c]) {
+    head[d] = (g[c][0] == d ? head[c] : d);
+    dfs2(d, i);
+  }
+}
+</code></pre>
+
+<p>すると、heavy path と行きがけ順の間に次の関係が成り立ちます。</p>
+
+<ul>
+<li>任意の heavy path は行きがけ順の上でも連続した列になる。</li>
+</ul>
+
+<p>これは、すべての <span>\(n\)</span> について隣接リスト <code>g[n]</code> の先頭要素が heavy child になっていることから従います。よって、行きがけ順を利用すれば、heavy path を容易に管理することが可能になります。</p>
+
+<p>また、前計算 <code>head</code> の情報を利用すると、任意の頂点 <span>\(v\)</span> から根までのパスに含まれる heavy path を列挙することができます。(前計算でもう少し工夫すると、任意のパス <span>\(u-v\)</span> を結ぶ heavy path の列も求められます。考えてみましょう)</p>
+
+<p>よって、例えばデータを行きがけ順に並べ替えて Segment Tree などのデータ構造に載せることで、木のパス上のデータの情報の取得・更新クエリを <span>\(\mathrm{O}(\log N)\)</span> 個の列への取得・更新クエリに変換できます。</p>
+
+<p>参考: <a href="https://codeforces.com/blog/entry/53170" rel="nofollow">CodeForces の記事</a></p>
+
+<p>コンテストで HLD を利用するケースはもう 1 つ代表的なものがあり、与えられた木に対して、いわゆる<strong>マージテク</strong>  (Weighted-Union Heuristic) を行う場合が挙げられます。この問題ではマージテクに類するアルゴリズムを利用します。</p>
+
+<h2>この問題の解説</h2>
+
+<p>まず、この問題は 2 乗の木 DP で <span>\(\mathrm{O}(N^2)\)</span> で解けます。遷移を見ると FFT を利用した高速化が利きそうですが、いわゆるムカデグラフ (centipede graph) で <span>\(\Theta(N^2)\)</span> の計算量が掛かるため AC するのは難しいでしょう。</p>
+
+<p>以下では <span>\(n\)</span> を根とする部分木についての答えの母関数を<span>\( f_n(x)\)</span> と表します。</p>
+
+<p>まず、部分問題として次の場合を考えてみましょう。</p>
+
+<ul>
+<li><span>\(N\)</span> 頂点の木がある。<span>\(1\)</span>  が根で、<span>\(1-2-3-\dots-M\)</span>  がパスになっている。また、このパスに載っていない頂点 <span>\(v\)</span> <span>\((M \lt v \leq N)\)</span> について <span>\(f_v(x)\)</span> が求まっている。</li>
+</ul>
+
+<p>この問題は <span>\(\mathrm{O}(N \log^2 N)\)</span> で解けます。<br>
+簡潔に説明します。 (容易ではないですが、log 2 個系の練習として適切な難易度なのでわからない方は考えてみましょう)<br>
+<span>\(g_n(x)\)</span> を次のように置きます。</p>
+<p><span>\[g_n(x) = \prod_{P_v = n, v \gt M} f_v(x)\]</span></p><p>すると、適切な考察により <span>\(f_1(x)\)</span> と <span>\(g_{\ast}(x)\)</span> の間に次の関係式が成り立ち、この式は分割統治を適用できます。</p>
+<p><span>\[f_1(x) = \sum_{i=1}^{M+1}\left( (\text{1 if }i = M+1\text{ else }x) \prod_{j=1}^{i-1} g_j(x) \right)\]</span></p><p>さて、一般の木の場合を考えます。  まず、部分木の大きさを計算して heavy edge / light edge を分類します。その後、 DFS によって葉から順に DP を計算していくことを考えます。</p>
+
+<ul>
+<li>余談ですが、この問題では DFS の代わりに <span>\(n=N, N-1, \dots, 2, 1\)</span> の順番に走査する方が言語によっては実装が容易です。(<span>\(P_i \lt i\)</span> より上に書いた順はトポロジカル順序の逆順なのが保証されているため)</li>
+</ul>
+
+<p>頂点 <span>\(n\)</span> の heavy child を <span>\(\text{heavy}_n\)</span> とおきます。各頂点 <span>\(n\)</span> について、部分問題の “パス” を “heavy path” に置き換えた場合と同様に、 <span>\(g_n(x)\)</span> を <span>\(n\)</span> の light child の <span>\(f_{\ast}(x)\)</span> の総積として定義します。すなわち次の式です。</p>
+<p><span>\[g_n(x) = \prod_{P_v = n, v \neq \text{heavy}_n} f_v(x)\]</span></p><p>頂点 <span>\(n\)</span> について、<span>\(n\)</span> を端点として子の方向へ連なる heavy path 上の頂点列を <span>\(X_{n, 1}, X_{n, 2}, \dots, X_{n,k}\)</span> とします。そして 、頂点列の各頂点に対する <span>\(g_{\ast}(x)\)</span> を並べた列 <span>\(F_n = (g_{X_{n,1}}, \dots, g_{X_{n,k}})\)</span> を考えます。<span>\(f_n(x)\)</span> のかわりにこの <span>\(F_n\)</span> を DP の過程で保持します。</p>
+
+<p>まず、子がいない場合は <span>\(F_n = (1)\)</span> です。  以下では子がいる場合を考えます。<br>
+まず、あらかじめ計算してある <span>\(F_{\text{heavy}_n}\)</span> を (ポインタ渡しや <code>std::move</code> を用いて) <span>\(\mathrm{O}(1)\)</span> で取得して、<span>\(F_n \gets F_{\text{heavy}_n}\)</span> と更新します。</p>
+
+<p>その後、<span>\(n\)</span> の light child の DP の結果をマージして <span>\(g_n(x)\)</span> を求めます。 <span>\(g_n(x)\)</span> の計算に必要な <span>\(f_v(x)\)</span> は、<span>\(F_v\)</span> を部分問題と同様の分割統治で <span>\(f_v(x)\)</span> に変換することで求められます。最後、<span>\(F_n\)</span> に <span>\(g_n(x)\)</span> を追加します。<br>
+この手順を DFS で葉から順に計算することで <span>\(F_1\)</span> を求められます。</p>
+
+<p>計算量を考えます。次の 2 つの部分以外は <span>\(\mathrm{O}(N)\)</span> で処理できるので、これらの計算量を考えます。</p>
+
+<ul>
+<li><span>\(F_n\)</span> を <span>\(f_n(x)\)</span> に変換する部分</li>
+<li>light edge の結果をマージして <span>\(g_n(x)\)</span> を計算する部分</li>
+</ul>
+
+<p><span>\(F_n\)</span> を <span>\(f_n(x)\)</span> に変換する部分は、<span>\(n\)</span> を根とする部分木のサイズを <span>\(S_n\)</span> として <span>\(\mathrm{O}(S_n \log^2 S_n)\)</span> かかります。また、<span>\(F_n\)</span> を <span>\(f_n(x)\)</span> に変換する必要があるのは light child および頂点 <span>\(1\)</span> のみです。ここで HLD の性質を利用すると、次の式が成り立ちます。</p>
+<p><span>\[\sum_{\text{heavy}_{P_v} \neq v} S_v = \mathrm{O}(N \log N)\]</span></p><p>よって、この部分は DP 全体で <span>\(\mathrm{O}(N \log^3 N)\)</span> の計算量で抑えられるのが確認できます。また、light edge の結果をマージする部分も同様に  <span>\(\mathrm{O}(N \log^3 N)\)</span> で抑えられます。よってアルゴリズム全体の計算量もまた <span>\(\mathrm{O}(N \log^3 N)\)</span> となります。</p>
+
+<p>定数倍を考えると、計算量の <span>\(\log N\)</span> のうち 1 個は light edge の性質を利用したもので、1 個は heavy path の長さの対数を取ったもので、この 2 つの値は同時に上限に近い値を取ることはできないので、定数倍はその分軽くなります。このような理由から、このアルゴリズムは十分高速に動作すると考えられます。</p>
+
+<p><a href="https://atcoder.jp/contests/abc269/submissions/34857795" rel="nofollow">実装例(C++, 454 ms)</a></p>
+
+<p>なお、上の実装例では、heavy edge を経由したデータの受け渡しに c++ の <code>std::move</code> という機能を利用しています。 (C++11 以降では、関数の返り値は特定の条件を満たすと自動的に move されます。詳しくは <a href="https://en.cppreference.com/w/cpp/language/return" rel="nofollow">cppreference の return statement の項</a> の Automatic move from local variables and parameters の章を参照してください。)</p>
+
+<p>追記：より計算量の良い解法を教えてもらったので少し追記します。<br>
+light edge の結果をマージする部分は、 deque を使わずに「次数の小さい多項式を 2 個選んで積に置き換える」という方法でマージすると計算量が <span>\(\mathrm{O}(N \log ^2 N)\)</span> で抑えられるのが示せるようです。また、heavy path の値を分割統治で求める部分も、分割の仕方を上手く決めることで <span>\(\log\)</span> を 1 個落とせて、結局 全体で <span>\(\mathrm{O}(N \log^2 N)\)</span> で計算できるようです。(細かい部分はわかっていません)</p>
+
+<ul>
+<li>参考：<a href="https://www.mathenachia.blog/mergetech-and-logn/#toc10" rel="nofollow">Nachia さんの記事</a> 　<a href="https://yosupo.hatenablog.com/entry/2015/10/02/233244" rel="nofollow">yosupo さんの記事</a></li>
+</ul>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1663163839">
+				<time class="timeago" datetime="2022/09/14 22:57:19"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1713998390">
+				<time class="timeago" datetime="2024/04/25 07:39:50"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc269/editorial/4838?lang=ja" data-a2a-title="解説 - UNICORNプログラミングコンテスト2022(AtCoder Beginner Contest 269)">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc269/rules">ルール</a></li>
+					<li><a href="/contests/abc269/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

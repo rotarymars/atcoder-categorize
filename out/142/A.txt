@@ -1,0 +1,50 @@
+実数 x について,x を超えない最大の整数を f loor (x) と定義します.N 以下の正の奇数は N −
+
+f loor
+
+(N )
+2
+
+(
+
+個数存在しますから, 答えは N − f loor
+
+( N ))
+2
+
+/N です.
+
+ただし, 実装には注意が必要です. 例えば C++ では,N を int 型の変数とした場合 f loor
+
+(N )
+2
+
+は N/2
+
+で計算出来ますが,(N − N/2) /N のように書くと, 二度目の除算も int 型の変数同士の除算となり, 正
+しい計算結果が得られません.
+これを回避する手法はいくつかあります。例えば, 二度目の除算が double 型の変数同士の除算として
+実行されるように, 型変換を行えば良いです.
+より詳しくは, AtCoder Programming Guide for beginners Y-3.01. 数値型 をご参照ください。
+
+C++ による解答例:https://atcoder.jp/contests/abc142/submissions/7731173
+
+1
+
+For a real number x, let’s define f loor (x) as a maximum integer that does not exceeds x.
+( )
+Since there are N − f loor N2 odd numbers less than or equal to N , so the answer will be
+(
+( ))
+N − f loor N2 /N .
+However, you have to be careful of implementation. For example, in C++, if you define N as a
+( )
+variable of type int, you can calculate f loor N2 by N/2, but if you write such like (N − N/2) /N ,
+the second division will be a division of ints, so you cannot obtain a right answer.
+There are several ways to avoid this. For example, you can apply a type conversion so that the
+second division will be a division of doubles.
+For more information, please google about integer types in C++.
+An example solution in C++:https://atcoder.jp/contests/abc142/submissions/7731173
+
+7
+

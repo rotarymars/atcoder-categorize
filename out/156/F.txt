@@ -1,0 +1,47 @@
+(原案・準備・解説: gazelle)
+1 つのクエリに O(k) で答えることを目指します。i 番目のクエリに答えるものとして、n =
+ni , x = xi , m = mi と書くことにします。あらかじめ d の要素それぞれを m で割った余りで置き
+換えておいても、クエリに対する答えは変わりません。以下そのように置き換えたものとして議論を
+進めます。
+
+(ai mod m) < (ai+1 mod m) とならない、つまり (ai mod m) = (ai+1 mod m) もしくは
+(ai mod m) > (ai+1 mod m) となるような i (0 ≤ i < n − 1) がいくつあるかを考えます。
+(ai mod m) = (ai+1 mod m) となる場合
+このとき、di mod k = 0 になっています。そのような i の個数は、d の 0 である要素がそれぞ
+れ数列 a に何回足されるかを考えることで O(k) で計算可能です。
+
+(ai mod m) > (ai+1 mod m) となる場合
+このとき、d の要素が非負であること、およびあらかじめ行った前処理を考えると、ai+1 を m
+で割った商が ai を m で割った商よりちょうど 1 大きくなっています。また商が増えるのは、
+そのような場合に限ることも分かります。そのような i の個数は、an−1 を m で割った商から
+
+a0 を m で割った商を引くことで求めることができます。an−1 の値は、d の要素がそれぞれ
+数列 a に何回足されるかを考えることで O(k) で計算可能です。
+以上より、 (ai mod m) < (ai+1 mod m) とならない i の個数を O(k) で求めることができます。
+これらを n − 1 から引くことで、クエリに O(k) で答えることができました。
+
+9
+
+(draft, preparation, editorial: gazelle)
+We aim at answering each query in O(k) time. Consider answering i-th query, and we denote
+n = ni , x = xi , m = mi . Replacing each element of d with its remainder by m does not change
+the answer for the query. Hereinafter we assume that such applied such replacement.
+We will consider how many i (0 ≤ i < n − 1) do not satisfy (ai mod m) < (ai+1 mod m), in
+other words, such i that (ai mod m) = (ai+1 mod m) or (ai mod m) > (ai+1 mod m).
+If (ai mod m) = (ai+1 mod m)
+In such case, di mod k = 0. The number of such i can be calculated in O(K) time by
+considering how many times each of elements of d of value 0 is added to a.
+If (ai mod m) > (ai+1 mod m)
+In such case, given that the elements of d are non-negative, and also considering the
+replacement done beforehand, it appears that the quotient of ai+1 divided by m is exactly
+larger by 1 than the quotient of ai divided by m. Also, it can be seen that the quotient
+increases only in such cases. The number of such i can be calculated by subtracting the
+quotient of a0 divided by m from the quotient of a0 divided by m. The value of an−1 can
+be calculated in O(k) time by considering how many times each element of d are added to
+a.
+Therefore, we can count the number of such i that does not satisfy (ai mod m) < (ai+1 mod m)
+By subtracting this from n − 1, we could answer the query in a total of O(k) time.
+
+19
+
+

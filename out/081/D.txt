@@ -1,0 +1,24 @@
+簡単な場合から考えていきます．a が非負整数のみからなる場合を考えてみます．このとき，a の先頭からの累積和を
+取った数列は明らかに条件を満たします．よって，a2 += a1 , a3 += a2 , . . . , aN += aN −1 という順番で操作をすればその
+ような数列を作ることができ，N − 1 回の操作で条件を満たすことができます．a が 0 以下の整数のみからなる場合も
+ほぼ同様の方法で N − 1 回の操作で条件を満たすことができます．
+
+a に負の数も正の数も含まれるとき，N 回以下の操作で a が非負整数のみからなるように，あるいは 0 以下の整
+数からなるようにすることができるかどうかを考えてみます．MAX := max(a), MIN := min(a) とします．このとき，
+
+|MAX| ≥ |MIN| ならば，すべての数に MAX を足せば a を非負整数のみからなる数列にすることが可能です．同様に，
+|MAX| < |MIN| ならば，すべての数に MIN を足せば a を 0 以下の整数のみからなる数列にすることが可能です．
+以上より 2N 回以下の操作で条件を満たすことができることが分かりました．これは O(N ) で実行可能です．
+
+4
+
+In case all numbers in a are non-negative, the sequence of prefix sums (i.e., a1 , a1 + a2 , a1 + a2 + a3 , · · · ) is nondecreasing. Thus, the sequence of operations ”a2 += a1 , a3 += a2 , . . . , aN += aN −1 ” satisfies the condition. Similarly,
+in case all numbers are non-positive, ”aN −1 += aN , aN −2 += aN −1 , . . . , a1 += a2 ” satisfies the condition.
+In general, there are two cases. Let MAX := max(a), MIN := min(a). If |MAX| ≥ |MIN|, we first add MAX to all
+elements of a, and a will be a sequence of non-negative numbers. Then, we can make it non-decreasing as we described
+above. Similarly, if |MAX| < |MIN|, we first add MIN to all elements of a, and a will be a sequence of non-positive
+numbers.
+In both cases, we need 2N − 1 operations. This solution works in O(N ).
+
+2
+

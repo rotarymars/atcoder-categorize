@@ -1,0 +1,22 @@
+N = 2 × M + 1 のケースを考えます。すると、以下のような割り振りが条件を満たすことがわか
+ります。ただし、図では、線で結ばれた数字を同じ対戦場に割り振ることを意味します。
+
+M が奇数のとき（具体例は M = 5 のとき）
+
+M が偶数のとき（具体例は M = 6 のとき）
+
+N が 2 × M + 1 より大きい場合でも、このような割り振りが条件を満たします。
+
+5
+
+Let us consider the case where N = 2 × M + 1. Then, it appears that the following assignment
+satisﬁes the conditions. Note that in the ﬁgure a line that connects two numbers denote that
+they are assigned to the same arena.
+When M is odd (speciﬁcally, when M = 5)
+
+When M is odd (speciﬁcally, when M = 6)
+
+Even when N is greater than 2 × M + 1, such assignments still satisﬁes the conditions.
+
+11
+

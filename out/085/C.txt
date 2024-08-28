@@ -1,0 +1,28 @@
+袋の中身を「10000 円札 x 枚、5000 円札 y 枚、1000 円札 z 枚」とします。当然ですが重要な点として、
+
+x, y, z はどれも 0 以上 N 以下の整数でなければなりません。
+もっとも単純な方針は、三重ループで x, y, z の値の決め方をすべて試し、x + y + z = N, 10000x + 5000y +
+
+1000z = Y が成立するか確かめるものですが、N ≤ 2000、実行制限時間 2 秒という設定で O(N 3 ) 時間の解
+法は分が悪いです（間に合わせることも不可能ではありません）
+。しかし、x と y の値が決定されると z の値
+が z = N − x − y に限られることを利用すると、三重ループではなく二重ループですべての可能性を列挙す
+ることができます（ただし、z が負になるケースを取り除く必要があります）。これらのすべての可能性に対
+して 10000x + 5000y + 1000z = Y が成り立つか調べることで、問題を O(N 2 ) 時間で解くことができます。
+なお、O(N ) 時間や O(1) 時間の解法も考えられますが、コンテスト中に追求する必要はないでしょう。
+
+3
+
+Let the contents of the envelope be “x 10000-yen bills, y 5000-yen bills and z 1000-yen bills”. Naturally
+but importantly, x, y and z all have to be integers between 0 and N .
+The simplest approach is to try all ways to set the values of x, y and z in three nested loops and
+check if x + y + z = N, 10000x + 5000y + 1000z = Y hold, but under the constraint N ≤ 2000 and the
+execution time limit of 2 seconds, odds are against O(N 3 ) time solutions (not impossible to make it in
+time, though). Notice that, however, when we fix the values of x and y, the value of z will be limited to
+z = N − x − y. Then, we can enumerate all possibilities in two nested loops, not three (but we need to
+remove the case where z is negative). By checking if 10000x + 5000y + 1000z = Y holds for each of these
+possibilities, we can solve the problem in O(N 2 ) time.
+There are also O(N ) time and O(1) time solutions, but no need to find them during the contest.
+
+7
+

@@ -1,0 +1,24 @@
+3 つの文字がどの 2 つも相異なるかどうかを調べればよいです。
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+char s [ 1 0 ] ;
+s c a n f (”% s ” , s ) ;
+i f ( s [ 0 ] != s [ 1 ] && s [ 1 ] != s [ 2 ] && s [ 2 ] != s [ 0 ] ) p r i n t f ( ” Yes \n ” ) ;
+e l s e p r i n t f ( ”No\n ” ) ;
+}
+
+1
+
+Check if the characters in s are pairwise distinct.
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+char s [ 1 0 ] ;
+s c a n f (”% s ” , s ) ;
+i f ( s [ 0 ] != s [ 1 ] && s [ 1 ] != s [ 2 ] && s [ 2 ] != s [ 0 ] ) p r i n t f ( ” Yes \n ” ) ;
+e l s e p r i n t f ( ”No\n ” ) ;
+}
+
+1
+

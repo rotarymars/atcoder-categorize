@@ -1,0 +1,431 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - ユニークビジョンプログラミングコンテスト2022 夏(AtCoder Beginner Contest 268)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - ユニークビジョンプログラミングコンテスト2022 夏(AtCoder Beginner Contest 268)" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc268/editorial/4777" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - ユニークビジョンプログラミングコンテスト2022 夏(AtCoder Beginner Contest 268)" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc268";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-09-10T21:00:00+09:00");
+			var endTime = moment("2022-09-10T22:40:00+09:00");
+		</script>
+		<style>ul.unique-list li {
+padding-bottom: 10px;
+line-height: 150% !important;
+}</style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>ユニークビジョンプログラミングコンテスト2022 夏(AtCoder Beginner Contest 268)が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>ユニークビジョンプログラミングコンテスト2022 夏(AtCoder Beginner Contest 268)は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc268">ユニークビジョンプログラミングコンテスト2022 夏(AtCoder Beginner Contest 268)</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc268/editorial/4777?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc268/editorial/4777?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc268%2Feditorial%2F4777">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc268%2Feditorial%2F4777">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc268%2Feditorial%2F4777">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220910T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-09-10 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220910T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-09-10 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc268"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc268/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc268/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc268/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc268/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc268/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc268/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc268/tasks/abc268_e">E - Chinese Restaurant (Three-Star Version)</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/m_99" class="username"><span class="user-red">m_99</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<h3><span>\(\mathrm{O}(N^2)\)</span> 解法</h3>
+
+<p>C問題と同様に操作回数を <span>\(0\)</span> 回以上 <span>\(N-1\)</span> 回以下とします。また、操作を <span>\(k\)</span> 回行った場合の不満度の総和を <span>\(v_k\)</span> とします。ここで、答えは <span>\(v_0,v_1,\ldots,v_{N-1}\)</span> のうち最小の値です。 よって、操作回数が <span>\(0,1,\ldots,N-1\)</span> の場合それぞれについて <span>\(N\)</span> 人の不満度の総和を計算する形で <span>\(v_0,v_1,\ldots,v_{N-1}\)</span> を求めれば、<span>\(\mathrm{O}(N^2)\)</span> で答えが求められます。これを高速化します。</p>
+
+<h3>いもす法の利用</h3>
+
+<p>いもす法を応用することですべての操作回数について不満度の総和を高速に求めることが出来ます。<br>
+料理 <span>\(i\)</span> を人 <span>\(i\)</span> の目の前に移動させるのに必要な操作回数を <span>\(t\)</span> 回とします。すると、不満度の様子は以下のように記述できます。</p>
+
+<ul>
+<li>操作回数が <span>\(t\)</span> の場合の人 <span>\(i\)</span> の不満度は <span>\(0\)</span>、<span>\((t+1) \bmod N\)</span> の場合は <span>\(1\)</span>、<span>\((t+2) \bmod N\)</span> の場合は <span>\(2\)</span>、<span>\(\ldots\)</span>、<span>\((t+\lfloor \frac{N}{2} \rfloor) \bmod N\)</span> の場合は <span>\(\lfloor \frac{N}{2} \rfloor\)</span> となる</li>
+<li>操作回数が <span>\((t-1) \bmod N\)</span> の場合の人 <span>\(i\)</span> の不満度は <span>\(1\)</span>、<span>\((t-2) \bmod N\)</span> の場合は <span>\(2\)</span>、<span>\(\ldots\)</span>、<span>\((t-\lceil \frac{N}{2} \rceil) \bmod N\)</span> の場合は <span>\(\lceil \frac{N}{2} \rceil\)</span> となる</li>
+</ul>
+
+<p>このことを考えると、操作回数を <span>\(x\)</span> とした時の人 <span>\(i\)</span> の不満度は、前者では <span>\(t\)</span> から <span>\(x\)</span> の間で、後者では <span>\(x\)</span> から <span>\(t\)</span> の間で <span>\(N-1\)</span> と <span>\(0\)</span> の間をまたがない限り<span>\(x\)</span> の一次式として表せます。具体的には、前者では <span>\(x-t\)</span>、後者では <span>\(-x+t\)</span> となります。<br>
+一旦 <span>\(N-1\)</span> と <span>\(0\)</span> の間をまたぐ可能性を棚上げして高速化の方法を示します。一次式の和は次数ごとに係数を独立に足し合わせることで計算できるため、<span>\(1\)</span> 次の項と <span>\(0\)</span> 次の項でそれぞれいもす法を行えば <span>\(x=0,1,\ldots,N-1\)</span> に対して操作を <span>\(x\)</span> 回行った場合の不満度の総和を表す一次式を <span>\(\mathrm{O}(N)\)</span> で求められ、それに <span>\(x\)</span> の値を代入することで不満度の総和を求めることが出来ます。</p>
+
+<h3><span>\(N-1\)</span> と <span>\(0\)</span> の間をまたぐ場合の対処</h3>
+
+<p>棚上げしていた<span>\(N-1\)</span> と <span>\(0\)</span> の間をまたぐ場合の対処法を <span>\(2\)</span> つ示します。</p>
+
+<h4>対処法1 : <span>\(3\)</span> つの一次式を考える</h4>
+
+<p>人 <span>\(i\)</span> の不満度の記述のうち前者において <span>\(N-1\)</span> と <span>\(0\)</span> の間をまたぐとします。この時、記述は以下のように書き直せます。</p>
+
+<ul>
+<li>操作回数が <span>\(t\)</span> の場合の人 <span>\(i\)</span> の不満度は <span>\(0\)</span>、<span>\((t+1) \bmod N\)</span> の場合は <span>\(1\)</span>、<span>\((t+2) \bmod N\)</span> の場合は <span>\(2\)</span>、<span>\(\ldots\)</span>、<span>\(N-1\)</span> の場合は <span>\(N-1-t \)</span> となる</li>
+<li>操作回数が <span>\(0\)</span> の場合の人 <span>\(i\)</span> の不満度は <span>\(N-t\)</span>、<span>\(1\)</span> の場合は <span>\(N+1-t\)</span>、<span>\(\ldots\)</span>、<span>\((t+\lfloor \frac{N}{2} \rfloor) \bmod N\)</span> の場合は<span>\(N + ((t+\lfloor \frac{N}{2} \rfloor) \bmod N) -t\)</span> となる</li>
+<li>操作回数が <span>\((t-1) \bmod N\)</span> の場合の人 <span>\(i\)</span> の不満度は <span>\(1\)</span>、<span>\((t-2) \bmod N\)</span> の場合は <span>\(2\)</span>、<span>\(\ldots\)</span>、<span>\((t-\lceil \frac{N}{2} \rceil) \bmod N\)</span> の場合は <span>\(\lceil \frac{N}{2} \rceil\)</span> となる</li>
+</ul>
+
+<p><span>\(2\)</span> 番目の記述に対して一次式 <span>\(x+N-t\)</span> を考えることで、先程と同様にいもす法を行うことが出来ます。<br>
+また、<span>\(N-1\)</span> と <span>\(0\)</span> をまたぐのが後者の場合も同様に考えれられます。</p>
+
+<h4>対処法2 : <span>\(x\)</span> の範囲を <span>\(0\)</span> 以上 <span>\(2N-1\)</span> 以下に拡張する</h4>
+
+<p>先ほどまでは <span>\(x\)</span> が操作回数にそのまま対応するものとしていたため演算の際には <span>\(\bmod\ N\)</span> を付し、 <span>\(0\)</span> 以上 <span>\(N-1\)</span> 以下の値を取るものとしてきました。しかし、その結果 <span>\(N-1 \)</span> から <span>\(1\)</span> 増やした結果が <span>\(0\)</span> となり、不都合が生じています。これを解決するためには、<span>\(N-1\)</span> から <span>\(1\)</span> 増やした結果が <span>\(N\)</span> となるようにすればよいです。<br>
+具体的には、<span>\(x\)</span> の範囲を <span>\(0\)</span> 以上 <span>\(2N-1\)</span> 以下に拡張した状態でいもす法による計算を行い、操作回数が <span>\(0\)</span> の場合は <span>\(x=0\)</span> と <span>\(x=N\)</span> に対する計算結果の和、<span>\(1\)</span> の場合は <span>\(x=1\)</span> と <span>\(x=N+1\)</span> に対する計算結果の和、<span>\(\ldots\)</span>、<span>\(N-1\)</span> の場合は <span>\(x=N-1\)</span> と <span>\(x=2N-1\)</span> に対する計算結果の和とすれば良いです。これによって <span>\(x\)</span> が <span>\(\bmod \ N\)</span> で等しい場合を同一視できるため、立式のタイミングで <span>\(x\)</span> の値を <span>\(\bmod\ N\)</span> とすることをやめ、一次式をそのまま使うことが出来ます。<br>
+なお、実装例ではこちらの対処法を採用しています。</p>
+
+<h3>実装例</h3>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main() {
+    
+	int N;
+	cin&gt;&gt;N;
+	
+	vector&lt;int&gt; p(N);
+	
+	for(int i=0;i&lt;N;i++)cin&gt;&gt;p[i];
+	
+	vector&lt;long long&gt; iv(N*2),ix(N*2);
+	
+	for(int i=0;i&lt;N;i++){
+		int j = (p[i]-i+N)%N;
+		iv[j] -= j;
+		iv[j+N/2+1] += j;
+		ix[j] += 1;
+		ix[j+N/2+1] -= 1;
+		iv[N+j-(N-1)/2] += N+j;
+		iv[N+j] -= N+j;
+		ix[N+j-(N-1)/2] -= 1;
+		ix[N+j] += 1;
+	}
+	
+	for(int i=0;i&lt;N*2-1;i++){
+		iv[i+1] += iv[i];
+		ix[i+1] += ix[i];
+	}
+	
+	long long ans = 1000000000000000000;
+	for(int i=0;i&lt;N;i++){
+		ans = min(ans,iv[i] + ix[i]*i + iv[i+N] + ix[i+N]*(i+N));
+	}
+	
+	cout&lt;&lt;ans&lt;&lt;endl;
+	
+	return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1662513168">
+				<time class="timeago" datetime="2022/09/07 10:12:48"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1662820315">
+				<time class="timeago" datetime="2022/09/10 23:31:55"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc268/editorial/4777?lang=ja" data-a2a-title="解説 - ユニークビジョンプログラミングコンテスト2022 夏(AtCoder Beginner Contest 268)">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc268/rules">ルール</a></li>
+					<li><a href="/contests/abc268/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

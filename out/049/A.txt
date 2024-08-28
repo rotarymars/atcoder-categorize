@@ -1,0 +1,18 @@
+文字を入力し、それが a, e, i, o, u のいずれかであるか判定すればよいです。
+
+if の中に 5 つの条件を連ねる以外にも、以下のように母音全てを含む文字列が c を含むか判定することもで
+きます。
+C++ のコード例
+
+char c ;
+cin >> c ;
+const string vowel = " aeiou ";
+cout << vowel . find ( c ) == string :: npos ? " vowel " : " consonant " << endl ;
+
+C++ Code Example
+
+char c ;
+cin >> c ;
+const string vowel = " aeiou ";
+cout << vowel . find ( c ) == string :: npos ? " vowel " : " consonant " << endl ;
+

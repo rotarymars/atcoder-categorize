@@ -1,0 +1,185 @@
+夏休みにお金を稼いで沖縄旅行に行きたいという気持ちで解くと解きやすいかもしれません。M 日後まで
+に報酬を得る必要があるので M 日後から i (1 ≤ i ≤ M ) 日前には Aj ≤ i となる日雇いアルバイトしか選
+ぶことができません。こういった問題は制約の厳しい方から見ていくと見通しが良くなることが多いです。実
+際、この問題は後ろ (M 日後から 1 日前) から見ていくと、まず Aj ≤ 1 となる j の中で Bj が最大のもの
+
+(j1 とする) を選び、次に Aj ≤ 2 かつ j ̸= j1 となる j の中で Bj が最大のものを選び、…としていくのが最
+適です*2 。
+次に、実装を考えます。したい操作は
+
+• 候補の追加
+• 候補の中から最大のものを取り出す
+であって、それぞれ O(N ), O(M ) 回行います。優先度付きキュー (Priority Queue)*3 を用いると、これらを
+高速に処理することができます。
+これを実装すると、O(M + N logN ) の時間計算量で解くことができます。
+
+別解
+少し高度な解き方です。一言で言うと、実行可能解の集合はマトロイドなので、貪欲法で解くことができま
+す。また、最小費用流の動作もこの貪欲法と同じです。
+まず、次の 3 つの公理を満たす有限*4 集合族*5 I のことをマトロイドといいます。
+
+1. 空集合は I の要素である。
+2. 集合 X が I の要素であるとき、X のどんな部分集合 Y も I の要素である。
+3. 大きさの異なる集合 X, Y (|X| < |Y |) が I の要素であるとき、集合 Y に属するが集合 X に属さない
+要素 v であって、集合 X に加えても I の要素となるような v が存在する。
+今回の問題に当てはめると、次のようになります。I を実行可能解*6 の集合と考えます。
+
+1. 空集合 (どの日雇いアルバイトも選ばない) は I の要素 (すなわち、実行可能解) である。
+2. 日雇いアルバイト {i1 , i2 , ..., ik } の報酬が間に合うようにうまく割り当てられるとき、ここからいくつ
+かやらないことにした {i′1 , i′2 , ..., i′l } ⊆ {i1 , i2 , ..., ik } についても報酬が間に合うようにうまく割り当て
+ることができる。
+
+3. {i1 , i2 , ..., ik } も {j1 , j2 , ..., jl } も報酬が間に合うようにうまく割り当てられ、k < l であるとき、
+
+*2 これはこの問題を最小費用流に帰着させて示すことができます。しかし、
+最小費用流で解こうとすると O(M (N +M )log(N +M ))
+
+となり間に合いません。
+*3 優先度付きキューの仕組みの説明はここでは省略しますが、優先度付きキューに追加された要素数を X とすると、O(logX) で要
+
+素の追加、最大値の削除を、O(1) で最大値の取得が行えます。C++ では標準 C++ ライブラリ (STL) で提供されています。
+*4 要素数が有限の集合であるということ。
+*5 各要素が集合であるような集合。集合の集合。
+*6 条件を満たすような選び方。最適解とは限らない。今回の場合だと、いつやるかをうまく割り当てると選んだ全ての日雇いアルバ
+
+イトができる (報酬が間に合う) ような、選ぶ日雇いアルバイトの番号の集合。
+
+4
+
+{i1 , i2 , ..., ik , jx } がうまく割り当てられるような x が存在する。
+証明は省きますが、この 3 つは満たされるので、今回の問題の実行可能解の集合もマトロイドです。さて、
+マトロイドであれば何が嬉しいのでしょうか。集合族 I がマトロイドであって、I の要素である集合の要素と
+なりうるもの x に対して重み w(x) が定まっているものとします。今回の場合ですと、各日雇いアルバイトに
+対して報酬といった重みが定まっています。I の要素 X の重みを、その集合の各要素の重みの和
+
+∑
+
+x∈X w(x)
+
+と定義します。どの y についても w(y) ≥ 0 であるとき、I の要素の重みの最大値を貪欲法で求めることがで
+きます。
+マトロイド I に対する貪欲法とは次のようなものです。
+
+1. S を空集合とします (後に、S に要素を順番に追加していき、最適解を構成します)。マトロイドの公理
+1 より、S ∈ I です。
+2. 重み の 大き い 順に解の 要 素 と して 選 べる もの (今回の場合だと日雇いアルバイト) をソートし、
+x1 , x2 , ..., xN とします。
+3. y = x1 , x2 , ..., xN と順に以下を行う。
+（a）S に y を加えても I の要素である (S ∪ {y} ∈ I である) とき、S に y を加える。
+
+4. S を出力する (S が最適解である)。
+上のアルゴリズムの中でマトロイドによって異なる部分は「S に y を加えても I の要素である」ことを判
+定する部分です。「S に y を加えても I の要素である」を今回の問題について言い換えると、「日雇いアルバ
+イト番号の集合 S ∪ {y} = {i1 , i2 , ..., ik } が実行可能解であるか、すなわちうまく割り当てて全ての報酬を M
+日後までに得られるか」です。これを愚直に判定すると全体として O(N 2 ) となり間に合いません。少し考え
+てみると、i1 , i2 , ..., ik をうまく割り当てられることと、好きな順に次のように割り当てられることが同値で
+あることがわかります。
+
+1. 好きな順に割り当てる。今回割り当てるものを x とする。
+2. M 日後から x 日前に割り当てようとする。できなければ (すなわち既に他の日雇いアルバイトが割り
+当てられていれば) M 日後から x − 1 日前に割り当てようとする。できなければ M 日後から x − 2 日
+前に割り当てようとする。これを初日まで繰り返しても割り当てられないとき、割り当てに失敗する。
+すなわち、上の手順 2 は、M 日後から x 日前よりも以前であって、まだどの日雇いアルバイトも割り当て
+られていない日のうち最も遅い日が高速に求まれば高速に判定できます。これは、区間の最大値を求められ、
+一点更新が可能なセグメント木を使えば、S に対する割り当ての情報を保持しながら y に対して O(logM )
+で判定できるため、ソートも合わせて全体として O(N logN + N logM ) で解くことができます。
+上の判定を区間の最大値を求められるセグメント木の代わりに区間和を求められるセグメント木と二分探索
+を組み合わせて高速化することや、このような上手い割り当て方を考察せずとも区間加算、区間最小値、一点
+挿入が高速にできる平衡二分木を使って解くこともできます。
+別解の冒頭でも述べましたが、最小費用流に帰着させたときの動作を考えると、マトロイドの解法と同じ動
+作になっているため、これを高速化する方針でも解くことができます。
+
+5
+
+If you dream of earning enough money to take a trip for Okinawa, this problem may be solved easily
+(Okinawa is one of the most famous tourist spot in Japan). You have to receive the rewards no later
+than M days later, so in the day i (1 ≤ i ≤ M ) days before the day M days after today, you can only
+choose one-oﬀ job such that Aj ≤ i. This kind of problem often becomes clearer if you examine the
+harder constrains ﬁrst. Actually, if you check them back to forth (starting from the day 1 day after the
+day M days after today), you can choose j such that Bj is maximum among the js such that Aj ≤ 1
+(let it be j1 ), then choose j such that Bj is maximum among the js such that Aj ≤ 2 and j ̸= j1 , ... and
+so on, you can ﬁnd the optimal answer*2 .
+Next, let’s think about the implementation. The operations needed are
+• to add a candidate
+• pop the maximum value from the candidates
+and each of them are done O(N ), O(M ) times. If you use priority queue*3 , you can perform those
+operations fast.
+By implementing it, you can solve this problem in a total of O(M + N logN ) time.
+
+Another Solution
+Here is a little advanced solution. Brieﬂy, the set of possible selection is a matroid, so it can be solved
+greedily. Also, the behavior of min-cost ﬂow algorithm is the same.
+First, matroid is a ﬁnite*4 family of set*5 I with the following axioms:
+1. An empty set is an element of I.
+2. When a set X is an element of I, any subset Y of X is an element of I.
+3. If a pair of set X, Y with diﬀerent number of elements (|X| < |Y |) are both contained in I, then
+there exist an element v which is in Y but not in X, such that after v is added to X it is still an
+element of I.
+This time, it’s like as follows. Let I be the set of possible selection*6 .
+1. An empty set (choosing none of the jobs) is an element of I (in other words, it’s a possible
+selection).
+*2 this can be proved by rephrasing this problem into minimum-cost ﬂow problem. However, solving it as an minimum-
+
+cost ﬂow problem takes a total of O(M (N + M )log(N + M )) time, so it won’t ﬁt in time limit.
+*3 We will not explain the structure of priority queue here. It can operate addition of element and removal of maximum
+
+element in O(logX) time, and ﬁnd maximum value in O(1) time. In C++, it is provided in the standard C++ library
+(STL).
+*4 That means that the set contains ﬁnite number of elements.
+*5 A family of set is a set such that its element is a set, or a set of set.
+*6 A maximum selection is a selection of jobs, possibly not an optimal answer. This time, a set of indices such that
+there exists an assignment of those job into what day to work, such that all the rewards is paid in time.
+
+12
+
+2. If a selection of {i1 , i2 , ..., ik }-th job can be assigned into workdays properly so that all the rewards
+is paid in time, if you decided not to do some of them and decided to choose {i′1 , i′2 , ..., i′l } ⊆
+{i1 , i2 , ..., ik }, there still exists a valid assignment of workdays.
+3. If both selection {i1 , i2 , ..., ik } and {j1 , j2 , ..., jl } has a valid assignment and k < l, then there exist
+x such that {i1 , i2 , ..., ik , jx } has valid assignment.
+We will not show the proof here, but these 3 conditions holds. so the set of possible selection for this
+problem is a matroid. Then what’s a good point in matroid? Let’s assume that a family of sets I is a
+matroid, and cost w(x) is determined for any x that can be element of a set in I. This time, for each
+one-oﬀ job, ”reward” is determined, that can be treated as its cost. Let deﬁne the cost of X in I as the
+∑
+sum of costs of each element of the set, x∈X w(x). If w(y) ≥ 0 for all y, you can ﬁnd the maximum
+cost of elements in I greedil.
+A greedy algorithm for a matroid I is as follows:
+1. Let S be an empty set (in which elements are to be added one by one later to construct an optimal
+solution). According to the ﬁrst axiom of matroid, S ∈ I holds.
+2. Sort the possible elements of solution (that is, the day-oﬀ jobs this time) and let it be x1 , x2 , ..., xN .
+3. For y = x1 , x2 , ..., xN , do the following:
+（a）If even after y is added to S, it is still an element of I (that is S ∪ {y} ∈ I), then add y to S.
+
+4. Output S (S is an optimal answer).
+In the algorithm above, the steps that depend on matroid is the judgement step of ”check if even after
+y is added to S it’s still in I.” If you rephrase ”check if even after y is added to S it’s still in I” for this
+problem, it is ”whether a set of indices of one-day oﬀ jobs S ∪ {y} = {i1 , i2 , ..., ik } is a possible selection
+or not, in other words, all the rewards can be obtained until M days after today.” If you judge this
+naively, it takes a total of O(N 2 ) and won’t ﬁnish in time. Thinking a little more carefully, it appears
+that the two conditions, whether i1 , i2 , ..., ik can be assigned to workdays properly, and whether these
+can be assigned in an arbitrary order as follows, is equivalent.
+1. Assign them randomly. Let the current assignment be x.
+2. Try to assign it to the day x days after the day M days after today. If not possible (that is, if
+there exist some other day-oﬀ jobs), try to assign it to the day x − 1 days after the day M days
+after today. If not possible (that is, if there exist some other day-oﬀ jobs), try to assign it to the
+day x − 2 days after the day M days after today. After checking until the ﬁrst day, if it was not
+possible to assign to all the days, then it fails to assign.
+Therefore, the second procedure above can be judged rapidly if such value can be found rapidly: the
+latest day that is before the day x days after the day M days after today, such that none of the jobs
+is assigned to. If you use a segment tree that provides maximum value of segments and update of one
+element, it can be judged in O(logM ) for y while saving the assignment information of S. So, it can be
+solved in a total of O(N logN + N logM ) time.
+You can make the judge faster by using a segment tree that provides segment sum combined with
+
+13
+
+binary search instead of a segment tree that provides minimum of segments, or solve this problem
+without considering proper assignments, instead using a self-balancing binary tree that provides segment
+sums, segment minimums, and one-element updates.
+As we stated in the beginning of this section, if you consider the behavior when the problem is regarded
+as a min-cost ﬂow, the behavior is same to that of matroid, so you can solve the problem by making it
+faster.
+
+14
+

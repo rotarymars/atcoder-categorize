@@ -1,0 +1,13 @@
+S(n) を計算できればよいです．これは，
+「現在の n の 1 の位を求め合計値に足し込み，1 の位を取り去る」ことを繰
+り返せばよいです．1 の位は 10 で割った余りとして求められます．また，1 の位を取り去った値は 10 で割った商とし
+て求められます．
+
+• C++ による解答例: https://abc101.contest.atcoder.jp/submissions/2711205
+• Ruby による解答例: https://abc101.contest.atcoder.jp/submissions/2711210
+• Python による解答例: https://abc101.contest.atcoder.jp/submissions/2711212
+
+• C++ example: https://abc101.contest.atcoder.jp/submissions/2711205
+• Ruby example: https://abc101.contest.atcoder.jp/submissions/2711210
+• Python example: https://abc101.contest.atcoder.jp/submissions/2711212
+

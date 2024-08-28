@@ -1,0 +1,11 @@
+K が奇数の時、a, b, c を K で割ったあまりはすべて 0 である必要があります。K が偶数の時、a, b, c を
+K で割ったあまりはすべて 0 であるか、あるいはすべて K/2 である必要があります。このような組の個数
+は、N 以下で K で割って 0 あまるものの個数と K/2 あまるものの個数から求めることができるので、この
+問題を解くことができました。
+
+When K is odd, a triplet (a, b, c) satisfies the conditions when all of them are divisible by K. It’s easy
+to count such triplets.
+When K is even, a triplet (a, b, c) satisfies the conditions when all of them are divisible by K, or when
+all of them are equivalent to K/2 modulo K. We can count such triplets by counting the number of
+integers up to N that are equivalent to 0 or K/2, modulo K.
+

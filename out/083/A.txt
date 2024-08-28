@@ -1,0 +1,26 @@
+整数 A, B, C, D を読み込み、A + B と C + D の大小比較をすればよいです。
+
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int a , b , c , d;
+s c a n f (”%d%d%d%d ” , &a , &b , &c , &d ) ;
+i f ( a + b > c + d ) p r i n t f ( ” L e f t \n ” ) ;
+e l s e i f ( a + b == c + d ) p r i n t f ( ” Balanced \n ” ) ;
+e l s e p r i n t f ( ” Right \n ” ) ;
+}
+
+1
+
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int a , b , c , d;
+s c a n f (”%d%d%d%d ” , &a , &b , &c , &d ) ;
+i f ( a + b > c + d ) p r i n t f ( ” L e f t \n ” ) ;
+e l s e i f ( a + b == c + d ) p r i n t f ( ” Balanced \n ” ) ;
+e l s e p r i n t f ( ” Right \n ” ) ;
+}
+
+1
+

@@ -1,0 +1,390 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - 東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 307）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - 東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 307）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc307/editorial/6643" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - 東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 307）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc307";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-06-24T21:00:00+09:00");
+			var endTime = moment("2023-06-24T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 307）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 307）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc307">東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 307）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc307/editorial/6643?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc307/editorial/6643?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc307%2Feditorial%2F6643">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc307%2Feditorial%2F6643">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc307%2Feditorial%2F6643">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230624T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-06-24 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230624T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-06-24 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc307"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc307/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc307/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc307/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc307/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc307/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc307/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc307/tasks/abc307_e">E - Distinct Adjacent</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-1.png" class="user-rating-stage-m"><a href="/users/kyopro_friends" class="username"><span class="user-orange">kyopro_friends</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<h2>DP</h2>
+
+<p>この問題は <a href="https://atcoder.jp/contests/abc256/tasks/abc256_g" rel="nofollow">ABC256G</a> の弱体化版と <a href="https://atcoder.jp/contests/abc232/tasks/abc232_e" rel="nofollow">ABC232E</a> を組み合わせて解くことができます。</p>
+
+<h4>円環上のDP</h4>
+
+<p>人が円環状ではなく一列に並んでいた場合を考えます。このとき、端から順に数を割り当てることを考えると、隣り合う <span>\(2\)</span> 人に同じ数を割り当てないためには、直前の人に割り当てた数さえわかっていれば十分です。すなわち<br>
+<span>\(\mathrm{DP}[i][x]=\)</span> <span>\(i\)</span> 人目まで数を割り当てる方法のうち、<span>\(i\)</span> 人目に割り当てた数が <span>\(x\)</span> であり、<span>\(i\)</span> 人目まで同じ数の人が隣り合っていないものの個数<br>
+とするDPで(計算量が莫大であることを除けば)正しい答えを求めることができます。</p>
+
+<p>円環状に並んでいるときは、最初の <span>\(1\)</span> 人の数を決め打って<br>
+<span>\(\mathrm{DP}_k[i][x]=\)</span> <span>\(i\)</span> 人目まで数を割り当てる方法のうち、<span>\(1\)</span> 人目に割り当てた数が <span>\(k\)</span> 、<span>\(i\)</span> 人目に割り当てた数が <span>\(x\)</span> であり、<span>\(i\)</span> 人目まで同じ数の人が隣り合っていないものの個数<br>
+とすれば、(計算量が莫大であることを除けば) <span>\(\sum_k \sum_{x\neq k}\mathrm{DP}_k[N][x]\)</span> として答えを求めることができます。</p>
+
+<p>このように、状態がループしている問題をDPで解く場合、1箇所を決め打ってDPを進め、<span>\(1\)</span> 周した最後に、末尾と先頭の条件が整合的であるもののみを考慮して解くことができます。</p>
+
+<p>類題：</p>
+
+<ul>
+<li><a href="https://atcoder.jp/contests/abc229/tasks/abc229_f" rel="nofollow">ABC229F</a></li>
+<li><a href="https://atcoder.jp/contests/abc285/tasks/abc285_e" rel="nofollow">ABC285E</a></li>
+<li><a href="https://atcoder.jp/contests/abc256/tasks/abc256_g" rel="nofollow">ABC256G</a></li>
+</ul>
+
+<h4>状態の削減</h4>
+
+<p>上で述べたDPでは計算量が莫大であることから実行時間制限に間に合わせることはできません。しかしよく考えると、直前の人に何の数を割り当てた数を全て区別する必要はなく、「<span>\(1\)</span> 人目に割り当てた数と同じであるか」の情報さえあれば答えを求められることがわかります。すなわち<br>
+<span>\(\mathrm{DP}[i][f]=\)</span> <span>\(i\)</span> 人目まで数を割り当てる方法のうち、<span>\(i\)</span> 人目に割り当てた数が <span>\(1\)</span> 人目に割り当てた数と同じで ( <span>\(f\)</span> ? ある:ない) ものの個数<br>
+とすることで、状態数 <span>\(O(N)\)</span>、遷移 <span>\(O(1)\)</span> となり、全体で <span>\(O(N)\)</span> 時間で答えを求めることができます。求める答えは <span>\(\mathrm{DP}[N][\mathrm{false}]\)</span> です。</p>
+
+<p>類題：</p>
+
+<ul>
+<li><a href="https://atcoder.jp/contests/abc232/tasks/abc232_e" rel="nofollow">ABC232E</a></li>
+</ul>
+
+<p><a href="https://atcoder.jp/contests/abc307/submissions/42738619" rel="nofollow">writer解(C)</a></p>
+
+<h2>包除原理</h2>
+
+<p>「人 <span>\(i\)</span> と人 <span>\(i+1\)</span> が渡された数が異なる」という <span>\(N\)</span> 個の条件について包除原理を考えることでもこの問題を解くことができます。</p>
+
+<p><span>\(N\)</span> 個の条件をうち、固定した <span>\(k\)</span> 個の条件を満たさず、残りの <span>\(N-k\)</span> 個の条件については不問であるような割り当ての個数は <span>\(M^{\max\{1,N-k\}}\)</span> であることから、求める答えは <span>\(\sum _ {k=0} ^{N} (-1)^k \binom{N}{k} M ^ {\max\{1,N-k\}}\)</span> となります。これは <span>\(O(N)\)</span> や<span>\(O(N+\log\mathrm{MOD})\)</span>  時間で求めることができます。</p>
+
+<p><a href="https://atcoder.jp/contests/abc307/submissions/42776470" rel="nofollow">writer解(Python)</a></p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1687138106">
+				<time class="timeago" datetime="2023/06/19 10:28:26"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1687392638">
+				<time class="timeago" datetime="2023/06/22 09:10:38"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc307/editorial/6643?lang=ja" data-a2a-title="解説 - 東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 307）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc307/rules">ルール</a></li>
+					<li><a href="/contests/abc307/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,67 @@
+1 人の監視員を配置すると連続した 2D + 1 本のりんごの木を監視できます。前から順に詰めて配置する
+(例えば最初の監視員には 1, 2, ..., 2D + 1 番目の木を監視させる) のが最適なので、答えは N を 2D + 1 で
+A
+の切り上げは A+B−1
+の商と等しいです。し
+割った切り上げになります。一般的に、整数 A, B に対して B
+B
++2D
+たがって、今回の場合は N
+2D+1 の商が答えになります。C++ での実装例を以下に挙げます。
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int N, D; cin >> N >> D;
+7
+int ans = (N + D * 2) / (D * 2 + 1);
+8
+cout << ans << endl;
+9 }
+5
+6
+
+2
+
+If you deploy 1 inspector, 2D + 1 apple trees can be inspected. It is optimal to deploy from left to right
+without space, so the answer is N divided by 2D + 1, rounded up. In general, for any integers A, B, the
++2D
+A
+is equal to the quotient of A+B−1
+. Therefore, the answer for this problem is N2D+1
+. The
+rounded up B
+B
+
+following is an implementation example in C++.
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int N, D; cin >> N >> D;
+7
+int ans = (N + D * 2) / (D * 2 + 1);
+8
+cout << ans << endl;
+9 }
+5
+6
+
+8
+

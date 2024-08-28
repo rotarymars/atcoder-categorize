@@ -1,0 +1,31 @@
+それぞれのサイコロの出目は独立に決まります。そのため、いくつかのサイコロの出目の合計の期
+待値は、それぞれのサイコロの出目の期待値の合計に等しいです。
+そのため、あらかじめそれぞれのサイコロの出目の期待値を求めておけば、それらを合計すること
+でサイコロの出目の合計の期待値を求めることができます。
+
+1 から P までの P 種類の目が等確率で出るサイコロの出目の期待値は (1 + P )/2 です。
+全ての隣接する K 個のサイコロについて、この値の合計を高速に求める必要があります。これは、
+累積和を使って求めることができます。具体的には、Ei を i 番目のサイコロの出目の期待値とした
+とき、Si = E1 + ... + Ei となる Si (0 ≤ i ≤ N ) を計算しておけば、隣接する K 個の Ei の和は
+
+Sj+K − Sj のように求められます。
+計算量は期待値の前計算、累積和の計算、隣接する K 項の和の計算、どれも O(N ) となります。
+
+4
+
+The numbers shown on the dices are independent from each other. Therefore, the expected
+value of sum of the numbers shown on some dices are the sum of the expected values of the
+number shown on each dice.
+Therefore, by calculating the expected value of the number shown on each dice beforehand,
+the expected value of sum of the numbers shown on the dices can be calculated by summing
+them up.
+The expected value of the number shown on the dice that shows P numbers from 1 to P is
+(1 + P )/2.
+You have to ﬁnd the sums of the values for all consecutive K dices. This can be calculated
+using cumulative sums. In speciﬁc, let Ei be the expected value of the number shown on i-th
+dice, then by calculating Si such that Si = E1 + ... + Ei (0 ≤ i ≤ N ) beforehand, the sum of K
+consecutive values Ei can be calculated as Sj+K − Sj .
+The time complexity is O(N ) for the precalculation of expected values, calculation of cumulative sums, and the calculation of sums of consecutive K terms each.
+
+10
+

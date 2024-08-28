@@ -1,0 +1,99 @@
+長さ 6 の英小文字からなる文字列に対して、3 文字目と 4 文字目が等しく、5 文字目と 6 文字目も
+等しいか判定する問題です。
+以下は C++ における実装例です。
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+string s;
+
+5
+
+cin>>s;
+
+6
+
+if(s[2]==s[3]&&s[4]==s[5]){
+cout<<"Yes"<<endl;
+
+7
+8
+
+}
+
+9
+
+else{
+cout<<"No"<<endl;
+
+10
+
+}
+
+11
+12
+
+}
+
+1
+
+This problems asks to check if a string of length 6 consisting from English lowercase alphabets
+has the properties that the third and the forth letters are the same and that the fifth and the
+sixth letters are the same.
+The following is a sample code in C++.
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+string s;
+
+5
+
+cin>>s;
+
+6
+
+if(s[2]==s[3]&&s[4]==s[5]){
+cout<<"Yes"<<endl;
+
+7
+8
+
+}
+
+9
+
+else{
+cout<<"No"<<endl;
+
+10
+
+}
+
+11
+12
+
+}
+
+7
+

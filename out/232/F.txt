@@ -1,0 +1,158 @@
+
+		公式
+		
+			
+				F - Simple Operations on Sequence 解説
+			
+			by leaf1415
+			
+		
+		
+		
+		
+			問題文中の \(1\) つ目の操作を「増加・減少」、\(2\) つ目の操作を「入れ替え」と呼びます。
+
+ここでは問題の設定に少し制約を加え、増加・減少を \(1\) 度でも行ったあとは、入れ替えはできないことにします。
+
+つまり、
+
+
+まず、好きな回数（ \(0\) 回でも良い）だけ入れ替え操作を行う。
+その後、好きな回数（ \(0\) 回でも良い）だけ増加・減少を行う。
+
+
+という手続きのみが許されます。
+この変更を加えても、元の問題と答えは変わりません。
+なぜなら、「増加・減少を行った後に入れ替えを行う」のは、「入れ替えを行った後に増加・減少を行う」のに置き換えられるからです。
+
+初期状態 \(A = (A_1, A_2, \ldots, A_N)\) から、「好きな回数だけ入れ替え操作を行う」ステップを行った後の \(A\) を \(A = (A_{P_1}, A_{P_2}, \ldots, A_{P_N})\) とします。
+ここで、\(P = (P_1, P_2, \ldots, P_N)\) は \(1, 2, 3, \ldots, N\) を並べ替えたある順列です。
+
+このときの、 \(A\) を \(B\) に一致させるための合計費用 \(\mathrm{cost}(P)\) を以下で考えます。
+
+
+まず、「好きな回数だけ入れ替え操作を行う」ステップで \(A = (A_1, A_2, \ldots, A_N)\) から \(A = (A_{P_1}, A_{P_2}, \ldots, A_{P_N})\) に変えるには、\(P\) の転倒数 \(\mathrm{inv}(P)\) に等しい回数の入れ替え操作が必要です。これには \(\mathrm{inv}(P) \cdot Y\) 円かかります。
+
+その後、「好きな回数だけ増加・減少を行う」ステップで \(A = (A_{P_1}, A_{P_2}, \ldots, A_{P_N})\) を \(B\) に一致させるには、\(\displaystyle\sum_{i = 1}^N |A_{P_i} - B_i|\) 回の増加・減少の操作が必要です（ここで、\(|\cdot|\) は絶対値を表します）。
+これには \(\displaystyle\sum_{i = 1}^N |A_{P_i} - B_i| \cdot X\) 円かかります。
+
+
+よって、
+
+
+\(\mathrm{cost}(P) = \displaystyle\sum_{i = 1}^N |A_{P_i} - B_i|\cdot X + \mathrm{inv}(P)\cdot Y\)
+
+
+です。
+したがって本問題は「 \(P\) をうまく選ぶことで \(\mathrm{cost}(P)\) を最小化する問題」に帰着できます。
+
+ここで、
+
+
+\(\mathrm{cost}(P)\)
+
+\(=\displaystyle\sum_{i = 1}^N |A_{P_i} - B_i|\cdot X + \mathrm{inv}(P)\cdot Y\)
+
+\(= \displaystyle\sum_{i = 1}^N |A_{P_i} - B_i| \cdot X +
+\Big( \displaystyle\sum_{i=1}^N \#\lbrace j : j > i, P_j < P_i \rbrace \Big) \cdot Y\)
+
+\(= \displaystyle\sum_{i = 1}^N (|A_{P_i} - B_i| \cdot X + \#\lbrace j : j > i, P_j < P_i \rbrace \cdot Y)\)
+
+\(= \displaystyle\sum_{i = 1}^N (|A_{P_i} - B_i| \cdot X + \#\lbrace p : p \in \mathcal{N} \setminus \lbrace P_1, P_2, \ldots, P_{i-1}\rbrace, p < P_i \rbrace \cdot Y)\)
+
+
+です。ただし、\(\#\) は集合の要素数を表し、\(\mathcal{N} := \lbrace 1, 2, \ldots, N\rbrace\) です。
+
+ここで \( \#\lbrace p : p \in \mathcal{N} \setminus \lbrace P_1, P_2, \ldots, P_{i-1}\rbrace, p < P_i \rbrace\) は、\(\lbrace P_1, P_2, \ldots, P_{i-1} \rbrace\) と \(P_i\) のみに依存していることに注意します（つまり、\(P_1, P_2, \ldots, P_{i-1}\)の並び順には依りません）。
+そこで、
+\(S \subseteq \mathcal{N}\) と \(x \in \mathcal{N} \setminus S\) に対して、
+
+
+\(f(S, x) :=  \#\lbrace p : p \in \mathcal{N} \setminus S, p < x \rbrace\)
+
+
+とおくと、
+
+
+\(\mathrm{cost}(P) =  \displaystyle\sum_{i = 1}^N (|A_{P_i} - B_i| \cdot X + f(\lbrace P_1, P_2, \ldots, P_{i-1} \rbrace, P_i) \cdot Y)\)
+
+
+と表せます。
+
+よって、本問題は次のように捉え直すことができます。
+
+
+\(P\) の要素を \(P_1, P_2, \ldots, P_N\) の順に決定していく。\(P\) の先頭 \(i-1\) 要素 \(P_1, P_2, \ldots, P_{i-1}\) までをすでに決定しているとき、次の要素 \(P_i\) として \(x\) を選ぶと、
+
+\(|A_{x} - B_i| \cdot X + f(\lbrace P_1, P_2, \ldots, P_{i-1} \rbrace, x) \cdot Y\)
+
+の費用がかかる。
+\(P\) の要素をすべて決定するまでにかかる合計費用の最小値を求めよ。
+
+
+動的計画法（DP）によってこの問題を解きます。
+
+\(P\) の先頭 \(i\) 要素\(P_1, P_2, \ldots, P_i\) までを決定済みで、\(S = \lbrace P_1, P_2, \ldots, P_i \rbrace\) である状態を状態 \(S\) と呼ぶことにします。
+
+\(P\) の要素をまだ一つも決定していない状態は状態 \(\emptyset\) です。その後、 \(P\) の要素を \(1\) つ決定するごとに現在の状態が変化し、最終的に \(P\) の要素をすべて決定し終えると状態 \(\mathcal{N}\) に到達します。
+
+\(S \subseteq \mathcal{N}\) に対して、\(\mathrm{dp}[S]\)を次の通り定めます。
+
+
+\(\mathrm{dp}[S] := \)（状態 \(S\) に至るまでにかかる合計費用の最小値）
+
+
+このとき本題の答えは、状態 \(\mathcal{N}\) に至るまでにかかる合計費用の最小値なので、\(\mathrm{dp}[\mathcal{N}]\)です。
+
+まず、DPの初期化を考えます。
+\(\mathrm{dp}[\ast]\) の定義より、
+
+
+\(\mathrm{dp}[\emptyset] = 0\)
+
+
+です。
+また便宜上、\(S \neq \emptyset\) については
+
+
+\(\mathrm{dp}[S] \leftarrow \infty\)
+
+
+と初期化します。
+
+次に、DPの遷移を考えます。
+
+現在の状態が状態 \(S\) のとき、次の要素 \(P_{\#S+1}\) として \(\mathcal{N} \setminus S\) の任意の要素を選ぶことができます。
+\(P_{\#S+1} = x \in \mathcal{N} \setminus S\) を選ぶと、\( |A_{x} - B_{\#S+1}| \cdot X + f(S, x)  \cdot Y\) の費用がかかり、現在の状態は状態 \(S \cup \lbrace x \rbrace\) に変化します。
+
+上記に対応し、各 \(x \in \mathcal{N} \setminus S\) に対して、
+
+
+\(\mathrm{dp}[S \cup \lbrace x\rbrace] \leftarrow  \min( \mathrm{dp}[S \cup \lbrace x\rbrace],  \mathrm{dp}[S] + |A_{x} - B_{\#S+1}| \cdot X + f(S, x)  \cdot Y)\)
+
+
+と遷移します。
+
+上記の初期化と遷移によって \(\mathrm{dp}[\ast]\) を計算することで、本問題の答えが \(\mathrm{dp}[\mathcal{N}]\) として得られます。
+
+以上で、本問題を \(\mathrm{O}(N^2\cdot 2^N)\) 時間（実装によっては \(\mathrm{O}(N\cdot 2^N)\) 時間）で解くことができます。
+
+C++ 言語による実装例を以下に記載します。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

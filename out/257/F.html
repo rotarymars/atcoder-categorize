@@ -1,0 +1,513 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - 日鉄ソリューションズプログラミングコンテスト2022（AtCoder Beginner Contest 257）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - 日鉄ソリューションズプログラミングコンテスト2022（AtCoder Beginner Contest 257）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc257/editorial/4183" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - 日鉄ソリューションズプログラミングコンテスト2022（AtCoder Beginner Contest 257）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc257";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-06-25T21:00:00+09:00");
+			var endTime = moment("2022-06-25T22:40:00+09:00");
+		</script>
+		<style>.prize {
+	table;
+	table-responsible;
+	table-striped;
+	table-bordered;
+}
+.prize td, .prize th {
+	text-align:center;
+}
+ul li, ol li {
+    line-height: 1.42857143 !important;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}</style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>日鉄ソリューションズプログラミングコンテスト2022（AtCoder Beginner Contest 257）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>日鉄ソリューションズプログラミングコンテスト2022（AtCoder Beginner Contest 257）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc257">日鉄ソリューションズプログラミングコンテスト2022（AtCoder Beginner Contest 257）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc257/editorial/4183?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc257/editorial/4183?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc257%2Feditorial%2F4183">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc257%2Feditorial%2F4183">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc257%2Feditorial%2F4183">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220625T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-06-25 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220625T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-06-25 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc257"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc257/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc257/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc257/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc257/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc257/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc257/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc257/tasks/abc257_f">F - Teleporter Setting </a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-4.png" class="user-rating-stage-m"><a href="/users/mechanicalpenciI" class="username"><span class="user-orange">mechanicalpenciI</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>結ぶ町の片方が決まっていないテレポーターを <strong>可変テレポーター</strong> と呼ぶことにします。</p>
+
+<h4>解法 <span>\(1\)</span></h4>
+
+<p>可変テレポーターのつなぐ先が町 <span>\(T\)</span> であるとします。最小の時間を達成する経路においては町 <span>\(T\)</span> を <span>\(2\)</span> 回以上訪ねる事はないため、経路における可変テレポーターの使用の仕方は次の <span>\(4\)</span> 通りしかありません。</p>
+
+<ul>
+<li>可変テレポーターを使用しない。</li>
+<li>別の町から町 <span>\(T\)</span> へ移動するのに可変テレポーターを使用し、それ以外には一度も使用しない。</li>
+<li>町 <span>\(T\)</span> から別の町へ移動するのに可変テレポーターを使用し、それ以外には一度も使用しない。</li>
+<li>別の町から町 <span>\(T\)</span> へ移動するのに可変テレポーターを使用し、その直後に 町 <span>\(T\)</span> から別の町へ移動するのに可変テレポーターを使用する。それ以外には一度も使用しない。</li>
+</ul>
+
+<p><span>\(4\)</span> 通りそれぞれについて、かかる時間の最小値を考えてみましょう。</p>
+
+<p>ここで、可変テレポーターを使わなかったときの町 <span>\(1\)</span>  から 町 <span>\(x\)</span> への移動にかかる最小の時間を <span>\(d_1(x)\)</span> 分、町 <span>\(x\)</span>  から 町 <span>\(N\)</span> への移動にかかる最小の時間を <span>\(d_N(x)\)</span> 分とします。
+ただし、到達できない場合は <span>\(\infty\)</span> 分かかるとします。
+また、可変テレポーターのすでに決まっているもう片端となっている町の番号の重合を <span>\(S\)</span> とします。</p>
+
+<h5>1.可変テレポーターを使用しない場合</h5>
+
+<p>この時かかる最小の時間は明らかに<span>\(d_1(N)\)</span> 分です。これは <span>\(T\)</span> によりません。</p>
+
+<h5>2. 別の町から町 <span>\(T\)</span> へ移動するのに可変テレポーターを使用し、それ以外には一度も使用しない場合</h5>
+
+<p>町 <span>\(1\)</span> <span>\(\to\cdots \to\)</span> 町 <span>\(x\)</span> <span>\((x\in S)\)</span> <span>\(\to\)</span> 町 <span>\(T\)</span> <span>\(\to\cdots \to\)</span> 町 <span>\(N\)</span> という形で移動することになります。このときかかる最小の時間は <span>\(d_1(x)+1+d_N(T)\)</span> 分で表されます。
+よって、この場合の最小値は <span>\(\displaystyle\min_{x\in S} (d_1(x)+1+d_N(T))=d_N(T)+1+\displaystyle\min_{x\in S} d_1(x)\)</span> で表されます。</p>
+
+<h5>3. 町 <span>\(T\)</span> から別の町へ移動するのに可変テレポーターを使用し、それ以外には一度も使用しない場合</h5>
+
+<p>ほぼ上のパターンと同様で、町 <span>\(1\)</span> <span>\(\to\cdots \to\)</span> 町 <span>\(T\to\)</span> 町 <span>\(y\)</span> <span>\((y\in S)\)</span> <span>\(\to\cdots\to\)</span>   町 <span>\(N\)</span> という形で移動することになります。このときかかる最小の時間は <span>\(d_1(T)+1+d_N(y)\)</span> 分で表されます。
+よって、この場合の最小値は <span>\(\displaystyle\min_{y\in S} (d_1(T)+1+d_N(y))=d_1(T)+1+\displaystyle\min_{y\in S} d_N(y)\)</span> で表されます。</p>
+
+<h5>4.別の町から町 <span>\(T\)</span> へ移動するときおよびその直後に 町 <span>\(T\)</span> から別の町へ移動するのに可変テレポーターを使用し、それ以外には一度も使用しない場合</h5>
+
+<p>町 <span>\(1\)</span> <span>\(\to\cdots \to\)</span> 町 <span>\(x\)</span> <span>\((x\in S)\)</span> <span>\(\to\)</span> 町 <span>\(T\to\)</span> 町 <span>\(y\)</span> <span>\((y\in S)\)</span> <span>\(\to\cdots\to\)</span>   町 <span>\(N\)</span> という形で移動することになります。このときかかる最小の時間は <span>\(d_1(x)+1+1+d_N(y)\)</span> 分で表されます。
+よって、この場合の最小値は <span>\(\displaystyle\min_{x,y\in S} (d_1(x)+1+1+d_N(y))=2+\displaystyle\min_{x\in S} d_1(x)+\displaystyle\min_{y\in S} d_N(y)\)</span> で表されます。</p>
+
+<p>よって、各 <span>\(T\)</span> ごとにこの <span>\(4\)</span> つの値を求め、最小値が求められれば良いです。
+式の形から、<span>\(T\)</span> によらず <span>\(d_1(N), \displaystyle\min_{x\in S} d_1(x), \displaystyle\min_{y\in S} d_N(y)\)</span>の値、および 各 <span>\(T\)</span> について
+<span>\(d_1(T), d_N(T)\)</span> の値が求まっていれば、それらを元に計算することができます。</p>
+
+<p>ここで、<span>\(d_1(x)\)</span> および <span>\(d_N(x)\)</span> の値は町 <span>\(1\)</span> および町 <span>\(N\)</span> から始めた幅優先探索によって <span>\(O(N+M)\)</span> で求めることができます。
+<span>\(|S|\leq N\)</span> であることに注意すると、<span>\(\displaystyle\min_{x\in S} d_1(x), \displaystyle\min_{y\in S} d_N(y)\)</span> についても、<span>\(d_1(x)\)</span>, <span>\(d_N(x)\)</span> の計算結果からそれぞれ <span>\(O(N)\)</span> で求めることができます。</p>
+
+<p>よって、この問題を <span>\(O(N+M)\)</span> で解くことができました。</p>
+
+<h4>解法 <span>\(2\)</span> (仮想頂点を用いる方法)</h4>
+
+<p>仮想的に町 <span>\(N+1\)</span> を付け加えて、可変テレポーターのもう片端をそちらに結ぶことを考えます。</p>
+
+<p>このとき、各 <span>\(i\)</span> に対する答えは町 <span>\(N+1\)</span> と町 <span>\(i\)</span> を <span>\(0\)</span> 分で移動できる <strong>特殊テレポーター</strong> を加えた時の町 <span>\(1\)</span> から町 <span>\(N\)</span> まで移動するのにかかる時間の最小値に一致します。</p>
+
+<p>この時、最小時間を達成する経路としてあり得るものとして</p>
+
+<ul>
+<li>特殊テレポーターを使わない経路</li>
+<li>特殊テレポーターを町 <span>\(i\to\)</span> 町 <span>\(N+1\)</span> の向きに使う経路</li>
+<li>特殊テレポーターを町 <span>\(N+1\to \)</span> 町 <span>\(i\)</span> の向きに使う経路</li>
+</ul>
+
+<p>の <span>\(3\)</span> 種類があります。
+ここで、仮想頂点と可変テレポーターを加えた (ただし、特殊テレポーターは加えない) 時の町 <span>\(1\)</span>  から 町 <span>\(x\)</span> への移動にかかる最小の時間を <span>\(d&#39;_1(x)\)</span> 分、町 <span>\(x\)</span>  から 町 <span>\(N\)</span> への移動にかかる最小の時間を <span>\(d&#39;_N(x)\)</span> 分とすると、それぞれの経路におけるかかる時間(分)の最小値はそれぞれ、</p>
+
+<ul>
+<li><span>\(d&#39;_1(N)\)</span></li>
+<li><span>\(d&#39;_1(i)+d&#39;_N(N+1)\)</span></li>
+<li><span>\(d&#39;_1(N+1)+d&#39;_N(i)\)</span></li>
+</ul>
+
+<p>となります。よって、この仮想頂点らを付け加えたグラフにおいて <span>\(d&#39;_1(x)\)</span>, <span>\(d&#39;_N(x)\)</span> を幅優先探索によって求めればよいです。
+計算量は解法 <span>\(1\)</span> と同様に <span>\(O(N+M)\)</span> となります。</p>
+
+<p>c++ による実装例(解法 <span>\(1\)</span> ) :</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+#define rep(i, n) for(int i = 0; i &lt; n; ++i)
+#define N 300010
+#define INF (int)1e+9
+
+int main(void) {
+	int n, m;
+	bool ex[N];
+	bool used[N];
+	rep(i, N)ex[i] = false;
+	vector&lt;int&gt;e[N];
+	int d[2][N];
+	queue&lt;int&gt;q;
+	int mn[2];
+	int x, y;
+
+	cin &gt;&gt; n &gt;&gt; m;
+	for (int i = 0; i &lt; m; i++) {
+		cin &gt;&gt; x &gt;&gt; y;
+		if (x == 0)ex[y - 1] = true;
+		else {
+			e[x - 1].push_back(y - 1);
+			e[y - 1].push_back(x - 1);
+		}
+	}
+
+	for (int i = 0; i &lt; n; i++)d[0][i] = INF;
+	for (int i = 0; i &lt; n; i++)used[i] = false;
+	mn[0] = INF;
+	used[0] = true;
+	d[0][0] = 0;
+	q.push(0);
+	while (!q.empty()) {
+		x = q.front();
+		q.pop();
+		if (ex[x])mn[0] = min(mn[0], d[0][x]);
+		y = e[x].size();
+		for (int i = 0; i &lt; y; i++) {
+			if (!used[e[x][i]]) {
+				used[e[x][i]] = true;
+				d[0][e[x][i]] = d[0][x] + 1;
+				q.push(e[x][i]);
+			}
+		}
+	}
+
+	for (int i = 0; i &lt; n; i++)d[1][i] = INF;
+	for (int i = 0; i &lt; n; i++)used[i] = false;
+	mn[1] = INF;
+	used[n - 1] = true;
+	d[1][n - 1] = 0;
+	q.push(n - 1);
+	while (!q.empty()) {
+		x = q.front();
+		q.pop();
+		if (ex[x])mn[1] = min(mn[1], d[1][x]);
+		y = e[x].size();
+		for (int i = 0; i &lt; y; i++) {
+			if (!used[e[x][i]]) {
+				used[e[x][i]] = true;
+				d[1][e[x][i]] = d[1][x] + 1;
+				q.push(e[x][i]);
+			}
+		}
+	}
+
+	for (int i = 0; i &lt; n; i++) {
+		x = min(d[0][n - 1], mn[0] + mn[1] + 2);
+		x = min(x, mn[0] + 1 + d[1][i]);
+		x = min(x, mn[1] + 1 + d[0][i]);
+		if (x &lt; INF)cout &lt;&lt; x;
+		else cout &lt;&lt; -1;
+		if (i &lt; (n - 1))cout &lt;&lt; &#34; &#34;;
+		else cout &lt;&lt; endl;
+	}
+
+	return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1656088429">
+				<time class="timeago" datetime="2022/06/25 01:33:49"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1656163569">
+				<time class="timeago" datetime="2022/06/25 22:26:09"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc257/editorial/4183?lang=ja" data-a2a-title="解説 - 日鉄ソリューションズプログラミングコンテスト2022（AtCoder Beginner Contest 257）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc257/rules">ルール</a></li>
+					<li><a href="/contests/abc257/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

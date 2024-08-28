@@ -1,0 +1,41 @@
+XOR をとる操作で各 bit は互いに干渉しないため、bit ごとに独立に考えることができます。した
+がって Ai が 0 または 1 である場合が解ければよいです。
+
+Ai XOR Aj は、Ai = Aj のとき 0、Ai ̸= Aj のとき 1 なので
+N
+−1
+∑
+
+N
+∑
+
+(Ai XOR Aj ) = #{(i, j) | i < j かつ Ai ̸= Aj }
+
+i=1 j=i+1
+
+= (0 の個数) × (1 の個数)
+として求めることができます。各 bit ごとに 0 のものと 1 のものの個数がわかっていればよいので元
+の問題は O(N log max Ai ) で解けました。
+
+4
+
+In an operation of taking XOR, each bit is independent from other bits, so you can think each
+bit independently. Therefore, it is suﬃcient to solve for Ai is 0 or 1.
+Ai XOR Aj is 0 if Ai = Aj , and 1 if Ai ̸= Aj , so it holds that
+N
+−1
+∑
+
+N
+∑
+
+(Ai XOR Aj ) = #{(i, j) | i < j and Ai ̸= Aj }
+
+i=1 j=i+1
+
+= (number of 0s) × (number of 1s).
+Now you have to ﬁnd, for each bit, the number of elements such that the bit is 0 and 1, so the
+original problem can be solved in a total of O(N log max Ai ) time.
+
+10
+

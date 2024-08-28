@@ -1,0 +1,41 @@
+
+		公式
+		
+			
+				A - Last Two Digits 解説
+			
+			by PCTprobability
+			
+		
+		
+		
+		
+			プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice contest」(https://atcoder.jp/contests/practice/) の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。
+また、プログラミングコンテストの問題に慣れていない方は、「AtCoder Beginners Selection」(https://atcoder.jp/contests/abs) の問題をいくつか試すことをおすすめします。
+「競プロ典型 90 問」(https://atcoder.jp/contests/typical90) では、プログラミングコンテストで扱われる典型的な 90  問の問題に挑戦可能です。
+「C++入門 AtCoder Programming Guide for beginners (APG4b)」(https://atcoder.jp/contests/APG4b) は、競技プログラマー向けのC++入門用コンテンツです。
+
+
+
+整数 \(N\) の一の位は \(N\) を \(10\) で割った余りです。また、整数 \(N\) の十の位は \(N\) を \(100\) で割った余りを \(10\) で割った商です。
+なので、これを連続して出力すればよいです。
+
+\(N\) を \(100\) で割った余りを出力してしまうと、\(304\) などのケースで \(4\) を出力してしまうことに注意してください。この場合、正答は \(04\) です。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

@@ -1,0 +1,88 @@
+if 文などにより条件分岐を行うことで、それぞれの場合に対応した出力を行います。
+C 言語での実装例
+1
+
+int main(){
+
+2
+
+int s,w;
+
+3
+
+scanf("%d%d",&s,&w);
+
+4
+
+if(w>=s)printf("unsafe");
+
+5
+
+else printf("safe");
+
+6
+
+}
+
+Python での実装例
+1
+
+s, w = map(int, input().split())
+
+2
+
+if w >= s:
+
+3
+4
+5
+
+print("unsafe")
+else:
+print("safe")
+
+1
+
+Perform conditional branch using statements like if statements, and output the string corresponding to each case.
+Implementation example in C:
+1
+
+int main(){
+
+2
+
+int s,w;
+
+3
+
+scanf("%d%d",&s,&w);
+
+4
+
+if(w>=s)printf("unsafe");
+else printf("safe");
+
+5
+6
+
+}
+
+Implementation example in Python:
+1
+
+s, w = map(int, input().split())
+
+2
+
+if w >= s:
+
+3
+4
+5
+
+print("unsafe")
+else:
+print("safe")
+
+7
+

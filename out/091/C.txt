@@ -1,0 +1,68 @@
+青い点のうち，最も x 座標が小さいもの (bA とします) に注目します。こ
+の点と仲良しペアになれる点が存在した場合，そのような点のうち最も y 座
+標が大きいもの (rA とします) と仲良しペアにしてよいです。
+証明ですが，bA がどの点ともペアにならなかった場合と，rA 以外とペア
+になった場合それぞれについて，bA と rA をペアにしても同じ個数，もしく
+はそれ以上の個数の仲良しペアが作れることを示します。
+
+bA がどの点ともペアにならなかった場合 rA がどの点ともペアになってい
+なかったら，bA と rA をペアにすれば良いです。rA が他の青い点 (bB とし
+ます) とペアになっていたら，そのペアを解消し，bA と rA をペアにすれば
+良いです。
+
+bA が rA 以外とペアになった場合 (bA とペアになっている点を rB としま
+す)
+
+rA がどの点ともペアになっていなかったら，bA の仲良しペアを解消
+
+し，bA と rA をペアにすれば良いです。
+
+rA が他の青い点 (bB とします) とペアになっていた場合，つまり bA-rB,
+rA-bB というペアが出来ていた場合を考えます。この場合は，ペアの相手を
+交換し，必ず bA-rA, rB-bB というペアに出来ます。これは，以下の 2 つか
+ら示せます。
+
+• bA が青い点のなかで一番 x 座標が小さいので，bB の x 座標は必ず bA
+より大きい，つまり rB よりも大きいです。
+
+• rB は (bA とマッチング出来ていたので，) 必ず rA より y 座標が小さい
+です。また，bB は (rA とマッチング出来ていたので，) 必ず rA より y
+座標が大きいです。よって，bB の y 座標は，必ず rB より大きいです。
+以上より，bA はかならず rA とペアにしていいことが示せます。
+この性質より，青い点を x 座標の小さい順に見ていき，
+
+• 青い点より x, y 座標が小さく，まだ仲良しペアになっていない赤い点
+を探す
+
+• なかったらなにもしない
+• あったら，その中で最も y 座標が大きいものを探し，仲良しペアにする
+というアルゴリズムで最適解が求まります。
+余談
+
+この問題は，二部グラフの最大マッチング問題としても考えることが
+
+可能で，これは最大流アルゴリズムを使用すれば解くことが出来ます。
+
+3
+
+Let A be a blue point with the minimum x-coordinate. If A can be
+paired with red points, we should choose a red point B such that B can be
+paired with A, and among all such points the y-coordinate is the maximum
+possible.
+(If B is paired with other point, for example if there are pairs B − C and
+A − D, we can rearrange them because A − C and B − D are also valid
+pairs).
+By doing this, we can reduce the number of points by 1 (if A can’t be
+paired at all) or 2 (if we find a pair A − B).
+In summary, we first sort all 2N points together by x-coordinates, and
+process points in this order. We also keep a set of points (initially this is
+empty). Then, for each point, do the following:
+• If a red point appears, add its y-coordinate to the set.
+• If a blue point appears, let p be its y-coordinate. If all elements in
+the set are greater than p, do nothing (we can’t do anything with this
+blue point). Otherwise, choose the maximum element q in the set such
+that q < p, remove it, and increase the answer by one (the current
+blue point and the point that corresponds to q are paired).
+
+9
+

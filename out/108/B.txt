@@ -1,0 +1,27 @@
+以下のコードのような式で、残りの点の座標を求めることができます。
+
+#i n c l u d e <s t d i o . h>
+u s i n g namespace s t d ;
+i n t main ( )
+{
+int a , b , c , d;
+s c a n f (”%d%d%d%d ” , &a , &b , &c , &d ) ;
+int x = c − a , y = d − b;
+p r i n t f (”%d %d %d %d\n ” , c − y , d + x , a − y , b + x ) ;
+}
+
+1
+
+You can compute the coordinates of the reaming points as in the code below:
+#i n c l u d e <s t d i o . h>
+u s i n g namespace s t d ;
+i n t main ( )
+{
+int a , b , c , d;
+s c a n f (”%d%d%d%d ” , &a , &b , &c , &d ) ;
+int x = c − a , y = d − b;
+p r i n t f (”%d %d %d %d\n ” , c − y , d + x , a − y , b + x ) ;
+}
+
+1
+

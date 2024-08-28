@@ -1,0 +1,426 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - トヨタシステムズプログラミングコンテスト2022(AtCoder Beginner Contest 279)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - トヨタシステムズプログラミングコンテスト2022(AtCoder Beginner Contest 279)" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc279/editorial/5288" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - トヨタシステムズプログラミングコンテスト2022(AtCoder Beginner Contest 279)" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc279";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-11-26T21:00:00+09:00");
+			var endTime = moment("2022-11-26T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>トヨタシステムズプログラミングコンテスト2022(AtCoder Beginner Contest 279)が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>トヨタシステムズプログラミングコンテスト2022(AtCoder Beginner Contest 279)は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc279">トヨタシステムズプログラミングコンテスト2022(AtCoder Beginner Contest 279)</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc279/editorial/5288?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc279/editorial/5288?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc279%2Feditorial%2F5288">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc279%2Feditorial%2F5288">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc279%2Feditorial%2F5288">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221126T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-11-26 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221126T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-11-26 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc279"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc279/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc279/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc279/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc279/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc279/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc279/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc279/tasks/abc279_d">D - Freefall</a> 解説
+			
+			<span class="small">by <a href="/users/yuto1115" class="username"><span class="user-red">yuto1115</span></a></span>
+			
+		</h2>
+		<span class="grey">解説</span>
+		<hr class="mt-1">
+		
+			<div><p>操作を行う回数を <span>\(n\ (n \geq 0)\)</span> とおくと、高橋くんが地面に到達する時刻は <span>\(f(n) = Bn+\frac{A}{\sqrt{n+1}}\)</span> という式で表されます。よってこの問題は、<span>\(n\)</span> が <span>\(0\)</span> 以上の整数値を取る時の <span>\(f(n)\)</span> の最小値を求める問題になります。</p>
+
+<p>以下、<span>\(f\)</span> を <span>\(0\)</span> 以上の実数に対して定義された関数として扱います。</p>
+
+<p>まず、答えの範囲を見積もってみましょう。<span>\(n &gt;= A/B\)</span> のとき、<span>\(f(n) &gt; Bn \geq A = f(0)\)</span> より <span>\(f(n) &gt; f(0)\)</span> であるため、<span>\(0 \leq n &lt; A/B\)</span> の範囲だけ考えれば良いことがわかります。しかし、この問題における <span>\(A,B\)</span> は大きいため、候補となるすべての <span>\(n\)</span> について <span>\(f(n)\)</span> を計算することはできません。</p>
+
+<p>この問題を解くためには、<span>\(f\)</span> が凸関数であることに気づく必要があります。下の画像は入力例1における <span>\(y=f(x)\)</span> のグラフ (横軸が <span>\(x\)</span>) です。このように下にふくらんだ関数のことを凸関数といいます (正確な定義は <a href="https://ja.wikipedia.org/wiki/%E5%87%B8%E9%96%A2%E6%95%B0" rel="nofollow">https://ja.wikipedia.org/wiki/凸関数</a> をご参照ください)。<span>\(f(x)\)</span> が凸関数であることは、「凸関数の和は凸関数である」という定理を用いるか、微分を用いることで示せます。</p>
+
+<p><img src="https://img.atcoder.jp/abc279/e1b0b7fece8c50270cab81c2a63cca28.png" alt="入力例1における f(n)"></p>
+
+<p>以下、この問題の2つの解法を示します。</p>
+
+<h3>解法1　三分探索</h3>
+
+<p>凸関数の最小値を求める問題は、<strong>三分探索</strong>というアルゴリズムを使うことで解くことができます。これは、「<span>\(f(n)\)</span> が最小値をとる <span>\(n\)</span> は <span>\(l\leq n\leq r\)</span> の範囲に存在する」(＊) ことが保証される <span>\(l,r\)</span> を設定し、条件 (＊) を満たしながら <span>\(l\)</span> と <span>\(r\)</span> を少しずつ近づけていくことで、答えの <span>\(n\)</span>  を見つけるアルゴリズムです。具体的なアルゴリズムは以下の通りです。</p>
+
+<ol>
+<li>条件 (＊) を満たすように <span>\(l,r\)</span> の初期値を設定する。</li>
+<li><span>\(m_1 := (2l+r)/3, m_2 := (l+2r)/3\)</span> とする。<span>\(f(m_1) &lt; f(m_2)\)</span> ならば <span>\(r \leftarrow m_2\)</span> とし、 そうでないならば <span>\(l \leftarrow m_1\)</span> とする。</li>
+<li>答えが含まれることが保証される範囲 <span>\([l,r]\)</span> が十分に小さいならば、終了する。さらに範囲を小さくしたい場合は 2. を繰り返す。</li>
+</ol>
+
+<p>今回は <span>\(n\)</span> が整数の範囲での最小値を求めたいため、<span>\(l,r,m_1,m_2\)</span> 等の変数は整数にします (実数にすれば、実数の範囲での最小値を求めることもできます)。</p>
+
+<p>三分探索では、操作2を行うごとに答えの含まれる範囲 <span>\([l,r]\)</span> が約 <span>\(\frac{2}{3}\)</span> になるため、<span>\(f(n)\)</span> が最小値をとる <span>\(n\)</span> を非常に高速に求めることができます。実際、本問題においては <span>\(l=0,r=A/B\)</span> として初期値を設定することで、操作2を最大 100 回ほど行えば答えを求めることができ、十分に高速です。</p>
+
+<p>実装例 (C++):</p>
+
+<pre class="prettyprint linenums"><code>#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+using ll = long long;
+
+int main() {
+    ll a, b;
+    cin &gt;&gt; a &gt;&gt; b;
+    auto f = [&amp;](ll n) -&gt; double {
+        return (double) a / sqrt(n + 1) + (double) b * n;
+    };
+    ll l = 0, r = a / b;
+    while (r - l &gt; 2) {
+        ll m1 = (l * 2 + r) / 3;
+        ll m2 = (l + r * 2) / 3;
+        if (f(m1) &gt; f(m2)) l = m1;
+        else r = m2;
+    }
+    double ans = a;
+    for (ll i = l; i &lt;= r; i++) {
+        ans = min(ans, f(i));
+    }
+    cout &lt;&lt; fixed &lt;&lt; setprecision(10) &lt;&lt; ans &lt;&lt; endl;
+}
+</code></pre>
+
+<h3>解法2　微分</h3>
+
+<p>以下、高校数学の微分の知識を前提とします。</p>
+
+<p><span>\(f&#39;(x) = B-\frac{A}{2(x+1)\sqrt{x+1}}\)</span> より <span>\(f&#39;(x)=0 \Leftrightarrow x = (\frac{A}{2B})^{\frac{2}{3}}-1\)</span>  であるため、<span>\(f(x)\)</span> は（<span>\(x\)</span> が実数の範囲において）<span>\(x = (\frac{A}{2B})^{\frac{2}{3}}-1\)</span> で最小値を取ります。本問題においては、<span>\(x\)</span> が整数の範囲での最小値を求める必要がありますが、<span>\(f\)</span> の凸性より <span>\(\lfloor  (\frac{A}{2B})^{\frac{2}{3}} \rfloor\)</span> と <span>\(\lceil  (\frac{A}{2B})^{\frac{2}{3}} \rceil\)</span> のみを調べれば良いことがわかります。なお、数値誤差等の問題もあるため、余裕を持って前後 <span>\(\pm 5\)</span> 程度の範囲を調べるとよいでしょう。</p>
+
+<p>実装例 (C++):</p>
+
+<pre class="prettyprint linenums"><code>#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+using ll = long long;
+
+int main() {
+    ll a, b;
+    cin &gt;&gt; a &gt;&gt; b;
+    auto f = [&amp;](ll n) -&gt; double {
+        return (double) a / sqrt(n + 1) + (double) b * n;
+    };
+    ll argmin = pow((double) a / (b * 2), 2. / 3.) - 1;
+    ll l = max(argmin - 5, 0LL), r = min(argmin + 5, a / b);
+    double ans = a;
+    for (ll i = l; i &lt;= r; i++) {
+        ans = min(ans, f(i));
+    }
+    cout &lt;&lt; fixed &lt;&lt; setprecision(10) &lt;&lt; ans &lt;&lt; endl;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1669435927">
+				<time class="timeago" datetime="2022/11/26 13:12:07"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1669463360">
+				<time class="timeago" datetime="2022/11/26 20:49:20"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc279/editorial/5288?lang=ja" data-a2a-title="解説 - トヨタシステムズプログラミングコンテスト2022(AtCoder Beginner Contest 279)">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc279/rules">ルール</a></li>
+					<li><a href="/contests/abc279/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

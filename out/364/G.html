@@ -1,0 +1,430 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - 日本レジストリサービス（JPRS）プログラミングコンテスト2024#2（AtCoder Beginner Contest 364）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - 日本レジストリサービス（JPRS）プログラミングコンテスト2024#2（AtCoder Beginner Contest 364）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc364/editorial/10547" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - 日本レジストリサービス（JPRS）プログラミングコンテスト2024#2（AtCoder Beginner Contest 364）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc364";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2024-07-27T21:00:00+09:00");
+			var endTime = moment("2024-07-27T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>日本レジストリサービス（JPRS）プログラミングコンテスト2024#2（AtCoder Beginner Contest 364）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>日本レジストリサービス（JPRS）プログラミングコンテスト2024#2（AtCoder Beginner Contest 364）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc364">日本レジストリサービス（JPRS）プログラミングコンテスト2024#2（AtCoder Beginner Contest 364）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc364/editorial/10547?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc364/editorial/10547?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc364%2Feditorial%2F10547">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc364%2Feditorial%2F10547">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc364%2Feditorial%2F10547">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240727T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-07-27 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240727T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-07-27 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc364"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc364/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc364/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc364/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc364/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc364/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc364/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc364/tasks/abc364_g">G - Last Major City</a> 解説
+			
+			<span class="small">by <a href="/users/yuto1115" class="username"><span class="user-red">yuto1115</span></a></span>
+			
+		</h2>
+		<span class="grey">解説</span>
+		<hr class="mt-1">
+		
+			<div><p>本問題は<strong>最小シュタイナー木問題</strong>と呼ばれる有名問題の派生問題です。本解説は <a href="https://www.slideshare.net/wata_orz/ss-12131479#50" rel="nofollow">岩田陽一さんによる解説スライド</a>を参考に執筆されています。</p>
+
+<hr>
+
+<p>以下、都市、道路、コストのことをそれぞれ単に頂点、辺、重みと呼びます。</p>
+
+<p>まず、最適解において拡張される辺の集合およびそれに隣接する頂点の集合からなるグラフは明らかに木をなします。</p>
+
+<p>頂点集合 <span>\(\{1,2,\dots,K-1\}\)</span> の任意の非空な部分集合 <span>\(S\)</span> および任意の頂点 <span>\(v\)</span> に対して、<span>\(f(S,v)\)</span> を「<span>\(S\)</span> に含まれる各頂点と頂点 <span>\(v\)</span> を共に含むような木の辺の重みの総和の最小値」と定義します。最終的に求めたいのは各 <span>\(K\leq v\leq N\)</span> に対する <span>\(f(\{1,2,\dots,K-1\}, v)\)</span> の値です。</p>
+
+<p>結論としては、各 <span>\(f(S,v)\)</span> の値は動的計画法によって求めることができます。初期値は <span>\(f(\{i\}, i)=0\ (1 \leq i \leq K-1)\)</span> であり、遷移は以下の二通りです :</p>
+
+<ul>
+<li><span>\(f(S,v) \leftarrow \min(f(S,v),f(S,u) + w)\)</span> （頂点 <span>\(u,v\)</span> を結ぶ重み <span>\(w\)</span> の辺が存在）</li>
+<li><span>\(f(S,v) \leftarrow \min(f(S,v),f(T,v)+f(S\setminus T,v))\ (T\subsetneq S, T\neq \emptyset)\)</span></li>
+</ul>
+
+<p>各遷移は以下のように解釈（厳密な証明ではない）できます :</p>
+
+<ul>
+<li><span>\(1\)</span> つめの遷移 : <span>\(v\)</span> が <span>\(S\)</span> に含まれず、<span>\(v\)</span> が木の葉であるようなとき、木から <span>\(v\)</span> とそれに接続する唯一の辺を削除する</li>
+<li><span>\(2\)</span> つめの遷移 : そうでないとき、<span>\(S\)</span> を以下の条件を満たす <span>\(2\)</span> つのひくうな集合 <span>\(T,S\setminus T\)</span> に分割する（最適解においては必ず可能である）
+
+<ul>
+<li>木において 「<span>\(T\)</span> に含まれる各頂点と <span>\(v\)</span> を結ぶパスに含まれる辺の集合」と「<span>\(S\setminus T\)</span> に含まれる各頂点と <span>\(v\)</span> を結ぶパスに含まれる辺の集合」の共通集合が空である</li>
+</ul></li>
+</ul>
+
+<p>残る問題はこれらの遷移をどのように処理するかです。<span>\(2\)</span> つめの遷移は DP テーブルの値を <span>\(S\)</span> の要素数の昇順などで埋めていけば問題ありません。問題は同じ <span>\(S\)</span> 内で <span>\(1\)</span> つめの遷移の依存関係が循環してしまっていることですが、これについては Dijkstra 法のように各 <span>\(f(S,v)\ (1\leq v\leq N)\)</span> の値を値の小さい順に確定させていくことで対処できます。</p>
+
+<p>全体の計算量は <span>\(O(3^KN+2^KM\log M)\)</span> です。</p>
+
+<p>実装例 (C++) :</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+using ll = long long;
+
+bool chmin(ll &amp;a, ll b) {
+    if (a &gt; b) {
+        a = b;
+        return true;
+    }
+    return false;
+}
+
+int main() {
+    int n, m, k;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
+    --k;
+    vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt; G(n);
+    for (int i = 0; i &lt; m; i++) {
+        int a, b, c;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+        --a, --b;
+        G[a].emplace_back(b, c);
+        G[b].emplace_back(a, c);
+    }
+    vector dp(1 &lt;&lt; k, vector&lt;ll&gt;(n, 1e18));
+    for (int i = 0; i &lt; k; i++) dp[1 &lt;&lt; i][i] = 0;
+    for (int bit = 1; bit &lt; (1 &lt;&lt; k); bit++) {
+        for (int sub = bit; sub &gt; 0; sub = (sub - 1) &amp; bit) {
+            for (int i = 0; i &lt; n; i++) {
+                chmin(dp[bit][i], dp[sub][i] + dp[bit - sub][i]);
+            }
+        }
+        priority_queue&lt;pair&lt;ll, int&gt;, vector&lt;pair&lt;ll, int&gt;&gt;, greater&lt;&gt;&gt; pq;
+        for (int i = 0; i &lt; n; i++) pq.emplace(dp[bit][i], i);
+        while (!pq.empty()) {
+            auto [d, u] = pq.top();
+            pq.pop();
+            if (d &gt; dp[bit][u]) continue;
+            for (auto [v, l]: G[u]) {
+                if (chmin(dp[bit][v], d + l)) {
+                    pq.emplace(d + l, v);
+                }
+            }
+        }
+    }
+    for (int i = k; i &lt; n; i++) {
+        cout &lt;&lt; dp.back()[i] &lt;&lt; &#39;\n&#39;;
+    }
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1722068458">
+				<time class="timeago" datetime="2024/07/27 17:20:58"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1722075107">
+				<time class="timeago" datetime="2024/07/27 19:11:47"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc364/editorial/10547?lang=ja" data-a2a-title="解説 - 日本レジストリサービス（JPRS）プログラミングコンテスト2024#2（AtCoder Beginner Contest 364）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc364/rules">ルール</a></li>
+					<li><a href="/contests/abc364/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

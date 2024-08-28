@@ -1,0 +1,458 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - 東京海上日動プログラミングコンテスト2024（AtCoder Beginner Contest 355）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - 東京海上日動プログラミングコンテスト2024（AtCoder Beginner Contest 355）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc355/editorial/10078" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - 東京海上日動プログラミングコンテスト2024（AtCoder Beginner Contest 355）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc355";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2024-05-25T21:00:00+09:00");
+			var endTime = moment("2024-05-25T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>東京海上日動プログラミングコンテスト2024（AtCoder Beginner Contest 355）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>東京海上日動プログラミングコンテスト2024（AtCoder Beginner Contest 355）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc355">東京海上日動プログラミングコンテスト2024（AtCoder Beginner Contest 355）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc355/editorial/10078?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc355/editorial/10078?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc355%2Feditorial%2F10078">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc355%2Feditorial%2F10078">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc355%2Feditorial%2F10078">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240525T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-05-25 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240525T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-05-25 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc355"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc355/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc355/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc355/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc355/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc355/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc355/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc355/tasks/abc355_g">G - Baseball</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-1.png" class="user-rating-stage-m"><a href="/users/sotanishy" class="username"><span class="user-orange">sotanishy</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p><span>\(S\coloneqq \sum_{i=1}^N P_{i}\)</span> とします．</p>
+
+<h3>グラフによる表現と DP の定式化</h3>
+
+<p>本問題をグラフの問題として表現します．<span>\(0,1,\dots,N+1\)</span> のラベルがついた <span>\(N+2\)</span> 頂点のグラフに，以下のように有向辺を張ります．</p>
+
+<ul>
+<li>辺 <span>\((0,j)\,(1 \leq j \leq N)\)</span> の重みを <span>\(\sum_{y=1}^{j-1} P_y \times (j-y)\)</span> とする</li>
+<li>辺 <span>\((i,j)\,(1 \leq i &lt; j \leq N)\)</span> の重みを <span>\(\sum_{y=i}^{j-1} P_y \times \min(y-i,j-y)\)</span> とする</li>
+<li>辺 <span>\((i,N+1)\,(1 \leq i \leq N)\)</span> の重みを <span>\(\sum_{y=i}^N P_y \times (y-i)\)</span> とする</li>
+</ul>
+
+<p>高橋君が <span>\(x_1,x_2,\dots,x_K\)</span> を選んだとき，青木君が得るスコアの期待値の <span>\(S\)</span> 倍は，このグラフの長さ <span>\(K+1\)</span> のパス <span>\(0 \to x_1 \to \dots \to x_K \to N+1\)</span> の重みになります．青木君が得るスコアの期待値の最小値を求める問題は，このグラフでちょうど <span>\(K+1\)</span> 辺を使ったときの頂点 <span>\(0\)</span> から頂点 <span>\(N+1\)</span> への最短路を求める問題に帰着します．</p>
+
+<p>グラフは DAG なので，この問題は DP により解くことができます．
+<span>\(\mathrm{dp}[k][j]\)</span> を，「<span>\(k\)</span> 本の辺を使ったときの頂点 <span>\(0\)</span> から頂点 <span>\(j\)</span> への最短路長」とします．<span>\(\mathrm{dp}[K+1][N+1]\)</span> が求める答えです．
+遷移は次のように行います．</p>
+<p><span>\[
+\mathrm{dp}[k][j] = \min_{i&lt;j} \{\mathrm{dp}[k-1][i] + c(i,j)\} \qquad (\ast)
+\]</span></p><p>ここで， <span>\(c(i,j)\)</span> は辺 <span>\((i,j)\)</span> の重みです．<span>\(c(i,j)\)</span> は， <span>\(P_y\)</span> と <span>\(P_y \times y\)</span> の累積和を前計算しておくことにより，クエリあたり <span>\(O(1)\)</span> 時間で計算できます．</p>
+
+<p>ところが，この DP を素直に実装すると， <span>\(O(N^2 K)\)</span> 時間かかってしまいます．</p>
+
+<h3>コストの Monge 性と Alien DP による高速化</h3>
+
+<p>式 <span>\((\ast)\)</span> で表される DP は，遷移のコスト <span>\(c(i,j)\)</span> が <strong>Monge 性</strong> と呼ばれる性質を満たすときに， <strong>Alien DP</strong> と呼ばれる手法を用いることで高速に計算できます．</p>
+
+<p>コスト <span>\(c(i,j)\)</span> が Monge であるとは，以下の条件を満たすことです．</p>
+<p><span>\[
+\forall i,j,k,l,\quad 0 \leq i &lt; j &lt; k &lt; l \leq N + 1 \Rightarrow c(i,l)+c(j,k) \geq c(i,k) + c(j,l)
+\]</span></p><p>本問題のコストが Monge 性を満たすことは，直感的には以下の図より理解できます．<span>\(c(x,y)\)</span> は <span>\(x\)</span> と <span>\(y\)</span> を結ぶ三角形領域の面積にだいたい対応していると思ってください． <span>\(c(i,l)+c(j,k) = (A+B+C+D) + C = A+B+2C+D\)</span>, <span>\(c(i,k)+(j,l)=(B+C)+(C+D) = B+2C+D\)</span> となり， Monge 性の条件の不等式が成り立ちます．</p>
+
+<p><img src="https://img.atcoder.jp/abc355/3ccf746e9e2be2a73d06c90e03f79ceb.png" alt=""/></p>
+
+<p>次に，Alien DP を説明します．アルゴリズムの正当性などの細かい議論は以下の参考文献にゆずり，ここではアルゴリズムのみ述べます．</p>
+
+<ul>
+<li>noshi91 さんによる記事: <a href="https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge" rel="nofollow">Monge グラフ上の <span>\(d\)</span>-辺最短路長を計算するアルゴリズム</a></li>
+</ul>
+
+<p>まず，関数 <span>\(f(\lambda)\)</span> を次のように定義します．</p>
+
+<ul>
+<li>コスト <span>\(c(i,j)\)</span> に一様に <span>\(\lambda\)</span> を足した上で， <strong>使う辺の本数の制約を無視したときの</strong>頂点 <span>\(0\)</span> から頂点 <span>\(N+1\)</span> への最短路長を <span>\(d\)</span> とする． <span>\(f(\lambda) \coloneqq d - \lambda (K+1)\)</span> とする．</li>
+</ul>
+
+<p><span>\(\max_{\lambda\in\mathbb{Z}} f(\lambda)\)</span> が求める答えとなります．<span>\(\lambda\)</span> は辺を1本使うことに対するペナルティであり，このアルゴリズムは，使用する辺の本数がちょうど<span>\(K+1\)</span>本となるようなペナルティ <span>\(\lambda\)</span> の値を探索しているとみなせます．</p>
+
+<p><span>\(f(\lambda)\)</span> は <span>\(\lambda\)</span> に関して上に凸であること，また最適な <span>\(\lambda\)</span> は <span>\(0\leq \lambda \leq 3 \max_{i,j} c(i,j) \leq 3NS\)</span> の範囲にあることが示せます．よって，この最大化問題は，傾きの二分探索，三分探索，または黄金分割探索により <span>\(O(\log (NS))\)</span> 回の <span>\(f(\lambda)\)</span> の評価により解くことができます．この最大化問題を解く各手法は以下の記事で比較されています．</p>
+
+<ul>
+<li>noshi91 さんによる記事: <a href="https://noshi91.hatenablog.com/entry/2023/11/20/052227" rel="nofollow">Aliens DP における二分探索の色々</a></li>
+</ul>
+
+<p>あとは，与えられた <span>\(\lambda\)</span> に対して <span>\(f(\lambda)\)</span> を高速に求めることができればよいです．
+これはふたたび DP によって計算することができます．遷移は以下のとおりです．</p>
+<p><span>\[
+\mathrm{dp}[j]=\displaystyle \min_{i &lt; j} \{\mathrm{dp}[i] + c(i,j) + \lambda\} \qquad (\ast\ast)
+\]</span></p><p>DP の次元が一つ落ちましたが，これを素直に実装すると <span>\(O(N^2 \log (NS))\)</span> 時間となり，依然として間に合いません．
+しかし，式 <span>\((\ast\ast)\)</span> で表される DP は，コスト <span>\(c(i,j)\)</span> が Monge であるときに高速に計算できることが知られています．</p>
+
+<h3>Monge な辺重みを持つグラフの最短路問題</h3>
+
+<p>式 <span>\((\ast\ast)\)</span> の DP を高速に実行する方法をいくつか紹介します．解法1から3は，以下の資料で詳しく説明されています．</p>
+
+<ul>
+<li>tatyam さんによるスライド: <a href="https://speakerdeck.com/tatyam_prime/monge-noshou-yin-shu" rel="nofollow">Monge の手引書</a></li>
+</ul>
+
+<h4>解法1. 分割統治 + monotone minima <span>\(O(N(\log N)^2)\)</span> 時間</h4>
+
+<p><span>\((N+2)\times (N+2)\)</span> 行列 <span>\(A\)</span> を，<span>\(A_{ij}=\mathrm{dp}[j] + c(j,i) + \lambda\)</span> として定義します．すると，DP <span>\((\ast\ast)\)</span> は <span>\(A\)</span> の各行の最小値を求める問題になります．<span>\(c(i,j)\)</span> が Monge であるとき，行列 <span>\(A\)</span> は <strong>totally monotone</strong> という性質を持ちます．<strong>Monotone minima</strong> は，totally monotone な行列の各行の最小値を <span>\(O(N\log N)\)</span> 時間で求めることのできるアルゴリズムです．</p>
+
+<p>Monotone minima は <span>\(A\)</span> の要素に任意の順番でアクセスできることを要求します．ところが，今回の設定では <span>\(\mathrm{dp}[j]\)</span> の値を知るまで <span>\(A_{ij}\)</span> の値を知ることができず，<span>\(\mathrm{dp}[j]\)</span> の値を知るには， <span>\(A\)</span> の <span>\(j\)</span> 行目の最小値を知っている必要があります．このように，要素にアクセスできる順番に制限があるため，今回は monotone minima を直接適用することができません．</p>
+
+<p>そこで，分割統治を行います．<span>\(\mathrm{solve}(l,r)\)</span> を，<span>\(\mathrm{dp}[l],\dots,\mathrm{dp}[r-1]\)</span> を求める処理として，次のようにします．</p>
+
+<ol>
+<li><span>\(m\coloneqq \lfloor (l+r)/2\rfloor\)</span> として， <span>\(\mathrm{solve}(l,m)\)</span> を再帰的に実行する．</li>
+<li><span>\(\mathrm{dp}[l],\dots,\mathrm{dp}[m-1]\)</span> から <span>\(\mathrm{dp}[m],\dots,\mathrm{dp}[r-1]\)</span> への遷移を処理する．このとき，必要な <span>\(\mathrm{dp}\)</span> の値はすべてわかっているから， monotone minima が使える．</li>
+<li><span>\(\mathrm{solve}(m,r)\)</span> を再帰的に実行する．</li>
+</ol>
+
+<p>こうして <span>\(O(N(\log N)^2)\)</span> 時間のアルゴリズムが得られます．全体では <span>\(O(N(\log N)^2 \log (NS))\)</span> 時間となります．高速な言語であれば AC を得ることができます．</p>
+
+<h4>解法2. 分割統治 + SMAWK <span>\(O(N\log N)\)</span> 時間</h4>
+
+<p>解法1の monotone minima を<strong>SMAWK アルゴリズム</strong>に置き換えることで，log を1つ落とすことができます．SMAWK アルゴリズムは，totally monotone な行列の各行の最小値を <span>\(O(N)\)</span> 時間で求めるアルゴリズムです．ただし，SMAWK アルゴリズムは定数倍が比較的重いため，本問題の制約下では monotone minima とほとんど区別できないと思います．</p>
+
+<h4>解法3. LARSCH <span>\(O(N)\)</span> 時間</h4>
+
+<p>解法2をさらに工夫することにより，<strong>LARSCH アルゴリズム</strong> という <span>\(O(N)\)</span> 時間のアルゴリズムが得られます．LARSCH アルゴリズムの実装は少々複雑ですが，シンプルな <span>\(O(N\log N)\)</span> 時間の実装が noshi91 さんにより以下の記事で提案されています．時間計算量は悪化しますが，定数倍が軽いため， writer の実装では <span>\(O(N)\)</span> 時間の LARSCH よりも高速でした．</p>
+
+<ul>
+<li>noshi91 さんによる記事: <a href="https://noshi91.hatenablog.com/entry/2023/02/18/005856" rel="nofollow">簡易版 LARSCH Algorithm</a></li>
+</ul>
+
+<h4>解法4. convex hull trick <span>\(O(N\log N)\)</span> 時間</h4>
+
+<p>Totally monotone 行列 <span>\(A\)</span> の任意の2列に対して，要素の大小関係は単調になっています．すなわち，<span>\(A\)</span> の <span>\(j\)</span> 列目を <span>\(i\)</span> の関数と見ると，これらの関数は互いにたかだか1回しか交わりません．</p>
+
+<p>互いにたかだか1回しか交わらない関数群の最小値は，<strong>convex hull trick</strong>を応用することで求めることができます．Convex hull trickは本来，1次関数群の最小値を求めるアルゴリズムですが，関数群が互いにたかだか1回しか交わらないという性質を持てば，同様のアルゴリズムで処理することができます．2つの関数の交点を求めるときに二分探索を用いることで，<span>\(O(N \log N)\)</span> 時間で <span>\((\ast\ast)\)</span> を解くことができます．</p>
+
+<p>また，一次関数群の最小値を求めるデータ構造である <strong>Li-Chao tree</strong> も同様に，互いにたかだか1点しか交わらない関数群を扱うことができます．Li-Chao tree を利用しても <span>\(O(N \log N)\)</span> 時間のアルゴリズムが得られます．</p>
+
+<h3>実装例</h3>
+
+<p>writer の実装では，2番目の実装が最も高速でした．</p>
+
+<ul>
+<li><a href="https://atcoder.jp/contests/abc355/submissions/53788275" rel="nofollow">黄金分割探索 + 分割統治 + monotone minima</a></li>
+<li><a href="https://atcoder.jp/contests/abc355/submissions/53788299" rel="nofollow">黄金分割探索 + 簡易版 LARSCH</a></li>
+<li><a href="https://atcoder.jp/contests/abc355/submissions/53788285" rel="nofollow">黄金分割探索 + convex hull trick</a></li>
+</ul>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1716308092">
+				<time class="timeago" datetime="2024/05/22 01:14:52"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1716642477">
+				<time class="timeago" datetime="2024/05/25 22:07:57"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc355/editorial/10078?lang=ja" data-a2a-title="解説 - 東京海上日動プログラミングコンテスト2024（AtCoder Beginner Contest 355）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc355/rules">ルール</a></li>
+					<li><a href="/contests/abc355/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

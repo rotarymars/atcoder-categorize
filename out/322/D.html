@@ -1,0 +1,479 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 322</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 322" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc322/editorial/7302" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 322" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc322";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-09-30T21:00:00+09:00");
+			var endTime = moment("2023-09-30T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 322が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 322は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc322">AtCoder Beginner Contest 322</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc322/editorial/7302?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc322/editorial/7302?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc322%2Feditorial%2F7302">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc322%2Feditorial%2F7302">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc322%2Feditorial%2F7302">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230930T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-09-30 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230930T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-09-30 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc322"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc322/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc322/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc322/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc322/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc322/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc322/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc322/tasks/abc322_d">D - Polyomino</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題は上手な実装方針を選べるかによって実装量が大きく変わってくる問題だと思います。上手く実装できなかった人は、この解説や他の人の提出コードを読んでよい方針を探してみましょう。</p>
+
+<p>この問題は制約が小さいので、なんらかの高度なアルゴリズム等を利用せずに単純にあり得る配置を全探索すれば解くことが出来ます。具体的には、以下のようにすべての要素を 1 個 1 個決め打っていけばよいです。</p>
+
+<ul>
+<li><span>\(1\)</span> 番目のポリオミノの向きを固定して、<span>\(2\)</span> 番目, <span>\(3\)</span> 番目のポリオミノの向き <span>\(4 \times 4 = 16\)</span> 通りを全探索する。
+
+<ul>
+<li><span>\(1\)</span> 番目のポリオミノをどこに置くかを全探索する。
+
+<ul>
+<li><span>\(2\)</span> 番目のポリオミノをどこに置くかを全探索する。
+
+<ul>
+<li><span>\(3\)</span> 番目のポリオミノをどこに置くかを全探索する。</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>条件を満たす配置が見つかれば <code>Yes</code> を出力する。そうでない場合、<code>No</code> を出力する。</li>
+</ul>
+
+<p>このアルゴリズムを適切に実装すればこの問題を解くことが出来ます。<br>
+アルゴリズムの手順の中でおそらく一番難しいのはポリオミノを回転した状態を全列挙する部分だと思うのでその部分を詳しく説明します。( ポリオミノを配置する方は <a href="https://atcoder.jp/contests/abc307/tasks/abc307_c" rel="nofollow">ABC307 の C 問題</a> などの類題もあり比較的慣れている人も多いと考えています。)</p>
+
+<p>この問題ではポリオミノの回転が認められているため、それぞれのポリオミノを回転させて全探索する必要があります。グリッドが正方形の形をしているため <span>\(1\)</span> 番目のポリオミノは回転させなくてよいとしても問題なく、<span>\(1\)</span> 番目の回転の分は省略できますが、それでも <span>\(2\)</span> 番目と <span>\(3\)</span> 番目のポリオミノの向き <span>\(4 \times 4 = 16\)</span> 通りを調べる必要があります。<br>
+この部分は方針によっては扱う変数の量がかなり増えて面倒な実装になりそうですが、このような問題で典型的な実装方法を紹介します。</p>
+
+<p>まず、ポリオミノを回転させる部分を関数化しておきましょう。</p>
+
+<pre class="prettyprint linenums"><code>#define rep(i, n) for (int i = 0; i &lt; (n); i++)
+
+// ポリオミノを右に 90 度回転
+void Rotate(vector&lt;string&gt;&amp; v) {
+  vector&lt;string&gt; w = v;
+  rep(i, 4) rep(j, 4) w[3 - j][i] = v[i][j];
+  v = w;
+}
+</code></pre>
+
+<p>そして、次のような二重ループを書きます。</p>
+
+<pre class="prettyprint linenums"><code>// ps[0], ps[1], ps[2] にポリオミノを格納しているとする
+rep(t, 4) {
+  rep(u, 4) {
+    // check : 今の向きで固定したときに配置可能か調べる関数とする
+    check();
+    // ps[2] を 90 度回す
+    Rotate(ps[2]);
+  }
+  // ps[1] を 90 度回す
+  Rotate(ps[1]);
+}
+</code></pre>
+
+<p>実は、この二重ループによって <span>\(4 \times 4 = 16\)</span> 通り全てを調べることができています。具体的には、<span>\(2\)</span> 番目のポリオミノを<span>\(a\)</span> 回, <span>\(3\)</span> 番目のポリオミノを <span>\(b\)</span> 回右に <span>\(90\)</span> 度回した状態は、for 文のループ変数が <span>\(t = a, u = b\)</span> であるタイミングで調べられています。<br>
+このように変数をクルクル回しながら全探索する手法は、テクニカルですが応用範囲の広い実装方法なので (特に列の reverse が絡む実装で頻出) ぜひ覚えてみてください。</p>
+
+<p>問題全体の実装例は以下の通りです。</p>
+
+<ul>
+<li>実装例(C++)</li>
+</ul>
+
+<pre class="prettyprint linenums"><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+#define rep(i, n) for (int i = 0; i &lt; (n); i++)
+
+// s を出力してプログラムを終了
+void Print(const string&amp; s) {
+  cout &lt;&lt; s &lt;&lt; &#34;\n&#34;;
+  exit(0);
+}
+
+// 右に 90 度回転
+void Rotate(vector&lt;string&gt;&amp; v) {
+  vector&lt;string&gt; w = v;
+  rep(i, 4) rep(j, 4) w[3 - j][i] = v[i][j];
+  v = w;
+}
+
+// (i, j) がグリッド内部かを判定する
+bool in(int i, int j) { return 0 &lt;= i and i &lt; 4 and 0 &lt;= j and j &lt; 4; }
+
+// p を (di, dj) を左上の位置として配置できるか？
+bool can_put(vector&lt;vector&lt;int&gt;&gt;&amp; exist, const vector&lt;string&gt;&amp; p, int di,
+             int dj) {
+  rep(i, 4) rep(j, 4) {
+    if (p[i][j] == &#39;#&#39;) {
+      int ni = i + di;
+      int nj = j + dj;
+      if (!in(ni, nj)) return false;
+      if (exist[ni][nj] == 1) return false;
+      exist[ni][nj] = 1;
+    }
+  }
+  return true;
+}
+
+// ポリオミノを再帰で置いていく関数
+void dfs(int i, const vector&lt;vector&lt;int&gt;&gt;&amp; exist,
+         const vector&lt;vector&lt;string&gt;&gt;&amp; ps) {
+  if (i == 3) {
+    int ok = 1;
+    rep(u, 4) rep(v, 4) ok &amp;= exist[u][v];
+    if (ok) Print(&#34;Yes&#34;);
+    return;
+  }
+  for (int di = -3; di &lt;= 3; di++) {
+    for (int dj = -3; dj &lt;= 3; dj++) {
+      auto ex2 = exist;
+      bool flag = can_put(ex2, ps[i], di, dj);
+      if (flag) dfs(i + 1, ex2, ps);
+    }
+  }
+}
+
+int main() {
+  vector&lt;vector&lt;string&gt;&gt; ps(3);
+  rep(i, 3) {
+    ps[i].resize(4);
+    for (auto&amp; s : ps[i]) cin &gt;&gt; s;
+  }
+  rep(t, 4) {
+    rep(u, 4) {
+      dfs(0, vector(4, vector(4, 0)), ps);
+      Rotate(ps[2]);
+    }
+    Rotate(ps[1]);
+  }
+  Print(&#34;No&#34;);
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1695893922">
+				<time class="timeago" datetime="2023/09/28 18:38:42"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1695902296">
+				<time class="timeago" datetime="2023/09/28 20:58:16"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc322/editorial/7302?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 322">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc322/rules">ルール</a></li>
+					<li><a href="/contests/abc322/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

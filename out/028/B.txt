@@ -1,0 +1,47 @@
+
+プログラムの流れ
+•
+
+入力
+
+•
+
+文字の種類ごとに出る回数を数え上げる
+
+•
+
+出力
+
+入力, 出力
+練習ページ: (http://practice.contest.atcoder.jp/tasks/practice̲1 )を参考に
+
+プログラムの流れ
+数え上げ部分
+だいたいの言語には文字列中の文字をカウントする関数があります。
+たとえばC++ならばcount(s.begin(), s.end(), ʻAʼ)でʼAʼの個数を数
+え上げられます
+
+コード例(C++)
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+int main() {
+string s;
+cin >> s;
+string AF = "ABCDEF";
+
+}
+
+int c[6];
+for (int i = 0; i < 6; i++) {
+c[i] = count(s.begin(), s.end(), AF[i]);
+}
+// c[i] には i 文字目の個数が入っている
+string result = to_string(c[0]);
+for (int i = 1; i < 6; i++) {
+result += " " + to_string(c[i]);
+}
+cout << result << endl;
+return 0;
+

@@ -1,0 +1,302 @@
+与えられた文字列が ABC なら ARC を、ARC なら ABC を出力します。
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+string s;
+
+5
+
+cin >> s;
+
+6
+
+if(s == "ABC"){
+cout << "ARC" << endl;
+
+7
+
+}else{
+
+8
+
+cout << "ABC" << endl;
+
+9
+
+}
+
+10
+11
+
+}
+
+1
+
+
+12
+
+for(int i = 0; i < K; i++) {
+
+13
+
+cin >> d[i];
+
+14
+
+A[i].resize(d[i]);
+
+15
+
+for(int j = 0; j < d[i]; j++) {
+cin >> A[i][j];
+
+16
+
+}
+
+17
+
+}
+
+18
+19
+
+}
+
+20
+21
+
+void solve() {
+
+22
+
+int ans = 0;
+
+23
+
+for(int i = 1; i <= N; i++) {
+
+24
+
+bool have = false;
+
+25
+
+for(auto v : A) {
+for(auto p : v) {
+
+26
+
+if(p == i) have = true;
+
+27
+
+}
+
+28
+
+}
+
+29
+
+if(!have) ans++;
+
+30
+
+}
+
+31
+
+cout << ans << endl;
+
+32
+33
+
+}
+
+34
+35
+
+int main() {
+
+36
+
+input();
+
+37
+
+solve();
+
+2
+
+return 0;
+
+38
+39
+
+}
+
+3
+
+If the given string is ABC, then print ARC; if it is ARC, then print ABC.
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+string s;
+
+5
+
+cin >> s;
+
+6
+
+if(s == "ABC"){
+cout << "ARC" << endl;
+
+7
+
+}else{
+
+8
+
+cout << "ABC" << endl;
+
+9
+
+}
+
+10
+11
+
+}
+
+8
+
+
+12
+
+for(int i = 0; i < K; i++) {
+
+13
+
+cin >> d[i];
+
+14
+
+A[i].resize(d[i]);
+
+15
+
+for(int j = 0; j < d[i]; j++) {
+cin >> A[i][j];
+
+16
+
+}
+
+17
+
+}
+
+18
+19
+
+}
+
+20
+21
+
+void solve() {
+
+22
+
+int ans = 0;
+
+23
+
+for(int i = 1; i <= N; i++) {
+
+24
+
+bool have = false;
+
+25
+
+for(auto v : A) {
+for(auto p : v) {
+
+26
+
+if(p == i) have = true;
+
+27
+
+}
+
+28
+
+}
+
+29
+
+if(!have) ans++;
+
+30
+
+}
+
+31
+
+cout << ans << endl;
+
+32
+33
+
+}
+
+34
+35
+
+int main() {
+
+36
+
+input();
+
+37
+
+solve();
+
+9
+
+return 0;
+
+38
+39
+
+}
+
+10
+

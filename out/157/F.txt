@@ -1,0 +1,157 @@
+解法 1
+「時刻 T の時点で K 枚以上の肉が焼けるような熱源の配置場所は存在するか？」という判定問題
+を考えると、この判定問題には単調性がありますから、答えを二分探索で求めることが出来ます。
+この判定問題を数学的に定式化すると、以下の通りになります。
+「N 枚の円板がある。i 枚目の円板の中心は (xi , yi ) であり、半径は cTi である。K 枚以上の円板に含
+まれるような点が存在するか判定せよ。」
+この問題は、以下のように言い換えることが出来ます。
+「N 枚の円板がある。i 枚目の円板の中心は (xi , yi ) であり、半径は cTi である。これらの N 枚の円板
+から K 枚の円板を選ぶ選び方であって、K 枚の円板の積集合が非空となるような選び方があるか判
+定せよ。」
+ここで, K 枚の円板の積集合 X が非空であったとき、その集合は 1 枚の円板と一致するか、或いは互
+いに包含関係に無い複数枚の円板の積集合と一致します。
+前者の場合はその円板の中心の座標が X に含まれ、後者の場合はある 2 枚の円板が存在し、それら
+の境界を成す円の交点が X に含まれます。
+これより、N 個の円の中心及び N 個の円のうち 2 個の円の交点全てについて、その点を含む円板が
+
+( )
+K 枚以上存在するかを調べることにより、前述の判定問題を
+O N 3 で解くことが出来ます。
+(
+)
+cmax (|xmax |+|ymax |) 3
+N
+eps
+
+以上より、許容誤差を eps として、元の問題を O
+
+で解くことが出来ます。
+
+解法 2
+K = 1 のときは答えは明らかに 0 です。以下では K ≥ 2 とします。K ≥ 2 の元、答えは明らかに
+0 より大きくなります。
+以下では点 P (X, Y ) と肉 i の”距離”を、ci
+
+√
+
+2
+
+2
+
+(X − xi ) + (Y − yi ) で定めます.
+
+肉 i と肉 j からの距離が等しい点の集合は、ci = cj のときは直線であり、ci ̸= cj のときは円です。
+
+K ≥ 2 のもと、最適な熱源位置は、異なる 2 枚の肉からの距離が等しく、かつその値が最小となる点
+か、或いは異なる 3 枚の肉からの距離が等しい点です。
+これを背理法により示します。前述の条件を満たさない点 P が最適な熱源配置であると仮定します。
+このときの答えを T と置きます。丁度時刻 T に焼ける肉を tight な肉と呼びます。仮定より、tight
+な肉は高々 2 枚です。
+
+tight な肉が 0 枚であるとき、熱源を P に置くと、時刻 T より僅かに前でも K 枚以上の肉が焼けて
+います。
+
+tight な肉が 1 枚であるとき、点 P からその肉の方向へ僅かに進んだ点では、時刻 T より僅かに前で
+も K 枚以上の肉が焼けています。
+
+6
+
+tight な肉が 2 枚であるとき、それらを肉 i、肉 j と置くと、肉 i を中心とする半径 cTi の円板及び肉
+j を中心とする半径 cTj の円板に含まれ、更に肉 i からの距離と肉 j からの距離が等しい点の集合は、
+仮定より一点集合ではなく、有限の長さを持つ線分或いは曲線となります。この線の内部の点に熱源
+を配置すると、時刻 T より僅かに前でも K 枚以上の肉が焼けています。
+以上より、最適な熱源配置の候補は、前述の条件を満たす点に限られます。
+これより、前述の点を全列挙して各点に熱源を配置した際に各肉が焼けるまでの時間を求め、K 枚目
+の肉が焼けるまでに掛かる時間を求めることにより、解を得ることが出来ます。
+
+(
+
+)
+
+時間計算量は、K 枚目の肉が焼けるまでに掛かる時間を求める際にソートを行えば O N 4 log N で
+
+(
+
+)
+
+あり、選択アルゴリズムを用いれば O N 4 です。
+
+7
+
+Solution 1
+By considering a decision problem of ”does there exist a place to put the heat source such
+that K or more pieces of meat is ready at time T ?”, then this problem has monotonicity, so the
+answer can be found in a binary search.
+A mathematical formalization of this decision problem is as follows:
+“You are given N disks. The center of i-th disk is (xi , yi ) and its radius is cTi . Determine whether
+there exists a point such that is included in K or more disks.”
+This problem can be reworded as follows.
+“You are given N disks. The center of i-th disk is (xi , yi ) and its radius is cTi . Determine if
+there exists a set of K disks out of those N disks, such that the union set of those K disks is
+non-empty.”
+Here, if a union of K disks X is non-empty, then it corresponds to a disk, or a union of some
+disjoint multiple disks.
+In the former case, the center coordinate of the disk is included in X, and in the latter case,
+there exist two disks such that the intersection of their boundary circles is included in X.
+Hence, by checking if a point is included in K or more disks for all the N centers and all the
+intersections of pairs of circles, the aforementioned decision problem can be solved in a total of
+( )
+O N 3 time.
+Therefore, denoting
+by eps the maximum
+permissible error, the original problem can be solved
+(
+)
+in a total of O
+
+cmax (|xmax |+|ymax |) 3
+N
+eps
+
+time.
+
+Solution 2
+If K = 1, then obviously the answer is 0. Hereinafter assume that K ≥ 2. Under K ≥ 2, the
+answer is obviously more than 0.
+Hereinafter we deﬁne a ”distance“ between point P (X, Y ) and meat i by ci
+
+√
+2
+2
+(X − xi ) + (Y − yi ) .
+
+The set of points such that the distances from meat i and from meat j are equal is a line if
+ci = cj , and a circle if ci ̸= cj .
+Under K ≥ 2, the optimal position of heat source is a point such that the distances from distinct
+two pieces of meat are the equal and its value is minimum, or a point such that the distances
+from distinct three pieces of meat are the equal.
+We will show this by contradiction. Suppose that a point P such that does not satisfy the
+aforementioned conditions is the optimal heat source position. Let T be the answer in such
+13
+
+case. We will call a piece of meet that becomes ready at time T . By assumption, there exist at
+most two pieces of meat is tight.
+If 0 pieces of meat are tight, by placing a heat source at P , K or more pieces of meat is ready
+even before time T .
+If 1 piece of meat is tight, at the point a little nearer to the meat than point P , K or more
+pieces of meat is ready at the time a little before time T .
+If 2 pieces of meat are tight, denoting those meat by i and j, a set of points, such that is
+included in a disk whose center is meat i and whose radius is cTi , is included in a disk whose
+center is meat j and whose radius is cTj , and the distances from meat i and from meat j is equal,
+is not a singleton, but a segment or a curve of ﬁnite length, by assumption. By placing a heat
+source at the interior point of this curve, K or more pieces of meat is ready at the time a little
+before time T .
+Therefore, the candidates of optimal heat source positions are narrowed down into such points
+that satisfy the aforementioned conditions.
+Hence, by iterating all the points mentioned above, ﬁnding the time needed for each meet to be
+ready when the heat source is placed at each point, and by ﬁnding the time needed until the
+K-th meat is ready, the solution can be found.
+(
+)
+The time complexity is O N 4 log N if a sort is performed when ﬁnding the time needed until
+( )
+the K-th meat is ready, and is O N 4 if a selection algorithm is used.
+
+14
+
+

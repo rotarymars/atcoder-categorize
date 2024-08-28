@@ -1,0 +1,458 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - エイシングプログラミングコンテスト2021（AtCoder Beginner Contest 202）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - エイシングプログラミングコンテスト2021（AtCoder Beginner Contest 202）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc202/editorial/1864" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - エイシングプログラミングコンテスト2021（AtCoder Beginner Contest 202）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc202";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2021-05-22T21:00:00+09:00");
+			var endTime = moment("2021-05-22T22:40:00+09:00");
+		</script>
+		<style>/* 上部のAtCoderメニュー部の背景と赤線 */
+.navbar-inner {
+    background-color: #404040 !important;
+    background-image: none !important;
+}
+
+.navbar {
+    background-color: #404040 !important;
+    background-image: none !important;
+    border-bottom: solid 4px #400600 !important;
+}
+
+/* メニュー部と本文内のリンク色 */
+.nav-tabs a,
+#contest-statement a {
+    color: #400600 !important;
+}
+
+#contest-statement a {
+color: #337ab7 !important;
+}
+
+
+.mt-1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.row-eq-height {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.shadow_img{
+  box-shadow: 4px 8px 10px -5px rgba(0, 0, 0, 0.8);
+}</style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>エイシングプログラミングコンテスト2021（AtCoder Beginner Contest 202）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>エイシングプログラミングコンテスト2021（AtCoder Beginner Contest 202）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc202">エイシングプログラミングコンテスト2021（AtCoder Beginner Contest 202）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc202/editorial/1864?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc202/editorial/1864?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc202%2Feditorial%2F1864">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc202%2Feditorial%2F1864">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc202%2Feditorial%2F1864">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210522T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-05-22 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210522T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-05-22 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc202"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc202/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc202/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc202/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc202/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc202/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc202/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc202/tasks/abc202_e">E - Count Descendants</a> 解説
+			
+			<span class="small">by <a href="/users/KoD" class="username"><span class="user-red">KoD</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>根から深さ優先探索 (DFS) を行い、各頂点に入った時刻 <span>\(\mathrm{in}_u\)</span> と出た時刻 <span>\(\mathrm{out}_u\)</span> を記録します。入力例については以下のようになります。</p>
+
+<p><img src="https://img.atcoder.jp/ghi/abc202e_editorial_0.jpg" alt="example"/></p>
+
+<p>ここで、次が成り立つことが重要です。</p>
+
+<ul>
+<li><span>\(x\)</span> が <span>\(y\)</span> の子孫である <span>\(\Leftrightarrow \mathrm{in}_y \leq \mathrm{in}_x &lt; \mathrm{out}_y\)</span></li>
+</ul>
+
+<p>ただし、<span>\(x\)</span> が <span>\(y\)</span> の 子孫であるとは、<span>\(x\)</span> から根への最短パス上に <span>\(y\)</span> が存在することとします。</p>
+
+<p>「<span>\(x\)</span> が <span>\(y\)</span> の 子孫である <span>\(\Rightarrow \mathrm{in}_y  \leq \mathrm{in}_x &lt; \mathrm{out}_y\)</span>」は、DFS がどのように進行するかを考えれば明らかです。<span>\(x\)</span> が <span>\(y\)</span> の 子孫であるならば、<span>\(x\)</span> には <span>\(y\)</span> よりも後に入り、<span>\(x\)</span> を出た後に <span>\(y\)</span> を抜けます。よって、「<span>\(\mathrm{in}_y  \leq  \mathrm{in}_x &lt; \mathrm{out}_y\)</span> <span>\(\Rightarrow\)</span> <span>\(x\)</span> が <span>\(y\)</span> の 子孫である」を示せばよいです。</p>
+
+<p>対偶を示します。<span>\(x\)</span> が <span>\(y\)</span> の 子孫<strong>でない</strong>と仮定します。<span>\(y\)</span> が <span>\(x\)</span> の子孫であったとすると、<span>\(\mathrm{in}_x  \leq  \mathrm{in}_y &lt; \mathrm{out}_x\)</span> となり、<span>\(x \neq y\)</span> より <span>\(\mathrm{in}_x  \neq \mathrm{in}_y\)</span> であるので 「<span>\(\mathrm{in}_y \leq \mathrm{in}_x &lt; \mathrm{out}_y\)</span> <strong>でない</strong>」ことがわかります。以下では、<span>\(y\)</span> が <span>\(x\)</span> の子孫でないことも仮定します。</p>
+
+<p><span>\(x, y\)</span> の最小共通祖先 (LCA) を <span>\(z\)</span> とおきます。仮定より <span>\(x \neq z\)</span> かつ <span>\(y \neq z\)</span> です。</p>
+
+<p><span>\(z\)</span> の子であって、それを根とする部分木に <span>\(x\)</span> が含まれるものを <span>\(c_x\)</span> とおきます。<span>\(y\)</span> についても同様に <span>\(c_y\)</span> を定めます。ここで、<span>\(c_x \neq c_y\)</span> です。仮に <span>\(c_x = c_y\)</span> であったとすると、<span>\(z\)</span> が LCA であることに矛盾します。</p>
+
+<p><img src="https://img.atcoder.jp/ghi/abc202e_editorial_1.jpg" alt="explain"/></p>
+
+<p>DFS がどのように進行するか考えてみると、以下のいずれかが成り立つことが分かります。</p>
+
+<ul>
+<li><span>\(\mathrm{in}_{c_x} &lt; \mathrm{out}_{c_x}  &lt; \mathrm{in}_{c_y} &lt; \mathrm{out}_{c_y}\)</span></li>
+<li><span>\(\mathrm{in}_{c_y} &lt; \mathrm{out}_{c_y}  &lt; \mathrm{in}_{c_x} &lt; \mathrm{out}_{c_x}\)</span></li>
+</ul>
+
+<p>いずれの場合も、<span>\(x\)</span> が <span>\(c_x\)</span> の子孫であり、<span>\(y\)</span> が <span>\(c_y\)</span> の子孫であることを踏まえると、二つの区間 <span>\([\mathrm{in}_x, \mathrm{out}_x], [\mathrm{in}_y, \mathrm{out}_y]\)</span> は共通部分を持たないことがわかります。したがって、<span>\(\mathrm{in}_y \leq \mathrm{in}_x &lt; \mathrm{out}_y\)</span> <strong>でない</strong>ことが示せました。</p>
+
+<p>なお、以上の証明は、根付き木を括弧列に対応させて考えると直感的に理解することができます。</p>
+
+<p>示した性質を用いると、容易にこの問題を解くことができます。
+深さごとに、その深さの頂点の <span>\(\mathrm{in}\)</span> の値を昇順に保持しておきます。クエリ <span>\((U, D)\)</span> に対しては、深さ <span>\(D\)</span> に関して格納された値のうち、<span>\( \mathrm{in}_U\)</span> 以上 <span>\(\mathrm{out}_U\)</span> 未満の値の個数を答えればよいです。これは二分探索によって実現できます。C++ であれば、<code>std::lower_bound</code> などの関数を用いることができます。</p>
+
+<p>実装例 (C++) :</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+std::vector&lt;std::vector&lt;int&gt;&gt; children, list;
+std::vector&lt;int&gt; in, out, depth;
+int timer;
+
+void dfs(const int u) {
+    in[u] = timer++;
+    list[depth[u]].push_back(in[u]);
+    for (const int v : children[u]) {
+        depth[v] = depth[u] + 1;
+        dfs(v);
+    }
+    out[u] = timer++;
+}
+
+int main() {
+    int N;
+    std::cin &gt;&gt; N;
+    children = list = std::vector&lt;std::vector&lt;int&gt;&gt;(N);
+    in = out = depth = std::vector&lt;int&gt;(N);
+    for (int i = 1; i &lt; N; ++i) {
+        int p;
+        std::cin &gt;&gt; p;
+        children[p - 1].push_back(i);
+    }
+    dfs(0);
+    int Q;
+    std::cin &gt;&gt; Q;
+    while (Q--) {
+        int u, d;
+        std::cin &gt;&gt; u &gt;&gt; d;
+        u -= 1;
+        const auto&amp; v = list[d];
+        std::cout &lt;&lt; std::lower_bound(v.cbegin(), v.cend(), out[u]) - std::lower_bound(v.cbegin(), v.cend(), in[u]) &lt;&lt; &#39;\n&#39;;
+    }
+    return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1621406298">
+				<time class="timeago" datetime="2021/05/19 15:38:18"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1621508867">
+				<time class="timeago" datetime="2021/05/20 20:07:47"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc202/editorial/1864?lang=ja" data-a2a-title="解説 - エイシングプログラミングコンテスト2021（AtCoder Beginner Contest 202）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc202/rules">ルール</a></li>
+					<li><a href="/contests/abc202/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,14 @@
+作る数列を A1 , ..., A|A| とします。条件より X ≤ A1 であり、またすべての i に対し 2Ai ≤ Ai+1 となり
+ます。よって、Ai ≥ X × 2i−1 がわかります。
+逆に、Ai = X × 2i−1 とすれば、これは条件を満たします。すべての i に対し Ai の最小値を達成できてい
+るので、条件を満たす数列のうちこのようにして作られるもののみを考慮すればよく、時間計算量 O(log B
+A)
+でこの問題を解くことができます。
+
+Let A1 , ..., A|A| be the sequence. X ≤ A1 must be satisfied, and for each i, 2Ai ≤ Ai+1 must be
+satisfied. Thus, we get Ai ≥ X × 2i−1 .
+Therefore, the maximum length can be achieved when Ai = X × 2i−1 . (For all i, the lower bound of
+Ai is achieved by this sequence.)
+This solution works in O(log B
+A ) time.
+

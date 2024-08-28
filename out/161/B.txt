@@ -1,0 +1,31 @@
+1
+以上の票を獲得していれば YES、そうでなければ NO です。これ
+M 位の商品が総得票数の 4M
+
+は得票数順にソートすることで判定できます。
+1
+
+N, M = map(int,input().split())
+
+2
+
+A = list(map(int,input().split()))
+
+3
+
+1
+of the total number of votes, then
+If the M -th popular item is with more than or equal to 4M
+
+the answer is YES, otherwise the answer is NO. This can be checked by sorting in the order of
+votes received.
+1
+
+N, M = map(int,input().split())
+
+2
+
+A = list(map(int,input().split()))
+
+3
+

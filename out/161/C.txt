@@ -1,0 +1,22 @@
+x が K 以上のとき、操作を行うことで x − K となります。すなわち、N から N/K 回操作を行う
+ことで、整数は N を K で割った余りとなります。
+
+N を K で割った余りを t とします。t に操作を行うと、 K − t となります。K − t に操作を行う
+と、t に戻るだけです。すなわち K 以下の値として取りうるものは t と K − t のいずれかのみとな
+ります。
+よって答えは t と K − t のうち小さい方、すなわち N を K で割った余りと、K − (NをKで割っ
+た余り) のうち小さい方です。
+
+3
+
+If x is more than or equal to K, then by performing the operation it becomes x−K. Therefore,
+by applying the operation N/K times to N , the integer becomes the remainder of N divided by
+K.
+Let t be the remainder of t. When the operation is performed to t, it becomes K − t. When
+the operation is performed to K − t, it only goes back to t. Therefore, the possible value less
+than or equal to K are only either t or K − t.
+Therefore, the answer is the smaller of t and K − t, that is, the smaller of the remainder of N
+divided by K and K − (thedivisorof N dividedby K ).
+
+9
+

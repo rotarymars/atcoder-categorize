@@ -1,0 +1,108 @@
+K の値によって次のように 3 通りに場合分けすることで解けます。
+• K ≤ A のとき、高橋君は自分の持っているクッキーを K 枚食べます。
+• A < K ≤ A + B のとき、高橋君は最初の A 回の行動で自分の持っているクッキーを全て食
+べ、残りの K − A 回の行動で青木君の持っているクッキーを K − A 枚食べます。
+
+• A + B < K のとき、高橋君は最初の A 回の行動で自分の持っているクッキーを全て食べ、次
+の B 回の行動で青木君の持っているクッキーを全て食べます。
+
+C++ による実装例は以下の通りです。
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+long long a, b, k;
+
+6
+
+cin >> a >> b >> k;
+
+7
+8
+
+if(k <= a){
+
+9
+
+cout << a - k << '␣' << b <<endl;
+}else if(k <= a+b){
+cout << 0 << '␣' << b - (k-a) <<endl;
+}else{
+cout << 0 << '␣' << 0 <<endl;
+}
+
+10
+11
+12
+13
+14
+15
+
+}
+
+2
+
+You can divide into the following three cases depending on the value of K.
+• If K ≤ A, then Takahashi will eat K cookies he owns.
+• If A < K ≤ A + B, then Takahashi will eat all the cookies he own in the first A actions,
+and then K − A cookies of Aoki’s in the K − A actions left.
+• If A + B < K, then Takahashi will eat all the cookies he owns in the first A actions, and
+then eat all of Aoki’s cookies in the next B actions.
+The following is an implementation example in C++.
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+long long a, b, k;
+
+6
+
+cin >> a >> b >> k;
+
+7
+8
+
+if(k <= a){
+
+9
+
+cout << a - k << '␣' << b <<endl;
+}else if(k <= a+b){
+cout << 0 << '␣' << b - (k-a) <<endl;
+}else{
+cout << 0 << '␣' << 0 <<endl;
+}
+
+10
+11
+12
+13
+14
+15
+
+}
+
+8
+

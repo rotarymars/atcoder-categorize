@@ -1,0 +1,195 @@
+グラフの問題であるので隣接リストでグラフを表現するといった実装もありますが、今回はそれを
+用いない方法を紹介します。
+「展望台 i から一本の道を使って辿り着けるどんな展望台よりも展望台 i
+の方が標高が高い」ことは、「展望台 i から一本の道を使って辿り着ける展望台の標高の最大値より
+も展望台 i の標高が高い」ことと等しいです。このことを利用すると、展望台 i から一本の道を使っ
+て辿り着ける展望台の標高の最大値を求めることで答えを求めることができます。
+以下が、c++ のサンプルコードです。
+1
+
+#include<iostream>
+
+2
+
+#include<algorithm>
+
+3
+
+using namespace std;
+
+4
+
+#define N 100010
+
+5
+
+int main(){
+
+6
+
+int n,m,h[N],ma[N];
+
+7
+
+cin>>n>>m;
+
+8
+
+for(int i=1;i<=n;i++){
+cin>>h[i];
+
+9
+
+ma[i]=0;
+
+10
+11
+
+}
+
+12
+
+for(int i=0;i<m;i++){
+
+13
+
+int a,b;
+
+14
+
+cin>>a>>b;
+
+15
+
+ma[a]=max(ma[a],h[b]);
+ma[b]=max(ma[b],h[a]);
+
+16
+17
+
+}
+
+18
+
+int ans=0;
+
+19
+
+for(int i=1;i<=n;i++){
+
+20
+
+ans+=h[i]>ma[i];
+
+21
+
+}
+
+22
+
+cout<<ans<<endl;
+
+23
+
+}
+
+4
+
+Since this is a problem of a graph, an implementation of representing the graph with adjacency
+list, but this time we will introduce a way without them. That “the elevation of Obs. i is higher
+than those of all observatories that can be reached from Obs. i using just one road” is equivalent
+to that “the elevation of Obs. i is higher than the maximum elevation of observatories that
+can be reached from Obs. i using just one road.” Using this fact, you can ﬁnd the answer by
+calculating the maximum elevations of observatories that can be reached from Obs. i using just
+one road.
+The following is a sample code in C++.
+1
+
+#include<iostream>
+
+2
+
+#include<algorithm>
+
+3
+
+using namespace std;
+
+4
+
+#define N 100010
+
+5
+
+int main(){
+
+6
+
+int n,m,h[N],ma[N];
+
+7
+
+cin>>n>>m;
+
+8
+
+for(int i=1;i<=n;i++){
+cin>>h[i];
+
+9
+
+ma[i]=0;
+
+10
+11
+
+}
+
+12
+
+for(int i=0;i<m;i++){
+
+13
+
+int a,b;
+
+14
+
+cin>>a>>b;
+
+15
+
+ma[a]=max(ma[a],h[b]);
+ma[b]=max(ma[b],h[a]);
+
+16
+17
+
+}
+
+18
+
+int ans=0;
+
+19
+
+for(int i=1;i<=n;i++){
+
+20
+
+ans+=h[i]>ma[i];
+
+21
+
+}
+
+22
+
+cout<<ans<<endl;
+
+23
+
+}
+
+11
+

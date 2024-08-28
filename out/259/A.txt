@@ -1,0 +1,40 @@
+
+		公式
+		
+			
+				A - Growth Record 解説
+			
+			by  m_99
+			
+		
+		
+		
+		
+			プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice contest」(https://atcoder.jp/contests/practice/) の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。
+また、プログラミングコンテストの問題に慣れていない方は、「AtCoder Beginners Selection」(https://atcoder.jp/contests/abs) の問題をいくつか試すことをおすすめします。
+「競プロ典型 90 問」(https://atcoder.jp/contests/typical90) では、プログラミングコンテストで扱われる典型的な 90  問の問題に挑戦可能です。
+「C++入門 AtCoder Programming Guide for beginners (APG4b)」(https://atcoder.jp/contests/APG4b) は、競技プログラマー向けのC++入門用コンテンツです。
+
+
+
+\(X\) 歳から \(N\) 歳までに身長が変化していないと問題文に書かれています。これと \(N\) 歳の時の身長が \(T\) cmという記述を考えると、\(M\geq X\) の場合の答えは \(T\) となります。
+\(M \lt X\) の場合、身長が \(T\) cmに達しておらず、毎年 \(D\) cmずつ身長が伸びたという記述を元に \(M\) 歳の時の身長を逆算する必要があります。考え方は色々ありますが、\(X\) 歳から \(1\) 年遡るごとに身長が \(D\) cm縮むと考えた場合、求めたい値は \(T -  (X-M)\times D\) という式で表せます。
+以上の計算をし、答えを出力するプログラムは入出力・四則演算・条件分岐を用いて書くことが出来ます。以下、C++での実装例です。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

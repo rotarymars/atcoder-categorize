@@ -1,0 +1,56 @@
+右のマスから順に操作を選ぶことにすると、できるだけ高くしておいた方が後で選択肢が増えるので、
+
+• 何もしなくて良いなら何もしない
+• そうでなくて、右のマスよりもちょうど 1 高いなら 1 低くする
+• そうでないならどう頑張ってもダメなので答えは No
+を右から順に行い、うまく構成できれば Yes を出力することで O(N ) の計算時間で答えを求めることができ
+ます。また、同様の考え方で、左から順に行うこともできます。
+他の方法としては、i 番目までの高さの最大値を Mi としたときに、全ての i = 1, 2, ..., N について、
+
+Hi ≥ Mi − 1 が成り立てば Yes、そうでなければ No と判定することもできます。これは帰納法によって示
+すことができます。
+実際に「∀i.Hi ≥ Mi − 1 ⇔ 答えは Yes」を示してみます。
+
+⇐ は簡単です。対偶を取ると、示すべきは「∃i.Hi < Mi − 1 ⇒ 答えは No」なので、これは自明です*1 。
+⇒ は帰納法で示します。
+• N = 1 のときは必ず答えは Yes です。
+• N = N ′ + 1 のとき、仮定より i = 1, 2, ..., N ′ について条件を満たすので、帰納法の仮定より
+H1 , H2 , ..., HN ′ に対する解 (単調非減少にする操作の仕方) が存在します。この解への操作に上書きし
+て、Hi = MN となる i ∈ {1, 2, ..., N ′ } について 1 低くする選択肢を選ぶとしても H1 , H2 , ..., HN ′ に
+対する解となっていて、これに加えて HN については何もしない選択をすると H1 , H2 , ..., HN に対す
+る解が構成でき、Yes です。
+
+*1 Hi < Mi − 1 となる i を x とし、Hj = Mx となる j を y とします。すると、y < x かつ Hx ≤ Hy − 2 が成り立ちます。つ
+
+まりあるマスより右側のマスで、高さが 2 以上低いマスが存在するのでどう頑張ってもこの 2 マスに対する条件を満たすことがで
+きません。
+
+3
+
+Suppose that you choose the operation from right to left; then you will have more choices if you make
+them as high as possible, so by performing such operations that
+• if you don’t have to do anything, do nothing
+• otherwise, if it’s higher than the square by exactly one, decrease it by one
+• otherwise, you cannot achieve it no matter what you do, so the answer is No
+from left to right, and printing Yes if construction succeeded, the answer can be found in time complexity
+of O(N ). Similarly, you can perform it from left to right.
+As another solution, let Mi be the maximum of heights until i-th square, then it can be judged Yes if
+Hi ≥ Mi − 1 for all i = 1, 2, ..., N , and No otherwise. This can be proved recursively.
+Let’s prove that ”∀i.Hi ≥ Mi − 1 ⇔ the answer is Yes”.
+⇐ is easy. Its contraposition is that ”∃i.Hi < Mi − 1 ⇒ the answer is No”, so it’s obvious*1 .
+Let’s prove ⇒ inductively.
+• If N = 1, the answer is always Yes.
+• If N = N ′ + 1, since the proposition is true for i = 1, 2, ..., N ′ , there exist an solution (way of
+operations to make it non-decreasing) for H1 , H2 , ..., HN ′ . If you overwrite the solution so that
+you chose to decrease the height by 1 of the square i ∈ {1, 2, ..., N ′ } such that Hi = MN , it is
+still solution for H1 , H2 , ..., HN ′ , and in addition, if you choose to do nothing for HN , you can
+construct a solution for H1 , H2 , ..., HN , and it’s Yes.
+
+*1 Take one i such that Hi < Mi − 1, and let y be such j that Hj = Mx holds.
+
+Then y < x and Hx ≤ Hy − 2 holds.
+Therefore, there exist a square that the height of some square left to it is at least two units lower than that of the
+square, so there is no way to achieve the condition between those two squares.
+
+9
+

@@ -1,0 +1,26 @@
+1 回の移動で x 座標 +y 座標の値は 3 増えます。なので X+Y が 3 の倍数でないとき答えは 0 で
+す。
+
+3 の倍数のとき、(+1,+2) の移動の回数を n、(+2,+1) の移動の回数を m とすると、各座標の値から
+n + 2m = X, 2n + m = Y という連立方程式が得られ、n, m が求まります。n < 0 または m < 0 の
+とき答えは 0 です。
+そうでないとき、計 n + m 回の移動のうち、どの n 回で (+1,+2) の移動をするか決めればよいので、
+答えは n+m Cn です。
+この値は階乗とその逆元を計算することで O(n + m + log mod) で求める事ができます。工夫により
+
+O(min{n, m}) で求めることもできます。
+
+4
+
+In one move the value of x coordinate + y coordinate increases by 3. So if X+Y is not a
+multiple of 3, the answer is 0.
+If it’s a multiple of three, let n be the number of move (+1,+2), and m be the number of
+move (+2,+1), then by considering each coordinate we obtain simultaneous equations n + 2m =
+X, 2n + m = Y , so we can ﬁnd n, m. If n < 0 or m < 0, the answer is 0.
+Otherwise, you have to chose m moves, in which the knight will move (+1, +2), from a total of
+n + m moves, so the answer will be n+m Cn .
+You can calculate this value by using factorials and its inverse in a total of O(n + m + log mod)
+time. With more eﬀort it can be solved in a total of O(min{n, m}) time.
+
+10
+

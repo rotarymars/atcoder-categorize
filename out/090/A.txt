@@ -1,0 +1,18 @@
+c11 , c22 , c33 を順に出力すればよいです。
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+char a [ 1 0 ] [ 1 0 ] ;
+s c a n f (”% s%s%s ” , a [ 0 ] , a [ 1 ] , a [ 2 ] ) ;
+p r i n t f (”%c%c%c \n ” , a [ 0 ] [ 0 ] , a [ 1 ] [ 1 ] , a [ 2 ] [ 2 ] ) ;
+}
+
+Print c11 , c22 , c33 in this order.
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+char a [ 1 0 ] [ 1 0 ] ;
+s c a n f (”% s%s%s ” , a [ 0 ] , a [ 1 ] , a [ 2 ] ) ;
+p r i n t f (”%c%c%c \n ” , a [ 0 ] [ 0 ] , a [ 1 ] [ 1 ] , a [ 2 ] [ 2 ] ) ;
+}
+

@@ -1,0 +1,6 @@
+次図のようにマスを順序付けした上で，最初の a1 マスを色 1 で塗り，次の a2 マスを色 2 で塗り，…，最
+後の aN マスを色 N で塗ればよいです．
+
+We number the cells as follows. Then, we color the first a1 cells with color 1, the next a2 cells with
+color 2, and so on.
+

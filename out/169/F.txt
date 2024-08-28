@@ -1,0 +1,51 @@
+問題は以下のように言い換えることができます。
+
+
+
+
+
+{1, 2, . . . , N} の空でない部分集合 (T, U) の組であって以下の条件を満たすものは何通りありま
+すか？
+
+1. U は T の部分集合である
+
+
+2. U = {x1 , x2 , . . . , xk } とすると a x1 + a x2 + · · · + a xk = S
+
+
+
+このとき、各 i (1 ≤ i ≤ N) について、
+
+1. U にも T にも入れる
+2. T には入れるが U には入れない
+3. U にも T にも入れない
+の 3 つの選択肢があり、1 つめの選択肢を選んだときのみ和が ai だけ増えます。
+以上の考察により、
+
+d p[i][ j] = i 番目までの選択をして、1 つめの選択肢を選んだ k に対する ak の和が j であるような場合の数
+と定め、動的計画法を用いるとよいということがわかります。
+求めたい答えは d p[N][S ] であり、計算量は O(NS ) です。
+実装例: https://atcoder.jp/contests/abc169/submissions/13772481
+
+7
+
+The problem can be paraphrased as follows:
+How many pairs of sets (T, U) such that both are non-empty subsets of {1, 2, . . . , N} and also satisﬁes
+the conditions below?
+1. U is a subset of T
+2. Let U = {x1 , x2 , . . . , xk }, then a x1 + a x2 + · · · + a xk = S
+Then, for each i (1 ≤ i ≤ n), there are three options:
+1. put to both U and T
+2. put to T , but do not put to U
+3. do not put to both U and T
+and the sum increases by ai only if the ﬁrst option was chosen.
+By the observation above, it can be seen that performing Dynamic Programming with the following
+recurrence relations will do:
+d p[i][ j] = When the choices for the ﬁrst i options is already determined, the number of combination
+such that the sum of ak for each k that the ﬁrst option was chosen is equal to j
+The desired answer is d p[N][S ], and the total time complexity is O(NS ).
+Sample Code: https://atcoder.jp/contests/abc169/submissions/13772481
+
+14
+
+

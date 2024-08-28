@@ -1,0 +1,12 @@
+ゴールするまでに，元いたマスへ引き返すことをする必要はありません．すなわち，マス X からマス X −1, X −2, . . . , 0
+と進むか，X + 1, X + 2, . . . , N と進むかのいずれかです．この 2 パターンそれぞれについて，通る料金所の個数を数え，
+最小値を求めればよいです．
+
+• C++ による解答例: https://abc094.contest.atcoder.jp/submissions/2343740
+• Python による解答例: https://abc094.contest.atcoder.jp/submissions/2344333
+
+2
+
+• C++ example: https://abc094.contest.atcoder.jp/submissions/2343740
+• Python example: https://abc094.contest.atcoder.jp/submissions/2344333
+

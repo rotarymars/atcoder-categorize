@@ -1,0 +1,61 @@
+容器 1 にはあと A − B ミリリットルまで入れることができます。よって、容器 2 から移す水の量 (ミリ
+リットル) は A − B と C の小さい方になります。したがって、容器 2 に残る水の量は C − min(A − B, C)
+ミリリットルになります。C++ 言語での実装例を以下に示します。
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int A, B, C; cin >> A >> B >> C;
+7
+int cap = A - B;
+8
+int use = min(C, cap);
+9
+int ans = C - use;
+10
+cout << ans;
+11 }
+5
+6
+
+1
+
+We can put at most A − B milliliters of water into Bottle 1. Therefore, the amount of water that we
+will transfer from Bottle 2 would be the smaller of A − B and C(milliliters). Therefore, the amount of
+water that remains in Bottle 2 would be C − min(A − B, C). The following is an implementation example
+in C++.
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int A, B, C; cin >> A >> B >> C;
+7
+int cap = A - B;
+8
+int use = min(C, cap);
+9
+int ans = C - use;
+10
+cout << ans;
+11 }
+5
+6
+
+7
+

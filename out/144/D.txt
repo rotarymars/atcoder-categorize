@@ -1,0 +1,58 @@
+解法 1
+水筒を θ 傾けた際に水が溢れるか否かには明らかに単調性がありますから、二分法により解を求め
+ることが出来ます。
+水筒を θ 傾けた際に水筒の中に存在出来る水量 f (a, b, θ) を計算し、x と比較することにより、解の
+範囲を狭めることが出来ます。
+ただし、f (a, b, θ) の計算では、場合分けが必要であることに注意してください。
+具体的な計算式については、以下の解答例コードをご確認ください。
+
+C++ による解答例:https://atcoder.jp/contests/abc144/submissions/8133803
+立式に際しては、以下の図が役に立ちます。
+
+図1
+
+b tan (π/2 − θ) ≤ a のとき
+
+4
+
+図2
+
+b tan (π/2 − θ) > a のとき
+
+解法 2
+更に計算を進めると、答えを直接計算することが出来ます。
+こちらも a, b, x の値に応じて場合分けが必要であることに注意してください。
+具体的な計算式については、以下の解答例コードをご確認ください。
+
+C++ による解答例:https://atcoder.jp/contests/abc144/submissions/8133804
+
+5
+
+Solution 1
+Whether the water will be spilled or not when the bottle is tiled θ degrees is apparently
+monotonic, so the answer can be found by binary searching.
+By calculating f (a, b, θ), the maximum volume of water that can be inside the bottle when the
+bottle is tiled θ degrees, and comparing with x, you can narrow the range of solution.
+Note that when calculating f (a, b, θ) you have to divide into cases.
+For the specific formula, please refer to the following sample code.
+Sample answer in C++:https://atcoder.jp/contests/abc144/submissions/8133803
+The following figures help you understand.
+
+図3
+
+When b tan (π/2 − θ) ≤ a
+
+11
+
+図4
+
+When b tan (π/2 − θ) > a
+
+Solution 2
+If you calculate further, you can directly calculate the answer.
+Again, note that you need to divide into cases depending on the value of a, b, x.
+For the specific formula, please refer to the following sample code.
+Sample answer in C++:https://atcoder.jp/contests/abc144/submissions/8133804
+
+12
+

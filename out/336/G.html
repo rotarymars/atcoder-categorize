@@ -1,0 +1,416 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 336</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 336" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc336/editorial/9060" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 336" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc336";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2024-01-14T21:00:00+09:00");
+			var endTime = moment("2024-01-14T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 336が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 336は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc336">AtCoder Beginner Contest 336</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc336/editorial/9060?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc336/editorial/9060?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc336%2Feditorial%2F9060">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc336%2Feditorial%2F9060">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc336%2Feditorial%2F9060">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240114T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-01-14 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240114T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-01-14 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc336"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc336/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc336/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc336/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc336/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc336/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc336/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc336/tasks/abc336_g">G - 16 Integers</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<h3>オイラー路の数え上げへの帰着</h3>
+
+<p>はじめに、この問題をグラフの問題に帰着させることを考えます。<br>
+自然なグラフへの帰着方法として「頂点に <span>\((0,0,0,0), \dots, (1,1,1,1)\)</span> のラベルを張った <span>\(16\)</span> 頂点のグラフを作り辺を適切に張って、頂点 <span>\((i,j,k,l)\)</span> を通る回数が <span>\(X_{i,j,k,l}\)</span> 回であるようなパスを数え上げる」というものが考えられますが、この言い換え先はおそらく効率的に数えられず次数の総和の指数時間かかってしまうと思います。<br>
+そこで少し工夫して、以下の手順で <span>\(8\)</span> 頂点 <span>\(N\)</span> 辺のグラフ <span>\(G\)</span> を構築します。</p>
+
+<ul>
+<li>頂点に <span>\((0, 0, 0), \dots, (1, 1, 1)\)</span> のラベルを張る。</li>
+<li>全ての <span>\((i,j,k,l)\)</span> について、 <span>\((i, j, k)\)</span> から <span>\((j, k, l)\)</span> に向けて辺を <span>\(X_{i,j,k,l}\)</span> 本張る。</li>
+</ul>
+
+<p>このとき、条件を満たす <span>\(1\)</span> つの数列は、グラフ上の全ての辺を経由する経路と一対一対応することが確認できます。つまり、与えられた問題を有向グラフのオイラー路を数え上げる問題に帰着することができました。</p>
+
+<p>オイラー路の数え上げは始点・終点を全探索すればオイラー閉路の数え上げに帰着できるので、オイラー閉路の数え上げが高速に計算できればよいです。次章ではオイラー閉路の数え上げを頂点数に関する多項式時間で計算する方法を説明します。</p>
+
+<h3>有向グラフに含まれるオイラー閉路の数え上げ</h3>
+
+<p><span>\(G\)</span> を多重辺・自己ループを認める有向グラフとします。<span>\(G\)</span> の全ての辺は区別できます。<br>
+<span>\(G\)</span> がオイラー閉路を持つ必要十分条件は「<span>\(G\)</span> が連結かつ全ての頂点の入次数と出次数が等しい」ことです。このようなグラフをオイラーグラフと呼びます。以下では <span>\(G\)</span> はオイラーグラフであるとします。このとき、<span>\(G\)</span> に関して次の定理が成り立ちます。</p>
+
+<blockquote>
+<h4><strong>BEST 定理 (BEST theorem)</strong></h4>
+
+<p>オイラーグラフ <span>\(G\)</span> に含まれるオイラー閉路の個数は次の式で表せる。</p>
+<p><span>\[c(G, v) \cdot \prod_{w \in V} (\mathrm{outdeg}(w) - 1)!\]</span></p><p>ここで <span>\(c(G, v)\)</span> は頂点 <span>\(v\)</span> を根とする有向全域木(全ての辺が根の方を向いている全域木) の個数 (実は <span>\(c(G,v)\)</span> の値は <span>\(v\)</span> によらず一定なので <span>\(v\)</span> は任意にとって良い)、<span>\(V\)</span> は <span>\(G\)</span> の頂点集合、<span>\(\mathrm{outdeg}(w)\)</span> は頂点 <span>\(w\)</span> の出次数である。</p>
+</blockquote>
+
+<p>(証明) <span>\(v\)</span> を始点とする辺 <span>\(e\)</span> を 1 つ選び、全てのオイラー閉路は <span>\(e\)</span> から順に辿るとみなして考えます。<br>
+オイラー閉路を 1 つ取ってきて <span>\(C\)</span> とします。<span>\(C\)</span> において頂点 <span>\(w\)</span> (<span>\(w \neq v\)</span>) を最後に出る時に使用する辺を <span>\(e_w\)</span> とすると、<span>\(T = \lbrace e_w \vert w \neq v \rbrace\)</span> は有向全域木になります。</p>
+
+<ul>
+<li><span>\(T\)</span> が有向全域木にならないならば、<span>\(T\)</span> には回路 (同じ頂点を複数回通ってもよい閉路) が含まれることになります。一方、<span>\(e_w\)</span> の条件から、<span>\(T\)</span> に含まれる <span>\(2\)</span> 本の辺 <span>\(e_1, e_2\)</span> が <span>\((e_1 の終点) = (e_2 の始点)\)</span> となるとき、<span>\(e_1\)</span> を通った後に <span>\(e_2\)</span> が使用されたことがわかります。よって矛盾が発生します。</li>
+</ul>
+
+<p>また、<span>\(G\)</span> の辺集合 <span>\(E\)</span> から <span>\(e\)</span> および <span>\(e_w\)</span> を全て取り除いた辺集合を <span>\(E&#39;\)</span> として、<span>\(P_i\)</span> を「<span>\(E&#39;\)</span> に含まれる辺のうち <span>\(i\)</span> を始点とするものを、オイラー閉路で辿る順に並べて出来る列」とします。定義より、<span>\(C\)</span> から <span>\(T\)</span> および <span>\(P_1, P_2, \dots, P_{|V|}\)</span> を一意に得ることが出来ます。</p>
+
+<p>逆に、<span>\(T\)</span> および <span>\(P_1, P_2, \dots, P_{|V|}\)</span> を 1 つ自由に選んだとします。このとき、はじめに <span>\(e\)</span> を通った後に「今 <span>\(i\)</span> にいるとする。<span>\(P_i\)</span> に使われていない辺があれば、そのような辺のうち最も先頭にあるものを使用する。そうでない場合は <span>\(T\)</span> に含まれる辺を使用する」というルールによって辺を辿っていくことで、オイラー閉路 <span>\(C\)</span> を 1 つ得ることが出来ます。</p>
+
+<ul>
+<li>もしこの手順でオイラー閉路が作れないと仮定します。このとき、手順に従って辺を辿っていくとオイラー閉路をなす前にある頂点で出る辺が無くなりこれ以上進めなくなることになりますが、実はこの「ある頂点」は <span>\(v\)</span> であることが確認できます。  (各頂点の入次数と出次数が等しいため、 <span>\(v\)</span> 以外の頂点で出る辺が無くなることはあり得ないため) また、<span>\(v\)</span> を出入りする辺も全て使い切っていることが <span>\(v\)</span> の出次数と入次数が等しいことからわかります。このとき、辿ってできた回路に登場する辺を <span>\(G\)</span> から取り除くとグラフは 1 個以上の <span>\(v\)</span> を含まないオイラーグラフ + いくつかの孤立点に分割されるので、オイラーグラフを 1 つ取り <span>\(G&#39;\)</span> とします。このとき、辺を選ぶ順番のルールにより、<span>\(T\)</span> のうち <span>\(G&#39;\)</span> に含まれる頂点を始点とする辺は全て <span>\(G&#39;\)</span> に含まれる必要があります。すると、<span>\(G&#39;\)</span> に含まれる頂点から <span>\(G&#39;\)</span> に含まれない頂点へ張られた辺は <span>\(T\)</span> に存在しないことになり、<span>\(T\)</span> は <span>\(v\)</span> を根とする有向全域木という仮定と矛盾します。</li>
+</ul>
+
+<p>よって、<span>\(C\)</span> と <span>\(T, P_1, P_2, \dots, P_{|V|}\)</span> の間に全単射を構成できるため、<span>\(C\)</span> の個数は <span>\(T, P_1, P_2, \dots, P_{|V|}\)</span> の個数と一致します。よって示されました。(証明終わり)</p>
+
+<p>この証明によって、オイラーグラフにおいて <span>\(v\)</span> を根とする有向全域木の個数 <span>\(c(G, v)\)</span> は <span>\(v\)</span> によらず一定であることも確認できています。<br>
+また、<span>\(c(G, v)\)</span> は、<span>\(G\)</span> の自己ループを取り除いた後に次の定理によって通常の全域木の数え上げと同様に行列式の計算に帰着できます。</p>
+
+<blockquote>
+<h4>有向行列木定理(Directed Matrix-tree Theorem)</h4>
+
+<p><span>\(G\)</span> を自己ループを含まない有向グラフとする。有向ラプラシアン行列 <span>\(L(G)\)</span> を</p>
+<p><span>\[L_{u,v} =
+\begin{cases}
+-(u\text{ から }v\text{ へ向かう辺の本数}) &amp; \text{if }u \neq v \\
+\mathrm{outdeg}(u) &amp; \text{otherwise}
+\end{cases}
+\]</span></p><p>と定義する。このとき、</p>
+<p><span>\[c(G, v) = \det L_v(G)\]</span></p><p>が成り立つ。ただし <span>\(L_v(G)\)</span> は <span>\(L(G)\)</span> から <span>\(v\)</span> 行目と <span>\(v\)</span> 列目を取り除いて出来る行列である。</p>
+</blockquote>
+
+<p>(証明) 帰納的に証明します。
+<span>\(G\)</span> の頂点数が <span>\(2\)</span> の場合は実際に有向ラプラシアン行列を作って行列式を計算すれば正しいことが確認できます。<br>
+<span>\(G\)</span> の頂点数が <span>\(3\)</span> 以上の場合を考えます。<span>\(u \neq v\)</span> である頂点 <span>\(u\)</span> 、および <span>\(u\)</span> を始点とする辺 <span>\(e\)</span> を <span>\(1\)</span> 本選びます。
+<span>\(u\)</span> の出次数が <span>\(1\)</span> の場合は、<span>\(G\)</span> から辺 <span>\(e\)</span> を縮約したグラフを <span>\(G&#39;\)</span> としたときに <span>\(\det L_v(G) = \det L_v(G&#39;)\)</span> となることが確認できます。(行列式を丁寧に変形すると示せます、詳細は略します)<br>
+<span>\(u\)</span> の出次数が <span>\(2\)</span> 以上の場合を考えます。<span>\(G_1\)</span> を <span>\(G\)</span> から <span>\(e\)</span> を取り除いたグラフ、<span>\(G_2\)</span> を <span>\(G\)</span> から <span>\(u\)</span> を始点とする辺を <span>\(e\)</span> 以外全て取り除いたグラフとします。</p>
+<p><span>\[c(G, v) = c(G_1, v) + c(G_2, v) = \det L_v(G_1) + \det L_v(G_2)\]</span></p><p>ここで <span>\(L_v(G_1)\)</span> と <span>\(L_v(G_2)\)</span> を比較すると、<span>\(u\)</span> 行目以外は全て一致していて、<span>\(L_v(G_1)\)</span> と <span>\(L_v(G_2)\)</span> の <span>\(u\)</span> 行目の和は <span>\(L_v(G)\)</span> の <span>\(u\)</span> 行目と一致しています。よって</p>
+<p><span>\[\det L_v(G_1) + \det L_v(G_2) = \det L_v(G)\]</span></p><p>が成り立ちます。よって、<span>\(G\)</span> より辺数の少ないグラフの行列木定理に帰着できるため、帰納法による証明が完了しました。(証明終わり)</p>
+
+<p>以上の定理を利用すればオイラー閉路の数え上げを頂点数に関する多項式時間で計算することが出来ます。
+よって、これを利用することで元の問題を解くことが出来ます。(元の問題では多重辺同士が区別できない設定ですが、多重辺を同一視する分を階乗で割れば問題ないです。)<br>
+計算量は自然な実装で (グラフの頂点数を <span>\(B = 8\)</span> として)  <span>\(\mathrm{O}(B^4 + N)\)</span> 程度(行列式の計算 <span>\(\mathrm{O}(B^3)\)</span> が高々 <span>\(B\)</span>  回) となり十分高速です。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1704794903">
+				<time class="timeago" datetime="2024/01/09 19:08:23"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1705310961">
+				<time class="timeago" datetime="2024/01/15 18:29:21"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc336/editorial/9060?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 336">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc336/rules">ルール</a></li>
+					<li><a href="/contests/abc336/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

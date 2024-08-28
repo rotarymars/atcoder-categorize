@@ -1,0 +1,451 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - デンソークリエイトプログラミングコンテスト2022 Winter(AtCoder Beginner Contest 280)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - デンソークリエイトプログラミングコンテスト2022 Winter(AtCoder Beginner Contest 280)" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc280/editorial/5331" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - デンソークリエイトプログラミングコンテスト2022 Winter(AtCoder Beginner Contest 280)" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc280";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-12-03T21:00:00+09:00");
+			var endTime = moment("2022-12-03T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>デンソークリエイトプログラミングコンテスト2022 Winter(AtCoder Beginner Contest 280)が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>デンソークリエイトプログラミングコンテスト2022 Winter(AtCoder Beginner Contest 280)は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc280">デンソークリエイトプログラミングコンテスト2022 Winter(AtCoder Beginner Contest 280)</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc280/editorial/5331?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc280/editorial/5331?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc280%2Feditorial%2F5331">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc280%2Feditorial%2F5331">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc280%2Feditorial%2F5331">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221203T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-12-03 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221203T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-12-03 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc280"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc280/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc280/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc280/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc280/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc280/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc280/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc280/tasks/abc280_e">E - Critical Hit</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-4.png" class="user-rating-stage-m"><a href="/users/mechanicalpenciI" class="username"><span class="user-orange">mechanicalpenciI</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<h4>解法 1-a. 期待値の差分に注目する解法</h4>
+
+<p>以下では、<span>\(X\)</span> だけ体力を減らす事を <span>\(X\)</span> だけダメージを与えたとよぶ事にし、与えたダメージの総和が <span>\(k\)</span> 以上となるまでに必要な攻撃回数の期待値を <span>\(a_k\)</span> で定義します。<br>
+例を挙げると、 <span>\(a_0=0\)</span>, <span>\(a_1=1\)</span>, <span>\(a_2=2-\frac{p}{100}\)</span> となります。</p>
+
+<p>また、この期待値を考える上で高橋君は <span>\(N\)</span> 以上ダメージを与えた後も攻撃を止める事はないとしても問題ないため、以下ではそのように考えます。
+求めたいのものは <span>\(a_N\)</span> です。</p>
+
+<p>まず、<span>\(a_{i+1}-a_i\)</span> について考えます。高橋君の各攻撃におけるダメージ与え方の列それぞれについて、ダメージの総和が <span>\(i\)</span> 以上となるまでに必要な攻撃回数と、 <span>\(i+1\)</span> 以上となるまでに必要な攻撃回数では、両者は等しいか、後者が <span>\(1\)</span> 大きいかのどちらかです。
+よって、後者が<span>\(1\)</span> 大きくなる確率を <span>\(p_i\)</span> とすると、<span>\(a_{i+1}=a_{i}+p_i\)</span> として書く事ができます。</p>
+
+<p>ここで、与えたダメージの総和は狭義単調増加となることから、後者が<span>\(1\)</span> 大きくなる事は与えたダメージの総和がちょうど <span>\(i\)</span> になるタイミングが存在する事と同値なため、そのような確率と言い換える事ができます。さらに, その余事象(与えたダメージの総和がちょうど <span>\(i\)</span> になるタイミングが存在しない場合)としてあり得るのは、あるタイミングでダメージの総和がちょうど <span>\(i-1\)</span> になり、その次の攻撃でダメージを <span>\(2\)</span> 与えたような場合しかあり得ないため、<span>\(p_i\)</span> は <span>\(p_{i-1}\)</span> を用いて、
+<span>\(p_i=1-p_{i-1}\times \frac{P}{100}\cdots ①\)</span> と書く事ができます。</p>
+
+<p><span>\(p_0=1\)</span> であることに注意すると、①を繰り返し用いて帰納的に <span>\(p_i\)</span> の値を求めることができます。<br>
+<span>\(a_N=a_{N-1}+p_{N-1}=\cdots=a_0+\displaystyle\sum_{i=0}^{N-1}p_i=\displaystyle\sum_{i=0}^{N-1}p_i\)</span> であるので、答えはこれらの累積和として求める事ができます。</p>
+
+<p><span>\(\text{mod }998244353\)</span> における計算については、modint を用いるか、<span>\(100\)</span> の逆元、すなわち<span>\(100R\equiv 1 \pmod{998244353}\)</span> となる整数 <span>\(R\)</span> を用いて、<span>\(p_i\equiv1-p_{i-1}\times PR \pmod{998244353}\)</span> と書き直せば、答えを得る事ができます。</p>
+
+<p>計算量は <span>\(O(N)\)</span> であり、十分高速に答えを得る事ができました。
+なお、漸化式の答えを、繰り返し二乗法あるいは一般項を求める事によって得ることで <span>\(O(\log N)\)</span> で解く事ができます。</p>
+
+<h4>解法 1-b.  問題, あるいは期待値を言い換える解法</h4>
+
+<p>この問題は、次の問題に言い換える事ができます。</p>
+
+<ul>
+<li>マス<span>\(0,1,2,\ldots,N,\ldots \)</span> が左右一列に並んでおり、最初、マス <span>\(0\)</span> にコマが置かれている。</li>
+<li>マス <span>\(i\)</span> にコマが置かれているとき、<span>\(1\)</span> ターンでは <span>\(\frac{P}{100}\)</span> の確率で マス <span>\((i+2)\)</span> に動かし、<span>\(1-\frac{P}{100}\)</span> の確率でマス <span>\((i+1)\)</span> に動かす。</li>
+<li>マス <span>\(N\)</span> 以降のマスにコマが置かれるまでにかかるターン数の期待値を求めよ。</li>
+</ul>
+
+<p>この時、マス <span>\(N\)</span> 以降のマスにコマが置かれるまでにかかったターン数はマス <span>\(1,2,\ldots, N-1\)</span> のうち止まった事のあるマスの数に <span>\(1\)</span> を足したものと一致します。便宜上、最初にマス <span>\(0\)</span> に止まっていたとすると、これはマス <span>\(0, 1,2,\ldots, N-1\)</span> のうち止まった事のあるマスの期待値であり、各マスについてマス <span>\(i\)</span> に止まる確率を <span>\(p&#39;_i\)</span> とすると、<span>\(\displaystyle\sum_{i=0}^{N-1}p&#39;_i\)</span>として書く事ができます。
+この <span>\(p&#39;_i\)</span> は1-a の方針における <span>\(p_i\)</span> と一致し, 以降の計算については同様であるため、省略します。</p>
+
+<h4>解法 2 . 攻撃回数ごとに確率を求め、直接的に期待値を求める方法</h4>
+
+<p>高橋君が <span>\(K\)</span> 回で攻撃を止めるパターンについては次の <span>\(2\)</span> 通りが考えられます。</p>
+
+<ol>
+<li><span>\(K\)</span> 回目の攻撃でモンスターの体力が <span>\(0\)</span> となった。</li>
+<li><span>\(K-1\)</span> 回目の攻撃でモンスターの体力が <span>\(1\)</span> となり、 <span>\(K\)</span> 回目の攻撃で <span>\(-1\)</span> となった。</li>
+</ol>
+
+<p><span>\(K\)</span> としてあり得るのは、前者が <span>\(\left\lceil\frac{N}{2}\right\rceil\leq K \leq N\)</span> 、後者が <span>\(\left\lceil\frac{N+1}{2}\right\rceil\leq K \leq N\)</span> の範囲となります。</p>
+
+<p>前者では <span>\(N-K\)</span> 回だけ体力を <span>\(2\)</span> 減らし、 <span>\(2K-N\)</span> 回だけ体力を <span>\(1\)</span> 減らしているため、そのような事が起きる確率は
+ <span>\({}_{K}C_{N-K}\times\left(\frac{P}{100} \right)^{N-K}\left(1-\frac{P}{100} \right)^{2K-N}\)</span> であり、<br>
+後者では<span>\(N-K\)</span> 回だけ体力を <span>\(2\)</span> 減らし、 <span>\(2K-N-1\)</span> 回だけ体力を <span>\(1\)</span> 減らした後最後に体力を <span>\(2\)</span> 減らしているめ、そのような事が起きる確率は
+ <span>\({}_{K-1}C_{N-K}\times\left(\frac{P}{100} \right)^{N-K+1}\left(1-\frac{P}{100} \right)^{2K-N-1}\)</span> となります。</p>
+
+<p>これらの確率は、
+<span>\(0\leq m\leq N\)</span> について、<span>\(m! \text{ mod } 998244353\)</span> を前計算しておく事によって、それぞれ <span>\(O(1)\)</span> で計算する事ができます。
+あとは <span>\(K\times\)</span> (確率) を足し合わせることで期待値を得る事ができます。
+前計算に <span>\(O(N)\)</span>, その後に <span>\(O(N)\)</span> という事でこの方針でも全体で <span>\(O(N)\)</span>  で解くことができました。</p>
+
+<p>c++ による実装例(方針1):</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#include &lt;atcoder/modint&gt;
+using namespace std;
+using namespace atcoder;
+
+using mint = modint998244353;
+
+int main() {
+	int n,p;
+	mint x=1, ans=1;
+	cin &gt;&gt; n &gt;&gt; p;
+	for(int i=1;i&lt;n;i++){
+		x=mint(1)-x*mint(p)/mint(100);
+		ans+=x;
+	}
+	cout &lt;&lt; ans.val() &lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+
+<p>c++ による実装例(方針2):</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#include &lt;atcoder/modint&gt;
+using namespace std;
+using namespace atcoder;
+
+using mint = modint998244353;
+
+int main() {
+	int n,p;
+	cin &gt;&gt; n &gt;&gt; p;
+
+	mint P=mint(p)/mint(100), Q=mint(1)-P;
+
+	vector&lt;mint&gt;fact(n+1);
+	fact[0]=mint(1);
+	for(int i=1; i&lt;=n; i++)fact[i]=fact[i-1]*mint(i);
+
+	mint ans=0;
+	for(int k=1;k&lt;=n;k++){
+		if(k&gt;=(n-k))ans+=mint(k)*fact[k]/(fact[n-k]*fact[2*k-n])*P.pow(n-k)*Q.pow(2*k-n);
+		if((k-1)&gt;=(n-k))ans+=mint(k)*fact[k-1]/(fact[n-k]*fact[2*k-n-1])*P.pow(n-k+1)*Q.pow(2*k-n-1);		
+	}
+	cout &lt;&lt; ans.val() &lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1669974725">
+				<time class="timeago" datetime="2022/12/02 18:52:05"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1670064897">
+				<time class="timeago" datetime="2022/12/03 19:54:57"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc280/editorial/5331?lang=ja" data-a2a-title="解説 - デンソークリエイトプログラミングコンテスト2022 Winter(AtCoder Beginner Contest 280)">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc280/rules">ルール</a></li>
+					<li><a href="/contests/abc280/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,22 @@
+「小文字を大文字にする」という操作は、ライブラリ関数を用いるか、ASCII 文字コードで大文字や小文字
+は連続して配置されていることを利用して文字コードの差を足し算して求めることもできます。
+C++ のコード例
+
+int main (){
+string a , b , c ;
+cin >> a >> b >> c ;
+char dif = ’A ’ - ’a ’;
+printf ("% c % c % c \ n " , a [0] + dif , b [0] + dif , c [0] + dif );
+return 0;
+}
+
+C++ Code
+
+int main (){
+string a , b , c ;
+cin >> a >> b >> c ;
+char dif = ’A ’ - ’a ’;
+printf ("% c % c % c \ n " , a [0] + dif , b [0] + dif , c [0] + dif );
+return 0;
+}
+

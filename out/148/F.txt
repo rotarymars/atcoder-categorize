@@ -1,0 +1,31 @@
+高橋君が最初の行動で青木君のいる頂点にしか移動できないとき答えは 0 です。そうでないときを
+考えます。
+青木君が最初にいる頂点を根とします。高橋君と青木君はすれ違うことができないので、ゲームが終
+了するのは高橋君が”行き止まり”に追い詰められたときです (そうでない場合、高橋君は葉の方へ逃
+げることでゲームを引き延ばせます)。よって、ゲームが終了する直前は「高橋君が葉 x、青木君が x
+の親の親にいる」という状況になり、その後 2 人が 1 度ずつ行動し、ともに x の親にいる状況でゲー
+ムが終了します。
+青木君は常に最短距離で高橋君を追い詰めることができるので、青木君の移動回数は高橋君がどの葉
+で追い詰められたかのみに依存します。したがって高橋君は追い詰められる場所として、「高橋君が
+青木君より先に到達することができるような葉のうち、青木君から最も遠いもの」を選択するのが最
+善となります。これは頂点 u, v からの距離をそれぞれ DFS や BFS などによって計算することで求
+めることができ、計算量は O(N ) です。
+
+7
+
+If Takahashi can only move to the vertex where Aoki is standing for the ﬁrst turn, then the
+answer is 0. Let’s consider the other cases.
+Let the vertex where Aoki is initially standing be the root. Since Takahashi and Aoki cannot
+pass each other, the game ends when Takahashi is cornered into a ”dead end” (or otherwise,
+Takahashi can extend the game by escaping in the direction of leaves). Therefore, right before
+the game ends, ”Takahashi is on a leaf x and Aoki is on the parent of the parent of x,” and soon
+after that they move once each to the parent of x, when the game ends.
+Since Aoki can always take the shortest path to corner Takahashi, so the number of moves Aoki
+performs always depend on which leaf Takahashi will be cornered into. Therefore, the optimal
+choice of vertex that Takahashi will be cornered into is ”the furthest vertex from Aoki which
+Takahashi can reach before Aoki can.” This can be obtained by calculating the distance from u
+and v by DFS or BFS, and the time complexity is O(N ).
+
+14
+
+

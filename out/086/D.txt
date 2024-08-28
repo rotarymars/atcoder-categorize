@@ -1,0 +1,28 @@
+マス (x, y) が白 と マス (x, y + K) が黒 は同値なので、(x, y,′ W ′ ) という入力を (x, y + K,′ B ′ ) に置き換
+えても条件は同じです。これで入力の ci を全て’B’ に変換することが出来ます。
+マス (x, y) の色とマス (x, y + 2K), (x + 2K, y) の色は一致します。なので、入力の x, y を x%2K, y%2K
+で置き換えても答えは変わりません。すると 0 ≤ x, y < 2K と変換することが出来ます。
+市松模様の黒い部分の左下のマスのうちひとつを定めるとマスの塗られ方全体が定まります。ここで、定め
+るマスは [0, 2K) × [0, 2K) の中にあると仮定して問題ありません (なぜなら、どんな市松の塗られ方でも黒い
+部分の左下のマスのうちひとつはこの中にあるため)。なので、左下マスを (2K)2 すべて試すと、左下を決め
+れば各条件が満たされるかどうかは O(1) で判定できるので、全体で O(N K 2 ) になります。
+ここから計算量を落とすには、条件 i を満たせるような左下マスの集合が K ∗ K の正方形区間のようになっ
+ていることに着目して、その範囲に +1 を足し、全体での max を取ります。ただし毎回範囲に +1 をしてい
+ては遅いので、差分を取って左下と右上に +1, 左上と右下に −1 を足しておき、あとで累積和を取ることで
+
+O(N + K 2 ) で同じことが可能です。
+
+The cell (x, y) is white iﬀ the cell (x, y + K) is black. Thus, we can replace a query (x, y,′ W ′ ) with
+(x, y + K,′ B ′ ). Assume that all ci are ’B’s.
+The colors of (x, y) and (x, y + 2K), (x + 2K, y) are same. Thus, we can replace a query (x, y,′ B ′ ) with
+(x%2K, y%2K,′ B ′ ). Assume that 0 ≤ x, y < 2K for all queries.
+If we fix a black cell at the lower-left corner of a K × K block, we can uniquely determine the colors
+of all cells. Here, we can assume that the black cell is inside [0, 2K) × [0, 2K). Therefore, by trying
+all (2K)2 possibilities, and by checking the colors of all N cells that appear in the queries, we get an
+O(N K 2 ) solution.
+To make it faster, after we fix the black cell at the corner, we should compute the number of queried
+cells inside certain rectangles in O(1). This can be done by pre-computing rectangle sums. Now the
+solution becomes O(N + K 2 ).
+
+2
+

@@ -1,0 +1,74 @@
+3 ∗ r ∗ r を出力すればよいです。以下が C++ のサンプルコードです。
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main() {
+int R;cin>>R;
+
+5
+6
+
+int area=R * R * 3;
+
+7
+8
+
+cout<<area<<endl;
+
+9
+10
+
+return 0;
+
+11
+12
+
+}
+
+1
+
+You can print 3 ∗ r ∗ r. The following is the C++ sample code.
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main() {
+int R;cin>>R;
+
+5
+6
+
+int area=R * R * 3;
+
+7
+8
+
+cout<<area<<endl;
+
+9
+10
+
+return 0;
+
+11
+12
+
+}
+
+7
+

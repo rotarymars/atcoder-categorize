@@ -1,0 +1,305 @@
+今回の条件は以下のように言い換えられます。
+
+• 全ての頂点に対して、以下の条件が成り立つ。
+– 頂点の色と、それと直接辺で繋がっている全ての頂点の色は、それぞれ異なる。
+頂点 0 を根とする根付き木として考えます。すると、以下が成り立つことが分かります。
+
+• ある頂点 x とその親が既に塗られているとき、x の子の数を cx とすると、x の子の塗り分け方は
+K−2 Pcx 通りである。
+
+よって、頂点 0 から DFS 的に色を塗っていくことで、木の塗り分け方の総数を求めることができます。頂
+点 0 には親がないことに注意して下さい。
+以下が、サンプルコードです。
+
+#include<iostream>
+2 #include<vector>
+3 using namespace std;
+1
+
+4
+5
+
+const long long int mod=1e9+7;
+
+6
+7
+8
+
+long long int dfs(int K,const vector<vector<int>>&graph, int now,int from) {
+
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+
+int can_use_color_num;
+if (from==-1) {
+can_use_color_num=K-1;
+}
+else {
+can_use_color_num=K-2;
+}
+if (K<graph[now].size()) {
+return 0;
+}
+else {
+long long int case_num=1;
+for (auto e : graph[now]) {
+if(e==from)continue;
+
+24
+25
+
+case_num*=can_use_color_num;
+
+26
+
+can_use_color_num--;
+
+27
+28
+29
+30
+
+case_num%=mod;
+}
+for (auto e : graph[now]) {
+if(e==from)continue;
+
+5
+
+31
+
+case_num *=dfs(K,graph,e,now);
+
+32
+
+case_num %= mod;
+}
+return case_num;
+
+33
+34
+35
+
+}
+
+36
+37
+
+}
+
+38
+39
+40
+
+int main() {
+42
+int N,K;cin>>N>>K;
+41
+
+43
+44
+
+vector<vector<int>>graph(N);
+
+45
+
+for (int i = 0; i < N - 1; ++i) {
+int a,b;cin>>a>>b;a--;b--;
+
+46
+47
+
+graph[a].push_back(b);
+
+48
+
+graph[b].push_back(a);
+
+49
+
+}
+
+50
+51
+
+long long int answer=K*dfs(K,graph,0,-1);
+answer%=mod;
+cout<<answer<<endl;
+return 0;
+
+52
+53
+54
+55
+56
+
+}
+
+6
+
+This time, the condition can be rephrased as follows:
+• For all vertices, the following condition holds:
+– The color of the vertex and the colors of the vertices directly connected to it are distinct.
+
+Let’s regard it as a rooted tree whose root is vertex 0. Then the following property can be found:
+• If a vertex x and its parent is already painted, letting cx be the number of children of x, the way
+of painting the children of x is K−2 Pcx .
+Therefore, by painting the vertices in DFS-like order from vertex 0, you can calculate the number of
+ways of painting the tree. Note that vertex 0 doesn’t have parent.
+The following is a sample code.
+#include<iostream>
+#include<vector>
+3 using namespace std;
+1
+2
+
+4
+5
+
+const long long int mod=1e9+7;
+
+6
+7
+8
+
+long long int dfs(int K,const vector<vector<int>>&graph, int now,int from) {
+
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+
+int can_use_color_num;
+if (from==-1) {
+can_use_color_num=K-1;
+}
+else {
+can_use_color_num=K-2;
+}
+if (K<graph[now].size()) {
+return 0;
+}
+else {
+long long int case_num=1;
+for (auto e : graph[now]) {
+if(e==from)continue;
+
+24
+25
+
+case_num*=can_use_color_num;
+
+26
+
+can_use_color_num--;
+
+27
+
+case_num%=mod;
+
+28
+
+}
+
+12
+
+for (auto e : graph[now]) {
+if(e==from)continue;
+
+29
+30
+31
+
+case_num *=dfs(K,graph,e,now);
+
+32
+
+case_num %= mod;
+}
+return case_num;
+
+33
+34
+35
+
+}
+
+36
+37
+
+}
+
+38
+39
+40
+41
+42
+
+int main() {
+int N,K;cin>>N>>K;
+
+43
+44
+
+vector<vector<int>>graph(N);
+
+45
+
+for (int i = 0; i < N - 1; ++i) {
+int a,b;cin>>a>>b;a--;b--;
+
+46
+47
+
+graph[a].push_back(b);
+
+48
+
+graph[b].push_back(a);
+
+49
+
+}
+
+50
+51
+
+long long int answer=K*dfs(K,graph,0,-1);
+answer%=mod;
+cout<<answer<<endl;
+return 0;
+
+52
+53
+54
+55
+56
+
+}
+
+13
+

@@ -1,0 +1,74 @@
+T の最後の 1 文字を消去して得られる文字列が S と一致していれば答えは Yes であり, そうでな
+ければ No です.
+以下は C++ での実装例です.
+1
+
+#include <bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+4
+
+string S, T;
+
+5
+
+void input() {
+cin >> S >> T;
+
+6
+7
+
+}
+
+8
+9
+
+void solve() {
+
+10
+
+T.pop_back();
+
+11
+
+if(S == T) cout << "Yes" << endl;
+
+12
+
+else cout << "No" << endl;
+
+13
+
+}
+
+14
+15
+
+int main() {
+
+16
+
+input();
+
+17
+
+solve();
+return 0;
+
+18
+19
+
+}
+
+1
+
+If the string obtained by removing the last letter from T is equal to S, then the answer is Yes;
+otherwise the answer is No.
+The following is a sample code in C++.
+
+7
+

@@ -1,0 +1,33 @@
+解法 1
+0 以上 10N 未満の整数を全て調べます。条件の成立チェックを行う上では、整数を一旦文字列に変
+換すると楽です。
+
+(
+
+)
+
+時間計算量は O 10N M です。
+
+解法 2
+M 個の条件について、矛盾が存在しないかを前から順に確かめつつ解の候補を絞り、最後にそれら
+の最小値を出力します。
+ただし、N ≥ 2 の場合に限り左から 1 桁目は 0 が許されないことに注意してください。
+時間計算量は O (N + M ) です。
+
+3
+
+Solution 1
+Check for all the integers more than or equal to 0, and less than 10N . When checking the
+conditions, temporal conversion from integer to string will make the implementation easier. The
+)
+(
+total time complexity is O 10N M .
+
+Solution 2
+For each of M conditions, narrow down the candidates while checking for contradictions, and
+at last output the minimum of them.
+Note that the 1-st digit should not be 0 only if N ≥ 2.
+The total time complexity is O (N + M ).
+
+10
+

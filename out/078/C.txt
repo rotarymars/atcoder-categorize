@@ -1,0 +1,20 @@
+1 回の実行にかかる時間を x ms，全てのケースに正解する確率を p，この
+問題の答えを y ms とします。x = 1900M + 100(N − M ), p = 1/2M です。
+まず，一回目の提出で必ず x ms はかかります。その後は，確率 p で終了し
+ます，そして確率 1 − p でその提出には失敗し，更に提出を繰り返します。確
+率 1 − p で失敗した場合の，その時点からかかる時間の期待値は y ms です。
+よって，y = x + (1 − p) × y が成立し，これを解くと y = x/p が得られ
+ます。
+よって答えは x/p = (1900M + 100(N − M )) × 2M です。
+
+3
+
+Let x = 1900M + 100(N − M ) be the time required to submit (and judge) one
+solution. Let p = 21M be the probability that one submission passes. Let y be
+the answer of this problem.
+It takes x ms to submit once. With probability p, it passes and the process
+ends, and with probability 1 − p, you need more submissions and you need y ms
+more on average.
+Thus, you get y = x + (1 − p) × y, and y = x/p.
+Therefore, the answer is y = x/p = (1900M + 100(N − M )) × 2M .
+

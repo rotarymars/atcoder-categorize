@@ -1,0 +1,53 @@
+まず、左端を固定して実際に P で割った余りを計算しながら右側を伸ばしていくことで、O(N 2 )
+で答えを求めることができます。
+例えば文字列の左右を固定した場合に P で割った余りを計算できないか、定式化を考えてみま
+しょう。
+
+Ui := S[i : N ] (S の i 文字目以降) を評価した整数 と置きます。便宜上、UN +1 = 0 とします。
+(この時点ではまだ mod P で考えていません)
+U −U
+
+i
+j+1
+このとき、S の i 文字目から j 文字目を評価した整数は、 10
+j+1−i と表せます。(1 ≤ i ≤ j ≤ N )
+
+ここで、P と 10 が互いに素かどうかが重要です。P = 2, 5 の場合は右端が P で割り切れるかど
+うかのみで決まるので、O(N ) で解けます。
+U −U
+
+j+1
+P ̸= 2, 5 とします。このとき、 10i j+1−i
+が P で割り切れることは、Ui − Uj+1 が P で割り切れる
+
+ことと同値です。よって、右側から Ui mod P を計算し、現在 x mod P であるような j が何個あ
+るかを配列や map で管理しておくことで、O(N + P ) でこの問題が解けました。(今回は P が小さ
+いですが、P が大きい場合は map を使いましょう)
+
+5
+
+First, we can ﬁnd the answer in a total of O(N 2 ) time, by ﬁxing the left end and actually
+calculating the remainder by P while extending the right end.
+Let’s consider a formularization that enables to calculate the remainder by P when, for example, the both ends of the string is ﬁxed.
+Let Ui := S[i : N ] (the i-th and later character of S), evaluated as an integer. For convenience,
+let UN +1 = 0. (At this point we are not considering mod P yet.)
+Then, substring of S from i-th to j-th, evaluated as an integer, can be denoted as
+
+Ui −Uj+1
+10j+1−i .
+
+(1 ≤ i ≤ j ≤ N )
+Here, it is important whether P and 10 are coprime or not. If P = 2, 5, then it only depends
+on whether the right end is divisible by P , so it can be solved in a total of O(N ) time.
+U −U
+
+j+1
+Assume that P ̸= 2, 5. Then, 10i j+1−i
+is divisible by P if and only if Ui − Uj+1 is divisible by
+
+P . Therefore, by calculating Ui mod P from right to left, and managing the number of j such
+that x mod P with arrays or maps, the problem could be solved in a total of O(N + P ) time.
+(This time P is small, but when P is large, use map)
+
+11
+

@@ -1,0 +1,14 @@
+黒板に書いてある整数を管理しておいて，
+「書かれている整数がすべて偶数である限り」「書かれている整数すべてを 2
+で割る」をシミュレートすればよいです．
+あるいは，ほとんど同じことですが，最初書かれている整数それぞれに対して「最大で何回 2 で割れるか」を求め，そ
+の最小値をとってもよいです．
+
+• C++ による解答例: https://abc081.contest.atcoder.jp/submissions/1842477
+• Python による解答例: https://abc081.contest.atcoder.jp/submissions/1842030
+
+2
+
+• C++ implementation: https://abc081.contest.atcoder.jp/submissions/1842477
+• Python implementation: https://abc081.contest.atcoder.jp/submissions/1842030
+

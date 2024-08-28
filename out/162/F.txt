@@ -1,0 +1,45 @@
+この問題は、もし N が十分小さければ次のような DP で解くことができます。
+
+DP [i][j] = {i 番目までのうちどの 2 個も連続しない j 個を選んだ時の和の最大値 }
+この DP には無駄が多いので、ここから状態数を減らします。連続する要素を選んではいけないの
+で、i 番目までの数のうち選べるのは最大で ⌊ i+1
+2 ⌋ 個です。同様に、残りの N − i 個から選べるのは
+
+⌋ 個なので、最終的に ⌊ N2 ⌋ 個を選ぶためには、i 番目までに ⌊ N2 ⌋ − ⌊ N −i+1
+⌋ 個以上
+最大で ⌊ N −i+1
+2
+2
+選んでいる必要があります。
+
+⌊ N2 ⌋ − ⌊ N −i+1
+⌋ ≥ ⌊ 2i ⌋ − 1 であるので、冒頭の DP で考慮すべき j の値は、各 i について ⌊ 2i ⌋ − 1
+2
+以上 ⌊ i+1
+2 ⌋ 以下の高々 3 通りであることがわかり、状態数及び計算量が O(N ) となって解けました。
+
+6
+
+If N is small enough, this problem can be solved by the following DP.
+DP [i][j] = {The maximum sum of j elements chosen from the ﬁrst i elements where no two
+of them are adjacent}
+This DP is ineﬃcient a lot, so we will decrease the number of state from this. Since we cannot
+choose adjacent elements, we can choose at most ⌊ i+1
+2 ⌋ elements out of the ﬁrst i elements.
+Similarly, we can choose at most ⌊ N −i+1
+⌋ out of the remaining N − i elements, so in order to
+2
+choose ⌊ N2 ⌋ elements in the end, at least ⌊ N2 ⌋ − ⌊ N −i+1
+⌋ elements has to be chosen from the ﬁrst
+2
+i elements.
+Since ⌊ N2 ⌋ − ⌊ N −i+1
+⌋ ≥ ⌊ 2i ⌋ − 1, it appears that at most three kinds of j, which is greater than
+2
+or equal to ⌊ 2i ⌋ − 1 and less than or equal to ⌊ i+1
+2 ⌋, has to be considered, and now the number
+of states and the time complexity is O(N ), so the problem could be solved.
+
+12
+
+

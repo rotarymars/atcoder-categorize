@@ -1,0 +1,52 @@
+
+		公式
+		
+			
+				F - Permutation Distance 解説
+			
+			by MMNMM
+			
+		
+		
+		
+		
+			求める値 \(D _ i=\displaystyle\min_{j\neq i}\left\lparen\left\lvert P _ i-P _ j\right\rvert+\left\lvert i-j\right\rvert\right\rparen\) について、この式から絶対値を外すことを考えます。
+
+\[\begin{aligned}
+D _ i&=\displaystyle\min_{j\neq i}\left\lparen\left\lvert P _ i-P _ j\right\rvert+\left\lvert i-j\right\rvert\right\rparen\\
+&=\min\lbrace\min_{j\lt i}\left\lparen\left\lvert P _ i-P _ j\right\rvert+i-j\right\rparen,\min_{j\gt i}\left\lparen\left\lvert P _ i-P _ j\right\rvert+j-i\right\rparen\rbrace\\
+&=\min\lbrace\min_{j\lt i,P _ j\lt P _ i}\left\lparen P _ i-P _ j+i-j\right\rparen,\min_{j\lt i,P _ j\gt P _ i}\left\lparen P _ j-P _ i+i-j\right\rparen,\min_{j\gt i,P _ j\lt P _ i}\left\lparen P _ i-P _ j+j-i\right\rparen,\min_{j\gt i,P _ j\gt P _ i}\left\lparen P _ j-P _ i+j-i\right\rparen\rbrace\\
+&=\min\lbrace P _ i+i-\max_{j\lt i,P _ j\lt P _ i}\left\lparen P _ j+j\right\rparen,\min_{j\lt i,P _ j\gt P _ i}\left\lparen P _ j-j\right\rparen-\lparen P _ i-i\rparen,P _ i-i-\max_{j\gt i,P _ j\lt P _ i}\left\lparen P _ j-j\right\rparen,\min_{j\gt i,P _ j\gt P _ i}\left\lparen P _ j+j\right\rparen-\lparen P _ i+i\rparen\rbrace
+\end{aligned}\]
+
+となり、\(A _ i=P _ i+i,B _ i=P _ i-i\) のように定めると、
+
+\[\begin{aligned}
+D _ i&=\min\lbrace A _ i-\max_{j\lt i,P _ j\lt P _ i}A _ j,\min_{j\gt i,P _ j\gt P _ i}A _ j-A _ i,B _ i-\max_{j\gt i,P _ j\lt P _ i}B _ j,\min_{j\lt i,P _ j\gt P _ i}B _ j-B _ i\rbrace
+\end{aligned}\]
+
+となります。
+
+これは、セグメント木などの区間最大値（もしくは区間最小値）が得られるデータ構造を用い、\(i\) について走査しながら \(A _ i\) や \(B _ i\) を \(P _ i\) の位置に更新していくことで解くことができます。
+
+実装例は以下のようになります。
+
+いずれか \(1\) 通りについて解く関数を作り、列を反転させたり \(P _ i\leftarrow N+1-P_i\) などとすることで \(4\) 通りすべてをカバーするようにすると実装が単純になります。
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

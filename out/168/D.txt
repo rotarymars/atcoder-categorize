@@ -1,0 +1,45 @@
+ある部屋から部屋 1 に移動するために廊下を通る最小の回数のことを，その部屋の「深さ」と呼ぶ
+ことにします．特に，部屋 1 の深さだけが 0 です．
+すると，以下の重要な事実が成り立ちます．
+
+
+
+＜！＞＜！＞＜！＞＜！＞＜！＞＜！＞
+
+
+
+深さ d + 1 の部屋には，深さ d の部屋が少なくとも 1 つ繋がっている．
+
+
+
+
+
+証明は簡単です (そうでない部屋があると，直感的に嫌な気分になります)．このことから，深さ
+
+d + 1 の部屋の道しるべが深さ d の部屋を指すようにすれば，常に目標を達成できることがわかり
+ます．
+実装の際には，幅優先探索で各部屋の深さを求めてから，辺を 1 つずつ見ていって随時更新すれば
+楽です．
+
+5
+
+We deﬁne the “depth” of room by the minimum number of passages from the room to the
+room 1. In particular, only the room 1 is of depth 0.
+Then, the following important fact holds:
+
+＜！＞＜！＞＜！＞＜！＞＜！＞＜！＞
+
+
+
+For any room of depth d + 1, at least one room of depth d is connected to it.
+
+
+
+
+The proof is easy (if there is no such room, it is intuitively unpleasant). Therefore, if each the
+signpost of depth d + 1 indicates a room of depth d, then the purpose can be always achieved.
+When implementing, you can compute the depths of the rooms ﬁrst, and then look at each
+edge and update it one by one.
+
+12
+

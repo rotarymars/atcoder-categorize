@@ -1,0 +1,174 @@
+問題文は遠回しな言い方をしていますが、要するに「d1 , d2 , . . . , dN には何種類の異なる値があるか？」と
+聞いています。
+
+方針 1: 「自分でやる」
+配列 flag を用意し、はじめ flag[1] = flag[2] = . . . = flag[100] = 0 とします。d1 から dN まで
+のそれぞれの値 d に対して flag[d] = 1 とすると、flag の要素の和が答えとなります。
+
+C++ での実装例:
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int N, flag[101];
+
+// Also note that we need [101], not [100]!
+
+4
+5
+
+// Global variables are initially all 0.
+
+int main(){
+
+6
+
+cin >> N;
+
+7
+
+for(int i = 0; i < N; ++i){
+
+8
+
+int d;
+
+9
+
+cin >> d;
+
+10
+
+flag[d] = 1;
+
+11
+
+}
+
+12
+
+int ans = 0;
+
+13
+
+for(int i = 0; i < N; ++i){
+ans += flag[i];
+
+14
+15
+
+}
+
+16
+
+cout << ans << endl;
+
+17
+
+}
+
+方針 2: 「set を使う」
+多くの言語には重複を省いた集合を表すデータ構造が実装されており、たいてい set か似たような名前を持
+ちます。d1 , d2 , . . . , dN を入れた set の要素数がそのまま答えとなります。
+
+Python での実装例（少し遊んでいます）:
+
+1
+
+1 print(len(set(input() for i in range(int(input())))))
+
+2
+
+The statement is beating around the bush, but in short, the problem is asking you: “how many diﬀerent
+values are there among d1 , d2 , . . . , dN ?”
+
+Approach 1: Do it yourself
+Prepare an array flag, and initially set it to flag[1] = flag[2] = . . . = flag[100] = 0. Then, for
+each value d from d1 to dN , set flag[d] = 1. Now, the sum of the elements of flag is the answer.
+Sample implementation in C++:
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int N, flag[101];
+
+// Also note that we need [101], not [100]!
+
+4
+5
+
+// Global variables are initially all 0.
+
+int main(){
+
+6
+
+cin >> N;
+
+7
+
+for(int i = 0; i < N; ++i){
+
+8
+
+int d;
+
+9
+
+cin >> d;
+
+10
+
+flag[d] = 1;
+
+11
+
+}
+
+12
+
+int ans = 0;
+
+13
+
+for(int i = 0; i < N; ++i){
+ans += flag[i];
+
+14
+15
+
+}
+
+16
+
+cout << ans << endl;
+
+17
+
+}
+
+Approach 2: Use set
+Many languages implement data structures representing sets without duplication, usually named “set”
+or similarly. Insert d1 , d2 , . . . , dN into a set, and the number of elements itself is the answer.
+Sample implementation in Python (I’m playing a bit):
+
+1
+
+1 print(len(set(input() for i in range(int(input())))))
+
+6
+

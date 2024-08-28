@@ -1,0 +1,46 @@
+まず，この問題では bit は 0-indexed とします。つまり，2 進数で一番下の
+桁から，0-bit 目，1-bit 目, ..., と呼びます。
+答えを各 bit ごとに求めます。k-bit 目を求めたいとします。
+
+xor の定義より，N 2 個の ai + bj のうち，k-bit 目が 1 のものが偶数個ある
+か奇数個あるか判定できれば良いです。
+ここで重要な考察として，ai + bj の k-bit 目を考えているので，ai , bj の
+
+k + 1-bit 目以降は無視してよい，つまり ai , bj は 2k+1 で mod を取ってしまっ
+て良いというのがあります。
+すると，ai +bj はたかだか 4T (T = 2k ) 未満です。そして，k-bit 目が 1 の範
+囲は，[T, 2T ), [3T, 4T ), [5T, 6T ), ... なので，ai + bj のうち，[T, 2T ), [3T, 4T )
+の範囲にあるものの個数を求めればよいことがわかります。
+これは，ai を固定してしまえば，bj のうち [T −ai , 2T −ai ), [3T −ai , 4T −ai )
+の範囲にあるものの個数を求めれば良くなり，これは bj を sort しておけば
+二分探索で O(logN ) で求められます。
+余談
+
+この問題の O(N 2 ) 解は非常に単純なうえ，SIMD で高速化が効き，と
+
+てつもなく高速に動作します。
+
+writer が素直な O(N 2 ) を書き，ブロック化を行ったら 3770ms となったの
+で，SIMD が得意な人ならばもしかすると愚直解で通せてしまうのではとも
+考えています。
+ぜひ SIMD が得意な人は挑戦してみてください。
+
+4
+
+Since we can handle each bit independently, let’s consider only the k-th
+bit. We want to count the number of pairs (i, j) such that the k-th bit of
+ai + bj is one. (And if this number is add, we should add 2k to the answer.)
+Let T = 2k . An important observation is that, we are only interested in
+the values of ai , bi in modulo 2T . Thus, let’s replace ai with ai %(2T ) and
+bi with bi %(2T ), and assume that ai , bi < 2T .
+Then, there are two cases when the k-th bit of ai + bj is one:
+• T ≤ ai + bj < 2T
+• 3T ≤ ai + bj < 4T
+Let’s sort b in an increasing order. For a fixed i, the set of j that satisfies
+T ≤ ai + bj < 2T forms an interval. Thus, we can count the number of such
+js by binary search (or two-pointers). Similarly, we can handle the second
+case.
+This solution works in O(N logN logM AX) time, where M AX is the maximum number that can appear in the input.
+
+10
+

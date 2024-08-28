@@ -1,0 +1,31 @@
+H × W の長方形を作るためには，長さ H, W の棒が 2 本ずつ必要です．ただし，H = W の場合は，長さ H の棒が
+4 本必要です．
+各辺に使う棒は，上の条件のもとで，できるだけ長い棒を貪欲に使えばよいです．{Ai } をソートすると，同じ値は連
+続した区間に集まるため，各長さの棒が何本あるかを知ることができます．なので，長さの長い順に見ていって，次の
+ように辺の長さを決定すればよいです．
+
+1
+
+• 同じ長さの棒が全部で 4 本以上ある場合: その長さの棒を縦，横両方に使う (すでに片方の辺が決定している場合
+はそちらを優先)
+• 同じ長さの棒が全部で 2 本または 3 本ある場合: その長さの棒を縦，横のうち片方に使う
+• 同じ長さの棒が全部で 1 本しかない場合: その長さの棒は使えない
+途中で両方の辺が決定した場合は，長方形が作れているので，その長方形の面積 (縦 × 横) を出力します．最後の辺ま
+で見ても長方形の辺が足りない場合は，長方形を作ることはできないので，0 を出力します．
+
+In order to make an H × W rectangle, you need two sticks of length H and two sticks of length W . In case H = W ,
+you need four sticks of length H.
+Under the constraints above, you should choose the longest possible sticks greedily. First, you sort {Ai } in the
+decreasing order. Since sticks of the same lengths are grouped together after the sorting, we can count the number of
+sticks of each length. We check the sticks in the decreasing order of their lengths, and do the following:
+• If we haven’t chosen any sticks and we find four (or more) sticks of the same length, we choose them and finish
+the process.
+• If we haven’t chosen any sticks and we find two or three sticks of the same length, we choose them (and continue
+the process).
+• If we have chosen two sticks and we find two (or more) sticks of the same length, choose two of them and finish
+the process.
+• Otherwise, skip sticks of current length.
+If we successfully choose four sticks after this process, print the area of the rectangle. Otherwise, print 0 instead.
+
+2
+

@@ -1,0 +1,35 @@
+i 番目のボールは i 番目のタイプ A のロボット、または i 番目のタイプ B
+のロボットで回収できます。タイプ A のロボットで回収するときはロボット
+の移動距離は 2xi となり、タイプ B のロボットで回収するときはロボットの
+移動距離は 2(K − xi ) となります。
+
+i = 1, 2, . . . , N について順にボールの位置を見ていき、2xi と 2(K − xi )
+のうち小さい方 (同じであるときはその値) を足し合わせれば答えが求まり
+ます。
+
+1
+
+以下に C++ によるコード例を示します (このコード例ではループの各段
+階ではなく最後に答えを 2 倍しています)。
+
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+const int MAX_N = 100;
+int N, K;
+int X[MAX_N];
+int main(){
+scanf("%d", &N);
+scanf("%d", &K);
+for(int i = 0; i < N; ++i){
+scanf("%d", X + i);
+}
+int ans = 0;
+for(int i = 0; i < N; ++i){
+int tmp = min(X[i], K - X[i]);
+ans += tmp;
+}
+printf("%d\n", ans * 2);
+return 0;
+}
+

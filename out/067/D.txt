@@ -1,0 +1,37 @@
+「マスに色を塗った回数の多いプレイヤーの勝ち，同数の場合は後手の勝ち」というルールのゲー
+ムを考えることにする．元のゲームでどちらかのプレイヤーが敗北したあとも色を塗ることが可能
+である，と考えると新しいゲームの勝敗と元のゲームの勝敗が一致することが分かる．このとき，
+
+2 人の目的は，自分が色を塗る回数を最大化し，相手が色を塗る回数を最小化することである．
+与えられるグラフが木であることから，2 人の最善戦略は「マス 1 からマス N へのパス上に色
+が塗られていないマスが存在するならば色を塗る」であることが示される．マス 1 からマス N へ
+のパス上に色が塗られていないマスが存在するにも関わらず，それ以外のマスに色を塗った場合，
+自分が不利になり相手が有利になることは直感的にも明らかであろう．例えば図 ?? に示されるよ
+うな配置からゲームを開始したとき，上記の戦略に従ったときのみ先手は勝利可能である．従わな
+かった場合，後手が最適に行動すると 7 個以上のマスを白く塗ることが可能となり，先手が勝つこ
+とは不可能である．
+上記の戦略に従うと，マス i と j の距離を d(i, j) として，マス i の色は d(1, i) ≤ d(N, i) なら
+ば黒，そうでなければ白となる．結論としてマス 1 とマス N の 2 点から幅優先探索や深さ優先探
+索などを行うことで O(N ) でこの問題を解くことが可能である．
+
+図1
+
+ゲームの初期状態と最終状態の例
+
+4
+
+Let v1 = 1, v2 , . . . , vk−1 , vk = N be the only path from cell 1 to cell N .
+Let d(i, j) be the distance between cell i and cell j.
+In the optimal strategy, Black should color the vertices in the order v2 , v3 , . . . (while this is
+possible), and after that Black can choose arbitrary valid moves. This way, Black can make
+sure that she can get all vertices v such that d(1, v) ≤ d(N, v), no matter how White plays.
+On the other hand, White should color the vertices in the order vk1 , vk−2 , . . . (while this is
+possible), and after that White can choose arbitrary valid moves. This way, White can make
+sure that he can get all vertices v such that d(1, v) > d(N, v), no matter how Black plays.
+To summarize, we can solve this task in O(N ) by computing distances from two cells 1 and
+N.
+
+図 1 An example of a game
+
+2
+

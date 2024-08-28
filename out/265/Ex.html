@@ -1,0 +1,584 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 265</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 265" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc265/editorial/4577" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 265" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc265";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-08-21T21:00:00+09:00");
+			var endTime = moment("2022-08-21T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 265が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 265は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc265">AtCoder Beginner Contest 265</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc265/editorial/4577?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc265/editorial/4577?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc265%2Feditorial%2F4577">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc265%2Feditorial%2F4577">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc265%2Feditorial%2F4577">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220821T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-08-21 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220821T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-08-21 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc265"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc265/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc265/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc265/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc265/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc265/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc265/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc265/tasks/abc265_h">Ex - No-capture Lance Game</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>はじめに、問題自体の解説を読みたい方は、ページ下方の「この問題の解説」から読むことを推奨します。</p>
+
+<p>この問題はフーリエ変換・多次元フーリエ変換・アダマール変換などの変換を理解していると解ける問題です。以下の解説では</p>
+
+<ul>
+<li>「通常の畳み込み(多項式の積)」「XOR 畳み込み」は一体どのような原理で動いているのか？</li>
+</ul>
+
+<p>という点を理解して頂けることを目標として、前提知識の解説を行っていきます。</p>
+
+<h4>離散フーリエ変換</h4>
+
+<p>はじめに離散フーリエ変換の説明から始めていきます。<br>
+長さ <span>\(N\)</span> の <strong>離散フーリエ変換</strong> (以下、フーリエ変換) とは、列 <span>\(f_0, f_1, \dots, f_{N-1}\)</span> が入力として与えられたときに、一般項 <span>\(F_k\)</span> が次の式で表されるような列 <span>\(F_0, F_1, \dots, F_{N-1}\)</span> を出力として得る変換をいいます。ここで <span>\(W_N\)</span> (あるいは単に <span>\(W\)</span>) は <span>\(1\)</span> の <span>\(N\)</span> 乗根です。</p>
+<p><span>\[F_k = \sum_{n=0}^{N-1} f_n W_N^{nk}\]</span></p><p>上の式を見てもイメージが掴みづらいと思うので直感的な説明を加えます。フーリエ変換は競技プログラミング的には「多項式の多点評価」とみなすのが一番便利だと思います。この「評価」とは、関数 <span>\(f(x)\)</span> および値 <span>\(a\)</span> がが与えられたときに <span>\(f(a)\)</span> の値を求めるという意味です。すなわち、フーリエ変換を次のように解釈します。</p>
+
+<blockquote>
+<p>多項式 <span>\(f(x) = f_0 + f_1 x + f_2 x^2 + \dots + f_{N-1} x^{N-1}\)</span> を考えます。<br>
+このとき上式の <span>\(F_k\)</span> は <span>\(f(W^K)\)</span> です。よってフーリエ変換とは、 <span>\(f(x)\)</span> が与えられたときに <span>\(f(W^0), f(W^1), \dots, f(W^{N-1})\)</span> を計算する関数と考えられます。</p>
+</blockquote>
+
+<p>競技プログラミングではフーリエ変換は多項式の畳み込みに利用することが多いので (以下の説明でも言及無しに列 <span>\(f\)</span> を <span>\(f(x)\)</span> とみなす部分が多々あります) 、フーリエ変換をこのような定義で理解しておくと、理論と(競技での)実用の乖離が少なくわかりやすいのではないかと感じています。</p>
+
+<p>また、フーリエ変換の逆変換である逆フーリエ変換は次のように定められます。(この式が逆変換になっていることは、式の <span>\(F_k\)</span> の部分にフーリエ変換の式を代入して両辺が一致することを確かめれば証明できます。)</p>
+<p><span>\[f_n = \frac{1}{N} \sum_{k=0}^{N-1} F_k W_N^{nk}\]</span></p><p>逆フーリエ変換もフーリエ変換と同様に多項式の言葉で解釈すると「多項式の補間」になります。すなわち次の通りです。</p>
+
+<blockquote>
+<p>多項式 <span>\(f(x) = f_0 + f_1 x + f_2 x^2 + \dots + f_{N-1} x^{N-1}\)</span> を <span>\(N\)</span> 点で評価した値 <span>\(f(W^0), f(W^1),\dots,f(W^{N-1})\)</span> が与えられます。<br>
+このとき、多点評価した値から元の関数 <span>\(f(x)\)</span> を補間する関数が逆フーリエ変換です。</p>
+</blockquote>
+
+<p>長さ <span>\(N\)</span> のフーリエ変換・逆フーリエ変換は <strong>高速フーリエ変換(FFT)</strong> と通称されるアルゴリズムを用いて <span>\(\mathrm{O}(N \log N)\)</span> で計算することができます。<br>
+特に <span>\(N\)</span> が <span>\(2\)</span> べきのときに定数倍の良いアルゴリズムが存在して広く実用されているため、競技プログラミングで FFT と呼ばれる場合は <span>\(N\)</span> が <span>\(2\)</span> べきの場合を意味することが多いです。</p>
+
+<h4>フーリエ変換を利用した畳み込み</h4>
+
+<p>次に、競技プログラミングにおけるフーリエ変換の一番の応用先である <strong>畳み込み</strong> の説明をします。</p>
+
+<p>畳み込みとは、「<span>\(2\)</span> つの列が入力として与えられたときに、添え字の和が一定となるような組を掛けて足し合わせることで新たな列を作る」という操作です。すなわち、厳密に言うと、列 <span>\(f, g\)</span> および二項演算 <span>\(\circ\)</span> が与えられたとき、</p>
+<p><span>\[h_k = \sum_{i \circ j = k} f_i g_j\]</span></p><p>を満たすような列 <span>\(h\)</span> を出力する操作です。</p>
+
+<p>AtCoder では特に <span>\(\circ\)</span> が <span>\(+\)</span> である場合を一番よく見かけるのではないかと思います。<span>\(\circ\)</span> が <span>\(+\)</span> の場合、</p>
+<p><span>\[h_k = \sum_{i + j = k} f_i g_j\]</span></p><p>となりますが、ここで <span>\(f, g, h\)</span> の母関数 <span>\(f(x) = \sum_i f_i x^i, g(x) = \sum_j g_j x^j, h(x) = \sum_k h_k x^k\)</span> を考えると</p>
+<p><span>\[h(x) = f(x) g(x) \]</span></p><p>が成り立ちます。すなわち、<span>\(\circ\)</span> が <span>\(+\)</span> の場合の畳み込みは多項式の積になるということです。</p>
+
+<p>他の種類の畳み込み, 及びそれに関連する問題は ABC-Ex(H) で何問か出題されています。例を挙げると次の通りです。</p>
+
+<ul>
+<li><span>\(\circ\)</span> が bitwise xor である場合：XOR 畳み込み (関連：<a href="https://atcoder.jp/contests/abc212/tasks/abc212_h" rel="nofollow">ABC212H</a>)</li>
+<li><span>\(\circ\)</span> が bitwise or / and である場合：OR 畳み込み, AND 畳み込み(関連:<a href="https://atcoder.jp/contests/abc220/tasks/abc220_h" rel="nofollow">ABC220H</a>)</li>
+<li><span>\(\circ\)</span> が <span>\(\times\)</span> である場合：ディリクレ畳み込み (関連：<a href="https://atcoder.jp/contests/abc239/tasks/abc239_h" rel="nofollow">ABC239Ex</a>)</li>
+<li>その他：Concave Max Plus convolution (関連：<a href="https://atcoder.jp/contests/abc218/tasks/abc218_h" rel="nofollow">ABC218H</a>)</li>
+</ul>
+
+<p>いずれの出題例も 「愚直に畳み込むと <span>\(\mathrm{O}(N^2)\)</span> かかるが、うまく工夫することで <span>\(\mathrm{o}(N^2)\)</span> に計算量を落とす」という計算量改善の部分がテーマの 1 つになっています。また、その他の畳み込みの例は <a href="https://noshi91.hatenablog.com/entry/2020/10/27/175112" rel="nofollow">noshi91 氏による “畳み込めるものまとめ”</a> にある程度まとまっています。</p>
+
+<p>通常の畳み込み(多項式の積)は フーリエ変換を利用すると <span>\(N = \deg(f) + \deg(g)\)</span> として <span>\(\mathrm{O}(N \log N)\)</span> で計算できます。どのような方法で畳み込めるのかを見てみましょう。</p>
+
+<p>以下では長さ <span>\(N\)</span> のフーリエ変換を意味する関数を <span>\(\mathcal{F}_N\)</span> (あるいは単に <span>\(\mathcal{F}\)</span>) 、逆変換を <span>\(\mathcal{F}_N^{-1}\)</span> と表します。また、列 <span>\(f=(f_0, f_1, \dots, f_{N-1}), g=(g_0, g_1, \dots, g_{N-1})\)</span> が与えられたときに <span>\(f \ast g\)</span> を次のように定めます。(<span>\(f \ast g\)</span> は「各点積」と呼ばれることが多い演算です。)</p>
+<p><span>\[(f \ast g) = (f_0 g_0, f_1 g_1, \dots, f_{N-1} g_{N-1})\]</span></p><p>突然ですが、次のような変換によって列 <span>\(f, g\)</span> から列 <span>\(h\)</span> を得ることを考えてみましょう。</p>
+<p><span>\[h = \mathcal{F}^{-1} (\mathcal{F}(f) \ast \mathcal{F}(g))\]</span></p><p>さて、この操作によって得られる <span>\(h\)</span> と <span>\(f, g\)</span> の間にはどのような関係があるでしょうか？</p>
+
+<p>まずは簡単な例、<span>\(N=2\)</span> の場合で考えてみましょう。</p>
+
+<blockquote>
+<p><span>\(f = (f_0, f_1)\)</span> と <span>\(g = (g_0, g_1)\)</span> がある。</p>
+<p><span>\[h = \mathcal{F}^{-1} (\mathcal{F}(f) \ast \mathcal{F}(g))\]</span></p><p>を満たす <span>\(h\)</span> はどのような値か？</p>
+</blockquote>
+
+<p>長さ <span>\(2\)</span> のフーリエ変換 <span>\(\mathcal{F}(f)\)</span> は <span>\(f(x)\)</span> から <span>\(f(W^0), f(W^1)\)</span> を得る操作でした。よって次のような関係が成り立ちます。</p>
+<p><span>\[\mathcal{F}(f) \ast \mathcal{F}(g) = (f(W^0) g(W^0), f(W^1)g(W^1))\]</span></p><p>この両辺に <span>\(\mathcal{F}^{-1}\)</span> を作用させれば <span>\(h\)</span> になります。逆フーリエ変換は <span>\(\mathcal{F}^{-1}(F)\)</span> は <span>\(F_ 0 = f(W^0),F_1 = f(W^1)\)</span> から元の多項式 <span>\(f_0 + f_1 x\)</span> を復元する操作でした。<br>
+よって、<span>\(h\)</span> を求める問題を多項式の言葉に直すと次のようになります。</p>
+
+<blockquote>
+<p><span>\(h(W^0) = f(W^0)g(W^0), h(W^1) = f(W^1)g(W^1)\)</span> であるような <span>\(1\)</span> 次式 <span>\(h\)</span> を求めよ。</p>
+</blockquote>
+
+<p><span>\(1\)</span> 次式という条件を無視すると、高校数学で学んだ <a href="https://ja.wikipedia.org/wiki/%E5%89%B0%E4%BD%99%E3%81%AE%E5%AE%9A%E7%90%86" rel="nofollow">剰余の定理</a> を思い出せば多項式 <span>\(h(x)\)</span> は次の式で一般項が表せるのが示せます。</p>
+
+<ul>
+<li><span>\(h(x) = f(x) g(x) + C(x)(x - W^0)(x - W^1)\)</span>, <span>\(C(x)\)</span> は任意の多項式</li>
+</ul>
+
+<p><span>\(N=2\)</span> のとき <span>\(W_2=-1\)</span> なので上の式は整理すると次のように書けます。</p>
+<p><span>\[h(x) = f(x) g(x) + C(x) (x^2 -1)\]</span></p><p>よって、<span>\(h\)</span> は <span>\(1\)</span> 次式であるという条件を加味すると、<span>\(h(x)\)</span> は <span>\(f(x)g(x)\)</span> を <span>\(x^2-1\)</span> で割ったあまり、すなわち以下の式で表せることが分かります。</p>
+<p><span>\[h(x) = f(x) g(x) \bmod{(x^2 - 1)}\]</span></p><p>よって、<span>\(N=2\)</span> の場合の <span>\(h\)</span> は</p>
+<p><span>\[
+\begin{aligned}
+h(x) &amp;= f(x) g(x) \bmod{(x^2 - 1)}\\
+&amp;= (f_0 + f_1 x)(g_0 + g_1 x) \bmod{(x^2-1)} \\
+&amp;= (f_0 g_0 + f_1 g_1) + (f_0 g_1 + f_1 g_0) x
+\end{aligned}
+\]</span></p><p>になることがわかりました。</p>
+
+<p>長さ <span>\(N\)</span> が一般の場合も同様の議論が成り立ちます。剰余の定理より <span>\(h\)</span> に関して次の式が立って (<span>\(C(x)\)</span> は任意の多項式)、</p>
+<p><span>\[h(x) = f(x) g(x) + C(x)\prod_{i=0}^{N-1}(x-W_N^i)\]</span></p><p>第 2 項の <span>\(\prod_{i=0}^{N-1}(x-W_N^i)\)</span> の部分は</p>
+<p><span>\[\prod_{i=0}^{N-1}(x-W_N^i) = x^N - 1\]</span></p><p>なのが証明できるので、</p>
+<p><span>\[h(x) = f(x) g(x) \bmod{(x^N - 1)}\]</span></p><p>という関係式を得ることができます。(ここでの <span>\(\bmod\)</span> は C++ の <code>%</code> に相当する二項演算の mod です。)</p>
+
+<p>右辺の <span>\(\bmod{(x^N - 1)}\)</span> という部分を深掘りしてみましょう。</p>
+<p><span>\[x^{i + N} \equiv x^i \pmod{x^N - 1}\]</span></p><p>なので、「<span>\(x^N - 1\)</span> で剰余を取る」という操作は、「<span>\(x^d, d \geq N\)</span> である項が存在する限り、その項の係数を <span>\(x^{d-N}\)</span> に足して項を消す」という操作に読み替えられます。よって、<span>\(h(x) = f(x) g(x) \bmod{(x^N - 1)}\)</span> を満たす <span>\(h(x)\)</span> を列として表現すると、各要素は</p>
+<p><span>\[h_k = \sum_{i + j \equiv k \pmod{N}} f_i g_j\]</span></p><p>という畳み込みの式で表せます。このような <span>\(\mod N\)</span> 上の加法上の畳み込みを「周期 <span>\(N\)</span> の <strong>巡回畳み込み</strong> 」と呼びます。</p>
+
+<blockquote>
+<h5>まとめ：周期 <span>\(N\)</span> の巡回畳み込み</h5>
+
+<p>長さ <span>\(N\)</span> の列 <span>\(f, g\)</span> が与えられる。</p>
+<p><span>\[h = \mathcal{F}_N^{-1} (\mathcal{F}_N(f) \ast \mathcal{F}_N(g))\]</span></p><p>によって得られる (すなわち <span>\(f, g\)</span> をフーリエ変換して各点積を取って逆フーリエ変換することによって得られる)列 <span>\(h\)</span> は、次の関係式を満たす。</p>
+<p><span>\[h_k = \sum_{i + j \equiv k \pmod{N}} f_i g_j\]</span></p><p><span>\(f, g\)</span> から <span>\(h\)</span> を得る操作を 「周期 <span>\(N\)</span> の巡回畳み込み」と呼ぶ。</p>
+</blockquote>
+
+<p>例えば <span>\(f(x) = 1 + 2x^2, g(x) = 1 + 2x + 3x^2\)</span> を周期 <span>\(3\)</span> で巡回畳み込みすると <span>\(h(x) = 5 + 8x + 5x^2\)</span> を得ます。これを手計算で求めたい場合は、次のような画像の筆算によって求められます。</p>
+
+<p><img src="https://img.atcoder.jp/ghi/abc265_editorial_cyclic_convolution.png" alt=""/></p>
+
+<ul>
+<li>このように、周期 <span>\(N\)</span> の巡回畳み込みは、俗な言い方をすると、「<span>\(N\)</span> 次以上の項をちぎって下位の項と足し合わせる」というイメージで理解できると思います。</li>
+</ul>
+
+<p>さて、巡回畳み込みを利用して通常の多項式の積 <span>\(h(x) = f(x) g(x)\)</span> を計算してみましょう。</p>
+
+<p>上の図のイメージでもわかる通り、巡回畳み込みはくだけた言い方をすると「<span>\(h\)</span> は <span>\(N\)</span> 次以上の項があると変なことが起こる、多項式の積」という感じになります。よって、周期 <span>\(N\)</span> が <span>\(\deg(f) + \deg(g)\)</span> よりも大きければ、変なことは起こらず、通常の多項式の積になるわけです！<br>
+よって、次のアルゴリズムによって多項式の積を <span>\(\mathrm{O}(N \log N)\)</span> で計算することができます。</p>
+
+<blockquote>
+<h5>多項式の積を計算するアルゴリズム</h5>
+
+<p>入力：<span>\(f, g\)</span><br>
+出力：<span>\(h\)</span>, s.t. <span>\(h_k = \sum_{i+j=k} f_i g_j\)</span></p>
+
+<ol>
+<li><span>\(|f| + |g| - 1\)</span> 以上の整数 <span>\(N\)</span> を取る。
+
+<ul>
+<li>長さ <span>\(f\)</span> の列の次数は <span>\(|f|\)</span> ではなく<span>\(|f| - 1\)</span> なのに注意してください。</li>
+</ul></li>
+<li><span>\(f, g\)</span> を長さ <span>\(N\)</span> になるようゼロ埋めする。</li>
+<li>FFT を用いて、<span>\(f, g\)</span> の周期 <span>\(N\)</span> の巡回畳み込み <span>\(h&#39;\)</span> を得る。</li>
+<li><span>\(h&#39;\)</span> の先頭 <span>\(|f| + |g| - 1\)</span> 項を <span>\(h\)</span> とする。</li>
+</ol>
+</blockquote>
+
+<p>実装例として AtCoder Library の該当箇所を引用します。ここで <code>internal::butterfly</code> は離散フーリエ変換, <code>internal::butterfly_inv</code> は逆離散フーリエ変換(の最後に <span>\(\frac{1}{N}\)</span> 倍をしないバージョン)に相当する関数です。</p>
+
+<ul>
+<li>引用元：<a href="https://github.com/atcoder/ac-library/blob/master/atcoder/convolution.hpp" rel="nofollow">convolution.hpp の 198行目 ~ 214 行目</a></li>
+</ul>
+
+<pre class="prettyprint linenums"><code>template &lt;class mint, internal::is_static_modint_t&lt;mint&gt;* = nullptr&gt;
+std::vector&lt;mint&gt; convolution_fft(std::vector&lt;mint&gt; a, std::vector&lt;mint&gt; b) {
+    int n = int(a.size()), m = int(b.size());
+    int z = 1 &lt;&lt; internal::ceil_pow2(n + m - 1);
+    a.resize(z);
+    internal::butterfly(a);
+    b.resize(z);
+    internal::butterfly(b);
+    for (int i = 0; i &lt; z; i++) {
+        a[i] *= b[i];
+    }
+    internal::butterfly_inv(a);
+    a.resize(n + m - 1);
+    mint iz = mint(z).inv();
+    for (int i = 0; i &lt; n + m - 1; i++) a[i] *= iz;
+    return a;
+}
+</code></pre>
+
+<h4>多次元フーリエ変換・多次元畳み込み</h4>
+
+<p>(この項は執筆中で、後日掲載される見込みです。)</p>
+
+<h4>XOR 畳み込みとアダマール変換</h4>
+
+<p>XOR 畳み込みとは、長さ <span>\(2^n\)</span> の列 <span>\(f, g\)</span> から次の式を満たす長さ <span>\(2^n\)</span> の列 <span>\(h\)</span> を得る畳み込みです。 (<span>\(\oplus\)</span> は bit ごとの排他的論理和)</p>
+<p><span>\[h_k = \sum_{i \oplus j = k} f_i g_j\]</span></p><p>競技プログラミングの文脈では、XOR 畳み込みはフーリエ変換とは独立に理解されることが多い印象がありますが、実は XOR 畳み込みは多次元フーリエ変換を利用した畳み込みです。</p>
+
+<p>いったんの長さ <span>\(2\)</span> の巡回畳み込みの話に戻りましょう。</p>
+
+<p>長さ <span>\(2\)</span> の列 <span>\(f = (f_0, f_1), g = (g_0, g_1)\)</span> の巡回畳み込みによって得られる列は</p>
+<p><span>\[h = (f_0 g_0 + f_1 g_1, f_0 g_1 + f_1 g_0)\]</span></p><p>でした。この <span>\(h\)</span> はよく見ると</p>
+<p><span>\[h_k = \sum_{0 \leq i \lt 2, 0 \leq j \lt 2, i \oplus j} f_i g_j\]</span></p><p>になっています。つまり長さ <span>\(2\)</span> の巡回畳み込みは 1 bit 版の XOR 畳み込みになるのです！</p>
+
+<p>bitwise xor は当然ビットごとに独立なので、長さ <span>\(2\)</span> の巡回畳み込みを <span>\(n\)</span> 次元に拡張したものは <span>\(n\)</span> bit の XOR 畳み込みになります。</p>
+
+<p>この長さ <span>\(2\)</span>, <span>\(n\)</span> 次元の離散フーリエ変換には <strong>アダマール変換(ウォルシュ・アダマール変換)</strong> という名前がついていて、こちらの名前の方が広く知られていると思います。</p>
+
+<ul>
+<li><a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%80%E3%83%9E%E3%83%BC%E3%83%AB%E5%A4%89%E6%8F%9B" rel="nofollow">参考：Wikipedia</a></li>
+</ul>
+
+<p>アダマール変換の一般的な実装例は次の通りです。実装を凝視すると、処理が多次元 FFT と一致しているのが確認できると思います。</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">template &lt;typename T&gt;
+void walsh_hadamard_transform(vector&lt;T&gt;&amp; f, bool inverse = false) {
+  int n = f.size();
+  for (int i = 1; i &lt; n; i &lt;&lt;= 1) {
+    for (int j = 0; j &lt; n; j++) {
+      if ((j &amp; i) == 0) {
+        T x = f[j], y = f[j | i];
+        f[j] = x + y, f[j | i] = x - y;
+      }
+    }
+  }
+  if (inverse) {
+    T invn = T{1} / T{f.size()};
+    for (auto&amp; x : f) x *= invn;
+  }
+}
+</code></pre>
+
+<h4>この問題の解説</h4>
+
+<p>さて、これで道具は一通りそろったので、問題の解説をはじめましょう。</p>
+
+<p>まず、全ての香車を並べ終わった状態が与えられたときに、その盤面が先手勝ちである条件を考えてみましょう。<br>
+各行ごとに、その行の状態に対応する評価値を次のように定義します。</p>
+
+<blockquote>
+<p>先手の香車が <span>\((i, j)\)</span>, 後手の香車が <span>\((i, k)\)</span> におかれているとする。このとき、<span>\(i\)</span> 行目の評価値となる値の組 <span>\((s_i, g_i)\)</span> を次のように定義する。</p>
+
+<ul>
+<li><span>\(k \lt j\)</span> のとき : <span>\((s_i, g_i) = (0, j - k - 1)\)</span></li>
+<li><span>\(k \gt j\)</span> のとき：<span>\((s_i, g_i) = ((j-1) - (W-k), 0)\)</span></li>
+</ul>
+</blockquote>
+
+<p>そして、ゲーム全体の評価値 <span>\((S, G)\)</span> を次のように定義します。</p>
+<p><span>\[(S, G) = (\sum_{i=1}^H s_i, \bigoplus_{i=1}^H g_i)\]</span></p><p>このとき、盤面が先手勝ちである条件は次の式で表せます。</p>
+<p><span>\[(\text{先手勝ち}) \iff (S \gt 0) \vee \left\lbrace (S = 0) \wedge (G \gt 0) \right\rbrace\]</span></p><p>正当性は丁寧に議論すれば証明できますが、 <span>\(s_i, g_i\)</span> がそれぞれ非不偏ゲームの評価値に使われる超現実数 (Surreal Number) , および不偏ゲームの評価値に使われる Grundy 数に対応している事実からも確認できます。(超現実数の解説は <a href="https://atcoder.jp/contests/abc229/editorial/2977" rel="nofollow">ABC229-H</a> を参照ください。)</p>
+
+<p>この事実を元にナイーブな DP を行えば <span>\(\mathrm{O}(H^2 W^3)\)</span> でこの問題を解くことができます。さらに、
+第 <span>\(1\)</span> 軸で通常の畳み込み, 第 <span>\(2\)</span> 軸で XOR 畳み込みを行う 2 次元畳み込みを利用すれば <span>\(\mathrm{O}(HW^2 \log (HW))\)</span> に高速化することができます。</p>
+
+<ul>
+<li>これは <span>\(\left\lceil \log_2{W} \right\rceil + 1\)</span> 次元 FFT を利用した畳み込みと解釈できるので、今までに説明した内容をそのまま適用すれば実装できます。</li>
+</ul>
+
+<p>なお、問題の性質に注目してより丁寧に考察を進めると <span>\(\mathrm{O}(HW \text{poly}(\log(HW)))\)</span> 程度の計算量で解くこともできますがここでは割愛します。</p>
+
+<p><a href="https://atcoder.jp/contests/abc265/submissions/34136866" rel="nofollow">実装例, C++</a></p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1660229052">
+				<time class="timeago" datetime="2022/08/11 23:44:12"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1661098710">
+				<time class="timeago" datetime="2022/08/22 01:18:30"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc265/editorial/4577?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 265">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc265/rules">ルール</a></li>
+					<li><a href="/contests/abc265/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

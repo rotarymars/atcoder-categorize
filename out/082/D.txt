@@ -1,0 +1,54 @@
+s の長さを N とし，目標の座標を (xt , yt ) とします．
+まず思いつく解法は，
+dpi,x,y,k := (i 文字目の命令後に座標 (x, y) に向き k ∈ { 左, 上, 右, 下 } でいられるか)
+
+1
+
+と定義し，DP をする解法です．しかし，この DP の状態数は O(N 3 ) で，遷移は O(1) なので，全体の時間
+計算量は O(N 3 ) となり，TLE してしまいます．
+ロボットの動き方をよく観察することで，DP の状態数を減らしましょう．命令列を T を区切り文字として
+分割したとき，i 番目の区間に含まれる F の個数を di とします．このとき，ロボットの動き方は
+
+• 右に距離 d1 だけ動く
+• 上または下の好きな向きに距離 d2 だけ動く
+• 左または右の好きな向きに距離 d3 だけ動く
+• 上または下の好きな向きに距離 d4 だけ動く
+• 左または右の好きな向きに距離 d5 だけ動く
+• 以下同様
+となっています．よって，x 軸方向の移動と y 軸方向の移動を独立に考えることができます．例えば，x 軸方
+向の移動については，
+
+• 右に距離 d1 だけ動く
+• 左または右の好きな向きに距離 d3 だけ動く
+• 左または右の好きな向きに距離 d5 だけ動く
+• 以下同様
+という移動を終えた後，x 座標が xt になっているようにできるか判定すればよいです．
+これは次のような DP で計算できます．
+
+• 定義: dpi,x := (i 回目の x 軸方向の移動の後に x 座標が x になっているようにできるか)．
+• 初期化: 1 回目の x 軸方向の移動距離を d1 とすると，dp0,d1 = true．
+• 漸化式: i (i ≥ 2) 回目の x 軸方向の移動距離を di とすると，dpi,x = dpi−1,x−di ∨ dpi−1,x+di ．
+この DP の状態数は O(N 2 ) で，遷移は O(1) なので，全体の時間計算量は O(N 2 ) となり，十分に高速です．
+
+y 軸方向の移動についても，同様の DP で計算できます．
+
+Let N be the length of s and (xt , yt ) be the coordinates of the goal.
+Let’s separate the sequence of operations by T, and let di be the number of F
+in the i-th part. Then, the movement of the robot can be described as follows:
+• Move d1 to right.
+• Move d2 upward or downward.
+• Move d3 to left or right.
+• Move d4 upward or downward.
+• Move d5 to left or right.
+• And so on.
+Thus, the x-coordinate and the y-coordinate can be handled independently.
+For example, for the x-coordinate, the robot will perform the following operations:
+• Move d1 to right.
+• Move d3 to left or right.
+• Move d5 to left or right.
+• And so on.
+We want to check if x can be xt after all operations. This can be done by a
+straightforward DP in O(N 2 ). The y-coordinate can be handled similarly.
+
+2
+

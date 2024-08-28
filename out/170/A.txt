@@ -1,0 +1,106 @@
+x1 , . . . , x5 を標準入力から読み込んだ後は、if 文を 5 つ連ねて 5 つの変数のうちどれが 0 である
+かを直接確かめることも、15 − x1 − x2 − x3 − x4 − x5 が答えとなることを利用することもできます。
+それぞれの方針における Python での実装例を示します。
+
+1
+
+X = list(map(int, input().split()))
+
+2
+3
+
+if X[0] == 0:
+
+4
+
+print(1)
+
+5
+
+elif X[1] == 0:
+
+6
+
+print(2)
+
+7
+
+elif X[2] == 0:
+
+8
+
+print(3)
+
+9
+
+elif X[3] == 0:
+
+10
+
+print(4)
+
+11
+12
+
+1
+
+else:
+print(5)
+
+print(15 - sum(list(map(int, input().split()))))
+
+1
+
+After reading x1 , . . . , x5 from the standard input, you can write if statements 5 times and check which
+of 5 variables is 0, or use the fact that 15 − x1 − x2 − x3 − x4 − x5 is the answer.
+The following are the sample code in Python for each way.
+
+1
+
+X = list(map(int, input().split()))
+
+2
+3
+
+if X[0] == 0:
+
+4
+
+print(1)
+
+5
+
+elif X[1] == 0:
+
+6
+
+print(2)
+
+7
+
+elif X[2] == 0:
+
+8
+
+print(3)
+
+9
+
+elif X[3] == 0:
+
+10
+
+print(4)
+
+11
+12
+
+1
+
+else:
+print(5)
+
+print(15 - sum(list(map(int, input().split()))))
+
+7
+

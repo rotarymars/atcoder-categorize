@@ -1,0 +1,676 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 208</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 208" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc208/editorial/2195" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 208" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc208";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2021-07-04T21:00:00+09:00");
+			var endTime = moment("2021-07-04T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 208が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 208は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc208">AtCoder Beginner Contest 208</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc208/editorial/2195?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc208/editorial/2195?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc208%2Feditorial%2F2195">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc208%2Feditorial%2F2195">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc208%2Feditorial%2F2195">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210704T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-07-04 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210704T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-07-04 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc208"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc208/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc208/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc208/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc208/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc208/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc208/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc208/tasks/abc208_f">F - Cumulative Sum</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<ol>
+<li>はじめに</li>
+<li>観察</li>
+<li><span>\(K\)</span>乗和の公式</li>
+<li><span>\(f(N, M)\)</span>の性質</li>
+<li>ラグランジュ補間</li>
+<li>ラグランジュ補間を利用した<span>\(f(N)\)</span>の評価</li>
+<li>まとめ</li>
+<li>Bonus</li>
+</ol>
+
+<h3>1.　はじめに</h3>
+
+<p>この問題は、高難度の数え上げでしばしば部分問題として出てくるテクニックを取り上げた問題です。この問題を解くことで得られる知見が、将来より高度な数え上げ問題を AC するための足掛かりになったら幸いです。</p>
+
+<p>この問題は数列の第 <span>\(n\)</span> 項を高速に計算する問題です。この問題のように線形よりも高速に計算する必要がある問題では、高速化のために<strong>数列の性質を理解する</strong>ことが重要になります。以下の表では、 ABC で過去に多く出題されている数列の性質・および計算量をまとめたものです。</p>
+
+<table>
+<tbody>
+<tr>
+<td align="center">　数列の種類　</td>
+<td align="center">　具体例　</td>
+<td align="center">　前計算　</td>
+<td align="center">　クエリ　</td>
+</tr>
+
+<tr>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">累乗</td>
+<td align="center"><span>\(n ^ k\)</span></td>
+<td align="center">　なし　</td>
+<td align="center">　<span>\(\mathrm{O}(\log k)\)</span>　</td>
+</tr>
+
+<tr>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">　階乗・二項係数　</td>
+<td align="center">　<span>\(n!,\binom{n}{k}\)</span>　</td>
+<td align="center">　<span>\(\mathrm{O}(n)\)</span>　</td>
+<td align="center">　<span>\(\mathrm{O}(1)\)</span>　</td>
+</tr>
+
+<tr>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">　遷移が<span>\(d \times d\)</span>の　<br>　行列で表せる数列　</td>
+<td align="center">　フィボナッチ数列 　</td>
+<td align="center">　なし　</td>
+<td align="center">　<span>\(\mathrm{O}(d^3 \log k)\)</span>　</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+さて、この問題では題意の数列はどのような性質を満たすのでしょうか？</p>
+
+<h3>2.　観察</h3>
+
+<p>このような問題で行き詰まった時は、<strong>簡単なケースでの状態を観察してよい性質を見つける</strong>というのが考察の方法論の 1 つとして考えられます。</p>
+
+<p>実際に <span>\(m\)</span> が小さいケースについて考えてみましょう。まず初めに、 <span>\(m = 0\)</span> の時は簡単で</p>
+<p><span>\[ f(n, 1) = n^k\]</span></p><p>であるから容易に計算できます。次に <span>\(m = 1\)</span> の場合を考えてみると、</p>
+<p><span>\[ 
+\begin{aligned}  
+f(1, 1) &amp;= 1^K  \\
+f(2, 1) &amp;= 1^K + 2^K  \\
+f(3, 1) &amp;= 1^K + 2^K + 3^K  \\
+\vdots
+\end{aligned} 
+\]</span></p><p>となることから、 <span>\(f(n, 1)\)</span> (以下、便宜上 <span>\(S_K(n)\)</span> と書きます)は <span>\(K\)</span> 乗和、すなわち</p>
+<p><span>\[ S_K(n) = \sum_{i = 1} ^ n i^K \]</span></p><p>であることがわかります。</p>
+
+<p>特に <span>\(K = 1, 2, 3\)</span> の場合は高校の授業で出てくるなじみ深い公式が <span>\(S_K(n)\)</span>  の値になり、答えは次の通りになります。</p>
+
+<ul>
+<li><span>\(K = 1\)</span> のとき <span>\(S_1(n) = \frac{n(n + 1)}{2} \)</span></li>
+<li><span>\(K = 2\)</span> のとき <span>\(S_2(n) = \frac{n(n+1)(2n+1)}{6} \)</span></li>
+<li><span>\(K = 3\)</span> のとき <span>\(S_3(n) = \frac{n^2 (n+1)^2}{4} \)</span></li>
+</ul>
+
+<p>ここで上の式を観察すると、<strong><span>\(S_K(n)\)</span> は <span>\(K + 1\)</span> 次式</strong>であるという重要な仮説が立ちます。この仮説を次の章で証明していきましょう。</p>
+
+<h3>3.  <span>\(K\)</span> 乗和の公式</h3>
+
+<p>次の命題を証明します。</p>
+
+<blockquote>
+<p><span>\(\displaystyle S_K(N) = \sum_{n=1}^N n^k\)</span>は <span>\(K + 1\)</span> 次式で表せる。</p>
+</blockquote>
+
+<p>証明はいくつかの方法がありますが、ここでは帰納法を利用した証明を取り上げます。</p>
+
+<p>関数</p>
+<p><span>\[T_K(n)=n^K - (n-1)^K\]</span></p><p>の累積和</p>
+<p><span>\[ \sum_{n=1}^N T_{K+1}(n) \]</span></p><p>を二つの方法で表すことを考えます。まず、</p>
+<p><span>\[
+\begin{aligned}  
+\displaystyle \sum_{n=1}^N T_{K+1}(n) 
+&amp;= \sum_{n=1}^N (n+1)^K - n^K \\
+&amp;= (N^1 - N^0) + \dots + (N^{K+1} - N^K) \\
+&amp;= N^{K+1}
+\end{aligned}  
+\]</span></p><p>です。次に、</p>
+<p><span>\[
+\begin{aligned}  
+T_{K+1}(n) &amp;= n^{K+1} - \sum_{i=0}^{K+1} \binom{K+1}{i} n^i (-1)^{K+1-i} \\
+&amp;= (K + 1)n^K + ( nの K - 1 次式 )
+\end{aligned}  
+\]</span></p><p>なのを利用すると、</p>
+<p><span>\[\displaystyle \sum_{n=1}^N T_{K+1}(n) = \sum_{n=1}^N (K + 1)n^K + (nのK-1次式)\]</span></p><p>とも表せます。 <span>\(K - 1\)</span> 以下の数に対して命題が成り立つとき、 <span>\( (nのK-1次式)\)</span> の<span>\(1\)</span>から<span>\(N\)</span>までの累積和は <span>\((NのK次式)\)</span> になるのを利用すると、上式は</p>
+<p><span>\[\sum_{n=1}^N T_{K+1}(n)  =  (NのK次式) + (K + 1)  \sum_{n=1}^N n^K\]</span></p><p>になります。以上より得られた二つの式を連立すると</p>
+<p><span>\[S_K(N) = \sum_{n=1}^N n^K = \frac{N^{K+1} + (NのK次式)}{K + 1}\]</span></p><p>が従います。よって <span>\(K=1\)</span> の場合と合わせて帰納的に示せました。</p>
+
+<h3>4. <span>\(f(N, M)\)</span>の性質</h3>
+
+<p>元の問題に戻りましょう。 3 で示された事実から、 <span>\(f(N,M)\)</span> は次の性質を満たすことが証明できます。</p>
+
+<blockquote>
+<p><span>\(f(N,M)\)</span> は <span>\(M\)</span> を固定したとき <span>\(N\)</span> の <span>\(M + K\)</span> 次式で表せる。</p>
+</blockquote>
+
+<p>この事実は帰納的に示せます。<span>\(f(N,m)\)</span> が <span>\(N\)</span> の <span>\(m+K\)</span> 次式で表せるとき、3 で得た事実と合わせると</p>
+<p><span>\[ 
+\begin{aligned}  
+f(N, m+1) &amp;= \sum_{n = 1} ^ N f(n, m) \\
+&amp;= \sum_{n=1}^N (nのm+K次式) \\
+&amp;= (Nのm+K+1次式)
+\end{aligned}  
+\]</span></p><p>が従うので、 <span>\(m=0\)</span>  のとき  <span>\(f(n,0)=n^K\)</span>  と合わせて証明できました。</p>
+
+<p>以上より求める数列は、<span>\(M\)</span> を固定すれば <span>\(N\)</span> の多項式で表せるとわかりました。しかしここで新たな問題が発生します。それは「 <span>\(f(n)\)</span> が多項式であると分かったときに <span>\(f(N)\)</span> をどのように高速に計算するのか？」という問題です。</p>
+
+<p>もしも多項式の係数が分かっている場合はホーナー法などのナイーブなアルゴリズムで <span>\(\mathrm{O}(N)\)</span> で計算できます。しかしこの問題では <span>\(f(N, M)\)</span> の係数を復元するのは難しそうに見えます。</p>
+
+<p>次の章以降では、多項式の持つ性質をいくつか挙げた上で <span>\(f(N)\)</span> を高速に計算するアルゴリズムを説明していきます。</p>
+
+<h3>5. ラグランジュ補間</h3>
+
+<p>多項式は実は次の性質を持っています。</p>
+
+<blockquote>
+<p><span>\(x_0, x_1, \dots,x_d\)</span> と <span>\(y_0, \dots,y_d\)</span> が与えられたとき、</p>
+<p><span>\[f(x_i) = y_i (i=0,\ldots,d)\]</span></p><p>を満たす <span>\(d\)</span> 次以下の多項式 <span>\(f(x)\)</span> はただ1つに定まる。(ただし <span>\(x_i\)</span> は互いに異なるとする。)</p>
+</blockquote>
+
+<p>一次式を例に考えると、「 <span>\(f(0) = b, f(1) = a + b\)</span> を満たす <span>\(1\)</span> 次以下の式」は <span>\(f(x) = ax + b\)</span> に限られることがわかります。これを一般に拡張したのが上の命題です。</p>
+
+<p>この命題は次の重要な事実を導きます。</p>
+
+<ul>
+<li>係数が未知である <span>\(d\)</span> 次の多項式 <span>\(f(n)\)</span> が与えられたとき、<span>\(f(N)\)</span> を計算したい。このとき、多項式の係数がわからなくても <strong><span>\(f(0), f(1), \dots, f(d)\)</span> が計算できれば <span>\(f(N)\)</span> を復元することが出来る</strong>。</li>
+</ul>
+
+<p>元の問題を振り返ると、 <span>\(f(0, M), f(1, M), \dots, f(d, M)\)</span>  は累積和を利用すれば容易に計算できる問題でした。このような問題では、多項式を <span>\(f(0), f(1),\dots, f(d)\)</span> の形で持つことがアルゴリズムの計算量削減に大きく役立ちます。</p>
+
+<p>さて、この命題は行列を利用して証明できます。</p>
+<p><span>\[f(x) = f_0 + f_1 x + f_2 x^2 + \dots + f_d x^d\]</span></p><p>とおくと、<span>\((f_0, f_1,\dots,f_d)\)</span> と <span>\((y_0,\dots,y_d)\)</span> はヴァンデルモンド行列を利用して</p>
+<p><span>\[
+\left(
+\begin{array}{ccccc}
+1 &amp; x_0  &amp; x_0^2 &amp; \cdots &amp; x_0^d \\
+1 &amp; x_1  &amp; x_1^2 &amp; \cdots &amp; x_1^d \\
+1 &amp; x_2  &amp; x_2^2 &amp; \cdots &amp; x_2^d \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; x_d &amp; x_d^2 &amp; \cdots &amp; x_d^d \\
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+f_0 \\
+f_1 \\
+f_2 \\
+\vdots \\
+f_d \\
+\end{array}
+\right)
+=
+\left(
+\begin{array}{c}
+y_0 \\
+y_1 \\
+y_2 \\
+\vdots \\
+y_d \\
+\end{array}
+\right)
+\]</span></p><p>と表せます。ヴァンデルモンド行列の行列式は</p>
+<p><span>\[
+\left \vert
+\begin{array}{ccccc}
+1 &amp; x_0  &amp; x_0^2 &amp; \cdots &amp; x_0^d \\
+1 &amp; x_1  &amp; x_1^2 &amp; \cdots &amp; x_1^d \\
+1 &amp; x_2  &amp; x_2^2 &amp; \cdots &amp; x_2^d \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; x_d &amp; x_d^2 &amp; \cdots &amp; x_d^d \\
+\end{array}
+\right \vert = \prod_{j \lt i} (x_i - x_j) \neq 0
+\]</span></p><p>であるので、条件を満たす <span>\(f_0,\ldots,f_d\)</span> は一意に定まることが示されました。</p>
+
+<p>以上より<span>\(f(0),f(1),\ldots,f(d)\)</span> が与えられたときの <span>\(d\)</span>  次の多項式 <span>\(f(x)\)</span> が一意に定まること分かりましたが、ここから <span>\(f(N)\)</span> を求めるために <span>\(y\)</span> のベクトルにヴァンデルモンド行列を掛けるのは計算量が重いので、<strong>ラグランジュ基底多項式</strong>と呼ばれる多項式を導入します。</p>
+
+<p>ラグランジュ基底多項式 <span>\(L_i (x)\)</span> を <span>\(x_0,\dots,x_d\)</span> を用いて次のように定めます。</p>
+<p><span>\[
+\begin{aligned}  
+L_i(x) &amp;= \prod_{j \neq i} \frac{x - x_j}{x_i - x_j} \\
+&amp;= \frac{(x - x_0) (x - x_1)\dots(x-x_{i-1})(x-x_{i+1})\dots (x-x_d)}{(x_i - x_0) (x_i - x_1)\dots(x_i-x_{i-1})(x_i-x_{i+1})\dots (x_i-x_d)}
+\end{aligned}  
+\]</span></p><p>このとき、 <span>\(f(x)\)</span>は<span>\(L_i(x)\)</span> を用いて次のように表すことが出来ます。</p>
+
+<blockquote>
+<p><span>\(x_0, x_1, \dots,x_d\)</span>と<span>\(y_0, \dots,y_d\)</span>が与えられたとき、</p>
+<p><span>\[f(x_i) = y_i (i=0,\ldots,d)\]</span></p><p>を満たす <span>\(d\)</span> 次以下の多項式 <span>\(f(x)\)</span> はラグランジュ基底多項式<span>\(L_i(x)\)</span>を用いて次のように表せる。</p>
+<p><span>\[f(x) = y_0 L_0(x) + y_1 L_1(x) + \dots + y_d L_d(x)\]</span></p></blockquote>
+
+<p>上式の正当性を確かめます。ラグランジュ基底多項式</p>
+<p><span>\[
+L_i(x) = \frac{(x - x_0) (x - x_1)\dots(x-x_{i-1})(x-x_{i+1})\dots (x-x_d)}{(x_i - x_0) (x_i - x_1)\dots(x_i-x_{i-1})(x_i-x_{i+1})\dots (x_i-x_d)}
+\]</span></p><p>は次の性質を満たします。</p>
+<p><span>\[L_i(x_j) = 
+\begin{cases}
+1 &amp; i = j \\
+0 &amp; i \neq j
+\end{cases}
+\]</span></p><p>上式より</p>
+<p><span>\[ y_0 L_0(x_i) + y_1 L_1(x_i) + \dots + y_d L_d(x_i) = y_i\]</span></p><p>が従い、 <span>\(L_i(x)\)</span> が高々 <span>\(d\)</span> 次なのと合わせて正当性が確かめられます。</p>
+
+<p>以上より、点 <span>\((x, y)\)</span> が複数与えられたときに、与えられた点全てを通る次数最小の多項式は一意に定まることが示されました。このように与えられた点を通る多項式を発見することを<strong>補間</strong>と呼び、特にラグランジュ基底多項式を用いた補間を<strong>ラグランジュ補間</strong>と呼びます。</p>
+
+<h3>6. ラグランジュ補間を利用した <span>\(f(N)\)</span> の評価</h3>
+
+<p>さて、準備がようやく整いました。今までの議論を元に、<span>\(f(0),f(1),\dots,f(d)\)</span> から <span>\(f(N)\)</span> を高速に計算するアルゴリズムを説明します。</p>
+
+<blockquote>
+<p><span>\(y_0 = f(0),y_1 = f(1) \ldots, y_d = f(d)\)</span> が既知である <span>\(d\)</span> 次以下の多項式 <span>\(f(x)\)</span> に対して、<span>\(f(N)\)</span> は <span>\(\mathrm{O}(d)\)</span> で計算できる。</p>
+</blockquote>
+
+<p><span>\(x_i = i\)</span> とした場合のラグランジュ補間多項式を利用すると</p>
+<p><span>\[f(N) = y_0 L_0(N) + y_1 L_1(N) + \dots + y_d L_d(N)\]</span></p><p>と表せるので、<span>\(L_i(N)\)</span> を高速に計算できればよいとわかります。<span>\(L_i(N)\)</span> は</p>
+<p><span>\[
+\begin{aligned}  
+L_i(N)
+&amp;= \frac
+{(N - 0) (N - 1)\dots(N-(i-1))(N-(i+1))\dots (N-d)}
+{(i - 0) (i - 1)\dots(i-(i-1))(i-(i+1))\dots (i-d)} \\
+&amp;= \frac
+{\displaystyle \prod_{0 \leq j \leq d, j \neq i} (N - j)}
+{i!  \cdot (-1)^{d - i} (d - i)!}
+\end{aligned}  
+\]</span></p><p>と変形できます。<span>\(N - i\)</span> の左右からの累積積と<span>\((1!)^{-1},(2!)^{-1},\dots,(d!)^{-1}\)</span> をともに <span>\(\mathrm{O}(d)\)</span> で前計算しておくと、<span>\(L_i(N)\)</span> は <span>\(\mathrm{O}(1)\)</span> で計算できます。よって <span>\(L_i(N)\)</span> を全体で <span>\(\mathrm{O}(d)\)</span> で計算することが出来たので、<span>\(f(N)\)</span> も <span>\(\mathrm{O}(d)\)</span> で求めることが出来ました。</p>
+
+<h3>7. まとめ</h3>
+
+<p>以上の考察により、この問題は次のアルゴリズムで <span>\(\mathrm{O}(K \log K + (K + M)M)\)</span> で解けることが分かります。</p>
+
+<ul>
+<li><span>\(f(n, 0) = n^K\)</span> の初めの <span>\(K+M+1\)</span> 項を愚直に求める。</li>
+<li>累積和を <span>\(M\)</span> 回計算して <span>\(f(n, M)\)</span> の初めの <span>\(K+M+1\)</span> 項を求める。</li>
+<li>ラグランジュ補間で <span>\(f(N, M)\)</span> を求める。</li>
+</ul>
+
+<p>実装は次の通りです。TL が少し厳しいため、PyPy で AC する際には JIT コンパイルによる除算の高速化や多倍長演算によるボトルネックに配慮した実装をしないと TLE してしまうかもしれません。</p>
+
+<pre class="prettyprint linenums"><code class="language-python">mod = 1000000007
+
+def fast_pow(x, k):
+  res = 1
+  while k:
+    if k &amp; 1:
+      res = res * x % mod
+    x = x * x % mod
+    k &gt;&gt;= 1
+  return res
+
+N, M, K = map(int, input().split())
+S = M + K
+dp = [fast_pow(i, K) for i in range(S + 1)]
+for _ in range(M):
+  for i in range(1, S + 1):
+    dp[i] = (dp[i - 1] + dp[i]) % mod
+
+invfac = [0] * (S + 1)
+fac = 1
+for i in range(1, S + 1):
+  fac = fac * i % mod
+invfac[-1] = pow(fac, mod - 2, mod)
+for i in reversed(range(S)):
+  invfac[i] = invfac[i + 1] * (i + 1) % mod
+
+N %= mod
+
+L = [1] * (S + 1)
+for i in range(S):
+  L[i + 1] = L[i] * (N - i) % mod
+R = [1] * (S + 1)
+for i in reversed(range(1, S + 1)):
+  R[i - 1] = R[i] * (N - i) % mod
+
+answer = 0
+for i in range(S + 1):
+  tmp = dp[i] * L[i] % mod * R[i] % mod * invfac[i] % mod * invfac[S - i] % mod
+  if S % 2 == i % 2:
+    answer += tmp
+  else:
+    answer -= tmp
+
+print(answer % mod)
+</code></pre>
+
+<h3>8. Bonus</h3>
+
+<ol>
+<li><p>この問題では多項式の係数列 <span>\((f_0, f_1,\dots,f_d)\)</span> は必要が無かったので計算しませんでしたが、もし係数が必要な場合はヴァンデルモンド行列を利用すると <span>\((y_0,\dots,y_d)\)</span> から <span>\((f_0, f_1,\dots,f_d)\)</span> を <span>\(\mathrm{O}(d \log^2 d)\)</span> で計算できることが知られています。Library Checker の Polynomial Interpolation に実装例が置いてあるので興味がある方は調べてみてください。</p></li>
+
+<li><p><span>\(N\leq 10^{18}, M \leq 10^7, K \leq 10^6\)</span> とします。<span>\(f(N, M) \bmod 998244353\)</span> を計算してください。</p></li>
+</ol>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1625048802">
+				<time class="timeago" datetime="2021/06/30 19:26:42"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1629854655">
+				<time class="timeago" datetime="2021/08/25 10:24:15"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc208/editorial/2195?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 208">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc208/rules">ルール</a></li>
+					<li><a href="/contests/abc208/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

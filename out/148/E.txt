@@ -1,0 +1,39 @@
+f (N ) を 10 進法で表記したときに末尾に続く 0 の個数は、f (N ) が 2 で割り切れる回数と f (N ) が
+5 で割り切れる回数の min です。
+以下、N の偶奇に分けて考えます
+
+• N が奇数の場合 · · · f (N ) はいくつかの奇数の積なので、2 で割れることはありません。よっ
+て答えは常に 0 です。
+
+• N が偶数の場合 · · · 明らかに、f (N ) が 2 で割り切れる回数は 5 で割り切れる回数よりも多い
+ので、5 で割り切れる回数のみを考えます。
+
+f (N ) = N (N − 2)(N − 4) · · · 2 が 5 で割り切れる回数は、(2, 4, · · · , N のうち 5 で割り切れるもの
+の個数) + (2, 4, · · · , N のうち 52 で割り切れるものの個数) + (2, 4, · · · , N のうち 53 で割り切れるも
+のの個数) · · · となります。それぞれ、2, 4, · · · , N のうち 5 で割り切れるものの個数は f loor(N/10)、
+
+2, 4, · · · , N のうち 52 で割り切れるものの個数は f loor(N/50)、2, 4, · · · , N のうち 53 で割り切れる
+ものの個数は f loor(N/250)、· · · なので、N/10 から順に、分母が N 以下の間、分母を 5 倍して商
+を求めるというのを繰り返し、総和を取ればよいです。
+
+6
+
+The number of trailing zeros in the decimal notation of f (N ) is min of how many times f (N )
+can be divided by 2 and how many f (N ) can be divided by 5.
+We will divide into cases depending on parity of N .
+• If N is odd · · · f (N ) is product of some odd numbers, so it can never be divided by 2.
+Therefore, the answer is always 0.
+• If N is even · · · Obviously, the number of times f (N ) can be divided by 2 is more than
+the number of times it can be divided by 5, so we only have to consider how many times
+it can be divided by 5.
+The number of times f (N ) = N (N − 2)(N − 4) · · · 2 can be divided by 5 is equal to (how
+many integers out of 2, 4, · · · , N can be divided by 5?) + (how many integers out of 2, 4, · · · , N
+can be divided by 52 ?) + (how many integers out of 2, 4, · · · , N can be divided by 53 ?) · · · .
+Since f loor(N/10) integers out of 2, 4, · · · , N can be divided by 5, f loor(N/50) integers out of
+2, 4, · · · , N can be divided by 52 , f loor(N/250) integers out of 2, 4, · · · , N can be divided by
+53 , · · · , so it would be enough to, starting from N/10, repeat multiplying the denominator by 5
+and calculating the quotient while the denominator is no more than N , and ﬁnd the sum of the
+quotients.
+
+13
+

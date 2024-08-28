@@ -1,0 +1,501 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - 東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 304）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - 東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 304）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc304/editorial/6509" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - 東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 304）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc304";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-06-03T21:00:00+09:00");
+			var endTime = moment("2023-06-03T23:00:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 304）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 304）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc304">東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 304）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc304/editorial/6509?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc304/editorial/6509?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc304%2Feditorial%2F6509">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc304%2Feditorial%2F6509">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc304%2Feditorial%2F6509">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230603T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-06-03 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230603T2300&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-06-03 23:00:00+0900</time></a> 
+				(120分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc304"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc304/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc304/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc304/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc304/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc304/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc304/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc304/tasks/abc304_g">G - Max of Medians</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-3.png" class="user-rating-stage-m"><a href="/users/cn449" class="username"><span class="user-orange">cn449</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>答えについて二分探索をします。</p>
+
+<p>関数 <span>\(f\)</span>、<span>\(g\)</span>、<span>\(f_d\)</span>、<span>\(g_d\)</span> を以下のように定義します。</p>
+
+<ul>
+<li><p>数列 <span>\(C\)</span> を適切に並べ替えることにより <span>\(C_1 \oplus C_2, C_3 \oplus C_4, \ldots, C_{2k-1} \oplus C_{2k}\)</span> をすべて <span>\(x\)</span> 以上にすることができる最大の <span>\(k\)</span> を <span>\(f(C,x)\)</span> とする。</p></li>
+
+<li><p>数列 <span>\(C\)</span>、<span>\(D\)</span> を適切に並べ替えることにより <span>\(C_1 \oplus D_1, C_2 \oplus D_2, \ldots, C_k \oplus D_k\)</span> をすべて <span>\(x\)</span> 以上にすることができる最大の <span>\(k\)</span> を <span>\(g(C,D,x)\)</span> とする。</p></li>
+
+<li><p>数列 <span>\(C\)</span> の各要素 <span>\(i\)</span> を <span>\(i \bmod 2^{d+1}\)</span> に置き換えた数列を <span>\(C&#39;\)</span>、<span>\(x&#39; \coloneqq x \bmod 2^{d+1}\)</span> として、<span>\(f_d(C,x) \coloneqq f(C&#39;,x&#39;)\)</span> とする。</p></li>
+
+<li><p>数列 <span>\(C\)</span> の各要素 <span>\(i\)</span> を <span>\(i \bmod 2^{d+1}\)</span> に置き換えた数列を <span>\(C&#39;\)</span>、数列 <span>\(D\)</span> の各要素 <span>\(i\)</span> を <span>\(i \bmod 2^{d+1}\)</span> に置き換えた数列を <span>\(D&#39;\)</span>、<span>\(x&#39; \coloneqq x \bmod 2^{d+1}\)</span> として <span>\(g_d(C,D,x) \coloneqq g(C&#39;, D&#39;, x&#39;)\)</span> とする。</p></li>
+</ul>
+
+<p>直感的には、<span>\(f_d\)</span> や <span>\(g_d\)</span> を考える際には <span>\(2^{d+1}\)</span> 以上の位を切り捨てているなどと捉えることができます。</p>
+
+<p><span>\(f(A,x) \geq \lfloor \frac{N+1}{2} \rfloor\)</span> か？という判定問題が解ければよいです。</p>
+
+<p><span>\(f(A,x) = f_{29}(A,x)\)</span> であるため、<span>\( f_{29}(A,x)\)</span> を求めます。</p>
+
+<p>実は、<span>\(f_d(C,x)\)</span> や <span>\(g_d(C,D,x)\)</span> の値はいくつかの点での <span>\(f_{d-1}\)</span> や <span>\(g_{d-1}\)</span> の値から再帰的に求めることができます。
+以下、この再帰について詳しく説明します。以下、数列 <span>\(X\)</span> に対しその数列の長さを <span>\(|X|\)</span> というように表記します。</p>
+
+<h3>1 . <span>\(f_d(C,x)\)</span> を求める</h3>
+
+<p>説明の簡略化のため、<span>\(C\)</span> の各要素および <span>\(x\)</span> は <span>\(0\)</span> 以上 <span>\(2^{d+1}\)</span> 未満とします。</p>
+
+<p>また、<span>\(d \geq 0\)</span> のとき <span>\(C\)</span> の要素のうち、<span>\(2^d\)</span> の位が <span>\(0\)</span> であるようなもののみからなる数列を <span>\(C^{(0)}\)</span>、<span>\(2^d\)</span> の位が <span>\(1\)</span> であるようなもののみからなる数列を <span>\(C^{(1)}\)</span> とします。</p>
+
+<h4>1-1. <span>\(d = -1\)</span> のとき</h4>
+
+<p><span>\(f_d(C,x) = \lfloor \frac{|C|}{2} \rfloor\)</span> です（これが再帰の base case となります）。</p>
+
+<h4>1-2. <span>\(d \geq 0\)</span> で、<span>\(x\)</span> の <span>\(2^d\)</span> の位が <span>\(0\)</span> のとき</h4>
+
+<p>対称性より<span>\(|C^{(0)}| \leq |C^{(1)}|\)</span> の場合について考えれば十分です。
+<span>\(C^{(0)}\)</span> の要素と <span>\(C^{(1)}\)</span> の要素の xor は必ず <span>\(2^d\)</span> 以上となり、<span>\(2^d &gt; x\)</span> より <span>\(x\)</span> 以上にもなります。したがって、<span>\(f_d(C,x) = |C^{(0)}| + \min (\lfloor \frac {(|C^{(1)}| - |C^{(0)}|)}{2} \rfloor, f_{d-1}(C^{(1)}, x))\)</span> です（<span>\(C^{(0)}\)</span> の要素と <span>\(C^{(1)}\)</span> の要素からなるペアを貪欲に作ってよく、ここから従います)。</p>
+
+<h4>1-3.  <span>\(d \geq 0\)</span> で、<span>\(x\)</span> の <span>\(2^d\)</span> の位が <span>\(1\)</span> のとき</h4>
+
+<p><span>\(C^{(0)}\)</span> の要素どうしおよび <span>\(C^{(1)}\)</span> の要素どうしの xor は必ず <span>\(2^d\)</span> 未満となり、<span>\(2^d \leq x\)</span> より <span>\(x\)</span> 未満にもなります。したがって、<span>\(f_d(C,x) = g_{d-1}(C^{(0)}, C^{(1)}, x)\)</span> です。</p>
+
+<h3>2 . <span>\(g_d(C,D,x)\)</span> を求める</h3>
+
+<p><span>\(f_d(C,D,x)\)</span> とほぼ同様に求めることができます。</p>
+
+<p>説明の簡略化のため、<span>\(C,D\)</span> の各要素および <span>\(x\)</span> は <span>\(0\)</span> 以上 <span>\(2^{d+1}\)</span> 未満とします。</p>
+
+<p><span>\(d \geq 0\)</span> のとき <span>\(C\)</span> の要素のうち、<span>\(2^d\)</span> の位が <span>\(0\)</span> であるようなもののみからなる数列を <span>\(C^{(0)}\)</span>、<span>\(2^d\)</span> の位が <span>\(1\)</span> であるようなもののみからなる数列を <span>\(C^{(1)}\)</span>、<span>\(D\)</span> の要素のうち、<span>\(2^d\)</span> の位が <span>\(0\)</span> であるようなもののみからなる数列を <span>\(D^{(0)}\)</span>、<span>\(2^d\)</span> の位が <span>\(1\)</span> であるようなもののみからなる数列を <span>\(D^{(1)}\)</span>とします。</p>
+
+<h4>2-1. <span>\(d = -1\)</span> のとき</h4>
+
+<p><span>\(f_d(C,D,x) = \min(|C|,|D|)\)</span> です（これが再帰の base case となります）。</p>
+
+<h4>2-2. <span>\(d \geq 0\)</span> で、<span>\(x\)</span> の <span>\(2^d\)</span> の位が <span>\(0\)</span> のとき</h4>
+
+<p>対称性より<span>\(|C^{(0)}| \leq |D^{(1)}|\)</span> の場合について考えれば十分です。
+<span>\(C^{(0)}\)</span> の要素と <span>\(D^{(1)}\)</span> の要素の xor および <span>\(C^{(1)}\)</span> の要素と <span>\(D^{(0)}\)</span> の要素の xor は必ず <span>\(2^d\)</span> 以上となり、<span>\(2^d &gt; x\)</span> より <span>\(x\)</span> 以上にもなります。</p>
+
+<h5>2-2-1. <span>\(|C^{(1)}| \leq |D^{(0)}|\)</span> のとき</h5>
+
+<p><span>\(g_d(C,D,x) = |C^{(0)}| + |C^{(1)}|\)</span> です（上下から簡単に評価できます）。</p>
+
+<h5>2-2-2. <span>\(|C^{(1)}| &gt; |D^{(0)}|\)</span> のとき</h5>
+
+<p><span>\(g_d(C,D,x) = |C^{(0)}| + |D^{(0)}| + \min(|C^{(1)}| - |D^{(0)}|, |D^{(1)}| - |C^{(0)}|, g_{d-1}(C^{(1)}, D^{(1)}, x))\)</span> です（<span>\(C^{(0)}\)</span> の要素と <span>\(D^{(1)}\)</span> の要素からなるペアおよび <span>\(D^{(0)}\)</span> の要素と <span>\(C^{(1)}\)</span> の要素からなるペアを貪欲に作ってよく、ここから従います）。</p>
+
+<h4>2-3.  <span>\(d \geq 0\)</span> で、<span>\(x\)</span> の <span>\(2^d\)</span> の位が <span>\(1\)</span> のとき</h4>
+
+<p><span>\(C^{(0)}\)</span> の要素と <span>\(D^{(0)}\)</span> の要素の xor および <span>\(C^{(1)}\)</span> の要素と <span>\(D^{(1)}\)</span> の要素の xor は必ず <span>\(2^d\)</span> 未満となり、<span>\(2^d \leq x\)</span> より <span>\(x\)</span> 未満にもなります。したがって、<span>\(g_d(C,D,x) = g_{d-1}(C^{(0)}, D^{(1)}, x) + g_{d-1}(C^{(1)}, D^{(0)}, x)\)</span> です。</p>
+
+<p><br></p>
+
+<p>以上よりこの再帰にしたがって計算することで求めたい値が得られました。各 <span>\(d\)</span> に対して <span>\(O(N)\)</span> 個の点で評価しているため全体として判定問題は <span>\(O(N \log \max A_i)\)</span> で解け、全体としてこの問題を時間計算量 <span>\(O(N (\log \max A_i) ^ 2)\)</span> で解くことができました。再帰の計算式を観察することで実は <span>\(f(A,x) = \lfloor \frac {g(A,A,x)}{2} \rfloor\)</span> が成り立つこともわかるので、<span>\(f\)</span> や <span>\(f_d\)</span> を使わずに答えを得ることも可能です。</p>
+
+<p>以下は実装例ですが、解説と変数名が違う部分があること、再帰で評価する際に数列を陽を持たずに <span>\(A\)</span> を sort して <span>\(A[l:r]\)</span> の形で保持していることに注意してください。また、<span>\(C = A[l:r]\)</span> は<span>\(|C^{(0)}| = A[l:m]\)</span>、<span>\(|C^{(1)}| = A[m:r]\)</span> というように分割できますが、この <span>\(m\)</span> を求めるために尺取り法の要領で前計算をしています（実際は、再帰の中で毎回二分探索をすることにより <span>\(m\)</span> を求める解法でも AC できることを確認済みです）。</p>
+
+<pre class="prettyprint linenums"><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+const int N = 200010;
+vector&lt;vector&lt;int&gt;&gt; v(30, vector&lt;int&gt;(N));
+
+int g(vector&lt;int&gt; &amp;a, int xl, int xr, int yl, int yr, int x, int d) {
+	if (xl == xr || yl == yr) return 0;
+	if (d == -1) return min(xr - xl, yr - yl);
+	int xm = v[d][xl], ym = v[d][yl];
+	int x1 = xm - xl, x2 = xr - xm, y1 = ym - yl, y2 = yr - ym;
+	if (x &gt;&gt; d &amp; 1) {
+		int c1 = g(a, xl, xm, ym, yr, x, d - 1);
+		int c2 = g(a, xm, xr, yl, ym, x, d - 1);
+		return c1 + c2;
+	}
+	else {
+		bool f1 = x1 &lt;= y2;
+		bool f2 = x2 &lt;= y1;
+		if (f1 &amp;&amp; f2) return x1 + x2;
+		else if (!f1 &amp;&amp; !f2) return y1 + y2;
+		else if (f1 &amp;&amp; !f2) {
+			int r = min({ g(a, xm, xr, ym, yr, x, d - 1), y2 - x1, x2 - y1 });
+			return r + x1 + y1;
+		}
+		else if (!f1 &amp;&amp; f2) {
+			int r = min({ g(a, xl, xm, yl, ym, x, d - 1), x1 - y2, y1 - x2 });
+			return r + x2 + y2;
+		}
+	}
+}
+
+int f(vector&lt;int&gt; &amp;a, int l, int r, int x, int d) {
+	if (l == r) return 0;
+	if (d == -1) return (r - l) / 2;
+	int m = v[d][l];
+	int x1 = m - l, x2 = r - m;
+	if (x &gt;&gt; d &amp; 1) return g(a, l, m, m, r, x, d - 1);
+	else {
+		if (x1 &lt;= x2) return min((x2 - x1) / 2, f(a, m, r, x, d - 1)) + x1;
+		else return min((x1 - x2) / 2, f(a, l, m, x, d - 1)) + x2;
+	}
+}
+
+int main() {
+	int n;
+	cin &gt;&gt; n;
+	vector&lt;int&gt; a(2 * n);
+	for (int i = 0; i &lt; 2 * n; i++) cin &gt;&gt; a[i];
+	sort(a.begin(), a.end());
+	a.push_back(7 &lt;&lt; 28);
+	int ans = 0;
+	for (int i = 0; i &lt; 30; i++) {
+		int f = 0;
+		int z = 1 &lt;&lt; (i + 1);
+		int nxt = a[0] / z * z + z / 2;
+		int mx = a[0] / z * z + z;
+		int tmp = -1;
+		for (int j = 0; j &lt; 2 * n + 1; j++) {
+			if (a[j] &gt;= nxt &amp;&amp; tmp == -1) tmp = j;
+			if (a[j] &gt;= mx) {
+				for (int k = f; k &lt; j; k++) v[i][k] = tmp;
+				f = j;
+				nxt = a[j] / z * z + z / 2;
+				mx = a[j] / z * z + z / 2;
+				tmp = -1;
+			}
+			if (a[j] &gt;= nxt &amp;&amp; tmp == -1) tmp = j;
+		}
+	}
+	for (int b = 29; b &gt;= 0; b--) {
+		int tmp = ans | (1 &lt;&lt; b);
+		int cnt = f(a, 0, 2 * n, tmp, 29);
+		if (cnt &gt;= (n + 1) / 2) ans |= 1 &lt;&lt; b;
+	}
+	cout &lt;&lt; ans &lt;&lt; &#39;\n&#39;;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1685733593">
+				<time class="timeago" datetime="2023/06/03 04:19:53"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1685986215">
+				<time class="timeago" datetime="2023/06/06 02:30:15"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc304/editorial/6509?lang=ja" data-a2a-title="解説 - 東京海上日動プログラミングコンテスト2023（AtCoder Beginner Contest 304）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc304/rules">ルール</a></li>
+					<li><a href="/contests/abc304/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

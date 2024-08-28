@@ -1,0 +1,27 @@
+まず、色数の最小値 K がいくつになるかを考えます。任意の頂点 v について、 deg(v) ≤ K を満
+たす必要があります (deg(v) は頂点 v の次数を表します)。
+実は、 K = max deg(v) となるような色の塗り分けが存在します。まず、頂点を一つ選び、それを
+v
+
+根として G を根付き木にします。根から幅優先探索を行います。各頂点では、その子との間の辺の
+色を順番に決めていきます。このとき、その頂点を端点に持つ辺の色としてまだ使われていない色の
+中で最小のものを使うようにすると、その値は K を超えないことがわかります。
+構築を終えた後、出力の際には連想配列などを用いることができます。以下は C++ による解答例
+です。https://atcoder.jp/contests/abc146/submissions/8600549
+
+4
+
+First, let’s think about the minimum number of colors K. For every vertex v, deg(v) ≤ K
+should meet (where deg(v) denotes the degree of vertex v).
+In fact, there exists coloring such that K = max deg(v). First, choose a vertex and let it be
+v
+
+the root, thus G will be a rooted tree. Perform a breadth ﬁrst search from the root. For each
+vertex, determine the colors of edges between its children one by one. For each edge, use the
+color with the minimum index among those which are not used as colors of edges whose one of
+endpoints is the current vertex. Then the each index of color does not exceed K.
+After construction ended, you can use associative arrays when outputting. The following is a
+sample code in C++. https://atcoder.jp/contests/abc146/submissions/8600549
+
+10
+

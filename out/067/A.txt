@@ -1,0 +1,15 @@
+A, B, A + B のいずれかが 3 で割り切れるかどうかを調べればよい．なお，答えが Impossible
+となるのは A ≡ B ≡ 1 mod 3 あるいは A ≡ B ≡ 2 mod 3 の場合のみである．
+
+#include <iostream>
+using namespace std;
+int main(){
+int a,b;
+cin>>a>>b;
+if(a%3 == 0 || b%3 == 0 || (a+b)%3==0)
+cout<< "Possible" <<endl;
+else cout<< "Impossible" <<endl;
+}
+
+1
+

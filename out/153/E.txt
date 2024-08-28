@@ -1,0 +1,43 @@
+次のような DP を考えることで解くことができます。
+
+DP [i] = モンスターの体力を i 減らすため消耗する魔力の最小値
+同じ魔法を複数回使うことができるので、DP 配列の更新順序には気をつけてください。答えは
+
+min
+
+H≤i<H+max Ai
+
+DP [i] になります (モンスターの体力を H + max Ai 以上減らすには、H 以上減らし
+
+てからさらに魔法を使う必要があるので無駄です)。この部分は、「i ≥ H であるような部分について
+予めまとめた状態で DP 配列を持つ」という実装の工夫により簡略化することもできます。計算量は
+
+O(N H) です。
+なお、答えは最大で H ∗ max Ai 程度になるので、次のような DP では解けないことに注意してく
+ださい。
+
+DP [i] = 魔力を i 消耗したときに減らせるモンスターの体力の最大値
+
+5
+
+This problem cane be solved by considering the following DP.
+
+DP [i] = The minimum total Magic Points that have to be consumed to decrease the monster’s health by i
+Since the same spell can be cast multiple times, be careful of the order of refreshing the
+DP array. The answer is
+
+min
+
+H≤i<H+max Ai
+
+DP [i] (in order to decrease the monster’s health by
+
+H + max Ai or more, an additional spell has to be cast after it is decreased by H or more, so it’s
+meaningless). This part can be simpliﬁed by ingenious implementation of “holding a DP array
+in which the part of i ≥ H are put together. The total time complexity is O(N H).
+Note that it cannot be solved by the following DP, since the answer can be H ∗ max Ai at most.
+
+DP [i] = The maximum total health that can be decreased when the i Magic Points are consumed
+
+11
+

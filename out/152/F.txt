@@ -1,0 +1,34 @@
+”すべての条件を満たす塗り方”を数える代わりに、” 1 つ以上の条件を満たさない塗り方”を数える
+ことにします。
+包除原理を使うと、 M 個の制約から 1 つ以上の制約を選んで、選んだ制約を 1 つも満たさないよ
+うな塗り方を数える問題になります。
+制約の選び方を 1 つ固定します。選ばれた制約を 1 つも満たさないような塗り方の数を効率的に
+計算することを考えます。選ばれた制約に対応するパス上に存在する辺は、必ず白く塗らなければな
+りません。そうでない辺は、どちらの色で塗ってもよいです。したがって、選ばれた制約に対応する
+パスたちに覆われている辺の数を C とおくと、選ばれた制約を 1 つも満たさないような塗り方の数
+は、 2N −1−C 通りです。
+適当に根を選んで根付き木として考え、各 ui , vi に対して最近共通祖先 (LCA) を事前に求めてお
+きます。すると、 C の計算の際には、木上で累積和を用いればよく、 O(N + M ) で実行できます。
+以上より、 O((N + M )2M ) でこの問題を解くことができました。
+
+6
+
+Instead of counting the number of ”ways of painting that satisfy all the conditions,” let us
+count the number of ”ways of painting that do not satisfy one or more conditions.”
+By the inclusion-exclusion principle, it is rephrased to the problem of choosing one or more
+constraints out of M constraints and count the number of such ways of painting that do not
+satisfy any of the chosen constraints.
+Fix a combination of constraints. Consider how we can eﬃciently count the such ways of
+painting that do not satisfy the chosen constraints. The edges on the paths corresponding to
+the chosen constraints must be painted white. The other edges can be painted with either color.
+Therefore, let C be the number of edges covered by the paths corresponding to the chosen
+constraints, then there are 2N −1−C ways of painting such that do not satisfy any of the chosen
+constraints.
+Regard as a rooted tree by choosing an arbitral root, and for each ui , vi ﬁnd their Lowest
+Common Ancestor (LCA) beforehand. Then, when calculating C you can use cumulative sums,
+so it can be executed in a total of O(N + M ) time.
+Therefore, this problem could be solved in a total of O((N + M )2M ) time.
+
+12
+
+

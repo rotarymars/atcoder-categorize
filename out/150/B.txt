@@ -1,0 +1,112 @@
+任意の i (0 ≤ i ≤ n − 3) について、Si 以下 3 文字が ABC であるかを確認すればいいです。C++
+による実装例を以下に示します。
+Listing 2 C++ による実装例
+1
+
+#include<bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main() {
+
+5
+
+int n;
+
+6
+
+string s;
+
+7
+
+cin >> n >> s;
+
+8
+
+int ans = 0;
+
+9
+
+for(int i = 0; i <= n - 3; i++) {
+if(s[i] == 'A' && s[i + 1] == 'B' && s[i + 2] == 'C') ans++;
+
+10
+11
+
+}
+
+12
+
+cout << ans << endl;
+
+13
+
+return 0;
+
+14
+
+}
+
+2
+
+For all i (0 ≤ i ≤ n − 3), check if 3 letters starting from Si is equal to ABC, and it’s suﬃcient.
+The following is a sample code in C++.
+Listing 4 Sample Code in C++
+1
+
+#include<bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main() {
+
+5
+
+int n;
+
+6
+
+string s;
+
+7
+
+cin >> n >> s;
+
+8
+
+int ans = 0;
+
+9
+
+for(int i = 0; i <= n - 3; i++) {
+if(s[i] == 'A' && s[i + 1] == 'B' && s[i + 2] == 'C') ans++;
+
+10
+11
+
+}
+
+12
+
+cout << ans << endl;
+
+13
+
+return 0;
+
+14
+
+}
+
+8
+

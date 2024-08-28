@@ -1,0 +1,25 @@
+まず，N=1 の場合の答えは |a1 − W | です。
+
+2 ≤ N の場合を考えます。X は初手で全部のカードを引くことにより，
+|aN − W | が達成できます。また，初手で N − 1 枚のカードを引くことで
+|aN −1 − aN | が達成できます。
+実は，初手で行うべき操作はこの 2 通りのみ，つまり 2 枚以上カードを残
+す理由はありません。なぜならば，その直後の手番で Y さんは，残り 1 枚に
+なるようにカードを引くと |aN −1 − aN | を達成できます。よって 2 枚以上カー
+ドを残してもスコアが |aN −1 − aN | より高くなることはないからです。
+以上より，この問題の (2 ≤ N の時の) 答えは max(|aN − W |, |aN −1 − aN |)
+です。
+
+4
+
+If N = 1, the answer is |a1 − W |.
+Suppose that 2 ≤ N . X can achieve the final result of |aN − W | all cards in
+his first turn. Also, X can achieve the final result of |aN −1 − aN | by drawing
+N − 1 cards in his final turn.
+It turns out that X can’t do better than the two strategies above. Suppose
+that X leaves at least two cards (k cards) in his first turn. Then, Y can take
+k − 1 cards in the next turn and the result will be |aN −1 − aN |.
+Therefore, the answer is max(|aN − W |, |aN −1 − aN |).
+
+1
+

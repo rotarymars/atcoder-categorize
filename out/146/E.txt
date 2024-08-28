@@ -1,0 +1,39 @@
+数列 {Sn } を Si = A1 + A2 + · · · Ai と定めます。S0 = 0 とします。
+すると、連続部分列 Ai+1 , . . . , Aj がみたすべき条件を式で表すと、
+
+(Sj − Si )%K = j − i
+と書けることがわかります。上の式をさらに変形すると、
+
+(Sj − j)%K = (Si − i)%K かつ j − i < K
+と同値です。したがって、各 j (1 ≤ j ≤ N ) について、(Sj − j)%K = (Si − i)%K をみたすような
+
+j − K < i < j の個数を数えるといいです。
+これをそのまま 1 つずつ調べていては間に合いませんが、j に対して調べるべき区間 (j − K, j) と
+
+j + 1 に対して調べるべき区間 (j − K + 1, j + 1) は左右が 1 つずつ違うだけなので、j 番目につい
+て調べたあと j + 1 番目について調べるには、左の要素を 1 つ捨てて、右の要素を 1 つ加えるだけで
+よいです。
+捨てる、加える などの操作は連想配列 (C++ の map や Python の dict など) を用いて Si − i たち
+の個数を管理することで、高速に実現することができます。
+計算量は全体で O(N log K) 程度です。
+
+5
+
+Let’s deﬁne a sequence {Sn } such that Si = A1 + A2 + · · · Ai . Let S0 = 0.
+Then, the condition that a contiguous subsequence Ai+1 , . . . , Aj should meet can be represented
+like
+(Sj − Si )%K = j − i.
+This equation can be transformed to the following equivalent conditions:
+(Sj − j)%K = (Si − i)%K and j − i < K
+Therefore, for each j (1 ≤ j ≤ N ) you should count the number of j − K < i < j such that
+(Sj − j)%K = (Si − i)%K.
+If you search them this naively one by one it won’t ﬁnish in time, but for j the segment needed
+to be searched is (j − K, j), and for j + 1, it is (j − K + 1, j + 1), and these diﬀers only by one
+elements at the leftmost and rightmost, so in order to search for j + 1-th after searching for j-th
+element, you only have to discard the leftmost element and add the rightmost element.
+Operations of discarding or adding can be performed quickly by managing the number of Si − i’s
+by using associative arrays (such as map in C++ or dict in Python).
+The total time complexity is about O(N log K).
+
+11
+

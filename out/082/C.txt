@@ -1,0 +1,14 @@
+それぞれの正の整数 x について，a 中の値 x の個数を nx とします．nx < x の場合，a 中の値 x はすべて
+取り除かなければならないので，nx 回の操作が必要です．nx ≥ x の場合，a 中の値 x の個数を x にすれば
+よいので，nx − x 回の操作が必要です．すべての x についてこれらの操作回数を合計したものが答えです．
+実際には，すべての x ではなく，a 中の値 x のみ調べればよいです．x の値は最大で 109 と大きいので，
+普通の配列の代わりに連想配列を用いて各 nx を数えればよいです．
+
+• C++ のコード例 : https://beta.atcoder.jp/contests/abc082/submissions/1872852
+
+Let nx be the number of occurrences of x in a. If nx < x, add nx to the answer.
+If nx ≥ x, add nx − x to the answer.
+• C++ Code Example : https://beta.atcoder.jp/contests/abc082/submissions/1872852
+
+1
+

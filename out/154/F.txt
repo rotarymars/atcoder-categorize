@@ -1,0 +1,54 @@
+g(r, c) を 0 ≤ i ≤ r かつ 0 ≤ j ≤ c を満たす全ての整数の組 (i, j) に対する f (i, j) の総和としま
+す。すると、求める値は g(r2, c2) − g(r2, c1 − 1) − g(r1 − 1, c2) + g(r1 − 1, c1 − 1) となります。
+よって、 g(r, c) が高速に計算できればこの問題が解けます。
+唐突ですが、f (r + 1, c) = f (r, 0) + f (r, 1) + ... + f (r, c) が成り立ちます。これは、点 (0, 0) から
+点 (r + 1, c) への経路について考えてみると説明できます。点 (0, 0) から点 (r + 1, c) へのどの経路
+も、「点 (0, 0) から点 (r, 0) に至り、そのまま (r + 1, 0) に移動し、点 (r + 1, c) へ移動」「点 (0, 0)
+から点 (r, 1) に至り、そのまま (r + 1, 1) に移動し、点 (r + 1, c) へ移動」
+「点 (0, 0) から点 (r, 2) に
+至り、そのまま (r + 1, 2) に移動し、点 (r + 1, c) へ移動」...「点 (0, 0) から点 (r, c) に至り、そのま
+ま (r + 1, c) に移動し、点 (r + 1, c) へ移動」のうちいずれか 1 つに必ず該当し、2 つ以上に該当す
+ることはありません。
+ところで点 (0, 0) から点 (r + 1, c) への経路数が f (r + 1, c) で、点 (0, 0) から点 (r, i) に至
+り、そのまま (r + 1, i) に移動し、点 (r + 1, c) へ移動する経路数は、「点 (0, 0) から点 (r, i) に
+至る」のが f (r, i) 通り、そのまま 1 回下に移動、残りはひたすら右に移動を繰り返すことが
+強制されているので、点 (r, i) から先は 1 通り、すなわち全部で f (r, i) 通りです。以上より式
+
+f (r + 1, c) = f (r, 0) + f (r, 1) + ... + f (r, c) が成り立ちます。
+また f (r, c) =r+c Cc = (r + c)!/(r!c!) です。よって、求めたい値は O(N ) 個の f (x, y) の和で書
+き表わせるので、f (x, y) が O(1) で求められれば良いです。これは階乗と階乗の逆元を前計算してお
+けば良いです。
+また、f (r, c + 1) = f (0, c) + f (1, c) + ... + f (r, c) をもう一度適用すると、求めたい値は定数個の
+
+f (x, y) の和でも書き表すことができます。
+
+6
+
+Let g(r, c) be the sum of f (i, j) for all pairs of integers (i, j) such that 0 ≤ i ≤ r and 0 ≤ j ≤ c.
+Then, the desired answer is g(r2, c2) − g(r2, c1 − 1) − g(r1 − 1, c2) + g(r1 − 1, c1 − 1). Therefore,
+this problem can be solved if g(r, c) can be calculated fast.
+It’s a bit kind of sudden, but it holds that f (r + 1, c) = f (r, 0) + f (r, 1) + ... + f (r, c). This can
+be explained by considering the paths from the point (0, 0) to the point (r + 1, c). Every path
+from the point (0, 0) to the point (r + 1, c) is either of such paths that ”from the point (0, 0),
+reach the point (r, 0), and move to (r + 1, 1) right away, then move to (r + 1, c)”, ”from the
+point (0, 0), move to the point (r, 1), and move to (r + 1, 1) right away, then move to (r + 1, c)”,
+”from the point (0, 0), move to the point (r, 2), and move to (r + 1, 2) right away, then move to
+(r + 1, c)”, ..., or ”from the point (0, 0), move to the point (r, c), and move to (r + 1, c) right
+away, then move to (r + 1, c)”; it does not correspond to more than one of them.
+By the way, the number of paths from the point (0, 0) to the point (r + 1, c) is f (r + 1, c),
+and the number of the path such that, from the point (0, 0), move to the point (r, i), and
+move to (r + 1, i) right away, then move to (r + 1, c) can be calculated as follows: there are
+f (r, i) paths such that ”from the point (0, 0), move to the point (r, i) is f (r, i), then move
+downwards once, and you are forced to move to the right all the way, so there is a single path
+from the point (r, i) and beyond, thus the number of paths is f (r, i). Therefore, it holds that
+f (r + 1, c) = f (r, 0) + f (r, 1) + ... + f (r, c).
+Also, it holds that f (r, c) =r+c Cc = (r + c)!/(r!c!). Therefore, the desired answer can be
+denoted by the sum f (x, y)’s, whose number of terms are O(N ), so it is enough if f (x, y) can
+be calculated in O(1) time. To do this, you can precalculate the factorials and the inverses of
+factorials.
+Also, by applying f (r, c + 1) = f (0, c) + f (1, c) + ... + f (r, c) again, the desired answer can be
+represented by the sum of a constant number of f (x, y)’s.
+
+12
+
+

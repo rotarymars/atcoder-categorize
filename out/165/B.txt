@@ -1,0 +1,132 @@
+今持っている金額を P とすると、P < X のあいだ P に
+
+⌊ P ⌋
+100
+
+を足せばよいです。
+
+入力例 2 からもわかるように、 ループ回数は高々 3760 回となり、十分高速です。
+
+64bit 整数を扱う言語ではオーバーフローに注意してください。
+⌊
+⌋
+(P ′ = P ×101
+のように計算するとオーバーフローする場合があります)
+100
+以下は C++ による回答例です。
+1
+
+#include <bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+long long X;
+
+5
+
+cin >> X;
+
+6
+
+long long P = 100, step = 0;
+
+7
+
+while(P < X){
+P += P / 100;
+
+8
+
+step++;
+
+9
+10
+
+}
+
+11
+
+cout << step << endl;
+return 0;
+
+12
+13
+
+}
+
+2
+
+Let P be the amount of money he has, then it is suﬃcient to add
+
+⌊ P ⌋
+100
+
+to P while P < X.
+
+As it can be seen from Sample Input 2, the maximum number of loops is 3760 times, which is
+fast enough.
+In the language which treats 64-bit integers, be careful of overﬂows.
+⌋
+⌊
+may lead to overﬂow.)
+(Calculating like P ′ = P ×101
+100
+The following is a sample code in a C++.
+1
+
+#include <bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+long long X;
+
+5
+
+cin >> X;
+
+6
+
+long long P = 100, step = 0;
+
+7
+
+while(P < X){
+P += P / 100;
+
+8
+
+step++;
+
+9
+10
+
+}
+
+11
+
+cout << step << endl;
+return 0;
+
+12
+13
+
+}
+
+8
+

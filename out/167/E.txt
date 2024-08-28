@@ -1,0 +1,31 @@
+「隣り合うブロックの組であって同じ色で塗られている組が、丁度 k 組である」場合の色の塗り方
+を考えます.
+条件を満たす為の必要十分条件は, 左端を除いた N − 1 個のブロックのうち, k 個が左隣のブロック
+と同じ色で塗られており, N − 1 − k 個が左隣と異なる色で塗られていることです.
+このような色の塗り方は, 左端のブロックの色の選び方及び前述の k 個のブロックの選び方も考慮す
+ると,
+
+M × N −1 Ck × 1k × (M − 1)
+
+N −1−k
+
+で表されます. この値を k = 0, 1, · · · , K について足し合わせることで, 答えを求めることが出来
+ます.
+
+5
+
+Consider the ways of painting where “there are exactly k pairs of adjacent blocks that are
+painted in the same color.”
+The necessary and suﬃcient condition is that, out of N − 1 blocks except for the leftmost block,
+k blocks are painted in the same color of the blocks in their left, and N − 1 − k blocks are painted
+in the diﬀerent color of the blocks in their left.
+Such ways of painting is, considering the choice of the color of the leftmost block and the choice
+of aforementioned k blocks as well, represented by following equation:
+M × N −1 Ck × 1k × (M − 1)
+
+N −1−k
+
+By accumulating them for k = 0, 1, · · · , K, the answer can be calculated.
+
+11
+

@@ -1,0 +1,91 @@
+(原案: tozangezan, 準備・解説: evima)
+X, p1 , . . . , pN はいずれも 1 以上 100 以下ですが、答えは 0 または 101 となりうる点に注意を要
+します。
+この点にさえ注意すれば、与えられる値の小ささのため計算を高速化する工夫などは必要なく、
+「書かれていることを実装しなさい」という通常の Beginner Contest 問題 B 相当の問題です。本問
+が問題 B として出題されていたなら以下に具体的な実装方法を述べるところですが、問題 C を解
+かれる方にそのような説明は不要と考え、省略します。
+追記 (6/18): 以下に Python での実装例を示します。
+
+1
+
+X, N = map(int, input().split())
+
+2
+
+p = list(map(int, input().split()))
+
+3
+
+for d in range(X + 1):
+
+4
+
+for s in [-1, +1]:
+
+5
+
+a = X + s * d
+
+6
+
+if p.count(a) == 0:
+
+7
+
+print(a)
+
+8
+
+exit(0)
+答えの候補を X, X − 1, X + 1, X − 2, X + 2, . . . の順に調べています。count を何度も呼び出して
+いる部分に高速化の余地がありますが、この問題の制約下ではその必要はありません。
+
+3
+
+(Original writer: tozangezan, preparation and editorials: evima)
+Note that although X, p1 , . . . , pn are all between 1 in 100, the answer may be 0 or 101¿
+If you just take care of that point, you don’t have to do any optimization because of the small
+constraints, so it’s just as easy as Beginner Contest’s Problem B, in which you are only asked to
+“implement just as described.” If this problem was set in Problem B, we would describe the specific
+way to implement it, but we will omit it since we think such description is unnecessary for those who
+tries solving Problem C.
+P.S. (June 18): Sample implementation in Python follows:
+
+1
+
+X, N = map(int, input().split())
+
+2
+
+p = list(map(int, input().split()))
+
+3
+
+for d in range(X + 1):
+
+4
+
+for s in [-1, +1]:
+
+5
+
+a = X + s * d
+
+6
+
+if p.count(a) == 0:
+
+7
+
+print(a)
+
+8
+
+exit(0)
+It checks candidates for the answer in the order X, X − 1, X + 1, X − 2, X + 2, . . . We can optimize
+the part where it calls count many times, but we have no need to do so under the constraints of this
+problem.
+
+9
+

@@ -1,0 +1,23 @@
+します。
+
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int x , a , b;
+s c a n f (”%d%d%d ” , &x , &a , &b ) ;
+i f (−a + b <= 0 ) p r i n t f ( ” d e l i c i o u s \n ” ) ;
+e l s e i f (−a + b <= x ) p r i n t f ( ” s a f e \n ” ) ;
+e l s e p r i n t f ( ” d a n g e r o u s \n ” ) ;
+}
+
+There are three cases: A ≥ B, A < B ≤ A + X, B > A + X.
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int x , a , b;
+s c a n f (”%d%d%d ” , &x , &a , &b ) ;
+i f (−a + b <= 0 ) p r i n t f ( ” d e l i c i o u s \n ” ) ;
+e l s e i f (−a + b <= x ) p r i n t f ( ” s a f e \n ” ) ;
+e l s e p r i n t f ( ” da nger ou s \n ” ) ;
+}
+

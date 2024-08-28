@@ -1,0 +1,19 @@
+整数 i, j(1 ≤ i < j ≤ N ) を固定します。グラフ G における、頂点 i と頂点 j の最短距離を効率
+的に求めることを考えます。 頂点 X と頂点 Y を結ぶ辺を使う場合と使わない場合に分けて考える
+と、求める最短距離は min{|j − i|, |X − i| + 1 + |j − Y |, |Y − i| + 1 + |j − X|} となります。この
+式に従って計算することで、 頂点 i と頂点 j の最短距離を O(1) で求めることができます。後は、
+
+1 ≤ i < j ≤ N を満たすすべての i, j について、上記の方法で最短距離を求めれば、 O(N 2 ) でこの
+問題を解くことができます。
+
+4
+
+Fix two integers i, j(1 ≤ i < j ≤ N ). Let us consider an eﬃcient way of finding the shortest
+distance between vertex i and vertex j. By considering whether or not use the edge between
+vertex X and vertex Y , the desired shortest distance will be min{|j − i|, |X − i| + 1 + |j − Y |, |Y −
+i| + 1 + |j − X|}. By following this equation, the shortest distance between vertex i and vertex j
+can be calculated in an O(1) time. Finally, by finding the shortest distance for all i, j such that
+1 ≤ i < j ≤ N with the method above, the problem can be solved in a total of O(N 2 ) time.
+
+10
+

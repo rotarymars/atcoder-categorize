@@ -1,0 +1,16 @@
+結論としては、|X − Y | ≤ 1 のとき Brown、そうでなければ Alice が勝ちます。以下の帰納法を X + Y の
+昇順に回すことで、この性質が成り立つことがわかります。
+
+• X + Y ≤ 1 のとき有効な操作がないため、Brown が勝ちます。
+• X + Y > 1, |X − Y | ≤ 1 のときどんな操作をしても、|X − Y | > 1 で相手に手番を渡してしまうため、
+帰納法の仮定により相手が勝ち、自分は負けます。
+
+• X + Y > 1, |X − Y | > 1 のとき山のうち石が多くある方の山から適切な数取ることで、|X − Y | ≤ 1
+で相手に手番を渡すことができます。帰納法の仮定により相手は負け、自分は勝ちます。
+
+If |X − Y | ≤ 1, Brown wins. Otherwise Alice wins.
+• Incase|X − Y | ≤ 1, no matter how you move, after your turn |X − Y | > 1 will be held, and your
+opponent wins.
+• In case X + Y > 1, |X − Y | > 1, if you take appropriate number of stones, you can satisfy
+|X − Y | ≤ 1 after your turn and you win.
+

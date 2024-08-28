@@ -1,0 +1,21 @@
+この問題は、Queue というデータ構造を用いることで効率的に解くことができます。まず、空の
+
+Queue を 1 つ用意し、1, 2, ..., 9 を順に Enqueue します。それから、以下の操作を K 回行います。
+• Queue に対して Dequeue を行う。取り出した要素を x とする。
+• x mod 10 ̸= 0 なら、 10x + (x mod 10) − 1 を Enqueue する。
+• 10x + (x mod 10) を Enqueue する。
+• x mod 10 ̸= 9 なら、 10x + (x mod 10) + 1 を Enqueue する。
+K 回目の操作において取り出した数が、 K 番目の Lunlun Number となっています。
+
+4
+
+This problem can be solved by utilizing a data structure called Queue. First, prepare an empty
+queue, and Enqueue 1, 2, ..., 9 in this order. Then perform the following operations K times.
+• Perform Dequeue from the Queue. Let x be the dequeued element.
+• If x mod 10 ̸= 0, then Enqueue 10x + (x mod 10) − 1.
+• Enqueue 10x + (x mod 10).
+• If x mod 10 ̸= 9, then Enqueue 10x + (x mod 10) + 1.
+The dequeued number in the K-th operation is the K-th Lunlun Number.
+
+10
+

@@ -1,0 +1,11 @@
+定義どおりに，すぬけ君の住んでいる位置と，店 A, B の間の距離を求めます．この距離の大小に応じて，より近いほ
+うを出力すればよいです．
+
+• C++ による解答例: https://abc071.contest.atcoder.jp/submissions/1518940
+• Ruby による解答例: https://abc071.contest.atcoder.jp/submissions/1518942
+• Rust による解答例: https://abc071.contest.atcoder.jp/submissions/1516215
+
+• C++ solution: https://abc071.contest.atcoder.jp/submissions/1518940
+• Ruby solution: https://abc071.contest.atcoder.jp/submissions/1518942
+• Rust solution: https://abc071.contest.atcoder.jp/submissions/1516215
+

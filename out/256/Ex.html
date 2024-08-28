@@ -1,0 +1,486 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - 東京海上日動プログラミングコンテスト2022（AtCoder Beginner Contest 256）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - 東京海上日動プログラミングコンテスト2022（AtCoder Beginner Contest 256）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc256/editorial/4113" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - 東京海上日動プログラミングコンテスト2022（AtCoder Beginner Contest 256）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc256";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-06-18T21:00:00+09:00");
+			var endTime = moment("2022-06-18T22:40:00+09:00");
+		</script>
+		<style>.prize {
+	table;
+	table-responsible;
+	table-striped;
+	table-bordered;
+}
+.prize td, .prize th {
+	text-align:center;
+}
+</style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>東京海上日動プログラミングコンテスト2022（AtCoder Beginner Contest 256）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>東京海上日動プログラミングコンテスト2022（AtCoder Beginner Contest 256）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc256">東京海上日動プログラミングコンテスト2022（AtCoder Beginner Contest 256）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc256/editorial/4113?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc256/editorial/4113?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc256%2Feditorial%2F4113">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc256%2Feditorial%2F4113">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc256%2Feditorial%2F4113">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220618T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-06-18 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220618T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-06-18 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc256"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc256/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc256/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc256/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc256/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc256/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc256/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc256/tasks/abc256_h">Ex - I like Query Problem</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<h4>観察: クエリ 1 の持つ性質は？</h4>
+
+<p>クエリ 2, クエリ 3 だけならば典型的な遅延評価セグメント木(以下 lazyseg) に関する問題です。問題はクエリ 1 で、これがどのような性質を持つのか見ていきましょう。</p>
+
+<h5>1. 通常の lazyseg に載らない</h5>
+
+<p>lazyseg に載る代数的な構造は実はかなり限られています。(lazyseg に載る条件は <a href="https://atcoder.github.io/ac-library/master/document_ja/lazysegtree.html" rel="nofollow">ACL のリファレンス</a> に載っています。)クエリ 1 のような整数除算はこの条件を満たしていないので、lazyseg にそのまま載せることはできません。</p>
+
+<h5>2. クエリを適用するごとに a_i の値が半分以下になる</h5>
+
+<p>クエリ 1 を適用するごとに、区間に含まれている要素は<span>\(a_i\)</span> から <span>\(\lfloor a_i / x\rfloor \leq a_i / 2\)</span> へ変化するので、要素の値は半分以下になります。そして、一旦 <span>\(0\)</span> になったらクエリ <span>\(2\)</span> (更新クエリ) が適用されるまでクエリ 1 の影響を受けません。これが計算量を削減する 1 つのポイントになります。</p>
+
+<p>以上のポイントに注目して解法を考えていきましょう。 ここでは 2 種類の解法を紹介します。</p>
+
+<h4>解法 1 : 区間を set で管理</h4>
+
+<p>1 つ目の解法はオーソドックスな解法で、前回の Ex 問題にも登場している区間を set で管理するテクニックを利用してみましょう。<br>
+「値が同じであり、かつ <span>\(1\)</span> 以上である区間」を <code>std::set</code> で管理することを考えます。また、別途 range assign と range sum ができる lazyseg を用意して、そちらでも <span>\(A\)</span> の要素を管理します。<br>
+  クエリ 2 は <code>std::set</code> に適宜区間を挿入して lazyseg に range assign を行えば高速に処理できます。クエリ 3 も lazyseg を利用すればよいです。また、<span>\(A\)</span> の初期状態をデータ構造に反映させる部分も、クエリ <span>\(2\)</span> が <span>\(N\)</span> 回投げられたと見なせば高速に処理できます。<br>
+問題はクエリ 1 です。まず、 <span>\([L,R]\)</span> に含まれる非 <span>\(0\)</span> な区間を <code>std::set</code> を走査することで列挙します。各区間は値が同じなので、整数除算を適用した後の値はただちに求まり、 lazyseg の値も <span>\(\mathrm{O}(\log N)\)</span> で更新できます。また、値が <span>\(0\)</span> になった場合は <code>std::set</code> から区間を取り除きます。</p>
+
+<p>計算量を考えます。1 つの区間を <code>std::set</code> に挿入する回数は高々 <span>\(\lceil \log \max(A) \rceil + 1\)</span> 回です。また、新たな区間が挿入される回数は <span>\(N + \mathrm{O}(Q)\)</span> 回です。よって計算量は <span>\(\mathrm{O}( (N + Q) \log N \log \max(A))\)</span> になります。</p>
+
+<p><a href="https://atcoder.jp/contests/abc256/submissions/32369947" rel="nofollow">実装例</a></p>
+
+<p>以下は発展的な内容ですが、データ構造の知識がある人や興味がある人向けの別解として Segment Tree Beats! を紹介します。</p>
+
+<h4>解法 2 :  Segment Tree Beats!</h4>
+
+<p>Segment Tree Beats! (以下 Beats) は 2016 年頃に中国の情報オリンピック界隈で開発されたデータ構造です。</p>
+
+<ul>
+<li><a href="https://codeforces.com/blog/entry/57319" rel="nofollow">Codeforcesの記事(英語)</a> ：作者の吉さんによる解説。中国では「吉老师线段树」のような呼び名も用いられているようです。</li>
+</ul>
+
+<p>Beats は lazyseg を拡張したデータ構造と言えるので、ここでは非再帰の lazyseg である <a href="https://github.com/atcoder/ac-library/blob/master/atcoder/lazysegtree.hpp" rel="nofollow">ACL の lazy_segtree の実装</a> を元に説明していきましょう。</p>
+
+<p>lazyseg の区間更新 (ACL の <code>apply</code> 関数) は次のように作用素を作用させています。</p>
+
+<ol>
+<li>根から葉の方向に向けて、遅延評価用の値を伝搬していく。(ACL の <code>push</code> 関数)</li>
+<li><span>\(\mathrm{O}(\log N)\)</span> 個の区間に対して、作用素を作用させて遅延評価用の値を更新する。(ACL の <code>all_apply</code> 関数)</li>
+<li>葉から根の方向に向けて、作用素を作用させた後の値をもとに値を更新していく。(ACL の <code>update</code> 関数)</li>
+</ol>
+
+<p>このような操作によって区間更新・区間和の取得ができるのは、モノイド <span>\(S\)</span> および作用素 <span>\(F\)</span> が<a href="https://atcoder.github.io/ac-library/master/document_ja/lazysegtree.html" rel="nofollow">良い性質</a>を持っているからです。<br>
+では、もしも作用素が「ときどき失敗する」場合はどうなるでしょうか。つまり、作用素が現在のモノイドの持つ値によって作用できたり作用できなかったりする状況を考えてみます。(作用素がこのような性質を持つ場合に lazyseg にそのままモノイドと作用素を持たせると、もちろん 2. で作用に失敗してめちゃくちゃなことになります。)<br>
+とりあえず、作用素が長さ 1 の区間に対しては必ず作用できることを仮定しましょう。すると、「作用に失敗してしまう場合は、かわりに子への作用を試みる」という操作を再帰的に繰り返せば、正しく動作するアルゴリズムを構成することができます。(どれだけ作用できない状況が続いても最後には長さ 1 の区間に辿り着くため。)すなわち次のようなアルゴリズムです。</p>
+
+<ol>
+<li>根から葉の方向に向けて、遅延評価用の値を伝搬していく。</li>
+<li><span>\(\mathrm{O}(\log N)\)</span> 個の区間に対して、作用素を作用させるのを試みる。
+
+<ul>
+<li>作用させられる場合は、通常の lazyseg と同様に作用させて遅延評価用の値を更新する。</li>
+<li>そうでない場合は、子の要素への作用を試みる。これを作用させられるまで再帰的に繰り返す。</li>
+</ul></li>
+<li>葉から根の方向に向けて、作用素を作用させた後の値をもとに値を更新していく。</li>
+</ol>
+
+<p>上記のアルゴリズムならば作用に失敗することはありませんが、最悪ケースで <span>\(\mathrm{O}(N)\)</span> かかってしまうという問題があってこちらをどうにかしなければいけません。<br>
+lazyseg で訪問するノードを ordinary nodes, Beats で新たに訪問するノードを extra nodes と定義します。ordinary nodes は lazyseg が訪問するノードでクエリあたり <span>\(\mathrm{O}(\log N)\)</span> で済むので extra nodes の個数のみが重要になります。ここでモノイドおよび作用素をうまく設計することで、問題全体で訪れる extra nodes の個数が <span>\(\mathrm{o}(QN)\)</span> になるようにできれば、更新クエリが償却 <span>\(\mathrm{o}(N)\)</span> になって計算量を落とすことができます。</p>
+
+<ul>
+<li>発想自体は簡単ですが、この部分を問題に応じて ad-hoc に設計・計算量解析する必要があるのが Beats の難しいところです。</li>
+</ul>
+
+<p>この問題での解法は次のようになります。</p>
+
+<h5>ABC256H で Beats に載せるデータ</h5>
+
+<p>各区間 <span>\([L,R]\)</span> に対して、次の <span>\(4\)</span> つを載せます。</p>
+
+<ul>
+<li>区間に含まれる要素の和 <span>\(\sum_{i=L}^R a_i\)</span></li>
+<li>区間の左端の要素 <span>\(a_L\)</span></li>
+<li>区間の長さ <span>\(R - L + 1\)</span></li>
+<li>区間に含まれる値 <span>\(a_i\)</span> がすべて等しいかを持たせたフラグ</li>
+</ul>
+
+<p>このとき、クエリ 1 に由来する作用素が作用できる条件は「フラグが true かどうか」になります。詳しくは<a href="https://atcoder.jp/contests/abc256/submissions/32531002" rel="nofollow">実装例</a>の該当部分を以下に抜き出すのでそちらを参考にしてください。</p>
+
+<pre class="prettyprint linenums"><code>using T = long long;
+using U = pair&lt;int, int&gt;;
+struct Node {
+  T sm, val;
+  int size;
+  bool same;
+  Node(T n = 0) : sm(n), val(n), size(1), same(true) {}
+
+  void query2(T x) { sm = x * size, val = x, same = true; }
+  void push(Node&amp; l, Node&amp; r) {
+    if (same) l.query2(val), r.query2(val);
+  }
+  void update(Node&amp; l, Node&amp; r) {
+    sm = l.sm + r.sm;
+    val = l.val;
+    size = l.size + r.size;
+    same = l.same and r.same and l.val == r.val;
+  }
+  bool apply(U p) {
+    if (p.first == 1) {
+      return same ? (query2(val / p.second), true) : false;
+    } else {
+      return query2(p.second), true;
+    }
+  }
+};
+</code></pre>
+
+<h5>計算量解析</h5>
+
+<p>extra node 以外の部分は <span>\(\mathrm{O}(N + Q \log N)\)</span> で計算できるので考えなくて良いです。訪問する extra node の個数をうまく評価します。</p>
+
+<p>区間 <span>\([l, r]\)</span> に対して <span>\(f(l,r)\)</span> を次のように定義します。</p>
+<p><span>\[
+f(l, r) = 
+\begin{cases}
+0 &amp; \text{if } a_l = a_{l+1} = \dots = a_r \\
+-\log_2 \max(a_l, a_{l+1}, \dots, a_{r}) - 1 &amp; \text{otherwise}
+\end{cases}
+\]</span></p><p>そして、ポテンシャル <span>\(\phi\)</span> をすべてのノードにおける <span>\(f\)</span> の和として定義します。<span>\(\phi\)</span> の変化に注目することで、extra node に訪れる回数が  <span>\(2(N + Q \lceil \log N \rceil) \lceil \log \max(A) + 1 \rceil\)</span> 回以下なのを示します。</p>
+
+<p><span>\(\phi_i :=\)</span> (<span>\(i\)</span> 番目のクエリが終了した時点でのポテンシャル) とおきます。<span>\(\phi_0 \geq -2N \lceil \log \max(A) + 1 \rceil\)</span> です。また、クエリ <span>\(2\)</span> が呼ばれるごとに 新たに <span>\(f(l, r) \neq 0\)</span> となるノードは ACL の <code>update</code> 関数が呼ばれる箇所の個数に等しいので、<span>\(i\)</span> がクエリ <span>\(2\)</span> のとき <span>\(\phi_i - \phi_{i-1} \geq -2 \lceil \log N \rceil \lceil \log \max(A) + 1 \rceil\)</span> です。よってクエリ全体でのポテンシャルの減少量は <span>\(-2(N + Q \lceil \log N \rceil) \lceil \log \max(A) + 1 \rceil\)</span> で抑えられます。</p>
+
+<p>また、クエリ <span>\(1\)</span> で <span>\(1\)</span> 個の extra nodes に訪れるごとに、そのノードの最大値が <span>\(1/2\)</span> 以下になるのでポテンシャルが <span>\(1\)</span> 以上増えます。また、定義よりポテンシャルは常に <span>\(0\)</span> 以下です。よって、extra nodes に訪れる回数は  <span>\(2(N + Q \lceil \log N \rceil) \lceil \log \max(A) + 1 \rceil\)</span> 回以下であることが確認できました。</p>
+
+<p>以上より Beats を利用した解法の計算量は <span>\(\mathrm{O}( (N+Q \log N) \log \max(A))\)</span> であることが確認できました。</p>
+
+<p>実装に関しては lazyseg が書ける人ならば難しい所はないと思います。また、hitonanode さんが ACL の lazyseg を少し改造して Beats にする方法を書いていて参考になると思います。<a href="https://rsm9.hatenablog.com/entry/2021/02/01/220408" rel="nofollow">hitonanode さんの記事</a></p>
+
+<p><a href="https://atcoder.jp/contests/abc256/submissions/32361117" rel="nofollow">実装例</a></p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1654917200">
+				<time class="timeago" datetime="2022/06/11 12:13:20"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1655540092">
+				<time class="timeago" datetime="2022/06/18 17:14:52"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc256/editorial/4113?lang=ja" data-a2a-title="解説 - 東京海上日動プログラミングコンテスト2022（AtCoder Beginner Contest 256）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc256/rules">ルール</a></li>
+					<li><a href="/contests/abc256/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

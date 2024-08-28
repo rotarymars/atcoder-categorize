@@ -1,0 +1,56 @@
+
+Two Switches
+
+Alice と Bob が、2 人ともスイッチを押している状況を考えてみます。そうすると、ロボットを動かし始めてか
+ら max(A, C) 秒後から min(B, D) 秒後までの間、2 人がスイッチを押していることが分かります。したがって、
+答えは次のようになります。
+
+
+min(B, D) − max(A, C) 秒
+0 秒
+
+(max(A, C) ≤ min(B, D))
+(max(A, C) > min(B, D))
+
+ここで、min(·) は最小値、max(·) は最大値を表します。
+なお、問題の制約条件が小さいので、ループを利用したシミュレーションでも通すことができます。
+
+C++のコード例
+
+1
+
+int main(void) {
+
+2
+
+int A,B,C,D;
+
+3
+
+cin >> A >> B >> C >> D;
+
+4
+5
+
+const int lower = max(A,C);
+
+6
+
+const int upper = min(B,D);
+
+7
+
+cout << max(0,upper-lower) << endl;
+
+8
+9
+
+return 0;
+
+10
+11
+
+}
+
+2
+

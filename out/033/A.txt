@@ -1,0 +1,27 @@
+
+©AtCoder Inc. All rights reserved.
+
+2
+
+
+• 4桁の数が与えられる
+• 各桁が全て同じ数字であるか判定せよ
+
+©AtCoder Inc. All rights reserved.
+
+3
+
+
+• 実際に4文字読み込み、if文などで判定すれば
+よい
+• 例: if(in[0]==in[1]&&in[1]==in[2]&&in[2]==in[3])
+
+– 4桁とも同じ数字には法則性もある
+– 0000, 1111, 2222, …, 9999は全て
+1111の倍数。
+• 1111で割り切れるかどうかを判定してもよい
+• 例: if(N%1111==0)
+©AtCoder Inc. All rights reserved.
+
+4
+

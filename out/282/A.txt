@@ -1,0 +1,48 @@
+
+		公式
+		
+			
+				A - Generalized ABC 解説
+			
+			by nok0
+			
+		
+		
+		
+		
+			プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice contest」(https://atcoder.jp/contests/practice/) の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。
+また、プログラミングコンテストの問題に慣れていない方は、「AtCoder Beginners Selection」(https://atcoder.jp/contests/abs) の問題をいくつか試すことをおすすめします。
+「競プロ典型 90 問」(https://atcoder.jp/contests/typical90) では、プログラミングコンテストで扱われる典型的な 90  問の問題に挑戦可能です。
+「C++入門 AtCoder Programming Guide for beginners (APG4b)」(https://atcoder.jp/contests/APG4b) は、競技プログラマー向けのC++入門用コンテンツです。
+
+
+
+この問題では、A から \(i\) 個進んだ文字を求める必要があります。これは様々な書き方がありますが、例えば c++ では char('A' + i)、python では chr(ord('A') + i)  と書けばよいです。
+
+なお、プログラミング言語では 0-indexed が採用されている言語が多く、c++ でも python でも A を 0 文字目、B を \(1\) 文字目、と数えることに注意してください。
+
+ここまでわかれば、あとはAから \(0\) 個進んだ文字から \(K-1\)  個進んだ文字までを出力すればよいです。このような繰り返しには for 文が有用です。以下に実装例を示しますが、もしわからない場合は ABC272 以降の A 問題で for 文が必要な問題が数多く出ているので、そちらの解説も参照してください。
+
+実装例(c++):
+
+
+
+実装例(python):
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

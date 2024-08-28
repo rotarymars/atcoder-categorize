@@ -1,0 +1,25 @@
+N ≤ M として一般性を失いません。偶数回裏返されるカードは全操作の終了後には表を、奇数回裏返され
+るカードは裏を向くことになるので、各マスのカードが何回裏返されるかを考えることにしましょう。
+
+N = 1 かつ M = 1 のとき、1 枚だけあるカードは 1 回裏返されるので、答えは 1 です。
+N = 1 かつ M ̸= 1 のとき、M 枚のカードのうち両端のカードは 2 回、それ以外のカードは 3 回裏返され
+るので、答えは M − 2 です。
+
+N ≥ 2 のとき、N ≤ M より M ≥ 2 で、このとき、
+• 四隅のカードは 4 回
+• それ以外の周上のカードは 6 回
+• それ以外のカードは 9 回
+裏返されるので、答えは (N − 2)(M − 2) です。
+以上で答えがすべて求まりました。
+
+Without loss of generality, we can assume that N ≤ M . For each card, let’s count the number of times
+it is flipped: it will be faced down if this number is odd.
+In case N = 1 and M = 1, the only card will be flipped once. The answer is 1.
+In case N = 1 and M ̸= 1, the two cards at the end will be flipped twice, and other cards will be
+flipped three times. The answer is M − 2.
+In case N ≥ 2, since N ≤ M , we have M ≥ 2, and in this case
+• Four cards at the corners will be flipped 4 times.
+• Other cards at the edge will be flipped 6 times.
+• The cards that are completely surrounded by other cards will be flipped 9 times.
+Thus, the answer is (N − 2)(M − 2).
+

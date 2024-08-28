@@ -1,0 +1,92 @@
+(解説: evima)
+タイトルで示唆されているように、このゲームは Nim と呼ばれる有名なもので、A1 ⊕ A2 ⊕ . . . ⊕
+
+AN = 0 (⊕ は XOR: ビットごとの排他的論理和) であれば後手が必勝法を持ち、そうでなければ先
+手が必勝法を持つことが知られています。この問題を解く上では、Nim についてはこの知識を持って
+さえいれば十分であり、詳細には立ち入りません。
+上記より、A1 + A2 を S 、A3 ⊕ A4 ⊕ . . . ⊕ AN を X として、問題は次のように言い換えられます。
+
+
+
+
+
+a + b = S, a ⊕ b = X, a ≤ A1 であるような非負整数のペア (a, b) が存在するか判定し、存在す
+る場合はそのようなペアで a がとりうる最大の値を求めよ。
+
+
+
+
+
+(元の問題で第 1 の山からすべての石を移すことが禁じられていることが反映されていませんが、答
+えが 0 であった場合に代わりに「存在せず」と報告することで対処できます)
+解法の一つは、問題をさらに言い換えて「A1 以下の非負整数 a であって a + (a ⊕ X) = S を満た
+す最大のものを求めよ」として、動的計画法により実質的に a の値の全探索を行うことです。
+しかし、a + b = (a ⊕ b) + 2 × (a & b) (& は AND: ビットごとの論理積。この式が成り立つ
+ことは、XOR が「繰り上がりを無視した足し算」であることを考えればわかります) であること
+を利用すると、探索の必要はなくなります。条件を満たすような (a, b) について、先ほどの式より
+
+a & b = (S − X)/2 (この値を D とします) が成り立ちます。D が非負整数でなかったり、D と X
+で共通して立っているビットが一か所でもある場合、答えは「存在せず」です。
+そうでなければ、a ≤ A1 という条件を一旦無視すると、X で立っているビットの集合を二分割し
+て得られる整数を Y, Z としたとき (Y & Z = 0, Y ⊕ Z = X)、a = D ⊕ Y, b = D ⊕ Z というペア
+は残りの条件を満たします。また、この方法で得られるペアの他に残りの条件を満たすペアはありま
+せん。このようなペアにおける a の値のうち、a ≤ A1 を満たす最大のものが求める答えです。
+まず、このようなペアにおける a の最小の値は Y = 0 としたときの a = D で、この値が a ≤ A1
+を満たさなければ答えは「存在せず」です。そうでなければ、a ≤ A1 が満たされる範囲で a = D ⊕ Y
+をできるだけ大きくするように Y を選択する必要があります。結論から述べると、まず Y = 0 とし
+て、X で立っているビットを一つずつ降順に取り上げ、
+「このビットを Y に入れても a = D ⊕Y ≤ A1
+は成立するか？」と問い、答えが Yes なら入れる、という貪欲な戦略が最適です。これは、数の大小
+の定義 (任意の桁は、それより下のすべての桁を合わせたものより重要) から示せます。よって、言
+い換え後の問題は O(log X) 時間で解けます。
+
+8
+
+(Editorial: evima)
+As the title implies, this game is a famous one called Nim; it is known that the player who
+moves second has a strategy to always win if and only if A1 ⊕ A2 ⊕ . . . ⊕ AN = 0 (where ⊕
+denotes XOR: bitwise logical exclusive sum), and otherwise the player who moves ﬁrst has a
+strategy to always win. When solving this problem, what you only have to know about Nim is
+this knowledge, so we won’t explain in detail.
+By above, let S be A1 + A2 and X be A3 ⊕ A4 ⊕ . . . ⊕ AN , then the problem can be rephrased
+as follows:
+
+
+
+
+Judge if there exists a pair of non-negative integers (a, b) such that a + b = S, a ⊕ b = X, a ≤
+A1 , and if so, ﬁnd the maximum value of a.
+
+
+
+
+(In the problem above, you are allowed to move all the stones for the ﬁrst pile, which you are
+not in the original problem, but you can handle with it by answering “impossible” if the answer
+is 0.
+One of the solutions is to rephrase the problem further as “ﬁnd the maximum non-negative
+integer a such that a+(a⊕X) = S, and use dynamic programming to virtually perform exhaustive
+search for all a.
+However, since a + b = (a ⊕ b) + 2 × (a & b) (where & denotes AND: bitwise logical product.
+This formula can be justiﬁed by considering that XOR is operation of “calculating the sum
+while ignoring carryovers), you don’t have to perform searching. For each (a, b) that satisﬁes the
+conditions, by the equation above, it holds that a & b = (S − X)/2 (let this value be D). If D
+is not a non-negative integer, or D and X has one or more bit in common, then the answer is
+“impossible”.
+Otherwise, if we ignore the condition that a ≤ A1 , then for all pairs of integers Y and Z
+which can be obtained by partitioning the set of bits 1 in X (Y & Z = 0, Y ⊕ Z = X), the
+pair a = D ⊕ Y, b = D ⊕ Z satisﬁes the remaining constraints. Also, no other pair satisﬁes such
+conditions. Among each a of such pairs, the maximum a such that a ≤ A1 is the desired answer.
+First, the minimum a is a = D, which can be obtained when Y = 0, and if this value does
+not satisfy a ≤ A1 , then the answer is “impossible.” Otherwise, we want to choose as large Y
+18
+
+as possible, subject to a ≤ A1 , so that a = D ⊕ Y is maximum possible. Come to the point,
+the optimal is a greedy strategy of, ﬁrst let Y = 0, then iterate each bit of X whose value is 1,
+checking if “after adding this bit to Y , does a = D ⊕ Y ≤ A1 still holds?”, and if the answer
+is Yes, then add it. This can be proven by deﬁnition of ordering of numbers (that any digit is
+signiﬁcant that all lower digits combined). Therefore, the rephrased problem can be solved in a
+total of O(log X) time.
+
+19
+
+

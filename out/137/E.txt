@@ -1,0 +1,43 @@
+(原案: IH19980412, 準備・解説: evima)
+ゲーム終了時に T × P 枚のコインを支払うのではなく、辺を通るたびに P 枚のコインを支払う (その結果
+道中でコインの所持枚数が負になることも許容する) ことにすれば、時間の概念は不要になります。求めたい
+ものは、各辺 i の重みを Ci − P としたときの頂点 1 から頂点 N に至るパスの最大の重みです。各辺の重み
+をさらに −1 倍すると、これは最短路問題そのものになります。
+最短路問題を解く有名なアルゴリズムにダイクストラ法 (Wikipedia の記事へのリンク) がありますが、今
+回は負の重みを持つ辺があるため使えません。ワーシャル‒フロイド法 (Wikipedia の記事へのリンク) は負
+の重みを持つ辺に対応しますが、頂点数を V として O(V 3 ) の計算量を要しこれも今回用いるには厳しいで
+しょう。
+今 回 用 い る べ き ア ル ゴ リ ズ ム は ベルマン‒フォード法 (Wikipedia の記事へのリンク) で す 。こ の
+ア ル ゴ リ ズ ム は 負 の 重 み を 持 つ 辺 に 対 応 し 、頂 点 数 を V 、辺 数 を E と し て 計 算 量 O(V E) で 動 作
+し ま す 。こ れ を 上 で 定 め た グ ラ フ に ほ ぼ そ の ま ま 適 用 す れ ば 問 題 が 解 け ま す 。た だ し 、入 力 例 3
+にあるような頂点 1 から頂点 N への移動と無関係な負閉路に反応しないように注意する必要が
+あ り ま す 。その最も簡単な方法は、アルゴリズムにおける「辺の緩和」を追加で V
+
+回行って「頂点 N
+
+までの最短距離と思われる距離」が変化しないか確かめることでしょう。(8/11 0:08 JST 修正: この記述は
+誤りでした)
+
+6
+
+(Original writer: IH19980412, preparation and editorial: evima)
+Instead of paying T × P coins at the end of the game, if you decide to pay P coins every time you
+traverse an edge (and allow having negative number of coins), you don’t have to think about the time
+order of events. What we want to ﬁnd is the maximum cost of path from vertex 1 to vertex N , where
+cost of each edge i is set to Ci − P . If you multiply the cost by −1, the problem becomes a shortest-path
+problem.
+One of the famous algorithms to ﬁnd shortest path is Dijkstra’s algorithm (Link to Wikipedia article),
+
+but this time there exist edges with negative cost, so it cannot be applied. Floyd ‒ Warshall algorithm (Link to Wikipedia
+supports edges with negative costs, but it needs a total of O(V 3 ) time where V is number of vertex, so
+it is a little bit diﬃcult to ﬁnish in time.
+The algorithm that should be used this time is Bellman ‒ Ford algorithm (Link to Wikipedia article).
+This algorithm supports edges with negative costs and works in O(V E) time where V is number of vertices
+and E is number of edges. If you apply almost directly to the graph mentioned above, you can solve the
+problem. Note that it should not misdetect negative cycle that is not concerned with the traverse from
+vertex 1 to vertex N . The easiest way to achieve this is doing ”relaxation” V more times and check if
+”apparent minimum cost to vertex N ” does not change. (8/11 0:08 JST corrected: this statement was
+wrong.)
+
+15
+

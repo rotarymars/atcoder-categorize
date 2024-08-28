@@ -1,0 +1,85 @@
+まず、S, T の組を 1 つ固定して、f (S, T ) がどうなるかを考えてみましょう。
+明らかに S, T で等しい要素を変更する必要はありません。ここで、p1 , p2 , · · · , pk が S, T で異
+なるところの添字であり、この順番に変更するとします。このときのコストは k ∗ Cp1 + (k − 1) ∗
+
+Cp2 + · · · + 1 ∗ Cpk であるので、C の小さい方から変更するのが最適です。これは、ある i があって
+Cpi > Cpi+1 となるとき、この順番を swap してもコストが悪化しないことからわかります。
+以上の考察と対称性より、C は広義単調減少であると仮定します。全ての S ̸= T の組について、
+
+Si1 ̸= Ti1 , Si2 ̸= Ti2 · · · Sik ̸= Tik (1 ≤ i1 < i2 < · · · < ik ≤ N ) のとき
+
+∑k
+
+t=1 Cit ∗ t
+
+を求めたい
+
+です。
+総和の寄与を分解して、各 Ci が何回足されるかを考えます。これは j ≤ i で Sj ̸= Tj となる j の
+
+(
+
+)
+
+i−1
+個数に依存します。これが k 箇所であるとすると、 k−1
+∗ 2k ∗ 2i−1−k ∗ 4N −i ∗ Ci ∗ k 寄与します。
+
+(各要素が異なる場合も等しい場合も、2 通りずつであることに注意してください)
+∑i ( i−1 )
+これを k について足し合わせると Ci ∗ 4N −i ∗ 2i−1 ∗ k=1 k−1
+∗ k ですが、総和の中身も各要素
+が何回カウントされるかと読み替えることで 2i−1 ∗ (i + 1) であることがわかります。
+以上より結局のところ答えは 4N −1 ∗
+
+∑N
+
+i=1 Ci ∗ (i + 1) と表せます。
+
+ソート部分がボトルネックとなり、 O(N logN ) でこの問題が解けました。
+
+5
+
+First, let’s ﬁx a pair of S, T and consider f (S, T ).
+Obviously you don’t need to change the same elements between S, T . Here, assume that
+p1 , p2 , · · · , pk are the indices of S and T where they diﬀers each other, and we change them in
+that order. In such case the total cost is k ∗ Cp1 + (k − 1) ∗ Cp2 + · · · + 1 ∗ Cpk , so it is optimal
+to change in the ascending order of C. This is followed by the fact that if there exists an i such
+that Cpi > Cpi+1 , then swapping their order does not worsen the cost.
+By the observations above and symmetry, we assume that C is monotonically non-increasing.
+∑k
+For all pairs of S ̸= T , we want to ﬁnd t=1 Cit ∗ t where Si1 ̸= Ti1 , Si2 ̸= Ti2 · · · Sik ̸= Tik (1 ≤
+i1 < i2 < · · · < ik ≤ N ).
+Decompose the contributions of sums, and consider how many times Ci are added. This
+depends on the number of j such that j ≤ i and Sj ̸= Tj . If there are k such positions, then
+( i−1 ) k i−1−k N −i
+contributions are k−1
+∗2 ∗2
+∗4
+∗ Ci ∗ k. (Note that there are always two patterns no
+matter each pair of elements is diﬀerent or the same.)
+By summing up this for each k we obtain Ci ∗ 4N −i ∗ 2i−1 ∗
+
+∑i
+
+(
+
+i−1
+k=1 k−1
+
+)
+
+∗ k. By regarding
+
+the contents of summation as how many times each elements are counted, it appears to be
+2i−1 ∗ (i + 1).
+Therefore, the answer can be represented as 4N −1 ∗
+
+∑N
+
+i=1 Ci ∗ (i + 1).
+
+The bottleneck is the sort, and this problem could be solved in a total of O(N logN ) time.
+
+11
+

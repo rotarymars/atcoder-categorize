@@ -1,0 +1,26 @@
+この問題では、出力する画像をピクセルごとに求める方針でも解くことができますが、出力する画像の 1, 2
+行目は元の画像の 1 行目、3, 4 行目は元の画像の 2 行目…のように、上の行から順に 2 回出力を繰り返せばよ
+いです。
+C++ のコード例
+
+int h , w ;
+cin >> h >> w ;
+char buf [105];
+for ( int i = 0; i < h ; ++ i ) {
+scanf ("% s " , buf );
+printf ("% s \ n % s \ n " , buf , buf );
+}
+
+1
+
+Repeat each row twice.
+C++ Code Example
+
+int h , w ;
+cin >> h >> w ;
+char buf [105];
+for ( int i = 0; i < h ; ++ i ) {
+scanf ("% s " , buf );
+printf ("% s \ n % s \ n " , buf , buf );
+}
+

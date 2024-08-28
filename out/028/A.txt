@@ -1,0 +1,38 @@
+
+プログラムの流れ
+•
+
+入力
+
+•
+
+それがBad, Good, Great, Perfectのどれかを判別する
+
+•
+
+出力
+
+入力, 出力
+練習ページ: (http://practice.contest.atcoder.jp/tasks/practice̲1 )を参考に
+
+判別部分
+C, C++ ならばif文というものを使います。
+example : if (60 <= point && point <= 89) とか
+
+コード例(C++)
+#include <cstdio>
+int main() {
+int N;
+scanf("%d", &N);
+if (0 <= N && N <= 59) {
+printf("Bad\n");
+} else if (60 <= N && N <= 89) {
+printf("Good\n");
+} else if (90 <= N && N <= 99) {
+printf("Great\n");
+} else if (N == 100) {
+printf("Perfect\n");
+}
+return 0;
+}
+

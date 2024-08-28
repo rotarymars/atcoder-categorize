@@ -1,0 +1,12 @@
+浮動小数点数として掛け算を行うと精度が足りません。 B を 100 倍して、 (A × (B × 100))/100
+とすることで、整数の範囲で誤差なく計算することができます。 B を 100 倍して整数に変換する際
+にも誤差に注意してください。
+
+4
+
+Multiplying as ﬂoating point numbers does not provide suﬃcient precision. By multiplying B by
+100 and calculating (A × (B × 100))/100, it can be calculated within the range of integer without errors.
+Note that you have to be careful also when converting B to an integer by multiplying by 100.
+
+11
+

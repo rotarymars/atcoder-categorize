@@ -1,0 +1,647 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 363</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 363" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc363/editorial/10451" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 363" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc363";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2024-07-20T21:00:00+09:00");
+			var endTime = moment("2024-07-20T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 363が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 363は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc363">AtCoder Beginner Contest 363</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc363/editorial/10451?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc363/editorial/10451?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc363%2Feditorial%2F10451">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc363%2Feditorial%2F10451">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc363%2Feditorial%2F10451">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240720T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-07-20 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240720T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-07-20 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc363"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc363/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc363/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc363/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc363/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc363/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc363/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc363/tasks/abc363_g">G - Dynamic Scheduling</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題は様々な解法が考えられると思います。(マトロイドを利用するのも一案です。)<br>
+本解説では、問題を費用流の形で定式化して高速化するという方針で解く方法を解説しています。</p>
+
+<h2>Segment Tree 分割統治を利用した前処理</h2>
+
+<p>まずはじめに、この問題のような <strong>オフラインクエリ</strong>(クエリがあらかじめ既知) の問題では、「<strong>Segment Tree 分割統治</strong>」と呼ばれるテクニックを適用すれば要求されているクエリを単純にすることが出来ます。</p>
+
+<ul>
+<li>このテクニックは典型的であるにも拘らず日本では特に名前がついていないようなので、 <a href="https://oi-wiki.org/topic/segment-tree-offline/" rel="nofollow">OI Wiki</a> を参考にして命名しました。</li>
+</ul>
+
+<p>この問題で要求されているクエリを言い換えると次のようになります。</p>
+
+<blockquote>
+<p>仕事に関する集合があり、はじめ空である。次のクエリを処理</p>
+
+<ul>
+<li>集合に新たに仕事を <span>\(1\)</span> 個追加する (<strong>追加クエリ</strong>)</li>
+<li>集合から仕事を <span>\(1\)</span> 個選び削除する (<strong>削除クエリ</strong>)</li>
+<li>小問題の答えを出力する</li>
+</ul>
+</blockquote>
+
+<p>つまり簡単に言うと、データ構造への追加クエリと削除クエリを要求している問題となっています。<br>
+一般に集合を管理するデータ構造において、削除クエリの処理は、そのデータ構造がよほど単純でない限りは困難である場合が多いです。例えば Union-Find は削除クエリをサポートしていません。<br>
+Segment Tree 分割統治を利用すると、この削除クエリを undo クエリに変えることができます。つまり次の通りです。</p>
+
+<blockquote>
+<p>仕事に関する集合があり、はじめ空である。次のクエリを処理</p>
+
+<ul>
+<li>集合に新たに仕事を <span>\(1\)</span> 個追加する (<strong>追加クエリ</strong>)</li>
+<li>集合から <strong>直前に追加した仕事</strong> を <span>\(1\)</span> 個削除する (<strong>undo クエリ</strong>)</li>
+<li>小問題の答えを出力する</li>
+</ul>
+</blockquote>
+
+<p>undo クエリは削除クエリと違って、直前の状態との差異を stack で保持するなどの方法を利用することで計算量を悪化させずに処理することができる場合が多いです。例えば Union-Find はその手法を取ることで容易に undo クエリに対応できます。<br>
+よって、Segment Tree 分割統治を用いれば、追加・削除クエリの 2 種類が必要だったものが追加クエリだけ処理できれば良いことになり、問題によっては大幅な単純化につながります。</p>
+
+<p>Segment Tree 分割統治の手法を簡単に説明します。<br>
+まず、時刻を管理するための Segment Tree を用意します。ここでの時刻とは、最初のクエリを処理するタイミングを時刻 <span>\(0\)</span>、次のクエリを処理するタイミングを時刻 <span>\(1\)</span>、のように割り当てたものを言います。Segment Tree の各ノードは、要素を管理する vector を保持しています。<br>
+次に、前処理を適切に行うことで、集合に追加する各要素について、その要素が存在する期間 <span>\([l, r)\)</span> を計算できます。そして、Segment Tree の区間更新を行う手順と同様に、<span>\([l, r)\)</span> に対応するノードにその要素を追加します。<br>
+追加する処理が終わったら、Segment Tree の根から DFS を開始します。DFS の内部では、各ノードに入るにノードの vector に含まれる要素を集合に追加して、ノードから出る時に追加した分を undo で取り消します。この DFS において、<span>\(i\)</span> 番目の葉に到達したときの集合の状態が <span>\(i\)</span> 番目のクエリを処理したタイミングでの集合の状態と一致しています。</p>
+
+<ul>
+<li><a href="https://ei1333.hateblo.jp/entry/2017/12/14/000000" rel="nofollow">ei1333 さんの記事のスライドの P.52 以降</a> に Union-Find を具体例に挙げた図つきの説明が載っているので、詳しくはそちらを参照してください。</li>
+</ul>
+
+<p>クエリの個数を <span>\(Q\)</span>、時刻の最大値を <span>\(T\)</span> 、追加クエリと undo クエリの計算量を <span>\(\mathrm{O}(f(n))\)</span> とした時、全体の計算量は <span>\(\mathrm{O}(Q \log T f(n))\)</span> になります。</p>
+
+<h2>費用流による定式化</h2>
+
+<p>さて、Segment Tree 分割統治を適用することで、次の問題を解ければよいことになりました。</p>
+
+<blockquote>
+<p>仕事に関する集合があり、はじめ空である。次のクエリを <span>\(\mathrm{O}((N + Q) \log Q)\)</span> 回処理</p>
+
+<ul>
+<li>集合に新たに仕事を <span>\(1\)</span> 個追加する</li>
+<li>集合から直前に追加した仕事 を <span>\(1\)</span> 個削除する</li>
+<li>小問題の答えを出力する</li>
+</ul>
+</blockquote>
+
+<p>ここで、undo クエリは前述の通り適切な処理をすれば追加クエリと同じ計算量で処理できるので一旦無視します。また、集合に仕事を追加するごとに最適解を計算し直すことにすると、クエリは次の 1 種類で済むことになります。</p>
+
+<blockquote>
+<p>仕事に関する集合があり、はじめ空である。次のクエリを <span>\(\mathrm{O}((N + Q) \log Q)\)</span> 回処理</p>
+
+<ul>
+<li>集合に新たに仕事を <span>\(1\)</span> 個追加する。そして、小問題の答えを計算する</li>
+</ul>
+</blockquote>
+
+<p>以降ではこの問題を解くことを考えます。<br>
+問題を費用流の形で記述すると次のようになります。</p>
+
+<blockquote>
+<p><span>\(S, A_1, \dots, A_N, B_1, \dots, B_N, T\)</span> というラベルのついた <span>\(2N+2\)</span> 個の頂点からなるグラフがある。<br>
+グラフの辺は以下のように張られている。</p>
+
+<ul>
+<li><span>\(j \leq D_i\)</span> を満たす <span>\((i, j)\)</span> の組について <span>\(A_i \to B_j\)</span> に容量 <span>\(1\)</span> 、コスト <span>\(0\)</span> の辺</li>
+<li><span>\(B_j \to T\)</span> に容量 <span>\(1\)</span> 、コスト <span>\(0\)</span> の辺</li>
+<li><span>\(T \to S\)</span> に容量 <span>\(\infty\)</span> 、コスト <span>\(0\)</span> の辺</li>
+</ul>
+</blockquote>
+
+<p>そして、クエリは次のように表現できます。</p>
+
+<blockquote>
+<ul>
+<li>仕事 <span>\(i\)</span> を追加する時、<span>\(S \to A_i\)</span> に容量 <span>\(1\)</span> 、コスト <span>\(-P_i\)</span> の辺を追加して、その時の最小費用循環流の答えを <span>\(-1\)</span> 倍したものを計算する</li>
+</ul>
+</blockquote>
+
+<p>以降ではこの言い換えをした問題を考えます。<br>
+クエリを処理する際に、常に最適な費用流の残余グラフを保持することを考えます。(すなわち、残余グラフに負閉路が存在しない状態を維持します。) この時、クエリで <span>\(S \to A_i\)</span> に辺を追加したときの残余グラフの挙動を考えると、実は次の事実が言えます。</p>
+
+<blockquote>
+<h4>補題</h4>
+
+<p>クエリで辺を追加した後に「負閉路が存在すれば、コストが最小の負閉路を消去する」という操作を高々 <span>\(1\)</span> 回行うと、残余グラフに負閉路が無くなる。</p>
+</blockquote>
+
+<p>(証明)辺を追加しても負閉路が生じない場合は操作を行わなくても最適性が維持されているので何もしなくても良い。新たに負閉路が生じる場合を考える。<br>
+元の残余グラフに負閉路が存在しないことから、新たに生じた負閉路は追加した辺を使用している。 (よって負閉路を消去する際に流すフローの流量は <span>\(1\)</span> である。) このような閉路のうち最もコストが小さい負閉路を <span>\(C\)</span> と呼ぶ。また、辺を追加する前のグラフを <span>\(G\)</span>、辺を追加して <span>\(C\)</span> に流量 <span>\(1\)</span> のフローを流した後のグラフを <span>\(G&#39;\)</span> と呼ぶ。<span>\(G&#39;\)</span> が負閉路を持たないことを証明すればよい。</p>
+
+<p><span>\(G&#39;\)</span> に負閉路が含まれると仮定して、その負閉路を <span>\(C&#39;\)</span> とする。<br>
+新たに追加した辺の流量は <span>\(1\)</span> なので <span>\(C&#39;\)</span> は新たに追加した辺自身を含まない。また <span>\(C&#39;\)</span> の辺が <span>\(G\)</span> に含まれる辺のみから構成されるとすると <span>\(G\)</span> の最適性に反する。よって、<span>\(C\)</span> にフローを流したことによって発生した逆辺を含むことがわかる。</p>
+
+<p>ここで <span>\(C\)</span> に登場する辺を各辺流量 <span>\(1\)</span> の分だけ取り出したものと、<span>\(C&#39;\)</span> に登場する辺を同様に各辺流量 <span>\(1\)</span> の分だけ取り出したものを合成してできるグラフを考える。すると、そのグラフは次の <span>\(3\)</span> 種類の辺集合によって構成されることがわかる。</p>
+
+<ol>
+<li><span>\(C\)</span> に含まれる辺と、その逆辺であって <span>\(C&#39;\)</span> に含まれるもののペアが <span>\(1\)</span> 個以上</li>
+<li><span>\(G\)</span> に含まれる閉路が <span>\(0\)</span> 個以上</li>
+<li>新たに追加した辺を含み、それ以外の辺は <span>\(G\)</span> に含まれる辺のみからなる閉路が <span>\(0\)</span> 個または <span>\(1\)</span> 個</li>
+</ol>
+
+<p>ここでこのグラフに登場する辺のコストの総和を考えると、 <span>\(C, C&#39;\)</span> はともに負閉路なので負であることが確認できる。
+一方、1. に含まれる辺のコストの総和は <span>\(0\)</span> であり、また、2. に含まれる閉路は <span>\(G\)</span> に存在する閉路なのでコストは 0 以上である。
+よって 3. に該当する閉路が存在しない場合は 1. 2. 3. のコストの総和が非負になるため矛盾して不適である。
+また、存在する場合も、その閉路を <span>\(C&#39;&#39;\)</span> として、閉路 <span>\(c\)</span> のコストを <span>\(w(c)\)</span> のように表すと</p>
+<p><span>\[\begin{aligned}
+w(C) + w(C&#39;) &amp;= (1. の寄与) + (2. の寄与) + (3. の寄与) \geq w(C&#39;&#39;)
+\end{aligned}\]</span></p><p><span>\[\begin{aligned}
+w(C) \geq w(C&#39;&#39;) - w(C&#39;) &gt; w(C&#39;&#39;)
+\end{aligned}\]</span></p><p>となり 、<span>\(C&#39;&#39;\)</span> のコストが <span>\(C\)</span> よりも小さいことが証明できるが、これは <span>\(C\)</span> をコスト最小の負閉路として選んできたことと矛盾する。<br>
+以上より <span>\(C&#39;\)</span> が存在すると仮定して矛盾を導けたので、<span>\(G&#39;\)</span> に負閉路は存在せず、最適な費用流の残余グラフとなっていることが言える。(証明終わり)</p>
+
+<p>さて、この解説内で最も難しいであろう部分を乗り越えることが出来ましたが(筆者はこの証明に苦労しました)、費用流への言い換えや補題自体はそのままでは高速化に役立ちません。(コスト最大の負閉路の発見は一般のグラフでは NP 困難であることが知られています) そこで、グラフの性質を利用して費用流のシミュレーションを高速化することを考えていきます。</p>
+
+<h2>仕事の集合を利用した費用流のシミュレーション</h2>
+
+<p>まず、費用流をそのまま扱っても高速化は望めないので、費用流に対する操作を仕事の集合に対する操作に言い換えてみます。<br>
+まず、構築したグラフは二部グラフマッチングをフローとして表現した形を取っています。そのため、<span>\(S \to A_i\)</span> にフローが流れている <span>\(i\)</span> の集合が小問題において期限内に終わらせた仕事の集合と一致することは明らかです。よって、<span>\(1\)</span> つの残余グラフに対して、小問題において期限内に終わらせた仕事の集合を <span>\(1\)</span> 個対応させることが出来ます。以降ではこの期限内に終わらせた仕事の集合を <span>\(X\)</span> と呼び、残余グラフの代わりに <span>\(X\)</span> を保持することにします。つまり、クエリ形式で表現すると次のようになります。</p>
+
+<blockquote>
+<p>仕事に関する集合があり、はじめ空である。<br>
+また、現在の仕事の集合に対して、小問題を解いた時に、最適解において期限内に終わらせる仕事の集合を <span>\(X\)</span> とする。<br>
+次のクエリを <span>\(\mathrm{O}((N + Q) \log Q)\)</span> 回処理</p>
+
+<ul>
+<li>集合に新たに仕事 <span>\(i\)</span> を追加して、対応する <span>\(X\)</span> も更新する。そして、<span>\(X\)</span> に含まれる仕事の報酬の総和を出力</li>
+</ul>
+</blockquote>
+
+<p>次は「対応する <span>\(X\)</span> も更新する」という部分をより詳しく考えてみます。<br>
+まず、負閉路の消去が <span>\(X\)</span> を用いてどのように表現できるかを考えてみましょう。残余グラフに負閉路が存在する時、負閉路は次の <span>\(2\)</span> 通りのどちらかの形をしています。</p>
+
+<ul>
+<li><span>\(S \to A_i \to B_* \to A_* \to \dots \to B_* \to T \to S\)</span></li>
+<li><span>\(S \to A_i \to B_* \to A_* \to \dots \to B_* \to A_j \to S\)</span></li>
+</ul>
+
+<p>この <span>\(2\)</span> つの閉路を仕事の集合に対する操作に言い換えると次のようになります。</p>
+
+<ul>
+<li><span>\(X\)</span> に仕事 <span>\(i\)</span> を追加する</li>
+<li><span>\(X\)</span> から仕事 <span>\(j\)</span> を取り除いて、仕事 <span>\(i\)</span> を追加する</li>
+</ul>
+
+<p>逆に、この <span>\(2\)</span> つの操作ができるときに、それぞれ残余グラフに対応する負閉路が存在することも証明できます。よって、<span>\(2\)</span> 種類の操作がそれぞれ可能であることは <span>\(2\)</span> 種類の負閉路がそれぞれ存在することと等価です。<br>
+(証明の概要) 前者同士が対応することを証明する。(後者も同様に証明できる) <span>\(X\)</span> に対応する残余グラフと <span>\(X + \lbrace i \rbrace\)</span> に対応する残余グラフを合成して逆辺同士を打ち消し合うと「<span>\(S \to A_i \to B_* \to \dots \to B_* \to T \to S\)</span>」+ 「<span>\(0\)</span> 個以上のコスト <span>\(0\)</span> の閉路」からなることが確認できて、かつ前者は <span>\(G\)</span> に含まれる辺からなることも言える。(証明終わり)</p>
+
+<p>以上より、負閉路およびその消去を仕事の集合に対する操作に言い換えることが出来ました。<br>
+次は、残余グラフを更新する時の処理を <span>\(X\)</span> に対する操作に言い換えてみましょう。補題より、費用流において残余グラフを更新する操作は</p>
+
+<blockquote>
+<ul>
+<li>負閉路が存在すれば、コストが最小の負閉路を消去する</li>
+</ul>
+</blockquote>
+
+<p>という処理でよいことがわかっています。この「コストが最小」という部分を詳しく言い換えると次のようになります。</p>
+
+<blockquote>
+<ul>
+<li>「<span>\(S \to A_i \to B_* \to \dots \to B_* \to T \to S\)</span>」という形の負閉路があれば流す。</li>
+<li>そうでない場合、「<span>\(S \to A_i \to B_* \to \dots \to B_* \to A_j \to S\)</span>」という負閉路が存在すれば、そのうちコストが最小の負閉路に流す。</li>
+<li>そうでない場合、何もしない。</li>
+</ul>
+</blockquote>
+
+<p>これを仕事の集合に対する操作に言い換えると次のようになります。</p>
+
+<blockquote>
+<ul>
+<li><span>\(X\)</span> に仕事 <span>\(i\)</span> を追加できる場合は追加する。</li>
+<li>そうでない場合、「<span>\(P_i \gt P_j\)</span>」 かつ「<span>\(X\)</span> から仕事 <span>\(j\)</span> を取り除けば仕事 <span>\(i\)</span> を追加できる」<span>\(j\)</span> が存在すれば、そのような <span>\(j\)</span> のうち <span>\(P_j\)</span> が最小のものを選び、<span>\(X\)</span> から仕事 <span>\(j\)</span> を取り除き仕事 <span>\(i\)</span> を追加する。</li>
+<li>そうでない場合は何もしない。</li>
+</ul>
+</blockquote>
+
+<p>以上の議論により、費用流による定式化を仕事の集合に対する操作に言い換えることが出来ました。<br>
+さて、かなり操作が具体的になってきました。解けばよい問題をクエリ形式で表現すると次のようになります。</p>
+
+<blockquote>
+<p>仕事に関する集合があり、はじめ空である。<br>
+また、現在の仕事の集合に対して、小問題を解いた時に、最適解において期限内に終わらせる仕事の集合を <span>\(X\)</span> とする。<br>
+次の一連のクエリを <span>\(\mathrm{O}((N + Q) \log Q)\)</span> 回処理</p>
+
+<ul>
+<li>集合に新たに仕事 <span>\(i\)</span> を追加する。</li>
+<li><span>\(X\)</span> に対して次の操作を行う。
+
+<ul>
+<li><span>\(X\)</span> に仕事 <span>\(i\)</span> を追加できる場合は追加する。</li>
+<li>そうでない場合、「<span>\(P_i \gt P_j\)</span>」 かつ「<span>\(X\)</span> から仕事 <span>\(j\)</span> を取り除けば仕事 <span>\(i\)</span> を追加できる」<span>\(j\)</span> が存在すれば、そのような <span>\(j\)</span> のうち <span>\(P_j\)</span> が最小のものを選び、<span>\(X\)</span> から仕事 <span>\(j\)</span> を取り除き仕事 <span>\(i\)</span> を追加する。</li>
+<li>そうでない場合は何もしない。</li>
+</ul></li>
+<li><span>\(X\)</span> に含まれる仕事の報酬の総和を出力する。</li>
+</ul>
+</blockquote>
+
+<p>ここまで言い換えればあとはラストスパートです。</p>
+
+<h2>Hall の結婚定理の適用による高速化</h2>
+
+<p>さて、上記のクエリを処理するために、次のようなデータ構造を構成することにしましょう。</p>
+
+<blockquote>
+<p>仕事の集合を <span>\(X\)</span> とする。
+小問題において <span>\(X\)</span> に含まれる仕事全てを期限内に終わらせられる時、<span>\(X\)</span> が <strong>valid</strong> であると呼ぶ。
+次のクエリを処理できるデータ構造を構成せよ。</p>
+
+<ul>
+<li><span>\(X\)</span> に仕事 <span>\(i\)</span> を追加する</li>
+<li><span>\(X\)</span> から仕事 <span>\(i\)</span> を取り除く</li>
+<li><span>\(X\)</span> が valid であるかを判定する</li>
+<li><span>\(X\)</span> が valid でない場合、「<span>\(X\)</span> から仕事 <span>\(i\)</span> を取り除けば <span>\(X\)</span> が valid になる」ような <span>\(i\)</span> のうち <span>\(P_i\)</span> 最小のものを発見する</li>
+</ul>
+</blockquote>
+
+<p>クエリ全種類を一度に処理しようとすると大変なので、まずは <span>\(1\)</span> 番目と <span>\(3\)</span> 番目のクエリだけを考えてみましょう。すなわち次の <span>\(2\)</span> 種類です。</p>
+
+<blockquote>
+<ul>
+<li><span>\(X\)</span> に仕事 <span>\(i\)</span> を追加する</li>
+<li><span>\(X\)</span> が valid であるかを判定する</li>
+</ul>
+</blockquote>
+
+<p>この <span>\(2\)</span> 種類のクエリを処理するために、仕事に関する情報を工夫して持つことを考えましょう。
+小問題の設定を思い出すと、<span>\(X\)</span> が valid であることは二部グラフのマッチングで表現できます。すなわち次の通りです。</p>
+
+<blockquote>
+<p><span>\(X\)</span> に含まれる仕事に対応する頂点集合を <span>\(U\)</span> 、日付に対応する頂点集合を <span>\(V\)</span> とする。<br>
+<span>\(u \in U, v \in V\)</span> について、日付 <span>\(v\)</span> が仕事 <span>\(u\)</span> の期限内であるときに <span>\(u \to v\)</span> に辺を貼る。
+この時、<span>\(X\)</span> が valid である必要十分条件は <span>\(U\)</span> をカバーするマッチングが存在することである。</p>
+</blockquote>
+
+<p>二部グラフの片方の頂点をすべてカバーするマッチングの存在の有無を判定する問題と言えば、Hall の結婚定理の出番です。この条件を Hall の結婚定理を用いて上手く書き換えてみましょう。</p>
+
+<p><span>\(A \subseteq U\)</span> に対して <span>\(\Gamma(A)\)</span> を <span>\(A\)</span> と辺でつながっている頂点の集合とします。Hall の結婚定理は次の式で表せます。</p>
+
+<blockquote>
+<h4>Hall の結婚定理</h4>
+
+<p><span>\(U\)</span> の頂点をカバーするマッチングが存在することは次の条件式と同値：</p>
+<p><span>\[\forall A \subseteq U, |A| \leq |\Gamma(A)|\]</span></p></blockquote>
+
+<p>この式は <span>\(U\)</span> 側の集合に関する条件ですが、この条件式を変形することで <span>\(V\)</span> 側の集合に関する条件式を導出することが出来ます。(証明略。式の意味を解釈すれば理解できると思います)</p>
+
+<blockquote>
+<h4>Hall の結婚定理を式変形したもの</h4>
+
+<p><span>\(U\)</span> の頂点をカバーするマッチングが存在することは次の条件式と同値：</p>
+<p><span>\[\forall B \subseteq V, |\lbrace u \vert u \in U, \Gamma(u) \subseteq B \rbrace| \leq |B|\]</span></p></blockquote>
+
+<p>このように <span>\(V\)</span> 側の集合に関する条件式にすることで、今回の問題の特性を生かすことが出来るようになります。<br>
+<span>\(I_n\)</span> を日付 <span>\(1\)</span>, 日付 <span>\(2\)</span>, <span>\(\dots\)</span>, 日付 <span>\(n\)</span> の集合に対応する <span>\(V\)</span> の部分集合とします。各仕事 <span>\(i\)</span> について、対応する頂点から <span>\(I_{D_i}\)</span> へ含まれる頂点へ辺が伸びています。この事実から、上記の条件式において <span>\(V\)</span> として考える必要があるのが <span>\(I_1, I_2, \dots, I_N\)</span> だけで良いことが証明できます。(証明略)</p>
+
+<p><span>\(B = I_n\)</span> の時の条件式を整理すると次のようになります。</p>
+<p><span>\[
+\begin{aligned}
+&amp;|\lbrace u \vert u \in U, \Gamma(u) \subseteq I_n \rbrace| \leq |I_n| \\
+\iff &amp;|\lbrace u \vert u \in U, D_u \leq n \rbrace| \leq n \\
+\iff &amp;n - |\lbrace u \vert u \in U, D_u \leq n \rbrace| \geq 0
+\end{aligned}
+\]</span></p><p>以上の事実を踏まえると、クエリを処理するデータ構造を次のように構成できます。</p>
+
+<blockquote><p><span>\[f(n) = n - |\lbrace u \vert u \in U, D_u \leq n \rbrace|\]</span></p><p>とおく。<span>\(X\)</span> の代わりに <span>\(f(1), f(2), \dots, f(n)\)</span> を区間加算・区間 min を処理できる遅延セグメント木を用いて管理することにする。</p>
+
+<ul>
+<li><span>\(X\)</span> に仕事 <span>\(i\)</span> を追加する時は <span>\(f(D_i), f(D_i + 1), \dots, f(N)\)</span> に <span>\(-1\)</span> を加算すればよい。</li>
+<li><span>\(X\)</span> が valid であるという条件は <span>\(f(1), f(2), \dots, f(N)\)</span> が全て非負であるという条件と等しいので、 <span>\(\min(f(1), f(2), \dots, f(N)) \geq 0\)</span> かどうかを判定すればよい。</li>
+</ul>
+</blockquote>
+
+<p>以上より、クエリが仕事の追加と valid かどうかの判定の <span>\(2\)</span> 種類の場合の問題を解くことが出来ました。<br>
+本質部分を説明したので以降の細かい説明は省略しますが、後回しした <span>\(2\)</span> 番目のクエリと <span>\(4\)</span> 番目のクエリも上手くやれば処理できます。簡単に説明すると、<span>\(2\)</span> 番目のクエリは <span>\(1\)</span> 番目のクエリと同様の方法で処理できて、<span>\(4\)</span> 番目のクエリは <code>std::set</code> や 1 点更新・区間 min Segment Tree を上手く併用すれば処理できます。また、いずれのクエリについても undo クエリを容易に実装できます。</p>
+
+<p>以上より <span>\(X\)</span> を管理するデータ構造をクエリあたり <span>\(\mathrm{O}(\log N)\)</span> で構成することができました。よって、問題全体を <span>\(\mathrm{O}((N + Q) \log Q \log N)\)</span> で解くことが出来て、これは十分高速です。</p>
+
+<h2>Bonus</h2>
+
+<p>以上が想定解でしたが、実は筆者の手元には <span>\(\mathrm{O}((N + Q) \log N)\)</span> で全てのテストケースに対して正答を返すコードがあります。ここで歯に物が引っ掛かった言い方をしているのには理由があって、筆者がこの新しい解法に気づいたのがコンテスト前日の夜中で、正当性をきちんと証明する時間が無かったからです。そこで、次の問題を Bonus として置いて解説を終えたいと思います。</p>
+
+<blockquote>
+<p><strong>Bonus</strong> ：<span>\(\mathrm{O}((N + Q) \log N)\)</span> でこの問題を解いてください。</p>
+</blockquote>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1721002966">
+				<time class="timeago" datetime="2024/07/15 09:22:46"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1721486185">
+				<time class="timeago" datetime="2024/07/20 23:36:25"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc363/editorial/10451?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 363">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc363/rules">ルール</a></li>
+					<li><a href="/contests/abc363/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

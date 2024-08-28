@@ -1,0 +1,26 @@
+
+New Year
+
+12 月 30 日の M 時から次の年になるまでは、48 − M 時間です。よって、48 − M を出力する
+とよいです。
+# include < cstdio >
+int M ;
+int main ()
+{
+scanf ("% d " ,& M );
+printf ("% d \ n " ,48 - M );
+}
+
+
+New Year
+
+There are 48 − M hours until New Year at M o‘clock on 30th Monday,December.
+So you can get 100 point by print 48 − M .
+# include < cstdio >
+int M ;
+int main ()
+{
+scanf ("% d " ,& M );
+printf ("% d \ n " ,48 - M );
+}
+

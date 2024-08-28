@@ -1,0 +1,147 @@
+X 以上の素数のうち、最小のものを求める問題です。
+X 以上の数を小さい順に素数かどうか判定していけばよいです。ある数 A が素数であるかどうか
+√
+は O( A) で判定できます。100003 は素数なので、答えは 100003 以下になり、十分高速です。
+以下は C++ における実装例です。
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+bool is_prime(int x){
+
+5
+
+if(x<=1) return false;
+
+6
+
+for(int i=2;i*i<=x;i++)
+if(x%i==0) return false;
+
+7
+
+return true;
+
+8
+9
+
+}
+
+10
+11
+
+signed main(){
+
+12
+
+int x;
+
+13
+
+cin>>x;
+
+14
+15
+
+int p=x;
+
+16
+
+while(!is_prime(p)) p++;
+
+17
+
+cout<<p<<endl;
+
+18
+
+return 0;
+
+19
+20
+
+}
+
+3
+
+You are asked to find the minimum prime greater than or equal to X.
+It is enough to iterate through the numbers greater than or equal to X in order and check if
+√
+it is a prime number. You can check if a number A is a prime number or not in a O( A) time.
+Since 100003 is a prime number, the answer is less than or equal to 100003, so it is fast enough.
+The following is an implementation example in C++.
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+bool is_prime(int x){
+
+5
+
+if(x<=1) return false;
+
+6
+
+for(int i=2;i*i<=x;i++)
+if(x%i==0) return false;
+
+7
+
+return true;
+
+8
+9
+
+}
+
+10
+11
+
+signed main(){
+
+12
+
+int x;
+
+13
+
+cin>>x;
+
+14
+15
+
+int p=x;
+
+16
+
+while(!is_prime(p)) p++;
+
+17
+
+cout<<p<<endl;
+
+18
+
+return 0;
+
+19
+20
+
+}
+
+9
+

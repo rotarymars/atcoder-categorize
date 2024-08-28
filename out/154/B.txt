@@ -1,0 +1,116 @@
+問題文の通りに実装してもよいですし，S の長さと同じ数だけ x を出力すると捉えて簡潔に書くこ
+ともできます．
+実装例は次のとおりです．
+Listing 1 C での実装例
+1
+
+#include <stdio.h>
+
+2
+3
+
+char s[101];
+
+4
+5
+
+int main(void){
+scanf("%s", s);
+
+6
+7
+
+for (int i = 0; s[i]; i++) {
+
+8
+
+s[i] = 'x';
+
+9
+
+}
+
+10
+11
+
+puts(s);
+
+12
+13
+
+return 0;
+
+14
+15
+
+}
+Listing 2 Python3 での実装例
+
+1
+
+s = input().rstrip()
+
+2
+
+print('x' * len(s))
+
+2
+
+You can implement just the same way of the instructions of the problem statement, or you can
+write concisely by rephrasing as outputting x’s for same times of the length of S.
+Sample code is as follows.
+Listing 4 Sample Code in C
+1
+
+#include <stdio.h>
+
+2
+3
+
+char s[101];
+
+4
+5
+
+int main(void){
+scanf("%s", s);
+
+6
+7
+
+for (int i = 0; s[i]; i++) {
+
+8
+
+s[i] = 'x';
+
+9
+
+}
+
+10
+11
+
+puts(s);
+
+12
+13
+
+return 0;
+
+14
+15
+
+}
+Listing 5 Sample Code in Python3
+
+1
+
+s = input().rstrip()
+
+2
+
+print('x' * len(s))
+
+8
+

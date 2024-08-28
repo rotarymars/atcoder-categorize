@@ -1,0 +1,153 @@
+(原案: sheyasutaka, 準備・解説: evima)
+入出力例の説明では数式の分母 A11 + A12 + . . . + A1N を分数のまま計算していますが、はじめから浮動小数
+点型を使って計算するのが簡単でしょう。あとは、for 文やその他の何らかの繰り返し処理を行う機構を用い
+て実装を行います。諸言語を代表して C++ と Python(3) での実装例を掲載します。
+
+1
+
+#include <iomanip>
+
+2
+
+#include <iostream>
+
+3
+
+using namespace std;
+
+4
+5
+
+int main(){
+
+6
+
+int N;
+
+7
+
+double ans = 0.0, A;
+
+8
+
+cin >> N;
+
+9
+
+for(int i = 1; i <= N; ++i){
+
+10
+
+cin >> A;
+
+11
+
+ans += 1.0 / A;
+
+12
+
+}
+
+13
+
+ans = 1.0 / ans;
+
+14
+
+cout << setprecision(16) << ans << endl;
+
+15
+
+}
+
+1
+
+N = int(input())
+
+2
+
+A = map(int, input().split())
+
+3
+
+print('{:.16g}'.format(1 / sum(1 / x for x in A)))
+
+2
+
+(Original writer: sheyasutaka, preparation and editorial: evima)
+In the explanation in sample input, A11 + A12 + . . . + A1N is calculated in fractional notation, but it
+would be easier to calculate using floating point type all the way. Then implementation can be done with
+looping structure like for-statement or something. On behalf of many languages, here are implementation
+examples by C++ and Python(3).
+
+1
+
+#include <iomanip>
+
+2
+
+#include <iostream>
+
+3
+
+using namespace std;
+
+4
+5
+
+int main(){
+
+6
+
+int N;
+
+7
+
+double ans = 0.0, A;
+
+8
+
+cin >> N;
+
+9
+
+for(int i = 1; i <= N; ++i){
+
+10
+
+cin >> A;
+
+11
+
+ans += 1.0 / A;
+
+12
+
+}
+
+13
+
+ans = 1.0 / ans;
+
+14
+
+cout << setprecision(16) << ans << endl;
+
+15
+
+}
+
+1
+
+N = int(input())
+
+2
+
+A = map(int, input().split())
+
+3
+
+print('{:.16g}'.format(1 / sum(1 / x for x in A)))
+
+8
+

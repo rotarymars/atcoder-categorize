@@ -1,0 +1,156 @@
+
+Template Matching
+
+実際に、テンプレート画像 B を平行移動させて画像 A に含まれるかを調べます。まず、画像 A の中における
+
+M × M の正方形領域とテンプレート画像 B の同一判定は、二重ループで行うことが可能です。次に、画像 A の
+中における M × M の正方形領域は何通りあるか考えます。これは (N − M + 1) × (N − M + 1) 通り考えられま
+す。以上のことから、全探索を行ったときの時間計算量は O(N 2 M 2 ) となり、これは間に合います。
+より高速な解法として、ハッシュを用いた解法が存在します。(詳細は略)
+
+C++のコード例
+1
+
+1
+
+int main(void){
+
+2
+
+int N,M;
+
+3
+
+cin >> N >> M;
+
+4
+5
+
+const int nmmax=50;
+
+6
+
+char A[nmmax][nmmax],B[nmmax][nmmax];
+
+7
+8
+
+for(int y=0;y<N;++y){
+
+9
+
+for(int x=0;x<N;++x){
+
+10
+
+cin >> A[y][x];
+
+11
+
+}
+
+12
+
+}
+
+13
+14
+
+for(int y=0;y<M;++y){
+
+15
+
+for(int x=0;x<M;++x){
+
+16
+
+cin >> B[y][x];
+
+17
+
+}
+
+18
+
+}
+
+19
+20
+
+bool exist=false;
+
+21
+22
+
+for(int ly=0;ly<N;++ly){
+
+23
+
+for(int lx=0;lx<N;++lx){
+
+24
+
+if(ly+M-1>=N or lx+M-1>=N) continue;
+
+25
+26
+27
+
+bool match=true;
+
+28
+
+for(int y=0;y<M;++y){
+for(int x=0;x<M;++x){
+
+29
+
+if(A[ly+y][lx+x]!=B[y][x]) match=false;
+
+30
+
+}
+
+31
+
+}
+if(match) exist=true;
+
+32
+33
+
+}
+
+34
+
+}
+
+35
+36
+
+if(exist)
+
+37
+
+cout << "Yes" << endl;
+
+38
+
+else
+
+39
+
+cout << "No" << endl;
+
+40
+41
+
+return 0;
+
+42
+43
+
+}
+
+2
+

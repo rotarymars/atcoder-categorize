@@ -1,0 +1,27 @@
+整数 i, j(0 ≤ i, j ≤ 9) に対して、
+
+ci,j := #{1 ≤ k ≤ N |k の先頭の桁の数は i に等しく、末尾の桁の数は j に等しい }
+と定義します。これは、O(N ) で計算することができます。ci,j を用いると、この問題の答えは
+
+∑9
+
+i=0
+
+∑9
+
+j=0 ci,j × cj,i
+
+と計算することができます。
+
+4
+
+For each pair of integers i, j(0 ≤ i, j ≤ 9), let us deﬁne
+ci,j := #{1 ≤ k ≤ N | The ﬁrst digit of k is equal to i, and the last digit is equal to j }.
+Those can be calculated in a total of O(N ) time. by using ci,j , the answer for the problem can
+be calculated by
+∑9 ∑9
+j=0 ci,j × cj,i .
+i=0
+
+10
+

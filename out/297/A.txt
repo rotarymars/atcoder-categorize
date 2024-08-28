@@ -1,0 +1,42 @@
+
+		公式
+		
+			
+				A - Double Click 解説
+			
+			by PCTprobability
+			
+		
+		
+		
+		
+			プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice contest」(https://atcoder.jp/contests/practice/) の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。
+また、プログラミングコンテストの問題に慣れていない方は、「AtCoder Beginners Selection」(https://atcoder.jp/contests/abs) の問題をいくつか試すことをおすすめします。
+「競プロ典型 90 問」(https://atcoder.jp/contests/typical90) では、プログラミングコンテストで扱われる典型的な 90  問の問題に挑戦可能です。
+「C++入門 AtCoder Programming Guide for beginners (APG4b)」(https://atcoder.jp/contests/APG4b) は、競技プログラマー向けのC++入門用コンテンツです。
+
+
+
+入力を vector と for 文で受け取り、全ての \(i(1 \le i \le N-1)\) に対して、\(T_{i+1} - T_i \le D\) を満たすかどうか見て、そのような \(i\) があれば最小のものを出力すればよいです。
+
+そのような \(i\) が \(1\) 個もなかった場合に -1 を出力する必要があることに注意してください。
+
+実装例(C++)
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

@@ -1,0 +1,43 @@
+A を B で割った余りを A mod B と表すことにすると
+(1 mod 2) + (2 mod 3) + ... + ((N − 1) mod N ) + (N mod 1) = 1 + 2 + ... + N − 1 =
+
+N (N − 1)
+2
+
+と順列を選ぶのが最適です。以下、これを説明します。
+選んだ順列には 1, 2, ..., N がそれぞれちょうど 1 回ずつ登場します。i = 1, 2, ..., N について、i
+が順列の xi 番目に登場するとします。すると、目的関数 (最大化したいもの) は
+
+(x1 mod 1) + (x2 mod 2) + ... + (xN mod N )
+になります。各項に着目すると、それぞれの項は最大でも 0, 1, 2, ..., N − 1 ですが、i ≥ 2 について
+
+xi = i − 1 とし、余った N を x1 = N とすると実際に
+(N mod 1) + (1 mod 2) + ... + ((N − 1) mod N ) = 0 + 1 + 2 + ... + N − 1
+とできるため、目的関数の最大値は 0 + 1 + 2 + ... + N − 1 =
+
+4
+
+N (N −1)
+です。
+2
+
+Let A mod B be the remainder of A devided by B, then it is optimal to choose the permutation
+such that
+(1 mod 2) + (2 mod 3) + ... + ((N − 1) mod N ) + (N mod 1) = 1 + 2 + ... + N − 1 =
+
+N (N − 1)
+.
+2
+
+The following is the explanation.
+In the chosen permutation, each 1, 2, ..., N appears exactly once. For i = 1, 2, ..., N , assume
+that i is xi -the element of the permutation. Then, the objective function (the one we want to
+maximize) is
+(x1 mod 1) + (x2 mod 2) + ... + (xN mod N ).
+If you focus on each term, it appears that maximum of each term is 0, 1, 2, ..., N −1. Let xi = i−1
+for i ≥ 2, and for the remaining N , let x1 = N , then
+(N mod 1) + (1 mod 2) + ... + ((N − 1) mod N ) = 0 + 1 + 2 + ... + N − 1
+actually holds, so the maximum value of the objective function is 0+1+2+...+N −1 = N (N2−1) .
+
+12
+

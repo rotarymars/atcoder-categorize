@@ -1,0 +1,100 @@
+(解説: evima)
+「赤い石の左隣に置かれた白い石」がない状態では、赤い石 A の左隣に石 B があれば B は必ず
+赤で、B の左隣に石 C があれば C もまた赤で、同様にして A より左にある石は全て赤です。こ
+のことから、目標が満たされた状態は次の N + 1 通りしか存在しません: WWW...WWW (すべて白)、
+
+RWW...WWW (左端の 1 個のみ赤)、RRW...WWW (左端の 2 個のみ赤)、· · · 、RRR...RRW (左端の N − 1
+個のみ赤)、RRR...RRR (すべて赤)。これをもとに、目標を次のように言い換えます。
+
+
+
+新たな目標
+
+
+
+操作を行い始める前に、祭壇上のいずれか一箇所を選んで仕切りを置く (つまり、仕切りは石と
+石の間か、どの石よりも左側か、どの石よりも右側のいずれかに置かれる)。目標は、仕切りより
+左側の石をすべて赤に、仕切りより右側の石をすべて白にすることである。
+
+
+
+
+
+仕切りの位置がすでに決まっているとします。すると、操作の性質上、もはや仕切りの左右に赤い
+石と白い石がそれぞれ何個あるか以外は目標達成と関係しません。仕切りより左側の白い石の個数を
+
+W 、仕切りより右側の赤い石の個数を R とすると、目標は W と R をともに 0 とすることです。一
+回の操作で W が 1 より多く減ることはないため、目標達成には少なくとも W 回の操作が必要です。
+同様に少なくとも R 回の操作が必要であるため、目標達成には少なくとも max(W, R) *4 回の操作
+が必要です。逆に、次のようにすれば max(W, R) 回の操作で目標を達成することができます。
+
+• W ≤ R の場合: 仕切りより左側の白い石と右側の赤い石の入れ替えを W 回行い、右側に残っ
+た R − W 個の赤い石を一個ずつ白くする。合計操作回数: R。
+
+• W > R の場合: 仕切りより左側の白い石と右側の赤い石の入れ替えを R 回行い、左側に残っ
+た W − R 個の白い石を一個ずつ赤くする。合計操作回数: W 。
+よって、仕切りの位置が固定された場合の必要な最小操作回数が max(W, R) であることがわかり
+ました。あとは、仕切りの位置の候補 N + 1 通りをすべて試し、それぞれについて max(W, R) の値
+を求めれば、それらのうち最小のものが求めるべき最小操作回数です。
+ただし、入力される N の上限はやや大きく、N 個の石すべてを N + 1 回見直す時間はありませ
+ん。これに対処する方法の一つは、あらかじめ白い石の総数と赤い石の総数を数えておき、仕切りを
+最も左の位置から一つずつ右にずらしていくことです。仕切りが一つ右にずれた際に起こることは、
+
+W が 1 増えるか、R が 1 減るかのいずれかであることを用いれば、線形時間で処理が完了します。
+
+*4 max(a, b) は a と b のうち小さくない方を表します。例: max(3, 5) = max(5, 3) = max(5, 5) = 5
+
+5
+
+(Editorial: evima)
+When there are no “white stone placed to the immediate left of a red stone,” if there is a red
+stone A and another stone B in the immediate left to stone A, then stone B is always B, and if
+stone C is in the immediate left to stone B, then stone C is also red, and similarly all the stones
+left to stone A are red. Therefore, there are only N + 1 ways to achieve the goal: WWW...WWW
+(all stones are white), RWW...WWW (only the leftmost stone is red), RRW...WWW (only the leftmost
+two stones are red), · · · , RRR...RRW (only the leftmost N − 1 stones are red) or RRR...RRR (all
+stones are red). Based on this, we deﬁne a new goal as follows:
+
+
+New goal
+
+
+
+Before start performing operations, choose one position to place a partition (that is, the
+partition will be placed either between two stones, or in the left of any stones, or in the right
+of any stones). Th goal is to make all the stones left to the partition to be red and all the
+stones right to the partition to be white.
+
+
+
+
+Assume that the position of the partition is ﬁxed. Then, by the property of the operations,
+it doesn’t matter anymore other than how many red and white stones are there. Let W be the
+number of white stones in the left of the partition, and R be the number of red stones in the
+right of the partition, then the target is to make both W and R zero. Since W does not decrease
+by more than one, it requires at least W operations to achieve the goal. Likewise, it requires
+at least R operations, so it requires at least max(W, R) *8 times of operations. Conversely, the
+following procedure enables to achieve the goal in max(W, R) operations:
+• if W ≤ R: swap each white stone in the left of the partition and each red stone in the
+right of the partition for W times, and then change the remaining R − W red stones to
+white, one by one. Total number of operations: R.
+• if W ≤ R: swap each white stone in the left of the partition and each red stone in the
+right of the partition for R times, and then change the remaining W − R white stones to
+red, one by one. Total number of operations: W .
+Therefore, now we can see that the minimum number of operations when the partition is ﬁxed
+is max(W, R). All that left is to try all the N + 1 candidates of partition’s position and ﬁnd
+
+*8 max(a, b) denotes the biggest of a and b. e.g. max(3, 5) = max(5, 3) = max(5, 5) = 5
+
+11
+
+max(W, R) for each of them; then the desired minimum number of operations is the smallest of
+them.
+However, the input N is somewhat large, so there is no time to inspect all the N stones for N +1
+times. One way to handle this is to count the total number of white and red stones beforehand,
+and shift the partition from the leftmost position one by one. Every time the partition shift to
+the right, either W increases by one or R decreases by one. Therefore, the overall process ﬁnishes
+in a linear time.
+
+12
+

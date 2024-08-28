@@ -1,0 +1,64 @@
+
+		公式
+		
+			
+				E - Jump Distance Sum 解説
+			
+			by mechanicalpenciI
+			
+		
+		
+		
+		
+			点を原点を中心に \(45\) 度回転し、 \(\sqrt{2}\) 倍に拡大することを考えます。このとき、元々 \((X,Y)\) にあった点は \((X+Y,X-Y)\) に移動します。
+ここで、移動後の各点 \(P_i\) の座標を \((x_i,y_i)\) と書くことにします。
+このとき、\(x_i=X_i+Y_i\), \(y_i=X_i-Y_i\) が成り立ちます。
+
+次に、\(\text{dist}(A,B)\) の定義がどうなるかについて考えます。
+ウサギは元の定義で \((X,Y)\) から\((X+1,Y+1)\), \((X+1,Y-1)\), \((X-1,Y+1)\), \((X-1,Y-1)\) にジャンプできていたため、
+これは、\((X+Y,X-Y)\) から \((X+Y+2,X-Y)\), \((X+Y,X-Y+2)\), \((X+Y,X-Y-2)\), \((X+Y-2,X-Y)\) に到達するようになります。
+\(x=X+Y\), \(y=X-Y\) と置き換えると、\((x,y)\) から \((x+2,y)\), \((x,y+2)\), \((x,y-2)\), \((x-2,y)\) へ移動するようになります。
+このときの\(A\) から \(B\) まで移動するのに必要なジャンプの回数の最小値（到達できない場合は \(0\)）が\(\text{dist}(A,B)\) の定義となります。
+
+以下、回転・拡大後の状態において問題を考えます。
+すなわち、 \(P_i=(x_i,y_i)\) とし、上のような形で \(\text{dist}(A,B)\) を定義したときの \(\displaystyle\sum_{i=1}^{N-1}\displaystyle\sum_{j=i+1}^N \text{dist}(P_i,P_j)\) の値を求めることを考えます。
+これは明らかに元の問題の答えと一致します。
+
+\(A=(x_1,y_1)\), \(B=(x_2,y_2)\) のときの \(\text{dist}(A,B)\) についてより具体的に考えます。 \(x_1\not\equiv x_2 \pmod{2}\) または \(y_1\not\equiv y_2 \pmod{2}\) のとき、ウサギは \(A\) から \(B\) へ移動できないため \(\text{dist}(A,B)=0\) となります。そうでないとき、これはマンハッタン距離のちょうど半分となるため、\(\frac{1}{2}(\lvert x_1-x_2\rvert+\lvert y_1-y_2\rvert)\) となります。
+
+任意の \(i\) について \(x_i=y_i+2Y_i\equiv y_i \pmod{2}\) であることに注意すると、\(N\) 個の点は \(x_i,y_i\) がともに偶数であるグループとともに奇数であるグループに分けることができ、相異なるグループに属する \(2\) つの点 \(A,B\) については \(\text{dist}(A,B)=0\) となり、同じグループに属する相異なる \(2\) つの点については\(\text{dist}(A,B)=\frac{1}{2}(\lvert x_1-x_2\rvert+\lvert y_1-y_2\rvert)\) となります。
+
+\(x_i,y_i\) がともに
+偶数であるような点の集合を \(E=\{E_1,E_2,\ldots,E_{\lvert E\rvert} \}\) とすると、\(\displaystyle\sum_{i=1}^{\lvert E\rvert-1}\displaystyle\sum_{j=i+1}^{\lvert E\rvert} \text{dist}(P_{E_i},P_{E_j})
+=\frac{1}{2}\sum_{i=1}^{\lvert E\rvert-1}\displaystyle\sum_{j=i+1}^{\lvert E\rvert} \lvert x_{E_j}-x_{E_i} \rvert+\frac{1}{2}\sum_{i=1}^{\lvert E\rvert-1}\displaystyle\sum_{j=i+1}^{\lvert E\rvert} \lvert y_{E_j}-y_{E_i} \rvert\)
+となります。
+\(\displaystyle\sum_{i=1}^{\lvert E\rvert-1}\sum_{j=i+1}^{\lvert E\rvert} \lvert x_{E_j}-x_{E_i} \rvert\) は、\((x_{E_1},x_{E_2},\ldots,x_{E_{\lvert E\rvert}})\) を昇順にソートした列を \((x'_1,x'_2,\ldots,x'_{\lvert E\rvert})\) として、
+\(\displaystyle\sum_{i=1}^{\lvert E\rvert-1}\sum_{j=i+1}^{\lvert E\rvert} \lvert x_{E_j}-x_{E_i} \rvert=\sum_{i=1}^{\lvert E\rvert-1}\displaystyle\sum_{j=i+1}^{\lvert E\rvert} \lvert x'_j-x'_i \rvert=
+\sum_{i=1}^{\lvert E\rvert-1}\displaystyle\sum_{j=i+1}^{\lvert E\rvert} (x'_j-x'_i)=
+\sum_{i=1}^{\lvert E\rvert}(2i-1-\lvert E\rvert)x'_i\).
+として求めることができます。
+
+同様に \(y\) 座標についても計算することで、\(\displaystyle\sum_{i=1}^{\lvert E\rvert-1}\displaystyle\sum_{j=i+1}^{\lvert E\rvert} \text{dist}(P_{E_i},P_{E_j})\) を求めることができ、さらに \(x_i,y_i\) がともに
+奇数であるような点の集合についても同様のものを計算して足し合わせることで最終的な答えを得ることができます。
+
+計算量は \(2\) つのグループの \(x,y\) 座標をそれぞれソートするため\(O(N\log N)\) の計算量がかかり、その後の計算は \(O(N)\) でできるため、全体で \(O(N\log N)\) で答えを求めることができ、十分に高速です。よって、この問題を解くことができました。
+
+c++ による実装例:
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

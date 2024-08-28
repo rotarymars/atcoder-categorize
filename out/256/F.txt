@@ -1,0 +1,41 @@
+
+		公式
+		
+			
+				F - Cumulative Cumulative Cumulative Sum 解説
+			
+			by kyopro_friends
+			
+		
+		
+		
+		
+			まず、\(D_x\) に対して各 \(A_i (i\leq x)\) が何度寄与するか考えます。
+
+各 \(x\) で \(B_x\) に対して \(A_i\) は \(1\) 度寄与します。
+各 \(x\) で \(C_x\) に対して \(A_i\) は \(x-i+1\) 度寄与します。
+各 \(x\) で \(D_x\) に対して \(A_i\) は \((x-i+1)(x-i+2)/2\) 度寄与します。
+
+よって \(\displaystyle D_x=\sum_{i=1}^{x}\frac{(x-i+1)(x-i+2)}{2}A_i\) となります。式を整理することで、
+
+\(\displaystyle D_x=\frac{1}{2}\sum_{i=1}^{x}i^2A_i - \frac{2x+3}{2}\sum_{i=1}^{x}iA_i+\frac{(x+1)(x+2)}{2}\sum_{i=1}^{x}A_i\)
+
+を得ます。\(i^2A_i,iA_i,A_i\) の1点更新とprefix sumを取得できるような fenwick treeやセグメント木を用いることで、各クエリを \(O(\log N)\) で処理することができます。
+
+実装例(C++)
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

@@ -1,0 +1,114 @@
+(解説: evima)
+プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice
+
+contest」(https://atcoder.jp/contests/practice/) の問題 A「はじめてのあっとこーだー」を
+お試しください。言語ごとに解答例が掲載されています。
+今回の問題に含まれる要素であって「はじめての〜」に含まれないものは、a2 , a3 といった値の計
+算のみです。言語を問わずに使える確実な方法は、a * a * a などとして計算してしまうことです。
+言語に **, ^ といった累乗演算子が用意されていればそれを使うこともできますが、結果が実数では
+なく整数として計算されることを確認してからの方が安全かもしれません。
+
+pow() といった名前の標準ライブラリも多くの言語に用意されていますが、それらは実数の実数乗を
+計算するものであることが多く、整数の整数乗の計算に用いるには適さない可能性があります。253 −1
+を超える整数は 64 ビット実数型では正しく表現できないため、計算結果がその範囲にあると正しい結
+果が得られません*1 。また、正しい計算結果が得られても、cout << a + pow(a, 2) + pow(a, 3)
+などと実数のまま出力して 1.0101e+06 などとなってしまうと不正解と判定されます (この問題に限
+らず、AtCoder では、整数での出力が期待される問題で実数形式の数値を出力すると不正解と判定さ
+れます)。ただし、今回の 1 ≤ a ≤ 10 という制約下では計算結果が誤っていることはないはずで、出
+力形式に関しても都合よく処理する言語が多いようです。
+
+*1 今回の制約には反しますが、例えば a = 1000000 の場合、a + a2 + a3 を 64 ビット実数を用いて計算した結果を整数
+
+にキャストすると 1000001000000999936 となります
+
+1
+
+C++ での実装例:
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+int a;
+
+5
+
+cin >> a;
+
+6
+
+cout << a + a * a + a * a * a << endl;
+
+7
+
+}
+
+2
+
+(Editorial: evima)
+If you are a beginner of studying programming and have no idea what to start with, then try
+solving “Welcome to AtCoder”, Problem A from the “practice contest” (https://atcoder.jp/
+contests/practice/). There you can ﬁnd sample codes for each language.
+The only element in this problem that is not covered by “Welcome to —” is the calculation
+of a2 , a3 and so on. The most certain way that is available regardless of languages is calculating
+like a * a * a. If the language has operators like ** or ^, then you can also use them, but it
+might be safer to ascertain that the result is calculated as integers, not as real numbers.
+Most languages provides with standard libraries named pow() or similar, but they tend to
+aim at calculating a real-number power of real number, and not be suitable for calculating
+an integer-power of integer. Since integers exceeding 253 − 1 cannot be represented accurately
+by 64-bit real numbers, so if the result is not within the range, you cannot obtain accurate
+result*3 . Also, even if you obtained an accurate result, if you output as real number like
+cout << a + pow(a, 2) + pow(a, 3), you will obtain outputs like 1.0101e+06, which will
+be judges as wrong answer (not only in this problem; in any AtCoder problems which expects
+integer outputs, if you output in a real-number style, it will be judged as being wrong answer).
+However, under the constraints 1 ≤ a ≤ 10 this time, the calculation result must be accurate,
+and also output format seems to be processed suitably in many languages.
+
+*3 If a = 1000000, though this is not within the constraints this time, calculating a + a2 + a3 with 64-bit real
+
+numbers results in 1000001000000999936 when casted to integer
+
+9
+
+Sample code in C++:
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+int a;
+
+5
+
+cin >> a;
+
+6
+
+cout << a + a * a + a * a * a << endl;
+
+7
+
+}
+
+10
+

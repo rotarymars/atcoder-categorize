@@ -1,0 +1,74 @@
+数の種類が n 種で、項が n + 1 項あるので、必ず同じ数の項が複数存在しま
+す1 。また、すべての数が 1 度以上現れるという制約から、同じ数である項は
+ちょうど 1 組であることが分かります。
+同じ数があるので、単純に n + 1 個から k 個を選ぶ組合せ n+1 Ck を計算す
+るだけでは答えが求められません。そこで、重複を除く方法を考えてみます。
+同じ数が出てくるのはちょうど 1 組だけなので、n+1 Ck から重複してる
+ものの数を引けば答えが求まります。重複している数列はどのような数列で
+しょうか？
+取り出した部分列を見てどこから取り出した部分列であるかを考えたと
+き、1 通りに定まらない場合、その数列は 2 回数えられていることになりま
+す。次のような例を考えてみます。
+
+23145167
+
+1
+
+参考: 鳩ノ巣原理
+
+3
+
+重複している数である 1 は太字で書いてあります。もし部分列で 1 を一度も
+選んでいなければ、簡単に復元できます。
+
+256 → 23145167
+部分列で 1 を 2 つとも選んでいる場合も、やはり簡単に復元できます。
+
+211 → 23145167
+また、1 を選んでいても、2 つの 1 と 1 の間の数 4, 5 を選んでいれば、これら
+の数と 1 との位置関係から、使われている 1 がどちらの 1 であるか特定でき
+ます。
+51 → 23145167
+よって、以上のような場合は重複して数えられない数列です。1 を 1 つだけ
+選んでいて、2 つの 1 と 1 の間の数 4, 5 を選んでいない場合はどちらの 1 を
+選んでいるかわかりません。これが重複する場合です。
+
+31 → 23145167 ?
+→ 23145167 ?
+よって、重複している項を al , ar (l < r) とすると、このような部分列の数
+は、
+「al か ar の片方を選んで al と ar で囲われていない項から残りの k − 1 個
+を選ぶ場合の数」になります。al と ar で囲われていない項は al の左に l − 1
+項と、ar の右に n − r 項あるので、求める場合の数は l−1+n−r Ck−1 であるこ
+とが分かります。
+よって、k 行目には、n+1 Ck − l−1+n−r Ck−1 を出力すれば良いです。
+n Ck の求め方は、ABC042/ARC058 の D 問題の解説を参照して下さい。
+http://arc058.contest.atcoder.jp/data/arc/058/editorial.pdf
+
+( )
+There are n+1
+ways to choose k elements from the sequence, but this way
+k
+we may count the same subsequence multiple times.
+For example, consider the following case:
+23145167
+Fix a subsequence s of this sequence. How many times will s be counted?
+We can observe that:
+• If s contains two 1s, the positions can be uniquely determined and it
+will be counted only once.
+• If s contains no 1, the positions can be uniquely determined and it will
+be counted only once.
+• If s contains 4 or 5, the positions can be uniquely determined and it
+will be counted only once.
+• Otherwise, we can’t determine which 1 we chose; it will be counted
+twice.
+So, we must subtract the number of ways to choose k − 1 elements from
+2, 3, 6, 7.
+In general,( if the
+) distance
+(n−d) between two elements of the same value is d,
+n+1
+the answer is k − k−1 .
+
+4
+

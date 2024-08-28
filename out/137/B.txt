@@ -1,0 +1,84 @@
+(原案: DEGwer, 準備・解説: evima)
+黒い石のうち最も左にある (座標が最も小さい) ものの座標を L とすると、K 個の黒い石の座標は
+
+L, L + 1, . . . , L + K − 1 と書けます。
+座標 X の石が黒であることから、L は X − K + 1, X − K + 2, . . . , X のいずれかです。よって、黒い石
+が置かれている可能性のある座標は X − K + 1, X − K + 2, . . . , X + K − 1 の 2K − 1 個です。
+あとは純粋なプログラミングの課題で、Python での実装例を二つ掲載することをもって解説に代えさせて
+いただきます。*1 他の言語でもほぼ同等な実装が可能なはずです。
+
+1
+
+K, X = map(int, input().split())
+
+2
+
+for i in range(X - K + 1, X + K):
+
+3
+4
+5
+6
+
+if i < X + K - 1:
+print(i, end=' ')
+else:
+print(i)
+
+1
+
+K, X = map(int, input().split())
+
+2
+
+print(' '.join(map(str, range(X - K + 1, X + K))))
+
+*1 実は、一つ目の実装例で 3, 5, 6 行目を削除して、最後の座標の直後でも改行ではなく空白を出力しても正解と判定されます。
+
+AtCoder に限らず、競技プログラミングのジャッジは「空白系の文字」の扱いに関して寛容なことが多いです。ただし、ターミナ
+ルに出力が表示される際の見やすさを考えてもできるだけ出力の末尾では改行されることを勧めます
+
+2
+
+(Original writer: DEGwer, preparation and editorial: evaim)
+Let the leftmost black stone (the stone with the least coordinate) be L, then the coordinates of K
+black stones will be L, L + 1, . . . , L + K − 1.
+Since the stone at coordinate X is black, L is one of X − K + 1, X − K + 2, . . . , X. Therefore, possible
+coordinates of black stone are those 2K − 1 values: X − K + 1, X − K + 2, . . . , X + K − 1.
+The remaining task is a pure programming task, so we’ll show you two implementation examples in
+Python instead of explanation. *1 Similar implementation should be possible in other languages.
+
+1
+
+K, X = map(int, input().split())
+
+2
+
+for i in range(X - K + 1, X + K):
+
+3
+4
+5
+6
+
+if i < X + K - 1:
+print(i, end=' ')
+else:
+print(i)
+
+1
+
+K, X = map(int, input().split())
+
+2
+
+print(' '.join(map(str, range(X - K + 1, X + K))))
+
+*1 In fact, you can remove the third, ﬁfth and sixth lines from the ﬁrst implementation, and output a whitespace instead
+
+of newline after the last coordinate. Not only AtCoder, but many competitive programming’s judge is tolerant to
+”whitespace-like letters” in many cases. Though, thinking about the visibility shown in terminals, we recommend
+you print new line at the end of the output
+
+10
+

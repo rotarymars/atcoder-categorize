@@ -1,0 +1,19 @@
+N と M の差 (の絶対値) が 2 以上のとき、条件を満たすように並べることはできません。
+
+2
+
+N と M の差が 1 のとき、N + 1 = M とすれば、条件を満たすためには猿犬猿... 犬猿 の順に並べるこ
+とになります。このような並べ方は、犬 N 匹を並べる場合の数と、猿 M 匹を並べる場合の数の積なので、
+
+N !M ! 通りです。M + 1 = N の場合も同様です。
+N = M のとき、猿犬猿... 猿犬と犬猿犬... 犬猿の 2 種類の並べ方があります。上記の場合と同じように考
+えれば、それぞれ N !M ! 通りの並べ方があることがわかるので、全体の場合の数は 2N !M ! 通りです。
+
+109 + 7 で割ったあまりを求めるのを忘れないようにしてください。
+
+If the absolute diﬀerence of N and M is at least 2, it is impossible to satisfy the conditions.
+If N + 1 = M , the animals must be arranged ”MDMDM...DM” (here M stands for monkeys
+and D stands for dogs). There are N !M ! ways to do this. The case where M + 1 = N is similar.
+If N = M , both ”MDMD...MD” and ”DMDM...DM” are possible, so the answer is 2N !M !.
+Don’t forget to compute the answer modulo 109 + 7.
+

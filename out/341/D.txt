@@ -1,0 +1,67 @@
+
+		公式
+		
+			
+				D - Only one of two 解説
+			
+			by mechanicalpenciI
+			
+		
+		
+		
+		
+			\(N\), \(M\) の最小公倍数を \(L\) とします。
+このとき、\(X\) 以下の正の整数であって \(N\) と \(M\) の両方で割り切れる数は \(\lfloor \frac{X}{L}\rfloor\) 個ある事から、\(1\) 以上 \(X\) 以下の整数であって \(N\) と \(M\) のうちちょうど一方のみで割り切れる数は \(\lfloor \frac{X}{N}\rfloor+\lfloor \frac{X}{M}\rfloor-2\times \lfloor \frac{X}{L}\rfloor\) 個です。
+
+加えて、この個数は \(X\) について広義単調増加であるため、「問題の答えが \(X\) 以下であること」と「\(1\) 以上 \(X\) 以下の整数であって \(N\) と \(M\) のうちちょうど一方のみで割り切れる数が \(K\) 個以上であること」、すなわち「 \(\lfloor \frac{X}{N}\rfloor+\lfloor \frac{X}{M}\rfloor-2\times \lfloor \frac{X}{L}\rfloor\geq K\) であること」が同値です。
+
+ゆえにこれを用いて二分探索によってこの問題を解く事ができます。
+今回の問題の制約下で答えは必ず \(2\times 10^{18}\) 以下となるため、下限を \(0\), 上限を \(2\times 10^{18}\) として二分探索を行えば良いです。
+
+
+  答えが  $2\times 10^{18}$ 以下となることの証明
+$N < M$ であるとして一般性を失わない。  
+$N,M$ の最大公約数を $g$, $N=ng$, $M=mg$ ($1\leq n < m$, $n,m$は整数)とする。  
+このとき、 
+$$
+\left\lfloor \frac{X}{N}\right\rfloor+\left\lfloor \frac{X}{M}\right\rfloor-2\times \left\lfloor \frac{X}{L}\right\rfloor>\frac{X}{N}+\frac{X}{M}-\frac{2X}{L}-2=\frac{(m+n-2)X}{gnm}-2
+$$ 
+が成り立つ。  
+$X=2\times 10^{18}$ とすると、問題の制約下で $\frac{m+n-2}{n}\geq 1$, $\frac{X}{gm}\geq 2\times 10^{10}$ であるため、
+$$
+\frac{X}{N}+\frac{X}{M}-\frac{2X}{L}-2=\frac{(m+n-2)X}{gnm}-2\geq 2\times 10^{10}-2
+$$
+となり、$X$ 以下に条件をみたす数が少なくとも $2\times 10^{10}-2$ 個, 特に $K$ 個以上存在する事がわかる。  
+実際には、今回の制約下での上限は$N=5\times 10^{7}$, $M=10^{8}$, $K=10^{10}$ のときの $10^{18}-5\times 10^{7}$ である。
+
+
+より具体的には最初 \(L=0, R=2\times 10^{18}\) として、\(R-L\geq 2\) である限り、次の手順を繰り返し行えば良いです。
+
+
+\(X=\lfloor \frac{L+R}{2}\rfloor\) とする。
+\(\lfloor \frac{X}{N}\rfloor+\lfloor \frac{X}{M}\rfloor-2\times \lfloor \frac{X}{L}\rfloor\geq K\) ならば \(R=X\), そうでないならば \(L=X\) とする。
+
+
+最終的な \(R\) が答えとなります。
+
+\(X\) を固定した時、\(\lfloor \frac{X}{N}\rfloor+\lfloor \frac{X}{M}\rfloor-2\times \lfloor \frac{X}{L}\rfloor\geq K\) の判定は \(O(1)\) で計算でき、繰り返し回数も高々 \(60\) 回であるため十分高速です。よって、この問題を解く事ができました。
+
+c++ による実装例:
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

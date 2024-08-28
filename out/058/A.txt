@@ -1,0 +1,25 @@
+問題文にかかれているとおり、b − a = c − b であるかどうか判定すればよい
+です。例えばこの処理は C++では次のように書けます。
+1 # include < iostream >
+2 using namespace std ;
+3 int main () {
+4
+int a , b , c ;
+5
+cin >> a >> b >> c ;
+6
+cout << ( b - a == c - b ? " YES " : " NO " ) << endl ;
+7 }
+
+Check if b − a = c − b.
+1 # include < iostream >
+2 using namespace std ;
+3 int main () {
+4
+int a , b , c ;
+5
+cin >> a >> b >> c ;
+6
+cout << ( b - a == c - b ? " YES " : " NO " ) << endl ;
+7 }
+

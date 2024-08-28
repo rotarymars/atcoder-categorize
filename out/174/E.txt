@@ -1,0 +1,25 @@
+（解説：ynymxiaolongbao）
+答えが X 以下であるか？という問題を考えます。この問題は言い換えれば、 K 回以内のカットで
+すべての丸太の長さを X 以下にすることができるか？という問題になります。はじめ長さ Ai の丸
+i
+太を切り分けて長さ X 以下にするためには、⌈ A
+X ⌉ − 1 回切る必要があります。そして、この回数の
+
+合計が K 以下であれば答えは Yes、そうでなければ答えは No です。
+二分探索を用いて、答えが X 以下であるか？という問題の答えが Yes になる最も小さな整数 X を
+求め、それを出力すれば良いです。計算量は O(N log(maxA)) になります。
+
+6
+
+（Editorial：ynymxiaolongbao）
+
+Consider the problem whether the answer is less than or equal to X. This problem can be
+rephrased as whether all the logs can be cut down to the length less than or equal to X within
+at most K cuts. In order to cut a log of initial length Ai into those of length less than or equal
+to X, at least ⌈ AXi ⌉ − 1 cuts are required. If the sum of them does not exceed K, then the answer
+is Yes, otherwise the answer is No.
+It is suﬃcient to ﬁnd the minimum integer X such that the answer to the question “is the
+answer less than or equal to X?” is Yes. The total computation time is O(N log(maxA)).
+
+13
+

@@ -1,0 +1,33 @@
+N 以下の整数の各桁の和を求め、適切に場合分けをして足し合わせてやればよいです。
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int n , a , b;
+s c a n f (”%d%d%d ” , &n , &a , &b ) ;
+int r = 0;
+f o r ( i n t i = 1 ; i <= n ; i ++)
+{
+int c = 0 , t = i ;
+f o r ( i n t j = 0 ; j < 5 ; j ++)c += t % 1 0 , t /= 1 0 ;
+i f ( a <= c&&c <= b ) r += i ;
+}
+p r i n t f (”%d\n ” , r ) ;
+}
+
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int n , a , b;
+s c a n f (”%d%d%d ” , &n , &a , &b ) ;
+int r = 0;
+f o r ( i n t i = 1 ; i <= n ; i ++)
+{
+int c = 0 , t = i ;
+f o r ( i n t j = 0 ; j < 5 ; j ++)c += t % 1 0 , t /= 1 0 ;
+i f ( a <= c&&c <= b ) r += i ;
+}
+p r i n t f (”%d\n ” , r ) ;
+}
+
+2
+

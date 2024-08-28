@@ -1,0 +1,260 @@
+Python や C# などにおける連想配列を使って，各文字列の出現回数を数えてから，最大値をとる
+ものを昇順に出力すればよいです．
+
+std::map の内部ではキーが昇順になるよう要素がソートされているので，イテレータを .begin()
+から順に見ることで，キーを昇順に見ることができます．
+
+C++ での実装例は次のとおりです．
+1
+
+#include <iostream>
+
+2
+
+using std::cin;
+
+3
+
+using std::cout;
+
+4
+
+using std::endl;
+
+5
+6
+
+#include <map>
+
+7
+
+using std::map;
+
+8
+9
+
+#include <string>
+
+10
+
+using std::string;
+
+11
+12
+
+map<string, int> memo;
+
+13
+14
+15
+
+int main (void) {
+int n;
+
+16
+17
+
+scanf("%lld", &n);
+
+18
+
+for (int i = 0; i < n; i++) {
+
+19
+
+string s;
+
+20
+
+cin >> s;
+
+21
+
+memo[s] += 1;
+
+22
+23
+
+}
+
+24
+25
+26
+
+int maxv = 0;
+
+27
+
+for (const auto& x : memo) {
+
+28
+
+int v = x.second;
+
+29
+
+if (v > maxv) maxv = v;
+
+30
+
+}
+
+31
+
+for (auto it = memo.begin(); it != memo.end(); it++) {
+
+32
+33
+
+if (it->second == maxv) {
+cout << it->first << endl;
+
+3
+
+}
+
+34
+
+}
+
+35
+36
+
+return 0;
+
+37
+38
+
+}
+
+4
+
+Using an associative arrays in Python or C#, count the appearances of each string, and output
+the string taking the maximum value in the increasing order.
+Inside std::map, the keys are sorted in the increasing order, so by looking at the iterator in
+order from .begin(), the keys can be iterated in the increasing order.
+The following is an implementation example in C++.
+1
+
+#include <iostream>
+
+2
+
+using std::cin;
+
+3
+
+using std::cout;
+
+4
+
+using std::endl;
+
+5
+6
+
+#include <map>
+
+7
+
+using std::map;
+
+8
+9
+
+#include <string>
+
+10
+
+using std::string;
+
+11
+12
+
+map<string, int> memo;
+
+13
+14
+15
+
+int main (void) {
+int n;
+
+16
+17
+
+scanf("%lld", &n);
+
+18
+
+for (int i = 0; i < n; i++) {
+
+19
+
+string s;
+
+20
+
+cin >> s;
+
+21
+
+memo[s] += 1;
+
+22
+23
+
+}
+
+24
+25
+26
+
+int maxv = 0;
+
+27
+
+for (const auto& x : memo) {
+
+28
+
+int v = x.second;
+
+29
+
+if (v > maxv) maxv = v;
+
+30
+
+}
+
+31
+
+for (auto it = memo.begin(); it != memo.end(); it++) {
+
+32
+33
+
+if (it->second == maxv) {
+cout << it->first << endl;
+
+10
+
+}
+
+34
+
+}
+
+35
+36
+
+return 0;
+
+37
+38
+
+}
+
+11
+

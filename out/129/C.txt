@@ -1,0 +1,38 @@
+まず、壊れた床がない場合 (M= 0) について考察します。x段目にたどり着くまでの移動方法の数を fx
+とおきます。
+x≥2 の時、x段目にたどり着く方法としては、
+•x−2 段目から一歩で二段上る。
+•x−1 段目から一歩で一段上る。
+の二通りがあります。つまり、fx = fx−1 + fx−2 が成り立ちます。これはフィボナッチ数の求め方の式と
+同等です。動的計画法(DP) を使うことで、O(N) で解くことができます。
+ここまで考察できれば、壊れた床がある場合もこれを応用することで解くことができます。具体的には、fai
+には遷移しないようにDP の遷移式を改造すれば良いです。
+1 #include<bits/stdc++.h>
+2 using namespace std;
+3 const long long mod=1e9+7;
+4
+5 int main(){
+6 int N,M;
+7 cin>>N>>M;
+8
+9 vector<int>oks(N+1,true);
+10 for(int i=0;i<M;++i){
+11 int a;cin>>a;
+12 oks[a]=false;
+13 }
+14
+15 vector<long long int>dp(N+1);
+16 dp[0]=1;
+17 for(int now=0;now<N;++now){
+18 for(int next=now+1;next<=min(N,now+2);++next){
+19 if(oks[next]){
+20 dp[next]+=dp[now];
+21 dp[next]%=mod;
+22 }
+23 }
+24 }
+25
+26 cout<<dp[N]<<endl;
+27 return 0;
+28 }
+1

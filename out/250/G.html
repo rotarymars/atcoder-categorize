@@ -1,0 +1,464 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 250</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 250" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc250/editorial/3929" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 250" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc250";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-05-08T21:00:00+09:00");
+			var endTime = moment("2022-05-08T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 250が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 250は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc250">AtCoder Beginner Contest 250</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc250/editorial/3929?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc250/editorial/3929?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc250%2Feditorial%2F3929">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc250%2Feditorial%2F3929">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc250%2Feditorial%2F3929">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220508T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-05-08 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220508T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-05-08 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc250"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc250/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc250/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc250/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc250/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc250/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc250/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc250/tasks/abc250_g">G - Stonks</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-1.png" class="user-rating-stage-m"><a href="/users/physics0523" class="username"><span class="user-orange">physics0523</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p><span>\(dp[\)</span> <span>\(i\)</span> 日目までの取引を終えた状態 <span>\(][\)</span> 現状 <span>\(j\)</span>
+株持っている <span>\(]=\{\)</span> 所持金の増加額の最大値 <span>\(\}\)</span> というDPを行えばこの問題を <span>\(O(N^2)\)</span> で解くことができます。取引終了時に株を残しておくメリットがないことから、答えは <span>\(dp[N][0]\)</span> となります。</p>
+
+<p>サンプル1 を使い、このDPを観察してみましょう。</p>
+
+<p>サンプル1 の入力:
+<pre>
+8
+2 5 4 3 7 1 8 6
+</pre></p>
+
+<p>上から <span>\(i\)</span> 行目、左から <span>\((j-1)\)</span> 列目に <span>\(dp[i][j]\)</span> を出力した数表:
+<pre>
+ 0  -2
+ 3  -2  -7
+ 3  -1  -6 -11
+ 3   0  -4  -9 -14
+ 7   3  -2  -7 -14 -21
+ 7   6   2  -3  -8 -15 -22
+14  10   5   0  -7 -14 -22 -30
+16  11   6   0  -6 -13 -20 -28 -36
+</pre></p>
+
+<p>横方向に等差数列がいくつか見えるので、隣接項の公差をとってみましょう。<br>
+上から <span>\(i\)</span> 行目、左から <span>\(j\)</span> 列目に <span>\(dp[i][j-1]-dp[i][j]\)</span> を出力した数表:
+<pre>
+2
+5 5
+4 5 5
+3 4 5 5
+4 5 5 7 7
+1 4 5 5 7 7
+4 5 5 7 7 8 8
+5 5 6 6 7 7 8 8
+</pre></p>
+
+<p><span>\(dp[N][0]\)</span> を求めるためにこの数表たちを観察すると、以下の解法が成立しそうに見えます。</p>
+
+<ul>
+<li>まず、 <a href="https://ja.wikipedia.org/wiki/%E5%A4%9A%E9%87%8D%E9%9B%86%E5%90%88" rel="nofollow">多重集合</a> <span>\(M=\{A_1\}\)</span> を用意し、答え <span>\(R\)</span> を <span>\(0\)</span> で初期化する。</li>
+<li><span>\(i=2,3,\dots,N\)</span> に対して、順に以下を行う。
+
+<ul>
+<li>もし、 <span>\(M\)</span> の最小値 <span>\(m\)</span> より <span>\(A_i\)</span> の方が大きければ、 <span>\(R\)</span> に <span>\(A_i-m\)</span> を加算し、 <span>\(M\)</span> から <span>\(m\)</span> を (<span>\(1\)</span> つ) 削除する。その後、 <span>\(M\)</span> に <span>\(A_i\)</span> を <span>\(2\)</span> つ追加する。</li>
+<li>そうでない場合、 <span>\(M\)</span> に <span>\(A_i\)</span> を <span>\(1\)</span> つ追加する。</li>
+</ul></li>
+</ul>
+
+<p>実際、この解法は正しいです。ここからは、解法の正当性を説明します。</p>
+
+<p>横軸に <span>\(j\)</span> 、縦軸に <span>\(dp[i][j]\)</span> の値をとりプロットした折れ線が上に凸になることを仮定します(<span>\(dp[1]\)</span> の時点では、これは明らかに正しいです。)<br>
+<span>\(dp[i]\)</span> から <span>\(dp[i+1]\)</span> へと、どのような遷移が行われるか考察します。<br>
+<span>\(dp[i+1][j]\)</span> は、以下の <span>\(3\)</span> つの <span>\(\max\)</span> をとったものとなります。</p>
+
+<ul>
+<li><span>\(dp[i][j]\)</span> ( <span>\(i+1\)</span> 日目に何もしなかったケース)</li>
+<li><span>\(dp[i][j-1]-A_{i+1}\)</span> ( <span>\(i+1\)</span> に株を買ったケース)</li>
+<li><span>\(dp[i][j+1]+A_{i+1}\)</span> ( <span>\(i+1\)</span> に株を売ったケース)</li>
+</ul>
+
+<p>これを折れ線の平行移動に対応させると、それぞれ</p>
+
+<ul>
+<li><span>\(dp[i]\)</span> (この折れ線を <span>\(dp\)</span> とする)</li>
+<li><span>\(dp[i]\)</span> を右に <span>\(1\)</span> 、下に <span>\(A_{i+1}\)</span> 移動させた折れ線 (この折れ線を <span>\(dp_-\)</span> とする)</li>
+<li><span>\(dp[i]\)</span> を左に <span>\(1\)</span> 、上に <span>\(A_{i+1}\)</span> 移動させた折れ線 (この折れ線を <span>\(dp_+\)</span> とする)</li>
+</ul>
+
+<p>に対応します。</p>
+
+<p>以下の図は、 <span>\(A=(4,2,2,1,1,1,3)\)</span> であったとき、 <span>\(dp[6]\)</span> から <span>\(dp[7]\)</span> を求める際の各折れ線です。</p>
+
+<p><img src="https://img.atcoder.jp/abc250/d83fb52518b3da6423b16e47185891ca.png" alt=""/></p>
+
+<p>まず、 <span>\(dp\)</span> と <span>\(dp_-\)</span> とを比較し、それらの <span>\(\max\)</span> を取った折れ線 <span>\(L_-\)</span> を考えてみましょう。</p>
+
+<ul>
+<li>両折れ線の傾きが <span>\(-A_{i+1}\)</span> 以上の部分については、 <span>\(dp\)</span> が <span>\(dp_-\)</span> 以上の位置にあるので、 <span>\(L_-\)</span> と <span>\(dp\)</span> が一致します。</li>
+<li>両折れ線の傾きが <span>\(-A_{i+1}\)</span> 未満の部分については、 <span>\(dp_-\)</span> が <span>\(dp\)</span> より上の位置にあるので、 <span>\(L_-\)</span> と <span>\(dp_-\)</span> が一致します。</li>
+<li>この <span>\(2\)</span> つの部分の間に、折れ線 <span>\(L_-\)</span> 上に、傾きが <span>\(-A_{i+1}\)</span> の (横幅 <span>\(1\)</span> の) 線分が入ります。ここで、 <span>\(dp_-\)</span> が <span>\(dp\)</span> より上側に来ます。</li>
+</ul>
+
+<p>次に、 <span>\(dp\)</span> と <span>\(dp_+\)</span> とを比較して同様の考察を行った折れ線 <span>\(L_+\)</span> について検討します。</p>
+
+<ul>
+<li>両折れ線の傾きが <span>\(-A_{i+1}\)</span> 以上の部分については、 <span>\(dp_+\)</span> が <span>\(dp\)</span> 以上の位置にあるので、 <span>\(L_+\)</span> と <span>\(dp_+\)</span> が一致します。</li>
+<li>両折れ線の傾きが <span>\(-A_{i+1}\)</span> 未満の部分については、 <span>\(dp\)</span> が <span>\(dp_+\)</span> より上の位置にあるので、 <span>\(L_+\)</span> と <span>\(dp\)</span> が一致します。</li>
+<li>この <span>\(2\)</span> つの部分の間に、折れ線 <span>\(L_+\)</span> 上に、傾きが <span>\(-A_{i+1}\)</span> の (横幅 <span>\(1\)</span> の) 線分が入ります。ここで、 <span>\(dp\)</span> が <span>\(dp_+\)</span> より上側に来ます。</li>
+</ul>
+
+<p>最終的な遷移後の <span>\(dp\)</span> は <span>\(L_-\)</span> と <span>\(L_+\)</span> の <span>\(\max\)</span> を取ったものであるため、出来上がる <span>\(dp\)</span> は遷移前の <span>\(dp\)</span> に傾き <span>\(-A_{i+1}\)</span> の横幅が <span>\(1\)</span> または <span>\(2\)</span> の線分を挿入して適切に平行移動したような形になります。</p>
+
+<p>この議論を整理すると、先程示した解法の正当性を示すことができます。</p>
+
+<p>実装例(C++):</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+int main(){
+  int n;
+  cin &gt;&gt; n;
+  vector&lt;long long&gt; a(n);
+  for(auto &amp;nx : a){cin &gt;&gt; nx;}
+  long long res=0;
+  priority_queue&lt;long long,vector&lt;long long&gt;,greater&lt;long long&gt;&gt; pq;
+  pq.push(a[0]);
+  for(int i=1;i&lt;n;i++){
+    if(pq.top()&lt;a[i]){
+      res+=(a[i]-pq.top());
+      pq.pop();
+      pq.push(a[i]);
+    }
+    pq.push(a[i]);
+  }
+  cout &lt;&lt; res &lt;&lt; &#39;\n&#39;;
+  return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1651905611">
+				<time class="timeago" datetime="2022/05/07 15:40:11"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1652010507">
+				<time class="timeago" datetime="2022/05/08 20:48:27"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc250/editorial/3929?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 250">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc250/rules">ルール</a></li>
+					<li><a href="/contests/abc250/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

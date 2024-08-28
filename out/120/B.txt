@@ -1,0 +1,25 @@
+正整数 i が A も B も割り切るなら、1 ≤ i ≤ min(A, B) を満たします。したがって、M = min(A, B) と
+して i = M, M − 1, M − 2, ..., 1 と順に i が A, B を共に割り切るか調べていき、K 番目に見つけた数を出力
+すれば正答できます。M を min(A, B) とする代わりに、単に A や B ，100 など M が min(A, B) 以上であ
+れば正答できます。以下に C++ での実装例を示します。
+
+# include < bits / stdc ++. h >
+using namespace std ;
+int main () {
+int A , B , K ; cin >> A >> B >> K ;
+for ( int i = min (A , B ); i >= 1; --i ) {
+if ( A % i == 0 && B % i == 0) {
+--K ;
+if ( K == 0) {
+cout << i << endl ;
+return 0;
+}
+}
+}
+assert ( false );
+}
+別解として、A も B も割り切る数 (A と B の公約数) は A と B の最大公約数の約数なので、これを列挙
+して大きい方から K 番目の数を出力する方法もあります。
+
+2
+

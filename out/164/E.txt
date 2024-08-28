@@ -1,0 +1,45 @@
+Amax = max{Ai | i = 1, 2, ..., M } とします。銀貨を Amax (N − 1) 枚以上所持している場合の戦
+略を考えてみましょう。これは明らかに、最短経路に沿って目的地に向かうのが最適です (このとき
+消費する銀貨の枚数は高々 Amax (N − 1) 枚なので、銀貨が足りなくなることはありません)。従っ
+て、以下の制約を追加しても、問題の答えは変わりません。
+
+
+追加の制約
+
+
+
+移動の途中で所持している銀貨の枚数が Amax (N − 1) 枚を超えた場合、Amax (N − 1) 枚になる
+まで銀貨を捨てる
+
+
+
+
+
+上記の制約を追加した問題に対するアルゴリズムを考えましょう。(現在の頂点, 所持している銀貨の
+枚数) を状態として dijkstra 法を適用すると、O(Amax N M log(Amax N )) でこの問題を解くことがで
+きます。Amax ≤ 50, N ≤ 50, M ≤ 100 なので、十分高速です。
+
+5
+
+Let Amax = max{Ai | i = 1, 2, ..., M }. Consider the strategy when you have more than
+Amax (N − 1) silver coins. Obviously, it is optimal to go to the destination along the shortest
+path (during that, at most Amax (N − 1) coins are consumed, so you never run out the silver
+coins). Therefore, adding the constraints below does not change the answer of the problem.
+
+Additional constraints
+
+
+
+If the number of silver coins exceed Amax (N − 1) during the travel, discard them until it
+becomes Amax (N − 1)
+
+
+
+
+Let us consider the algorithm to the problem under the constraints above. By applying Dijkstra
+method while holding the state of (current vertex, the number of silver coins), the problem can
+be solved in a total of O(Amax N M log(Amax N )) time. Since Amax ≤ 50, N ≤ 50, M ≤ 100, it is
+fast enough.
+
+11
+

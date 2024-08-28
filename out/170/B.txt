@@ -1,0 +1,96 @@
+(原案: yuma000, 準備・解説: evima)
+
+方針 1
+発言の前半「庭の動物の総数は X 匹」が正しいと仮定すると、考えられる鶴と亀の数の組合せは
+「鶴 0 匹、亀 X 匹」
+「鶴 1 匹、亀 X − 1 匹」. . .「鶴 X 匹、亀 0 匹」の X + 1 通りです。これらのそれ
+ぞれにおける足の総数を計算し、その結果が一度でも Y 本となれば答えは Yes、一度も Y 本とな
+らなければ答えは No です。素直に実装するなら、以下の Python のコードのように for 文を使うこ
+とになるでしょう。
+
+1
+
+X, Y = map(int, input().split())
+
+2
+
+ans = 'No'
+
+3
+
+for a in range(X + 1):
+
+4
+
+b = X - a
+
+5
+
+if 2 * a + 4 * b == Y:
+ans = 'Yes'
+
+6
+7
+
+print(ans)
+
+方針 2
+答えが Yes であることの必要十分条件は、Y が 2X 以上 4X 以下の偶数であることです。
+必要性の証明: a 匹の鶴と b 匹の亀について発言が正しいとすると、Y = 2a + 4b = 2(a + 2b) で
+あり、a, b が整数であることから Y は偶数でなければなりません。また、a + b = X, 2a + 4b = Y か
+ら a = (4X − Y)/2, b = (Y − 2X)/2 が得られ、a, b が非負であることから Y は 2X 以上 4X 以下でな
+ければなりません。よって示されました。
+十分性の証明: Y が 2X 以上 4X 以下の偶数であれば、(4X − Y)/2, (Y − 2X)/2 はともに非負整数
+となり、発言が正しいような鶴と亀の数の組合せとして「鶴 (4X − Y)/2 匹、亀 (Y − 2X)/2 匹」が
+存在します。よって示されました。
+
+2
+
+(Original writer: yuma000, preparation and editorials: evima)
+
+Course 1
+Assuming that the first half description that “there are X animals in total” is true, then there are X + 1
+possible combinations of the numbers of cranes and turtles: “0 cranes and X turtles”, “1 crane and
+X − 1 turtles”, . . ., and “X cranes and 0 turtles”. Calculate the total number of legs for each situation,
+and if at least one of the sum is equal to Y, then the answer is Yes, otherwise the answer is No. Naively,
+for statement can be used in the implementation, like the following Python code.
+
+1
+
+X, Y = map(int, input().split())
+
+2
+
+ans = 'No'
+
+3
+
+for a in range(X + 1):
+
+4
+
+b = X - a
+
+5
+
+if 2 * a + 4 * b == Y:
+
+6
+7
+
+ans = 'Yes'
+print(ans)
+
+Course 2
+The necessary and suﬃcient conditions for the answer to be Yes is that Y is an even number between
+2X and 4X, inclusive.
+Proof of necessity: if the statement is true for a cranes and b turtles, then Y = 2a + 4b = 2(a + 2b),
+and since a, b is an integer, Y must be an even number. Also, since a + b = X, 2a + 4b = Y, we obtain
+a = (4X − Y)/2, b = (Y − 2X)/2, and since a, b are non-negative, Y should be between 2X and 4X,
+inclusive. Here the proof ends.
+Proof of suﬃciency: if Y is an even number between 2X and 4X, inclusive, then (4X − Y)/2, (Y −
+2X)/2 are both a non-negative integer, so there exists a combination of numbers of cranes and turtles:
+“(4X − Y)/2 cranes and (Y − 2X)/2 turtles.” Here the proof ends.
+
+8
+

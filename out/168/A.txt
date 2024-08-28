@@ -1,0 +1,103 @@
+1 の位ごとに場合分けをしても解けますが，より簡潔に書けないでしょうか？
+It can be solved by dividing cases depending on the 1’s digit, but aren’t there any better ways?
+Languages like C/C++, C# and Java have switch switch statements, and by using them the
+description in the problem statement can be expressed intuitively (sample code in C is shown
+below).
+By the way, Ruby has case statements, which is more functional.
+Listing 5 Sample Code in C
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(void) {
+
+4
+
+int n;
+
+5
+
+scanf("%d", &n);
+
+6
+7
+
+switch (n % 10) {
+
+8
+
+case 2:
+
+9
+
+case 4:
+
+10
+
+case 5:
+
+11
+
+case 7:
+
+12
+
+case 9:
+puts("hon");
+
+13
+
+break;
+
+14
+15
+
+case 0:
+
+16
+
+case 1:
+
+17
+
+case 6:
+
+18
+
+case 8:
+
+19
+
+puts("pon");
+
+20
+
+break;
+case 3:
+
+21
+22
+
+puts("bon");
+
+23
+
+break;
+
+}
+
+24
+25
+
+return 0;
+
+26
+27
+
+}
+
+8
+

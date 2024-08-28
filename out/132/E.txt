@@ -1,0 +1,32 @@
+言い換えると、この問題で求めたい値は「有向グラフ G = (V, E) 上の、S から T への（単純パスとは限ら
+ない）路であって、路長が 3 の倍数であるようなものの内、最短の長さ（を 3 で割ったもの）」です。
+これを計算するためには、以下のようにして構成したグラフ G′ 上での最短経路問題を解けば良いです:
+
+1. G′ は頂点集合として V ′ = {vt | v ∈ V, t = 0, 1, 2} を持つ。すなわち、元のグラフ G の状態数を “3 倍
+化” する。
+
+2. グラフ G が u から v への辺を持つ時、G′ 上に 3 辺 u0 → v1 , u1 → v2 , u2 → v0 を張る。
+こうして構成された G′ 上での S0 から T0 への最短経路（すなわち単純パスで良い）の長さは上記の求めたい
+値に一致します。したがって、結局これは重みなし有向グラフ上の最短経路問題に帰着され、G′ の頂点数や
+辺数は G の高々定数倍であるため、BFS や DFS によって O(N + M ) で解くことが可能です。
+
+5
+
+To put the problem statement into other words, you have to ﬁnd ”the
+shotrtest length of path (divided by 3) among all the (not necessarily simple)
+path from S to T whose length is a multiple of 3.”
+This can be calculated by solving a shortest path problem on a graph G′
+constructed by the following procedure:
+1. The vertex set of G′ is V ′ = {vt | v ∈ V, t = 0, 1, 2}. Frankly, this
+graph ”triples” the number of states in original graph G.
+2. Iﬀ there exist a edge from u to v in G, there exist three edges u0 →
+v1 , u1 → v2 , u2 → v0 .
+The length of shortest path from S0 to T0 on G′ (which is always a simple
+path) is equal to the length of the path mentioned above.
+Therefore, the problem is reduced into a shortest path problem on the
+unweighted graph, and the number of vertices and edges of G′ is at most
+several times as many as that of original graph, so you can solve it by BFS
+or DFS in O(N + M ).
+
+11
+

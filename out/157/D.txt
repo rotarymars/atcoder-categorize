@@ -1,0 +1,30 @@
+人を頂点、友達関係を辺とした無向グラフを考えると、人 i に対する答えは、
+
+(頂点 i の連結成分のサイズ)
+−(頂点 i と頂点 j が同じ連結成分に含まれて、人 i と人 j が友達関係もしくはブロック関係にあるよ
+うな j の数)
+
+−1
+です (最後の 1 は自分自身)。
+各頂点が属する連結成分を求め、各連結成分のサイズを求めておけば、各人ごとの上記の値を高速に
+計算することが出来ます。
+これは、Union Find のようなデータ構造を用いるか、もしくはグラフ上で DFS を行うこと等により
+実現出来ます。
+時間計算量は、例えば DFS の場合は O (N + M + K) です。
+
+4
+
+Consider a graph, whose vertices correspond the users and whose edges correspond to the
+friendship. Then the answer for user i is
+(The size of the connected component of vertex i)
+−(The number of j, such that vertex i and vertex j belong to the same connected component,
+and user i and user j is in a friendship or in a blockship)
+−1.
+(The last 1 is the user him/herself.)
+By ﬁnding the connected component to which each vertex belongs, and ﬁnding the size of each
+connected component, the value mentioned above for each user can be calculated fast.
+This can be achieved by using data structures like Union Find, or performing a DFS on the
+graph. The time complexity is, O (N + M + K) in case of DFS for example.
+
+11
+

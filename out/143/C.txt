@@ -1,0 +1,39 @@
+解法 1
+同じ文字が連続する S の極大な連続部分文字列を，それぞれグループと見なします.
+
+図1
+
+S = aaabbcbbbdd に対するグループ分けの例
+
+このとき，S の各文字間の境界であって，その両隣の文字が異なるものと，前述したグループの境
+界は，一対一に対応します.
+以上より，前述した S 中の境界に着目することで，解を出力することが出来ます.
+
+C++ による解答例:https://atcoder.jp/contests/abc143/submissions/8034709
+
+解法 2
+一部の言語では，文字列中の隣り合う同じ要素を、1 つのみ残して削除する関数があります. 例え
+ば，C++ では以下のようなコードを書けば良いです.
+
+C++ による解答例:https://atcoder.jp/contests/abc143/submissions/8034663
+
+3
+
+Solution 1
+Let’s regard each maximum consecutive subsequence of S with the same letter as a group.
+
+図2
+
+Grouping example for S = aaabbcbbbdd
+
+Then the boundary between two consecutive letters of S such that its adjacent two letters are
+diﬀerent and the boundary of the groups mentioned above corresponds one-to-one.
+Therefore, by looking up the boundary in S mentioned above, the solution can be obtained.
+Sample answer in C++:https://atcoder.jp/contests/abc143/submissions/8034709
+
+Solution 2
+Some languages have functions such that removes all but the ﬁrst element from every consecutive group of given string. For example, in C++ you can write a code like this:
+Sample answer in C++:https://atcoder.jp/contests/abc143/submissions/8034663
+
+9
+

@@ -1,0 +1,74 @@
+1 番目の街は 1 番目の勇者に救ってもらうしかありません。よって、1 番目の勇者は 1 番目の街のモンス
+ターを全力で min(A1 , B1 ) 体倒し、残った力で 2 番目の街のモンスターを全力で min(A2 , B1 − min(A1 , B1 ))
+体倒すのが最適です。すると、2 番目の街に残ったモンスターは 2 番目の勇者でしか倒すことができません。
+これを繰り返すことで答えを求めることができます。
+正確に述べると、fij を勇者 i が街 j のモンスターを倒す数とします。すると、合計で
+N
+∑
+
+(fii + fi(i+1) )
+
+i=1
+
+体のモンスターを倒すことになります。これを最大化する方法として上記の方法があり、この方法に従って計
+算すると、
+
+f11 = min(A1 , B1 )
+fi(i+1) = min(Ai+1 , Bi − fii )
+
+(1 ≤ i ≤ N )
+
+fii = min(Ai − f(i−1)i , Bi ) (2 ≤ i ≤ N )
+
+などによって時間計算量 O(N ) で計算できます。
+正当性、すなわちこれが最大になることの証明は次のとおりです。まず、この問題は次のような最大流問題
+に帰着させることができます (s が source、t が sink、辺の重みが容量です)。
+
+勇者 i の頂点から街 j の頂点に流れる流量を上で計算できる fij とすると、確かに条件を満たしています。
+さらに、残余グラフにおいて増大道が存在するとすれば作り方に矛盾するため、増大道は存在しません。よっ
+て、これが最大です。
+ところで、この問題を最大流問題に帰着させて解くことができそうに見えますが、Dinic のアルゴリズムな
+どでは流す優先順位をうまく設定しないと最悪時間計算量が O(N 2 ) となり、間に合いません。
+
+3
+
+Only the ﬁrst hero can save the ﬁrst town. So, it is optimal that the ﬁrst hero do the best to defeat
+min(A1 , B1 ) monsters in the ﬁrst town, and then do the best to defeat min(A2 , B1 − min(A1 , B1 ))
+monsters in the second town. Then, the monsters remaining in the second town can only be defeated by
+the second hero. You can ﬁnd the answer repeating this procedure.
+To be precise, let fij be the number of the monsters in the town j that are defeated by the hero i.
+Then, in total
+N
+∑
+
+(fii + fi(i+1) )
+
+i=1
+
+monsters would be defeated. One of the way to maximize this is the procedures mentioned above, and
+with the procedures, it can be calculated in time complexity O(N ) with the steps like:
+f11 = min(A1 , B1 )
+fi(i+1) = min(Ai+1 , Bi − fii )
+
+(1 ≤ i ≤ N )
+
+fii = min(Ai − f(i−1)i , Bi )
+
+(2 ≤ i ≤ N ).
+
+The validity that the sum mentioned above is the maximum can be proved like this: First, this problem
+can be attributed to the following maximum ﬂow problem (here, s denotes source, t denotes sink and
+the weight of edges are the capacities).
+
+If the ﬂow from the vertex of hero i to the vertex of town j is fij , it meets the conditions. Moreover,
+if there exists a ﬂow augmenting path in the residual network, it contradicts to the way of construction,
+for there doesn’t exist a ﬂow augmenting path. Therefore, this is the maximum.
+By the way, it seems that this problem can be solved by attributing to a maximum ﬂow problem, but
+
+9
+
+if you use Dinic’s algorithm etc., the worst time complexity will be O(N 2 ) and it will not ﬁnish in time,
+if you don’t conﬁgure a proper priorities.
+
+10
+

@@ -1,0 +1,20 @@
+(1, 1) から (a, b) に至るまでの移動回数は a + b − 2 です。したがって問題は、「a × b = N となる
+ような (a, b) について、a + b − 2 の最小値を求めよ」となります。対称性から a ≤ b としてよいの
+で、a ≤
+
+√
+
+√
+N までを全探索することにより O( N ) で解くことができます。
+
+3
+
+The number of moves needed to reach (a, b) from (1, 1) is a + b − 2. Therefore, the problem
+can be rephrased as ”find the minimum value of a + b − 2 for all (a, b) such that a × b = N .” By
+√
+symmetry you can assume that a ≤ b, so by performing brute-force searching for all a ≤ N ,
+√
+the problem can be solved in a total of O( N ) time.
+
+10
+

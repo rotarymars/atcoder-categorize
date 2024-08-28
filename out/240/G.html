@@ -1,0 +1,433 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 240</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 240" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc240/editorial/3423" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 240" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc240";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-02-20T21:00:00+09:00");
+			var endTime = moment("2022-02-20T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 240が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 240は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc240">AtCoder Beginner Contest 240</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc240/editorial/3423?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc240/editorial/3423?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc240%2Feditorial%2F3423">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc240%2Feditorial%2F3423">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc240%2Feditorial%2F3423">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220220T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-02-20 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220220T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-02-20 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc240"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc240/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc240/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc240/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc240/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc240/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc240/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc240/tasks/abc240_g">G - Teleporting Takahashi</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-2.png" class="user-rating-stage-m"><a href="/users/leaf1415" class="username"><span class="user-orange">leaf1415</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>本問題は三次元グリッドにおける問題ですが、まずは一次元の問題として簡単化したものを考え、次に二次元、そして本来の三次元の場合へと話を進めます。</p>
+
+<h2>[1] 一次元の問題</h2>
+
+<p>次の問題を考えます。</p>
+
+<blockquote>
+<p>はじめ、無限に続く一次元グリッドのマス <span>\(0\)</span> にいる。マス <span>\(x\)</span> にいるとき <span>\(1\)</span> 回の移動でマス <span>\(x-1\)</span> かマス <span>\(x+1\)</span> に移動する。ちょうど <span>\(N\)</span> 回の移動後にマス <span>\(X\)</span> にいるような移動経路は何通りか？</p>
+</blockquote>
+
+<p><span>\(N &lt; |X|\)</span> の場合は、<span>\(N\)</span> 回の移動でマス <span>\(X\)</span> に到達できないので、答えは <span>\(0\)</span> 通りです。<br>
+また、初期状態から、奇数回の移動後の位置 <span>\(x\)</span> は奇数、偶数回の移動後の位置 <span>\(x\)</span> は偶数にしかなり得ないので、<span>\(N \bmod 2 \neq X \bmod 2\)</span> のときも、答えは <span>\(0\)</span> 通りです。</p>
+
+<p>上記以外の場合を考えます。
+<span>\(X \geq 0\)</span> のとき（ <span>\(X &lt; 0\)</span> のとき）、「ちょうど <span>\(N\)</span> 回の移動後にマス
+ <span>\(X\)</span> にいる」ことは、「 <span>\(N\)</span> 回のうち <span>\((N+|X|)/2\)</span> 回は <span>\(x\)</span> の正の（負の）方向に、残りの <span>\((N-|X|)/2\)</span> 回は <span>\(x\)</span> の負の（正の）方向に移動する」ことと同値です。
+よって、求める移動経路の個数は、二項係数を用いて <span>\(\binom{N}{(N+|X|)/2}\)</span> と表せます。</p>
+
+<p>以上から、ちょうど <span>\(N\)</span> 回の移動後にマス <span>\(X\)</span> にいる移動経路の個数 <span>\(f_1(N, X)\)</span> は、</p>
+<p><span>\[
+f_1(N, X) = 
+\begin{cases}
+\displaystyle\binom{N}{(N+|X|)/2}  &amp;(N \geq |X| かつ N \bmod 2 = X \bmod 2の場合)\\
+0&amp;(上記以外の場合)
+\end{cases}
+\]</span></p><p>です。</p>
+
+<p>必要な階乗の値を前計算しておくと、与えられた <span>\(N\)</span> と <span>\(X\)</span> に対して <span>\(f_1(N, X)\)</span> を <span>\(\mathrm{O}(1)\)</span> 時間で計算できます。</p>
+
+<h2>[2] 二次元の問題</h2>
+
+<p>次の問題を考えます。</p>
+
+<blockquote>
+<p>はじめ、無限に続く二次元グリッドのマス <span>\((0, 0)\)</span> にいる。マス <span>\((x, y)\)</span> にいるとき <span>\(1\)</span> 回の移動でマス <span>\((x-1, y), (x+1, y), (x, y-1), (x, y+1)\)</span> のいずれかに移動する。ちょうど <span>\(N\)</span> 回の移動後にマス <span>\((X, Y)\)</span> にいるような移動経路は何通りか？</p>
+</blockquote>
+
+<p>これを解くために、<span>\(xy\)</span> 座標に対して</p>
+<p><span>\[ 
+\begin{cases}
+u = x+y\\
+v = x-y\\
+\end{cases}
+\]</span></p><p>という座標変換を導入し 、以下で <span>\(uv\)</span> 座標を使って問題を捉え直します。
+また、<span>\((U, V) := (X+Y, X-Y)\)</span> とおきます。</p>
+
+<p>このとき「ちょうど <span>\(N\)</span> 回の移動後にマス <span>\((X, Y)\)</span> にいるような移動経路は何通りか？」は「ちょうど <span>\(N\)</span> 回の移動後に <span>\((u, v) = (U, V)\)</span> であるような移動経路は何通りか？」と捉え直すことができます。</p>
+
+<p>また、「マス <span>\((x, y)\)</span> にいるとき <span>\(1\)</span> 回 の移動でマス <span>\((x-1, y), (x+1, y), (x, y-1), (x, y+1)\)</span> のいずれかに移動する」ことは、
+<span>\(uv\)</span> 座標系で見ると
+「 <span>\((u, v)\)</span> にいるとき <span>\(1\)</span> 回の移動で <span>\((u-1, v-1), (u-1, v+1), (u+1, v-1), (u+1, v+1)\)</span> のいずれかに移動する」ことになります。
+このことから、移動の際には「 <span>\(u\)</span> を <span>\(1\)</span> 増やすか <span>\(1\)</span> 減らすか」と「 <span>\(v\)</span> を <span>\(1\)</span> 増やすか <span>\(1\)</span> 減らすか」を独立に決められることがわかります。</p>
+
+<p>したがって、ちょうど <span>\(N\)</span> 回の移動後に <span>\((u, v) = (U, V)\)</span> であるような移動経路を <span>\(1\)</span> つ選ぶには、</p>
+
+<ul>
+<li><span>\(u\)</span> 軸方向に <span>\(N\)</span> 回移動後に <span>\(u = U\)</span> であるような移動経路（
+<span>\(f_1(N, U)\)</span> 通り）と</li>
+<li><span>\(v\)</span> 軸方向に <span>\(N\)</span> 回移動後に <span>\(v = V\)</span> であるような移動経路（
+<span>\(f_1(N, V)\)</span> 通り）</li>
+</ul>
+
+<p>を独立に選べばよく、ちょうど <span>\(N\)</span> 回の移動後にマス <span>\((X, Y)\)</span> にいる移動経路の個数 <span>\(f_2(N, X, Y)\)</span> は、</p>
+<p><span>\[
+f_2(N, X, Y) = f_1(N, U) f_1(N, V) = f_1(N, X+Y) f_1(N, X-Y)
+\]</span></p><p>と書けます。</p>
+
+<h2>[3] 三次元の問題</h2>
+
+<p>本来の三次元グリッドの問題を考えます。</p>
+
+<p>ちょうど <span>\(N\)</span> 回の移動後にマス <span>\((X, Y, Z)\)</span> にいる移動経路のうち、<span>\(z\)</span> 軸方向に移動する回数が <span>\(k\)</span> 回のものの個数を考えます。
+そのような移動経路を <span>\(1\)</span> つ選ぶとき、</p>
+
+<ul>
+<li><span>\(N\)</span> 回の移動のうち、<span>\(z\)</span> 軸方向に移動する <span>\(k\)</span> 回を選ぶ方法が <span>\(\binom{N}{k}\)</span> 通りあります。</li>
+<li><span>\(z\)</span> 軸方向への <span>\(k\)</span> 回の移動方法は、<span>\(z\)</span> 軸上で <span>\(k\)</span> 回移動のあとに <span>\(z = Z\)</span> であるように選ぶので、<span>\(f_1(k, Z)\)</span> 通りの選び方があります。</li>
+<li><span>\(z\)</span> 軸方向以外への <span>\(N-k\)</span> 回の移動方法は、<span>\(xy\)</span> 二次元グリッド上で <span>\(N-k\)</span> 回移動したあとに <span>\((x, y) = (X, Y)\)</span> であるように選ぶので、<span>\(f_2(N-k, X, Y)\)</span> 通りの選び方があります。</li>
+</ul>
+
+<p>よって、ちょうど <span>\(N\)</span> 回の移動後にマス <span>\((X, Y, Z)\)</span> にいる移動経路のうち、<span>\(z\)</span> 軸方向に移動する回数が <span>\(k\)</span> 回のものの個数は</p>
+<p><span>\[ \binom{N}{k} f_1(k, Z) f_2(N-k, X, Y) \]</span></p><p>です。<span>\(k = 0, 1, \ldots, N\)</span> にわたるこれの和をとることで、
+本問題の答え <span>\(f_3(N, X, Y, Z)\)</span> が</p>
+<p><span>\[
+f_3(N, X, Y, Z) = \sum_{k = 0}^N \binom{N}{k} f_1(k, Z) f_2(N-k, X, Y)
+= \sum_{k = 0}^N \binom{N}{k} f_1(k, Z) f_1(N-k, X+Y) f_1(N-k, X-Y)
+\]</span></p><p>と得られます。適切な前計算によって必要な二項係数を <span>\(\mathrm{O}(1)\)</span> 時間で求められるように準備しておくことで、<span>\(f_3(N, X, Y, Z)\)</span> は <span>\(\mathrm{O}(N)\)</span> 時間で計算できます。</p>
+
+<p>以上で、本問題を <span>\(\mathrm{O}(N)\)</span> 時間で解くことができます。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1645094369">
+				<time class="timeago" datetime="2022/02/17 19:39:29"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1645309960">
+				<time class="timeago" datetime="2022/02/20 07:32:40"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc240/editorial/3423?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 240">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc240/rules">ルール</a></li>
+					<li><a href="/contests/abc240/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

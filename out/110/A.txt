@@ -1,0 +1,33 @@
+数式 XY + Z と Z + XY の値は同じなので、XY + Z の形のみを考えることにします。さらに、XY + Z
+と XZ + Y の値は変わりません。従って、作れる数式の値は 10 × X + Y + Z, X + 10 × Y + Z, X + Y + 10 × Z
+の 3 通りです。これらの最大値が答えになるので、C++ での実装例は次のようになります。
+
+# include < iostream >
+# include < algorithm >
+using namespace std ;
+int main () {
+int A , B , C ; cin >> A >> B >> C ;
+int ans = max < int >({
+10 * A + B + C ,
+A + 10 * B + C ,
+A + B + 10 * C ,
+});
+cout << ans << endl ;
+}
+さらに考察すると、X, Y, Z のうち最大のものに 10 をかける場合が最大になります。これを C++ で実装
+すると、例えば次のようになります。
+
+# include < iostream >
+# include < algorithm >
+using namespace std ;
+int main () {
+int A , B , C ; cin >> A >> B >> C ;
+int mx = max ({ A , B , C });
+1
+
+int ans = A + B + C + 9 * mx ;
+cout << ans << endl ;
+}
+
+2
+

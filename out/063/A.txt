@@ -1,0 +1,47 @@
+It is required to do exactly what is told. C++ implementation follows:
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+int A, B;
+
+6
+
+cin >> A >> B;
+
+7
+
+if(A + B >= 10){
+cout << "error" << endl;
+
+8
+
+}else{
+
+9
+
+cout << A + B << endl;
+
+10
+
+}
+
+11
+12
+
+}
+
+1
+

@@ -1,0 +1,27 @@
+モンスターたちはあらかじめ座標の昇順にソートされているとしてよいです。座標が小さい方を”
+左”、大きい方を”右”という向きで呼ぶことにします。
+最も左にいるモンスターを倒すためときには、できるだけ右で爆弾を使い、他のモンスターを多く
+巻き込むのが良いです。そのようにして左側から貪欲に倒していくことが最適になります。
+尺取り法や二分探索などを用いて、各モンスター i について「Xj − Xi ≤ 2D となる最大の j 」を
+計算しておくことで、モンスター i を左端として攻撃するときにどこまで右側のモンスターを巻き込
+むことができるかわかります。あとは、累積和などを用いて既に減らした体力量を管理することで答
+えを求めることができます。
+最初に座標順にソートする部分がボトルネックとなり、計算量は O(N log N ) です。
+
+6
+
+You can assume that the monsters are sorted in the increasing order of coordinates. We denote
+the direction of smaller coordinates by being ”left,” and the larger coordinates by being ”right.”
+In order to defeat the leftmost monster, it is good to use the bomb as in the right as possible
+and get involved as many monsters as possible. It is optimal to defeat greedily from the left in
+such a way.
+By precalculating ”the maximum j such that Xj − Xi ≤ 2D” for each monster i utilizing
+sliding windows or binary searching etc., it can be determined how many monsters in the right
+can be involved when monster i is attacked at the left end. All the left is managing the amount
+of health already decreased, using cumulative sums etc., then the answer can be found.
+The bottleneck is the ﬁrst step, sorting by the coordinates, so the total time complexity is
+O(N log N ).
+
+12
+
+

@@ -1,0 +1,39 @@
+操作を逆から考えます。
+すると、1 つ要素を選び、値を N 増やす。そしてそれ以外を 1 減らす。と
+なります。更に条件として、
+
+1. 逆操作後に、選んだ要素の値が最大になっている
+2. 逆操作後に、選ばれなかった要素の値が −1 以下になっていない
+を満たしている必要があります。
+すべての要素が 0 以上 N − 1 の数列から、以上の条件を満たしながら K 回
+逆操作を行うことが出来れば、その数列が答えとなることが示せます。
+結論から言うと、0, 1, 2, ..., N −1 という数列を考え、1, 2, ..., N, 1, 2, ..., N, 1, 2, ...
+番目の順で逆操作を行えばよいです。
+これを発想するのは難しいですが、これが以上の条件を満たすことを示す
+のはあまり難しくありません。
+
+1, 2, ..., N 番目に 1 回ずつ逆操作を行うと、全体が +1 されることに注目す
+ると、最後のたかだか N − 1 回の操作のみ真面目にシミュレーションすれば
+よいので、十分高速です。
+
+4
+
+Consider the inverse of an operation.
+In each inverse-operation, you choose an element and increase it by N , and
+decrease each of the other elements by 1. Furthermore, the following conditions
+must be satisfied:
+1. After the inverse-operation, the chosen element must become the largest.
+2. After the inverse-operation, all elements must be non-negative.
+Let’s start from a sequence whose elements are betwen 0 and N −1, inclusive.
+If you can perform inverse-operations K times on this sequence, that is a valid
+answer for this problem.
+For example, if you start from the sequence {0, 1, 2, ..., N − 1}, you can
+perform the inverse-operations infinite number of times, by choosing elements
+1, 2, ..., N, 1, 2, ..., N, 1, 2, ... in this order. (You should use N = 50 to fit within
+the constraints of output.)
+Notice that if you perform the inverse-operations once for each of the elements 1, 2, ..., N , each element will be incremented by one. Using this, you can
+easily simulate f loor(K/N ) ∗ K steps. Also, you can simulate the remaining
+K%N steps by brute force.
+
+4
+

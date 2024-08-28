@@ -1,0 +1,76 @@
+A と B の偶奇が異なるとき、どのような整数 K についても |A − K| と |B − K| の偶奇は異なります。し
+たがってこの場合、答えは IMPOSSIBLE です。
+次に A と B の偶奇が等しいときを考えます。このとき K = A+B
+とおくと K は整数です。また
+2
+B−A
+|A − K| = | A−B
+2 |, |B − K| = | 2 | となり、絶対値の定義より両者は等しいことが言えます。よってこれが
+
+答えです。
+
+C++ でのコード例を示します。
+Listing 1 C++ による実装例
+
+#include <bits/stdc++.h>
+using namespace std;
+3 int main() {
+4
+long long A, B;
+5
+cin >> A >> B;
+6
+if(A % 2 != B % 2) {
+7
+cout << "IMPOSSIBLE" << endl;
+8
+} else {
+9
+cout << (A + B) / 2 << endl;
+10
+}
+11
+return 0;
+12 }
+1
+2
+
+1
+
+If the parities of A and B are diﬀeremt, For any integer K, the parities of |A − K| and |B − K| are
+diﬀerent. In such cases, the answer is IMPOSSIBLE.
+Next, let’s think about the cases when the parities of A and B are the same. In such cases, K = A+B
+2 ,
+B−A
+then K is an integer. Also, |A − K| = | A−B
+2 | and |B − K| = | 2 | holds, so these are the equals,
+
+according to the deﬁnition of absolute value. Therefore, this is the answer.
+The following is an example code in C++.
+Listing 1 An implementation example in C++
+
+#include <bits/stdc++.h>
+using namespace std;
+3 int main() {
+4
+long long A, B;
+5
+cin >> A >> B;
+6
+if(A % 2 != B % 2) {
+7
+cout << "IMPOSSIBLE" << endl;
+8
+} else {
+9
+cout << (A + B) / 2 << endl;
+10
+}
+11
+return 0;
+12 }
+1
+2
+
+7
+

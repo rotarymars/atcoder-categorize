@@ -1,0 +1,62 @@
+求める答えは H/A の切り上げです。ceil 関数などを使ってもよいですし、(H + A − 1)/A の切り
+捨てにより求めることもできます。
+
+C 言語での実装例は次のとおりです。
+1
+
+#include<stdio.h>
+
+2
+
+int main(){
+
+3
+
+int h,a;
+
+4
+
+scanf("%d%d",&h,&a);
+
+5
+
+printf("%d\n",(h+a-1)/a);
+
+6
+
+}
+
+このほか、「H が 0 以下になるまで A を引く」というループ処理で解くこともできます。
+
+1
+
+The desired answer is H/A rounded up. You can use ceil functions etc., or it can be also
+calculated by rounding down (H + A − 1)/A.
+The following is a sample code in C language.
+1
+
+#include<stdio.h>
+
+2
+
+int main(){
+
+3
+
+int h,a;
+
+4
+
+scanf("%d%d",&h,&a);
+printf("%d\n",(h+a-1)/a);
+
+5
+6
+
+}
+
+Otherwise, this problem can also be solved by loop operations of “subtracting by A until H
+becomes 0 or below.”
+
+7
+

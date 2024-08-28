@@ -1,0 +1,441 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc264/editorial/4583" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc264";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-08-13T21:00:00+09:00");
+			var endTime = moment("2022-08-13T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc264">freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc264/editorial/4583?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc264/editorial/4583?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc264%2Feditorial%2F4583">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc264%2Feditorial%2F4583">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc264%2Feditorial%2F4583">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220813T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-08-13 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220813T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-08-13 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc264"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc264/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc264/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc264/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc264/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc264/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc264/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc264/tasks/abc264_e">E - Blackout 2</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-1.png" class="user-rating-stage-m"><a href="/users/physics0523" class="username"><span class="user-orange">physics0523</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>「電線を切る」操作はグラフ理論の用語に言い換えると「辺を削除する」操作ですが、グラフにとって「辺を削除する」操作は基本的には「辺を追加する」操作に比べて大変であることが多いです。<br>
+なので、どうにかして「辺を削除する」操作を「辺を追加する」操作に言い換えましょう。</p>
+
+<p>今回は、操作を「逆から見る」ことが有効です。<br>
+端的に述べると、「電線を切る」のではなく「電線を繋ぐ」ことを考えます。<br>
+問題を以下のように言い換えましょう。</p>
+
+<blockquote>
+<p>最初、 <span>\(N\)</span> 個の都市と <span>\(M\)</span> 個の発電所があり、いくつかの地点は電線で繋がっています。<br>
+(元の問題で最後まで切れなかった電線だけを、最初から繋がっているものとして取り扱います。)</p>
+
+<p>その後、 <span>\(Q\)</span> 個のイベントが与えられます。(このイベントは、元の問題と逆の順番に並べておきます。)<br>
+各イベントでは以下のことが起こります。</p>
+
+<ul>
+<li>まず、現時点で電気が通っている都市の数を確認する。</li>
+<li>その後、地点 <span>\(U_i\)</span> と地点 <span>\(V_i\)</span> との間を電線で接続する。</li>
+</ul>
+</blockquote>
+
+<p>この問題が解ければ、もとの問題も解けることになります。<br>
+辺を追加していき連結成分の中に発電所があるかどうかという問題を解くことは、 Union-Find の得意分野です。<br>
+以下の流れで辺を追加しながら現時点で電気が通っている都市の数を求めることができます。</p>
+
+<ul>
+<li>既に地点 <span>\(U_i\)</span> と <span>\(V_i\)</span> が同じ連結成分に存在している場合、その辺の追加を無視する。</li>
+<li>そうでない場合、まず地点 <span>\(U_i,V_i\)</span> の存在する連結成分に発電所があるかを確認する。
+
+<ul>
+<li>両方の連結成分に発電所がある / 両方の地点に発電所がない 場合は新たに電気が通る都市はない。</li>
+<li>片方の成分に発電所がありもう片方にはない場合、発電所がない側に含まれる都市が新たに電気が通る都市となります。(この数は何らかの手段で管理しておく必要があります。ただし、発電所がない側に含まれる地点は全て電気が通っていない都市であるため、この数は発電所がない側の連結成分のサイズと一致します。)</li>
+</ul></li>
+<li>その後、 <span>\(2\)</span> つの連結成分を併合する。</li>
+</ul>
+
+<p>なお、頂点に付いた重みの連結成分についての和を管理する機能があるような Union-Find を持っていない場合でも、通常の Union-Find の根(代表元)を返す機能を活用する (例えば ACL 内の <code>dsu</code> では <code>.leader()</code> という機能があります。実装例を参照してください。) ことで同等の機能を実現することができます。</p>
+
+<p>実装例(C++):</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#include&lt;atcoder/all&gt;
+
+using namespace std;
+using namespace atcoder;
+
+int main(){
+  int n,m,e;
+  cin &gt;&gt; n &gt;&gt; m &gt;&gt; e;
+  vector&lt;int&gt; u(e),v(e);
+  for(int i=0;i&lt;e;i++){
+    cin &gt;&gt; u[i] &gt;&gt; v[i];
+    u[i]--;v[i]--;
+  }
+
+  vector&lt;int&gt; fl(e,1);
+  int q;
+  cin &gt;&gt; q;
+  vector&lt;int&gt; query(q);
+  for(auto &amp;nx : query){
+    cin &gt;&gt; nx;
+    nx--;
+    fl[nx]=0;
+  }
+
+  dsu uf(n+m);
+  vector&lt;int&gt; w(n+m,0);
+  for(int i=n;i&lt;n+m;i++){w[i]=1;}
+  int cur=0;
+  for(int i=0;i&lt;e;i++){
+    if(fl[i]==0){continue;}
+    if(uf.same(u[i],v[i])){continue;}
+    int fu=w[uf.leader(u[i])];
+    int fv=w[uf.leader(v[i])];
+    if(fu==0 &amp;&amp; fv==1){cur+=uf.size(u[i]);}
+    if(fu==1 &amp;&amp; fv==0){cur+=uf.size(v[i]);}
+    uf.merge(u[i],v[i]);
+    w[uf.leader(u[i])]=max(fu,fv);
+  }
+  
+  vector&lt;int&gt; res;
+  for(int j=q-1;j&gt;=0;j--){
+    int i=query[j];
+    res.push_back(cur);
+    if(uf.same(u[i],v[i])){continue;}
+    int fu=w[uf.leader(u[i])];
+    int fv=w[uf.leader(v[i])];
+    if(fu==0 &amp;&amp; fv==1){cur+=uf.size(u[i]);}
+    if(fu==1 &amp;&amp; fv==0){cur+=uf.size(v[i]);}
+    uf.merge(u[i],v[i]);
+    w[uf.leader(u[i])]=max(fu,fv);
+  }
+  
+  reverse(res.begin(),res.end());
+  for(auto &amp;nx : res){cout &lt;&lt; nx &lt;&lt; &#34;\n&#34;;}
+  return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1660250363">
+				<time class="timeago" datetime="2022/08/12 05:39:23"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1660459776">
+				<time class="timeago" datetime="2022/08/14 15:49:36"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc264/editorial/4583?lang=ja" data-a2a-title="解説 - freee プログラミングコンテスト2022（AtCoder Beginner Contest 264）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc264/rules">ルール</a></li>
+					<li><a href="/contests/abc264/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

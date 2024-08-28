@@ -1,0 +1,80 @@
+まず，中央値の性質を調べてみましょう．長さ M の整数列 b の中央値を x とします．このとき，x は次
+の性質を満たします:
+
+• b 中に x 以上の要素が
+
+⌈M ⌉
+2
+
+個以上含まれる．
+
+• x は，上の性質を満たす整数の中で最大である．
+よって，中央値を求める際には二分探索が有効であると分かります．すなわち，前者の性質を満たすような最
+大の整数を二分探索で求めればよいです．
+以上の方針をこの問題に適用すると，次の問題を解ければよいことになります:
+
+ml,r (1 ≤ l ≤ r ≤ N ) のうち x 以上の要素は何個か？
+上述の中央値の性質を用い，問題をさらに言い換えます:
+
+a の連続部分列 a[l, r] (1 ≤ l ≤ r ≤ N ) のうち，x 以上の要素を
+
+⌈ r−l+1 ⌉
+2
+
+個以上含むものは何通りか？
+
+この言い換えにより，a の各要素は x 以上か否かという情報のみが必要であることが分かります．そこで，
+
+a の各要素を，x 未満ならば A へ，x 以上ならば B へ置き換えてしまいます．すると，問題は次のように言
+い換えられます:
+
+a の連続部分列 a[l, r] (1 ≤ l ≤ r ≤ N ) のうち，(A の個数) ≤ (B の個数) を満たすものは何通りか？
+見通しをより良くするために，さらに A を −1 へ，B を +1 へ置き換えると，問題は次のように言い換えら
+れます:
+
+a の連続部分列 a[l, r] (1 ≤ l ≤ r ≤ N ) のうち，要素の総和が 0 以上のものは何通りか？
+連続部分列の要素の総和は，累積和を用いると簡単に扱えます．(±1 へ変換後の) a の累積和の列を S とし
+ます．すなわち，各 0 ≤ i ≤ N について Si =
+
+∑i
+
+j=1 ai とします．すると，a[l, r] の要素の総和は Sr − Sl−1
+
+と計算できます．よって，最終的な問題は次のようになります:
+
+組 (l, r) (0 ≤ l < r ≤ N ) のうち，Sl ≤ Sr を満たすものは何通りか？
+
+これは，数列 S の転倒数を求める問題とほぼ同じです．非常に典型的なので，
+「転倒数 アルゴリズム」など
+で検索すると多くの解説が見つかります．この問題は O(N log N ) 時間で解くことができます．よって，二分
+
+2
+
+探索のステップ数を掛け合わせると，元の問題は O(N log N log A) 時間で解くことができます．ここで，A
+は a の要素の最大値です．
+
+Let b be a sequence of length M . If the median of b is x,
+• b contains at least
+
+⌈M ⌉
+2
+
+elements that are greater than or equal to x.
+
+• x is the largest possible value that satisfies the condition above.
+Let’s fix a parameter x. We want to solve the following problem:
+Count the number of pairs (l, r) (1 ≤ l ≤ r ≤ N ) such that ml,r ≥ x.
+
+If we can solve this, by doing a binary search on x (using the property of median mentioned above),
+we can solve the original problem.
+For simplicity, we call an element ”large” if the element is x or greater, and call it ”small” otherwise.
+Notice that ml,r ≥ x holds if and only if (the number of large elements in it) is greater than or equal to
+(the number of small elements in it). Thus, we replace each large element with 1 and each small element
+with −1. Now ml,r ≥ x holds if and only if al + . . . + ar ≥ 0.
+To count such pairs, we use prefix sums. We want to count the number of pairs (l, r) such that
+∑i
+Sl−1 ≤ Sr , where Si := j=1 ai . Now the problem is reduced to a standard inversion-number problem.
+This solution works in O(N log N log max a) time in total.
+
+2
+

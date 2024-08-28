@@ -1,0 +1,44 @@
+数列の最小値は 1 です．どのように操作を行っても，最小値が 1 以外に変化することはありません．なので，数列の
+要素をすべて 1 にすることを考えます．
+数列中の 1 の個数は，はじめ 1 です．この個数は，1 回の操作で K − 1 までしか増やすことができません．なぜな
+らば，1 の個数を増やすためには，操作で選ぶ要素の中に 1 が含まれている必要があるためです．よって，少なくとも
+N −1
+⌉ 回の操作が必要であることがわかります．
+⌈ K−1
+
+N −1
+一方，うまく操作を行うことで，⌈ K−1
+⌉ 回の操作ですべての要素を 1 にすることが可能です．はじめ Ap = 1 である
+
+とします．ここで，1 + g(K − 1) ≤ p ≤ 1 + (g + 1)(K − 1) なる整数 g をとります．このとき，次のように操作を行え
+ばよいです：
+
+• i = g, g − 1, g − 2, . . . , 1 に対して，この順で要素 i(K − 1) + 1, i(K − 1) + 2, . . . , i(K − 1) + K を選んで操作を行う．
+1
+
+N −1
+• i = g + 1, g + 2, . . . , ⌈ K−1
+− 1⌉ に対して，この順で要素 i(K − 1) + 1, i(K − 1) + 2, . . . , i(K − 1) + K を選んで操
+作を行う．
+
+• 要素 N − K + 1, N − K + 2, . . . , N を選んで操作を行う．
+
+The minimum of the entire sequence is 1. Since this value never changes, we want to make all elements equal to 1.
+Initially, the sequence contains only one 1. In each step, the number of 1s increases by at most K − 1 (because the
+N −1
+⌉ steps.
+minimum of the chosen interval doesnt’t change). Thus, we need at least ⌈ K−1
+On the other hand, we can always achieve the goal within this number of steps, as follows. Let Ic be the interval
+c(K − 1) + 1, c(K − 1) + 2, . . . , c(K − 1) + K.
+Note that for each c, Ic and Ic+1 shares an element, and I1 , . . . , I⌈ N −1 −1⌉ covers the entire sequence. (Strictly
+K−1
+
+speaking, to avoid the intervals going outside the sequence, we shuold shift the last interval to fit within the sequence.)
+Suppose that initially, Ig contains the only 1. Then, perform the following:
+• For each i = g, g − 1, g − 2, . . . , 1 in this order, perform an operation on the interval Ii .
+N −1
+− 1⌉ in this order, perform an operation on the interval Ii .
+• For each i = g + 1, g + 2, . . . , ⌈ K−1
+
+1
+

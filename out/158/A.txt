@@ -1,0 +1,41 @@
+S 内に A, B の両方が存在する場合は Yes、どちらかしかない場合は No です。
+以下は Python での実装例です。
+1
+
+S = input()
+
+2
+
+if S[0] == S[1] and S[1] == S[2]:
+
+3
+4
+5
+
+print('No')
+else:
+print('Yes')
+
+1
+
+If S has both A and B, then the answer is Yes, and if it has only either of them, then the
+answer is No.
+The following is a sample code in Python.
+1
+
+S = input()
+
+2
+
+if S[0] == S[1] and S[1] == S[2]:
+
+3
+4
+5
+
+print('No')
+else:
+print('Yes')
+
+7
+

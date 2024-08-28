@@ -1,0 +1,61 @@
+(原案: camypaper, 準備・解説: evima)
+y の MSB (Most Significant Bit: 最上位ビット) の位置を m とします (つまり、y の 2m の位の桁は 1
+で、任意の整数 n (n > m) に対して x の 2n の位の桁は 0 です)。ここで x の 2m の位の桁が 0 であると仮
+定すると、XOR の定義より x XOR y の 2m の位の桁は 1 となります。しかし、一般に整数 x, y (y ≥ x) に
+対して y を x で割った余りは y の半分未満であり*4 、これは y を x で割った余りの MSB の位置が m 未満
+であることを意味するため、y を x で割った余りは x XOR y と決して一致しません。よって、x の MSB の
+位置も m である場合のみ考えれば十分です。このとき y を x を割った商は 1 であるため、y を x で割った
+余りは単に y − x と書けます。以上を整理すると、答えは次の条件を満たす整数の組 (x, y) の個数です。
+
+• L≤x≤y≤R
+• x と y の MSB の位置が同じである。
+• y − x = x XOR y
+y − x = x XOR y という条件は、y − x という二進数の引き算において繰り下がりが起こらないことと同
+値であり、「どの整数 i に対しても、y の 2i の位の桁が 0 であって x の 2i の位の桁が 1 であるということ
+はない」と書き換えられます (このとき x ≤ y は無条件に満たされ、この不等式は以後考慮する必要がなく
+なります)。あとはこの条件に加えてさらに「L ≤ x」
+「y ≤ R」「x と y の MSB の位置が同じ」 という三つ
+の条件を満たす二本の 01 列を数える問題となり、これは動的計画法により O(log Y ) 時間で解けます。詳細
+は実装例*5 を参照してください。
+
+*4 y を x で割った商を q, 余りを r とすると y = xq + r > r + r = 2r であるため
+*5 f(pos,
+
+flagX, flagY, flagZ): x, y の 2pos 以上の桁がすべて確定しており、そこまでで L < x であることが確定しており
+(おらず)、y < R であることが確定しており (おらず)、両者の MSB がすでに現れている (いない) 場合の残りの桁の決め方の数
+
+6
+
+ABC 138 Editorial
+camypaper, evima, sheyasutaka, tozangezan, yosupo
+August 18, 2019
+
+(Original writer: camypaper, preparation and editorial: evima)
+Let y’s MSB (Most Significant Bit) be m (in other words, 2m ’s place of y is 1, and for any integer
+n (n > m), 2n ’s place of x is 0). Here, assuming that 2m ’s place of x is 0, then by the definition of
+XOR, 2m ’s place of x XOR y will be 1. However, generally for any integers x, y (y ≥ x), the remainder
+of y divided by x is less than half of y *4 , which means that the MSB of remainder of y divided by x is
+less than m, so the remainder of y divided by x does never corresponds to x XOR y. Therefore, we can
+always assume that x’s MSB is also m. Here, the quotient of y divided by x is 1, so the remainder of y
+divided by x can simply be denoted as y − x. The answer is the number of pairs of integers (x, y) that
+meets the following conditions.
+• L≤x≤y≤R
+• The MSB position of x and y are the same.
+• y − x = x XOR y
+The condition y − x = x XOR y is equivalent to the condition that there are no borrowings in binary
+subtraction of y − x, and in other words, ”for any integer i, it will never occur that 2i ’s place of y is 0 and
+2i ’s place of x is 1 (in such case, x ≤ y always holds, and you don’t have to care about it anymore). The
+remaining task is to count the number of pairs of 01-sequences that meets the three conditions, ”L ≤ x”,
+”y ≤ R” and ”the MSB position of x and y are the same”, and this can be solved in a total of O(log Y )
+time with DP. For details, please refer to the implementation example*5 .
+
+*4 Let q be the quotient of y divided by x, and r be the remainder, then y = xq + r > r + r = 2r holds
+*5 f(pos,
+
+flagX, flagY, flagZ): The number of ways to determine the remaining digits where the 2pos ’s place and
+higher of x and y is already determined, it’s already (still not) confirmed that L < x, it’s already (still not) confirmed
+that y < R, and their MSB has already (still not) been appeared
+
+13
+
+

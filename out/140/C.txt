@@ -1,0 +1,32 @@
+長さ N の数列 C を、
+
+C1 = B1
+Ci = min (Bi−1 , Bi ) (i = 2, 3, · · · , N − 1)
+CN = BN
+で定めます。
+このとき、任意の i について Ai ≤ Ci が成立しなければなりません。実際、 i = 2, 3, · · · , N − 1 に
+ついて Ai > Ci であったと仮定すると、Ai > Bi−1 または Ai > Bi が成立しますが、 Ai > Bi−1
+であれば Bi−1 ≥ max (Ai−1 , Ai ) に矛盾し、 Ai > Bi であれば Bi ≥ max (Ai , Ai+1 ) に矛盾します。
+
+i = 1, N のときも、矛盾することが分かります。
+一方、 A = C とすると、これは問の条件を満たすことが分かります。以上より、 問の条件を満たす
+数列のうち要素の総和が最大となる数列は、 C です。
+実装上は、B0 = BN = ∞ (十分に大きな値) とすると、場合分けが不要で楽です。
+
+3
+
+Let’s deﬁne a sequence C by
+C1 = B1
+Ci = min (Bi−1 , Bi ) (i = 2, 3, · · · , N − 1)
+CN = BN
+
+Then, for each i, Ai ≤ Ci should hold. For some i = 2, 3, · · · , N − 1, if Ai > Ci holds, then
+Ai > Bi−1 or Ai > Bi holds, but if Ai > Bi−1 , then it contradicts to Bi−1 ≥ max (Ai−1 , Ai ), and
+if Ai > Bi holds, then it contradicts to Bi ≥ max (Ai , Ai+1 ). For i = 1, N , it also contradicts.
+On the other hand, if you let A = C, then it meets the conditions of the problem statement.
+Therefore, the sequence with maximum sum that meets the conditions of problem is C.
+For implementation, if you let B0 = BN = ∞ (a number big enough), you don’t have to split
+case, so it’s easy.
+
+9
+

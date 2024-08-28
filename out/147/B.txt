@@ -1,0 +1,107 @@
+S の長さを N とします。S の長さは変えられないため、S の 0 文字目 (最初の文字) と N − 1 文
+字目 (最後の文字) が一致していなければそのうちの一方をもう一方に合わせ、1 文字目と N − 2 文
+字目が一致していなければそのうちの一方をもう一方に合わせ、. . .、 文字列の中心までこれを繰り
+返すのが最適です。for, while などの構文を使って実装するのが一般的でしょう。以下、C 言語での
+実装例を挙げます。
+
+1
+
+#include <stdio.h>
+
+2
+
+#include <string.h>
+
+3
+
+char s[101];
+
+4
+
+int main(void) {
+
+5
+
+scanf("%s", s);
+
+6
+
+int res = 0;
+
+7
+
+int n = strlen(s);
+
+8
+
+for (int i = 0; i < n; i++) {
+if (s[i] != s[n - 1 - i]) res++;
+
+9
+10
+
+}
+
+11
+
+printf("%d\n", res / 2);
+
+12
+
+}
+
+2
+
+Let N be the length of S. Since you cannot change the length of S, it is optimal to set the 0-th
+(ﬁrst) letter to be the N − 1-th (last) letter if it’s not same, and to set the 1-st letter to be the
+N − 2-th letter if it’s not same, . . ., until they meets at the middle. The most general way may
+be using for or while statements. The following is an implementation example in C Language.
+
+1
+
+#include <stdio.h>
+
+2
+
+#include <string.h>
+
+3
+
+char s[101];
+
+4
+
+int main(void) {
+
+5
+
+scanf("%s", s);
+
+6
+
+int res = 0;
+
+7
+
+int n = strlen(s);
+
+8
+
+for (int i = 0; i < n; i++) {
+if (s[i] != s[n - 1 - i]) res++;
+
+9
+10
+
+}
+
+11
+
+printf("%d\n", res / 2);
+
+12
+
+}
+
+8
+

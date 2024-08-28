@@ -1,0 +1,29 @@
+
+Parking
+
+プラン 1 を選んで駐車した場合、駐車料金は A × N 円となり、プラン 2 を選んで駐車した場
+合、駐車料金は B 円となるので、A × N と B の小さいほうを出力するとよいです。
+# include < cstdio >
+int N ,A , B ;
+int main ()
+{
+scanf ("% d % d % d " ,&N ,& A ,& B );
+if ( N *A <= B ) printf ("% d \ n " , N * A );
+else printf ("% d \ n " , B );
+}
+
+
+Parking
+
+When you choose plan 1 ,the fee will be A × N yen,and when you choose plan 2, the fee will
+be B yen.
+So,it is good to print the smaller of A × N and B.
+# include < cstdio >
+int N ,A , B ;
+int main ()
+{
+scanf ("% d % d % d " ,&N ,& A ,& B );
+if ( N *A <= B ) printf ("% d \ n " , N * A );
+else printf ("% d \ n " , B );
+}
+

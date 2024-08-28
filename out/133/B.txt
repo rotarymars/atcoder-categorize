@@ -1,0 +1,141 @@
+各 i, j (i < j) について Yij = |Xi1 − Xj1 |2 + ... + |XiD − XjD |2 を計算します。すると、k 2 = Yij を満
+たす整数 k が存在するかを調べれば
+
+√
+
+Yij が整数であることを判定できます。k ≤ Yij なので、これは、各
+
+k = 0, 1, 2, ..., Yij について k = Yij であるか調べれば十分です*1 。C++ 言語での実装例を以下に示します。
+2
+
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int N, D; cin >> N >> D;
+7 vector<vector<int>> X(N, vector<int>(D));
+8 for (int i = 0; i < N; ++i) {
+9 for (int j = 0; j < D; ++j) {
+10
+cin >> X[i][j];
+11 }
+12 }
+13 int ans = 0;
+14 for (int i = 0; i < N; ++i) {
+15 for (int j = i+1; j < N; ++j) {
+16
+int norm = 0;
+17
+for (int k = 0; k < D; ++k) {
+18
+int diff = abs(X[i][k] - X[j][k]);
+19
+norm += diff * diff;
+20
+}
+21
+// check whether norm = k for some k
+22
+bool flag = false;
+23
+for (int k = 0; k <= norm; ++k) {
+24
+if (k * k == norm) {
+25
+flag = true;
+26
+}
+27
+}
+28
+if (flag) ++ans;
+29 }
+30 }
+31 cout << ans << endl;
+32 }
+5
+6
+
+*1 k 2 ≤ Yij であることを使えばより高速に判定できます
+
+2
+
+For each i, j (i < j), calculate Yij = |Xi1 − Xj1 |2 + ... + |XiD − XjD |2 . Then you can determine if
+
+√
+
+Yij
+
+is an integer by checking if there exists an integer k such that k = Yij . Since k ≤ Yij , it is suﬃcient if
+2
+
+you judged if k 2 = Yij for each k = 0, 1, 2, ..., Yij *1 . The following is an implementation example in C++
+language.
+1
+
+#include <bits/stdc++.h>
+
+2
+3
+
+using namespace std;
+
+4
+
+int main() {
+int N, D; cin >> N >> D;
+7 vector<vector<int>> X(N, vector<int>(D));
+8 for (int i = 0; i < N; ++i) {
+9 for (int j = 0; j < D; ++j) {
+10
+cin >> X[i][j];
+11 }
+12 }
+13 int ans = 0;
+14 for (int i = 0; i < N; ++i) {
+15 for (int j = i+1; j < N; ++j) {
+16
+int norm = 0;
+17
+for (int k = 0; k < D; ++k) {
+18
+int diff = abs(X[i][k] - X[j][k]);
+19
+norm += diff * diff;
+20
+}
+21
+// check whether norm = k for some k
+22
+bool flag = false;
+23
+for (int k = 0; k <= norm; ++k) {
+24
+if (k * k == norm) {
+25
+flag = true;
+26
+}
+27
+}
+28
+if (flag) ++ans;
+29 }
+30 }
+31 cout << ans << endl;
+32 }
+5
+6
+
+*1 If you used the fact that k 2 ≤ Yij , you can judge more fast
+
+9
+

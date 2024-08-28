@@ -1,0 +1,110 @@
+(解説: evima)
+プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは
+「practice contest」(https://atcoder.jp/contests/practice/) の問題 A「はじめてのあっと
+こーだー」をお試しください。言語ごとに解答例が掲載されています。
+今回の問題を解くためには、以下の 4 つの要素が必要です。
+
+1. 標準入力からの文字の読み込み
+2. 文字 α が大文字か小文字かの判定
+3. 上記の判定結果に基づく処理の分岐
+4. 標準出力への文字の出力
+このうち要素 1, 4 は「はじめての〜」でカバーされたとして (その問題では正確には文字ではな
+く文字列の入出力が扱われていますが、文字 1 個も長さ 1 の文字列と考えられます)、残りの要素
+
+2, 3 について述べます。
+2. 現代の多くの言語には、この判定を行う機能が isUpperCase, islower などといった名前で
+あらかじめ実装されています。検索エンジンで「[言語名] 大文字 小文字 判定」などと検索するこ
+とでそのような機能、またはその代わりとなる手法を発見できるはずです。(AtCoder では数十の
+言語が利用可能であり、ここでそれらについて網羅的に述べるにはこの PDF は狭すぎます。)
+
+3. ほとんどの言語で「if 文」または類似の構文が利用可能であり、また多くの言語に「条件演算
+子」または類似の要素が存在します。上記と同様に、「[言語名] if」
+「[言語名] 条件」などと検索す
+ることで、その言語で利用可能な構文などの情報が手に入るはずです。
+
+Python での実装例:
+
+1
+
+a = input()
+
+2
+
+print('A' if a.islower() else 'a')
+Ruby での実装例 (2. で述べた isUpperCase のような標準機能が存在しない言語の例として):
+
+1
+
+a = gets.chomp
+
+2
+
+if a == a.upcase
+
+3
+
+puts 'A'
+
+4
+
+else
+puts 'a'
+
+5
+6
+
+end
+
+(Editorial: evima)
+If you are a beginner of studying programming and have no idea what to start with, then try solving
+“Welcome to AtCoder”, Problem A from the “practice contest” (https://atcoder.jp/contests/
+practice/). There you can ﬁnd sample codes for each language.
+To solve this problem, the following four elements are required.
+1. Read a character for standard input
+2. Check if character α is uppercase or lowercase
+3. Conditional branch according to the result above
+4. Output a character to standard output
+As elements 1 and 4 are covered by the “Welcome to —” (in which, precisely speaking, it is explained the way of input and output of string, but a single character can considered to be a string of
+length 1), we will explain the rest, elements 2 and 3.
+2. In most modern languages, the functionality of such judgement is implemented out-of-the-box,
+whose name is such like isUpperCase, islower. You can ﬁnd such functionality or alternative methods by searching like “[language name] check case of letter”. (Tens of languages are available in
+AtCoder, so this PDF is too narrow to explain comprehensively about them.)
+3. In most languages, “if statement” or similar syntax is available, and also most languages have
+“conditional operators” or similar one. Just like above, you can obtain some information about the
+syntax available in the language by searching “[language name] if” or “[language name] conditional
+branch”.
+
+Sample Code in Python:
+
+1
+
+a = input()
+
+2
+
+print('A' if a.islower() else 'a')
+Sample Code in Ruby (as an example of languages which do not have standard functions like
+isUpperCase as mentioned in 2.):
+
+1
+
+a = gets.chomp
+
+2
+
+if a == a.upcase
+
+3
+
+puts 'A'
+
+4
+
+else
+puts 'a'
+
+5
+6
+
+end
+

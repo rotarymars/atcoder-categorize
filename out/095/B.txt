@@ -1,0 +1,208 @@
+入力例の説明でほのめかされているように、「まずすべての種類のドーナツを 1 個ずつ作り、残ったお菓子
+の素で最も『安い』ドーナツを作れるだけ作る」という方針で問題ありません。つまり、m1 , m2 , ..., mN の和
+を S 、m1 , m2 , ..., mN のうち最小の値を M として、答えは N + ⌊(X − S)/M ⌋ となります。*1 主な課題は、
+
+m1 , m2 , ..., mN の値を読み込むことと、S や M の値を実際に求めることです。なお、割り算と小数部分切り
+*2
+捨ての部分に関しては、多くのプログラミング言語では単に A / B と書くことで ⌊A/B⌋ が求められます。
+
+言語によってやや事情が異なるかもしれません。C++, Java などの言語では、ループ構造を用いるのが素
+直でしょう。C++ での実装例を挙げます。
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+int N, X, m[101];
+
+6
+
+cin >> N >> X;
+
+7
+
+int S = 0, M = 1001001001;
+
+8
+
+for(int i = 0; i < N; ++i){
+
+9
+
+cin >> m[i];
+
+10
+
+S += m[i];
+
+11
+
+if(m[i] < M){
+
+12
+
+M = m[i];
+}
+
+13
+14
+
+}
+
+15
+
+int ans = N + (X - S) / M;
+
+16
+
+cout << ans << endl;
+
+17
+
+}
+Python, Ruby といった言語でももちろん上のようなアプローチが可能ですが、こういった言語では sum,
+max といった関数がはじめから用意されていることがあり、便利です。*3 これを用いた Python(3) での実装例
+を次ページに挙げます。
+
+*1 ⌊x⌋ は x の整数部分を表します。
+*2 A, B が正でない場合はこの限りでなく、またここに実装例を掲載した Python3 はこれに該当しません。
+*3 このような機能のため、AtCoder Beginner Contest で出題されうる程度の問題の解法を手っ取り早く実装する上で、スクリプ
+
+ト言語はとても役立ちます。ただし、この範囲を超えると、どうしても実行速度が足りない場面が急速に増えます。競技プログラ
+ミングに本格的に取り組む場合、C++ とは言わずとも Java に匹敵する実行速度を有する言語を一つ習得する必要がある、とい
+うことをお伝えしておきます。
+
+2
+
+1
+
+N, X = map(int, input().split())
+
+2
+
+m = []
+
+3
+
+for i in range(N):
+
+4
+5
+
+m.append(int(input()))
+print(N + (X - sum(m)) // min(m))
+
+As implied in the notes for the sample inputs, the following strategy works fine: “first make one
+doughnut for each kind, then make as many ‘cheapest’ doughnuts as possible”. That is, the answer
+is N + ⌊(X − S)/M ⌋ *1 , where S is the sum of m1 , m2 , ..., mN , and M is the minimum value among
+m1 , m2 , ..., mN . The main challenge is to read the values of m1 , m2 , ..., mN , and actually find the values
+of S and M . For the “division and rounding down” part, ⌊A/B⌋ can be found by just writing A / B in
+many languages *2 .
+The situation may be diﬀerent for diﬀerent languages. In languages such as C++ and Java, it would
+be straightforward to use loop structures. A sample implementation in C++ is shown below:
+
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+int N, X, m[101];
+
+6
+
+cin >> N >> X;
+
+7
+
+int S = 0, M = 1001001001;
+
+8
+
+for(int i = 0; i < N; ++i){
+
+9
+
+cin >> m[i];
+
+10
+
+S += m[i];
+
+11
+
+if(m[i] < M){
+
+12
+
+M = m[i];
+}
+
+13
+14
+
+}
+
+15
+
+int ans = N + (X - S) / M;
+
+16
+
+cout << ans << endl;
+
+17
+
+}
+The above approach is also possible in languages such as Python and Ruby, but in these languages
+there are occasionally built-in functions such as sum and max, which are convenient. *3 A sample implementation in Python(3) using these functions is shown in the next page:
+*1 ⌊x⌋ represents the integer part of x.
+*2 Not necessarily true when A or B is not positive. Also, Python3, which is used here for the sample implementation,
+
+is an exception of this statement.
+*3 Because of these functionalities, script languages are very useful in quickly implementing the solution of problems of
+
+diﬃculties suited for AtCoder Beginner Contest. However, for harder problems, there are suddenly many situations
+where these languages are simply too slow. I’m letting you know that, if you intend to do competitive programming
+seriously, you would need to learn one language that can rival Java for speed, if not C++.
+
+8
+
+1
+
+N, X = map(int, input().split())
+
+2
+
+m = []
+
+3
+
+for i in range(N):
+
+4
+5
+
+m.append(int(input()))
+print(N + (X - sum(m)) // min(m))
+

@@ -1,0 +1,17 @@
+T
+が得られます。これを
+答えを t とすると、問題文より X × t = T が成り立つので、これを解くと t = X
+
+C++ で実装すると次のようになります。小数点以下 3 桁以上出力しなければならないことに注意してくだ
+さい。
+
+# include < bits / stdc ++. h >
+using namespace std ;
+int main () {
+int T , X ; cin >> T >> X ;
+double ans = double ( T ) / X ;
+cout << fixed << setprecision (10) << ans << endl ;
+}
+
+1
+

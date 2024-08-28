@@ -1,0 +1,60 @@
+結論から言うと、答えは「与えられた数列の、広義単調減少列の長さの最大値 L」です。これを証明します。
+数列の後ろの要素から順に、どの色で塗るかを決めていくことにします。最も後ろの要素に関しては、何ら
+かの色で塗る必要があり、かつ他の要素に色はついていないので、適当に 1 色で塗っておきます。
+後ろから 2 番目以降の数 Ai に関しては、「各色 c で塗られている要素の内、現在の最小の値 Bc はいくつ
+か」を考えます。まず、Bc <= Ai ならば、Ai を c で塗る事は条件に反するため出来ません。したがって、
+
+Bc > Ai であるような色 c を用いるか、新しい色を使って Ai を塗る必要があります。
+この時、Bc > Ai であるような色 c の内、Bc が最小であるような色で Ai を塗るのが最適です。理由は以
+下のようにして分かります: まず、簡単のため、Bc を昇順に並べた列を考えます。ある色 c で Ai を塗る時、
+
+Bc の値が Ai に更新されると捉えることが出来ます。この時、Bc が最小であるような色で Ai を塗った際に
+更新された列 {Bc′ } と、それ以外の色で塗った際に更新された列 {Bc′′ } を（ソートした状態で）考えると、同
+じインデックスに並んでいる Bi′ および Bi′′ は値が等しいか、Bi′ > Bi′′ が成立するかの 2 通りしか考えられま
+せん。したがって、Ai−1 以降を色で塗る際には、B ′ を利用したほうが B ′′ を利用するよりも、新しい色を追
+加しなければならない状況に真に陥りにくいといえます。
+結局、ソートされた {Bc } を保持し、更新していく行為は O(N log N ) の LIS の計算方法と同等であるた
+め、O(N log N ) で求める事が出来ます。
+余談: この問題は Dilworth の定理を用いて考えると、より抽象的に議論・正当性の理解が出来ます。
+
+Dilworth の定理は、「DAG 上の最小 path 被覆 (全ての頂点を適当な path に属するようにして分割する時の
+必要な path の最小本数) は、最大 antichain（頂点の集合であって、集合に属する任意の 2 頂点に関して、そ
+れらを結ぶような path が存在しない）の要素数と一致する」という内容の定理です。今、この問題において
+は、与えられた数列の数を頂点に対応させ、i < j かつ Ai < Aj なる 2 点に有向辺を貼ることにすると、求め
+る答えは最小 path 被覆に一致します。したがって、これは最大 antichain を求めれば良く、このグラフにお
+ける antichain が満たすべき条件は、集合に含まれる任意の 2 要素について、i >= j または Ai >= Aj が成
+立するというものです。これは結局、数列上の広義単調減少列と一致するため、この問題の解法の正当性を示
+すことが出来ます。
+
+5
+
+To come to the point, the answer is ”the maximum length L of non-increasing sequence of the given
+sequnce.” Here is a proof.
+Let’s decide which color to paint the sequence, from back to front. The very last element has to be
+painted with some color and the other elements are not painted yet, so it can be painted with a arbitrary
+color.
+For each of the other elements Ai , consider ”among the elements painted with color c, what is the
+current minimum value Bc ?” First, if Bc <= Ai , you can’t paint Ai with c, since it violates the given
+conditions. So, you have to use color c such that Bc > Ai , or new color, to paint Ai .
+In such cases, among all color c such that Bc > Ai , when painting Ai it is optimal to choose one such
+that Bc is minimum. The following is the reason: ﬁrst, for simplicity, consider a sequence in which Bc
+are sorted in a increasing order. Here, if you compare an updated sequence {Bc′ } where Ai was painted
+with the color with minimum Bc , and another updated sequence {Bc′ } where it was painted by any other
+color (both sequence being sorted), the two elements at the same position Bi′ and Bi′′ are either equal or
+Bi′ > Bi′′ . Therefore, when painting Ai−1 and from then on, it is strictly less likely that you will need to
+add a new color if you prefer B ′ to B ′′ .
+Therefore, keeping and updating sorted {Bc } is equivalent to O(N log N ) LIS ﬁnding algorithm, so it
+can be solved in O(N log N ).
+Just for aside: This problem’s discussion and validity can be understood in more abstract manner by
+using Dilworth’s theorem. Dilworth’s theorem is that ”on any DAG, the minimum path cover (which is
+the size of set of path on the graph so that any vertex on it belongs to exactly one of them) is equal to
+the size of its maximum antichain (a vertex set such that any pair of vertices in the set does not have
+a path between them).” For this problem, let the elements of the given sequence be corresponding to
+vertices, and add directed edge between a pair of vertices such that i < j and Ai < Aj , the answer is
+equal to its minimum path cover. Therefore, you can solve it by ﬁnding the maximum antichain, and the
+condition that the antichain on this graph should hold is that, for any pair of vertices in the set, i >= j
+or Ai >= Aj holds. This is eventually equal to the non-increasing subsequence on the sequence, and
+here the validity of this solution has been shown.
+
+11
+

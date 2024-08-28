@@ -1,0 +1,430 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - freee プログラミングコンテスト2023（AtCoder Beginner Contest 310）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - freee プログラミングコンテスト2023（AtCoder Beginner Contest 310）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc310/editorial/6794" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - freee プログラミングコンテスト2023（AtCoder Beginner Contest 310）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc310";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-07-15T21:00:00+09:00");
+			var endTime = moment("2023-07-15T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>freee プログラミングコンテスト2023（AtCoder Beginner Contest 310）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>freee プログラミングコンテスト2023（AtCoder Beginner Contest 310）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc310">freee プログラミングコンテスト2023（AtCoder Beginner Contest 310）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc310/editorial/6794?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc310/editorial/6794?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc310%2Feditorial%2F6794">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc310%2Feditorial%2F6794">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc310%2Feditorial%2F6794">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230715T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-07-15 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230715T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-07-15 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc310"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc310/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc310/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc310/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc310/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc310/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc310/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc310/tasks/abc310_h">Ex - Negative Cost</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-2.png" class="user-rating-stage-m"><a href="/users/leaf1415" class="username"><span class="user-orange">leaf1415</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>便宜上、各 <span>\(C_i\)</span> は入力時と符号を反転し、技 <span>\(i\)</span> を使うことで魔力が <span>\(C_i\)</span> 増えるとします。
+また、<span>\(L \coloneqq 300\)</span> （制約上の <span>\(C_i\)</span> の絶対値の最大値）とおきます。</p>
+
+<p>技の列 <span>\(A = (a_1, a_2, \ldots, a_l)\)</span> に対して、<span>\(\sum_{i = 1}^l C_{a_i}\)</span> を <span>\(A\)</span> の<strong>収支</strong>と呼び、<span>\(\sum_{i = 1}^l D_{a_i}\)</span> を <span>\(A\)</span> の<strong>ダメージ</strong>と呼びます。
+また、技の列 <span>\(A\)</span> であって、<span>\(A\)</span> の全ての prefix の収支が非負であるもの、すなわち、魔力 <span>\(0\)</span> の初期状態から開始したときに <span>\(A\)</span> の技を先頭のものから順にすべて使用できるような列を<strong>有効列</strong>と呼びます。
+本問題は、ダメージが <span>\(H\)</span> 以上の最短の有効列の長さを求める問題です。</p>
+
+<p>有効列であって全ての prefix の収支が <span>\(2L\)</span> 未満のものを<strong>基本的な有効列</strong>と呼びます。
+有効列を連結して得られる列は明らかに有効列ですので、特に基本的な有効列を連結して得られる列は有効列です。</p>
+
+<p>反対に、どのような有効列 <span>\(A\)</span> に対しても、基本的な有効列を連結した列であって <span>\(A\)</span> と等価（長さとダメージが等しい）なものが存在します。</p>
+
+<details><summary>証明</summary>
+有効列 $A = (a_1, a_2, \ldots, a_l)$ に、$\sum_{i = 1}^p C_{a_i} \geq L, C_{a_{p+1}} \geq 0, C_{a_{p+2}} \lt 0$ を満たす $p$ が存在する限り $a_{p+1}$ と $a_{p+2}$ を交換することを繰り返します。
+交換対象の条件 $\sum_{i = 1}^p C_{a_i} \geq L$ より、この交換は列の有効性を損いません。
+この手続きが停止した結果最終的に得られる有効列を $B = (b_1, b_2, \ldots, b_l)$ とします。
+
+$C_{b_i} \lt 0$ を満たす最大の $i$ を $q$ とすると、$B$ は
+ $(b_1, b_2, \ldots, b_q)$ という有効列と、
+$(b_{q+1})$ 、$(b_{q+2})$ 、$\ldots$ 、$(b_l)$ という $l-q$ 個の長さ $1$ の有効列の連結です。
+$B$ の定義から、これらの有効列は基本的な有効列になっています。
+</details>
+
+<p>さらに、任意の基本的な有効列 <span>\(A\)</span> は、長さ <span>\(2L\)</span> 以下の基本的な有効列を連結したある列と等価です。</p>
+
+<details><summary>証明</summary>
+長さに関する帰納法で示します。
+$A = (a_1, a_2, \ldots, a_l)$ を長さ $2L+1$ 以上の基本的な有効列とすると、鳩の巣原理より $\sum_{i = 1}^p C_{a_i} = \sum_{i = 1}^q C_{a_i}, 0 \leq p \lt q \leq 2L$ となる $p, q$ が存在します。
+$A$ を $X \coloneqq (a_1, a_2, \ldots, a_p, a_{q+1}, a_{q+2}, \ldots, a_l)$ と $Y \coloneqq (a_{p+1}, a_{p+2}, \ldots, a_q)$ という $2$ つの列に分解すると、
+
+$X$ は $A$ より短い基本的な有効列なので、帰納法の仮定から、あるいくつかの基本的な有効列の連結 $W_1W_2 \ldots W_w$ と等価です。
+
+また、$Y = (a_{p+1}, a_{p+2}, \ldots, a_q)$ を $C_{a_i}$ の昇順に並べ替えた列 $Y&#39;$ は$Y$ と等価な有効列です。
+先に示した通り、有効列 $Y&#39; $はあるいくつかの基本的な有効列の連結 $Z_1Z_2\ldots Z_z$ と等価であり、$Y&#39;$ の長さが $2L$ 以下あることから、$Z_1, Z_2, \ldots, Z_z$ の長さもそれぞれ $2L$ 以下です。
+
+よって、$A$ は長さ $2L$ 以下の基本的な有効列の連結 $W_1W_2 \ldots W_wZ_1Z_2\ldots Z_z$ と等価です。
+</details>
+
+<p>よって本問題を解く上では、長さ <span>\(2L\)</span> 以下の基本的な有効列をつなげて、ダメージが <span>\(H\)</span> 以上のものを作ることを考えれば良いです。
+さらに、各 <span>\(i = 1, 2, \ldots, 2L\)</span> については、長さ <span>\(i\)</span> の基本的な有効列でダメージが最大のもの <span>\(A^{(i)}\)</span> のみを使用すれば十分です。
+各 <span>\(i\)</span> に対する <span>\(A^{(i)}\)</span> のダメージ <span>\(d_i\)</span> は、</p>
+
+<blockquote>
+<p><span>\(\mathrm{dp}[i][j] = \)</span>（長さ <span>\(i\)</span> の基本的な有効列で収支が <span>\(j\)</span> のもののダメージの最大値）</p>
+</blockquote>
+
+<p>という DP テーブルを用いた動的計画法で <span>\(O(NL^2)\)</span> 時間で求めることができます。</p>
+
+<p>以上を踏まえると本問題は、</p>
+
+<blockquote>
+<p><span>\(2L\)</span> 個の<strong>コンボ</strong>技がある。
+<span>\(i = 1, 2, \ldots, 2L\)</span> について、コンボ <span>\(i\)</span> を発動すると、コスト（技の使用回数）が <span>\(i\)</span> だけかかり、魔物に <span>\(d_i\)</span> のダメージを与えられる。合計で <span>\(H\)</span> 以上のダメージを与えるための最小コストを求めよ。</p>
+</blockquote>
+
+<p>という問題に帰着されます。</p>
+
+<p>コスト当たりのダメージ <span>\(d_i / i\)</span> が最大のコンボを <span>\(1\)</span> つ任意に選んでこれを<strong>最強のコンボ</strong>と呼びます。
+少ないコストで多くのダメージを与えるには、最強のコンボを多く発動するのが有利だと直感的には考えられます。
+実際、最適なコンボの列であって、最強でないコンボを発動する回数が <span>\(2L\)</span> 未満のものが存在します。</p>
+
+<details><summary>証明</summary>
+最強のコンボをコンボ $z$ とします。
+最強でないコンボを $2L$ 個以上含むコンボの列 $V$ を考えます。
+コンボの順番を入れ替えることで、$V$ の先頭の $2L$ 個、特に先頭の $z$ 個のコンボは最強でないとして良いです。
+$i = 0, 1, 2, \ldots, z$ について、先頭 $i$ 個のコストの和を $s_i$ とすると、鳩の巣原理より $s_i \equiv s_j \pmod{z}, 0 \leq i \lt j \leq z$となる $i, j$ が存在します。
+このとき $i+1, i+2, \ldots, j$ 個目のコンボを、最強のコンボの $(s_j-s_i)/z$ 個の繰り返しに置き換えると、$V$ のコストの総和を変えることや $V$ のダメージの総和を減らすことなく、$V$ に含まれる最強でないコンボの個数を減らすことができます。
+</details>
+
+<p>よって、最強でないコンボを発動するのは <span>\(2L\)</span> 回未満に限っても良いです。</p>
+
+<p>最強でないコンボで消費する合計コスト <span>\(x\)</span> を固定したとします。
+このときの与える合計ダメージの最大値を <span>\(M_x\)</span> とすると、
+最強なコンボを発動する回数はそのダメージを <span>\(d\)</span> として <span>\(\lceil (H-M_x) / d \rceil\)</span> と <span>\(O(1)\)</span> 時間で求まります。
+最強でないコンボを発動する回数は <span>\(2L\)</span> 未満、各コンボのコストは <span>\(2L\)</span> 以下であるため、<span>\(x\)</span> のとり得る値は <span>\(O(L^2)\)</span> 通りです。
+よって、あり得る <span>\(x\)</span> をすべて試すことで、<span>\(O(L^2)\)</span> 時間で最適解を求められます。</p>
+
+<p>また、必要な範囲の <span>\(x\)</span> における <span>\(M_x\)</span> をあらかじめまとめて計算することが、</p>
+
+<blockquote>
+<p><span>\(\mathrm{dp2}[i][j] =\)</span>（コンボ <span>\(1, 2, \ldots, i\)</span> までをそれぞれ好きな回数発動して合計コスト <span>\(j\)</span> を消費する時の与える合計ダメージの最大値）</p>
+</blockquote>
+
+<p>という DP テーブルを用いた動的計画法によって、個数制限なしナップザック問題の要領で <span>\(O(L^3)\)</span> 時間で求められます。</p>
+
+<p>以上より、本問題を全体で <span>\(O(NL^2 + L^3)\)</span> 時間で解くことができます。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1689351180">
+				<time class="timeago" datetime="2023/07/15 01:13:00"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1689379117">
+				<time class="timeago" datetime="2023/07/15 08:58:37"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc310/editorial/6794?lang=ja" data-a2a-title="解説 - freee プログラミングコンテスト2023（AtCoder Beginner Contest 310）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc310/rules">ルール</a></li>
+					<li><a href="/contests/abc310/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

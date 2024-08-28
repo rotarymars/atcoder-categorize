@@ -1,0 +1,14 @@
+最大 C 回まで聞けるといった制約が無い場合、答えは B
+A の小数点以下切り捨てになります。従って、最大
+
+C 回の制約がある場合、この値と C の小さい方が答えになります。以下に C++ による回答例を示します。
+# include < bits / stdc ++. h >
+using namespace std ;
+int main () {
+int A , B , C ; cin >> A >> B >> C ;
+int ans = min ( B / A , C );
+cout << ans << endl ;
+}
+
+1
+

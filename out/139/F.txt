@@ -1,0 +1,158 @@
+(原案: square1001 + E869120, 準備・解説: square1001 + E869120)
+★ 謝辞
+高校数学を理解していない人には少し分かりにくい解説となっておりますが、最大限分かりやすく
+説明した限りですので、ご容赦ください。
+★ 全体的な方針
+さて、最終的にベクトル (A, B) の方向にできるだけ進むことを考えます。この場合、座標 (X, Y )
+から座標 (X + xi , Y + yi ) に移動するエンジンについて、
+「ベクトル (xi , yi ) の方向に進むエンジン」
+とします。その時、ベクトル (A, B) とベクトル (xi , yi ) のなす角が 90 度未満であるエンジンだけを
+使えば、最大限 (A, B) の方向に進むことができます。
+
+例えば上の図において、「進みたい方向に進んだ距離」 を最大化するためには、赤のベクトルを持
+つエンジンだけを選べばよいです。もう少し分かりやすい例を出しましょう。
+
+• X 軸の正の方向に進みたい場合（ベクトル (1, 0) の方向に進みたい場合）、X 方向に進む距離
+が正であるエンジン（つまり、xi > 0 であるエンジン）だけを選べばよいです。
+
+• Y 軸の負の方向に進みたい場合は、Y 方向に進む距離が負であるエンジン（つまり、yi < 0 で
+あるエンジン）だけを選べばよいです。
+
+• X 軸の正方向から反時計回りに 45 度の方向に進みたい場合（つまりベクトル (1, 1) の方向に
+進みたい場合）、xi + yi ≥ 0 であるエンジンだけを選べばよいです。
+これらは全て、進みたい方向とエンジンの進む方向の成す角が 90 度以内であるエンジンを選ぶとい
+う例です。
+
+6
+
+★ まず、どうやって成す角が 90 度未満かを判定するか
+
+(ax, ay) の方向（ベクトル）と、(bx, by) の方向（ベクトル）のなす角が 90 度未満である条件は、
+axbx + ayby > 0、つまりベクトルの内積が正であるという非常に簡単なものです。競プロだけでな
+く、高校数学とかでも良く使われるので、覚えておきましょう。
+そこで、いくつか方針を考えてみることを考えます。
+★ 方針 A: 進む方向を全探索する（TLE 解法）
+まず、最も簡単な解法として、進む方向（あるいはベクトル）を全探索することを考えます。しか
+し、制約は以下の通りとなっています。
+
+1. N ≤ 100
+2. −1 000 000 ≤ xi , yi ≤ 1 000 000
+ですので、最大で座標 (100 000 000, 100 000 000) まで進む可能性があります。進むベクトルの通
+り数はおおよそ 4 × 1016 通りになるため、TLE します。
+★ 方針 B: 進む方向を絞る
+一個重要な考察があります。これは、
+「必ず進む方向と最終的な位置が一致しなくても、選ぶエンジ
+ンが最適であれば問題がない」という考え方です。
+例えば、以下の図において、3 つの進む方向（青の矢印）について、全て同じエンジンの集合を選
+ぶことになります。
+
+ですので、進む方向を絞る事はできないのでしょうか。例えば、進む方向を 1 ≤ i ≤ N に対して、
+
+(xi , yi )、(−yi , xi ), (−xi , −yi ), (yi , −xi ) だけに絞ると、高々 O(N ) 通りだけで済みます。各進む方
+向について N 回の計算が必要ですので、O(N 2 ) が達成できます。普通に上の 4 パターンだけを追加
+すると WA するので、境界を上手く場合分けすることが必要です。次の方針は、もう少し実装や境界
+判定が簡単なものです。
+★ 方針 C: 「角度でソート」を利用する
+ここでは、エンジン i が x 軸の正の方向から見て反時計回りに何度回ったかを示す値を ri としま
+す。例えば、(1, 2) の方向に進むエンジンの場合、ri の値はおおよそ 64 度くらいになります。
+
+7
+
+さて、この解説の 2 つの図に注目していただきたいのですが、全て L ≤ ri ≤ R を満たすエンジン
+のみ選ばれています。（ただし、360 度と 0 度の境界を通り過ぎる場合、L ≤ ri または ri ≤ L とな
+ります。）
+つまり、エンジンの進む方向の角度でエンジンをソートすることにしましょう。
+（豆知識ですが、角
+度でソートすることを「偏角ソート」と言い、O(N log N ) でできます。
+）そうすると、選ぶエンジン
+の集合は一つの区間になります。
+最後に選ぶ区間を全探索すると、O(N 3 ) 或いは O(N 2 ) でこの問題を解くことが出来ます。上手く
+尺取り法を使うと、O(N log N ) で解くことができますが、境界判定や実装が大変です。
+★ サンプルコード (C++)
+
+https://atcoder.jp/contests/abc139/submissions/7244437
+
+8
+
+ABC 139 Editorial
+drafear, E869120, evima, gazelle, square1001, wo01, yuma000
+September 1, 2019
+
+(Original writer: square1001 + E869120, preparation and editorial: square1001 + E869120)
+★ Acknowledgment
+
+The editorial may be a little bit diﬃcult because it is explained in mathematical ways, but we
+tried to explain as easy as possible, so please forgive us.
+★ Main idea
+
+Let’s try to move towards the direction of vector (A, B) as much as possible. In this case, we
+call the engine that enables him to move from coordinates (X, Y ) to (X + xi , Y + yi ) ”the engine
+that moves in the direction of vector (xi , yi ).” Then, if he use the engine such that the angle
+between vector (A, B) and vector (xi , yi ) is no more than 90 degrees, he can move towards the
+direction of (A, B) as much as possible.
+
+For example, in order to maximize the ”progressed distance towards the desired direction”
+(”the desired direction” is drawn with blue arrow in the diagram above), it is suﬃcient if you
+only use the red vectors. The following example may be easier to understand:
+
+• If he wants to move towards the positive X direction (towards the direction of vector
+(1, 0)), it is suﬃcient to choose such engines that enables him to move positively in the X
+direction (that is, engines such that xi > 0).
+• If he wants to move towards the negative Y direction, it is suﬃcient to choose such engines
+that enables him to move negatively in the Y direction (that is, engines such that yi < 0).
+• If he wants to move towards the direction of X axis rotated by 45 degrees counterclockwise
+(towards the direction of vector (1, 1)), it is suﬃcient to choose such engines that xi +yi ≥ 0.
+14
+
+All of them are the examples of choosing the engines such that the angle between its
+progression direction and the desired direction is no more than 90 degrees.
+★ First, how to judge if the angle between two vectors are less than 90 degrees?
+
+The condition of the angle between the direction (vector) (ax, ay) and the direction (vector)
+(bx, by) is less than 90 degrees is that axbx + ayby > 0, or that inner product of two vectors is
+positive, which is pretty easy. It is commonly used not only in competitive programming but
+also other mathematical problems, so it will be good for you to remember.
+Let’s think about several solutions.
+★ Solution A: Brute force all the ”desired directions” (TLE solution)
+
+First, the most naive solution is to brute force all the desired directions (or vectors). However,
+the constraints are the following:
+1. N ≤ 100
+2. −1 000 000 ≤ xi , yi ≤ 1 000 000
+It means that there is a possibility of ending up with coordinates (100 000 000, 100 000 000)
+at most. There are about 4 × 1016 possible desired vectors, so it will lead to TLE.
+★ Solution B: Limit the number of desired directions
+
+One important point is that ”even if the desired direction and the ultimate position does not
+coincide, it’s no problem if the selected engines are optimal.”
+For example, in the diagram below, no matter which of those three desired directions (the blue
+arrows) you choose, the selected set of engines are all the same.
+
+Then isn’t it possible to limit the number of desired directions? For example, if you limit
+the desired direction to (xi , yi ), (−yi , xi ), (−xi , −yi ) and (yi , −xi ) for 1 ≤ i ≤ N , the number
+of desired directions are at most O(N ). If you only add those 4 patterns it will end up with
+WA, so you have to split border cases properly. If you choose the solution described below, the
+implementation and border judgement will be a little bit easier.
+
+15
+
+★ Solution C: Use ”sort by angles”
+
+Let i be the angle from x-axis to the direction of engine i, rotated counterclockwise. For
+instance, the ri value for the engine that enables him to move in the direction of (1, 2) is about
+64 degrees.
+Pay attention to the two diagrams in the editorial, then you see that only the engines such
+that L ≤ ri ≤ R are selected. (However, if it passes the border of 0 degrees and 360 degrees, it
+will hold that L ≤ ri or ri ≤ L.)
+Therefore, let’s sort the engines by the angles of directions of them. (Tip: this sort can be
+achieved in O(N log N ).) Then, the set of engines will be a segment of the sorted sequence.
+Finally, if you brute force the segment to choose, you can solve it in a total of O(N 3 ) or O(N 2 )
+time. If you use sliding window properly, it can be solved in O(N log N ), but border judge and
+implementation is fairly hard.
+★ Sample Code (C++)
+
+https://atcoder.jp/contests/abc139/submissions/7244437
+
+16
+
+

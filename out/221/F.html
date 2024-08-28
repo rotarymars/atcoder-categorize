@@ -1,0 +1,483 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 221</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 221" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc221/editorial/2723" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 221" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc221";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2021-10-02T21:00:00+09:00");
+			var endTime = moment("2021-10-02T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 221が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 221は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc221">AtCoder Beginner Contest 221</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc221/editorial/2723?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc221/editorial/2723?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc221%2Feditorial%2F2723">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc221%2Feditorial%2F2723">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc221%2Feditorial%2F2723">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20211002T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-10-02 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20211002T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-10-02 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc221"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc221/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc221/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc221/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc221/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc221/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc221/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc221/tasks/abc221_f">F - Diameter set</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-4.png" class="user-rating-stage-m"><a href="/users/mechanicalpenciI" class="username"><span class="user-orange">mechanicalpenciI</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>木を <span>\(T\)</span> とし、<span>\(d(u,v)\)</span> で<span>\(T\)</span> 上での頂点 <span>\(u\)</span> , <span>\(v\)</span> 間の距離を表すとします。</p>
+
+<p>適当な頂点を選んで、その点から最も遠い頂点のうちの一つを <span>\(X\)</span> とします。さらに、<span>\(X\)</span> から最も遠い頂点の一つを選び、 <span>\(Y\)</span>  とします。このとき、<span>\(d(X,Y)\)</span> は直径に等しい事が知られています。この長さを <span>\(D\)</span> とします。また、<span>\(X\)</span> と <span>\(Y\)</span>の間のパスを考え、端点を含むパス上の頂点を順に、 <span>\(V_0(=X)\)</span> , <span>\(V_1\)</span> , <span>\(\ldots\)</span> , <span>\(V_D(=Y)\)</span> とします。</p>
+
+<ul>
+<li><span>\(D\)</span> が奇数のとき</li>
+</ul>
+
+<p>頂点 <span>\(A\)</span> , <span>\(B\)</span> を <span>\(A=V_{\frac{D-1}{2}}\)</span> , <span>\(B=V_{\frac{D+1}{2}}\)</span> とします。<span>\(A\)</span> と <span>\(B\)</span> を結ぶ辺を切って、<span>\(T\)</span> を <span>\(2\)</span> つの部分木 <span>\(T&#39;\)</span> , <span>\(T&#34;\)</span> に分けることを考えます。<br>
+このとき、 <span>\(T&#39;\)</span> に属する任意の頂点  <span>\(v&#39;\)</span>について、<span>\(d(v&#39;,Y)=d(v&#39;,A)+d(A,B)+d(B,Y)=d(v&#39;,A)+1+\frac{D-1}{2}\leq D\)</span> が成り立つことから、<span>\(d(A,v&#39;)\leq \frac{D-1}{2}\)</span> が成り立ちます。
+これより、 <span>\(T&#39;\)</span> に属する <span>\(2\)</span> 頂点 <span>\(u&#39;\)</span> , <span>\(v&#39;\)</span> について、 <span>\(d(u&#39;,v&#39;)\leq d(A,u&#39;)+d(A,v&#39;)\leq D-1\)</span> が成り立ちます。同様に<span>\(T&#34;\)</span> に属する <span>\(2\)</span> 頂点 <span>\(u&#34;\)</span> , <span>\(v&#34;\)</span> について、 <span>\(d(u&#34;,v&#34;)\leq d(B,u&#34;)+d(B,v&#34;)\leq D-1\)</span> が成り立ちます。<br>
+これより、条件をみたすためには <span>\(T&#39;\)</span> , <span>\(T&#34;\)</span> からちょうど一つずつ頂点を選んで赤く塗る必要がある事が分かります。それぞれ <span>\(T&#39;\)</span>, <span>\(T&#34;\)</span> に属する頂点 <span>\(v&#39;\)</span> , <span>\(v&#34;\)</span> の間の距離は <span>\(d(v&#39;,v&#34;)=d(A,v&#39;)+d(A,B)+d(B,v&#34;)\)</span> と表され、<span>\(d(A,v&#39;)\leq \frac{D-1}{2}\)</span>, <span>\(d(B,v&#34;)\leq \frac{D-1}{2}\)</span> であることから、<span>\(d(v&#39;,v&#34;)=D\)</span> であることは <span>\(d(A,v&#39;)= \frac{D-1}{2}\)</span> かつ <span>\(d(B,v&#34;)= \frac{D-1}{2}\)</span> であることと同値である事が分かります。<br>
+よって、、<span>\(T&#39;\)</span> に属する点であって、<span>\(A\)</span> から距離 <span>\(\frac{D-1}{2}\)</span> である点の数を <span>\(M_1\)</span> , <span>\(T&#34;\)</span> に属する点であって、<span>\(B\)</span> から距離 <span>\(\frac{D-1}{2}\)</span> である点の数を <span>\(M_2\)</span> とすると、 答えは <span>\(M_1M_2\)</span> 通りとなります。</p>
+
+<ul>
+<li><span>\(D\)</span> が偶数のとき</li>
+</ul>
+
+<p>奇数の時と似た議論で解くことができます。
+今度は <span>\(C=V_{\frac{D}{2}}\)</span>を取り、<span>\(C\)</span> と直接結ばれている点を <span>\(A_1\)</span>, <span>\(\ldots\)</span> , <span>\(A_K\)</span> とします。ここで、<span>\(C\)</span> および <span>\(C\)</span> とつながっている辺をすべて取り除き、<span>\(T\)</span> を <span>\(K\)</span> 個の部分木 <span>\(T_1\)</span> , <span>\(\dots\)</span> , <span>\(T_K\)</span> に分けることを考えます。ただし、<span>\(A_i\)</span> が含まれる部分木を <span>\(T_i\)</span> とおくことにします。<br>
+また、<span>\(X\)</span> , <span>\(Y\)</span> が異なる部分木に属する事から、任意の <span>\(i\)</span> について <span>\(X\)</span> , <span>\(Y\)</span> の少なくともどちらかは <span>\(T_i\)</span> に属しておらず、
+<span>\(T_i\)</span> に属する頂点 <span>\(v\)</span> について、 <span>\(d(X,v)\)</span> , <span>\(d(Y,v)\)</span> のどちらかは <span>\(\frac{D}{2}+d(C,A_i)+d(A_i,v)\)</span> と書くことができ、これが <span>\(D\)</span> 以下となる事から <span>\(d(A_i,v)\leq \frac{D}{2}-1\)</span> と結論付けられます.<br>
+これより, それぞれの <span>\(T_i\)</span> に属する <span>\(2\)</span> 頂点の間の距離は<span>\(D-2\)</span> 以下であり、条件をみたすためには、それぞれの部分木から高々 <span>\(1\)</span> 頂点しか赤く塗れない事が分かります。<br>
+相異なる部分木 <span>\(T_i\)</span> , <span>\(T_j\)</span> に属する <span>\(2\)</span> 頂点 <span>\(u\)</span> , <span>\(v\)</span> の間の距離は <span>\(d(A_i,u)+d(A_i,A_j)+d(A_j,v)=d(A_i,u)+d(A_j,v)+2\)</span> と書かれ、<span>\(d(A_i,u)\leq \frac{D}{2}-1\)</span> , <span>\(d(A_j,v)\leq \frac{D}{2}-1\)</span> より、<span>\(d(u,v)=D\)</span>  であることは、 <span>\(d(A_i,u)= \frac{D}{2}-1\)</span> かつ <span>\(d(A_j,v)= \frac{D}{2}-1\)</span> と同値である事が分かります。<br>
+よって、 <span>\(T_i\)</span> に属し、 <span>\(A_i\)</span> からの距離が <span>\(\frac{D}{2}-1\)</span> である頂点の数を <span>\(M_i\)</span>とすると、それぞれの木で条件をみたす頂点のうちから高々 <span>\(1\)</span> 点を選ぶ方法が <span>\((M_1+1)\cdots (M_K+1)\)</span> 通りあって、そこから <span>\(1\)</span> 頂点も選ばない <span>\(1\)</span> 通りと <span>\(1\)</span> 頂点しか選ばない <span>\((M_1+M_2\cdots +M_K)\)</span> 通りを差し引いた
+<span>\((M_1+1)\cdots (M_K+1)-(M_1+M_2\cdots +M_K)-1\)</span> 通りが答えとなります。</p>
+
+<p>直径を求めるパート、<span>\(A\)</span>,<span>\(B\)</span> または <span>\(C\)</span> を求めるパート、
+条件をみたす頂点の数を数えるパート (=<span>\(M_i\)</span> を求めるパート ) および最後に答えを計算するパートのいずれも <span>\(O(N)\)</span> で行う事が出来るため、よって、この問題を解く事ができました。</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+#define N 200010
+#define MOD (ll)998244353
+#define ll long long
+#define pb push_back
+#define rep(i, n) for(ll i = 0; i &lt; n; ++i)
+
+vector&lt;int&gt;e[N];
+
+int d[N][5];
+int mx[5];
+int mv[5];
+int idx, blc, num, cnt;
+
+void dfs(int k, int p) {
+	if (p == -1)d[k][idx] = 0;
+	else d[k][idx] = d[p][idx] + 1;
+	if (mx[idx] &lt; d[k][idx]) {
+		mx[idx] = d[k][idx];
+		mv[idx] = k;
+	}
+	if (d[k][idx] == num)cnt++;
+	int sz = e[k].size();
+	rep(i, sz) {
+		if ((e[k][i] != blc) &amp;&amp; (d[e[k][i]][idx] &lt; 0))dfs(e[k][i], k);
+	}
+	return;
+}
+
+int main(void) {
+	int n;
+	int u, v, sz;
+	vector&lt;int&gt;a;
+	ll x, ans;
+
+	rep(i, 5) {
+		rep(j, N)d[j][i] = -1;
+		mx[i] = -1;
+	}
+	blc = -1;
+
+	cin &gt;&gt; n;
+	rep(i, n - 1) {
+		cin &gt;&gt; u &gt;&gt; v;
+		e[u - 1].pb(v - 1);
+		e[v - 1].pb(u - 1);
+	}
+
+	idx = 0;
+	dfs(0, -1);
+	idx = 1;
+	dfs(mv[0], -1);
+	idx = 2;
+	dfs(mv[1], -1);
+
+	if (mx[1] % 2 == 1) {
+		rep(i, n) {
+			if ((d[i][1] == (mx[1] / 2)) &amp;&amp; (d[i][2] == (mx[1] / 2) + 1))u = i;
+			if ((d[i][2] == (mx[1] / 2)) &amp;&amp; (d[i][1] == (mx[1] / 2) + 1))v = i;
+		}
+
+		idx = 3;
+		num = mx[1] / 2;
+
+		blc = v;
+		cnt = 0;
+		dfs(u, -1);
+		a.pb(cnt);
+
+		blc = u;
+		cnt = 0;
+		dfs(v, -1);
+		a.pb(cnt);
+	}
+	else {
+		rep(i, n) {
+			if ((d[i][1] == (mx[1] / 2)) &amp;&amp; (d[i][2] == (mx[1] / 2)))u = i;
+		}
+
+		idx = 3;
+		num = (mx[1] / 2) - 1;
+		blc = u;
+
+		sz = e[u].size();
+		rep(i, sz) {
+			cnt = 0;
+			dfs(e[u][i], -1);
+			a.pb(cnt);
+		}
+	}
+
+	sz = a.size();
+	ans = 1;
+	rep(i, sz) {
+		x = a[i] + 1;
+		ans = (ans*x) % MOD;
+	}
+	rep(i, sz) {
+		x = a[i];
+		ans = (ans + MOD - x) % MOD;
+	}
+	ans = (ans + MOD - 1) % MOD;
+
+	cout &lt;&lt; ans &lt;&lt; endl;
+	return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1633120958">
+				<time class="timeago" datetime="2021/10/02 05:42:38"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1633128815">
+				<time class="timeago" datetime="2021/10/02 07:53:35"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc221/editorial/2723?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 221">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc221/rules">ルール</a></li>
+					<li><a href="/contests/abc221/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

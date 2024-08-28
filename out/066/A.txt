@@ -1,0 +1,43 @@
+a + b と b + c と a + c の中で一番小さいものを出力する問題です。以下の実
+装例では、かわりに a, b, c の中で最も大きいものを求めて、a + b + c から引
+いています。
+1 # include < stdio .h >
+2
+3 int main () {
+4
+int a , b , c ;
+5
+scanf ( " % d ␣ % d ␣ % d " , &a , &b , & c ) ;
+6
+int max = a ;
+7
+if (b > max ) max = b ;
+8
+if (c > max ) max = c ;
+9
+printf ( " % d \ n " , a + b +c - max ) ;
+10
+return 0;
+11 }
+
+1 # include < stdio .h >
+2
+3 int main () {
+4
+int a , b , c ;
+5
+scanf ( " % d ␣ % d ␣ % d " , &a , &b , & c ) ;
+6
+int max = a ;
+7
+if (b > max ) max = b ;
+8
+if (c > max ) max = c ;
+9
+printf ( " % d \ n " , a + b +c - max ) ;
+10
+return 0;
+11 }
+
+1
+

@@ -1,0 +1,57 @@
+まず、DP[i][x]: 最後の整数が x であるような i 個の整数を並べて条件を満たすようにする場合の数 とした
+
+O(N K) 状態の DP を考えます。このままでは計算量が大きいので、この DP を高速化することを考えます。
+N
+正整数 x, y が ⌊ N
+x ⌋ = ⌊ y ⌋ = t を満たすとします。このとき、DP[i + 1][x] と DP[i + 1][y] は同じ更新式
+
+∑t
+
+z=1 DP[i][z] で求まるため、値は等しくなります。よって、このような x, y に対する DP の状態は同一視
+
+してよいことがわかります。
+
+√
+
+上記の規則で同一視できる状態をすべて同一視すると、DP の状態数は O( N K) になります。これは、
+
+√
+N のときは ⌊ N
+x ⌋ の値が O( N ) 個しかないことからわかります。適切
+√
+に累積和を用いれば、この DP は O( N K) 時間で動くように実装できるため、この問題を解くことができ
+
+x≤
+
+√
+
+N のときは x の値が、x >
+
+√
+
+ました。
+
+6
+
+ABC 132
+DEGwer, gazelle, potetisensei, tozangezan, yuma000
+06/29/2019
+
+Deﬁne Let DP[i][x] as the number of ways to satisfy the constraints of the
+problem where are array is of size i and the last element is x. There are
+O(K ∗ N ) states. Since there are too many states, we need to reduce the
+number of states by removing states with the same dp values.
+Consider two positive integers x and y that satisfy ⌊ Nx ⌋ = ⌊ Ny ⌋ = t. Consider∑the formula for the values of DP[i][x] and DP[i][y]. Both the formulas
+are tz=1 DP[i][z] so the two values are equal.
+√
+We can now change our DP state to DP[i][t]√and since there are N values
+of t, the √
+number of states has reduced to O( N K). Note that while there
+are only N values of t, the values are not consecutive. Using preﬁx
+sums,
+√
+we can calculate each state in O(1). This makes the runtime O( N K).
+
+12
+
+

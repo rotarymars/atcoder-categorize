@@ -1,0 +1,26 @@
+|S| 回操作を行うと元に戻るので、0 回以上 |S| − 1 回以下の回数操作を行った後に T と一致するものがあ
+るか調べれば十分です。
+
+C++ 言語による解答例
+# include < iostream >
+using namespace std ;
+int main () {
+string S , T ; cin >> S >> T ;
+bool ans = false ;
+for ( int i = 0; i < S . size (); ++ i ) {
+if ( S == T ) {
+ans = true ;
+break ;
+}
+S = S . back () + S . substr (0 , S . size () -1);
+}
+if ( ans ) {
+cout << " Yes " << endl ;
+}
+else {
+cout << " No " << endl ;
+}
+}
+
+2
+

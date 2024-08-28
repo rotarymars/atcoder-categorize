@@ -1,0 +1,520 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc239/editorial/3357" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc239";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-02-19T21:00:00+09:00");
+			var endTime = moment("2022-02-19T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc239">デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc239/editorial/3357?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc239/editorial/3357?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc239%2Feditorial%2F3357">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc239%2Feditorial%2F3357">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc239%2Feditorial%2F3357">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220219T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-02-19 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220219T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-02-19 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc239"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc239/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc239/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc239/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc239/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc239/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc239/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc239/tasks/abc239_h">Ex - Dice Product 2</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<h2>動的計画法</h2>
+
+<p>まずはこの問題を解くための DP の式を立ててみましょう。<br>
+問題文の通りに DP の式を立てると時間 <span>\(\mathrm{O}(NM)\)</span> ・空間<span>\(\mathrm{O}(M)\)</span> 程度の計算量で答えを求められる式が立ちますが、もちろん遅いです。こういう場合は</p>
+
+<ul>
+<li><span>\(f(x) :=\)</span>  「あと <span>\(x\)</span> 倍までは掛けても操作を停止しない」という状態の時、サイコロを何回振れるかという期待値</li>
+</ul>
+
+<p>とおいて式を立てましょう。すると、</p>
+<p><span>\[
+\begin{aligned}
+&amp;f(0) = 0 \\
+&amp;f(x) = 1 + \frac{1}{N} \sum_{i=1}^N f(\lfloor x/i \rfloor) \\
+\iff &amp;f(x) = \frac{N}{N-1} \left(1 + \frac{1}{N}\sum_{i=2}^N f(\lfloor x/i \rfloor)\right)
+\end{aligned}
+\]</span></p><p>という式を得ることができて、答えは <span>\(f(M)\)</span> になります。<br>
+さて、上式を利用すればメモ化再帰により答えを求めることができますが、このアルゴリズムは(適切に計算すると)どれくらいの計算量になるでしょうか？</p>
+
+<p>証明のためにいくつかの観察を列挙していきます。</p>
+
+<h4>観察 1</h4>
+
+<blockquote>
+<p><span>\(d\)</span> を正整数とする。 <span>\(\lfloor M / d\rfloor\)</span> の値としてあり得るものは <span>\(\mathrm{O}(\sqrt{M})\)</span> 通りである。</p>
+</blockquote>
+
+<p>これは <a href="https://atcoder.jp/contests/abc230/tasks/abc230_e" rel="nofollow">ABC230-E</a> でも登場した事実なので詳しい説明は省略しますが、<span>\(L = \lfloor \sqrt{M} \rfloor, K = \lfloor M/(L+1) \rfloor\)</span> とおいたときに、<span>\(x = \lfloor M/d \rfloor\)</span> を満たす正整数 <span>\(d\)</span> が存在する <span>\(x\)</span> は以下の <span>\(2\)</span> 種類で尽くされます。</p>
+
+<ul>
+<li><span>\(x=1,2,\dots,L\)</span></li>
+<li><span>\(x=\lfloor M/1\rfloor,\lfloor M/2\rfloor, \dots,\lfloor M/K\rfloor\)</span></li>
+</ul>
+
+<p>この事実を利用すると、ABC230-E と同様に商ごとにまとめて計算するテクニックが使えます。すなわち、</p>
+
+<ul>
+<li><span>\(Q(x)\)</span> : (<span>\(q = \lfloor x / d\rfloor\)</span> を満たす正整数 <span>\(d\)</span> が存在する <span>\(n\)</span> 以下の正整数 <span>\(q\)</span> からなる集合)</li>
+<li><span>\(g(x, q) : \)</span> (サイコロの出目 <span>\(d\)</span> が <span>\(\lfloor x/d\rfloor = q\)</span> を満たす確率)</li>
+</ul>
+
+<p>として</p>
+<p><span>\[f(x) = \frac{N}{N-1} \left(1 + \sum_{q \in Q(x) \setminus \lbrace 1 \rbrace} g(x, q) f(q)\right)\]</span></p><p>と変形できるので、<span>\(f(x)\)</span> を <span>\(\mathrm{O}(\sqrt{x})\)</span> 個の <span>\(f(q)\)</span> の和で表すことができます。</p>
+
+<h4>観察 2</h4>
+
+<blockquote>
+<p>正整数 <span>\(i,j,M\)</span> の間に以下の事実が成り立つ。</p>
+<p><span>\[\lfloor \lfloor M/i \rfloor / j \rfloor = \lfloor M / (ij) \rfloor\]</span></p></blockquote>
+
+<p>証明としては、<span>\(M\)</span> は <span>\(0 \leq s \lt i, 0 \leq r \lt j\)</span> を満たす <span>\(s,r\)</span> 、および整数 <span>\(q\)</span> を用いて <span>\(M = (qj + r)i + s\)</span> と一意に表せるので、この式を両辺の <span>\(M\)</span> に代入すれば示すことができます。もちろん、<span>\(f(\lfloor \lfloor \lfloor M / i \rfloor / j \rfloor / k \rfloor) = f(\lfloor M /(ijk) \rfloor)\)</span> のように 切り捨て除算が <span>\(3\)</span> 回以上の場合も同様に示すことができます。</p>
+
+<h4>観察 3</h4>
+
+<blockquote>
+<p>上記のメモ化再帰のアルゴリズム内部において、 <span>\(f(x)\)</span> を計算する必要がある <span>\(x\)</span> としてあり得るのは <span>\(\lfloor M / d \rfloor = x\)</span> を満たす正整数 <span>\(d\)</span> が存在する整数だけである。</p>
+</blockquote>
+
+<p>これは観察 2 から従います。再帰の内部では <span>\(f(M)\)</span> から <span>\(f(\lfloor M / i \rfloor)\)</span> を呼び出して、そこから <span>\(f(\lfloor \lfloor M / i \rfloor / j \rfloor)\)</span> を呼び出して… という様子が見られますが、観察 <span>\(2\)</span> から引数はすべて <span>\(\lfloor M / d \rfloor\)</span> (<span>\(d\)</span> は登場する除数の積) と等しい値なのがわかります。</p>
+
+<p>観察 1, 2, 3 を合わせると次のような事実を導けます。</p>
+
+<h4>観察 4</h4>
+
+<blockquote>
+<p><span>\(f(M)\)</span> は <span>\(\mathrm{O}(M^{3/4})\)</span> で計算できる。</p>
+</blockquote>
+
+<p>今までの観察から</p>
+
+<ul>
+<li><span>\(f(M)\)</span> の計算に必要な <span>\(f(x)\)</span> の値は全部で <span>\(\mathrm{O}(\sqrt{M})\)</span> 状態である。</li>
+<li><span>\(f(x)\)</span> は <span>\(\mathrm{O}(\sqrt{x})\)</span> 回の演算で計算することができる。</li>
+</ul>
+
+<p>ということがわかっています。上記の事実から計算量は高々 <span>\(\mathrm{O}(M)\)</span> なのがわかりますが、実はさらに小さいです。<br>
+<span>\(M\)</span> の商としてあり得る <span>\(x\)</span> は<span>\(L = \lfloor\sqrt{M}\rfloor\)</span> とおくと</p>
+
+<ul>
+<li><span>\(x=1,2,\dots,L\)</span> と</li>
+<li><span>\(x=\lfloor M/1\rfloor,\lfloor M/2\rfloor, \dots,\lfloor M/L\rfloor\)</span></li>
+</ul>
+
+<p>の和集合になることが観察 1 で示されています。それぞれの部分に分けて計算量を求めると、</p>
+
+<ul>
+<li><span>\(x=1,2,\dots,L\)</span> の部分： <span>\(\mathrm{O}(\sqrt{L}) \times L = \mathrm{O}(M^{3/4})\)</span></li>
+<li><span>\(x=\lfloor M/1\rfloor,\lfloor M/2\rfloor, \dots,\lfloor M/L\rfloor\)</span>　の部分：<span>\(\mathrm{O}(\sum_{i=1}^L \sqrt{M/i}) = \mathrm{O}(\int_{t=1}^L \sqrt{M/t}) = \mathrm{O}(M^{3/4})\)</span></li>
+</ul>
+
+<p>となりいずれも <span>\(\mathrm{O}(M^{3/4})\)</span> になることが確認できました。</p>
+
+<p>以上の観察により、この問題は <span>\(f(M)\)</span> をメモ化に計算する時間計算量 <span>\(\mathrm{O}(M^{3/4})\)</span> ・空間計算量 <span>\(\mathrm{O}(M^{1/2})\)</span> のアルゴリズムで解くことができて、適切に実装すると制約下で十分高速に動作するので AC することができます。</p>
+
+<ul>
+<li><span>\(\mathrm{O}(M)\)</span> 解法との切り分けの都合上 TL  が厳しめになっていて、<code>std::map</code> 等を使用した解法は落ちると思います。ご了承ください。</li>
+</ul>
+
+<p>C++ による実装例を以下に貼ります。</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;iostream&gt;
+using namespace std;
+#include &#34;atcoder/modint.hpp&#34;
+using mint = atcoder::modint1000000007;
+
+mint low[50000], high[50000];
+
+int main() {
+  int N, M;
+  cin &gt;&gt; N &gt;&gt; M;
+  int L = llround(sqrt(M)), K = M / (L + 1);
+  for (int i = 1; i &lt;= L + K; i++) {
+    int x = i &lt;= L ? i : M / (L + K + 1 - i);
+    mint sum = 0;
+    for (int l = 2, r, le = min(N, x); l &lt;= le; l = r) {
+      int q = x / l;
+      r = min(N, x / q) + 1;
+      mint cur = q &lt;= L ? low[q] : high[M / q];
+      sum += cur * (r - l);
+    }
+    (i &lt;= L ? low[i] : high[L + K + 1 - i]) = (sum + N) / (N - 1);
+  }
+  cout &lt;&lt; (M &lt;= L ? low[M] : high[1]).val() &lt;&lt; &#34;\n&#34;;
+}
+</code></pre>
+
+<ul>
+<li><span>\(f(x)\)</span>  の値を <code>std::unordered_map</code> で管理すると少し楽ができます。(定数倍によっては TLE するのでご注意ください。)</li>
+</ul>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+using namespace std;
+#include &#34;atcoder/modint.hpp&#34;
+using mint = atcoder::modint1000000007;
+
+mint solve(int N, int x) {
+  static unordered_map&lt;int, mint&gt; memo;
+  if (memo.count(x)) return memo[x];
+  mint res = 0;
+  for (int R = x, L, q; R; R = L) {
+    q = x / R, L = x / (q + 1);
+    if (q != x) res += solve(N, q) * (min(N, R) - min(N, L));
+  }
+  return memo[x] = (N + res) / (N - 1);
+}
+
+int main() {
+  int N, M;
+  cin &gt;&gt; N &gt;&gt; M;
+  cout &lt;&lt; solve(N, M).val() &lt;&lt; &#34;\n&#34;;
+}
+</code></pre>
+
+<h2>発展：乗法的関数の prefix sum</h2>
+
+<p>正整数 <span>\(a, b\)</span> が互いに素であるときに <span>\(f(a)f(b) = f(ab)\)</span> が成り立つような関数を <strong>乗法的関数</strong> と呼びます。<br>
+実はこの問題は乗法的関数の prefix sum <span>\(\sum_{i=1}^N f(i)\)</span> を高速に計算するときに出てくるアルゴリズムを参考にして出題しています。<br>
+詳しくは以下の文献を参考にしてください。</p>
+
+<ul>
+<li><a href="https://maspypy.com/dirichlet-%E7%A9%8D%E3%81%A8%E3%80%81%E6%95%B0%E8%AB%96%E9%96%A2%E6%95%B0%E3%81%AE%E7%B4%AF%E7%A9%8D%E5%92%8C" rel="nofollow">maspyのHP, Dirichlet 積と、数論関数の累積和</a></li>
+<li><a href="https://codeforces.com/blog/entry/54150" rel="nofollow">Codeforces, [Tutorial] Math note — Dirichlet convolution</a></li>
+</ul>
+
+<p>上記のブログに載っているテクニックを利用すると、元の問題は <span>\(\mathrm{\tilde{O}}(M^{2/3})\)</span> で解くこともできます。</p>
+
+<p>また、以下の問題は同様のテクニックを利用して解くことができます。</p>
+
+<ul>
+<li><a href="https://hos-lyric.hatenablog.com/entry/2020/01/03/013002" rel="nofollow">Xmas Contest 2019 D : Sum of (-1)^f(n)</a></li>
+<li><a href="https://www.spoj.com/problems/DIVCNT2/" rel="nofollow">SPOJ : DIVCNT2</a></li>
+<li><a href="https://judge.yosupo.jp/problem/sum_of_totient_function" rel="nofollow">Library Checker : Sum of Totient Function</a></li>
+</ul>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1643947270">
+				<time class="timeago" datetime="2022/02/04 13:01:10"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1645277691">
+				<time class="timeago" datetime="2022/02/19 22:34:51"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc239/editorial/3357?lang=ja" data-a2a-title="解説 - デンソークリエイトプログラミングコンテスト2022（AtCoder Beginner Contest 239）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc239/rules">ルール</a></li>
+					<li><a href="/contests/abc239/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

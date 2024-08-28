@@ -1,0 +1,95 @@
+(A1 ⊕ A2 ⊕ · · · ⊕ AN ) ≤ (A1 ) + (A2 ⊕ · · · ⊕ AN ) から，全て同じ色で塗ることを許しても答えに
+影響しないことがわかります．
+赤く塗った数の XOR，青く塗った数の XOR をそれぞれ Xあおくない , Xあおい とおきます．明らか
+に Xあおくない ⊕ Xあおい = A1 ⊕ · · · ⊕ AN であり，この値は定数です．この値を 2 進法表記したとき，
+
+0 となる桁を「興味深いビット」と呼ぶことにします．
+Xあおくない , Xあおい の i ビット目は，
+• i ビット目が興味深くないとき，(0, 1) か (1, 0)，つまり和は一定
+• i ビット目が興味深いとき，(0, 0) か (1, 1)
+です．2i > 2i−1 + 2i−2 + · · · + 20 より，興味深いビットを上位から貪欲に (1, 1) としていくのが
+最適とわかり，次のように問題を言い換えられます．
+
+babababababababababababababababababab
+
+Ai の各要素の，興味深くないビットを無視した数列 A′i を考え，この数列に対する
+′
+′
+を最大化する．興味深くないビットを全て立てた整数をこれに加えれ
++ Xあおい
+Xあおくない
+
+ば，元の問題の答えとなる．
+′
+′
+′
+上の問題で Xあおくない
+= Xあおい
+なので，結局 Xあおい
+を最大化すればよいです．つまり，以下の問
+
+題が解けたらよいです．
+
+A′1 , A′2 , · · · , A′N の中のいくつかを青く塗り，その XOR を最大化する．
+これは以下のようにして解けます:
+
+1. 数列 A′i を N × 60 行列とみなし，その行標準形を求める．ここで，列の数 60 は A′i のビット
+数を表す．
+′
+′
+2. 上の行から貪欲に Xあおい
+← Xあおい
+⊕ (i 行目) とする．
+
+以上よりこの問題は解かれ，ビット演算を利用して簡単に実装できます (C での実装例)．
+
+8
+
+ABC 141 Editorial
+beet, drafear, kort0n, sheyasutaka
+September 15, 2019
+
+Since (A1 ⊕ A2 ⊕ · · · ⊕ AN ) ≤ (A1 ) + (A2 ⊕ · · · ⊕ AN ) holds, it can be assumed that you may
+paint all integers in the same color.
+Let Xnotblue , Xblue be the XOR of the integers painted in red and the XOR of the integers
+painted in blue, respectively. Obviously, Xnotblue ⊕ Xblue = A1 ⊕ · · · ⊕ AN holds, and this value is
+constant. Write the value in binary notation, and let’s call its digits with value 0 as ”interesting.”
+The i-th bits of Xnotblue , Xblue are
+• (0, 1) or (1, 0) if i-th bit is not intersting, in which case the sum is constant, and
+• (0, 0) or (1, 1) if i-th bit is interesting.
+Since 2i > 2i−1 + 2i−2 + · · · + 20 , it appears that it is optimal to greedily letting interesting
+bit (1, 1) from the higher to the lower, so the problem can be rephrased as follows:
+babababababababababababababababababab
+
+Let A′i be a sequence, each element’s non-interesting bits being removed, and maximize
+′
+′
+Xnotblue
++ Xblue
+. If you add the integer whose all the non-interesting bits are set to 1
+
+to it, that would be the answer for the original problem.
+′
+′
+′
+In the problem above Xnotblue
+= Xblue
+holds, so maximizing Xblue
+will be suﬃcient. Eventually,
+
+solving the following problem is suﬃcient:
+Paint some of A′1 , A′2 , · · · , A′N in blue, and maximize their XOR.
+This can be solved as follows:
+1. Regard the sequence A′i as a N × 60 matrix, and ﬁnd its row canonical form. Here, 60
+denotes the number of bits of A′i .
+′
+′
+2. From the top row to the bottom, let Xblue
+← Xblue
+⊕ (i−throw).
+
+Here the problem was solved, and it can be easily implemented with bit operations (implementation example in C)
+
+16
+
+

@@ -1,0 +1,49 @@
+ある整数 k に対して、Si1 = Tj1 , ..., Sik = Tjk となるように添字の集合 1 ≤ i1 < i2 < ... < ik ≤ N
+と 1 ≤ j1 < j2 < ... < jk ≤ M を選ぶ場合の数を求める問題です。以下ではこの集合を前から決めて
+いくことを考えます。まず、素直な解法として次のような dp が考えられます。dp[i][j] : S の i 文字目ま
+でと T の j 文字目までを考慮し、この 2 文字をペアにするときの場合の数とすると、Si = Tj である
+とき dp[i][j] = (
+
+∑i−1 ∑j−1
+k=1
+
+l=1 dp[k][l]) + 1 、そうでないとき 0 として計算できますが、この時間計算量は
+
+O(N ∗ M ) です。和を取る部分に着目すると、2 次元累積和の考え方を適応することができ、O(N M ) に
+∑i ∑j
+改善できます。具体的には、sum[i][j] =
+l=1 dp[k][l] と置いて、sum[i][j] = sum[i-1][j] + sum[i][jk=1
+2
+
+2
+
+1] − sum[i-1][j-1] + dp[i][j] として更新していくことができます。
+
+6
+
+Let dp[i][j] be the number of ways to create subsequences only using the ﬁrst
+i elements of S and the ﬁrst j elements of T such that the subsequences
+are the same and the ith element of S and the jth element of T are part of
+the subsequences. Basically, dp[i][j] is the answer to the problem if we only
+consider the ﬁrst i elements of S and the ﬁrst j elements of T and we have to
+use the ith element of S and the jth element of T . If Si != Tj , then dp[i][j]
+= 0 because no subsequence will end by using
+the∑
+ith element of S and the
+∑i−1
+jth element of T . If Si = Tj then dp[i][j] = ( k=1 j−1
+l=1 dp[k][l]) + 1 because
+the previous index of S can be any index <= i and the previous index of
+T can be any index <= j. As a base case, we can say dp[0][0] = 1. This
+represents the case were we don’t take any elements. The runtime of this
+2
+is O(N 2 ∗ M
+∑i), but
+∑j we can speed this up by precomputing the sums. Let
+sum[i][j] = k=1 l=1 dp[k][l]. sum[i][j] is a 2D preﬁx sum of the dp array.
+sum[i][j] = sum[i-1][j]+sum[i][j-1]−sum[i-1][j-1]+dp[i][j]. With sum[i][j], we
+can know calculate each state, dp[i][j], in O(1). Since there are N M states,
+the runtime is O(N M ).
+
+13
+

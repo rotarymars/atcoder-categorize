@@ -1,0 +1,117 @@
+大きい数が書かれたカードから貪欲に選んでいくのが最適です。
+ナイーブにシミュレートすると時間がかかってしまうので、以下のコードのように場合分けをする
+とよいです。
+Listing 1 C++ による実装例
+1
+
+#include<bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+
+using ll = long long;
+
+4
+
+using P = pair<ll, ll>;
+
+5
+
+#define rep(i, n) for(ll i = 0; i < (ll)n; i++)
+
+6
+7
+
+int main() {
+
+8
+
+int a, b, c, k;
+
+9
+
+cin >> a >> b >> c >> k;
+
+10
+
+if(k <= a) cout << k << endl;
+
+11
+
+else if(k <= a + b) cout << a << endl;
+
+12
+
+else cout << a - (k - a - b) << endl;
+
+13
+
+return 0;
+
+14
+
+}
+
+2
+
+It is optimal to greedily choose the cards with larger numbers.
+Simulating naively takes time, so it is good to split into cases like as follows.
+Listing 2 Sample C++ Implementation
+1
+
+#include<bits/stdc++.h>
+
+2
+
+using namespace std;
+
+3
+
+using ll = long long;
+
+4
+
+using P = pair<ll, ll>;
+
+5
+
+#define rep(i, n) for(ll i = 0; i < (ll)n; i++)
+
+6
+7
+
+int main() {
+
+8
+
+int a, b, c, k;
+
+9
+
+cin >> a >> b >> c >> k;
+
+10
+
+if(k <= a) cout << k << endl;
+
+11
+
+else if(k <= a + b) cout << a << endl;
+
+12
+
+else cout << a - (k - a - b) << endl;
+
+13
+
+return 0;
+
+14
+
+}
+
+8
+

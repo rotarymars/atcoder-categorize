@@ -1,0 +1,32 @@
+各数列 {Ai } に対して最大公約数を計算していては間に合いません。そこで、1 ≤ X ≤ K に対し
+て「gcd(A1 , ..., AN ) = X となる数列 {Ai } がいくつあるか？」という問題を考えます。これが解け
+れば元の問題にも答えることが出来ます。
+最大公約数が X の倍数であるための必要十分条件は、A1 , ..., AN が全て X の倍数であることで
+N
+個あります。
+す。そのような数列は ⌊ K
+X⌋
+
+ぴったり X であるための必要十分条件は、
+「X の倍数であり、かつ、2X, 3X, ... ではない」です。X
+が大きい方から順に計算していくことによって、2X, 3X, ... の個数を引いて求めることができます。
+計算量は O(K log K + K log N ) です。
+
+5
+
+It won’t ﬁnish in time if you calculate the greatest common divisor for each sequence {Ai }.
+Then, for each 1 ≤ X ≤ K, let us consider the problem “how many sequences {Ai } are there
+such that gcd(A1 , ..., AN ) = X?”. If this problem was solved, then the original problem can also
+be answered.
+The necessary and suﬃcient condition of the greatest common divisor being a multiple of X
+N
+is that all the A1 , ..., AN are multiples of X. The number of such sequences is ⌊ K
+X⌋ .
+
+The necessary and suﬃcient condition of it being exactly X is that “it is a multiple of X, but
+not 2X, 3X....” If they are calculated in the decreasing order of X, it can be found by subtracting
+the number of those of 2X, 3X, ....
+The time complexity is O(K log K + K log N ).
+
+11
+

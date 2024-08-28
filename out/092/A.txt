@@ -1,0 +1,13 @@
+答えは min(A, B) + min(C, D) となります。
+以下に C++ による実装例を示します。
+
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+int main(){
+int A, B, C, D;
+scanf("%d%d%d%d", &A, &B, &C, &D);
+printf("%d\n", min(A, B) + min(C, D));
+return 0;
+}
+

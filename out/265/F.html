@@ -1,0 +1,468 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 265</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 265" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc265/editorial/4680" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 265" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc265";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-08-21T21:00:00+09:00");
+			var endTime = moment("2022-08-21T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 265が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 265は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc265">AtCoder Beginner Contest 265</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc265/editorial/4680?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc265/editorial/4680?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc265%2Feditorial%2F4680">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc265%2Feditorial%2F4680">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc265%2Feditorial%2F4680">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220821T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-08-21 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220821T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-08-21 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc265"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc265/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc265/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc265/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc265/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc265/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc265/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc265/tasks/abc265_f">F - Manhattan Cafe</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>第 <span>\(1\)</span> 成分から順に決めていく DP を考えてみましょう。<br>
+このとき、DP を動作させるうえで必要な情報は (<span>\(p\)</span> と <span>\(r\)</span> の距離), (<span>\(q\)</span> と <span>\(r\)</span> の距離) の 2 つの情報なので、その 2 つを添え字として持って次のように状態を定義します。</p>
+
+<ul>
+<li><span>\(dp_{t, i, j} :=\)</span> (第 <span>\(t\)</span> 軸までの <span>\(r\)</span> の値が確定していて, <span>\(\sum_{n=1}^t |p_n - r_n| = i,  \sum_{n=1}^t |q_n - r_n| = j\)</span> であるような場合の数)</li>
+</ul>
+
+<p>このとき、問題の答えは下の式で表されます。</p>
+<p><span>\[\sum_{i=0}^D \sum_{j=0}^D dp_{N, i, j}\]</span></p><p>また、DP の初期状態や遷移は以下の C++ 風のコードで表せます。</p>
+
+<pre class="prettyprint linenums"><code>#define rep(i, n) for (int i = 0; i &lt; (int)(n); i++)
+
+constexpr int MAX = 1001;
+atcoder::modint998244353 dp[MAX][MAX], nx[MAX][MAX];
+dp[0][0] = 1;
+rep(t, N) {
+  rep(i, D + 1) rep(j, D + 1) nx[i][j] = 0;
+  ll pt = p[t], qt = q[t];
+  for (int rt = -MAX * 2; rt &lt;= MAX * 2; rt++) {
+    int di = abs(pt - rt);
+    int dj = abs(qt - rt);
+    if (min(di, dj) &gt; D) continue;
+    for (int i = 0, ie = D - di; i &lt;= ie; i++) {
+      for (int j = 0, je = D - dj; j &lt;= je; j++) {
+        nx[i + di][j + dj] += dp[i][j];
+      }
+    }
+  }
+  swap(dp, nx);
+}
+</code></pre>
+
+<p>以上の考察でこの問題を解けた…と書きたいところですが、時間計算量の問題があります。上の DP は計算量 <span>\(\mathrm{O}(ND^3)\)</span> なので制約下では TLE してしまいます。</p>
+
+<p>そこで、 DP の遷移がある特長を持つことに注目してみましょう。上のコード中の <span>\((di, dj)\)</span> の組は <span>\(s = \vert p_t - q_t \vert\)</span> として次の 3 種類に分類できるのが確認できます。</p>
+
+<ul>
+<li><span>\((s,0), (s-1, 1), (s-2, 2), \dots, (1, s-1), (0, s)\)</span></li>
+<li><span>\((s+1, 1), (s+2, 2), (s+3, 3), \dots\)</span></li>
+<li><span>\((1, s+1), (2, s+2), (3, s+3), \dots\)</span></li>
+</ul>
+
+<p>それぞれの集合の要素をグリッドに図示するといずれも斜めに一直線に並びます。よって、あらかじめ DP テーブルの値斜め方向に累積和を取っておくことで、<span>\((i, j)\)</span> が定まった時の遷移を <span>\(\mathrm{O}(D)\)</span> から <span>\(\mathrm{O}(1)\)</span> に落とすことができて、全体の計算量が <span>\(\mathrm{O}(ND^3)\)</span> から <span>\(\mathrm{O}(N D^2)\)</span> に改善されます。(詳しくは実装例を参考にしてください。)よってこの問題を十分高速に解くことができました。</p>
+
+<ul>
+<li>実装例(PyPy)</li>
+</ul>
+
+<pre class="prettyprint linenums"><code>mod = 998244353
+N, D = map(int, input().split())
+p = list(map(int, input().split()))
+q = list(map(int, input().split()))
+
+dp = [[0 for _ in range(D + 1)] for _ in range(D + 1)]
+dp[0][0] = 1
+
+for n in range(N):
+  pn, qn = p[n], q[n]
+  s = abs(pn - qn)
+  nxt = [[0 for _ in range(D + 1)] for _ in range(D + 1)]
+
+  dp2 = [[0 for _ in range(D + 1)] for _ in range(D + 1)]
+  for i in range(D + 1):
+    for j in range(D + 1):
+      dp2[i][j] = dp[i][j]
+      if i != 0 and j != D:
+        dp2[i][j] += dp2[i - 1][j + 1]
+        dp2[i][j] %= mod
+
+  for i in range(D + 1):
+    for j in range(D + 1):
+      si = i
+      sj = j - s
+      if sj &lt; 0:
+        si += sj
+        sj = 0
+      if 0 &lt;= si &lt;= D and 0 &lt;= sj &lt;= D:
+        nxt[i][j] += dp2[si][sj]
+        nxt[i][j] %= mod
+      ti = i - (s + 1)
+      tj = j + 1
+      if 0 &lt;= ti &lt;= D and 0 &lt;= tj &lt;= D:
+        nxt[i][j] -= dp2[ti][tj]
+        nxt[i][j] %= mod
+
+  dp3 = [[0 for _ in range(D + 1)]for _ in range(D + 1)]
+  for i in range(D + 1):
+    for j in range(D + 1):
+      dp3[i][j] = dp[i][j]
+      if i != 0 and j != 0:
+        dp3[i][j] += dp3[i - 1][j - 1]
+        dp3[i][j] %= mod
+      if i + 1 &lt;= D and j + s + 1 &lt;= D:
+        nxt[i + 1][j + s + 1] += dp3[i][j]
+        nxt[i + 1][j + s + 1] %= mod
+      if i + s + 1 &lt;= D and j + 1 &lt;= D:
+        nxt[i + s + 1][j + 1] += dp3[i][j]
+        nxt[i + s + 1][j + 1] %= mod
+
+  dp = nxt
+
+print(sum((sum(v) for v in dp)) % mod)
+</code></pre>
+
+<p>なお、この実装例は可読性のために定数倍が悪い実装になっています。TL に十分余裕を持って実装したい場合は、</p>
+
+<pre class="prettyprint linenums"><code>dp = [[0 for _ in range(D + 1)] for _ in range(D + 1)]
+</code></pre>
+
+<p>の部分を</p>
+
+<pre class="prettyprint linenums"><code>dp = [0] * (D + 1) * (D + 1)
+# dp[i * (D + 1) + j] で (i, j) 成分を参照
+</code></pre>
+
+<p>というように書き換えれば <span>\(2\)</span> 倍から <span>\(3\)</span> 倍程度高速に動作すると考えられるので、そのように実装することをお勧めします。</p>
+
+<ul>
+<li>TL が低速な言語に厳しめに設定されているのは、C++ による愚直なアルゴリズム (時間計算量 <span>\(\mathrm{O}(\frac{N D^3}{s})\)</span> ) がラフな実装でも 10 sec 前後で動作して、この解法を TLE させることを目的としたものです。(ここでの <span>\(s\)</span> は <code>pragma</code> 構文などを用いた自動ベクトル化による並列計算で同時に処理できるデータの個数で、 <span>\(s=8\)</span> または <span>\(16\)</span>)
+
+<ul>
+<li>鋭い方は「ナイーブな DP を落とすには <span>\(D\)</span> を大きくすればいいじゃないか」と考えるかもしれませんが( 2 つの解法の TL の比は <span>\(D/s\)</span> に依存するため)、TLE してほしい解法に <span>\(\mathrm{O}(N^2 D^2)\)</span> 解法も存在するため、これ以上 <span>\(D\)</span> を大きくすると相対的に <span>\(N\)</span> が小さくなって <span>\(\mathrm{O}(N^2 D^2)\)</span> 解法が通りやすくなってしまう問題があります。</li>
+</ul></li>
+</ul>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1661018635">
+				<time class="timeago" datetime="2022/08/21 03:03:55"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1661055336">
+				<time class="timeago" datetime="2022/08/21 13:15:36"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc265/editorial/4680?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 265">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc265/rules">ルール</a></li>
+					<li><a href="/contests/abc265/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

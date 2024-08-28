@@ -1,0 +1,156 @@
+(原案・準備・解説: gazelle)
+整数 N を K 進数で表したときの桁数が D であるとします。
+このとき位取り記数法の定義より、ある整数列 a0 , a1 , ..., aD−1 (0 ≤ ai < K, aD−1 ̸= 0) が存在
+して、
+
+N = aD−1 K D−1 + aD−2 K D−2 + ... + a0 K 0
+と書くことができます。ここで、
+
+N = (aD−1 K D−2 + aD−2 K D−3 + ... + a1 K 0 ) × K + a0
+と変形できることから、0 ≤ a0 < K を考えると N を K で割ったときの商が、
+
+aD−1 K D−2 + aD−2 K D−3 + ... + a1 K 0
+になることが分かります。aD−1 ̸= 0 なので、これは K 進数で表したときの桁数が D − 1 になる数
+です。
+この議論を繰り返し適用することで、N を K 進数で表したときの桁数を求めることができます。
+つまり、N を K で割ったときの商で置き換える、という操作を N が 0 になるまで行ったとき、操
+作を行った回数が N を K 進数で表したときの桁数になります (厳密には数学的帰納法を使って示し
+ます)。
+この計算は愚直に実行すると、桁数に比例する時間がかかります。桁数が非常に大きい場合に実行
+時間制限を超えてしまいそうに見えますが、実はこの問題の入力制約下では N の桁数は多くても数
+十程度になります。例えば N = 109 、K = 2 のとき、230 = 1073741824 > 109 であることから、N
+を 2 進数で表したときの桁数は高々 30 です。N が小さかったり K が大きい場合には桁数はこれよ
+り少なくなります。一般に整数 N を K 進数で表したときの桁数は、N の対数に比例します。これ
+は N と比べて非常に小さい値です。
+
+C++ による解法の実装例を Listing 3 に示します。
+Listing 3 C++ による実装例
+
+#include<bits/stdc++.h>
+2 using namespace std;
+1
+
+3
+4
+
+int main() {
+
+5
+
+int N, K;
+
+6
+
+cin >> N >> K;
+
+7
+
+int ans = 0;
+
+8
+
+while(N > 0) {
+
+9
+
+N /= K; // N をK で割った商に置き換える
+
+10
+
+ans++;
+
+3
+
+11
+
+}
+
+12
+
+cout << ans << endl;
+return 0;
+
+13
+14
+
+}
+
+4
+
+(draft, preparation, editorial: gazelle)
+Assume that the number of digits of integer N in base K is D.
+Then, by the deﬁnition of positional notation, there exists a sequence of integer
+a0 , a1 , ..., aD−1 (0 ≤ ai < K, aD−1 ̸= 0) such that
+N = aD−1 K D−1 + aD−2 K D−2 + ... + a0 K 0 .
+Since it can be deformed to
+N = (aD−1 K D−2 + aD−2 K D−3 + ... + a1 K 0 ) × K + a0 ,
+given that 0 ≤ a0 < K, it appears that the quotient of N divided by K is
+aD−1 K D−2 + aD−2 K D−3 + ... + a1 K 0 .
+Since aD−1 ̸= 0, it has D − 1 digits in base K.
+By applying this discussion repeatedly, we can ﬁnd the number of digits of N in base K.
+Therefore, when a operation of replacing an integer with its quotient divided by K is performed
+repeatedly until N becomes 0, The number of operations applied will be the number of digits of
+N in base K (strictly, it can be show by induction).
+When performed naively, this calculation takes time proportional to the number of digits. If
+the number of digits is very large, it seems that it may exceed the time limit, but in fact under
+the input constraints of this problem, N has at most several dozen of digits. For example, if
+N = 109 , K = 2, since 230 = 1073741824 > 109 , N has at most 30 digits in base 2. When N is
+smaller or K is larger, the number of digits is less than that. Generally, the number of digits of
+N in base K is proportional to logarithm of N , that is far less than N .
+C++ による解法の実装例を Listing 1 に示します。We will show an implementation example
+of solution in C++ in Listing 8.
+Listing 8 Sample code in C++
+1
+2
+
+#include<bits/stdc++.h>
+using namespace std;
+
+3
+4
+
+int main() {
+
+5
+
+int N, K;
+
+6
+
+cin >> N >> K;
+
+7
+
+int ans = 0;
+
+8
+
+while(N > 0) {
+
+9
+
+N /= K; // replace N with its quotient divided by K
+
+12
+
+ans++;
+
+10
+11
+
+}
+
+12
+
+cout << ans << endl;
+
+13
+
+return 0;
+
+14
+
+}
+
+13
+

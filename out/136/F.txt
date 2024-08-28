@@ -1,0 +1,42 @@
+まず、空でない部分集合は 2N − 1 通りあります。これらについて直接 f の値を考えるのではなく、各点が
+長方形に含まれるような集合が何個あるかを各点について求めることを考えます。
+ある点 P に注目しているとしましょう。P を中心に、P との x, y 座標の大小関係は 4 方向ありますが、
+このそれぞれに点が存在するかどうかという状態を固定すればこの P が長方形に含まれるかどうかが決まる
+ことがわかります。ある領域に K 個の点があるとした時、この領域に点が存在する場合は 2K − 1 通りで、
+点が存在しない場合は 1 通りです。例えばですが、点がそれぞれに存在するかどうかの 24 通りについて、長
+方形に P が含まれる場合にこれらをかけ合わせて足していけばよいです。(P が集合に含まれるかどうかに
+ついても場合分けが必要です)
+よって、各点 (xi , yi ) について x < xi , y < yi 、x < xi , y > yi 、x > xi , y < yi 、x > xi , y > yi それぞれ
+の領域についてそれぞれ何点存在するかが求まれば、答えを求めることができます。これはまず点の座標を
+
+1 − N に圧縮した後、点を x 座標についてソートし、x の小さい方からと大きい方からで 2 回 segment tree
+/ BIT (fenwick tree) を用いて各 y に存在する点の個数を管理していけば O(N logN ) で計算できます。
+以上でこの問題は O(N logN ) で解けました。
+解答例
+
+6
+
+ABC 136 Editorial
+DEGwer, drafear, evima, satashun
+August 4, 2019
+
+First, there are 2N − 1 non-empty subsets. Instead of counting the value of f for each of them, for
+each point, let’s count how many sets there are such that the point is contained in rectangles.
+Let’s focus on a point P . Depending on the comparison of the x- and y- coordinates with those of
+P , the coordinate system is divided into four regions, and if the presence of points in each region is
+determined, it can also be determined whether this P is contained in the rectangle or not. When a
+region contains K points, there are 2K − 1 subsets of those points such that there exists at least one
+point in the region, and 1 set such that none of them are in it. For instance, for each of 24 combinations
+of existence of each region, you can calculate the product of them if the rectangle contains P and sum
+them up. (You also have to check if P is included in the set)
+Therefore, you can ﬁnd the answer if you can count the number of points in each region x < xi , y < yi ,
+x < xi , y > yi , x > xi , y < yi and x > xi , y > yi for each point (xi , yi ). You can achieve this in
+O(N logN ) by compressing the coordinates into 1 − N , sorting the points by x-coordinate, and managing
+the number of points by their y-coordinates using segment tree / BIT (fenwick tree) twice, in its increasing
+and decreasing order.
+So this problem can be solved in O(N logN ).
+Link to sample code
+
+12
+
+

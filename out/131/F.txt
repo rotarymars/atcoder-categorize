@@ -1,0 +1,42 @@
+まず、このままでは考えにくいので問題を次のようにグラフの言葉で言い換えます。
+頂点 X1 , X2 , ..., X105 と 頂点 Y1 , Y2 , ..., Y105 がある。点 (x, y) が存在するとき、頂点 Xx と Yy の間に辺
+を張る。辺 a − b, a − d, c − b, c − d のうちちょうど 3 辺が存在するような a, b, c, d を選び残りの 1 辺を追加
+する、という操作を何回行うことができるか。
+初めに存在する点に対してグラフを構築すると、異なる連結成分を結ぶような辺は追加しようがないので、
+連結成分ごとに答えを求めて和を取ることで元の問題の答えが求まります。
+ここで、1 つの連結成分については、2 部グラフの両側 (X の頂点と Y の頂点) の全ての組について (元か
+ら存在した辺を除き) 辺が追加されることが示せます。概略ですが、両側の頂点数が 2 以上の時は全域木を 1
+つ取り、葉 (v) に繋がっているようなある辺 v − u を選び、u 側の連結成分について全ての辺を張った後それ
+らの辺を利用して v と結んでいき、どちらかの頂点数が 1 ならばその時点で連結なことにより全て結ばれて
+います。
+よって DFS などを用いて各連結成分について X と Y が何個含まれるか計算することでこの問題が解けま
+した。
+
+8
+
+ABC 131
+sheyasutaka, yuma000, DEGwer, gazelle, satashun
+06/22/2019
+
+First, for simpliﬁcation, let’s rephrase the problem with graph theory terms.
+There are vertices X1 , X2 , ..., X105 and vertices Y1 , Y2 , ..., Y105 . If there
+exist a point (x, y), add an edge between vertex Xx and Yy . How many times
+can you perform a operation to select a, b, c, d where there exist 3 edges out
+of 4 edges a − b, a − d, c − b, c − d and add the rest to the graph?
+Considering the graph is constructed from the initial points, you can
+never add edge between diﬀerent connected components, so you can ﬁnd the
+answer by calculating the answer for each connected component and then
+summing them up.
+It can be proved that for each connected component, the edges will be
+added between all the pairs of vertices between two sides of the bipartite
+graph (between vertices X and vertices Y ), except for the edges that originally existed. In a nutshell, if the number of vertices of both sides are more
+than or equals to 2, you can ﬁnd a spanning tree, select an edge v − u where
+v is a leaf, add all the edges for each vertex of the side containing u, then
+add edges to v using those edges; if the number of vertices of either side is
+1, it is connected already.
+Therefore, the problem could be solved by counting how many vertices X
+and Y there are for each connected component by using DFS or something.
+
+16
+
+

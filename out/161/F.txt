@@ -1,0 +1,31 @@
+割り算の操作を 1 度もしない場合、操作によって N mod K は変化しません。したがって、最終的
+に 1 になるためには N mod K = 1 であることが必要十分です。そのような K は N − 1 の約数の
+
+√
+
+うち、1 でないもの全てであり、その個数は O( N ) で求めることができます。
+割り算の操作を 1 度以上する場合、そのような K は N の約数です。実際に K で割り切れなくな
+るまで操作をしたあと、N mod K = 1 になっているかを確かめることにより、各約数毎に O(log N )
+で判定することができます。
+よって以上により問題が解けました。N および N − 1 の約数を求める部分がボトルネックとなり、
+
+√
+
+計算量は O( N ) となります。
+
+6
+
+If the operation of division is never performed, then N mod K stays constant by the operation.
+So, it will become 1 in the end if and only if N mod K = 1. Such K are all the divisors of N − 1
+√
+except for 1, and the number of them can be counted in a total of O( N ) time.
+If the operation of division is performed more than once, then such K is a divisor of N . Perform
+the operation until it is indivisible by K and check whether N mod K = 1, and it can be check
+in an O(log N ) time for each divisor.
+Therefore, here the problem has been solved. The bottleneck part is ﬁnding the divisors of N
+√
+and N − 1, and the total time complexity is O( N ).
+
+12
+
+

@@ -1,0 +1,25 @@
+連続する K 本のろうそくに火を付けるのが最適です．N 本のうち連続する K 本のろうそくを選ぶ方法は
+
+N − K + 1 通りしかないので，全探索することにします．連続する K 本のろうそくのうち，最も左のもの
+を l とし，最も右のものを r とします．l と r を訪れれば，自然と残りのろうそくを訪れることになります．
+よって，
+「座標 0 を出発し，座標 xl と座標 xr をともに訪れるための最短時間」が求めるべき値です．これは
+次の 2 通りの値の最小値です:
+
+• l → r の順に訪れる場合: |xl | + |xr − xl |
+• r → l の順に訪れる場合: |xr | + |xr − xl |
+連続する K 本のろうそくを選ぶ方法を全探索し，この値の最小値を求めれば，それが答えです．時間計算量
+は O(N ) です．
+
+1
+
+Clearly, we should light K consecutive candles. Let l, r be the leftmost/rightmost indices of candles
+we light. Since there are only N − K + 1 pairs of (l, r), let’s try them all.
+For a fixed (l, r), we should compute the minimum time required to visit both xl and xr (then all other
+candles between them will be visited too). There are two cases:
+• Visit in the order l → r: |xl | + |xr − xl |
+• Visit in the order r → l: |xr | + |xr − xl |
+The answer is the minimum of these values. This solution works in O(N ) time.
+
+1
+

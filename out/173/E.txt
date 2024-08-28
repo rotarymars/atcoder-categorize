@@ -1,0 +1,91 @@
+(解説：kyopro friends)
+まず K = N の場合は明らかです。また、Ai の全ての数が負かつ K が奇数のとき、答えは負にな
+ります。このときは絶対値が小さい方から K 個の積を取れば良いです。それ以外の場合、積は必ず
+非負にすることができます。
+
+(証明：値の大きい方から K 個の積を考える。これが非負なら OK。負なら、選んだ要素のうち最
+大の数 (仮定より正) を取り除き、かわりに選ばなかった要素のうち最小の数 (仮定より負) を加える
+ことで正になる)
+したがって、符号に気を付けながら絶対値の最大化をすればよいです。
+
+解法 1: 最後に符号を合わせる
+{Ai } を絶対値の降順にソートし、最初の K 個の積を P とします。P が非負なら答えは P です。
+P が負の場合、非負にするためには次の 2 種類の操作のどちらかをする必要があります。
+(1) 負の数を 1 つ取り除き、非負の数を 1 つ加える
+(2) 正の数を 1 つ取り除き、負の数を 1 つ加える
+操作後の積の絶対値を最大化するには、取り除く要素の絶対値はなるべく小さく、加える要素の絶対
+値はなるべく大きくするのがよいので、それぞれの操作で選ぶべき数は一意に決まります。比較の方
+法に気を付けながら*1 、より積が大きくなる方の操作を選べば良いです。そもそも一方の操作しか出
+来ない場合に注意してください。
+
+解法 2: 非負の状態を保ちながら積を最大化する
+S を空集合とします。「S の数の積が非負である」という条件を保ちながら、K 個の数を S に加え
+て積を最大化することを考えます。S の積が非負である状態を保ちながら要素を加える操作は全て、
+「非負の数を 1 つ加える」
+「負の数を 2 つ加える」という 2 種類の操作の繰り返しに分解できます。こ
+のことに注意すると、次のようなアルゴリズムで答えを得ることが出来ます。
+次の操作を S の要素が K 個になるまで繰り返す。
+操作：
+「まだ選んでいない非負の要素のうち絶対値が大きい順の 2 つ x1 , x2 の積」と「まだ選んでいな
+い負の要素のうち絶対値が大きい順の 2 つ y1 , y2 の積」を比較する。前者の方が大きいか |S| = K −1
+ならば x1 を S に加える。そうでなければ y1 , y2 を S に加える。
+*1 「xi を取り除いて yi を加える」(i = 1, 2) という 2 つの操作のどちらで積が大きくなるかは、|P/x1 ∗ y1 | ≤ |P/x2 ∗ y2 |
+
+かどうかがわかればよく、整理すると |x2 ∗ y1 | ≤ |x1 ∗ y2 | となり、今回の制約の下では 64bit 整数の範囲で計算でき
+ます。
+
+7
+
+これは、あらかじめ {Ai } を非負の数と負の数に分け、絶対値の降順にソートしておくことで高速
+に行えます。「まだ選んでいない非負の要素・負の要素」が 1 つ以下となる場合に注意してください。
+
+8
+
+(Editorial：kyopro friends)
+First, it is obvious when K = N . Also, when all Ai are negative and K is an odd number,
+then the answer is also negative. In such case, it is optimal to take K elements with the smallest
+absolute value. Otherwise, we can always choose such elements that their product is non-negative.
+(Proof: consider the product of K largest elements. If it is non-negative, it’s OK. If negative,
+remove the largest element from the chosen element (which is positive by assumption), and
+instead add the smallest element that was not chosen (which is negative by assumption); then
+the product will be positive)
+Therefore, all that left is to maximize the absolute value, while paying attention to the sign.
+
+Solution 1: Adjust the sign in the end
+Sort {Ai } in the decreasing order of absolute values, and let P be the product of the ﬁrst
+K element. If P is non-negative, then that is the answer. Otherwise, to make the product
+non-negative, you have to perform either of the following two operations:
+(1) Remove a negative element, and add a non-negative element
+(2) Remove a positive element, and add a negative element
+In order to maximize the absolute value of product after the operation, it is optimal to remove
+the element with the smallest absolute value as possible, and add the element with the largest
+absolute value as possible, so it can be uniquely determined which element to choose. Paying
+attention to the way of comparison *1 choose the operation which results in larger product. Note
+that one of those operations may not be available.
+
+Solution 2: Maximize the product while keeping it non-negative
+Let S be an empty set. Let us consider adding K elements to S and maximize the product,
+while keeping the condition that “the product of S is non-negative.” Any operation of adding
+elements while keeping the product of S non-negative can be decomposed to a repetition of two
+kinds of operations: “add one non-negative element” or “add to negative elements”. Considering
+this, we can ﬁnd the answer by the following algorithm.
+
+*1 Consider two operations of “removing xi and adding yi ” (i = 1, 2); which of them results in a larger product?
+
+We can decide by checking if |P/x1 ∗ y1 | ≤ |P/x2 ∗ y2 |, or equivalently, |x2 ∗ y1 | ≤ |x1 ∗ y2 |, which can be
+calculated in the range of 64-bit integer under the constraints in this problem.
+
+17
+
+Repeat the following operations until the number of elements of S becomes K.
+Operation: Compare “the product of two non-negative elements x1 , x2 with the largest absolute
+value which are not chosen yet” and “the product of two elements negative y1 , y2 with the largest
+absolute value which are not chosen yet”. If the former is the larger, or if |S| = K − 1, then add
+x1 to S. Otherwise, add y1 , y2 to S.
+This can be performed fast by splitting {Ai } into non-negative and negative numbers, and
+sorting them in the decreasing order of their absolute value respectively beforehand. Note that
+the number of “non-negative / negative elements which are not chosen yet” may be less than
+two.
+
+18
+

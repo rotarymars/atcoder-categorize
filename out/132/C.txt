@@ -1,0 +1,128 @@
+結論から言うと、
+
+N/2 番目に難しい問題が「ARC 用の問題」、N/2 − 1 番目に難しい問題が「ABC 用の問題」となる
+
+•
+
+こと
+「ARC 用の問題」の数と「ABC 用の問題」の数が同じになること
+
+•
+
+は、同値であると言えます。よって、解法は以下のようになります。
+
+1.
+
+問題を難易度順に昇順でソートする。
+
+2.
+
+N/2 番目の要素から、N/2 − 1 番目の要素を引いたものを出力する。
+
+多くの言語にはソート用のライブラリが用意されているので、それを利用するのが良いでしょう。(C++ な
+ら std::sort)
+以下が、C++ のサンプルコードです。
+1
+
+#include<iostream>
+
+2
+
+#include<algorithm>
+
+3
+
+#include<vector>
+
+4
+
+using namespace std;
+
+5
+6
+
+int main(){
+int N;cin>>N;
+
+7
+8
+
+vector<int>v(N);
+
+9
+
+for(int i=0;i<N;++i){
+cin>>v[i];
+
+10
+11
+
+}
+
+12
+
+sort(v.begin(),v.end());
+
+13
+
+int answer=v[v.size()/2]-v[v.size()/2-1];
+
+14
+15
+
+cout<<answer<<endl;
+
+16
+17
+
+return 0;
+
+18
+19
+
+}
+
+3
+
+To come to the point, the following two conditions are equivalent:
+• The N/2-th hardest problem is for ARCs and the N/2 − 1-th problem
+is for ABCs
+• The number of problems for ARCs and the number of problems for
+ABCs are same
+Therefore, you can solve it by following steps:
+1. Sort the problems in a increasing order of diﬃculty.
+2. Output the N/2-th element subtracted by the N/2 − 1-the element.
+You may use sorting library, which is available in many languages. (e.g.
+std::sort in C++)
+The following is an implementation example in C++.
+1 #include<iostream>
+2 #include<algorithm>
+3 #include<vector>
+4 using namespace std;
+5
+6 int main(){
+7
+int N;cin>>N;
+8
+vector<int>v(N);
+9
+for(int i=0;i<N;++i){
+10
+cin>>v[i];
+11
+}
+12
+sort(v.begin(),v.end());
+13
+14
+int answer=v[v.size()/2]-v[v.size()/2-1];
+15
+16
+cout<<answer<<endl;
+17
+18
+return 0;
+19 }
+
+9
+

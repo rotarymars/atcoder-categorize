@@ -1,0 +1,37 @@
+10100 は非常に巨大な数であるため、M 個の数の和はほぼ M × 10100 になります。”端数”の影響
+はわずかであることから、選んだ数の個数が異なると、和が等しくなることはありません。
+よって、選んだ数の個数が K, K + 1, ..., N + 1 の各場合に答えを求め、その和を取ればよいです。
+
+M 個の数を選ぶ場合、和としてあり得る最小値は、小さい方から M 個とった場合であり、最大値
+は大きい方から M 個取った場合です。実は最小値と最大値の間の値は全て作ることができます。
+（最
+小値から始めて、選ぶ数を少しずつ大きくしていくことを想像するとわかります）
+あとは最大値−最小値を求めることができればよいですが、この計算において M × 10100 は相殺さ
+れるので、初めから 10100 の部分を無視して計算してよいです。和を求める公式を利用する、あらか
+じめ累積和を求めておく、尺取法のように和を逐次更新していく、などの方法により、この値は O(1)
+で求めることができます。
+以上より、O(N ) 個の場合に対しそれぞれ O(1) の時間で答えを求めることができるので、全体で
+は O(N ) でこの問題が解けました。
+なお、この問題は O(1) で解くこともできます。
+
+5
+
+Since 10100 is a very large number, the sum of M numbers is almost M × 10100 . Since the
+contribution of the “fraction” is small enough, two sets with diﬀerent numbers of items have not
+the same sum in common.
+Therefore, it is suﬃcient to ﬁnd the answer where the number of chosen numbers are K, K +
+1, ..., N + 1 and sum them up.
+When choosing M numbers, the sum is minimum when the smallest M numbers are chosen,
+and the sum is maximum when the largest M numbers are chosen. Actually every value between
+the minimum and the maximum can be constructed. (You can see that by imagining increasing
+the chosen numbers little by little, starting from the minimum)
+All that left is ﬁnding maximum - minimum. In this calculation M × 10100 is cancelled out,
+so you can ignore 10100 in the ﬁrst place. This value can be calculated in an O(1) time with
+the methods like using the formula of calculating sums, precalculate the cumulative sums, or
+successively updating the sums like sliding windows.
+Hence, the answer can be found in a total of O(1) time for each of O(N ) cases, so the original
+problem could be solved in a total of O(N ) time.
+Bonus: this problem can also be solved in a total of O(1) time.
+
+11
+

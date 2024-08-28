@@ -1,0 +1,55 @@
+問題文の注記では文字列の先頭の文字を 1 文字目としていますが、ここでは 0 文字目とします。問題の内
+容を直感的に述べると、s を無限個連結して得られる文字列 s′ に t は最大で何連続で現れるか、となります。
+ここで、0 以上 |s| − 1 以下のすべての整数 i に対して、s′ の i 文字目から i + |t| − 1 文字目までの部分文
+字列が t と一致するか否か (この真偽値を matchi とします) が判明しているとします。すると、s′ の周期性
+を利用してシミュレーションを行うことで O(|s|) 時間で答えを求めることができます。グラフの言葉で表現
+すると、次のような有向グラフの最長パスの長さが答えとなります。
+
+• 0, 1, . . . , |s| − 1 の番号がついた |s| 個の頂点を持つ。
+• matchi = true のとき有向辺 i → (i + |t|) mod |s| が存在する。その他に辺はない。
+残るは match0 , . . . , match|s|−1 を時間内にすべて求めることです。もちろん、ナイーブに s′ と t を比較す
+ると最悪の場合に O((|s| + |t|) × |t|) 時間かかってしまい間に合いません。*1 しかしこれは古典的な問題であ
+り、この問題を高速に解くためのアルゴリズムが多く考案されています。線形時間で match0 , . . . , match|s|−1
+をすべて求めるアルゴリズムを二つ挙げます。
+
+• KMP 法 (Wikipedia の記事へのリンク)
+• Z algorithm (GeeksforGeeks の記事へのリンク)
+この他に文字列を非十進表記の数値とみなすローリングハッシュを用いる方法もありますが、剰余の計算を
+省くために数値を 264 で割った余りを用いると衝突するような入力を用意してありますのでご注意ください。
+
+*1 入力がランダムな文字列であればナイーブに比較しても大抵の場合すぐにマッチに失敗するため計算量の期待値は線形ですが、
+
+s = aaa...aa, t = aaa...ab のような繰り返しの多い文字列ではなかなかマッチに失敗しません
+
+6
+
+ABC 136 Editorial
+drafear, evima, gazelle, sheyasutaka, sigma425
+July 27, 2019
+
+In the notes in the problem statement, the ﬁrst letter of a string is regarded as the ﬁrst letter, but here
+let it 0-th letter. An intuitive restatement of the problem statement is: what is the maximum number
+of consecutive appearances of t in s′ , where s′ is an inﬁnitely repetition of the string s?
+Here, for each integer i from 0 through |s| − 1, suppose that it’s already known whether the substring
+of s′ from i-th letter through i + |t| − 1-th letter is equal to t (let this truth values be matchi ). Then you
+can ﬁnd the answer in O(|s|) by simulation, because s′ is periodic. In graph-theory terms, the answer is
+the longest path of the following directed graph such that:
+• the graph has |s| vertices, each of which is indexed 0, 1, . . . , |s| − 1.
+• the graph has a directed edge i → (i + |t|) mod |s| if matchi = true. There are no edges otherwise.
+The remaining task is to ﬁnd all the match0 , . . . , match|s|−1 in time. Of course, if you compare s′ and
+t naively, it will need a time of O((|s| + |t|) × |t|) at worst, so it won’t ﬁnish in time. *1 However, this is
+a very classic problem and many algorithms are invented to solve it fast. The following two algorithms
+are some of the ways to ﬁnd all the match0 , . . . , match|s|−1 in a linear time.
+• KNP algorithm (a link to Wikipedia article)
+• Z algorithm (A link to GeeksforGeeks article)
+Otherwise you can also use rolling hash algorithms by regarding the string as non-decimal numbers,
+but we prepared an input case such that collision would happen if you use mod 264 in order to avoid the
+modulo operations.
+
+*1 If the input is random, the match would fail in most case so the expected time complexity is linear, but if the string
+
+has many repetition, such as s = aaa...aa, t = aaa...ab, it will take long time until the match fails
+
+13
+
+

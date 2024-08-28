@@ -1,0 +1,21 @@
+O(N K) 解法
+最後のテストの得点を 0 点から K 点まで順に全探索し、初めて平均点が M 点以上になった時の
+点数が答えです。
+
+O(N ) 解法
+「N 科目の平均点が M 点以上」というのは、「N 科目の合計点が N ∗ M 点以上」と同じです。
+よって、最後のテストで は N ∗ M − (A1 + . . . + AN −1 ) 点以上を取れば目標を達成できます。
+
+2
+
+O(N K) Solution
+Brute force through all the possible scores from 0 points to K points, and when the average
+score is more than or equal to K points for the ﬁrst time, the score then is the answer.
+
+O(N )Solution
+“The average score of K subjects are more than or equal to M ” is equivalent to “the sum of
+scores of K subjects is more than or equal to N ∗ M .” Therefore, he can achieve the goal if he
+gets more than or equal to N ∗ M − (A1 + . . . + AN −1 ) points for the last test.
+
+8
+

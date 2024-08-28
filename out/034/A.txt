@@ -1,0 +1,72 @@
+
+2023/1/27
+
+©AtCoder Inc. All rights reserved.
+
+3
+
+
+• 整数X, Yが与えられる。
+• X<YならBetter、そうでないならWorseを出力しなさい
+• 制約
+– 0 ≦ X, Y ≦ 100
+– X≠Y
+
+2023/1/27
+
+4
+
+
+• 基本的なプログラムの流れ
+– 標準入力から、必要な入力を受け取る
+• 今回の場合は、 X, Y という2つの整数
+
+– 問題で与えられた処理を行う
+• 今回は、X<Yの大小関係の判定
+
+– 標準出力へ、答えを出力する
+
+2023/1/27
+
+5
+
+
+• 入力
+– 2つの整数を、標準入力から受け取る
+• Cであれば、scanf(“%d %d”, &X, &Y); など
+• C++であれば、cin >> X >> Y;
+• 入力の受け取り方は、下記の練習問題に記載があります。
+– http://practice.contest.atcoder.jp/tasks/practice_1
+
+2023/1/27
+
+6
+
+
+• 今回の問題は、X, Yの大小関係を出力する
+• X, Yの大小関係ってどう求めればいいの？
+– 不等号で判定して、If ～ else文で分岐しちゃいましょう。
+– 例えばこんな感じ
+
+string ans;
+if(X < Y) ans = “Better”;
+else ans = “Worse”;
+
+2023/1/27
+
+7
+
+
+• 出力
+– 求めた答えを、標準出力より出力する。
+– 言語によって違います。
+• printf(“%s¥n”, ans); (C)
+• cout << ans << endl; (C++)
+• System.out.println(ans); (Java)
+• 各言語の標準出力は、下記の練習問題に記載があります。
+– http://practice.contest.atcoder.jp/tasks/practice_1
+
+2023/1/27
+
+8
+

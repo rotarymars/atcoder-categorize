@@ -1,0 +1,52 @@
+a =′ H ′ , b =′ H ′ の場合は ′ H ′ を、a =′ H ′ , b =′ D′ の場合は ′ D′ を、a =′ D′ , b =′ H ′ の場合は ′ D′ を、
+a =′ D′ , b =′ D′ の場合は ′ H ′ を出力すればよいです。コードにすると次のようになります。
+int main (){
+char a , b ;
+cin >> a >> b ;
+if ( a == ’H ’ && b == ’H ’)
+if ( a == ’H ’ && b == ’D ’)
+if ( a == ’D ’ && b == ’H ’)
+if ( a == ’D ’ && b == ’D ’)
+return 0;
+}
+
+cout
+cout
+cout
+cout
+
+<<
+<<
+<<
+<<
+
+’H ’;
+’D ’;
+’D ’;
+’H ’;
+
+int main (){
+char a , b ;
+cin >> a >> b ;
+if ( a == ’H ’ && b == ’H ’)
+if ( a == ’H ’ && b == ’D ’)
+if ( a == ’D ’ && b == ’H ’)
+if ( a == ’D ’ && b == ’D ’)
+return 0;
+}
+
+cout
+cout
+cout
+cout
+
+<<
+<<
+<<
+<<
+
+’H ’;
+’D ’;
+’D ’;
+’H ’;
+

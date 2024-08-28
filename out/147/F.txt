@@ -1,0 +1,35 @@
+S と T の和は一定であるので、S − T = S − (U − S) = S ∗ 2 − U (U は全ての和) より、 差の代
+わりに S の和として考えられるものの個数を求めれば良いです。
+まず、D = 0 の場合、X が N 個あります。X = 0 のとき、和は 0 のみです。X ̸= 0 のとき、和
+は 0, X, · · · N ∗ X の N + 1 通りです。
+以下では D ̸= 0 の場合を考えます。D < 0 の場合は、S と T の寄与を入れ替えることを考える
+と、X = −X, D = −D として解いても同じことがわかるので、D > 0 とします。
+
+S 側が k(0 ≤ k ≤ N ) 個の元から成るとします。数列 X + i ∗ D(0 ≤ i < N ) の和は k ∗ X + I ∗ D
+(I は i の和) の形をしており、0 + 1 + · · · + (k − 1) ≤ I ≤ (N − k) + (N − k + 1) · · · + (N − 1) を
+満たしますが、この範囲の全ての整数を取ることができます。
+つまり、各 k について mod D で同じ整数から成る連続した区間を成しており、これらの和集合が
+求める答えとなります。これは k ∗ X mod D ごとに区間をソートしておくと求めることができます。
+以上の時間計算量は O(N logN ) であり、十分高速です。(答えのオーダーは O(N 3 ) です)
+
+6
+
+Since the sum of S and T is constant and S − T = S − (U − S) = S ∗ 2 − U (where U is the
+sum of all the elements), it is suﬃcient to count the number of possible sums of S instead of
+diﬀerences.
+First, if D = 0, there are N X’s. If X = 0, then the only sum is 0. If X ̸= 0, then there are
+N + 1 possible sums, 0, X, · · · N ∗ X.
+Hereinafter we assume that D ̸= 0. If D < 0, then the contribution of S and T can be swapped,
+so we can solve this problem under conditions of X = −X, D = −D, so we assume that D > 0.
+Assume that S consists of k(0 ≤ k ≤ N ) elements. The sum of a sequence X +i∗D(0 ≤ i < N )
+can be represented as k ∗ X + I ∗ D (where I is sum of i’s), and it holds that 0 + 1 + · · · + (k − 1) ≤
+I ≤ (N − k) + (N − k + 1) · · · + (N − 1). Actually I can be any integers in this range.
+Therefore, for each k it forms a continuous sequence, each element of which has same remainder
+mod D, and the answer is the union of them. You can ﬁnd this by sorting the segments for each
+k ∗ X mod D.
+The total time complexity is O(N logN ), and it’s fast enough. (The answer will have an O(N 3 )
+size.)
+
+12
+
+

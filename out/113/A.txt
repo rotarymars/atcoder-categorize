@@ -1,0 +1,16 @@
+
+Discount Fare
+
+鉄道の運賃が X 円、バスの運賃が Y 円のとき、A 駅から C 駅まで移動するのに X + Y ÷ 2
+円かかります。
+よって、X + Y ÷ 2 を出力します。
+# include < cstdio >
+int X , Y ;
+int main ()
+{
+scanf ("% d % d " ,&X ,& Y );
+printf ("% d \ n " , X + Y /2);
+}
+
+1
+

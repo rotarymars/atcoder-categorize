@@ -1,0 +1,55 @@
+ある幼稚園の中で最もレートの高い幼児を、その幼稚園の最強園児と呼ぶことにします。
+以下のようなデータを管理することで時系列順に答えを求めてゆくことができます。
+
+• それぞれの園児が所属する幼稚園の番号
+• それぞれの幼稚園に所属する幼児のレートの順序付き多重集合（幼稚園一つに対して一つ）
+• それぞれの幼稚園の最強園児のレートの順序付き多重集合（全体に対して一つ）
+順序付き多重集合は C++ の multiset などを用いることで高速に処理することができます。
+それぞれのクエリでは、以下のような変更操作を行います。
+
+• 最強園児のレートの集合から、転園する園児の元の幼稚園の元の最強園児のレートを、削除
+する
+
+• 最強園児のレートの集合に、転園する園児の元の幼稚園の新しい最強園児のレートを、挿入
+する（園児が一人もいない場合何もしない）
+
+• 最強園児のレートの集合から、転園する園児の新しい幼稚園の元の最強園児のレートを、削
+除する（園児が一人もいない場合何もしない）
+
+• 最強園児のレートの集合に、転園する園児の新しい幼稚園の新しい最強園児のレートを、挿
+入する
+
+• 転園する園児の元の幼稚園のレートの集合から、転園する園児のレートを、削除する
+• 転園する園児の新しい幼稚園のレートの集合に、転園する園児のレートを、挿入する
+• 転園する園児の所属する幼稚園の番号を更新する
+以上の変更操作の後、最強園児のレートの集合の中の最も小さい値を出力すれば良いです。計算
+量は O(NlogN) です。
+
+5
+
+We will refer to the infant with the highest rating in a kindergarten as the “strongest infant” in the
+kindergarten.
+By managing the following data, you can find the answer in the chronological order.
+• The index of Kindergarten to which each infant belongs
+• Ordered multiset of ratings of infants who belong to each kindergarten (one multiset for one
+kindergarten each)
+• A multiset of ratings of the strongest infants of all the kindergartens (one common multiset for
+all of them)
+Ordered multisets can be processed fast by using, for instance, multiset in C++.
+For each query, perform the following update operations.
+• Erase the rating of the former strongest infant in the former kindergarten of the infant who will
+transfer from the set of ratings of the strongest infants
+• Insert the rating of the new strongest infant in the former kindergarten of the infant who will
+transfer to the set of ratings of the strongest infants (or do nothing if no infants are there)
+• Erase the rating of the former strongest infant in the new kindergarten of the infant who will
+transfer from the set of ratings of the strongest infants (or do nothing if no infants are there)
+• Insert the rating of the new strongest infant in the new kindergarten of the infant who will
+transfer to the set of the ratings of the strongest infants
+• Erase the rating of the infant who will transfer from the set of ratings of the former kindergarten
+• Insert the rating of the infant who will transfer to the set of ratings of the new kindergarten
+• Update the index of kindergarten that the infant who will transfer belongs to
+After the update operations above, print the lowest rating of the set of ratings of the strongest infants.
+The total time complexity is O(NlogN).
+
+11
+

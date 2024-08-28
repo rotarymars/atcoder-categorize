@@ -1,0 +1,83 @@
+
+Practical Skill Test
+
+初めに、1 以上 H × W 以下の全ての整数に対して、その整数がどのマスに書かれているかを
+記録しておきます。
+以下、整数 i はマス (pxi , pyi ) に書かれているものとします。
+次に、D が全てのクエリにおいて共通の値となっているので、D を利用することを考えます。
+Ri − Li が D の倍数であることが保証されているため、D で割った余りを用いて累積和の方式
+を用いることができます。
+- di = 0 (1 ≤ i ≤ D)
+- di = di−D + |pxi − pxi−D | + |pyi − pyi−D | (D + 1 ≤ i)
+とすると、実技試験において駒を L から R まで移動するのに消費される魔力は dR − dL とな
+ります。
+# include < cstdio >
+# define abs ( x ) (( x >0)? x :( -( x )))
+int H ,W ,D , A ;
+int Q ,L , R ;
+int px [90001] , py [90001];
+int d [90001];
+int main ()
+{
+scanf ("% d % d % d " ,&H ,& W ,& D );
+for ( int i =0; i < H ; i ++)
+{
+for ( int j =0; j < W ; j ++)
+{
+scanf ("% d " ,& A );
+px [ A ]= i , py [ A ]= j ;
+}
+}
+for ( int i = D +1; i <= H * W ; i ++)
+d [ i ]= d [i - D ]+ abs ( px [ i ] - px [i - D ])+ abs ( py [ i ] - py [i - D ]);
+scanf ("% d " ,& Q );
+while (Q - -)
+{
+scanf ("% d % d " ,&L ,& R );
+printf ("% d \ n " , d [ R ] - d [ L ]);
+}
+}
+
+3
+
+
+Practical Skill Test
+
+First, memorize where the number is written,in all number in 1 to H × W .
+Consider as number i is written in (pxi , pyi ).
+Next,D is common in every query,so thinking about the way to use D.
+Ri − Li can divided by D,so it is OK to use cumulative sum.
+Consider as
+- di = 0 (1 ≤ i ≤ D)
+- di = di−D + |pxi − pxi−D | + |pyi − pyi−D | (D + 1 ≤ i)
+,the sum of magic points consumed to move a piece from L to R in test is dR − dL .
+# include < cstdio >
+# define abs ( x ) (( x >0)? x :( -( x )))
+int H ,W ,D , A ;
+int Q ,L , R ;
+int px [90001] , py [90001];
+int d [90001];
+int main ()
+{
+scanf ("% d % d % d " ,&H ,& W ,& D );
+for ( int i =0; i < H ; i ++)
+{
+for ( int j =0; j < W ; j ++)
+{
+scanf ("% d " ,& A );
+px [ A ]= i , py [ A ]= j ;
+}
+}
+for ( int i = D +1; i <= H * W ; i ++)
+d [ i ]= d [i - D ]+ abs ( px [ i ] - px [i - D ])+ abs ( py [ i ] - py [i - D ]);
+scanf ("% d " ,& Q );
+while (Q - -)
+{
+scanf ("% d % d " ,&L ,& R );
+printf ("% d \ n " , d [ R ] - d [ L ]);
+}
+}
+
+6
+
+

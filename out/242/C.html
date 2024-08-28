@@ -1,0 +1,487 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 242</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 242" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc242/editorial/3515" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 242" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc242";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-03-05T21:00:00+09:00");
+			var endTime = moment("2022-03-05T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 242が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 242は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc242">AtCoder Beginner Contest 242</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc242/editorial/3515?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc242/editorial/3515?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc242%2Feditorial%2F3515">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc242%2Feditorial%2F3515">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc242%2Feditorial%2F3515">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220305T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-03-05 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20220305T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-03-05 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc242"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc242/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc242/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc242/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc242/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc242/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc242/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc242/tasks/abc242_c">C - 1111gal password</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-1.png" class="user-rating-stage-m"><a href="/users/physics0523" class="username"><span class="user-orange">physics0523</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題は、動的計画法(DP)によって解くことができます。この解説では <span>\(2\)</span> 種類の方針を説明します。</p>
+
+<p>以下の解説では、各桁が <span>\(1\)</span> 以上 <span>\(9\)</span> 以下の整数であって、隣合う桁の差が <span>\(1\)</span> 以下であるようなものを「平坦数」と呼びます。</p>
+
+<h3>方針1: 漸化式を立ててDPを設計する</h3>
+
+<p>例として、最初のサンプルで考えてみましょう。<br>
+<span>\(4\)</span> 桁の平坦数は何個あるでしょうか？</p>
+
+<p>そのようなものの個数を、場合分けによって数えてみましょう。<br>
+いろいろな場合分けの方法がありますが、例えば先頭の桁が何であるかによって場合分けするというのが自然な方法の一つです。<br>
+例えば、最初の桁を <span>\(7\)</span> とするとどうなるでしょうか？</p>
+
+<blockquote>
+<p><span>\(7???\)</span></p>
+</blockquote>
+
+<p>この場合、後ろの <span>\(3\)</span> つの <span>\(?\)</span> を埋めて平坦数にする方法が何通りかを求めたいです。
+この答えを、 <span>\(f(7???)\)</span> と書くことにしましょう。</p>
+
+<p>これも簡単には求まらないので、さらに場合分けを進めてみます。<br>
+次は二番目の桁で場合分けをしてみるのが自然な発想です。
+条件より、二番目の桁は <span>\(6, 7, 8\)</span> のいずれかでなければなりません。</p>
+
+<blockquote>
+<p><span>\(76??\)</span><br>
+<span>\(77??\)</span><br>
+<span>\(78??\)</span></p>
+</blockquote>
+
+<p>つまり、 <span>\(f(7???) = f(76??) + f(77??) + f(78??)\)</span> となります。</p>
+
+<p>ここで、 <span>\(76??\)</span> の <span>\(?\)</span> を平坦数になるように埋める方法の個数は、 <span>\(6??\)</span> の <span>\(?\)</span> を平坦数になるように埋める方法の個数と等しいです。( <span>\(76??\)</span> の先頭の <span>\(7\)</span> は、これ以降の <span>\(?\)</span> を埋める際に影響を及ぼしません。)</p>
+
+<blockquote>
+<p><span>\(f(76??) = f(6??)\)</span></p>
+</blockquote>
+
+<p>ということになります。これと上の考察とを合わると、</p>
+
+<blockquote>
+<p><span>\(f(7???) = f(6??) + f(7??) + f(8??)\)</span></p>
+</blockquote>
+
+<p>という<span>\(f\)</span> に関する簡単な漸化式が得られました。</p>
+
+<p>ここからは、この漸化式を繰り返し適用します。
+たとえば、上の式の右辺を求めるために <span>\(f(6??)\)</span> を知りたい場合は、ここまでと同様な考えで得られる</p>
+
+<blockquote>
+<p><span>\(f(6??) = f(5?) + f(6?) + f(7?)\)</span></p>
+</blockquote>
+
+<p>という式を用います。
+このように繰り返していく時、 <span>\(f\)</span> の中に入るものは、常に先頭だけが数字で残りが <span>\(?\)</span> であるものに出来ることに注目してください。<br>
+そこで、そのような形で書けるものに対する <span>\(f\)</span> の値を全て順番に求めていくことにします。</p>
+
+<p>二次元配列 <span>\(dp[][]\)</span> を作り、 <span>\(dp[n][k]\)</span> には <span>\(f(k??? \dots???)\)</span> (括弧の中身は、先頭が <span>\(k\)</span> で、その後ろに <span>\(?\)</span> が <span>\(n-1\)</span> 個並ぶ文字列) の値を入れます。
+たとえば、 <span>\(dp[4][7] = f(7???)\)</span> です。
+先程求めた漸化式を用いると、 <span>\(dp[4][7] = dp[3][6] + dp[3][7] + dp[3][8]\)</span> となります。</p>
+
+<p>この配列を正しい値で埋めるためには、どのようにすればよいでしょうか？<br>
+例えば、 <span>\(dp[4][7]\)</span> を正しく求めるためには、 <span>\(dp[3][6], dp[3][7], dp[3][8]\)</span> の値が既に正しく求まっている必要があります。<br>
+今回の場合は、n の小さい順に埋めていけばよいです。(一般に、DPを設計する際は配列の埋める順番や埋め方に注意してください。)</p>
+
+<p>具体的な実装は以下のようになります。</p>
+
+<ul>
+<li><span>\(n = 1, 1 \le k \le 9\)</span> に対して、 <span>\(dp[n][k] = 1\)</span> とする</li>
+<li>次に <span>\(2\)</span> 以上の <span>\(n\)</span> に対して、 <span>\(n\)</span> の小さい順にループを回し、 <span>\(dp[n][k]\)</span> の値を埋めていく
+
+<ul>
+<li>例えば、 <span>\(dp[4][7] = dp[3][6] + dp[3][7] + dp[3][8]\)</span> とする。</li>
+</ul></li>
+</ul>
+
+<p>ただし、 <span>\(k = 1\)</span> または <span>\(k = 9\)</span> のときは実装上注意が必要です。
+詳しくは、解説ページ最下部の実装例を参考にしてください。</p>
+
+<h3>方針2: 平坦数の全列挙から解法を導く</h3>
+
+<p>まず、 <span>\(N\)</span> 桁の平坦数をうまく全列挙する方法を考えてみましょう。<br>
+<span>\(list[D][r]=\)</span> (末尾が <span>\(r\)</span> である <span>\(D\)</span> 桁の平坦数の集合) とし、これを <span>\(D\)</span> の小さい方から順に求めていきます。</p>
+
+<p>明らかに、 <span>\(list[1][i]=\{i\}\)</span> なのでここから始めます。<br>
+<span>\(list[D]\)</span> の各要素の末尾に桁をひとつ付け加えることにより、 <span>\(list[D+1]\)</span> を作成することを考えましょう。<br>
+明らかに、「 <span>\(X\)</span> が <span>\(D+1\)</span> 桁の平坦数である」ならば「 <span>\(X\)</span> の上から <span>\(D\)</span> 桁のみに着目してもその数は平坦数」です。なので、 <span>\(list[D+1]\)</span> に含まれるべき要素は <span>\(list[D]\)</span> に含まれる要素の末尾にひとつ桁を追加することで作ることができ、さらに、 <span>\(D\)</span> 桁の平坦数の末尾に桁を追加した際に <span>\(D+1\)</span> 桁の平坦数となる必要十分条件は、 <span>\(D\)</span> 桁の平坦数の末尾と追加する桁との差が高々 <span>\(1\)</span> であるということが分かります。<br>
+よって、この時行うべきことは以下です。</p>
+
+<ul>
+<li>整数 <span>\(1 \le i \le 9\)</span> について、以下を行う。
+
+<ul>
+<li>整数 <span>\(\max(1,i-1) \le j \le \min(9,i+1)\)</span> について、以下を行う。
+
+<ul>
+<li><span>\(list[D][i]\)</span> の全ての要素 <span>\(E\)</span> について、 <span>\(E\)</span> の末尾に <span>\(j\)</span> を付けたものを <span>\(list[D+1][j]\)</span> に加える。</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>例えば、  <span>\(list[2][9]=\{89,99\}\)</span> であり、 <span>\(list[3][8]\)</span> に <span>\(list[2][9]\)</span> の全要素の末尾に <span>\(8\)</span> を追加したものである <span>\(\{898,998\}\)</span> を追加するといったことを <span>\(D\)</span> の小さい方から順次行っていきます。<br>
+最終的な <span>\(N\)</span> 桁の平坦数の集合は <span>\(list[N]\)</span> 全体です。<br>
+ここで、当たり前ですが重要な事実として、 <span>\(list[D]\)</span> 全体の要素が全て相異なる時 <span>\(list[D+1]\)</span> 全体の要素も全て相異なります。<br>
+よって、漏れなくダブりなく平坦数を列挙することができることが分かりました。</p>
+
+<p>ですが、もちろん空間計算量的にも時間計算量的にも集合を管理するわけにはいかないので、条件を満たす整数の個数だけを求めます。</p>
+
+<p><span>\(dp[D][r]=\)</span> (末尾が <span>\(r\)</span> である <span>\(D\)</span> 桁の平坦数の <strong>個数</strong> ) を順次計算していくことを考えます。<br>
+これは、先程 <span>\(list\)</span> を作成した時の集合の要素数だけを計算していくことで求められます。本質的には <span>\(list\)</span> の作成と同じなのでこれ以上の詳細は省略します(実装例を参照してください)。</p>
+
+<p>注意事項として、 <span>\(998244353\)</span> で割った余りをとる必要があることに注意してください。これは、 <span>\(dp\)</span> を常に <span>\(998244353\)</span> で割った余りとして求めていくことで実現可能です。</p>
+
+<p>実装例(C++):</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define mod 998244353
+
+using namespace std;
+
+int dp[1048576][10]={0};
+
+int main(){
+  int n;
+  cin &gt;&gt; n;
+  for(int i=1;i&lt;=9;i++){dp[1][i]=1;}
+  for(int d=2;d&lt;=n;d++){
+    for(int i=1;i&lt;=9;i++){
+      for(int j=max(1,i-1);j&lt;=min(9,i+1);j++){
+        dp[d][j]+=dp[d-1][i];
+        dp[d][j]%=mod;
+      }
+    }
+  }
+  int res=0;
+  for(int i=1;i&lt;=9;i++){
+    res+=dp[n][i];
+    res%=mod;
+  }
+  cout &lt;&lt; res &lt;&lt; &#39;\n&#39;;
+  return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1646400261">
+				<time class="timeago" datetime="2022/03/04 22:24:21"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1646477923">
+				<time class="timeago" datetime="2022/03/05 19:58:43"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc242/editorial/3515?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 242">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc242/rules">ルール</a></li>
+					<li><a href="/contests/abc242/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

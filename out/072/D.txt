@@ -1,0 +1,21 @@
+pi ̸= i となっている部分に o を, そうでない部分に x をつけることにします。N 箇所全て o にな
+れば ok です。ox とならんでいる部分は、swap することで oo となります (xo も同様)。(∵ もともと
+
+pi = x(x ̸= i),pi+1 = i + 1 だったとすると、x ̸= i + 1 でもあるから、pi = i + 1 も pi+1 = x も o になる)
+xx とならんでいる部分も、swap することで oo となります。(∵ もともと pi = i(x ̸= i),pi+1 = i + 1 だっ
+たとすると、pi = i + 1 も pi+1 = i も o になる)
+従って、先頭から順番に見ていき、箇所 i に x があったら i と i + 1(i = N なら i − 1 と i) を swap する、
+とするのが最善になります。(i にある x を消すのに i − 1, i の swap と i, i + 1 の swap どちらかは必要で、前
+から見ると i − 1 はもう o なので i + 1 を巻き込んだほうが得)
+
+Define a sequence of ’o’ and ’x’ of length N as follows: if pi ̸= i, the i-th symbol is ’o’, otherwise the
+i-th symbol is ’x’. Our objective is to change this sequence to ’ooo...ooo’.
+• If there is a part ”ox” (or ”xo”) in the sequence, we can change it to ”oo” by swapping these
+two elements. (∵ If pi = x(x ̸= i) and pi+1 = i + 1 in the initial sequence, after the swap, both
+pi = i + 1 and pi+1 = x will be ’o’.)
+• If there is a part ”xx” in the sequence, we can change it to ”oo” by swapping these two elements.
+(∵ If pi = i(x ̸= i) and pi+1 = i + 1 in the initial sequence, after the swap, both pi = i + 1 and
+pi+1 = i will be ’o’.)
+Thus, we should check the sequence from left to right, and if we find an ’x’ at the i-th position, we
+should swap i and i + 1 (unless i = N , in this case we should swap i and i − 1).
+

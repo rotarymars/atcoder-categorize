@@ -1,0 +1,405 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 203（Sponsored by Panasonic）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 203（Sponsored by Panasonic）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc203/editorial/1964" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 203（Sponsored by Panasonic）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc203";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2021-05-30T21:00:00+09:00");
+			var endTime = moment("2021-05-30T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 203（Sponsored by Panasonic）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 203（Sponsored by Panasonic）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc203">AtCoder Beginner Contest 203（Sponsored by Panasonic）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc203/editorial/1964?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc203/editorial/1964?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc203%2Feditorial%2F1964">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc203%2Feditorial%2F1964">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc203%2Feditorial%2F1964">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210530T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-05-30 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210530T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-05-30 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc203"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc203/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc203/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc203/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc203/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc203/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc203/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc203/tasks/abc203_f">F - Weed</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-4.png" class="user-rating-stage-m"><a href="/users/mechanicalpenciI" class="username"><span class="user-orange">mechanicalpenciI</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>まず、問題の制約下で青木君の抜いた本数に関わらず <span>\(\lfloor\log_2 (\max(A_i))\rfloor+1\)</span> 回以下の操作で終了させられることを示します。 ( ただし、 <span>\(\lfloor x \rfloor\)</span> で <span>\(x\)</span> 以下の最大の整数を表します。)
+これは一度の操作で残っている草の高さが半分以下になる事から示せます。 <span>\(A_i&lt;2^{\lfloor\log_2 (\max(A_i))\rfloor+1}\)</span> より、 <span>\(\lfloor\log_2 (\max(A_i))\rfloor\)</span> 回操作を行ってまだ草が残っているとすると、その草の高さは <span>\(2\)</span> 未満ですからすべての草の長さは <span>\(1\)</span> です。よって <span>\(\lfloor\log_2 (\max(A_i))\rfloor+1\)</span> 回目の操作で終了します。</p>
+
+<p>さて、動的計画法でこの問題を解くことを考えます。
+まず先に草の長さを昇順にソートしておきます。
+すなわち <span>\(A_1\leq A_2\leq\cdots \leq A_N\)</span> であるとします。</p>
+
+<p><span>\(dp[i][j]={}\)</span>(草 <span>\(1\)</span> から草 <span>\(i\)</span> までが最初に庭に生えていると考えた時、<span>\(j\)</span> 回以下で操作を終了するために青木君が抜かなくてはならない最小の本数)</p>
+
+<p>とし、これを求めることを考えます。このとき上で示した事実と<span>\(\lfloor\log_2 (10^9)\rfloor+1=30\)</span> より、 <span>\(j\)</span> については <span>\(0\leq j\leq 30\)</span> の範囲を 考えればよいです。<br>
+次に初期値と遷移を考えます。まず、<span>\(i=0\)</span> ならば草は最初から <span>\(0\)</span> 本ですから、 <span>\(dp[0][j]=0\)</span> です。 <span>\(i\geq 1\)</span>に対しては定義からまず <span>\(dp[i][0]=i\)</span> であり、
+ <span>\(j\geq 1\)</span> について、草 <span>\(i\)</span> を青木君が抜いた場合の最小値は <span>\(dp[i-1][j]+1\)</span> です。一方、草 <span>\(i\)</span> を青木君が抜かなかった場合は、 <span>\(1\)</span> 度目の操作の前に残っている最も高い草の長さは <span>\(A_i\)</span> であるので、高さが <span>\(\frac{A_i}{2}\)</span> 以下の草のうち最も番号が大きいものを <span>\(f(i)\)</span> ( <span>\(\frac{A_i}{2}&lt;A_1\)</span> のときは<span>\(f(i)=0\)</span> )として、<span>\(dp[f(i)][j-1]\)</span> で与えられます。よって、 <span>\(dp[i][j]=\min(dp[i-1][j]+1,dp[f(i)][j-1])\)</span> と書けます。</p>
+
+<p>あとは <span>\(f(i)\)</span> が求まればこの動的計画法は完成します。
+しかしこれは定義より <span>\(f(i)\leq f(i+1)\)</span> であることを用いれば 、<span>\(f(i+1)\)</span> は <span>\(j=f(i)\)</span> から始めて <span>\(\frac{A_i}{2}&lt;A_{j+1}\)</span> である限り <span>\(j\)</span> を <span>\(1\)</span> ずつ増やしていき、そうでないときその時点での <span>\(j\)</span> を <span>\(f(i+1)\)</span> の値として定める事で求まり、これを繰り返して求めてゆけば、 全体で <span>\(O(N)\)</span> で求めることができます。
+また、各 <span>\(i\)</span> に対して二分探索で <span>\(O(\log N)\)</span> で求め全体で <span>\(O(N\log N)\)</span>で求めることもできます。これでも十分高速です。</p>
+
+<p>元の問題に戻って求めたいものを考えると <span>\(dp[n][j]\leq K\)</span> となる最小の <span>\(j\)</span> が高橋君の最小の操作回数であり、 このときの<span>\(dp[n][j]\)</span> の値が青木君が抜かなくてはならない最小の本数です。これで求めたいものがすべて求まりました。</p>
+
+<p>動的計画法のパートは遷移はそれぞれ <span>\(O(1)\)</span> で出来るので全体で<span>\(O(N\log (\max(A_i)))\)</span> となり、
+<span>\(f(i)\)</span> を <span>\(1\)</span> つ目の <span>\(O(N)\)</span> の方法 で求めたとすると全体で <span>\(O(N\log (\max(A_i)))\)</span> で求まります。
+これで十分高速にこの問題を解く事が出来ました。</p>
+
+<p>C++による実装例:</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+#define N 200010
+#define rep(i, n) for(int i = 0; i &lt; n; ++i)
+
+int main(void) {
+	int n, k;
+	int a[N];
+	int dp[N][31];
+	int b[N];
+	cin &gt;&gt; n &gt;&gt; k;
+	rep(i, n)cin &gt;&gt; a[i];
+	sort(a, a + n);
+	int cur = 0;
+	rep(i, n) {
+		while (a[cur] &lt;= (a[i] / 2))cur++;
+		b[i] = cur;
+	}
+	rep(j, 31)dp[0][j] = 0;
+	rep(i, n) {
+		dp[i + 1][0] = dp[i][0] + 1;
+		rep(j, 30) {
+			dp[i + 1][j + 1] = min(dp[i][j + 1] + 1, dp[b[i]][j]);
+		}
+	}
+	rep(j, 31) {
+		if (dp[n][j] &lt;= k) {
+			cout &lt;&lt; j &lt;&lt; &#34; &#34; &lt;&lt; dp[n][j] &lt;&lt; endl;
+			return 0;
+		}
+	}
+	return 0;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1622313050">
+				<time class="timeago" datetime="2021/05/30 03:30:50"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1622382129">
+				<time class="timeago" datetime="2021/05/30 22:42:09"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc203/editorial/1964?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 203（Sponsored by Panasonic）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc203/rules">ルール</a></li>
+					<li><a href="/contests/abc203/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

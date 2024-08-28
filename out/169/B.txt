@@ -1,0 +1,113 @@
+Ai に 0 が含まれる場合、答えは 0 です。そうでない場合を考えます。
+64bit 整数でそのまま掛け算を行うとオーバーフローします。倍精度浮動小数点数で計算を行う
+と精度が足りません。多倍長整数で最後まで計算すると TLE します。したがって何らかの工夫が
+必要です。
+
+Python などの多倍長整数が使える言語や、128bit 整数が使える環境であれば「積が 1018 が超え
+た時点で -1 を出力する」とすることで解くことができます。
+
+Python での実装例
+def main ():
+N = int(input ())
+A = list(map(int ,input (). split ()))
+if 0 in A:
+print (0)
+return
+prod = 1
+for a in A:
+prod *= a
+if prod > 1000000000000000000:
+print ( -1)
+return
+print (prod)
+main ()
+
+そうでない場合も、1018 を超えるかどうかの判定を乗算ではなく除算で行う必要がありますが、
+同様の方針で解くことができます。
+
+C 言語での実装例
+#include <stdio .h>
+long long a [100010];
+int main (){
+int n;
+scanf ("%d" ,&n);
+for(int i=0;i<n;i++) scanf("%lld" ,&a[i]);
+int zero =0;
+2
+
+for(int i=0;i<n;i++) if(a[i ]==0) zero ++;
+if(zero >0){
+// a[i] contains 0
+printf ("0\n");
+return 0;
+}
+long long prod =1;
+for(int i=0;i<n;i++){
+if(a[i ] <=1000000000000000000/ prod ){
+// This condition is equivalent to prod*a[i] <=10ˆ18
+prod *=a[i];
+}else{
+printf (" -1\n");
+return 0;
+}
+}
+printf ("%lld\n",prod );
+}
+
+3
+
+If Ai contains 0, then the answer is 0. We will consider otherwise.
+If you directly perform multiplication on 64-bit integers, it causes overﬂow. Double-sized ﬂoating
+point numbers do not have enough precisions. Multiplying entirely using multiple-precision integers
+leads to TLE. Therefore, we need to devise some good way.
+In the programming language where multiple-precision integers like Python, or in the environment
+where 128-bit integers are available, it can be solved by “outputting -1 immediately after the product
+exceeded 1018 .”
+Sample code in Python
+def main ():
+N = int(input ())
+A = list(map(int ,input (). split ()))
+if 0 in A:
+print (0)
+return
+prod = 1
+for a in A:
+prod *= a
+if prod > 1000000000000000000:
+print ( -1)
+return
+print (prod)
+main ()
+Otherwise, you can still solve it in a similar way, although you have to check if it exceed 1018 by
+performing division instead of multiplication.
+Sample code in C
+#include <stdio .h>
+long long a [100010];
+int main (){
+int n;
+scanf ("%d" ,&n);
+for(int i=0;i<n;i++) scanf("%lld" ,&a[i]);
+int zero =0;
+9
+
+for(int i=0;i<n;i++) if(a[i ]==0) zero ++;
+if(zero >0){
+// a[i] contains 0
+printf ("0\n");
+return 0;
+}
+long long prod =1;
+for(int i=0;i<n;i++){
+if(a[i ] <=1000000000000000000/ prod ){
+// This condition is equivalent to prod*a[i] <=10ˆ18
+prod *=a[i];
+}else{
+printf (" -1\n");
+return 0;
+}
+}
+printf ("%lld\n",prod );
+}
+
+10
+

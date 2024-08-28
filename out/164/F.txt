@@ -1,0 +1,73 @@
+まず、2 進数表現したときの各ビットの値は独立に決められるので、それぞれのビットで独立に考
+えます。そうすると N × N の行列に条件を満たすような 0, 1 を当てはめてる問題に落ちます。
+
+さて、各要素について、値を確定してよい部分を先に確定させましょう。
+各行及び各列について、「論理積が 1 」というのが条件だったとき、その行・列のすべての要素は 1
+である必要があります。
+同様に、「論理和が 0 」というのが条件だったとき、その行・列のすべての要素は必ず 0 である必要
+があります。
+さらに、確定していない各要素について、その要素が所属している行・列の条件の組み合わせが論理
+和、論理積にかかわらず同じ値だったとき、その要素をその値に確定しても問題ありません。
+ここまでの操作を「基本的な操作」とします。
+
+ここで、まだ確定していない要素をすべて 0 で埋めることにすると、各行・各列について「論理和が
+
+1 」であるという条件が満たせない場合があります。
+まず、行の「論理和が 1 」という条件を満たすことを考えましょう。条件を満たすには対応する行に
+所属する要素 1 つを適切に選んで 1 にすればよいです。
+そもそも、一連の基本的な操作で条件を満たすことができなかった場合、列は「論理積が 0 」と「論
+理和が 0 」の場合で構成されているときのみであることがわかります。
+「論理和が 0 」の場合その列の要素はすべて 0 である必要がありますので、「論理積が 0 」の列と現
+在見ている行に所属する要素 1 つを適切に選んで 1 にかえる必要があります。
+具体的には、
+「論理積が 0 」の列 1 つを選んで、その列に 0 が 1 個以上残るならば、対応する要素 1
+つを 1 に変えます。
+
+列の「論理和が 1 」という条件を満たすことは同様の操作で可能です。
+
+一連の操作に矛盾が発生した場合、すべての条件を満たす行列は構築できないことがわかります。
+
+実装例: https://atcoder.jp/contests/abc164/submissions/12391952
+
+6
+
+First, when binary notated, the value of each bit can be determined independently, so we
+consider each bit independently. Then this problem falls into a construction of matrix of size
+N × N consisting of 0 and 1 that satisﬁes the conditions.
+
+Now, let us determine the elements where it can be determined ﬁrst.
+For each row and column, if the condition is that “the logical product is 1,” then all the elements
+of the row/column has to be 1.
+Similarly, if the condition is that “the logical sum is 0,” then all the elements of the row/column
+has to be 0.
+Moreover, for each undetermined element, if the conditions of the row column that the element
+belongs was the same, no matter it is of logical sum or product, then the value of the element
+can be determined to that value.
+We will call the operations so far as “basic operations.”
+
+Then, if the undetermined elements are all ﬁlled by 0, then some conditions of rows/columns
+that “the logical sum is 1” may not be satisﬁed.
+First, let’s consider satisfying the condition that “the logical sum of a row is 1.” To satisfy the
+condition, we can appropriately choose one of the elements belongs to the corresponding row and
+set it 1.
+In the ﬁrst place, it can be seen that a condition could not be satisﬁed by the basic operations
+only if the columns are composed of “the logical product is 0” and “the logical sum is 0.”
+If “the logical sum is 0,” then all the elements of the column has to be 0, so we have to choose
+such a appropriate element that belongs to the column of “the logical product is 0” and the
+column we are currently looking at, and set its value 1.
+Speciﬁcally, choose a column such that “the logical product is 0,” and if 0 remains in the column,
+then pick a corresponding element and set it 1.
+
+Satisfying the conditions of “the logical product of the column is 1” can be satisﬁed by the similar
+operations.
+
+12
+
+If any of those operations leads to contradiction, then it appears that a matrix that satisﬁes all
+the conditions cannot be constructed.
+
+Sample Code: https://atcoder.jp/contests/abc164/submissions/12391952
+
+13
+
+

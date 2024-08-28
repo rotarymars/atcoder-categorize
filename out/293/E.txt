@@ -1,0 +1,43 @@
+
+		公式
+		
+			
+				E - Geometric Progression 解説
+			
+			by cn449
+			
+		
+		
+		
+		
+			数列 \((a_n)\) を \(a_n = \displaystyle\sum_{i=0}^{n-1} A^i\) で定めると、\(a_0 = 0\)、\(a_{n+1} = Aa_n + 1\) を満たします。求めるべきものは \(a_X \bmod M\) です。
+
+ここで、上の漸化式より行列を用いて \(\begin{pmatrix} a_{n+1} \\ 1 \end{pmatrix} = \begin{pmatrix} A & 1 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} a_n \\ 1 \end{pmatrix}\) と表すことができます。
+
+\(a_0 = 0\) であったため、\(\begin{pmatrix} a_X \\ 1 \end{pmatrix} = \begin{pmatrix} A & 1 \\ 0 & 1 \end{pmatrix}^X \begin{pmatrix} 0 \\ 1 \end{pmatrix}\) です。
+
+\(\begin{pmatrix} A & 1 \\ 0 & 1 \end{pmatrix}^X\) の各成分を \(M\) で割った余りは繰り返し二乗法を用いて \(O(\log X)\) で求めることができます（整数の \(X\) 乗を \(M\) で割った余りを求めるのと同様の要領です）。
+
+よってこの問題を \(O(\log X)\) で解くことができました。
+
+なお、\(\displaystyle\sum_{i=0}^{X-1} A^i = \frac{A^X-1}{A-1}\) ですが、これを利用して解こうとする場合 \(\text{mod } M\) における \(A-1\) の逆元が存在するとは限らないことに注意してください。
+
+実装例
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

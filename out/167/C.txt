@@ -1,0 +1,26 @@
+どの参考書を購入するかを決めると、それらを読むことによってすべての理解度を X 以上にでき
+るかどうかの判定は難しくありません。
+そこで、購入する参考書の組み合わせ全てについて上記の判定をし、条件を満たすもののなかでの合
+計金額の最小値を求めることにしましょう。
+購入する参考書の組み合わせは、各参考書について 買う or 買わない を選ぶ場合の数なので全部で
+
+2N 通りです。1 回あたりの判定は O(N M ) でできるので計算量は全体で O(2N N M ) であり、今回
+の制約においては十分高速です。
+購入する参考書の組を全探索する部分の実装は、「深さ優先探索」あるいは 集合を整数にエンコード
+する (いわゆる「bit 全探索」) などを用いるとよいでしょう。
+以下は C++ における bit 全探索での実装例です。https://atcoder.jp/contests/abc167/submissions/13086283
+
+3
+
+If the books to buy are determined, then it is not diﬃcult to check if it is available to make
+all his understanding levels X or higher.
+So, let’s perform the check for all the combination of books and ﬁnd the minimum sum of money
+among the satisfying combinations.
+The number of combinations of books is 2N , since you have choices of whether buying or not
+buying for each book. Each judgement can be performed in a total of O(N M ) time, so the total
+time complexity is O(2N N M ), which is fast enough for this problem.
+For the implementation of the iteration of combinations of books to buy, one can use “DepthFirst Search” or encode sets to integers (in other words, list the subsets by bitmasking).
+The following is a sample code of subset listing in C++. https://atcoder.jp/contests/abc167/submissions/13086283
+
+9
+

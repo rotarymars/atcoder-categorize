@@ -1,0 +1,11 @@
+南北方向の通りの本数は n なので，それらの間の個数は n − 1 です．同様に，東西方向の通りの本数は m
+なので，それらの間の個数は m − 1 です．区画の個数はこれらの積なので，(n − 1)(m − 1) です．
+
+• C++ のコード例 : https://abc069.contest.atcoder.jp/submissions/1480689
+• Java のコード例 : https://abc069.contest.atcoder.jp/submissions/1480691
+• Python 3 のコード例 : https://abc069.contest.atcoder.jp/submissions/1480692
+
+• C++ Code Example : https://abc069.contest.atcoder.jp/submissions/1480689
+• Java Code Example : https://abc069.contest.atcoder.jp/submissions/1480691
+• Python 3 Code Example : https://abc069.contest.atcoder.jp/submissions/1480692
+

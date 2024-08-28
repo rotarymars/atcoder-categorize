@@ -1,0 +1,54 @@
+もちろん、もっとも上がる幸福度が高い握手から順番に M 回することで、最終的な幸福度を最大に
+できます。が、愚直に実装すると間に合いません。以下でこれを効率的に求める方法を解説します。
+
+解法 1(二分探索を使った解法)
+まず、増える幸福度が、ある定数 X 以上になる握手の方法が何通りあるか、を求めることを考えま
+す。左手で握手する人を先に決めたとき、右手で握手できる人が何人いるかは累積和を用いることで
+
+O(1) で求まるのでトータルで O(N) で計算できます。
+後は、X を二分探索することで、M 通り以上の握手ができる最小の X が求まるので、もう一度累
+積和を用いて最終的な幸福度が計算できます。時間計算量は O(NlogN) です。
+
+解法 2(高速フーリエ変換)(おまけ)
+Ai ≤ 100, 000 という条件から、高速フーリエ変換 (以下 FFT) でも解けます。FFT の詳細につい
+ては、以下のページをご覧ください。
+
+https://atcoder.jp/contests/atc001/tasks/fft_c
+具体的には、
+
+• i 番目の要素にパワー i の人の人数が格納されている配列を二つ用意する。
+• それらの配列を畳み込む。(FFT をすることで、時間計算量 O(max(Ai )log(max(Ai )) ででき
+ます。)
+という風にすることで、増える幸福度ごとの通り数が分かります。後はそれを増える幸福度が高い順
+に加えていくことで、この問題を解くことができます。
+
+5
+
+Of course, you can maximize the ultimate happiness M times from the handshake that increases
+happiness the most to the least. But, if you implement naively it won’t finish in time. We will
+explain the way of finding it eﬃciently.
+
+Solution 1(Solution using binary search)
+First, consider how many ways of handshakes are there by which the happiness increases by
+more than or equal to a constant X. When a person to shake hand for his left hand is fixed, you
+can find how many people are there whom he can shake hand with for his right hand in O(1)
+time using cumulative sums, so it can be calculated in a total of O(N) time.
+Then, you can perform binary search for X so as to find the minimum X such that he can
+perform M ways of handshakes, so you can find the ultimate happiness by using cumulative sums
+again. The time complexity is O(NlogN).
+
+Solution 2(Fast Fourier Transform)(Bonus)
+Since Ai ≤ 100, 000, you can solve this problem by Fast Fourier Transform (hereinafter FFT).
+For more details about FFT, please look for many resources online. (There are an educational
+problem on AtCoder, but the problem statement is provided only in Japanese. For your information, the URL is as follows: )
+https://atcoder.jp/contests/atc001/tasks/fft_c
+Specifically,
+• Prepare two arrays, each of whose i-th element contains the number of people with power
+i.
+• Find the convolution of those array. (By performing FFT, it can be done in a total of
+O(max(Ai )log(max(Ai )) time.)
+so that you can find the number of ways for each increasing happinesses. Lastly count them in
+the decreasing order of increasing happinesses, and you can solve the problem.
+
+11
+

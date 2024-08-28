@@ -1,0 +1,243 @@
+1. 問題概要
+2. 入力
+
+3. 処理（アルゴリズム）
+4. 出力
+
+©AtCoder Inc. All rights reserved.
+
+14
+
+
+問題概要
+
+1. 整数Nが与えられる。
+
+1. 2*Nを出力せよ。
+
+©AtCoder Inc. All rights reserved.
+
+15
+
+
+問題概要
+
+1. 整数Nが与えられる。
+
+➢ 入力される値であるNを保存する！
+2. 2*Nを出力せよ。
+➢ 保存したNに2をかけて出力する！
+
+©AtCoder Inc. All rights reserved.
+
+16
+
+
+入力
+
+• 入力の取り方は標準入出力でググってください
+• とはいえ、少しだけサンプルを載せます
+
+• コードの色は
+• 受け取り
+
+• 処理
+• 出力
+• を表したものではないので、注意して下さい
+• AtCoderへ提出したときの色です
+©AtCoder Inc. All rights reserved.
+
+17
+
+
+入力
+
+• C
+
+#include<stdio.h>
+int main(){
+int N;
+scanf("%d", &N);
+return 0;
+}
+©AtCoder Inc. All rights reserved.
+
+18
+
+
+入力
+
+• C++
+
+#include<iostream>
+int main(){
+int N;
+std::cin >> N;
+return 0;
+}
+©AtCoder Inc. All rights reserved.
+
+19
+
+
+入力
+
+• Java
+
+import java.util.Scanner;
+public class Main{
+public static void main(String[] args){
+Scanner sc = new Scanner(System.in);
+int N = sc.nextInt();
+}
+}
+©AtCoder Inc. All rights reserved.
+
+20
+
+
+入力
+
+• C#
+
+using System;
+class Program{
+static void Main(string[] args){
+int N = int.Parse(Console.ReadLine());
+}
+}
+
+©AtCoder Inc. All rights reserved.
+
+21
+
+
+入力
+
+• その他
+•
+
+http://practice.contest.atcoder.jp/ を参照してください
+
+•
+
+たいていの言語の例があります
+
+©AtCoder Inc. All rights reserved.
+
+22
+
+
+補足（変数と型について）
+
+• さきほどから入力を受け取ると何度も書いてま
+すが、受け取るためには保存するための入れ物
+が必要です。
+• プログラムの世界でも入れ物に形があります。
+
+➢ これを型といいます。
+
+©AtCoder Inc. All rights reserved.
+
+23
+
+
+補足（変数と型について）
+
+• 型の例
+➢ 整数型 int
+◆ 0, 1, 2 … 100 … などの整数
+➢ 文字型 char
+◆ a, b, c … A, B … などの1文字
+•
+
+各型で表現できる最大、最小の値は言語や処理
+系で変化します
+©AtCoder Inc. All rights reserved.
+
+24
+
+
+補足（変数と型について）
+
+• 変数について
+➢
+
+int variable = 4;
+4
+
+とすると、
+
+variableという入れ物に4が入ります
+
+variable
+
+➢ さらに
+と
+
+variable = 1;
+
+1
+
+とする
+
+variableに1が上書きされます
+
+variable
+©AtCoder Inc. All rights reserved.
+
+25
+
+
+処理（アルゴリズム）
+
+受け取ったNに
+
+➢ 2をかける
+
+©AtCoder Inc. All rights reserved.
+
+26
+
+
+処理（アルゴリズム）
+
+受け取ったNに
+
+➢ 2をかける
+コードは以下だけ
+
+N = N * 2;
+
+©AtCoder Inc. All rights reserved.
+
+27
+
+
+出力
+
+処理の結果を出力します
+• C
+
+printf(“%d¥n”, N);
+• C++
+
+cout << N << endl;
+©AtCoder Inc. All rights reserved.
+
+28
+
+
+出力
+
+• Java
+
+System.out.println(N);
+• C#
+
+Console.WriteLine(N);
+
+©AtCoder Inc. All rights reserved.
+
+29
+

@@ -1,0 +1,6 @@
+まず、2 つの数の桁数が異なる場合、桁の多い数の方が大きいです。桁数が等しい場合、数の大小は大きい
+桁から順に並べた文字列の辞書式比較と等しくなることをプログラムすればよいです。
+
+If the two numbers have diﬀerent lengths, the longer number is greater. Otherwise, if the two numbers
+have the same lengths, you can compare them lexicographically.
+

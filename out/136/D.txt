@@ -1,0 +1,54 @@
+“RR...RLL...L” の部分に分解すると、他の部分と行き来することはないので独立に考えることができます。
+例えば、“RRLRL” は “RRL” と “RL” について独立に考えることができます。以降、“RR...RLL...L” の形
+についてのみ考えます。
+十分な回数移動を行うので、境界部分、すなわち “RL” の部分に子供が集まり、他の部分には誰も居ない
+状態になります。さらに、最初左から偶数番目のマスにいた子供と奇数番目のマスにいた子供が同じマスに集
+まることはなく、逆に左からの位置の偶奇が等しいマスにいた子供たちは最終的には全員同じマスに集まりま
+す。移動回数は 10100 回と偶数回なので、“RL” の “R” には “R” から偶数マス離れた子どもたちが集まり、
+
+“RL” の “L” には “L” から偶数マス離れた子どもたちが集まります。
+このように計算することで時間計算量 O(N ) で答えを求めることができます。
+実装では、文字列を連続した文字ごとに分解する (例えば “AABCCC” を (‘A’, 2), (‘B’, 1), (‘C’, 3) のよ
+うに分解する) ランレングス圧縮のライブラリがあると便利です。
+別解として、次のような解法もあります。マス数は高々 105 個なので、105 回移動した後の状態を求められ
+れば十分です。この状態と 10100 回移動した後の状態は一致します。また、左から i 番目のマスをマス i と
+し、dp(i, j) を「最初マス j に居た子供が i 回の移動の後に居るマス」と定義します。すると、dp(1, j) は Sj
+が L なら j − 1、R なら j + 1 です。さらに、任意の i1 , i2 , j について dp(i1 + i2 , j) = dp(i2 , dp(i1 , j)) なの
+で、ダブリングにより dp(X, j) を O(N logX) で計算できます。X = 105 について求めたいので、十分間に
+合います。ダブリングとは、xn を x1 , x2 , x4 , x8 , ... を組み合わせて計算する (例えば x10 = x8 × x2 と計算し
+ます) 繰り返し二乗法を応用した手法で、今回の場合だと dp(10, j) = dp(8, dp(2, j)) と計算します。ここで、
+
+dp(2n+1 , j) は dp(2n , dp(2n , j)) と計算します。この手法を用いれば、例えば問題が 10100 回の移動後の状態
+ではなく K 回の移動後の状態を求めるものであったり、L,R といった単純な移動でなく右に Ri マス (Ri が
+負なら左に −Ri マス) 移動といった場合にも答えを求めることができます。
+
+4
+
+If you split it into parts of “RR...RLL...L”, the children do not cross the border, so each of them can
+be considered independently. For example, “RRLRL” can be considered independently for each “RRL”
+and “RL”. Hereafter, only the sequence like “RR...RLL...L” is considered.
+Since there are enough times of movement, all the children gather into the border, that is, “RL”, and
+nobody is in elsewhere. Moreover, a child who was initially in a square with even number of index and
+a child initially in odd index do never gather into same square, and conversely, children in same parity
+of squares all gather into the same square ﬁnally. There are even number, 10100 times, of movements, so
+children whose square’s initial index is distant from “R” of “RL” by even number of distance gather into
+“R”, and children whose square’s initial index is distant from “L” of “RL” by even number of distance
+gather into “L”.
+This way, the answer can be found in time complexity O(N ).
+It will be useful for implementation if you can use run-length encoding library, which disassembles a
+string into consecutive same characters (for example, disassembles “AABCCC” into a sequene like (‘A’,
+2), (‘B’, 1), (‘C’, 3)).
+There is another solution like the following. Since there are at most 105 squares, it is suﬃcient if the
+state after 105 movements can be found. This states corresponds to the state after 10100 movements.
+Let square i be the i-th square counted from left, and dp(i, j) be ”the index of square where children
+who was initially in square i moves into after j movements.” Then, dp(1, j) is j − 1 if Sj is L, and j + 1 if
+it’s R. Moreover, for any i1 , i2 , j it holds that dp(i1 + i2 , j) = dp(i2 , dp(i1 , j)), so by using doubling you
+can ﬁnd dp(X, j) in O(N logX). You want to ﬁnd the value of X = 105 , so it’s suﬃcient. The doubling
+is development of the fast exponentiation algorithm, which is ﬁnding xn combining x1 , x2 , x4 , x8 , ... (for
+example, in such way that x10 = x8 × x2 ), and this time, it is calculated like dp(10, j) = dp(8, dp(2, j)).
+Here, dp(2n+1 , j) is dp(2n , dp(2n , j)). By using this technique, you can also obtain the answer even if
+the problem asks to ﬁnd the state after K movements, or the movements are not as simple as L, R but
+moving Ri sqaures to the left (if Ri is negative, move −Ri squares to the right).
+
+10
+

@@ -1,0 +1,45 @@
+島 i(i = 2, 3, ..., N − 1) について、島 1 と島 i、島 i と島 N のどちらの間に
+も定期便が通っているような i が存在するかどうかを調べれば良いです。
+最初に辺をハッシュマップに入れると、島 1 と島 i の間に辺があるかを O(1)
+で調べることができます。
+他にも、長さ N の boolean 配列を 2 つ用意して、島 1 と島 i の間に辺があ
+るか、島 i と島 N の間に辺があるか、を格納しても良いです。こちらのほう
+が定数倍が速いです。
+よって、O(N ) で判定を行うことができます。
+辺の前処理に O(M ) かかるため、まとめて O(N + M ) です。
+なお、ダイクストラ法というアルゴリズムを使用すると、最小でいくつの
+定期便を使えば島 N にたどり着けるかも調べることができます。
+
+3
+
+#i n c l u d e <i o s t r e a m >
+#i n c l u d e <v e c t o r >
+u s i n g namespace s t d ;
+i n t main ( ) {
+i n t n , m;
+c i n >> n >> m;
+v e c t o r <bool > v i s ( n+1, f a l s e ) ;
+b o o l ans = f a l s e ;
+f o r ( i n t i = 0 ; i < m; i ++) {
+int a , b;
+c i n >> a >> b ;
+a s s e r t ( 1 <= a && a < b && b <= n ) ;
+i f ( a == 1 ) {
+i f ( vis [b ]) {
+ans = t r u e ;
+}
+vis [ b ] = true ;
+} e l s e i f ( b == n ) {
+i f ( vis [ a ]) {
+ans = t r u e ;
+}
+vis [ a ] = true ;
+}
+}
+i f ( ! ans ) c o u t << ”IM ” ;
+c o u t << ”POSSIBLE” << e n d l ;
+return 0;
+}
+
+3
+

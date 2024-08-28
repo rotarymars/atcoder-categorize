@@ -1,0 +1,33 @@
+求めたい合計値は、
+
+ax1 + ax2 + · · · + axk = S, L ≤ x1 < x2 < · · · < xk ≤ R をみたすような (L, x1 , x2 , . . . , xk , R) の
+組の個数
+と言い換えることができます。
+これは
+
+dp[i][s][t] = i 番目までみて、選んだ要素の和が s で、
+L をまだ決めていない状態の場合の数 (t = 0 のとき)
+L は決めたが R はまだ決めていない状態の場合の数 (t = 1 のとき)
+L も R も決まっている状態の場合の数 (t = 2 のとき)
+と定めて動的計画法を用いると、時間計算量、空間計算量ともに O(N S) で計算することができます。
+求めるものは dp[N ][S][2] です。
+遷移等については実装例を参考にしてください。https://atcoder.jp/contests/abc159/submissions/11096062
+
+6
+
+The desired sum can be rephrased as:
+the number of tuple (L, x1 , x2 , . . . , xk , R) such that ax1 + ax2 + · · · + axk = S and L ≤ x1 < x2 <
+· · · < xk ≤ R.
+This can be calculated with a dynamic programming with the following relational equations:
+dp[i][s][t] = The number of combinations chosen from the ﬁrst i elements, such that the sum of elements is s and
+L has not been added to the tuple yet (When t = 0)
+L has been added but R has not been added yet(When t = 1)
+both L and R has been added to the tuple(When t = 2)
+which would be in a total of O(N S) time and memory.
+The desired sum is dp[N ][S][2].
+For more details such as transitions, please refer to the following sample code.
+https://atcoder.jp/contests/abc159/submissions/11096062
+
+12
+
+

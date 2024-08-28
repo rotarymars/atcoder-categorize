@@ -1,0 +1,58 @@
+(解説: ynymxiaolongbao)
+1 ≤ i ≤ N なる任意の i について Ai ̸= Bi であるという条件を一旦無視します。すなわち、1 以
+上 M 以下の整数からなる長さ N の数列 A と B の組であって、1 ≤ i < j ≤ N なる任意の (i, j)
+について Ai ̸= Aj かつ Bi ̸= Bj であるようなもの全体を考えます。
+各要素が 1 以上 N 以下の整数である集合 S について、
+「 i ∈ S なるすべての i について Ai = Bi
+である」という条件を満たす A と B の組の個数は M P|S| × (M −|S| PN −|S| )2 です。この式は、1 以
+上 M 以下の整数から |S| 個を並べて i ∈ S なる i の Ai (= Bi ) の値とし、残りの M − |S| 個の整
+数から N − |S| 個を並べて i ∈
+/ S なる i の Ai の値とし、同様に M − |S| 個の整数から N − |S| 個
+を並べて i ∈
+/ S なる i の Bi の値とすることを考えることで得られます。
+包除原理より、すべての 1 以上 N 以下の整数の集合 S について、「 i ∈ S なるすべての i につい
+て Ai = Bi である」という条件を満たす A と B の組の個数を求め、それに (−1)|S| を掛けた値の
+総和が答えになります。すなわち (−1)|S| × M P|S| × (M −|S| PN −|S| )2 の総和が答えになります。
+ここで、(−1)|S| × M P|S| × (M −|S| PN −|S| )2 の値を 2N 通りすべての S について計算していては
+間に合いませんが、この値が |S| のみに依存することに注目すると、|S| に対する値に |S| がその値
+になるような S の個数、すなわち N C|S| を掛けたものを足し合わせることでも答えを求めることが
+できます。つまり、答えは
+
+∑N
+
+K
+2
+K=0 (N CK × (−1) × M PK × (M −K PN −K ) ) と表現できます。
+
+コンビネーションや順列は、フェルマーの小定理を用いる方法や、拡張ユークリッドの互除法を用
+いる方法で高速に求めることができます。前者を用いれば、計算量は O(M + N ) になります。
+
+7
+
+(Editorial: ynymxiaolongbao)
+We ﬁrst ignore the conditions that Ai ̸= Bi for any i such that 1 ≤ i ≤ N . In other words,
+we consider all the pairs A and B of sequences of length N consisting of integers between 1 and
+M (inclusive; the same applies hereinafter) such that, for all (i, j) such that 1 ≤ i < j ≤ N ,
+Ai ̸= Aj and Bi ̸= Bj .
+For a set of integers whose each element is between between 1 and N , the number of pairs A
+and B of sequences such that “for all i ∈ S, Ai = Bi ” is M P|S| ×(M −|S| PN −|S| )2 . This expression
+can be obtained by considering the |S|-permutation of integers between 1 and M assigned to
+Ai (= Bi ) for each i such that i ∈ S, N − |S|-permutation of the remaining M − |S| integers
+assigned to Ai for each i such that i ∈
+/ S, and similarly N − |S| permutation of the M − |S|
+integers assigned Bi for each i such that i ∈
+/ S.
+By inclusion-exclusion principle, the answer is the sum of the number of pairs of sets A and B
+such that “for all i ∈ S, Ai = Bi ”, multiplied by (−1)|S| , for all sets of integers between 1 and
+N . In other words, the answer is the sum of (−1)|S| × M P|S| × (M −|S| PN −|S| )2 .
+Here, calculating (−1)|S| × M P|S| × (M −|S| PN −|S| )2 for all 2N possibilities of S, but since this
+value only depends on |S|, you can also calculate the sum by ﬁnding the value for |S| multiplied
+by the number of S such that |S| is that value, that is, multiplied by N C|S| . Therefore, the
+∑N
+answer is can be represented as K=0 (N CK × (−1)K × M PK × (M −K PN −K )2 ).
+Combinations and permutations can be calculated by making use of the little theorem of
+Fermat or extended Euclidean algorithm. By using the former, the total time complexity is
+O(M + N ).
+
+17
+

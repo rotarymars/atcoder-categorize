@@ -1,0 +1,71 @@
+まず, 「けぬす君」 が移動するルートがあらかじめ決まっている時, すぬけ君は最大で何マス変更でき
+るかについて考えます.
+最初に考えるべきは, 各マスについてどのような操作ができるかです. 「けぬす君」が通るマス・通らない
+マスそれぞれについて、何の色にすべきかという条件は, 以下のようになります。
+1.
+
+「けぬす君」が通るマスは、絶対に白でなければならない.
+
+2.
+
+「けぬす君」が通らないマスは, 白と黒のどちらでも良い.
+
+まず, マスの色を黒から白に変更することはできないので, 1. よりすぬけ君の通るルートに 「最初の色」
+が黒であるマスが存在してはならず, すぬけ君の通るルートに含まれる 「最初の色が白のマス」 を黒に変
+えると 1. に反するので, これらのマスは変更することができません.
+また, 「けぬす君」 が通らないマスにおける変更回数の合計の最大値は, 2. より最終的な色は何で
+も良いため, けぬす君の通らない白いマスの色をすべて黒に変更することができるので,（けぬす君が通ら
+ない白いマスの個数）になります.
+したがって, すぬけ君が変更できるマスの個数の最大値は, (けぬす君が通らない白いマスの個数) =
+(マス目全体の白いマスの個数) – (けぬす君が通る白いマスの個数) となります.
+実際の問題では, けぬす君はマス (𝐻, 𝑊) に白いマスだけを通ってたどり着くことができればどんなルー
+トをたどっても良いです. しかし, 「変更する回数」 = 「色を変更できる白いマスの個数」 を最大化する
+ので, すなわち 「色を変更できない白いマスの個数」 を最小化したいです.
+「色を変更できない白いマスの個数」 は, (けぬす君が通る白いマスの個数) と等しいので、「けぬす
+君は (1, 1) から (𝐻, 𝑊) に行くために最低何回の白いマスを通る必要があるか」 という問題を解けば,
+この問題は解けます. 言い換えると 「けぬす君が白いマスだけを通って移動するとき, 最小で何マスを使
+って (1, 1) から (𝐻, 𝑊) に移動できるか」 という問題になります. (このような経路が存在しない場合,
+ゲームクリアすることはできない)
+この問題は辺の重みがすべて 1 であるグラフの最短経路問題に帰着することができるので, 幅優先探
+索を用いれば, 計算量 𝑂(𝐻𝑊) で解くことができます.
+
+Atcoder Beginner Contest 088 Editorial
+Problem Setters：E869120, square1001
+平成 30 年 2 月 18 日
+
+At first, let’s think about the maximum number of cells that Snuke changes, when
+the route Kenus moves is already decided.
+In this case, to achieve the maximum number of cells that Snuke changes, Snuke
+should change cells as follows:
+a.
+
+If the cell is belonged to the Kenus’s route, the cell must be white. Thus, it is
+not valid route if at least one of cell is black at first because the color of black
+cell cannot be changed. And, if it is white, it should remain white so Snuke
+cannot change the color of cells in this route.
+
+b.
+
+If the cell is not belonged to the Kenus’s route, any color is OK. So, if the cell
+is white, Snuke should change the color of the cell (from white to black) to
+achieve maximum number of cells that he changes.
+
+Therefore, the maximum number of cells that Snuke changes is (The number of
+white cells that are not belonged to the Kenus’s route), and this is equal to (The
+number of white cells in the grid) – (The number of white cells that are
+belonged to the Kenus’s route).
+Finally, the first easier problem was solved. But unfortunately, the real problem
+is: Kenus’s route is not decided, and Snuke can decide it.
+Snuke want to minimize the number of white cells that are belonged to the
+Kenus’s route. In addition, the number of white cell that are belonged to the Kenus’s
+route is equal to the number of cells that Kenus passes, because all cell that Kenus
+passes should be white.
+So, now the problem is simple. The minimum number of white cells Kenus passes
+is equal to the result of the problem: “You are given a grid and each cell is black or
+white. You move from (1, 1) to (𝐻, 𝑊) but you can’t pass black cells. If you can
+move one cell left, right, up or down, what is the minimum number of cell you
+pass?”.
+This is a typical problem of “shortest path problem”. You can use Breadth-First
+Search (BFS) and solvable in 𝑂(𝐻𝑊) time complexity.
+
+

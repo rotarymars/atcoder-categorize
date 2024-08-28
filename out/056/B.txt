@@ -1,0 +1,6 @@
+もし既に連結なら答えは 0 です。これは |a − b| ≤ W かどうかで判定できます。そうでない場合は、答えは
+
+|a − b| − W になります。
+
+If |a − b| ≤ W , the answer is 0. Otherwise the answer is |a − b| − W .
+

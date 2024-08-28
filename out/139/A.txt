@@ -1,0 +1,69 @@
+S と T を比較して、一致する文字がいくつあるかを数えればよいです。
+この問題では文字列が固定長なので、ループを回さなくても場合分けで正答することができます。
+Listing 1 C++ による実装例
+1
+2
+
+#include<bits/stdc++.h>
+using namespace std;
+
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+
+int main() {
+string s, t;
+cin >> s >> t;
+int ans = 0;
+if(s[0] == t[0]) ans++;
+if(s[1] == t[1]) ans++;
+if(s[2] == t[2]) ans++;
+cout << ans << endl;
+return 0;
+}
+
+1
+
+You can compare S and T and count the number of corresponding characters.
+In this problem the length of string is fixed, so you can get AC by splitting case, without using
+loop.
+Listing 1 Sample Implementation in C++
+1
+2
+
+#include<bits/stdc++.h>
+using namespace std;
+
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+
+int main() {
+string s, t;
+cin >> s >> t;
+int ans = 0;
+if(s[0] == t[0]) ans++;
+if(s[1] == t[1]) ans++;
+if(s[2] == t[2]) ans++;
+cout << ans << endl;
+return 0;
+}
+
+9
+

@@ -1,0 +1,70 @@
+
+Recording
+
+録画機をあるチャンネルの時刻 S から時刻 T までの録画に使用すると、時刻 S − 0.5 から時
+刻 T まで他のチャンネルの録画に使用できませんが、このとき時刻 S − 0.5 から時刻 T まで録
+画機を使用していると考えることとします。
+まず、同じチャンネルの連続した番組は同じ録画機で一緒に録画した方が録画機の使用時間が
+短くなるので、そのように考えます。すると、個々のチャンネルにおいて、録画機を使用する時間
+を最小にできます。
+その後、各時間において、いくつの録画機が使用中であるかを考えると、その最大値が答えと
+なります。
+# include < cstdio >
+int N , C ;
+int s [100000] , t [100000] , c [100000];
+int sm [200002];
+int tt [200002];
+int main ()
+{
+scanf ("% d % d " ,&N ,& C );
+for ( int i =0; i < N ; i ++)
+scanf ("% d % d % d " ,& s [ i ] ,& t [ i ] ,& c [ i ]);
+for ( int i =1; i <= C ; i ++)
+{
+for ( int j =0; j <200002; j ++) tt [ j ]=0;
+for ( int j =0; j < N ; j ++) if ( c [ j ]== i ) tt [ s [ j ]*2 -1]++ , tt [ t [ j ]*2] - -;
+for ( int j =1; j <200002; j ++) tt [ j ]+= tt [j -1];
+for ( int j =0; j <200002; j ++) if ( tt [ j ] >0) sm [ j ]++;
+}
+int mx =0;
+for ( int j =0; j <200002; j ++) if ( mx < sm [ j ]) mx = sm [ j ];
+printf ("% d \ n " , mx );
+}
+
+3
+
+
+Recording
+
+When you use recorder from time S to time T in a channel,this recorder can not record other
+channel from time S − 0.5 to time T ,so it is OK to think as using the recorder from time S − 0.5
+to time T .
+First,continuous program from the same channel should be better to record together in the
+same recorder,so think as such.Then,the time of using the recorder will be shortest in every
+channel.
+After that,considering which number of record is need at every time.Then,the maximum number of that is the answer.
+# include < cstdio >
+int N , C ;
+int s [100000] , t [100000] , c [100000];
+int sm [200002];
+int tt [200002];
+int main ()
+{
+scanf ("% d % d " ,&N ,& C );
+for ( int i =0; i < N ; i ++)
+scanf ("% d % d % d " ,& s [ i ] ,& t [ i ] ,& c [ i ]);
+for ( int i =1; i <= C ; i ++)
+{
+for ( int j =0; j <200002; j ++) tt [ j ]=0;
+for ( int j =0; j < N ; j ++) if ( c [ j ]== i ) tt [ s [ j ]*2 -1]++ , tt [ t [ j ]*2] - -;
+for ( int j =1; j <200002; j ++) tt [ j ]+= tt [j -1];
+for ( int j =0; j <200002; j ++) if ( tt [ j ] >0) sm [ j ]++;
+}
+int mx =0;
+for ( int j =0; j <200002; j ++) if ( mx < sm [ j ]) mx = sm [ j ];
+printf ("% d \ n " , mx );
+}
+
+6
+
+

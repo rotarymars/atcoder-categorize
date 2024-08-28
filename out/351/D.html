@@ -1,0 +1,416 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 351</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 351" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc351/editorial/9889" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 351" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc351";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2024-04-27T21:00:00+09:00");
+			var endTime = moment("2024-04-27T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 351が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 351は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc351">AtCoder Beginner Contest 351</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc351/editorial/9889?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc351/editorial/9889?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc351%2Feditorial%2F9889">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc351%2Feditorial%2F9889">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc351%2Feditorial%2F9889">
+		<input type="hidden" name="csrf_token" value="hapI7NLOam2cV8xso74ixt3BMUzgM0ThyRd0gZclWIE=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240427T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-04-27 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20240427T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2024-04-27 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc351"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc351/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc351/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc351/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc351/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc351/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc351/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc351/tasks/abc351_d">D - Grid and Magnet</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-4.png" class="user-rating-stage-m"><a href="/users/mechanicalpenciI" class="username"><span class="user-orange">mechanicalpenciI</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>まず、磁石が置かれていないマス <span>\(S\)</span> について、その自由度を求める方法について考えます。<br>
+これは、例えばグリッドグラフ上の深さ優先探索で求めることができます。<br>
+磁石が置かれていない各マスを頂点とし（以下マス <span>\(A\)</span> に対応する頂点を頂点 <span>\(A\)</span> とよぶことにします）、そしてマス <span>\(A\)</span> からマス <span>\(B\)</span> に <span>\(1\)</span> 回の移動で行けるとき、かつそのときに限り頂点 <span>\(A\)</span> から頂点 <span>\(B\)</span> に辺が伸びているようなグラフを考えます。このときに頂点 <span>\(S\)</span> から辺を辿って到達できる頂点は深さ優先探索で列挙でき、その数を数えることができます。（幅優先探索でも問題ありません。）これをすべての（磁石の置かれていない）マスについて行うことで答えを得ることができます。</p>
+
+<p>しかし、ここで、このグラフは頂点・辺ともに最大で <span>\(\Theta(HW)\)</span> 個(本) 存在するため、<span>\(1\)</span> マスの自由度を求めるのに <span>\(\Theta(HW)\)</span> の計算量がかかり、全体で最悪 <span>\(\Theta(H^2W^2)\)</span> の計算量がかかってしまい、時間制限に間に合わせるのは厳しいです。</p>
+
+<p>そこで、マス <span>\(A\)</span> から マス <span>\(B\)</span> へ移動でき、マス <span>\(B\)</span> に隣接したマスに磁石が置かれていない時、マス <span>\(A\)</span> とマス <span>\(B\)</span> の自由度は等しいということに注目します。
+なぜなら、マス <span>\(B\)</span> に隣接したマスに磁石が置かれていないとき、マス <span>\(A\)</span> からマス <span>\(B\)</span> へ移動する経路を逆になぞることによってマス <span>\(B\)</span> からマス <span>\(A\)</span> に到達でき、このとき、任意の他のマス <span>\(C\)</span> について、「マス <span>\(A\)</span> からマス <span>\(C\)</span> に到達できる」ことと「マス <span>\(B\)</span> からマス <span>\(C\)</span> に到達できる」ことが同値になるからです。これにより、あるマス <span>\(S\)</span> から到達できるマスを探索している間に途中で到達したマス <span>\(S&#39;\)</span> について マス <span>\(S&#39;\)</span> が磁石に隣接していない場合、マス <span>\(S&#39;\)</span> から始めて到達できるマスの数を再度調べる必要はないことが分かります。これはすでに一度以上そのマスが探索されたかのフラグを持っておくことで管理することができます。</p>
+
+<p>このようにしたときの計算量について考えます。各頂点から伸びている辺の数は定数なので基本的には探索において登場した（移動を開始したマス, そこから到達できたマス）のペアの数に比例した時間量がかかります。<br>
+  後者に注目して、各マスが何回「そこから到達できたマス」として登場するかについて考えます。磁石と隣接していないマス <span>\(T\)</span> については、ちょうど <span>\(1\)</span> 回登場します。なぜなら、<span>\(T\)</span> に <span>\(2\)</span> 回以上訪れたとすると、ある<span>\(2\)</span> つの異なるマス <span>\(S,S&#39;\)</span> から <span>\(T\)</span> に到達するような探索を行なっていますが、ことのき <span>\(S\)</span> から <span>\(T\)</span> を経由して <span>\(S&#39;\)</span> に到達できる（同様に <span>\(S&#39;\)</span> から <span>\(S\)</span> へも到達できる）ため、<span>\(S\)</span> と <span>\(S&#39;\)</span> の両方から探索を行う必要はないためです。逆に他のマスから到達されなかった場合でも、自身から到達できるマスの数を求める必要があるため、少なくとも <span>\(1\)</span> 回は登場します。<br>
+磁石と隣接しているマス <span>\(T&#39;\)</span> については、高々 <span>\(4\)</span> 回しか登場しません。<span>\(T&#39;\)</span> 自身からスタートとなっている場合を除くと、必ず他の隣接するマスから移動することによって登場します。しかしこの <span>\(T&#39;\)</span> に移動してくる直前のマスは（<span>\(T&#39;\)</span> に移動できていることから）磁石と隣接していないマスであり、探索に一度しか登場しません。よって、各隣接するマスから <span>\(T&#39;\)</span> に到達される回数は高々 <span>\(1\)</span> 回です。<span>\(T&#39;\)</span> は高々 <span>\(4\)</span> つのマスとしか隣接しておらず少なくとも <span>\(1\)</span> つには磁石が置かれていることから、他のマスから <span>\(T&#39;\)</span> への移動は高々 <span>\(3\)</span> 回です。自身をスタートとする場合を合わせても高々 <span>\(4\)</span> かいとなります。<br>
+ゆえに、（移動を開始したマス, そこから到達できたマス）のペアは高々 <span>\(O(HW)\)</span> 個しか登場せず、全体で <span>\(O(HW)\)</span> の計算量で解くことができ、これは十分に高速です。<br>
+よって、この問題を解くことができました。</p>
+
+<p>なお、この問題は自由度を求めるマスをランダムに選ぶ乱択アルゴリズムを用いても十分に高い確率で正答を得ることができます。</p>
+
+<p>c++ による実装例:</p>
+
+<pre class="prettyprint linenums"><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+vector&lt;int&gt;e[1000000];
+int used[1000000];
+int cnt;
+
+void dfs(int s,int v){
+	if(used[v]==s)return;
+	used[v]=s;
+	cnt++;
+	int sz=e[v].size();
+	for(int i=0;i&lt;sz;i++)dfs(s,e[v][i]);
+	return;
+}
+
+int main(void){
+	int dx[4]={0,0,1,-1};
+	int dy[4]={1,-1,0,0};
+	int h,w,ans=0;
+	bool can;
+	cin&gt;&gt;h&gt;&gt;w;
+	vector&lt;string&gt;s(h);
+	for(int i=0;i&lt;h;i++)cin&gt;&gt;s[i];
+	for(int i=0;i&lt;h;i++){
+		for(int j=0;j&lt;w;j++){
+			if(s[i][j]==&#39;#&#39;)continue;
+			can=true;
+			for(int k=0;k&lt;4;k++){
+				if((i+dx[k]&gt;=0)&amp;&amp;(i+dx[k]&lt;h)&amp;&amp;(j+dy[k]&gt;=0)&amp;&amp;(j+dy[k]&lt;w)){
+					e[i*w+j].push_back((i+dx[k])*w+(j+dy[k]));
+					if(s[i+dx[k]][j+dy[k]]==&#39;#&#39;)can=false;
+				}
+			}
+			if(!can){
+				e[i*w+j].clear();
+				continue;
+			}
+		}
+	}
+	for(int i=0;i&lt;(h*w);i++)used[i]=-1;
+	for(int i=0;i&lt;h;i++){
+		for(int j=0;j&lt;w;j++){
+			if((s[i][j]==&#39;.&#39;)&amp;&amp;(used[i*w+j]&lt;0)){
+				cnt=0;
+				dfs(i*w+j,i*w+j);
+				ans=max(ans,cnt);
+			}
+		}
+	}
+	cout&lt;&lt;ans&lt;&lt;endl;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1714191900">
+				<time class="timeago" datetime="2024/04/27 13:25:00"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1714226758">
+				<time class="timeago" datetime="2024/04/27 23:05:58"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc351/editorial/9889?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 351">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc351/rules">ルール</a></li>
+					<li><a href="/contests/abc351/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

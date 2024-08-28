@@ -1,0 +1,39 @@
+ドミノの並べ方は，縦 2 × 横 1 のドミノを 1 個並べるか (X) ，縦 1 × 横 2 のドミノを 2 個縦に並べるか (Y ) のど
+ちらかを，横につなげたような並べ方になります．
+
+左から順にドミノを塗ることを考えます．縦に 2 個ドミノが並んでいる箇所については，この 2 個を同時に塗ります．
+一番左の箇所については，
+
+• X: 3 通り
+• Y : 6 通り
+の塗り方があります．
+
+また，それ以外の箇所については，それより左の箇所がすべて塗られているとしたとき，
+
+• X (すぐ左が X): 2 通り
+• X (すぐ左が Y ): 1 通り
+• Y (すぐ左が X): 2 通り
+• Y (すぐ左が Y ): 3 通り
+の塗り方があります．
+
+2
+
+よって，ドミノの並べ方を判定した上で，左から順に上の規則で並べ方の個数を求めていけばよいです．
+
+The arrangement of dominoes is a concatenation of the following two patterns:
+
+We paint dominoes from left to right.
+The number of ways to paint the leftmost part is as follows:
+• X: 3
+• Y: 6
+
+For other parts, the number of ways to paint a part is as follows (assuming that the left part is already painted):
+• X (to the right of X): 2
+• X (to the right of Y ): 1
+• Y (to the right of X): 2
+• Y (to the right of Y ): 3
+
+The answer is the product of these numbers.
+
+3
+

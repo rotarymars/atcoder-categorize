@@ -1,0 +1,407 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 294</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 294" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc294/editorial/5999" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 294" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc294";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2023-03-19T21:00:00+09:00");
+			var endTime = moment("2023-03-19T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 294が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 294は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc294">AtCoder Beginner Contest 294</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc294/editorial/5999?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc294/editorial/5999?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc294%2Feditorial%2F5999">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc294%2Feditorial%2F5999">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc294%2Feditorial%2F5999">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230319T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-03-19 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20230319T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2023-03-19 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc294"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc294/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc294/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc294/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc294/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc294/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc294/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc294/tasks/abc294_h">Ex - K-Coloring</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題はグラフを K-彩色する方法の個数を数える問題です。<br>
+まず、 <span>\(N\)</span> が小さい場合の解法を簡単に説明します。</p>
+
+<ul>
+<li><a href="https://www.slideshare.net/wata_orz/ss-12131479" rel="nofollow">wata さんのスライド</a> にも詳しい説明があるのでそちらもご参照ください。</li>
+</ul>
+
+<p><span>\(s(k)\)</span> を「ちょうど <span>\(K\)</span> 種類使って頂点を塗る通り数」とすると答えは</p>
+<p><span>\[\sum_{i=1}^N \binom{K}{i} s(i)\]</span></p><p>になるので、<span>\(s(1), \dots, s(N)\)</span> を列挙できればよいです。これは部分集合 DP で <span>\(\mathrm{O}(N 3^N)\)</span> で計算出来ます。(<a href="https://atcoder.jp/contests/abc213/editorial/2392" rel="nofollow">参考:ABC213-G 解説</a>)</p>
+
+<p>この DP は Subset Convolution と呼ばれるアルゴリズムを利用すると高速化することができます。Subset Convolution とは、部分集合を引数に持つ関数 <span>\(f(S), g(S)\)</span> が与えられたときに</p>
+<p><span>\[(f \ast g)(S) = \sum_{T \subseteq S} f(T) g(S \setminus T)\]</span></p><p>を計算するアルゴリズムのことをいいます。これは愚直に計算すると <span>\(\mathrm{O}(3^N)\)</span> で、部分集合 DP の解法はこの畳み込みを <span>\(N\)</span> 回呼んでいます。</p>
+
+<p>そして、この畳み込みは <span>\(\mathrm{O}(N^2 2^N)\)</span> に高速化できます。</p>
+
+<ul>
+<li>説明は割愛します。日本語話者の方は <a href="https://hos-lyric.hatenablog.com/entry/2021/01/14/201231" rel="nofollow">hos さんによる記事</a> の Subset Convolution の項の記述が非常に分かりやすいのでそちらをお読みください。英語話者の方は <a href="https://codeforces.com/blog/entry/92153" rel="nofollow">adamant さんの CodeForces の記事</a>をお読みください。</li>
+</ul>
+
+<p>この畳み込みを用いると、 <span>\(\mathrm{O}(N^3 2^N)\)</span> で <span>\(s(1), s(2), \dots, s(N)\)</span> を列挙することができます。</p>
+
+<p>そして、この畳み込みは <span>\(\mathrm{O}(N^2 2^N)\)</span> に計算量を落とすことができます。
+<span>\(F(S)\)</span> を <span>\(S\)</span> が非空な独立集合ならば <span>\(1\)</span>, それ以外ならば <span>\(0\)</span> を取る関数とします。<span>\(F(S)\)</span> を <span>\(K\)</span> 個畳み込んだものを <span>\(f^K\)</span> と表すと、答えは <span>\(V\)</span> を頂点集合全体として</p>
+<p><span>\[\left(\sum_{i=1}^{\min(K, N)} \binom{K}{i} f^K\right)(V)\]</span></p><p>になります。ここで <span>\(f^n\)</span> の意味を考えると <span>\(n=0\)</span> および <span>\(n \geq N\)</span> について <span>\(f^{n}(S)\)</span> は常に <span>\(0\)</span> に等しいことが確認できるので、シグマの下限を <span>\(0\)</span>, 上限を <span>\(K\)</span> にして</p>
+<p><span>\[\left(\sum_{i=0}^K \binom{K}{i} f^K\right)(V)\]</span></p><p>としてもよいです。そして、 <span>\(g(S)\)</span> を <span>\(S\)</span> が(空でも良い)独立集合ならば <span>\(1\)</span> を返す関数とすると、上式は <span>\(g^K(V)\)</span> になります。(組み合わせ的な解釈でも導出できます。)</p>
+
+<p>よって Subset Convolution の pow を求めればよく、これは実は Subset Convolution で各点積を求めてた部分で代わりに各点での <span>\(K\)</span> 乗の計算をすればよいです。<span>\(N\)</span> 次までの pow を計算するのは <span>\(\mathrm{O}(N^2)\)</span> や <span>\(\mathrm{O}(N \log N)\)</span> で計算できるので、全体の計算量は Subset Convolution と同じ <span>\(\mathrm{O}(N^2 2^N)\)</span> のまま計算できます。(hos さんの記事の後半部分に、似たような例に関する少し詳しい解説があります。)</p>
+
+<p>次に <span>\(M\)</span> が小さい場合の解法を簡単に説明します。<br>
+辺の集合に関して包除原理を適用します。つまり、辺集合 <span>\(E\)</span> の部分集合 <span>\(P\)</span> について、「少なくとも <span>\(e \in P\)</span>  である <span>\(e\)</span> について、<span>\(e\)</span> に隣接する頂点同士の色が一致している通り数」を計算して  <span>\((-1)^{|P|}\)</span> の重みをつけて足し合わせます。すると次の式を得られます。</p>
+<p><span>\[\sum_{P \subseteq E} (-1)^{|P|} K^{k(V, P)}\]</span></p><p>(ここで <span>\(k(V, P)\)</span> は頂点集合が <span>\(\lbrace 1,2,\dots,N\rbrace\)</span>, 辺集合が <span>\(P\)</span> であるグラフの連結成分数。)</p>
+
+<p>この式を利用すると、全探索で <span>\(\mathrm{O}(N 2^M)\)</span>, あるいは辺の選び方で DFS + rollback Union-Find を利用して <span>\(\mathrm{O}(2^M \log N)\)</span> で答えを計算できます。</p>
+
+<p>上式は次のように辺を <span>\(1\)</span> 本ずつ減らしていく DP としても解釈できます。グラフ <span>\(G\)</span> の K-彩色の通り数を <span>\(F(G)\)</span> とします。すると、<span>\(G\)</span> の辺 <span>\(e\)</span> を 1 つ取ってそれに注目すると、</p>
+<p><span>\[F(G) = F(G - e) - F(G \setminus e)\]</span></p><p>という式が成り立ちます (ここで <span>\(-\)</span> は辺の削除, <span>\(\setminus\)</span> は辺の縮約) 。また、<span>\(G\)</span> に孤立点 <span>\(v\)</span> がある場合は</p>
+<p><span>\[F(G) = K F(G - v)\]</span></p><p>という式が得られます。(<span>\(-\)</span> は頂点の削除)</p>
+
+<p>さて、想定解の解説をすると、想定解はこの式を利用します。つまり、辺を何本か選んで、その辺を削除 or 縮約した場合のグラフの彩色数を再帰的に計算する方法を考えます。<br>
+具体的には、<span>\(G\)</span> の次数最小の頂点を 1 つ取り <span>\(v\)</span> とします。<span>\(v\)</span> の次数が <span>\(0\)</span> の場合は</p>
+<p><span>\[F(G) = K F(G - v)\]</span></p><p>です。<br>
+<span>\(v\)</span> の次数が <span>\(1\)</span> の場合は、<span>\(v\)</span> に隣接する辺を <span>\(e\)</span> とすると、グラフ <span>\(G&#39; = (V \setminus \lbrace v \rbrace, E \setminus \lbrace e \rbrace)\)</span> を用いて</p>
+<p><span>\[F(G) = (K - 1) F(G&#39;)\]</span></p><p>になるのでこれも再帰的に計算できます。</p>
+
+<p>次に、<span>\(v\)</span> の次数が <span>\(2\)</span> の場合を考えます。 <span>\(v\)</span> に隣接する辺を <span>\(e_1, e_2\)</span> とします。<span>\(e_1, e_2\)</span> について辺の縮約・削除 4 通りを考えます。順に</p>
+<p><span>\[G_1 = (G-e_1)-e_2, G_2 = (G-e_1)\setminus e_2\]</span></p><p><span>\[G_3 = (G\setminus e_1)-e_2, G_4 = (G\setminus e_1) \setminus e_2\]</span></p><p>と呼びます。すると <span>\(G_2\)</span> と <span>\(G_3\)</span> は同型で、<span>\(G_1\)</span> は <span>\(G_2\)</span> に孤立点 <span>\(v\)</span> を追加したグラフです。よって</p>
+<p><span>\[
+\begin{aligned}
+&amp;F(G) \\ 
+&amp;= F(G_1) - F(G_2) - F(G_3) + F(G_4) \\
+&amp;= (K - 2) F(G_2) + F(G_4)
+\end{aligned}
+\]</span></p><p>となり、辺の本数が <span>\(2\)</span> 本減ったグラフ <span>\(2\)</span> 個について再帰的に彩色の通り数を計算する式が立てられました。<br>
+一般化すると、<span>\(v\)</span> の次数に対して <span>\(2^{\deg(v)} - \deg(v)\)</span> 通りの subgraph の彩色数を考えればよいことがわかります。</p>
+
+<p>これをを利用した解法と組み合わせます。<span>\(v\)</span> の次数が <span>\(3\)</span> 以上の場合は頂点数は <span>\(\mathrm{ceil}(2M/3)\)</span> で抑えられるので、Subset Convolution で <span>\(\mathrm{O}(2^{2M/3} M^2)\)</span> で計算できます。このとき、計算量は全体で <span>\(\mathrm{O}(\max(2^{M/2} , M^2 2^{2M/3})) = \mathrm{O}(M^2 1.59^M)\)</span> になります。</p>
+
+<p>また、別解として、 Subset Convolution ではなく部分集合 DP を使う場合は <span>\(v\)</span> の次数が <span>\(3\)</span> の場合まで場合分けするのが最適で(<span>\(5\)</span> 通りの subgraph に場合分け)、このとき計算量は <span>\(\mathrm{O}(\max(5^{M/3}, M 3^{M/2})) = \mathrm{O}(M 1.74^M)\)</span> になります。指数の底は前述の解法よりも大きいですがこちらの解法も十分高速に動作します。</p>
+
+<ul>
+<li><a href="https://atcoder.jp/contests/abc294/submissions/39793562" rel="nofollow">実装例 1, PyPy3, <span>\(\mathrm{O}(M^2 1.59^M)\)</span></a></li>
+<li><a href="https://atcoder.jp/contests/abc294/submissions/39793547" rel="nofollow">実装例 2, C++, <span>\(\mathrm{O}(M 1.74^M)\)</span></a></li>
+</ul>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1678890167">
+				<time class="timeago" datetime="2023/03/15 23:22:47"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1679228927">
+				<time class="timeago" datetime="2023/03/19 21:28:47"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc294/editorial/5999?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 294">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc294/rules">ルール</a></li>
+					<li><a href="/contests/abc294/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

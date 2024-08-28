@@ -1,0 +1,46 @@
+E の文字と O の文字を交互に並べるとパスワードが復元できます。|E|−|O| =
+1 のケースに気をつけてください。
+1 # include < iostream >
+2 using namespace std ;
+3 int main () {
+4
+string E , O ;
+5
+cin >> E >> O ;
+6
+for ( int i =0; i < E . size () ; i ++) {
+7
+cout << E [ i ];
+
+1
+
+8
+if ( i < O . size () ) cout << O [ i ];
+9
+}
+10
+return 0;
+11 }
+
+Arrange characters in E and O alternately.
+1 # include < iostream >
+2 using namespace std ;
+3 int main () {
+4
+string E , O ;
+5
+cin >> E >> O ;
+6
+for ( int i =0; i < E . size () ; i ++) {
+7
+cout << E [ i ];
+8
+if ( i < O . size () ) cout << O [ i ];
+9
+}
+10
+return 0;
+11 }
+
+1
+

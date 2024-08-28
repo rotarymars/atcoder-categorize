@@ -1,0 +1,17 @@
+この問題はナップザック問題として知られていて、効率良く解くアルゴリ
+ズムは存在しないと信じられています。ただし、特殊な制約がある場合はそ
+の限りではありません。例えば N や W や vi のうちどれかが小さい場合は
+
+This problem is known as the knapsack problem, and it’s hard to solve
+in general case.
+This time we use the constraint w1 ≤ wi ≤ w1 + 3. Because of this, there
+are at most 4 possible weights for a single item.
+For each weight w, let’s fix kw , the number of items of weight w we choose.
+Obviously, we should choose kw items greedily (in the descending order of
+values).
+Let A, B, C, D be the number of items of weights w1 , w1 +1, w1 +2, w1 +3,
+respectively. This algorithm works in O(ABCD). In the worst case, this is
+(N/4)4 = 254 = 390625.
+
+4
+

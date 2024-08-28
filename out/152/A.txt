@@ -1,0 +1,76 @@
+N = M であるかどうか判定すればよいです。以下は C++ における実装例です。
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+int n,m;
+
+6
+
+cin>>n>>m;
+
+7
+
+if(n==m)cout<<"Yes"<<endl;
+
+8
+
+else cout<<"No"<<endl;
+return 0;
+
+9
+10
+
+}
+
+1
+
+It is enough to check if N = M . The following is a sample code in C++.
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+4
+
+int main(){
+
+5
+
+int n,m;
+
+6
+
+cin>>n>>m;
+
+7
+
+if(n==m)cout<<"Yes"<<endl;
+
+8
+
+else cout<<"No"<<endl;
+return 0;
+
+9
+10
+
+}
+
+7
+

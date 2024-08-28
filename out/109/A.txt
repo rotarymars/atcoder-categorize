@@ -1,0 +1,34 @@
+A × B が奇数なら C = 1 とすることで A × B × C が奇数になります。一方、A × B が偶数なら、偶数
+にどんな自然数をかけても偶数のままです。従って、A × B が偶数かどうかで場合分けするとスマートです。
+
+C++ による実装例を以下に挙げます。
+# include < iostream >
+using namespace std ;
+int main () {
+int A , B ; cin >> A >> B ;
+if ( A * B % 2 == 1) {
+cout << " Yes " << endl ;
+}
+else {
+cout << " No " << endl ;
+}
+}
+しかし、この事実に気付かなくとも全ての C = 1, 2, 3 に対して A × B × C の偶奇を調べる方法でも正答
+できます。その場合の C++ による実装例は次のようになります。
+
+# include < iostream >
+using namespace std ;
+int main () {
+int A , B ; cin >> A >> B ;
+if ( A * B * 1 % 2 == 1 || A * B * 2 % 2 == 1 || A * B * 3 % 2 == 1) {
+cout << " Yes " << endl ;
+}
+1
+
+else {
+cout << " No " << endl ;
+}
+}
+
+2
+

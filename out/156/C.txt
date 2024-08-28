@@ -1,0 +1,337 @@
+(原案: namonakiacc, 準備・解説: gazelle)
+人が住んでいる座標の中で、最も小さいものを L、最も大きいものを R とします。このとき、
+
+x < L または R < x となるような座標 x で集会を開くケースを考える必要はありません。というの
+も、そのようなケースでは、座標 L や R で集会を開くときと比べて参加するために消費する体力が
+小さくなることはないからです。
+厳密には、例えば x = R + d (d > 0) と書ける座標 x で集会を開く場合、i 番目の人が集会に参加
+するために消費する体力は、
+
+(Xi − (R + d))2 = ((R + d) − Xi )2 = (R − Xi )2 + d(R − Xi ) + d2
+となり、最右辺の第 2 項は非負、第 3 項は正であることから、座標 R で集会を開くときに比べて、
+真に消費する体力が増えます。x < L となるような座標 x で集会を開く場合も同様です。
+このアイデアを元に、集会開催場所の候補として調べる必要のある座標を高々 100 個まで減らすこ
+とができます。集会の開催場所を 1 つ固定したとき、N 人が消費する体力の総和は O(N) 回の演算
+で計算することが可能です。よって、残った開催場所の候補全てを調べて、最も消費する体力の総和
+が小さいものを見つけるアルゴリズムが、十分高速に動作します。
+
+Listing 4 に C++ による解法の実装例を示します。
+なお入力制約を考慮すると、入力によっては多少実行時間が遅くなる可能性はありますが、Listing
+
+5 のように少しシンプルに書くことが可能です。
+Listing 4 C++ による実装例
+
+#include<bits/stdc++.h>
+using namespace std;
+3 #define rep(i, c) for(int i = 0; i < (int)c; i++)
+4 const int inf = 1000000000; // 10^9
+1
+2
+
+5
+6
+
+int main() {
+
+7
+
+int N;
+
+8
+
+cin >> N;
+
+9
+
+vector<int> X(N);
+
+10
+
+rep(i, N) cin >> X[i];
+
+11
+
+int L = X[0], R = X[0];
+
+12
+
+rep(i, N) {
+
+13
+
+L = min(L, X[i]);
+
+14
+
+R = max(R, X[i]);
+
+15
+
+}
+
+16
+
+int ans = inf;
+
+17
+
+for(int i = L; i <= R; i++) {
+
+5
+
+18
+
+int cost = 0;
+
+19
+
+rep(j, N) cost += (X[j] - i) * (X[j] - i);
+ans = min(ans, cost);
+
+20
+21
+
+}
+
+22
+
+cout << ans << endl;
+
+23
+
+return 0;
+
+24
+
+}
+Listing 5 C++ による実装例 2
+
+#include<bits/stdc++.h>
+using namespace std;
+3 #define rep(i, c) for(int i = 0; i < (int)c; i++)
+4 const int inf = 1000000000; // 10^9
+1
+2
+
+5
+6
+
+int main() {
+
+7
+
+int N;
+
+8
+
+cin >> N;
+
+9
+
+vector<int> X(N);
+
+10
+
+rep(i, N) cin >> X[i];
+
+11
+
+int ans = inf;
+
+12
+
+for(int i = 1; i <= 100; i++) { // L やR の計算が不要
+
+13
+
+int cost = 0;
+
+14
+
+rep(j, N) cost += (X[j] - i) * (X[j] - i);
+ans = min(ans, cost);
+
+15
+16
+
+}
+
+17
+
+cout << ans << endl;
+
+18
+
+return 0;
+
+19
+
+}
+
+6
+
+(draft: namonakiacc, preparation, editorial: gazelle)
+Let L be the minimum coordinate, and R be the maximum coordinate, where a person lives.
+Then, we do not have to consider holding a meeting at coordinate x such that x < L or R < x.
+That is, in such case the total points of stamina is no less than when holding a meeting at
+coordinates L or R.
+Strictly speaking, when holding a meeting at coordinate x which can be represented as x =
+R + d (d > 0) for example, the points of stamina that i-th person will spend is:
+(Xi − (R + d))2 = ((R + d) − Xi )2 = (R − Xi )2 + d(R − Xi ) + d2 ,
+and since the second term of the rightmost hand side is non-negative and the third term is
+positive, the points of stamina spent is strictly greater than when holding a meeting at coordinate
+R. It is the same when holding a meeting at coordinate x such that x < L.
+Based on this idea, we can decrease the number of coordinates we have to consider as candidates
+of meeting to at most 100 places. When a place of holding the meeting is ﬁxed, the sum of points
+of stamina can be calculated in a total of O(N) operations. Therefore, the algorithm of looking
+up all the candidates left and ﬁnding the minimum sum of points of stamina consumed is fast
+enough.
+We will show an implementation example in C++ in Listing 9.
+Also, considering the given input constraints, though it may be more or less slower, it can be
+rather simply like Listing 10.
+Listing 9 Sample Code in C++
+
+#include<bits/stdc++.h>
+using namespace std;
+3 #define rep(i, c) for(int i = 0; i < (int)c; i++)
+4 const int inf = 1000000000; // 10^9
+1
+2
+
+5
+6
+
+int main() {
+
+7
+
+int N;
+
+8
+
+cin >> N;
+
+9
+
+vector<int> X(N);
+
+10
+
+rep(i, N) cin >> X[i];
+
+11
+
+int L = X[0], R = X[0];
+
+12
+
+rep(i, N) {
+L = min(L, X[i]);
+
+13
+
+R = max(R, X[i]);
+
+14
+15
+
+}
+14
+
+16
+
+int ans = inf;
+
+17
+
+for(int i = L; i <= R; i++) {
+
+18
+
+int cost = 0;
+
+19
+
+rep(j, N) cost += (X[j] - i) * (X[j] - i);
+ans = min(ans, cost);
+
+20
+21
+
+}
+
+22
+
+cout << ans << endl;
+return 0;
+
+23
+24
+
+}
+Listing 10 Sample Code in C++
+
+#include<bits/stdc++.h>
+using namespace std;
+3 #define rep(i, c) for(int i = 0; i < (int)c; i++)
+4 const int inf = 1000000000; // 10^9
+1
+2
+
+5
+6
+
+int main() {
+
+7
+
+int N;
+
+8
+
+cin >> N;
+
+9
+
+vector<int> X(N);
+
+10
+
+rep(i, N) cin >> X[i];
+
+11
+
+int ans = inf;
+
+12
+
+for(int i = 1; i <= 100; i++) { // No need of calculations of L and R
+
+13
+
+int cost = 0;
+
+14
+
+rep(j, N) cost += (X[j] - i) * (X[j] - i);
+ans = min(ans, cost);
+
+15
+16
+
+}
+
+17
+
+cout << ans << endl;
+
+18
+
+return 0;
+
+19
+
+}
+
+15
+

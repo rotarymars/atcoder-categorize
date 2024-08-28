@@ -1,0 +1,12 @@
+Si がすでに手に入れたものと重複しているかどうかを毎回確認していると TLE になります。
+文字列を辞書順などでソートしてから重複を確認したり、set や map,dict などのデータ構造を用い
+て管理することで高速に求めることができます。
+
+3
+
+Checking if Si duplicates to one of the obtained elements so far leads to TLE.
+You can calculate fast by ﬁrst sorting the strings in the lexicographical order and checking for
+duplicates, or managing them with the data structures like set, map or dict.
+
+9
+

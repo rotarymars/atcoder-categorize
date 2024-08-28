@@ -1,0 +1,39 @@
+参加者 i, j (i < j) について，条件は以下のように書けます:
+
+j − i = Ai + Aj
+これを式変形すると，以下のようになります:
+
+i + Ai = j − Aj
+そこで，Li = i + Ai , Ri = i − Ai と定義すると，条件は Li = Rj と言い換えられます．したがっ
+て，とり得る値 X を全て試し，
+
+{
+
+Li = X
+Rj = X
+
+を満たす (i, j) の組を求めればいいですが，上と下の条件は独立なので，たとえば連想配列を使えば
+簡単に求まります．
+計算量は O(N log N ) 時間 (X を見る範囲を少し工夫すれば Θ(N ) 時間) です．
+
+6
+
+For participants i, j (i < j), the condition can be written as follows:
+j − i = Ai + Aj
+By transforming this equation, the following can be obtained:
+i + Ai = j − Aj
+So, let Li = i + Ai , Ri = i − Ai , then the condition can be written as Li = Rj . Therefore, it is
+suﬃcient to search exhaustively through all the possible X and count the number of (i, j) such
+that
+
+{
+
+Li = X
+Rj = X
+
+. Since the former and the latter are independent, it can be obtained easily by using associative
+arrays for example.
+The total time complexity is O(N log N ) (or Θ(N ) if you properly narrowed the range of X).
+
+13
+

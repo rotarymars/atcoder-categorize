@@ -1,0 +1,270 @@
+を直感的に書けます (C での実装例を以下に示します)．
+余談ですが，Ruby では case 文がこれにあたり，もっと高機能です．
+Listing 1 C での実装例
+1
+
+#include <stdio.h>
+
+2
+3
+
+int main(void) {
+
+4
+
+int n;
+
+5
+
+scanf("%d", &n);
+
+6
+7
+
+switch (n % 10) {
+
+8
+
+case 2:
+
+9
+
+case 4:
+
+10
+
+case 5:
+
+11
+
+case 7:
+
+12
+
+case 9:
+puts("hon");
+
+13
+
+break;
+
+14
+15
+
+case 0:
+
+16
+
+case 1:
+
+17
+
+case 6:
+
+18
+
+case 8:
+puts("pon");
+
+19
+
+break;
+
+20
+21
+
+case 3:
+
+1
+
+22
+
+puts("bon");
+
+23
+
+break;
+
+}
+
+24
+25
+
+return 0;
+
+26
+27
+
+}
+
+2
+
+2 端点の座標を求めてからその距離を計算するのは面倒です．これを使ってみましょう:
+
+余弦定理
+
+
+
+三角形 ABC について，a2 = b2 +c2 −2bc cos ∠A が成り立つ．ここで，a, b, c は |BC|, |CA|, |AB|
+のことを指す．
+
+C
+
+a
+B
+
+b
+c ∠A
+A
+
+
+
+
+
+時針・分針の長さを b, c, 時針・分針の間の角度を ∠A として上の式に代入すれば，求める長さ (の
+
+2 乗) が求まります．角度については，「時針が H + M
+60 時間で動いた角度」から「分針が M 分で動
+いた角度」を引けばよいです (C++ 標準の cos 関数の場合，mod をとる必要はありません)．
+Listing 4 C での実装例
+
+#include <stdio.h>
+2 #include <math.h>
+1
+
+3
+4
+
+#define PI 3.14159265358979323846264338327950L
+
+5
+6
+
+int main(void) {
+
+7
+
+int a, b, h, m;
+
+8
+
+scanf("%d%d%d%d", &a, &b, &h, &m);
+
+9
+
+long double rad = PI * 2 * (
+
+10
+
+(long double)h / 12.0 + ((long double)m / 60.0) / 12.0 - (long
+double)m / 60.0);
+
+11
+
+12
+
+long double rsq = (long double)(a * a + b * b) - (long double)(2 * a *
+
+13
+
+b) * cosl(rad);
+14
+
+printf("%20.20Lf\n", sqrtl(rsq));
+
+15
+16
+
+return 0;
+
+17
+18
+
+}
+
+4
+
+Computing the coordinates of two endpoints and then calculating the distance between them
+is troublesome. Let’s use the following:
+
+Laws of Cosines
+
+
+
+For any triangle ABC, it holds that a2 = b2 + c2 − 2bc cos ∠A. Here, a, b and c denotes
+|BC|, |CA| and |AB|, respectively.
+C
+a
+B
+
+b
+c ∠A
+A
+
+
+
+
+
+By assigning the length of the hour and minute hands to b and c, and the angle between
+the hour and minute hands to ∠A in the formula above, the (squared) desired length can be
+calculated. The angle can be obtained by subtracting “the amount of angle the minute hand
+moved in M minutes” from “the amount of angle the hour hand moved in H + M
+60 hours” (in
+C++, you don’t have to take mod for the cos function).
+Listing 8 Sample Code in C
+
+#include <stdio.h>
+2 #include <math.h>
+1
+
+3
+4
+
+#define PI 3.14159265358979323846264338327950L
+
+5
+6
+
+int main(void) {
+
+7
+
+int a, b, h, m;
+
+8
+
+scanf("%d%d%d%d", &a, &b, &h, &m);
+
+9
+10
+11
+
+long double rad = PI * 2 * (
+
+(long double)h / 12.0 + ((long double)m / 60.0) / 12.0 - (long
+double)m / 60.0);
+
+12
+13
+
+long double rsq = (long double)(a * a + b * b) - (long double)(2 * a *
+b) * cosl(rad);
+
+14
+15
+
+printf("%20.20Lf\n", sqrtl(rsq));
+
+16
+
+10
+
+return 0;
+
+17
+18
+
+}
+
+11
+

@@ -1,0 +1,53 @@
+x, y が互いに素であるのと、x, y の最大公約数が 1 であることは同値です。さらに、gcd(x, y) を
+x と y の最大公約数とすれば、gcd(a, x) ≤ gcd(ab, x) です。したがって、整数 ab (a, b > 1) を選ぶ
+よりも、a を選んだほうが良いです (注意: ab が公約数ならば a も公約数です)。すなわち、P を最
+適解とすると、P で選んだ公約数の中に ab (a, b > 1) と表せる整数が存在したとすると、代わりに
+
+a を選ぶことができます。
+よって、1 または素数のみを選んだ最適解が存在します。さらに、1 または素数である公約数を全
+て選ぶことができるため、これらを全て選ぶのが最適です。
+さて、そのような公約数はどのように探せば良いでしょう。考察も実装も簡単な方法としては、
+
+√
+√
+A, B をそれぞれ素因数分解し (時間計算量はそれぞれ O( A), O( B))、共通の素因数を探す方法が
+あります。素因数の個数はそれぞれ O(log A), O(log B) 個なので、共通の素因数を愚直に求めても十
+分間に合います。1 と共通の素因数を選ぶのが最適なので、共通の素因数の個数に 1 を加えた値が答
+えになります。
+考察をもう少し進めると、x が A と B の公約数であることと、x が gcd(A, B) の約数であること
+は同値なので、gcd(A, B) を素因数分解し、素因数の個数を数え上げる方法もあります。
+
+√
+
+いずれの方法でも、時間計算量は O( A +
+
+√
+
+B) となります。
+
+4
+
+x, y are coprime if and only if GCD of x, y is 1. Furthermore, let gcd(x, y) be the GCD of x
+and y, then gcd(a, x) ≤ gcd(ab, x) holds. Therefore, instead of choosing an integer ab (a, b > 1),
+it is better to choose a (Note: if ab is a common divisor, then a is also a common divisor). That
+is, given an optimal solution P , if an integer ab (a, b > 1) was contained in the common divisors
+selected in P , then you can choose a instead.
+Therefore, there exists an optimal solution only consiting of 1 and primes. Furthermore, you
+can choose all the common divisors that is 1 or a prime, so it is optimal to choose all of them.
+Then how can we find such common divisors? One way that consideration and implementation
+√
+√
+are both easy is to factorize A, B into prime factors (it will take a total of O( A), O( B) time
+each), and find the common prime factors. The number of prime factors are O(log A), O(log B)
+each, so you can find the common prime factors naively in time. It is optimal to choose 1 and
+common prime factors, so the answer will be the number of common prime factors added by 1.
+With a little more consideration, it appears that x is a common divisor of A and B if and
+only if x is a divisor of gcd(A, b), so you can factorize gcd(A, B) into prime factors and count the
+number of prime factors.
+
+√
+√
+Anyway, it can be solved in a total of O( A + B) time.
+
+10
+

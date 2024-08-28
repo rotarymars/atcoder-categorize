@@ -1,0 +1,172 @@
+
+
+まず、以下の簡単な問題を考えてみましょう。
+N 個のケーキがあり、綺麗さ・おいしさ・人気度が決まっている。
+M 個のケーキを選ぶ。
+（綺麗さの合計） + （おいしさの合計） + （人気度の合計） の最大値を求めよ。
+
+この問題は簡単に解くことができます。ケーキ 𝑖 の綺麗さを 𝑥𝑖 、おいしさを 𝑦𝑖 、人気度を 𝑧𝑖 とすると、
+求める値が (𝑥𝑖 + 𝑦𝑖 + 𝑧𝑖 ) の合計になるので、(𝑥𝑖 + 𝑦𝑖 + 𝑧𝑖 ) の値の大きい順に M 個取るという解法
+が通用します。
+しかし、本来の問題は、（綺麗さの合計の絶対値）+（おいしさの合計の絶対値）＋（人気度の
+合計の絶対値）を最大化する問題でした。
+すなわち、いくつかの要素の合計を負にする、という手も存在します。
+ですので、綺麗さ・おいしさ・人気度のそれぞれの要素について、「正の方向に最大化する」 「負の方向
+に最大化する」 のどちらを選ぶか、ということを考えると分かりやすいです。要素は 3 つあるので、23 = 8
+通り全探索します。
+例えば、綺麗さ・おいしさを正の方向に最大化、人気度を負の方向に最大化したい場合、𝑥𝑖 + 𝑦𝑖 −
+𝑧𝑖 の大きい順にソートして、上から M 個のケーキを選ぶと良いです。
+答えは全探索した 8 通りの中で最も良い解となります。全探索はビット演算などを用いると簡単にな
+ります。計算量は 𝑂(𝑁 𝑙𝑜𝑔 𝑁) ∗ 8 = 𝑂(𝑁 𝑙𝑜𝑔 𝑁) となります。
+また、この問題は実は 𝑂(𝑁) で解くことができます。長さ N の数列をソートして M 番目に大きい値
+A を最悪計算量 𝑂(𝑁) で求めるアルゴリズムは このリンク に書かれており、値 A が求まった後は求め
+た値より大きい値の合計を計算すれば良いので、この問題の最悪計算量は 𝑂(𝑁) となります。
+サンプルコード： https://beta.atcoder.jp/contests/abc100/submissions/2670489
+
+Overall Analysis / Review
+Problem
+
+Corrects
+
+Submissions
+
+Difficulty*
+
+First AC
+
+Fastest
+
+Shortest
+
+
+574
+
+1636
+
+450
+
+5:48
+
+1ms
+
+138 bytes
+
+※Expected difficulty is a score in this problem’s difficulty. It’s only a guess from a formula.
+Thank you for everyone to participating the contest or seeing this editorial! This
+contest is exactly 100th ABC, so we wrote a new thing, “analysis / review”.
+Since this contest is an anniversary, some problems’ theme was “cake”, which
+is commonly eaten on birthdays (at least in Japan).
+For example, problem A. This was about E869120 and square1001’s 16th
+birthday, but there was a hidden intent to celebrate this ABC 100 anniversary. Or
+did you make a guess correctly?
+And also, in this contest, many “multiple of 100” were appeared. For example,
+the constraints of problem D was 𝑁 ≤ 10000 = 1002 and 𝑎𝑖 ≤ 1010 = 1005 . And the
+problem B’s “the number of times that can be divided by 100” is derived from the
+ABC “100”. Also, there are many 10’s because square root of 100 is exactly 10.
+Anyway, thanks for reading the first page of English editorial. Please enjoy the
+main body of this editorial :)
+The main body of this editorial starts from the next page.
+
+Problem A：Happy Birthday!
+First, consider the case of 𝑋 ≤ 8 and 𝑌 ≤ 8 (both
+wants no more than 8 pieces of cakes). In this case, if you
+only allow E869120 taking 𝑋 pieces in red area and
+square1001 taking 𝑌 pieces in blue area, it will satisfy the
+condition (no two adjacent cakes are for same person).
+Therefore, the answer for this case is “Yay!”.
+Second, if one person wants to take more than 8 cakes, it will definitely not satisfy the
+condition, so the answer for this case is “:(“.
+If you realize this, remaining is only some implementation. The implementation of this
+problem is as easy as a piece of cake. You can use if-else statement to branch two
+conditions.
+Sample Code (C++)： https://beta.atcoder.jp/contests/abc100/submissions/2663851
+
+Problem B：Ringo’s Favorite Numbers
+There are many possible solutions in this problem. This time, we will explain two
+representative solutions.
+Approach 1：Search Everything
+Consider this sub-problem: “You are given an integer 𝑥 . How many times can 𝑥 be
+divided by 100?”. This can be solved by simulation and it works very fast.
+If the answer is 𝐾, we should solve this sub-problem for 𝑥 = 1,2,3, … , 𝐾. Since 𝐾 is no
+more than 1010000 (when 𝐷 = 2, 𝑁 = 100), you can write a program which is much faster
+than execution time limit.
+Sample Code (C++)： https://beta.atcoder.jp/contests/abc100/submissions/2669995
+Approach 2：”Pencil and Paper” Approach
+Actually, you don’t have to do brute-forcing (searching all possible answer). Actually, this
+problem can be solved by pencil and paper (if 𝐷, 𝑁 is fixed).
+Let 𝑎 = 100𝐷 . The number which can be divided by 100 exactly 𝐷 times is following:
+𝑎, 2𝑎, 3𝑎, 4𝑎, … , 99𝑎, 101𝑎, 102𝑎, 103𝑎, … , 199𝑎, 201𝑎, 202𝑎, 203𝑎, … , 299𝑎, 301𝑎, …
+This means, only 𝑚 × 100𝐷 (𝑚 is not a multiple of 100) can be divided by 100 exactly
+𝐷 times. Let’s think about the solution based on this property.
+Let 𝑞 the quotient of 𝑁 − 1 divided by 99. The answer of this problem will be between
+(100𝑞 + 1) × 100𝐷 and (100𝑞 + 99) × 100𝐷 . Also, there are 99𝑞 numbers at most
+100𝑞 × 100𝐷 and can be divided by 100 exactly 𝐷 times. This means the answer will be
+ranked 𝑁 − 99𝑞 from smallest value which we confined the range of the answer a while
+ago. Therefore, the answer will be (100𝑞 + 𝑁 − 99𝑞) × 100𝐷 .
+𝑁−1
+
+Simplifying this, the answer will be (𝑁 − 𝑞) × 100𝐷 = (𝑁 − ⌊
+
+99
+
+⌋) × 100𝐷 .
+
+Approach 2+α：”Crafty solution” using N≤100
+Let 𝑎 = 100𝐷 . Seeing Approach 2, the first 100 numbers which can be divided by 100
+exactly 𝐷 times are 𝑎, 2𝑎, 3𝑎, 4𝑎, … , 97𝑎, 98𝑎, 99𝑎, 101𝑎. Therefore, assuming 𝑁 ≤ 100,
+the answer will be 𝑁𝑎 = 𝑁 × 100𝐷 if 𝑁 ≤ 99 otherwise 101𝑎 = 101 × 100𝐷 .
+Sample Code (C++)： https://beta.atcoder.jp/contests/abc100/submissions/2663837
+
+Problem C: *3 or /2
+Let’s see the characteristics of “*3” or “/2”. You can “multiply 𝑎𝑖 by 3” unlimited time, but
+you cannot “divide 𝑎𝑖 by 2”, because you cannot choose this operation if 𝑎𝑖 is an odd
+number.
+So, the optimal solution seems like as follows:
+◆ For each operation, divide exactly 1 number which is an even number, and multiple
+other numbers.
+Anyway, how many times will you divide?
+Let 𝑓(𝑥) be “the number of times that 𝑥 can be divided by 2”. For example, 𝑓(8) = 3,
+𝑓(244) = 2 and 𝑓(100) = 2.
+If you choose “multiple 𝑎𝑖 by 3”, 𝑓(𝑎𝑖 ) should always be unchanged. Otherwise (if you
+choose “divide 𝑎𝑖 by 2”), 𝑓(𝑎𝑖 ) should always decrease by 1.
+Finally, if all 𝑓(𝑎𝑖 ) became zero (This means that all number is odd), you cannot do
+operation anymore.
+So, the maximum number of operation is 𝑓(𝑎1 ) + 𝑓(𝑎2 ) + ⋯ + 𝑓(𝑎𝑁 ). Since you can
+determine 𝑓(𝑥) with 𝑂(𝑙𝑜𝑔 𝑥) complexity, the complexity of this algorithm is
+𝑂(𝑁 𝑙𝑜𝑔 𝑚𝑎𝑥 𝑎𝑖 ).
+Sample Code: https://beta.atcoder.jp/contests/abc100/submissions/2670458
+Bonus: You can solve the problem with complexity 𝑂(𝑁 log log max 𝑎𝑖 ). Because, if you use
+binary-search by the value of 𝑓(𝑥), you can determine 𝑓(𝑥) with complexity 𝑂(log log 𝑥).
+
+Problem D：Patisserie ABC
+First, let’s think about this easy sub-problem:
+There are N cakes, which the value of beauty, tastiness, and popularity.
+You will choose M cakes.
+Find the maximum possible value of (sum of beauty) + (sum of tastiness) + (sum of
+
+popularity).
+This sub-problem can be solved easily. If cake 𝑖’s beauty is 𝑥𝑖 , tastiness is 𝑦𝑖 , and
+popularity is 𝑧𝑖 , the answer will be sum of (𝑥𝑘 + 𝑦𝑘 + 𝑧𝑘 ) when 𝑘 is the chosen cakes.
+Therefore, choosing 𝑀 cakes from higher (𝑥𝑖 + 𝑦𝑖 + 𝑧𝑖 ) is the optimal choice.
+But the original problem is to maximize (absolute value of sum of beauty) + (absolute
+value of sum of tastiness) + (absolute value of sum of popularity). So, there’s also a way to
+make some parameters’ sum to negative.
+Thus, you can understand easily, if you think about “maximizing force toward positive
+direction” or “maximizing force toward negative direction” for each parameter: beauty,
+tastiness, and popularity. Since there are three parameters, you can brute-force 23 = 8
+ways.
+For example, if you want sum of beauty and sum of tastiness to maximize force toward
+positive, and want sum of popularity to maximize force toward negative, choosing 𝑀 cakes
+from higher (𝑥𝑖 + 𝑦𝑖 − 𝑧𝑖 ) is the optimal choice.
+The answer will be the maximum value among 23 = 8 ways. It is possible to use
+recursion for brute-forcing, but using “brute-force with bit operations” will make easier
+implementation. Supposing that you sort a length-𝑛 array in 𝑂(𝑛 log 𝑛), the time complexity
+will be 𝑂(𝑁 log 𝑁) × 8 = 𝑂(𝑁 log 𝑁).
+Sample Code (C++)： https://beta.atcoder.jp/contests/abc100/submissions/2670489
+Bonus：This problem can be solved in linear time. First, you can calculate 𝑚-th biggest
+value in linear time. The algorithm called "Median of medians" enables calculating median in
+linear time, and then binary-searching the array, the 𝑚-th biggest value can be calculated in
+linear time. The sum of number from 1st to 𝑚-th biggest value will be calculated by, simply,
+“summing up the value larger than 𝑚-th biggest value”, plus we need some adjustment.
+
+

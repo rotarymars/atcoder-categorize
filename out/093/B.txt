@@ -1,0 +1,31 @@
+出力すべき範囲を適切に記述し、その範囲の整数をすべて出力すればよいです。A 以上 B 以下の整数が
+
+2K 個未満の場合に注意しましょう。
+#i n c l u d e <s t d i o . h>
+#i n c l u d e <v e c t o r >
+#i n c l u d e <a l g o r i t h m >
+u s i n g namespace s t d ;
+i n t main ( )
+{
+int a , b , k ;
+s c a n f (”%d%d%d ” , &a , &b , &k ) ;
+f o r ( i n t i = a ; i <= min ( b , a + k − 1 ) ; i ++) p r i n t f (”%d\n ” , i ) ;
+f o r ( i n t i = max( b − k + 1 , a + k ) ; i <= b ; i ++) p r i n t f (”%d\n ” , i ) ;
+}
+
+The integers you should print will be two intervals. Make sure to handle cases such that the number
+of integers between A and B is less than 2K.
+#i n c l u d e <s t d i o . h>
+#i n c l u d e <v e c t o r >
+#i n c l u d e <a l g o r i t h m >
+u s i n g namespace s t d ;
+i n t main ( )
+{
+int a , b , k ;
+s c a n f (”%d%d%d ” , &a , &b , &k ) ;
+f o r ( i n t i = a ; i <= min ( b , a + k − 1 ) ; i ++) p r i n t f (”%d\n ” , i ) ;
+f o r ( i n t i = max( b − k + 1 , a + k ) ; i <= b ; i ++) p r i n t f (”%d\n ” , i ) ;
+}
+
+2
+

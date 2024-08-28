@@ -1,0 +1,63 @@
+X と xi , Y と yi は同一視できるので、xN +1 = X, yM +1 = Y とします。すると、Z が満たすべき条件は
+次のようになります。
+
+• x1 , x2 , ..., xN +1 < Z
+• y1 , y2 , ..., yM +1 ≥ Z
+このような Z は存在するなら x1 (または −100) より大きく、y1 (または 100) 以下のはずなので、Z =
+
+−100, −99, ..., 100 と順に条件を満たすものがあるか調べて解くことができます。これを C++ で実装する
+と、例えば次のようになります。
+
+# include < iostream >
+# include < vector >
+using namespace std ;
+bool is_war ( const vector < int >& x , const vector < int >& y ) {
+for ( int Z = -100; Z <= 100; ++ Z ) {
+bool is_ok = true ;
+for ( int i = 0; i < x . size (); ++ i ) {
+if ( x [ i ] >= Z ) is_ok = false ;
+}
+for ( int i = 0; i < y . size (); ++ i ) {
+if ( y [ i ] < Z ) is_ok = false ;
+}
+if ( is_ok ) return false ;
+}
+return true ;
+}
+int main () {
+int N , M ; cin >> N >> M ;
+vector < int > x ( N +1) , y ( M +1);
+cin >> x [0] >> y [0];
+for ( int i = 0; i < N ; ++ i ) {
+cin >> x [ i +1];
+}
+for ( int i = 0; i < M ; ++ i ) {
+cin >> y [ i +1];
+
+3
+
+}
+if ( is_war (x , y )) {
+cout << " War " << endl ;
+}
+else {
+cout << " No War " << endl ;
+}
+}
+他の考え方もあります。xi ≥ yj なる i, j が存在すれば、条件を満たす Z は存在しません (存在し
+たとすると xi < Z ≤ yj となって矛盾します)。逆に、全ての i, j について xi < yj が成立すれば、
+
+Z = min{y1 , y2 , ..., yM +1 } とすることで条件を満たします。
+すなわち、全ての i, j について xi < yj であるかを調べる方法や、Z = min{y1 , y2 , ..., yM +1 } とし
+て条件を満たすかどうかを調べる方法があります。前者については、代わりに max{x1 , x2 , ..., xN +1 } <
+
+min{y1 , y2 , ..., yM +1 } であるかどうか調べてもよく、上の実装例の is war 関数をこの方法で実装すると次の
+ようになります。
+
+# include < algorithm >
+bool is_war ( const vector < int >& x , const vector < int >& y ) {
+return * max_element ( x . begin () , x . end ()) >= * min_element ( y . begin () , y . end ());
+}
+
+4
+

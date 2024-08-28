@@ -1,0 +1,56 @@
+
+		公式
+		
+			
+				D - Index Trio 解説
+			
+			by KoD
+			
+		
+		
+		
+		
+			\(A\) において整数 \(x\) が登場する回数を \(c(x)\) と表すことにします。
+
+条件を満たす組のうち、\(A_i = p, A_j = q, A_k = r\) を満たすものの個数は \(c(p)c(q)c(r)\) です。また \(\frac{A_i}{A_j} = A_k \Leftrightarrow p = qr\) です。
+
+\(M = \max_i A_i\) とおきます。明らかに \(x > M\) のとき \(c(x) = 0\) であり、また \(A\) の要素は全て整数であるので、上記の \(p, q, r\) として考えるべき組は、以下の条件を全て満たすものに絞ることができます。
+
+
+\(1 \leq p, q, r \leq M\)
+\(p = qr\)
+\(p, q, r\) は整数
+
+
+これを満たす \((p, q, r)\) の組を列挙することができれば、それら全てに対して \(c(p)c(q)c(r)\) を計算して足し合わせたものを答えればよいということになります。
+
+さて、実は前述の条件を満たす \((p, q, r)\) の組はそれほど多くないことが示せます。\(qr = p \leq M\) より、\(q\) を \(1 \leq q \leq M\) の範囲で固定したときに \(r\) として考えるべき値は \(1, \dots, \left\lfloor \frac{M}{q} \right\rfloor\) のみです。\(p\) は \(q, r\) の値によって決定されるので、条件を満たす \((p, q, r)\) の個数は
+\[\begin{aligned}
+
+\left\lfloor \frac{M}{1} \right\rfloor +  \left\lfloor \frac{M}{2} \right\rfloor + \dots + \left\lfloor \frac{M}{M} \right\rfloor &\leq \frac{M}{1} + \frac{M}{2} + \dots + \frac{M}{M} \\
+
+&\leq \left(\frac{M}{1}\right)  + \left(\frac{M}{2} + \frac{M}{2}\right) +  \left(\frac{M}{4} + \frac{M}{4} + \frac{M}{4} + \frac{M}{4}\right) + \dots + \left(\frac{M}{2^d} + \dots + \frac{M}{2^d}\right) \\
+
+&= M(d + 1)
+
+\end{aligned}\]となります。ただし、\(d\) は \(2^d \leq M\) を満たす最大の整数です。\(d = O(\log M)\) であるので、条件を満たす \((p, q, r)\) の個数は \(O(M \log M)\) であることがわかります。
+
+よって、\(q = 1, \dots, M\) を全てに対し、\(r\) を \(1 \leq r \leq \left\lfloor \frac{M}{q} \right\rfloor\) の範囲で動かし、\(c(p)c(q)c(r) = c(qr)c(q)c(r)\) の値を足し合わせることによってこの問題を \(O(M \log M)\) で解くことができました。
+
+実装例 (C++) :
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

@@ -1,0 +1,37 @@
+(原案: sheyasutaka, 準備・解説: evima)
+一般に、文字列 t が文字列 u の部分列であるかは t を u と貪欲にマッチさせれば判定できます。つまり、t
+の最初の文字が u に現れる最初の位置を見つけ、その位置より後ろで t の次の文字が u に現れる位置を見つ
+け、. . . という要領で t の最後の文字まで u の中に見つけられるかを試せばよく、今回は u = s′ (s の無限回
+の繰り返し) としてこの処理を効率的に行うことが求められています。
+
+s′ は無限に長いですが、t の長さは限られている点がポイントで、上の |t| 回の処理の一回一回を高速に行
+えれば十分です。そのためには、まず a から z までの各文字種 ch に対して s 内の ch の出現位置をすべて
+抽出するべきでしょう。あとは周期性を利用し、i = 0, . . . , |s| − 1 のそれぞれに対して nextch,i :「s′ の i 文
+字目以降で文字種 ch が最初に現れる位置」を O((文字種数) × |s|) 時間かけて事前にすべて求めておくとい
+う方針や、二分探索を用いて ch の次の出現位置を毎回 O(log |s|) 時間かけて求めるという方針が考えられま
+す。いずれにせよ、s を 2 個連結した文字列を用いると実装が楽になります。
+
+5
+
+(Original writer: sheyasutaka, preparation and editorial: evima)
+Generally, in order to judge if a string t is a substring of u, you can greedily match t with u. That is,
+find the first appearance of the first letter of t in u, then find the second letter of t in u after the first
+match, ... and so on, until checking if the last letter of t appears in u, and this time, it is required to do
+this operations eﬃciently under u = s′ (an infinite repetition of s).
+The key point is that, while s′ is infinitely long, the length of t is limited, so it is suﬃcient to
+perform each operation of |t| operations mentioned above quickly enough.
+ter ch from a to z, you should extract all the appearance of ch in s.
+
+To do so, for each let-
+
+Then you can precalculate
+
+′
+
+nextch,i : ”the first appearance of letter ch after the i-th character of s ” for each i = 0, . . . , |s| − 1
+with O((thenumberofkindsofcharacters) × |s|) time, or use binary search to find the position of the next
+appearance of ch with O(log |s|) time each. Anyway, if you use 2-time repetition of s, the implementation
+will be easier.
+
+12
+

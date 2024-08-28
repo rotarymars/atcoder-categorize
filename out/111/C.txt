@@ -1,0 +1,35 @@
+数列 v1 , v2 , . . . , vn から偶数番目を取り出した数列 v2 , v4 , . . . , vn を e とおき、奇数番目を取り出した数列 v1 , v3 , . . . , vn−1
+を o とおきます。問題の条件を e と o を使って言い換えると、次のようになります。
+
+1. e の要素はすべて同じ
+2. o の要素はすべて同じ
+3. e ̸= o
+みっつめの条件を無視して考えると、e と o それぞれについて、各要素を数列の最頻値に書き換えるのが最適になりま
+す。e と o それぞれの最頻値が異なっていれば、その書き換え方でみっつめの条件もクリアできます。そうでない場合は
+どちらかを最頻値でない値に書き換えなければなりません。
+
+e で一番出現回数の多い要素を E1 とおき、二番目に出現回数の多い要素を E2 とおきます（E1 と E2 の出現回数が同
+じということもありえます）。同様に、o で一番出現回数の多い要素を O1 とおき、二番目に出現回数の多い要素を O2 と
+おきます。今、E1 = O1 であるため、次のふたつの書き換え方のうちどちらかが最適です。
+
+• e を E1 で書き換え、o を O2 で書き換える
+• e を E2 で書き換え、o を O1 で書き換える
+この 2 通りを両方試して、書き換える項の数の小さい方が答えです。
+
+Let E be the sequence v2 , v4 , . . . , vn , and let O be the sequence v1 , v3 , . . . , vn−1 . We want to do the following (and
+minimize the number of changes):
+1. Change all elements of E to x.
+2. Change all elements of O to y.
+3. x ̸= y
+If we ignore the third condition, the problem is easy: x should be the mode (the most frequent element) of E and y
+should be the mode of O. Thus, in case the mode of E and the mode of O are diﬀerent, this is the optimal solution.
+Otherwise, we should try two cases. Let e be the mode of E and e2 be the second most frequent element of E.
+(Strictly speaking, e2 is the most frequent element of E except for e. It’s possible that e and e2 appear the same
+number of times in E.) SImilarly, let o be the mode of O and o2 be the second most frequent element of O. Then,
+the optimal solution is one of the following two:
+• x = e, y = o2
+• x = e2 , y = o
+We try both and choose the better one.
+
+2
+

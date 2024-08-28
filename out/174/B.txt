@@ -1,0 +1,110 @@
+(解説: evima)
+前問と同様に架空の言語で正解例を示し、各行について述べます。
+
+1
+
+read N, D as int
+
+2
+
+ans = 0
+
+3
+
+for i = 1, ..., N:
+
+4
+
+read X, Y as int
+
+5
+
+if X * X + Y * Y <= D * D:
+
+6
+7
+
+ans += 1
+write ans
+1 行目: 入力された値 N, D を整数として読み込みます。
+2 行目: カウンターとして用いる変数 ans を宣言し、0 で初期化します。
+3 行目: 4 行目から 6 行目までを N 回繰り返し実行させます。言語ごとの for 文の書き方につい
+ては、検索エンジンで「(言語名) for 文」などと検索してください。
+
+4 行目: i 個目の点の座標 Xi , Yi を整数変数 X, Y に読み込みます。N 個すべての点の座標を配列
+に保存する手もありますが、この解答例では処理した点の座標は「忘れる」ことにしています。
+
+5, 6 行目: 距離
+
+√
+
+X 2 + Y 2 が D 以下であるか判定し、そうであれば ans に 1 を加算します。た
+
+だし、これら二つの値を直接比較する代わりに両者の二乗同士を比較しています (入力される D の値
+は 0 以上であることが保証されているため、単に二乗同士を比較しても結果は変わりません)。一般
+に、計算機上での実数の計算は浮動小数による近似計算であり、その結果には誤差が含まれる*2 ため、
+可能な限り避けるべきです。
+
+7 行目: カウンターとして用いた変数 ans の最終的な値を出力します。
+
+*2 例えば、コードテストで print(2**0.5
+
++ 2**0.5 + 2**0.5 == 18**0.5) (Python) を実行してみてください
+
+3
+
+(Editorial: evima)
+As in the previous problem, we will show a sample answer in an imaginary language, and
+explain each line.
+
+1
+
+read N, D as int
+
+2
+
+ans = 0
+
+3
+
+for i = 1, ..., N:
+
+4
+
+read X, Y as int
+
+5
+
+if X * X + Y * Y <= D * D:
+
+6
+7
+
+ans += 1
+write ans
+1st line: read the input values N, D as an integer.
+2nd line: Declare a variable ans which will be used as a counter, and initialize it with 0.
+3rd line: repeat the 4th to 6th line for N times. For the syntax of for statements in each
+language, use search engine with keywords “(language name) for statement”.
+4th line: input the coordinates Xi , Yi of the i-th point to the variables X, Y . You may store
+all the coordinates of points to an array, but in this sample code, we would rather “forget” the
+coordinates that has been processed.
+5th and 6th line: check if distance
+
+√
+
+X 2 + Y 2 is less than or equal to D, and add 1 to ans in
+
+such case. However, instead of directly comparing those two values, the squares of those values
+are compared (Since it is guaranteed that input D is more than or equal to 0, we can simply
+compare the squares without changing the result). In general, calculations of real numbers on
+computers are approximation by ﬂoating point numbers, and they may contain precision errors*6 ,
+so it has to be avoided as much as possible.
+7th line: output the ultimate value of the counter variable ans.
+
+*6 for example, try print(2**0.5
+
++ 2**0.5 + 2**0.5 == 18**0.5)(Python) in the Code Test
+
+9
+

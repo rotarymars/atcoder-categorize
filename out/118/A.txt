@@ -1,0 +1,17 @@
+A が B の約数であるとは、B が A で割り切れることなので、B を A で割った余りが 0 であるかを調べ
+れば判定できます。したがって、C++ で実装した場合下のコードで正答することができます。
+
+# include < bits / stdc ++. h >
+using namespace std ;
+int main () {
+int A , B ; cin >> A >> B ;
+if ( B % A == 0) {
+cout << A + B << endl ;
+}
+else {
+cout << B - A << endl ;
+}
+}
+
+1
+

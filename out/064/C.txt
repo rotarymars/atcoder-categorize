@@ -1,0 +1,45 @@
+まず、全員のレートが 3199 以内であることを考えてみましょう。
+灰、茶、緑、水、青、黄、橙、赤色をその順に 0, 1, 2, 3, 4, 5, 6, 7 と番号付けることにします。そ
+のとき、色番号 𝑖 の人のレートを 𝑟 としたとき、400𝑖 ≤ 𝑟 < 400(𝑖 + 1) を満たします。例えば、色番
+号 5 (=黄色) の人のレートは、400×5=2000 以上 400×6=2400 未満 となります。
+次に、「色番号 𝑖 の人がいるか」 というのを確かめることにします。これは、400𝑖 ≤ 𝑎𝑗 < 400(𝑖 + 1)
+を満たすような 𝑗 が存在するならば色番号 𝑖 の人はいます。また、そうでなければいません。
+これを 0 ≤ 𝑖 ≤ 7 の範囲で全探索すると、計算量 𝑂(𝑛) で色の種類数を求めることができます。
+次に、レート 3200 以上の人が存在することを考えてみましょう。レート 3200 以上の人は、色を自由
+に設定することが可能なので、当然設定によっては色の種類数は変動してきます。
+そこで、レート 3200 以上の人を 𝑛 人、レート 3199 以下の人に対する色の種類数を 𝑐 とします。
+そのとき、最大値 / 最小値 は次のようになります。
+1. 最大値
+レート 3200 以上の人 𝑛 人がすべて違う色を設定し、かつどの人も 灰 / 茶 / 緑 / 水 / 青 /
+黄 / 橙 / 赤色 を設定している場合、𝑛 + 𝑐 種類の色ができます。また、変えられる色が 𝑛 個しかな
+いので、これが最大であることが分かります。
+2. 最小値
+a. 𝑐 ≥ 1 のとき
+レート 3199 以下の人が 1 人以上いるので、このうち 1 人の色を X とすると、レート 3200 以
+上の人が全員色 X に設定すれば色の種類数は 𝑐 種類 となります。
+b. 𝑐 = 0 のとき
+この場合、全員がレート 3200 以上であるということになります。人が 1 人以上で色の種類数
+が 0 種類であることはあり得ないので、a. は成り立ちません。また、最適解はこの場合全員が同
+じ色を選んだ時に色の種類数は 1 種類となります。
+よって、この問題は計算量 𝑂(𝑛) で解くことができます。
+
+Let 𝑥 the number of people who rating is more or equal to 3200, and let 𝑐 the
+number of different colors whose rating is less than 3200.
+𝑥 can calculate with the number of 𝑖 that satisfies 𝑎𝑖 ≥ 3200 , and 𝑐 is the
+number of 𝑖⁡ (0 ≤ 𝑖 ≤ 7) that at least one 𝑗 exists that satisfies 400𝑖 ≤ 𝑎𝑗 < 400(𝑖 +
+1), because the color of rating (less than 3200) can identify with the quotient of 𝑎𝑖
+divided by 400.
+Maximum value / Minimum value can calculate as following method:
+1. Maximum value
+The optimal way is setting distinct colors in people whose rating is more or
+equal to 3200, and also setting color is different from gray, brown, green, cyan,
+blue, yellow, orange, and red. The number of different colors will be 𝑥 + 𝑐.
+2. Minimum value
+a. Case 𝒄 ≥ 𝟏
+In this case, there exist a person X who rating is below 3200. The optimal
+way is setting same color as person X, for all people whose rating is more or
+equal to 3200. The number of different colors will be 𝑐.
+b. Case 𝒄 = 𝟎
+This pattern is tricky. For the constraints 𝑛 ≥ 1, if all people select same color,
+the number of different colors will be 1. This is the optimal way.
+

@@ -1,0 +1,47 @@
+500 円以上持っているのであれば、500 円硬貨 1 枚を手に入れた方が、5 円硬貨 100 枚を手に入れ
+るより嬉しさは大きくなります。よって、できる限り 500 円硬貨を手に入れた後、端数で 5 円硬貨を
+手に入れるのが最善です。
+
+C 言語での実装例は次のとおりです。
+#include<stdio.h>
+2 int main(){
+3
+int x;
+4
+scanf("%d",&x);
+5
+int c500 = x/500; // 500 円硬貨の数
+6
+int r500 = x%500; // 端数
+7
+int c5 = r500/5; // 5 円硬貨の数
+8
+printf("%d\n",c500*1000+c5*5);
+9 }
+1
+
+2
+
+If he has more than 500 yen, then the happiness will be larger when he has a 500-yen coin
+than when he has 100 5-yen coins. Therefore, it is optimal to obtain 500-yen coins as much as
+possible, then obtain 5-yen coins with the fraction.
+The following is a sample code in C.
+#include<stdio.h>
+2 int main(){
+3
+int x;
+4
+scanf("%d",&x);
+5
+int c500 = x/500; //The number of 500-yen coins
+6
+int r500 = x%500; //Fraction
+7
+int c5 = r500/5; //The number of 5-yen coins
+8
+printf("%d\n",c500*1000+c5*5);
+9 }
+1
+
+8
+

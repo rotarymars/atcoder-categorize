@@ -1,0 +1,127 @@
+与えられた文字列がどの曜日に対応するものであるか調べて分岐し、答えを出力します。
+
+C++ での実装例は次のとおりです。
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+string s;
+
+5
+
+cin >> s;
+
+6
+
+int ans;
+
+7
+
+if(s == "SUN")ans = 7;
+
+8
+
+else if(s == "MON")ans = 6;
+
+9
+
+else if(s == "TUE")ans = 5;
+
+10
+
+else if(s == "WED")ans = 4;
+
+11
+
+else if(s == "THU")ans = 3;
+
+12
+
+else if(s == "FRI")ans = 2;
+
+13
+
+else if(s == "SAT")ans = 1;
+
+14
+
+cout << ans << endl;
+
+15
+
+}
+
+1
+
+Find what day of the week does the given string represent, then split into cases and output
+the answer. The following is a sample code in C++.
+1
+
+#include <iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+string s;
+
+5
+
+cin >> s;
+
+6
+
+int ans;
+
+7
+
+if(s == "SUN")ans = 7;
+
+8
+
+else if(s == "MON")ans = 6;
+
+9
+
+else if(s == "TUE")ans = 5;
+
+10
+
+else if(s == "WED")ans = 4;
+
+11
+
+else if(s == "THU")ans = 3;
+
+12
+
+else if(s == "FRI")ans = 2;
+
+13
+
+else if(s == "SAT")ans = 1;
+cout << ans << endl;
+
+14
+15
+
+}
+
+7
+

@@ -1,0 +1,55 @@
+半径 r の円の面積は、円周率を π として πr 2 になります。したがって求める答えは πr 2 /π12 = r2
+となります。
+以下は C 言語でのコードです。
+1
+
+#include<stdio.h>
+
+2
+
+int main(){
+
+3
+
+int r;
+
+4
+
+scanf("%d",&r);
+
+5
+
+printf("%d\n",r*r);
+
+6
+
+}
+
+1
+
+The area of a circle of radius r is πr2 . Therefore the answer is πr2 /π12 = r2 .
+The following is a sample code in C.
+1
+
+#include<stdio.h>
+
+2
+
+int main(){
+
+3
+
+int r;
+
+4
+
+scanf("%d",&r);
+printf("%d\n",r*r);
+
+5
+6
+
+}
+
+7
+

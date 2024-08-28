@@ -1,0 +1,83 @@
+以下のように、3 通りに場合分けして答えを求めればよいです。
+
+#include<stdio.h>
+2 #include<algorithm>
+3 using namespace std;
+4 int main()
+5 {
+6
+char s[10];
+7
+scanf("%s", s);
+8
+if(s[0] == s[1] && s[1] != s[2] && s[2] == s[3])printf("Yes\n");
+9
+else if(s[0] == s[2] && s[2] != s[1] && s[1] == s[3])printf("Yes\n");
+10
+else if(s[0] == s[3] && s[3] != s[1] && s[1] == s[2])printf("Yes\n");
+11
+else printf("No\n");
+12 }
+1
+
+また、以下のように文字列を並び替えてから判定を行っても良いです。
+
+#include<stdio.h>
+#include<algorithm>
+3 using namespace std;
+4 int main()
+5 {
+6
+char s[10];
+7
+scanf("%s", s);
+8
+sort(s, s + 4);
+9
+printf((s[0] == s[1] && s[1] != s[2] && s[2] == s[3]) ? "Yes\n" : "No\n");
+10 }
+1
+2
+
+1
+
+You can solve this problem by splitting into those three cases.
+1 #include<stdio.h>
+2 #include<algorithm>
+3 using namespace std;
+4 int main()
+5 {
+6
+char s[10];
+7
+scanf("%s", s);
+8
+if(s[0] == s[1] && s[1] != s[2] && s[2] == s[3])printf
+("Yes\n");
+9
+else if(s[0] == s[2] && s[2] != s[1] && s[1] == s[3])
+printf("Yes\n");
+10
+else if(s[0] == s[3] && s[3] != s[1] && s[1] == s[2])
+printf("Yes\n");
+11
+else printf("No\n");
+12 }
+You can also do by sorting the characters.
+1 #include<stdio.h>
+2 #include<algorithm>
+3 using namespace std;
+4 int main()
+5 {
+6
+char s[10];
+7
+scanf("%s", s);
+8
+sort(s, s + 4);
+9
+printf((s[0] == s[1] && s[1] != s[2] && s[2] == s[3])
+? "Yes\n" : "No\n");
+10 }
+7
+

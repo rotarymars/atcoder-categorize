@@ -1,0 +1,110 @@
+この問題を解くには、以下の手順を踏む必要があります。
+
+0.（言語によっては不要）文字列変数 S を宣言する。
+1. 標準入力から S を文字列として受け取る。
+2. S の 4 文字目を ’8’ に置き換える（直接的または間接的に）。
+3. 得た文字列を標準出力に出力する。
+ステップ 2. に関しては、言語によって事情が異なります。C++ のような言語では単に S[3] = ’8’; など
+とすれば済みますが、Python のような言語では文字列中の文字を直接書き換えることが許されないこともあ
+ります。このような場合、文字列を一旦別のデータ構造（リスト）に変換する手もありますが、S の末尾の 2
+文字を "2018/01/" と連結するなど、別の方針も考えられます。
+
+C++, Python での実装例:
+
+1
+
+#include <iostream>
+
+2
+
+#include <string>
+
+3
+
+using namespace std;
+
+4
+5
+
+int main(){
+
+6
+
+string S;
+
+7
+
+cin >> S;
+
+8
+
+S[3] = '8';
+
+9
+
+cout << S << endl;
+
+10
+
+}
+
+1
+
+print("2018/01/" + input()[-2:])
+
+1
+
+To solve this problem, you need to go through the procedure below:
+0. (Unnecessary for some languages) Declare a string variable S.
+1. Receive S as a string from Standard Input.
+2. Replace the fourth character in S with ’8’ (directly or indirectly).
+3. Print the obtained string to Standard Output.
+For step 2., situations are diﬀerent depending on language. In languages such as C++, writing S[3] =
+’8’; or similar code is fine, but in some languages such as Python, rewriting a character in a string is
+prohibited. In this case, a workaround is to convert the string to another data structure (list) temporarily,
+but there are also other paths, such as appending the last two characters in S to "2018/01/".
+Sample implementations in C++ and Python:
+
+1
+
+#include <iostream>
+
+2
+
+#include <string>
+
+3
+
+using namespace std;
+
+4
+5
+
+int main(){
+
+6
+
+string S;
+
+7
+
+cin >> S;
+
+8
+
+S[3] = '8';
+
+9
+
+cout << S << endl;
+
+10
+
+}
+
+1
+
+print("2018/01/" + input()[-2:])
+
+5
+

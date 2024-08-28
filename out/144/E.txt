@@ -1,0 +1,40 @@
+メンバーを Ai で昇順に，食べ物を Fi で降順にソートし，i 番目のメンバーに i 番目の食べ物を担
+当させるのが最適です．以下にそれを示します．
+
+babababababababababababababababababab
+
+ある 2 人 X, Y の，修行前の消化コスト Ax , Ay および担当する食べ物の食べにくさ Fx , Fy
+において，Ax < Ay かつ Fx < Fy が成り立つとします．このとき，修行後のコストを
+
+A′x , A′y とおくと，
+ A′x < A′y のとき，両名の担当する食べ物のみを入れ替えることで，
+ A′x ≥ A′y のとき，両名の担当する食べ物と修行後のコストを入れ替えることで，
+修行の総数も成績も，何も損することなく両名の担当を swap できます．これを繰り返すと
+有限回で行き詰まり，その結果できた選び方は先述の条件を満たします．
+
+あとは「全てのメンバーについて完食にかかる時間を x 以下にできるか」という問題を考えて，二
+分探索をすることで解けます．時間計算量は Θ(N log X) です (ここで X は答えの値)．
+
+6
+
+It is optimal to sort the members in the increasing order of Ai , sort the foods in the decreasing
+order of Fi , and assign the i-th food to the i-th member. The following is the proof.
+babababababababababababababababababab
+
+For some two members X, Y , assume that their consumption coeﬃcients, Ax , Ay , and
+the diﬃculty of foods assigned to them, Fx , Fy , meet such conditions that Ax < Ay
+and Fx < Fy . Let A′x , A′y be their consumption coeﬃcient after training, theen they
+can swap their assigned food without losing the number of total number of training and
+their score. It can be achieved by performing the following operation:
+ If A′x < A′y , swap the foods assigned to them.
+ If A′x ≥ A′y , swap the foods assigned to them, and also swap their consumption
+
+coeﬃcients.
+This operation can be repetaed finite times, and the resulting assginment meets the
+condition mentioned above.
+All the left is doing binary search by solving problem of ”whether or not it is possible to let
+the longest time of finishing food to be less than x.” So this problem can be solved in a total of
+Θ(N log X) time (where X is the answer).
+
+13
+

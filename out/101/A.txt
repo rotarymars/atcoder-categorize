@@ -1,0 +1,11 @@
+高橋君が思い浮かべている整数を，S の各文字ごとに更新していけばよいです．あるいは，S の中に現れる + の個数
+から，- の個数を引くことでも求められます．
+
+• C++ による解答例: https://abc101.contest.atcoder.jp/submissions/2711190
+• Ruby による解答例: https://abc101.contest.atcoder.jp/submissions/2711191
+• Python による解答例: https://abc101.contest.atcoder.jp/submissions/2711198
+
+• C++ example: https://abc101.contest.atcoder.jp/submissions/2711190
+• Ruby example: https://abc101.contest.atcoder.jp/submissions/2711191
+• Python example: https://abc101.contest.atcoder.jp/submissions/2711198
+

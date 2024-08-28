@@ -1,0 +1,80 @@
+与えられた木を、頂点 1 を根とする根付き木とみなします。また、任意の頂点 w に対し、根から頂点 w まで
+の距離を distw とします。このとき、二頂点 u.v 間の距離は u, v の 最近共通祖先 (英語版 Wikipedia の記事)
+を a として distu + distv − 2dista と書けます。よって、各問 i に対して次の二つの部分問題を解けばよいこ
+とになります。
+
+1. 二頂点 ui , vi の最近共通祖先 ai を求める。
+2. 色 xi のすべての辺の長さが yi に変更されたときの distui , distvi , distai を求める。
+部分問題 1 は有名問題です。以下、よく知られている解法を紹介します。任意の頂点 w に対し、par(w, 0)
+を w、par(w, 1) を w の親、par(w, 2) を w の親の親、. . . とします (根の親は根とします)。まず、事前にす
+べての頂点 w と整数 i = 0, 1, . . . , ⌊log2 N ⌋ に対して par(w, 2i ) を求めておきます。これは、par(w, 2i+1 ) =
+
+par(par(w, 2i ), 2i ) に注意すると O(N log N ) 時間で行えます。また、すべての頂点 w に対してその深さ
+depthw (根までの辺数) も事前に求めておきます。これらを元に、以下のようにして二頂点 ui , vi の最近共通
+祖先をそれぞれ O(log N ) 時間で求めることができます。
+
+1. a = ui , b = vi とする。
+2. deptha < depthb なら b = par(b, depthb − deptha )、そうでなければ a = par(a, deptha − depthb ) と
+する。
+
+3. a = b なら a を返す。
+4. i = ⌊log2 N ⌋, ⌊log2 N ⌋ − 1, . . . , 1, 0 に対してこの順に次を行う: par(a, 2i ) ̸= par(b, 2i ) なら a =
+par(a, 2i ), b = par(b, 2i ) とし、そうでなければ何もしない。
+5. par(a, 1) を返す。
+部分問題 2 を解くには、まず事前にすべての頂点 w に対して辺の長さが変更される前の distw を求めてお
+きます。色 xi のすべての辺の長さが yi に変更されると、distw は num(xi , w) × yi − sum(xi , w) だけ増加
+します。ここで num(xi , w) は根と頂点 w の間に存在する色 xi の辺の数、sum(xi , w) はそれらの辺の元の
+長さの総和です。
+
+num(xi , w), sum(xi , w) を求めるには、まず木の N − 1 本の辺を DFS を行う際に通過する順に並べたリ
+スト (オイラーツアー) を作ります。例えば、入力例 1 の木に対するオイラーツアーの例は次のようになりま
+す: +e1 , +e3 , −e3 , +e4 , −e4 , −e1 , +e2 , −e2 。ここで、i 番目の辺を根から遠ざかる方向にたどる際に +ei 、根
+に近づく方向にたどる際に −ei と表記しています。このリストの ei を i 番目の辺の元の長さで置き換えた数
+列を考えると、w と w の親を結ぶ辺が j 番目の辺であるとして、この数列の先頭から +ej に対応する要素ま
+での和が根と w の間に存在する辺の元の長さの総和と一致します。この数列を順序を保ったまま辺の色ごと
+に分割し、事前に先頭から各要素までの和を計算しておけば、色 xi と頂点 w が指定された際に sum(xi , w)
+を二分探索により O(log N ) 時間で求めることができます。num(xi , w) についても同様です。
+以上の処理を行えば、合計 O((N + Q) log N ) 時間ですべての問いを処理することができます。
+
+7
+
+ABC 133 Editorial
+drafear, yosupo, potetisensei, yuma000, camypaper, evima
+July 7, 2019
+
+Let’s regard the given tree as a rooted tree whose root is vertex 1. Also, for each vertex w, let distw
+be the distance from the root to vertex w. Here, the distance between two vertices u, v can be written
+as distu + distv − 2dista , where a is the lowest common ancestor of vertices u, v. Therefore, each query
+i can be solved by solving the following two subproblems:
+1. Find the least common ancestor of two vertices ui , vi .
+2. Find distui , distvi and distai when the length of every edge whose color is xi is changed to yi .
+Subproblem 1 is a famous problem. The following is a well-known solution. For each vertex w, let
+par(w, 0) be w, par(w, 1) be the parent of w, par(w, 2) be the parent of the parent of w, and so on (here we
+assume the parent of root to be the root itself). First, for each vertex w and integer i = 0, 1, . . . , ⌊log2 N ⌋,
+precalculate par(w, 2i ). By using the fact that par(w, 2i+1 ) = par(par(w, 2i ), 2i ), this can be calculated
+in O(N log N ). Also, for each vertex w, precalculate its depth depthw (the number of edges to the root).
+By using them, you can ﬁnd the least common ancestor of two vertices ui andvi with the following steps:
+1. Let a = ui , b = vi .
+2. Let b = par(b, depthb − deptha ) if deptha < depthb , otherwise a = par(a, deptha − depthb ).
+3. Return a if a = b.
+4. For each i = ⌊log2 N ⌋, ⌊log2 N ⌋ − 1, . . . , 1, 0, do the following: let a = par(a, 2i ), b = par(b, 2i ) if
+par(a, 2i ) ̸= par(b, 2i ), and otherwise do nothing.
+5. Return par(a, 1).
+To solve the subproblem 2, ﬁrst of all, for each vertex w, calculate distw before the length of the
+edges are changed. After the length of every edge whose color is xi is changed to yi , distw increases by
+num(xi , w) × yi − sum(xi , w), where num(xi , w) is the number of edges whose color is xi , and sum(xi , w)
+is the sum of the length of those edges.
+To ﬁnd num(xi , w), sum(xi , w), ﬁrst make a list of vertices in the order of DFS traversing (Euler tour).
+For example, an Euler tour of the tree in Sample Input 1 is like: +e1 , +e3 , −e3 , +e4 , −e4 , −e1 , +e2 , −e2 .
+Here, +ei denotes moving away from the root, and −ei denotes getting closer to the root, while passing
+through the i-th edge. If you substitute each ei in this sequence with the length of the i-th edge, the sum
+of the elements of subsequence from the ﬁrst element to the element corresponding to +ej is equal to the
+sum of the length of edges between the root and vertex w if the j-th edge connects two vertices, w and
+the parent of w. If you split this sequence into subsequences without changing the order so that each
+subsequence correspond to each color, and precalculate the sum from the beginning to each element, for
+each speciﬁed color xi and vertex w, you can calculate sum(xi , w) in time complexity O(log N ) by using
+binary search. Similarly you can also calculate num(xi , w).
+With the operations above, you can answer to all the queries in O((N + Q) log N ).
+14
+
+

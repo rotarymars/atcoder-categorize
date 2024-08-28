@@ -1,0 +1,27 @@
+それぞれのプレイヤーは, 自分のターンのときに, 今選べるカードの中で最大の数が書かれているものを
+取るという戦略をとると, 自分の得点を最大化できます.
+𝑎 の値を大きい順に 𝑎1 , 𝑎2 , … , 𝑎𝑁 となるように並べ替えるとき, 𝑎1 + 𝑎3 + 𝑎5 + 𝑎7 + ⋯ が Alice
+の得点となり, 𝑎2 + 𝑎4 + 𝑎6 + 𝑎8 + ⋯ が Bob の得点となります.
+数列を小さい順・大きい順に並べ替える操作は 「ソート (sorting)」 といい, ほとんどのプログラミン
+グ言語において数列のソートをする関数はあります. 存在しない場合でも, バブルソートなどの方法を使っ
+て数列をソートすることもできます.
+サンプルコード (C++)：
+
+
+https://beta.atcoder.jp/contests/abc088/submissions/2105068
+
+If the player takes a strategy which chooses a card with maximum number
+among all selectable cards in each turn, the final score will be maximized.
+Now, let’s rearrange the sequence 𝑎, that 𝑎1 , 𝑎2 , 𝑎3 , … , 𝑎𝑁 will be in decreasing
+order. Alice’s score will be 𝑎1 + 𝑎3 + 𝑎5 + 𝑎7 + ⋯, and Bob’s score will be 𝑎2 + 𝑎4 +
+𝑎6 + 𝑎8 + ⋯. Therefore, the difference of Alice’s score and Bob’s score will be 𝑎1 −
+𝑎2 + 𝑎3 − 𝑎4 + 𝑎5 − 𝑎6 + 𝑎7 − 𝑎8 + ⋯.
+Rearranging sequence in increasing order or decreasing order is called “sorting”.
+Sorting is the basic algorithm in computer science, and most programming language
+has sorting function. If you don’t use programming language that doesn’t have
+sorting function, you can implement sorting algorithm like Bubble Sort.
+Sample Code (C++)：
+
+
+https://beta.atcoder.jp/contests/abc088/submissions/2105068
+

@@ -1,0 +1,84 @@
+pi ̸= i であるような要素 pi の数を k とします。結論から言うと k ≤ 2 であるときに限り 1 回以下のス
+ワップで p を昇順にすることが可能です。k = 0 のとき、最初から p が昇順であることを意味します。k = 1
+になることはありません。k = 2 のとき、pi ̸= i である 2 つの要素を 1 回スワップすることで p を昇順にで
+きます。1 回のスワップで k の値はたかだか 2 しか減らすことができないため、k ≥ 3 のとき 1 回以下のス
+ワップで p を昇順にすることはできません。
+与えられた順列の k の値は線形時間で求めることができます。よってこの問題を O(N ) で解くことができ
+ました。ちなみに問題をより一般化した「M (M ≤ N ) 回以下のスワップで p を昇順にできるか？」という
+問題も O(N ) で解くことができます。
+Listing 2 C++ による実装例
+
+#include<bits/stdc++.h>
+using namespace std;
+3 #define rep(i, n) for(int i = 0; i < (int)n; i++)
+1
+2
+
+4
+
+int main() {
+6
+int n;
+7
+cin >> n;
+8
+vector<int> p(n);
+9
+rep(i, n) cin >> p[i];
+10
+int k = 0;
+11
+rep(i, n) if(p[i] != i + 1) k++;
+12
+if(k <= 2) cout << "YES" << endl;
+13
+else cout << "NO" << endl;
+14
+return 0;
+15 }
+5
+
+2
+
+Let k be the number of elements pi such that pi ̸= i. To come to the point, you can sort p in ascending
+order by performing at most 1 operation of swap only if k ≤ 2. If k = 0, it means that p is already sorted
+in ascending order. It is impossible that k = 1. If k = 2, you can swap the two elements such that pi ̸= i
+only one time so that p is sorted in ascending order. In one swap, the value of K can be decreased by at
+most 2, so if k ≤ 3, you cannot sort p in ascending order by performing at most one swap.
+The value of k can be obtained in linear time. Here the problem was solved in O(N ). By the way, the
+problem that ”can p be sorted in ascending order by performing at most M (M ≤ N ) swaps?” can also
+be solved in O(N ) time.
+Listing 2 An implementation example in C++
+
+#include<bits/stdc++.h>
+using namespace std;
+3 #define rep(i, n) for(int i = 0; i < (int)n; i++)
+1
+2
+
+4
+
+int main() {
+6
+int n;
+7
+cin >> n;
+8
+vector<int> p(n);
+9
+rep(i, n) cin >> p[i];
+10
+int k = 0;
+11
+rep(i, n) if(p[i] != i + 1) k++;
+12
+if(k <= 2) cout << "YES" << endl;
+13
+else cout << "NO" << endl;
+14
+return 0;
+15 }
+5
+
+8
+

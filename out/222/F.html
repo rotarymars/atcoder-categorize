@@ -1,0 +1,647 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - エクサウィザーズプログラミングコンテスト2021（AtCoder Beginner Contest 222）</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - エクサウィザーズプログラミングコンテスト2021（AtCoder Beginner Contest 222）" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc222/editorial/2749" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - エクサウィザーズプログラミングコンテスト2021（AtCoder Beginner Contest 222）" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc222";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2021-10-09T21:00:00+09:00");
+			var endTime = moment("2021-10-09T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>エクサウィザーズプログラミングコンテスト2021（AtCoder Beginner Contest 222）が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>エクサウィザーズプログラミングコンテスト2021（AtCoder Beginner Contest 222）は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc222">エクサウィザーズプログラミングコンテスト2021（AtCoder Beginner Contest 222）</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc222/editorial/2749?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc222/editorial/2749?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc222%2Feditorial%2F2749">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc222%2Feditorial%2F2749">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc222%2Feditorial%2F2749">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20211009T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-10-09 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20211009T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-10-09 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc222"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc222/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc222/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc222/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc222/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc222/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc222/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc222/tasks/abc222_f">F - Expensive Expense</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この問題は次の 2 つの解き方があります。</p>
+
+<ol>
+<li><strong>直径</strong> を利用した解き方</li>
+<li><strong>全方位木 DP</strong> を利用した解き方</li>
+</ol>
+
+<p>の順に触れていきたいといきます。</p>
+
+<h3>1. 直径を利用した解き方</h3>
+
+<p>以下の説明ではグラフは木であるとします。また、無向グラフの頂点の組 <span>\((s,t)\)</span> に対して <span>\(s\)</span> と <span>\(t\)</span> の距離 (最短パスの長さ) を <span>\(d(s,t)\)</span> のように表します。</p>
+
+<p><strong>直径</strong> とはグラフ内で最も離れている <span>\(2\)</span> 頂点の距離のことをいいます。形式的には、グラフの頂点の組 <span>\((s,t)\)</span> に対する <span>\(d(s,t)\)</span> の最大値とも言えます。</p>
+
+<p>最短距離が直径と一致する頂点の組を <span>\((s,t)\)</span> とします。このときグラフ内の全ての頂点に対して以下の性質が成り立ちます。</p>
+
+<blockquote>
+<p>すべてのグラフ内の頂点 <span>\(u\)</span> に対して、 <span>\(u\)</span> から最も遠い頂点のうちの 1 つは <span>\(s\)</span> か <span>\(t\)</span> である。言い換えると、</p>
+<p><span>\[\max_{v \in G} d(u,v) = \max(d(u,s), d(u,t))\]</span></p><p>が成り立つ。</p>
+</blockquote>
+
+<p>この問題は直径の性質を利用して次のように解くことができます。</p>
+
+<p>与えられたグラフを <span>\(G(V,E)\)</span> のように置きます。( <span>\(V\)</span> は頂点集合、 <span>\(E\)</span> は辺集合です。)<br>
+すべての頂点 <span>\(v \in V\)</span> に対して、補助的なノード <span>\(v&#39;\)</span> を新たに置き、 <span>\(v\)</span> と <span>\(v&#39;\)</span> の間に重み <span>\(D_v\)</span> の辺を貼った拡張グラフを新たに考えます。</p>
+
+<p>以下の図は サンプル1 の拡張グラフを図示したものです。</p>
+
+<p><img src="https://img.atcoder.jp/ghi/c3e74e5275bd59e5cf769b8a3c99c9d1.png" alt="sample1.png"/></p>
+
+<p>求めるものはすべての <span>\(v \in V\)</span> に対して、</p>
+<p><span>\[\max_{u \in V, u \neq v} d(v,u&#39;) \ \cdots (\ast)\]</span></p><p>となりますが、これは拡張グラフの直径を計算して <span>\(d(s&#39;,t&#39;)\)</span> が直径と一致する補助的なノードの組を <span>\(s&#39;,t&#39;\)</span> としたときに</p>
+<p><span>\[
+(\ast) = 
+\begin{cases}
+d(v, t&#39;) &amp; v = s \\
+d(v, s&#39;) &amp; v = t \\
+\max(d(v,s&#39;),d(v,t&#39;)) &amp; \mathrm{otherwise} 
+\end{cases}
+\]</span></p><p>であることが、直径の証明と同様の方法で証明できます。</p>
+
+<p>直径はダイクストラ法を <span>\(2\)</span> 回適用すれば計算できます。以上よりこの問題を <span>\(\mathrm{O}(N \log N)\)</span> で解くことができました。</p>
+
+<ul>
+<li>追記：グラフは木なので BFS/DFS でも直径を求めることができます。よってこの問題を <span>\(\mathrm{O}(N)\)</span> で解くことができました。</li>
+</ul>
+
+<p>C++ による想定解は次の通りです。</p>
+
+<pre class="prettyprint linenums"><code>#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;utility&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+using ll = long long;
+#define rep(i, n) for (int i = 0; i &lt; (n); i++)
+
+struct E {
+  int u, v, cost;
+};
+vector&lt;vector&lt;E&gt;&gt; g;
+
+vector&lt;ll&gt; dijkstra(int start = 0) {
+  int N = g.size();
+  vector&lt;ll&gt; d(N, 1e18);
+  using P = pair&lt;ll, int&gt;;
+  priority_queue&lt;P, vector&lt;P&gt;, greater&lt;P&gt;&gt; Q;
+
+  Q.emplace(0, start);
+  d[start] = 0;
+
+  while (!Q.empty()) {
+    auto [dc, c] = Q.top();
+    Q.pop();
+    if (d[c] != dc) continue;
+    for (auto&amp; e : g[c]) {
+      ll dist = dc + e.cost;
+      if (dist &lt; d[e.v]) {
+        d[e.v] = dist;
+        Q.emplace(dist, e.v);
+      }
+    }
+  }
+
+  return d;
+}
+
+int main() {
+  int N;
+  cin &gt;&gt; N;
+  g.resize(N);
+  rep(i, N - 1) {
+    int a, b, c;
+    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+    --a, --b;
+    g[a].push_back(E{a, b, c});
+    g[b].push_back(E{b, a, c});
+  }
+  vector&lt;ll&gt; D(N);
+  for (auto&amp; x : D) cin &gt;&gt; x;
+
+  // 直径を求める
+  int s = 0, t = -1, u = -1;
+
+  {
+    auto ds = dijkstra(s);
+    // 最遠点は？
+    ll cost = -1;
+    rep(i, N) {
+      if (i == s) continue;
+      if (D[i] + ds[i] &gt; cost) {
+        cost = D[i] + ds[i];
+        t = i;
+      }
+    }
+  }
+
+  {
+    auto dt = dijkstra(t);
+    // 最遠点は？
+    ll cost = -1;
+    rep(i, N) {
+      if (i == t) continue;
+      if (D[i] + dt[i] &gt; cost) {
+        cost = D[i] + dt[i];
+        u = i;
+      }
+    }
+  }
+
+  // t, u が間の距離が直径に
+  auto dt = dijkstra(t);
+  auto du = dijkstra(u);
+  rep(i, N) {
+    ll cost = -1;
+    if (i != t) cost = max(cost, dt[i] + D[t]);
+    if (i != u) cost = max(cost, du[i] + D[u]);
+    cout &lt;&lt; cost &lt;&lt; &#34;\n&#34;;
+  }
+}
+</code></pre>
+
+<p><br></p>
+
+<h3>2. 全方位木 DP を利用した解き方</h3>
+
+<p>この問題は <strong>全方位木 DP (Rerooting)</strong> と呼ばれるアルゴリズムでも解くことができます。</p>
+
+<p>全方位木 DP の解説は <a href="https://ei1333.hateblo.jp/entry/2017/04/10/224413" rel="nofollow">ei13333 氏による記事(日本語)</a> が非常に有名で、全方位木 DP がどのようなアルゴリズムかを知らない人はこちらを読むことをお勧めします。</p>
+
+<p>ここではアルゴリズムを簡潔に述べます。まず、 与えられたグラフを頂点 <span>\(1\)</span> を根とする根付き木とみなします。 <span>\(m_i\)</span> を</p>
+
+<ul>
+<li><span>\(m_i:=\)</span> <span>\(i\)</span> から <span>\(i\)</span> の子孫 (<span>\(i\)</span> 自身を含まない) へ旅行したときの旅費の最大</li>
+</ul>
+
+<p>と定義すると、これは次に書く DP で計算できます。</p>
+
+<pre class="prettyprint linenums"><code># c:現在の頂点 p:親の頂点
+def dfs(c, p):
+  dist = 0
+  for d in (children of c):
+    dfs(d, c)
+    dist = max(D[d], m[d]) + (cost of path c-d)
+  m[c] = dist
+  return
+</code></pre>
+
+<p>次に前計算を利用して Rerooting を行い、</p>
+
+<ul>
+<li><span>\(dp_i ;=\)</span> <span>\(i\)</span> に対する求める答え</li>
+</ul>
+
+<p>を計算します。</p>
+
+<pre class="prettyprint linenums"><code># c: 現在の頂点 p: 親の頂点 
+# v: c を根としたときに、親の頂点を根とする部分木から得られる寄与
+def dfs2(c, p, v):
+  mc = [max(m[d], D[d]) + (cost of edge d-c) for d in (chlidren of c)]
+  dp[c] = max(v, max(mc))
+  for d in (children of c):
+    # d を根とする部分木の寄与のみ取り除く
+    exc_d = set(children of c) - d
+    mc2 = [max(m[d], D[d]) + (cost of edge d-c) for d in exc_d]
+    dv = max(v, max(mc2))
+    dfs2(d, c, max(dv, D[c]) + (cost of edge d-c))
+  return
+</code></pre>
+
+<p>2回目の DFS は上記の通りに実装すると <span>\(\mathrm{O}(N^2)\)</span> かかってしまいますが、累積和などのデータ構造を利用すれば 計算量を <span>\(\mathrm{O}(N)\)</span> に落とすことができます。よってこの問題を <span>\(\mathrm{O}(N)\)</span> で解くことができました。</p>
+
+<p>解答例では全方位木 DP を抽象化した実装を行いました。競技プログラミングにおける “抽象化” とは、関数や変数を与えるとアルゴリズムが動作するようなライブラリを作成することで、コンテストの際にアルゴリズムの部分をブラックボックス化して実装できるようにすることを言います。</p>
+
+<p>抽象化のモチベーションとしては、ライブラリを使用してコンテスト中の実装を省略することでより素早く AC を取りたい、というものが主だったものとして挙げられます。たとえば全方位木 DP を利用する問題を例に挙げると、ほとんどの場合は</p>
+
+<ul>
+<li>DP テーブルに載せる値の型</li>
+<li>頂点同士をマージする関数およびその単位元</li>
+<li>親に値を返す関数</li>
+<li>子に頂点が存在しないときの値 (この問題では単位元と一致)</li>
+</ul>
+
+<p>の 4 つが問題によって異なり、それ以外は問題によらず同じ実装をすれば問題を解くことができます。そこで、上記の 4 つを与えると自動的に全方位木 DP を計算して計算結果を返してくれるようなライブラリを持っていると確かに高速に AC を取ることができます。</p>
+
+<p>競技プログラミングにおける抽象化の例としては <a href="https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp" rel="nofollow">AtCoder Library の Segment Tree</a> などが挙げられます。<a href="https://atcoder.github.io/ac-library/master/document_ja/segtree.html" rel="nofollow">ドキュメント</a> に詳しい使い方が書かれているので、アルゴリズムを抽象化する例として読んでみるとよいでしょう。</p>
+
+<p>とはいえ、 AtCoder では多大な実装を要求する問題はほとんど存在しないため、ライブラリの作成がレートにもたらす寄与は大きくありません。また、抽象化ライブラリの作成はコンテストで問題を解くよりも得てして大変なことが多いです。</p>
+
+<p>以上の理由から競技プログラミングの勉強法としては不向きかもしれませんが、アルゴリズムやプログラミング言語に対する理解を深める方法の 1 つとしてはありだと個人的に思っています。</p>
+
+<p>C++ による抽象化全方位木 DP の実装例、およびこの問題の解答例は次の通りです。</p>
+
+<pre class="prettyprint linenums"><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+template &lt;typename Cost&gt;
+struct Edge {
+  int src, to;
+  Cost cost;
+  Edge(int s, int t, Cost c = 1) : src(s), to(t), cost(c) {}
+  operator int() const { return to; }
+};
+template &lt;typename Cost&gt;
+struct Graph : vector&lt;vector&lt;Edge&lt;Cost&gt;&gt;&gt; {
+  Graph(int n) : vector&lt;vector&lt;Edge&lt;Cost&gt;&gt;&gt;(n) {}
+  void add_edge(int s, int t, Cost c = 1) { (*this)[s].emplace_back(s, t, c); }
+};
+
+template &lt;typename Cost, typename Data, Data (*merge)(Data, Data), Data (*e)(),
+          Data (*leaf)(), Data (*apply)(Data, int, int, Cost)&gt;
+struct Rerooting : Graph&lt;Cost&gt; {
+  vector&lt;Data&gt; dp, memo;
+
+  Rerooting(int n) : Graph&lt;Cost&gt;::Graph(n) {}
+
+  vector&lt;Data&gt; run() {
+    memo.resize((*this).size(), e());
+    dp.resize((*this).size());
+    dfs1(0, -1);
+    dfs2(0, -1, e());
+    return dp;
+  }
+
+  void dfs1(int c, int p) {
+    bool upd = false;
+    for (Edge&lt;Cost&gt; &amp;d : (*this)[c]) {
+      if (d == p) continue;
+      dfs1(d, c);
+      upd = true;
+      memo[c] = merge(memo[c], apply(memo[d], d, c, d.cost));
+    }
+    if (!upd) memo[c] = leaf();
+  }
+
+  void dfs2(int c, int p, const Data &amp;val) {
+    vector&lt;Data&gt; ds{val};
+    for (Edge&lt;Cost&gt; &amp;d : (*this)[c]) {
+      if (d == p) continue;
+      ds.push_back(apply(memo[d], d, c, d.cost));
+    }
+    int n = ds.size(), idx = 1;
+    vector&lt;Data&gt; head(n + 1, e()), tail(n + 1, e());
+    for (int i = 0; i++ &lt; n;) head[i] = merge(head[i - 1], ds[i - 1]);
+    for (int i = n; i-- &gt; 0;) tail[i] = merge(tail[i + 1], ds[i]);
+    dp[c] = head[n];
+    for (Edge&lt;Cost&gt; &amp;d : (*this)[c]) {
+      if (d == p) continue;
+      Data sub = merge(head[idx], tail[idx + 1]);
+      dfs2(d, c, apply(sub, c, d, d.cost));
+      idx++;
+    }
+  }
+};
+
+vector&lt;int&gt; D;
+
+using Data = long long;
+using Cost = long long;
+Data merge(Data a, Data b) { return max(a, b); }
+Data e() { return 0; }
+Data leaf() { return 0; }
+Data apply(Data a, int c, int, Cost w) { return max&lt;Data&gt;(a, D[c]) + w; }
+
+int main() {
+  int N;
+  cin &gt;&gt; N;
+  Rerooting&lt;Cost, Data, merge, e, leaf, apply&gt; g(N);
+  for (int i = 0; i &lt; N - 1; i++) {
+    int s, t, c;
+    cin &gt;&gt; s &gt;&gt; t &gt;&gt; c;
+    g.add_edge(s - 1, t - 1, c);
+    g.add_edge(t - 1, s - 1, c);
+  }
+  D.resize(N);
+  for (auto &amp;x : D) cin &gt;&gt; x;
+  auto ans = g.run();
+  for (auto &amp;x : ans) cout &lt;&lt; x &lt;&lt; &#34;\n&#34;;
+}
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1633358779">
+				<time class="timeago" datetime="2021/10/04 23:46:19"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1712750900">
+				<time class="timeago" datetime="2024/04/10 21:08:20"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc222/editorial/2749?lang=ja" data-a2a-title="解説 - エクサウィザーズプログラミングコンテスト2021（AtCoder Beginner Contest 222）">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc222/rules">ルール</a></li>
+					<li><a href="/contests/abc222/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,60 @@
+解法 1
+最後の注文は必ず T − 1 分時点で行うとして良いです。最後にどの料理を注文するかを全探索しま
+す。i 番目の料理を最後に注文する場合、それ以外の料理は T − 1 分時点で完食していなければなら
+ないので「i 番目以外の料理で T − 1 分以内に完食できる美味しさの合計の最大値 + Bi 」が満足度
+の最大となります。これは O(N T ) の DP で求めることができますが、各 i について N 回繰り返し
+ていては間に合いません。そこで次のような DP を考えます。
+
+DP 1[i][j] = 1〜i 番目の料理で j 分以内に完食できる美味しさの合計の最大値
+DP 2[i][j] = i〜N 番目の料理で j 分以内に完食できる美味しさの合計の最大値
+これを用いると、「i 番目以外の料理で T − 1 分以内に完食できる美味しさの合計の最大値」は
+
+max
+
+0≤j≤T −1
+
+DP 1[i − 1][j] + DP 2[i + 1][T − 1 − j]
+
+により O(T ) で求めることが出来ます。よって全体で O(N T ) で求めることができました。
+
+解法 2
+最後の注文は必ず T − 1 分時点で行うとして良いです。料理を注文する順番は、注文する料理のな
+かで Ai が最大のものを最後にする場合のみ考えれば良いです (そうでない場合、注文した料理のう
+ち Ai が最大のものと、最後に注文したものの順番を入れ替えても満足度は減りません)。従ってあら
+かじめ料理を Ai の昇順に並び変えておくことで、解法 1 の DP 1 のみを用いて答えを計算すること
+ができます。計算量は O(N T ) です。
+
+5
+
+Solution 1
+You can assume that the last order will be done T − 1 minutes after the ﬁrst order. We will
+brute force which dish to order at last. If he will order i-th dish at last, any other dishes should
+be ﬁnished until T − 1 minutes after the ﬁrst order, so the maximum happiness will be ”(the
+maximum sum of deliciousness of dishes, except for the i-th dish, that can be eaten within T − 1
+minutes) + Bi .” This can be found in an O(N T ) DP, but you cannot repeat it N times for each
+i in time. Now let’s consider the following DP.
+DP 1[i][j] =the maximum sum of deliciousness of dishes, which are chosen from 1st- to i-th dishes,
+such that he can ﬁnish them in j minutes
+DP 2[i][j]=the maximum sum of deliciousness of dishes, which are chosen from i-th- to N-th
+dishes, such that he can ﬁnish them in j minutes
+By using them, ”the maximum sum of deliciousness of dishes, except for the i-th dish, that can
+be eaten within T − 1 minutes” can be calculated in the following formula in a O(T ) time:
+max
+
+0≤j≤T −1
+
+DP 1[i − 1][j] + DP 2[i + 1][T − 1 − j]
+
+Therefore this problem could be solved in a total of O(N T ) time.
+
+Solution 2
+You can assume that the last order will be done T − 1 minutes after the ﬁrst order. Assume
+that you have decided which dishes to order. Among the dishses you will order, consider the
+dish which its Ai is maximum. Then you can always assume that that dish will be ordered at
+last (otherwise you can swap the order of orders so that last dish will have the maximum Ai ,
+in which case the hapiness he will gain will not decrease). Therefore, you can sort the dishes
+beforehand in the increasing order of Ai , so that you will only have to calculate DP 1 of Solution
+1. The total time complexity will be O(N T ).
+
+11
+

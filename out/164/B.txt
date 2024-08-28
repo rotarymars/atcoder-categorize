@@ -1,0 +1,102 @@
+仮にどちらかのモンスターの体力が 0 以下になっても攻撃を続けたとき、高橋君のモンスターの体
+A
+力が 0 以下になるのは青木君の ⌈ D
+⌉ 回目の攻撃のとき、青木君のモンスターの体力が 0 以下になる
+A
+B
+のは高橋君の ⌈ B
+C ⌉ 回目の攻撃のときです。したがって、⌈ D ⌉ を X 、⌈ C ⌉ を Y として、X ≥ Y な
+
+ら高橋君の勝ち、そうでななら青木君の勝ちです。高橋君が先攻であるため X = Y のとき高橋君の
+勝ちであることに注意してください。
+以下が、c++ のサンプルコードです。
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+int A,B,C,D;
+
+5
+
+cin>>A>>B>>C>>D;
+
+6
+
+int X=(A+D-1)/D;
+
+7
+
+int Y=(C+B-1)/B;
+
+8
+
+cout<<(X>=Y?"Yes":"No")<<"\n";
+
+9
+
+}
+
+2
+
+If they continue to attack each other even after the health of either monster becomes 0 or
+A
+below, then the health of Takahashi’s monster becomes 0 or less in the ⌈ D
+⌉-th Aoki’s attack,
+
+and the health of Aoki’s monster becomes 0 or less in the ⌈ B
+C ⌉-th Aoki’s attack. Therefore, let
+A
+X be ⌈ D
+⌉ and Y be ⌈ B
+C ⌉, and Takahashi will win if X ≥ Y , and Aoki will win otherwise. Note
+
+that Takahashi will win when X = Y because Takahashi takes turn ﬁrst.
+The following is a sample code in c++.
+1
+
+#include<iostream>
+
+2
+
+using namespace std;
+
+3
+
+int main(){
+
+4
+
+int A,B,C,D;
+
+5
+
+cin>>A>>B>>C>>D;
+
+6
+
+int X=(A+D-1)/D;
+
+7
+
+int Y=(C+B-1)/B;
+
+8
+
+cout<<(X>=Y?"Yes":"No")<<"\n";
+
+9
+
+}
+
+8
+

@@ -1,0 +1,57 @@
+(原案: tozangezan, 準備・解説: evima)
+一度の操作が N 個の頂点すべてに影響する可能性があるため、操作をそのままシミュレートするとカウン
+*1
+ターへの加算を N Q 回行うことになり実行時間制限に間に合いません。
+
+このような木に関する問題では、木の代わりに 1 − 2 − 3 − . . . − N という直線的なグラフを考えると助け
+になることがあり、今回はその好例です。この問題でグラフが直線的であるとすると、次のような線形時間の
+解法が考えられます。
+
+1. c1 , c2 , . . . , cN = 0, 0, . . . , 0 とする。
+2. 各操作 j に対し、cpj に xj を加算する。
+3. i = 2, . . . , N の順に、ci に ci−1 を加算する。
+4. c1 , c2 , . . . , cN を出力する。
+そして、この解法は木に対してもほぼそのまま利用できます。具体的には、手順 3 の ci−1 を cqi (qi は頂点
+
+i の親) と読み換えればそのまま元の問題への解法となります。、この処理を根に近い頂点から順に行えば元の
+問題への解法となります。(8/19 0:05 JST 修正) *2 *3
+
+*1 N と Q がともに最大の 20 万の場合、N Q = 400 億回。C++ などの高速な言語でも 2 秒間に処理できる加算の回数は数億回
+
+程度で、数百億回となると絶望的です
+*2 ただし、このアルゴリズムは制約 ai < bi を利用していることに注意してください。この制約がない場合は、各 i (1 ≤ i ≤ N −1)
+
+に対して頂点 ai が bi の親であるとは限らず、(8/19 0:05 JST 修正) 再帰関数を用いるなどして明示的に根から順に処理を行う
+必要があります
+*3 このあたりの問題から、言語によっては「正しい」解法でも実行時間制限に間に合うかきわどいことがあるかもしれません。競技
+プログラミングに真剣に取り組む場合、このあたりで言語の乗り換えを検討し始めることをお勧めします
+
+4
+
+(Original writer: tozangezan, preparation and editorial: evima)
+An operation can aﬀect at most all the N vertices, so if you simulate the operations naively, you will
+have to apply addition to the counters N Q times in total, and it won’t fit in the time limit. *1
+For the tree-like problem like this, sometimes it is helpful to think about linear tree like 1−2−3−. . .−N
+instead of general tree, and this problem is a good example. Assuming that the graph is linear, a lineartime solution like the following is available:
+1. Let c1 , c2 , . . . , cN = 0, 0, . . . , 0.
+2. For each operation j, add xj to cpj .
+3. For each i = 2, . . . , N , in this order, add ci−1 to ci .
+4. Output c1 , c2 , . . . , cN .
+And this solution can be also applied to trees. Specifically, if you replace the ci−1 in the third step
+with cqi (where qi is parent of node i), it will directly be the solution for the original problem. and do
+the operations from the vertices nere to the root, the original problem can be solved. (8/19 0:05 JST
+corrected) *2 *3
+
+*1 If both N
+
+and Q are at maximum of 200 thousands, N Q = 40 billion times. Even fast languages like C++ can
+perform addition at most several hundreds million time, and when it comes to tens of millions of times, it’s hopeless
+*2 Note that this algorith, relies on the constraints ai < bi . Without this constrains, For each i (1 ≤ i ≤ N − 1), vertex
+ai may not be the parent of bi , (8/19 0:05 corrected) you have to explicitly perform the operations from the root to
+children, with recurrence functions or something
+*3 From this problem on, depending on programming languages, even the ”correct” solution may not be fast enough
+to meet the time limit. If you tackle competitive programming seriously, we recommend you think of altering the
+programming language
+
+11
+

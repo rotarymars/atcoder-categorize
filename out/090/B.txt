@@ -1,0 +1,40 @@
+A 以上 B 以下の全ての整数について、(5 桁であることを適宜利用して) 回文数かどうか判定していけばよ
+いです。
+
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int a , b;
+s c a n f (”%d%d ” , &a , &b ) ;
+int r = 0;
+f o r ( i n t i = a ; i <= b ; i ++)
+{
+i n t s = i % 1 0 , t = i / 10000 % 1 0 ;
+i n t u = i / 10 % 1 0 , v = i / 1000 % 1 0 ;
+i f ( s == t&&u == v ) r++;
+
+1
+
+}
+p r i n t f (”%d\n ” , r ) ;
+}
+
+For each integer between A and B, check if it is a palindrome (possibly by using the fact that it’s a
+5-digit number).
+#i n c l u d e <s t d i o . h>
+i n t main ( )
+{
+int a , b;
+s c a n f (”%d%d ” , &a , &b ) ;
+int r = 0;
+f o r ( i n t i = a ; i <= b ; i ++)
+{
+i n t s = i % 1 0 , t = i / 10000 % 1 0 ;
+i n t u = i / 10 % 1 0 , v = i / 1000 % 1 0 ;
+i f ( s == t&&u == v ) r++;
+}
+p r i n t f (”%d\n ” , r ) ;
+1
+
+}
+

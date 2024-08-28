@@ -1,0 +1,82 @@
+解法 1: 辺に注目する方法
+求めるものは「S の頂点の個数 − 黒く塗られた頂点の個数」と等しいです。期待値の線形性から、
+それぞれの項の期待値が求まればよいです。黒く塗られた頂点の個数の期待値は明らかに N/2 です。
+
+S の頂点の個数の期待値を考えます。
+木の頂点の個数は (空グラフの場合を除き) 辺の個数 +1 なので、S の頂点の個数のかわりに、S の
+辺の個数を考えます。期待値の線形性から、各辺が S に含まれる確率を計算し、その合計を求めれば
+よいです。辺 e が S に含まれるための必要十分条件は、T から e を取り除いてできる 2 つの部分
+木の両方に黒く塗られた頂点が存在することです。
+(
+)2 つの部分木の頂点数を xe , N − xe とすると、
+
+(
+
+そのような確率は
+
+1−
+
+( )xe )
+( )N −xe
+1
+1
+1−
+2
+2
+
+となるので、xe がわかれば計算することができ
+
+ます。
+以上より、各辺 e について xe が求まればよく、これは DFS などにより O(N ) で求めることがで
+きます。空グラフの扱いに注意してください。
+
+解法 2: 頂点に注目する方法
+期待値の線形性から、各頂点 v について、v が S に属しかつ白く塗られているような確率を計算
+し、その合計を求めればよいです。頂点 v について、T から v を取り除いてできる部分木たちを
+
+Tv1 , Tv2 , ... とします。このとき、v が S に含まれるための必要十分条件は、Tvi たちのうち少なくと
+も 2 つが黒く塗られた頂点を含むことです。これは、Tvi に属する頂点の個数 xvi がわかれば、余事
+象を考えることで求めることができます。
+以上より、各頂点 v について xvi たちが求まればよく、これは全方位木 DP (ReRooting) などに
+より O(N ) で求めることができます。
+また、式を整理することで解法 1 と同じ式を得ることもできます。
+
+6
+
+Solution 1: Focusing on edges
+What you want to calculate is equal to ”the number of vertices of S − the number of vertices
+painted black.” By the linearity of expected values, it is enough to find the expected value of each
+term. The number of vertices painted black is obviously N2 . Now let’s consider the expected
+number of vertices of S.
+The number of vertices of a tree is the number of edges +1 (except for an empty graph), so
+let’s consider the number of edges of S instead of the number of vertices of S. An edge e is
+contained in S if and only if, when e was removed from T , the resulting two parts both contain
+vertices painted black. Let x
+, N − xe be )
+the number of vertices of two subtrees, then such
+(
+( )xe ) (e
+( )N −xe
+1
+1
+probability is 1 −
+1−
+, so if you found xe you can calculate them.
+2
+2
+Therefore, it is enough to find xe for each edge e, and this can be found in a O(N ) time by
+DFS etc. Please be careful how to treat empty graphs.
+
+Solution 2: Focusing on vertices
+By the linearity of expected values, it is enough to find the probability that, for each vertex v,
+v is contained in S and also painted white, and to sum them up. For a vertex v, let Tv1 , Tv2 , ...
+be the subtrees when v is removed from T . Then, v is contained in S if and only if at least
+two subtrees out of Tvi ’s contain vertices pained black. You can calculate this by considering
+complementary events by finding xvi , the number of vertices of Tvi .
+Therefore, it is enough to find xvi ’s for each vertex v, and this can be found in a O(N ) time
+by ReRooting etc.
+Also, by transforming the equation you can obtain the same equation as Solution 1.
+
+12
+
+

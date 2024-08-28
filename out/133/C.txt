@@ -1,0 +1,22 @@
+R−L が非常に大きい時、全ての候補 (i, j) を調べてしまうと、O((R−L)2 ) の計算量がかかってしまい、間に
+合いません。よく考えてみると、2019 で割った余りが同じであるような 2 数 a, b について、(a × c) mod 2019
+と (b × c) mod 2019 は必ず同じ値になります。よって、(i, j) として調べるべき候補は高々 20192 = 4076361
+通り程度しか存在せず、全て調べても十分間に合います。
+また、「O((R − L)2 ) の全探索の途中で、解が 0 になった時点で探索を打ち切る」という方法でも解くこと
+が出来ます。これは、R-L が 2019 以上の時、必ず割った余りが 0 となるような値が区間中に存在するため、
+
+20192 個以上の値を見ることはないからです。
+
+3
+
+When R − L is very big, trying all candidates of (i, j) needs time complexity O((R − L)2 and does not
+ﬁnish in time. In fact, if two integers a and b have same remainder when divided by 2019, (a×c) mod 2019
+and (b × c) mod 2019 is always the same. Therefore, there are at most 20192 = 4076361 candidats that
+need to be checked, so it will ﬁnish in time if you checked all the candidates.
+Also, you can solve the problem with the strategy that ”Abort the O((R − L)2 ) brute-forcing if one
+of the solution was 0.” This works in time because, if R-L is more than or equal to 2019, there always
+exist a number whose remainder of 2019 is 0 in the segment so it inspects no more than 20192 pairs of
+values.
+
+10
+

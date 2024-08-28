@@ -1,0 +1,51 @@
+結論から述べると、この問題は最長増加部分列問題を解く動的計画法に巻き戻しのテクニックを適
+応させることで解くことができます。
+はじめに、最長増加部分列問題 (Longest Increasing Subsequence) を解く動的計画法について説
+明します。LIS には様々なアプローチがありますが、二分探索を用いた動的計画法が最も有名です。
+
+dpi を長さが i である増加部分列における最終要素の最小値（存在しない場合は無限大）として、
+dp1 , dp2 , .., dpN を無限大に初期化し、dpi の値が Aj 以上になる最も小さな i に対して dpi を Aj の
+値に更新するということを j = 1, 2, .., N について行っていくといった方法です。
+次に、巻き戻しのテクニックについて説明します。ここでの巻き戻しとは、変数の値の更新と質問
+を次々に処理するという状況の中で、直前の更新をする前の状態に戻すことをいいます。以下のよう
+な処理をすることで実現できます。
+
+• ある変数の値を更新したとき、
+– どの変数を更新したか
+– その変数の元の値は何だったか
+という情報を stack に push する。
+
+• 巻き戻しをするとき、stack の top に示された変数をその元の値に変更し、stack を pop する。
+最後に、この問題への解法を説明します。頂点 1 を始点として深さ優先探索をし、各頂点に対応す
+る再帰関数内では、はじめに dp の値を更新して答えを求めた後、隣接する頂点に対応する再帰関数
+を呼び出し、最後に dp の値を巻き戻すことで、すべての頂点までの答えを正しく求めることができ
+ます。計算量は O(N logN ) です。
+
+6
+
+To come to the point, this problem can be solved by applying rollback technique to the dynamic
+programming of solving the longest increasing subsequence problem.
+First, we will explain about the dynamic programming to solve Longest Increasing Subsequence
+problem. Among various approaches of LIS, the most famous one is to use binary searching.
+Speciﬁcally, this can be done as follows: let dpi be the minimum last element of increasing
+subsequence of length i (or inﬁnity if not exists) initialize dp1 , dp2 , .., dpN with inﬁnity, then for
+each j = 1, 2, .., N , ﬁnd the smallest i such that dpi is greater than or equal to Aj , and then
+update dpi to Aj
+Next, we will explain about the rollback technique. Here the rollback refers to, when processing
+updates of values of variables and questions one after another, withdrawing the changes as it was
+before the latest changes. This can be achieved by the following processes:
+• When the value of a variable has been updated, record
+– which variable has been updated and
+– what was the original value of the variable
+and push them to a stack.
+• When rolling back, update the variable indicated by the top of the slack to the original
+value, and pop the stack.
+At last, we will explain how to solve this problem. Perform a depth-ﬁrst searching starting from
+vertex 1, and in the recurrence function corresponding to each vertex, ﬁrst update the value of
+dp and ﬁnd the answer, then call the recurrence functions corresponding to the adjacent vertices,
+and ﬁnally roll back the value of dp; this way, you can ﬁnd the answer for all the vertices. The
+time complexity is O(N logN ).
+
+12
+
+

@@ -1,0 +1,501 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 272</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 272" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc272/editorial/4963" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 272" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc272";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2022-10-08T21:00:00+09:00");
+			var endTime = moment("2022-10-08T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 272が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 272は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc272">AtCoder Beginner Contest 272</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc272/editorial/4963?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc272/editorial/4963?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc272%2Feditorial%2F4963">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc272%2Feditorial%2F4963">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc272%2Feditorial%2F4963">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221008T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-10-08 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20221008T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2022-10-08 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc272"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc272/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc272/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc272/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc272/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc272/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc272/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc272/tasks/abc272_h">Ex - Flipping Coins 2</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/user/user-orange-2.png" class="user-rating-stage-m"><a href="/users/nok0" class="username"><span class="user-orange">nok0</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div>
+<h2>解説目次</h2>
+
+<ol>
+<li><p>Multipoint Evaluation の解説</p></li>
+
+<li><p>問題の言い換え</p></li>
+
+<li><p>包除原理の適用</p></li>
+
+<li><p><span>\(\mathrm{O}(N^2)\)</span> 解法</p></li>
+
+<li><p><span>\(\mathrm{O}(N\log^2 N)\)</span> 解法</p></li>
+</ol>
+
+<hr>
+
+<h3>[1] Multipoint Evaluation</h3>
+
+<p>はじめに、この問題を解くのに必要な <strong>Multipoint Evaluation（多点評価）</strong>と呼ばれるテクニックの概要を説明します。</p>
+
+<h4>Multipoint Evaluation とは？</h4>
+
+<p><span>\(N\)</span> 次多項式 <span>\(f(x)\)</span> と長さ <span>\(M\)</span> の整数列 <span>\(x=(x_1,x_2,\ldots,x_M)\)</span> にたいし、<span>\(f(x_1),f(x_2),\ldots,f(x_M)\)</span> を求めるのを <span>\(\mathrm{O}(M\log^2M + N\log N)\)</span> で行うテクニックです。</p>
+
+<p>剰余の定理を使います。 <span>\(f(a)=f(x)\bmod(x-a)\)</span> を用いると、 <span>\(f(x) \bmod(x-x_1),f(x)\bmod(x-x_2),\ldots,f(x)\bmod(x-x_M)\)</span> が求まれば良いです。</p>
+
+<p>これは分割統治が適用できます。はじめに、subproduct tree と呼ばれる二分木を葉から構築していきます。葉には <span>\((x-x_1),(x-x_2),\ldots,(x-x_M)\)</span> を書き、その一段上には子二つの積、すなわち <span>\((x-x_1)(x-x_2),(x-x_3)(x-x_4),\ldots\)</span>を書き、… というのを繰り返します。</p>
+
+<p>次に、多項式 <span>\( f,g,h\)</span> にたいして <span>\(f\bmod g = (f\bmod gh) \bmod g\)</span> であることを用いて、subproduct tree を使いながら計算を行います。</p>
+
+<p>subproduct tree の根を用いて、まず <span>\(f \bmod\big((x-x_1)(x-x_2)\ldots(x-x_M)\big)\)</span> を計算します。次に、その計算結果及び subproduct tree の根の子を用いて <span>\(\big(f \bmod\big((x-x_1)(x-x_2)\ldots(x-x_M)\big)\big) \bmod \big((x-x_1)(x-x_2)\ldots(x-x_\frac{M}{2})\big)\)</span> を計算します。（簡単のため、 <span>\(M\)</span> が二冪であるとしています。）</p>
+
+<p>subproduct tree 上で根から葉にかけてこのような計算をすることで、<span>\(f(x) \bmod(x-x_1),f(x)\bmod(x-x_2),\ldots,f(x)\bmod(x-x_M)\)</span> が全て計算できます。計算量解析については省略しますが、<span>\(\mathrm{O}(M\log^2M + N\log N)\)</span> になります。</p>
+
+<p>より詳しくは、以下に挙げる参考文献をご覧ください。</p>
+
+<ul>
+<li><p>37zigen さん <a href="https://37zigen.com/multipoint-evaluation/" rel="nofollow">Multipoint Evaluation の アルゴリズム</a></p></li>
+
+<li><p>えびちゃん さん <a href="https://rsk0315.hatenablog.com/entry/2020/04/05/190941" rel="nofollow">非再帰で多項式の多点評価をするよ</a></p></li>
+</ul>
+
+<hr>
+
+<h3>[2] 問題の言い換え</h3>
+
+<p>以下、この問題の解説を行います。</p>
+
+<p><span>\(A\)</span> は昇順であると仮定して問題ありません。</p>
+
+<p>はじめに、対称性よりどのコインも <span>\(N\)</span> 回の操作終了時に表である確率は等しいので、 コイン <span>\(N-1\)</span> が操作終了時に表である確率が求まれば良いです。</p>
+
+<details>
+<summary>証明</summary>
+
+<p> $p$ を rotate すると、各コインのひっくり返る回数も rotate することから従います。</p>
+
+</details>
+
+<p>コイン <span>\(N-1\)</span> がちょうど <span>\(K\)</span> 回ひっくり返されるような順列の個数を <span>\(F(K)\)</span> として、 <span>\(K=0,1,\ldots,N\)</span> について <span>\(F(K)\)</span> が求まればよいです。</p>
+
+<p><span>\(F(K)\)</span> は、<span>\(P_i \geq N-1-A_i\)</span> を満たす <span>\(i\)</span> の個数がちょうど <span>\(K\)</span> 個であるような順列 <span>\(P\)</span> の個数と等しいです。便利のため、 <span>\(B_i = N-1-A_i\)</span> とします。このとき <span>\(B\)</span> は単調減少になります。</p>
+
+<hr>
+
+<h3>[3] 包除原理の適用</h3>
+
+<p>[2] で述べた <span>\(F(K)\)</span> は直接求めるのは難しいです。<span>\(\lbrace 1,2,\ldots,N\rbrace\)</span> の部分集合 <span>\(S\)</span> であって <span>\(|S|=L\)</span> を満たすもの全てに対して、</p>
+
+<ul>
+<li><span>\(i \in S \Rightarrow P_i \geq B_i\)</span></li>
+</ul>
+
+<p>を満たす順列 <span>\(P\)</span> の個数を求め、その総和を <span>\(G(L)\)</span> とおくことにします。</p>
+
+<p>このとき、  <span>\(F\)</span> と <span>\(G\)</span> には以下の関係式が成り立ちます。</p>
+
+<p><span>\(\displaystyle G(L)=\sum_{L \leq K}   \binom{K}{L}F(K)\)</span></p>
+
+<p>上記の関係式を用いれば、<span>\(G\)</span> が求まれば <span>\(F\)</span> を復元できます。なお、この復元の部分は<a href="https://atcoder.jp/contests/arc140/tasks/arc140_f" rel="nofollow">ARC140-F</a>でも出ていますので、適宜そちらの解説も参考にしてください。</p>
+
+<p><span>\(a_i = (N-i)!G(N-i), b_i = (N-i)!F(N-i)\)</span> と置き、その母関数を <span>\(a(x),b(x)\)</span> とします。</p>
+
+<p>このとき <span>\(a_{i} = \sum_{j =0} ^ {i} b_j\frac{1}{(i-j)!} \)</span> です。このことより <span>\(a(x)=b(x)e^{x}\)</span> と表せるので、<span>\(b(x)=a(x)e^{-x}\)</span> から <span>\(\mathrm{O}(N\log N)\)</span> で <span>\(F\)</span> を求められます。</p>
+
+<p>以下 <span>\(G\)</span> を求めることとします。</p>
+
+<hr>
+
+<h3>[4] <span>\(\mathrm{O}(N^2)\)</span> 解法</h3>
+
+<p><span>\(G\)</span> は以下のような動的計画法で求められます。</p>
+
+<ul>
+<li><span>\(\mathrm{dp}[i][j]:\)</span> 順列 <span>\(P\)</span> のうち先頭の <span>\(i\)</span> 個の index まで見て、意図的に <span>\(P_i \geq B_i\)</span> を満たす <span>\(i\)</span> の個数が <span>\(j\)</span> 個であるような決め方の個数</li>
+</ul>
+
+<p>この dp の遷移を考えます。</p>
+
+<ul>
+<li><p><span>\(i\)</span> で意図的に <span>\(P_i \geq B_i\)</span> を満たすようにするとき</p>
+
+<ul>
+<li><span>\((N-B_i-(j-1))\mathrm{dp}[i-1][j-1]\)</span> 通り</li>
+</ul></li>
+
+<li><p><span>\(i\)</span> で意図的に <span>\(P_i \geq B_i\)</span> を満たすようにはしないとき</p>
+
+<ul>
+<li><span>\(\mathrm{dp}[i-1][j]\)</span> 通り</li>
+</ul></li>
+</ul>
+
+<p>よって遷移は以下で表されます。</p>
+
+<p><span>\(\mathrm{dp}[i][j] = (N-B_i-(j-1))\mathrm{dp}[i-1][j-1]+ \mathrm{dp}[i-1][j]\)</span></p>
+
+<p>最終的に、 <span>\(G(K) = \mathrm{dp}[N][K] (N-K)!\)</span> と求められます。</p>
+
+<p>計算量は <span>\(\mathrm{O}(N^2)\)</span> であり、実行時間に間に合わせるのは極めて困難です。</p>
+
+<p>なお、この動的計画法は俗に箱根駅伝DPと呼ばれています。</p>
+
+<p><strong>箱根駅伝DP の練習問題</strong></p>
+
+<ul>
+<li><p><a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2439&amp;lang=jp" rel="nofollow">AOJ2439 箱根駅伝</a></p></li>
+
+<li><p><a href="https://atcoder.jp/contests/abc134/tasks/abc134_f" rel="nofollow">ABC134-F Permutation Oddness</a></p></li>
+</ul>
+
+<hr>
+
+<h3>[5] <span>\(\mathrm{O}(N\log^2N)\)</span> 解法</h3>
+
+<p>[4]での dp を、形式的冪級数で考えることとします。</p>
+
+<p>はじめに、 <span>\(\mathrm{dp2}[i][i-j] \coloneqq \mathrm{dp}[i][j]\)</span> とします。（この式変形をする嬉しさは、後ほどわかります）</p>
+
+<p>このとき</p>
+
+<p><span>\(\mathrm{dp2}[i][j] = (N-B_i-(i-j-1))\mathrm{dp2}[i-1][j]+ \mathrm{dp2}[i-1][j-1] = (N-B_i + 1  -i+ j)\mathrm{dp2}[i-1][j]+ \mathrm{dp2}[i-1][j-1]\)</span></p>
+
+<p>が成り立ちます。</p>
+
+<p>さらに <span>\(f_i(x)\)</span> を <span>\(\mathrm{dp2}[i]\)</span> の母関数とし、簡単のため <span>\(C_i \coloneqq N-B_i +1-i\)</span> と定めます。</p>
+
+<p>このとき、<span>\(f_i(x)\)</span> の関係式は以下となります。</p>
+<p><span>\[f_i(x) = C_i f_{i-1}(x) +xf&#39;_{i-1}(x) +xf_{i-1}(x)=x(f_{i-1}(x)+f&#39;_{i-1}(x)) + C_i f_{i-1}(x)\]</span></p><p>唐突ですが、両辺に <span>\(e^x\)</span> をかけてみます。</p>
+<p><span>\[f_i(x)e^x = x(f_{i-1}(x)e^x+f&#39;_{i-1}(x)e^x) + C_i f_{i-1}(x)e^x = x(f_{i-1}(x)e^x)&#39; +  C_i f_{i-1}(x)e^x\]</span></p><p><span>\(g_i(x) \coloneqq f_i(x)e^x\)</span> とおけば、<span>\(g_i(x)=xg&#39;_{i-1}(x)+C_i g_{i-1}(x)\)</span> を得ます。<span>\([x^j]g_i(x)\)</span> を <span>\(g_{i,j}\)</span> と書くと、<span>\(g_{i,j}=jg_{i-1,j}+C_i g_{i-1,j} = (j + C_i) g_{i-1,j}\)</span> です。</p>
+
+<p>以上より <span>\(g_{N,j} = g_{0,j}\prod_{i=1}^N(j + C_i)\)</span> が得られます。ここまでくると、[1]の多点評価が適用できる形になります。</p>
+
+<p>多項式 <span>\(h\)</span> を <span>\(h(x)=\prod_{i=1}^N(x+ C_i)\)</span> で定めると、<span>\(j=0,1,\ldots,N\)</span> を <span>\(h\)</span> に代入すれば <span>\(\prod_{i=1}^N(j + C_i)\)</span> が全ての <span>\(j\)</span> について得られます。多点評価により <span>\(\mathrm{O}(N\log^2N)\)</span> で <span>\(g_{N,j}\)</span> が列挙でき、<span>\(g_N(x)\)</span> が求まりました。<span>\(g_N(x)\)</span> に <span>\(e^{-x}\)</span> を掛けることで <span>\(f_N(x)\)</span> も求まり、ここから <span>\(G(K)\)</span> も求まります。</p>
+
+<p>以上より、この問題を <span>\(\mathrm{O}(N\log^2N)\)</span> で解くことができました。</p>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1664786455">
+				<time class="timeago" datetime="2022/10/03 17:40:55"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1665476448">
+				<time class="timeago" datetime="2022/10/11 17:20:48"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc272/editorial/4963?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 272">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc272/rules">ルール</a></li>
+					<li><a href="/contests/abc272/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

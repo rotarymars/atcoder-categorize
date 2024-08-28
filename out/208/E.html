@@ -1,0 +1,506 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解説 - AtCoder Beginner Contest 208</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google-site-verification" content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" />
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RC512FD18N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('set', 'user_properties', {
+			
+				'login_status': 'logged_out',
+			
+		});
+		gtag('config', 'G-RC512FD18N');
+	</script>
+
+	
+	<meta name="description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。">
+	<meta name="author" content="AtCoder Inc.">
+
+	<meta property="og:site_name" content="AtCoder">
+	
+	<meta property="og:title" content="解説 - AtCoder Beginner Contest 208" />
+	<meta property="og:description" content="プログラミング初級者から上級者まで楽しめる、競技プログラミングコンテストサイト「AtCoder」。オンラインで毎週開催プログラミングコンテストを開催しています。競技プログラミングを用いて、客観的に自分のスキルを計ることのできるサービスです。" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://atcoder.jp/contests/abc208/editorial/2189" />
+	<meta property="og:image" content="https://img.atcoder.jp/assets/atcoder.png" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@atcoder" />
+	
+	<meta property="twitter:title" content="解説 - AtCoder Beginner Contest 208" />
+
+	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/e5b0286/css/base.css">
+	<link rel="shortcut icon" type="image/png" href="//img.atcoder.jp/assets/favicon.png">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "";
+		var csrfToken = "9ArhFv3q+o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs="
+	</script>
+	<script src="//img.atcoder.jp/public/e5b0286/js/utils.js"></script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/contest.js"></script>
+		<link href="//img.atcoder.jp/public/e5b0286/css/contest.css" rel="stylesheet" />
+		<script>
+			var contestScreenName = "abc208";
+			var remainingText = "残り時間";
+			var countDownText = "開始まであと";
+			var startTime = moment("2021-07-04T21:00:00+09:00");
+			var endTime = moment("2021-07-04T22:40:00+09:00");
+		</script>
+		<style></style>
+	
+	
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/run_prettify.js"></script>
+	
+	
+		<link rel="stylesheet" href="//img.atcoder.jp/public/e5b0286/css/cdn/katex.min.css">
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/katex.min.js"></script>
+		<script defer src="//img.atcoder.jp/public/e5b0286/js/cdn/auto-render.min.js"></script>
+		
+		<script>
+			var katexOptions = {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false},
+					{left: "\\[", right: "\\]", display: true}
+				],
+      	ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"],
+				ignoredClasses: ["prettyprint", "source-code-for-copy"],
+				throwOnError: false
+			};
+			document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body, katexOptions);});
+		</script>
+	
+	
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/marked.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/cdn/jquery.timeago.min.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/lib/jquery.timeago.ja.js"></script>
+		<script src="//img.atcoder.jp/public/e5b0286/js/blog.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="//img.atcoder.jp/public/e5b0286/js/base.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+
+<div id="modal-contest-start" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト開始</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 208が開始されました。</p>
+			</div>
+			<div class="modal-footer">
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="modal-contest-end" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">コンテスト終了</h4>
+			</div>
+			<div class="modal-body">
+				<p>AtCoder Beginner Contest 208は終了しました。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="main-div" class="float-container">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/home"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+				
+					<li><a class="contest-title" href="/contests/abc208">AtCoder Beginner Contest 208</a></li>
+				
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/contests/abc208/editorial/2189?lang=ja"><img src='//img.atcoder.jp/assets/top/img/flag-lang/ja.png'> 日本語</a></li>
+							<li><a href="/contests/abc208/editorial/2189?lang=en"><img src='//img.atcoder.jp/assets/top/img/flag-lang/en.png'> English</a></li>
+						</ul>
+					</li>
+					
+					
+						<li><a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc208%2Feditorial%2F2189">新規登録</a></li>
+						<li><a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc208%2Feditorial%2F2189">ログイン</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form method="POST" name="form_logout" action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc208%2Feditorial%2F2189">
+		<input type="hidden" name="csrf_token" value="9ArhFv3q&#43;o/hnoDGIvjudAD51rHpeNG4n9d7krnaCHs=" />
+	</form>
+	<div id="main-container" class="container"
+		 	style="padding-top:50px;">
+		
+
+
+<div class="row">
+	<div id="contest-nav-tabs" class="col-sm-12 mb-2 cnvtb-fixed">
+	<div>
+		<small class="contest-duration">
+			
+				コンテスト時間:
+				<a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210704T2100&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-07-04 21:00:00+0900</time></a> ~ <a href='http://www.timeanddate.com/worldclock/fixedtime.html?iso=20210704T2240&p1=248' target='blank'><time class='fixtime fixtime-full'>2021-07-04 22:40:00+0900</time></a> 
+				(100分)
+			
+		</small>
+		<small class="back-to-home pull-right"><a href="/home">AtCoderホームへ戻る</a></small>
+	</div>
+	<ul class="nav nav-tabs">
+		<li><a href="/contests/abc208"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> トップ</a></li>
+		
+			<li><a href="/contests/abc208/tasks"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 問題</a></li>
+		
+
+		
+			<li><a href="/contests/abc208/clarifications"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 質問 <span id="clar-badge" class="badge" ></span></a></li>
+		
+
+		
+
+		
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 提出結果<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/contests/abc208/submissions"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> すべての提出</a></li>
+					
+				</ul>
+			</li>
+		
+
+		
+			
+				
+					<li><a href="/contests/abc208/standings"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> 順位表</a></li>
+				
+			
+				
+					<li><a href="/contests/abc208/standings/virtual"><span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span> バーチャル順位表</a></li>
+				
+			
+		
+
+		
+
+		
+			<li class="active"><a href="/contests/abc208/editorial"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 解説</a></li>
+		
+		
+
+		<li class="pull-right"><a id="fix-cnvtb" href="javascript:void(0)"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a></li>
+	</ul>
+</div>
+	<div class="col-sm-12">
+		<span class="label label-default">公式</span>
+		<h2 class="mt-1">
+			
+				<a href="/contests/abc208/tasks/abc208_e">E - Digit Products</a> 解説
+			
+			<span class="small">by <img src="//img.atcoder.jp/assets/icon/crown_bronze.png"> <a href="/users/Nyaan" class="username"><span class="user-red">Nyaan</span></a></span>
+			
+		</h2>
+		
+		<hr class="mt-1">
+		
+			<div><p>この解説は大きく分けて二つの部分に分かれています。</p>
+
+<ul>
+<li>前半では <span>\(N\)</span> の計算量への寄与を <span>\(\mathrm{O}(N)\)</span> から <span>\(\mathrm{O}(\log N)\)</span> に落とすアルゴリズム(桁DP)を説明しています。</li>
+<li>後半ではさらに <span>\(\mathrm{O}(K \log N)\)</span> から <span>\(\mathrm{O}((\log K)^4 \log N)\)</span> に削減する方法を説明します。</li>
+</ul>
+
+<h2>1.  桁 DP</h2>
+
+<p>このような問題では、整数を具体的に1つずつ挙げて愚直に計算すると少なくとも <span>\(\mathrm{O}(N)\)</span> 程度の計算量になってしまいます。問題文の <span>\(N \leq 10^{18}\)</span> という制約からもわかる通り、 <span>\(N\)</span> に対して線形時間よりも高速なアルゴリズムを構築する必要があります。</p>
+
+<p><span>\(N\)</span> 以下の整数のうち、桁によって条件付けが為された整数の個数を高速に数える手法としては、<strong>桁DP</strong>と呼ばれる手法が有名です。</p>
+
+<p>桁 DP とは、値の上から <span>\(i\)</span> 桁目までを確定させたときに、<span>\(N\)</span> 未満で確定しているかどうかを状態に加えた DP を指します。</p>
+
+<ul>
+<li>桁 DP に関する詳細な説明はインターネット上に多くの解説が載っているのでここでは割愛します。 桁 DP に関して知りたい方は桁 DP の解説がなされたホームページをご参照ください。</li>
+</ul>
+
+<p>桁 DP を利用してこの問題を解くことを考えます。状態の持ち方はいくつか考えられますが、ここでは DP の状態として、</p>
+
+<ul>
+<li><span>\(\mathrm{dp} _{i, p} := \)</span>  (上から <span>\(i\)</span> 桁目までが <span>\(\bf 0\)</span> <strong>以外で</strong>確定していて、確定している桁の総積が <span>\(p\)</span> である場合の数)</li>
+</ul>
+
+<p>と置きます。また、<span>\(\mathrm{eq}_{i} :=\)</span> ( <span>\(N\)</span> の上から <span>\(i\)</span> 桁目までの総積 ) とおきます。すると、以下の疑似コードで説明されるDPの遷移が成り立ちます。(<strong>注:以下の疑似コードをそのまま実装すると TLE, MLE してしまいます。</strong>)</p>
+
+<pre class="prettyprint linenums"><code class="language-python"># Python風の疑似コード
+# for i in range(a, b) は「変数iをaからb-1まで変化させる」という意味
+
+# input : N, K
+# output : answer
+def calc(N, K):
+  dp = (全て0で初期化された2次元配列)
+  eq = (全て0で初期化された1次元配列)
+
+  eq[0] = 1
+
+  for i in range(1, Nの桁数 + 1):
+    # Nのi桁目をdigitとする
+    digit = (Nの上からi桁目)
+
+    # (1) less -&gt; less
+    # i-1桁目までがNのi-1桁目までと比べて小さい場合
+    # i桁目の数dは0以上9以下がOK
+    for p in range(0, dp[i]の長さ)
+      for d in range(0, 10):
+        dp[i + 1][p * d] += dp[i][p]
+
+    # (2) equal -&gt; less
+    #  i-1桁目までがNと同じで、かつi桁目がNのi桁目より小さい場合
+    # i桁目の数dは0以上digit未満がOK
+    for d in range(0, digit):
+      # i = 0 かつ d = 0 の時は全体が0になってしまうため除外
+      if i == 0 and d == 0:
+        continue
+      dp[i + 1][eq[i] * d] += 1
+
+    # (3) equal -&gt; equal
+    # i桁目までNと一致する時
+    # i桁目の数はdigit
+    eq[i + 1] = eq[i] * digit
+
+    # (4) 0...0d 型
+    # i-1桁目までが0でi桁目が0以外の時
+    # i桁目の数dは1以上9以下がOK
+    # (d = 0の時は全体が0になってしまうため除外)
+    for d in range(1, 10):
+      # i = 0 の場合は(2)ですでにカウントしている
+      if i == 0:
+        continue
+      dp[i + 1][d] += 1
+
+  answer =  0
+  for p in range(0, dp[(Nの桁数)]の長さ):
+    if p &lt;= K:
+      answer += dp[(Nの桁数)][p]
+
+  if eq[(Nの桁数)] &lt;= K:
+    answer += 1
+
+  return ans
+</code></pre>
+
+<h2>2.  状態数削減を利用した高速化</h2>
+
+<p>桁 DP の導入によってこの問題を <span>\(N\)</span> に対しての線形時間アルゴリズムから対数時間アルゴリズムへと高速化することが出来ました。しかしこのままでは DP の状態数が爆発的な量になってしまうので AC することが出来ません。</p>
+
+<p>このような DP の高速化を行う際の基本テクニックとして<strong>問題が持つ性質を利用して DP の状態数を削減する</strong>というテクニックがあります。このテクニックを利用して状態数を減らしてみましょう。</p>
+
+<p>まず、この問題は積が <span>\(K\)</span> 以下かどうかで場合分けを行う問題なので、 <span>\(p\)</span> が <span>\(K\)</span> より大きい場合の状態は同一視してよいとわかります。よって</p>
+
+<ul>
+<li>桁の数字の積が <span>\(0\)</span> である</li>
+<li>桁の数字の積が <span>\(1,2,\dots,K\)</span> である</li>
+<li>桁の数字の積が <span>\(K+1\)</span> 以上である</li>
+</ul>
+
+<p>の <span>\(3\)</span> つに場合分けをすれば <span>\(K+2\)</span> 個の状態を持って DP をすることが出来ます。このように状態数を <span>\(\mathrm{O}(K)\)</span> にすることで基数を <span>\(B=10\)</span> とおいて <span>\(\mathrm{O}(K B \log N)\)</span> で答えを計算できるアルゴリズムを構成できますが、この解法でも TLE してしまいます。</p>
+
+<p>さらに状態数を削減するために、桁の総積 <span>\(p\)</span> の持つ性質に注目します。<span>\(p\)</span> の値は <span>\(0\)</span> または <span>\(1,2,\dots,9\)</span> の積で表せますが、 <span>\(0\)</span> を除くと整数 <span>\(1,\dots,9\)</span> は <span>\(2,3,5,7\)</span> のみを素因数に持ちます。すると、 <span>\(N\)</span> 以下の整数の各桁の数字の積 <span>\(p\)</span> は、</p>
+<p><span>\[p=0\ または\ p=2^a \cdot 3^b \cdot 5^c \cdot 7^d\]</span></p><p>で表せると分かります。</p>
+
+<p>この事実を利用すると、必要な状態数を <span>\(\mathrm{O}(K)\)</span> から削減することが出来ます。 <span>\(p\)</span> が <span>\(K\)</span> より大きい場合は状態に持たなくて良いので、 <span>\(p = 2^a \cdot 3^b \cdot 5^c \cdot 7^d \leq K\)</span> という関係式が成り立ちます。この条件を満たす <span>\(a,b,c,d\)</span> の個数のオーダーを考えると、 <span>\(a,b,c,d\)</span> は次の不等式</p>
+<p><span>\[
+0 \leq a \leq \log_2 K,\ 0 \leq b \leq \log_3 K ,\ 0 \leq c \leq \log_5 K,\ 0 \leq d \leq \log_7 K
+\]</span></p><p>を満たす必要があるので、状態数は高々 <span>\(\mathrm{O}(\log_2 K \log_3 K \log_5 K \log_7 K) = \mathrm{O}( (\log K)^4 )\)</span> で抑えられます。(実際は <span>\(a+b+c+d\)</span> が <span>\(\mathrm{O}(\log K)\)</span> で抑えられるので <span>\(\frac{1}{4!}\)</span> 程度の定数倍がかかります。)</p>
+
+<p>よって、この問題で必要な状態数は <span>\(\mathrm{O}((\log K) ^ 4)\)</span> であるとわかりました。そこで、1.で示した DP を必要な状態の値のみを持って DP することで計算量 <span>\(\mathrm{O}(B (\log K) ^ 4 \log N)\)</span> での DP が可能になります。DPの値の管理は連想配列 ( C++ の <code>std::unordered_map</code> や Python の <code>defaultdict</code> ) を利用すれば容易に行うことが出来ます。</p>
+
+<p>以上よりこの問題を <span>\(B=10\)</span> として <span>\(\mathrm{O}(B (\log K) ^ 4 \log N)\)</span> で解くことが出来ました。AC コードを以下に載せます。</p>
+
+<pre class="prettyprint linenums"><code class="language-python">from collections import defaultdict
+
+N, _K = input().split()
+K = int(_K)
+INF = K + 1
+
+dp = defaultdict(int)
+eq_prod = 1
+
+for i in range(len(N)):
+  digit = ord(N[i]) - ord(&#39;0&#39;)
+  nxt = defaultdict(int)
+
+  # less -&gt; less
+  for prod, val in dp.items():
+    for d in range(10):
+      nxt_prod = min(INF, prod * d)
+      nxt[nxt_prod] += val
+
+  # equal -&gt; less
+  for d in range(digit):
+    if i == 0 and d == 0:
+      continue
+    nxt_prod = min(INF, eq_prod * d)
+    nxt[nxt_prod] += 1
+
+  # equal -&gt; equal
+  eq_prod = min(INF, eq_prod * digit)
+
+  # 1 ... 9
+  if i != 0:
+    for d in range(1, 10):
+      nxt_prod = min(INF, d)
+      nxt[nxt_prod] += 1
+
+  dp = nxt
+
+answer = 0
+
+# less
+for prod, val in dp.items():
+  if prod &lt;= K:
+    answer += val
+
+# equal
+if eq_prod &lt;= K:
+  answer += 1
+
+print(answer)
+</code></pre>
+</div>
+		
+		<div class="clearfix">
+			<p class="small gray pull-right">
+				投稿日時:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1624944022">
+				<time class="timeago" datetime="2021/06/29 14:20:22"></time>
+			</span>
+				<br>
+				最終更新:
+				<span class="tooltip-unix" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="1625405615">
+				<time class="timeago" datetime="2021/07/04 22:33:35"></time>
+			</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+		
+			<hr>
+			
+			
+			
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-url="https://atcoder.jp/contests/abc208/editorial/2189?lang=ja" data-a2a-title="解説 - AtCoder Beginner Contest 208">
+	<a class="a2a_button_facebook"></a>
+	<a class="a2a_button_twitter"></a>
+	
+		<a class="a2a_button_hatena"></a>
+	
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+		
+		<script async src="//static.addtoany.com/menu/page.js"></script>
+		
+	</div> 
+	<hr>
+</div> 
+
+	<div class="container" style="margin-bottom: 80px;">
+			<footer class="footer">
+			
+				<ul>
+					<li><a href="/contests/abc208/rules">ルール</a></li>
+					<li><a href="/contests/abc208/glossary">用語集</a></li>
+					
+				</ul>
+			
+			<ul>
+				<li><a href="/tos">利用規約</a></li>
+				<li><a href="/privacy">プライバシーポリシー</a></li>
+				<li><a href="/personal">個人情報保護方針</a></li>
+				<li><a href="/company">企業情報</a></li>
+				<li><a href="/faq">よくある質問</a></li>
+				<li><a href="/contact">お問い合わせ</a></li>
+				<li><a href="/documents/request">資料請求</a></li>
+			</ul>
+			<div class="text-center">
+					<small id="copyright">Copyright Since 2012 &copy;<a href="http://atcoder.co.jp">AtCoder Inc.</a> All rights reserved.</small>
+			</div>
+			</footer>
+	</div>
+	<p id="fixed-server-timer" class="contest-timer"></p>
+	<div id="scroll-page-top" style="display:none;"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> ページトップ</div>
+
+</body>
+</html>
+
+

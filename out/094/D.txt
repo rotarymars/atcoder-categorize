@@ -1,0 +1,52 @@
+comb(n, r) を並べた表はパスカルの三角形 (https://ja.wikipedia.org/wiki/と呼ばれています。これを観察すると下に
+行くほど（n が大きくなると）値が大きくなることが分かります。また、同じ段なら真ん中よりのほうが値が大きくなる
+ことが分かります。このことから、a1 , a2 , . . . , an のうち最大のものを n として使い、n 以外で n/2 に最も近いものを r
+として使うと最大になることが予想できます。
+この予想が正しいことを示します。次の事実を使います。
+
+comb(n, r) =
+
+n(n − 1)(n − 2) . . . (n − r + 1)
+r(r − 1)(r − 2) . . . 1
+
+まず、最初の予想が正しいことを確かめるために次を示します。
+主張. r > 0 のとき、comb(n + 1, r) > comb(n, r)
+証明. r = 1 のときは明らか。r > 1 とする。
+
+comb(n + 1, r) − comb(n, r)
+(n + 1)n(n − 1) . . . (n − r + 2) n(n − 1)(n − 2) . . . (n − r + 1)
+−
+r(r − 1)(r − 2) . . . 1
+r(r − 1)(r − 2) . . . 1
+n(n − 1) . . . (n − r + 2)
+((n + 1) − (n − r + 1))
+=
+r(r − 1)(r − 2) . . . 1
+n(n − 1) . . . (n − r + 2)
+=
+r>0
+r(r − 1)(r − 2) . . . 1
+=
+
+次に、二番目の予想が正しいことを示すのには、n 個から r 個選ぶのと n 個から選ばない n − r 個を決めるのが同じ
+であることを踏まえると、次を確かめれば十分です。
+
+r + 1 ≤ n/2 のとき、comb(n, r + 1) > comb(n, r)
+これは
+
+comb(n,r+1)
+comb(n,r) を計算すれば分かります。
+
+4
+
+We shuold choose the maximum of a1 , a2 , . . . , an as n because for a fixed r, the function comb(n, r) is monotonously
+increasing. This follows from the following fact:
+If r > 0, comb(n + 1, r) > comb(n, r)
+(because comb(n + 1, r) = comb(n, r) + comb(n, r − 1))
+Once we choose n, we should choose r that is closest to n/2. This follows from the following fact:
+If r + 1 ≤ n/2, comb(n, r + 1) > comb(n, r)
+Compute comb(n,r+1)
+comb(n,r) to prove this.
+
+1
+

@@ -1,0 +1,101 @@
+
+		公式
+		
+			
+				F - Double Chance 解説
+			
+			by mechanicalpenciI
+			
+		
+		
+		
+		
+			\(K\) を固定したとき、\(2\) 枚のカードの引き方としては, \(1,2\) 回目それぞれ \(K\) 通りで合わせて \(K^2\) 通りが等確率で起きるため、  求める値は
+\(
+\left(\displaystyle\sum_{i=1}^{K}\sum_{j=1}^{K}\max(A_i,A_j)\right)/K^2
+\)
+となります。\(K^2\) は簡単に計算できるため、\(\displaystyle\sum_{i=1}^{K}\sum_{j=1}^{K}\max(A_i,A_j)\)
+の部分について考えます。
+\(K\) の値が変わるたびに毎回一から計算していては大変なので、\(K-1\) の時の値を利用することを考えます。この時、差分を考える事で、
+\[
+\displaystyle\sum_{i=1}^{K}\sum_{j=1}^{K}\max(A_i,A_j)
+=\displaystyle\sum_{i=1}^{K-1}\sum_{j=1}^{K-1}\max(A_i,A_j)
++2\displaystyle\sum_{i=1}^{K-1}\max(A_i,A_K)
++A_K
+\]となります。ただし、\(K=0\) のとき、 \(\displaystyle\sum_{i=1}^{K}\sum_{j=1}^{K}\max(A_i,A_j)=0\)です。あとは、\(\displaystyle\sum_{i=1}^{K-1}\max(A_i,A_K)\) の値が素早く求められれば良いです。
+\(\displaystyle\sum_{i=1}^{K-1}\max(A_i,A_K)\) の値は、\(1\leq i\leq K-1\) に対して,
+\(A_i\) と \(A_K\)の大小関係によって、\(2\) つに分ける事ができます。
+\[
+\displaystyle\sum_{i=1}^{K-1}\max(A_i,A_K)
+=\displaystyle\sum_{\substack{1\leq i\leq K-1 \\A_i\leq A_K}}A_K
++\displaystyle\sum_{\substack{1\leq i\leq K-1 \\A_i>A_K}}A_i
+\]よって、\(A_i \leq A_K\) であるような \(i\) の個数と、
+\(A_i>A_K\) であるような \(A_i\) の総和を求めれば良いですが、
+これにはいくつか求め方があります。以下では、\(2\)つ紹介します。
+
+解法1. \(K=1,2,\ldots\) の順で求める方法
+
+今、各 \(A_i\)が \(2\times 10^5\) 以下である事から、
+これは \(2\) 本のFenwick tree によって求める事ができます。
+
+\(F_1[i]=((1\leq j\leq K-1かつ)A_j=iであるような jの個数)\),
+\(F_2[i]=((1\leq j\leq K-1かつ)A_j=iであるような jの個数)\times i\)
+とすると、
+\(\displaystyle\sum_{\substack{1\leq i\leq K-1 \\A_i\leq A_K}}A_K=(F_1[1]+F_1[2]+\cdots+F_1[A_K])\times A_K\),
+\(\displaystyle\sum_{\substack{1\leq i\leq K-1 \\A_i>A_K}}A_i=F_2[A_K+1]+F_2[A_K+2]+\cdots+F_2[M]\)
+で求まります。ここで、\(M=2\times 10^5\) は \(A_i\) の値の上限です。
+あとはこれを用いて、\(K=1,2,\ldots,N\)の順で,
+
+
+\(\displaystyle\sum_{i=1}^{K-1}\max(A_i,A_K)\)の値の計算
+1.の値を用いた\(\displaystyle\sum_{i=1}^{K}\sum_{j=1}^{K}\max(A_i,A_j)/K^2\) の値の計算
+\(F_1, F_2\) の更新 (\(F_1[A_K]\)に\(1\)を加算, \(F_2[A_K]\)に\(A_K\)を加算)
+
+
+(2.と3. は入れ替え可能)を行うことによって、答えを求める事ができます。
+時間計算量は\(O(N\log\max(A_i))\) となり、十分高速です。
+
+なお、\(A_i\) の上限が\(10^9\) であるような場合は、この方針ではFenwick木用のメモリが基本的に確保できないため、座標圧縮などを用いる必要があります。
+
+解法2. \(A_K\)が大きい順で求める方法
+
+また、\(A_i \leq A_K\) であるような \(i\) の個数及び
+\(A_i>A_K\) であるような \(A_i\) の総和は、先に、整数の組 \((A_K,K)\) について、降順にソートする事によって、
+次のような \(2\) 本のFenwick tree によって求める事ができます。
+
+\(F_1[i]=( (A_i,i)>(A_K,K) であるような i の個数)\)  \((すなわち, (A_i,i)>(A_K,K) ならば 1, そうでないならば 0)\)
+\(F_2[i]=((A_i,i)>(A_K,K)  であるような i の個数)\times A_i\)  \((すなわち, (A_i,i)>(A_K,K) ならば A_i, そうでないならば 0)\)
+
+(ここで、整数の組に対する不等号は辞書順比較) とすると、
+\(\displaystyle\sum_{\substack{1\leq i\leq K-1 \\(A_i,i)\leq (A_K,K)}}A_K=\{(K-1)-(F_1[1]+F_1[2]+\cdots+F_1[K-1])\}\times A_K\),
+\(\displaystyle\sum_{\substack{1\leq i\leq K-1 \\(A_i,i)>(A_K,K)}}A_i=F_2[1]+F_2[2]+\cdots+F_2[K-1]\)
+で求まります。ここで、\(A_i=A_K\) の場合は重複しない限り、それぞれどちらの総和に含まれても良いことに注意します。
+あとは、\(A_K\)の大きい順に、
+\(\displaystyle\sum_{i=1}^{K-1}\max(A_i,A_K)\)の値の計算と\(F_1, F_2\) の更新を行えば良いです。
+
+この場合の時間計算量は、 \(O(N\log N)\) となります。
+この方針の場合には、\(A_i\) の上限が\(10^9\) であるような場合にも同様に解くことができます。なお、必要となることは少ないですが、今回のような場合では、\(\displaystyle\sum_{i=1}^N A_i\leq 4\times 10^{10}<10^{12}\)より、\(F[i]=F_1[i]\times 10^{12}+F_2[i]\) とする事によって、Fenwick tree を一本にまとめ、定数倍高速化を図る事ができます。
+
+c++ による実装例(方針 \(1\) )  :
+
+
+
+c++ による実装例(方針 \(2\) )  :
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

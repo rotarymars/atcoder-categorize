@@ -1,0 +1,48 @@
+まず、整数 N の値段を計算するためには N の桁数を求める必要がありますが、これは
+
+• 10k ≤ N < 10k+1 となる整数 k を見つけると、N は (k + 1) 桁の整数である。
+• 標準の関数等を使って一旦文字列に変換して長さを求める (Python なら len(str(N)) とする、
+など)。
+などの方法で求めることができます。
+しかし、1 から 109 (10 億) まで順番に値段を計算して購入できるかを判定しているのでは時間制限
+に間に合わないので工夫が必要です。
+今回の問題では値段に単調性 (大きい整数ほど値段も高い) があるので、以下のように二分探索を利用
+することができます。
+
+0. 10 億を買うことができるなら 10 億が答えです。以下はそうでないと仮定します。
+1. まず 5 億が買えるかどうかを調べます。
+2. 買えたとします。この場合、買うことのできる最大の整数は 5 億以上で 10 億より小さいとい
+うことがわかります。
+
+3. 次に 5 億と 10 億の間である 7 億 5000 万が買えるかどうかを調べる。
+4. 今度は買えなかったとします。この場合、買うことのできる最大の整数は 5 億以上で 7 億
+5000 万より小さいということがわかります。
+5. 次は 5 億と 7 億 5000 万の間である 6 億 2500 万が買えるかどうかを調べます。
+6. ...。
+このようにすることで、1 回ごとに答えの候補の範囲が半分ずつに縮まっていき、30 回程度の計算で
+答えを見つけることができます。
+
+3
+
+First, in order to calculate the price of integer N you have to ﬁnd the number of digits of N .
+This can be found in such ways like:
+• Find a integer k such that 10k ≤ N < 10k+1 , then N has (k + 1) digits.
+• Convert the integer into a string by using standard function etc., and ﬁnd its length (use
+len(str(N)) in Python for example).
+However, if you calculate prices of integers from 1 to 109 (one billion), it won’t ﬁnish in time, so
+you have to think out a way. In this problem the problem has monotonicity (the larger integer
+has the higher price), so you can apply binary search as follows:
+0. If he can buy one billion then one billion is the answer. Assume that he can’t.
+1. First, check if he can buy 500 million.
+2. Assume that he can. Then the maximum integer he can buy is greater than or equal to
+500 million and less than one billion.
+3. Then check if he can buy 750 million, which is between 500 million and one billion.
+4. Assume that, this time, he can’t. Then the maximum integer he can buy is greater than
+or equal to 500 million and less than 750 million.
+5. Then check if he can buy 750 million, which is between 500 million and 750 million.
+6. ...
+This way, the span of answer will be halved in every operation, and the answer can be found in
+about 30 calculations.
+
+9
+

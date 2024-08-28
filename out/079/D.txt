@@ -1,0 +1,55 @@
+
+Wall
+
+初めに、すべての数字において、1 に変えるのにかかるコストを計算しておきます。
+これには、ワーシャルフロイド法などが使えるでしょう。
+その後、全てのマスにおいて、数字が書かれている場合の 1 への変更コストの和を求めるとよ
+いです。
+# include < cstdio >
+# define rep (i , n ) for ( int ( i )=0;( i ) <( n );( i )++)
+int c [10][10];
+int H ,W ,A , res ;
+int main ()
+{
+scanf ("% d % d " ,&H ,& W );
+rep (i ,10) rep (j ,10) scanf ("% d " ,& c [ i ][ j ]);
+rep (k ,10) rep (i ,10) rep (j ,10)
+if ( c [ i ][ j ] > c [ i ][ k ]+ c [ k ][ j ]) c [ i ][ j ]= c [ i ][ k ]+ c [ k ][ j ];
+rep (i , H ) rep (j , W )
+{
+scanf ("% d " ,& A );
+if (A >=0) res += c [ A ][1];
+}
+printf ("% d \ n " , res );
+}
+
+2
+
+
+Wall
+
+First, calculate cost to turn digits to 1 ,in 0,2,3,...,9.
+You can do it,for example,by Warshall Floyd algorithm.
+Then, you can solve it by calculate the sum of the cost to turn digits to 1,in every square
+which contain a digit.
+# include < cstdio >
+# define rep (i , n ) for ( int ( i )=0;( i ) <( n );( i )++)
+int c [10][10];
+int H ,W ,A , res ;
+int main ()
+{
+scanf ("% d % d " ,&H ,& W );
+rep (i ,10) rep (j ,10) scanf ("% d " ,& c [ i ][ j ]);
+rep (k ,10) rep (i ,10) rep (j ,10)
+if ( c [ i ][ j ] > c [ i ][ k ]+ c [ k ][ j ]) c [ i ][ j ]= c [ i ][ k ]+ c [ k ][ j ];
+rep (i , H ) rep (j , W )
+{
+scanf ("% d " ,& A );
+if (A >=0) res += c [ A ][1];
+}
+printf ("% d \ n " , res );
+}
+
+4
+
+

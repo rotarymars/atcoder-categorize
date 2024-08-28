@@ -1,0 +1,46 @@
+塞ぐ通路を決めた際 (及び、通路を塞がないと決めた際) に部屋 N に到達するまでの移動回数の期
+待値は、
+
+dpi = 部屋 i から部屋 N へ到達するまでの移動回数の期待値
+と dp テーブルを定義し、部屋番号について降順に計算して動的計画法を行うことで、時間計算量
+
+O (M ) で計算することが出来ます。しかし、M 個の通路全てについてこの値を計算しようとすると、
+)
+(
+全体での時間計算量が O M 2 となり、間に合いません。
+ここで、部屋 i から出ていく通路を塞ぐことを考えます。このとき、塞ぐ通路の選択に依らず、
+
+j = i + 1, · · · , N について dpj の値は変わりません。塞ぐ通路を選択する際は、dpi の値が最小とな
+るように決めるのが最適です。これは、部屋 i から通路が伸びてる部屋の集合を Si と定義したとき、
+部屋 arg max dpk へ進む通路を塞ぐことで達成出来ます。則ち、部屋 i から出ていく通路を塞ぐ際に
+k∈Si
+
+は、これ以外の通路を塞いだ際のことを考慮する必要はありません。
+以上より、前述の動的計画法を N 回実行すれば最適解を求めることが出来ます。全体での時間計算
+量は O (N M ) です。
+
+C++ による解答例:https://atcoder.jp/contests/abc144/submissions/8133816
+
+7
+
+If you fix any passage to block (or decide not to block any passage), the expected number of
+passages he takes before he reaches Room N can be calculated by defining the following dp table
+dpi = The expected number of passages when he travles from Roomito RoomN
+and calculating them in the decreasing order of room index, in which case the whole dp table
+can be caluculated in a total of O(M ) time. However, if you try to calculate this value for each
+of M passages, the overall time complexity will be O(M 2 ), so it won’t fit in the time limit.
+Now let’s consider blocking a passage starting from Room i. Then, for each j = i + 1, · · · , N ,
+the value of dpj is independent from the choice of which road to block. When choosing the road
+to block, the optimal choice is such that dpi is minimum. Let Si be the set of rooms such that
+there exists a road from i to the room, then it can be achieved by blocking the road towards
+arg max dpk . In other words, when you block a road starting from Room i, you don’t have to
+k∈Si
+
+consider the cases when the other roads are blocked.
+Therefore, you can find the optimal answer by performing the dynamic programming mentioned
+above N times. The problem can be solved in a total of O (N M ) time.
+Sample answer in C++:https://atcoder.jp/contests/abc144/submissions/8133816
+
+14
+
+

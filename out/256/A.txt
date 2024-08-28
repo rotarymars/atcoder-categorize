@@ -1,0 +1,52 @@
+
+		公式
+		
+			
+				A - 2^N 解説
+			
+			by kyopro_friends
+			
+		
+		
+		
+		
+			プログラミングの学習を始めたばかりで何から手をつけるべきかわからない方は、まずは「practice contest」(https://atcoder.jp/contests/practice/) の問題A「Welcome to AtCoder」をお試しください。言語ごとに解答例が掲載されています。
+また、プログラミングコンテストの問題に慣れていない方は、「AtCoder Beginners Selection」(https://atcoder.jp/contests/abs) の問題をいくつか試すことをおすすめします。
+「競プロ典型 90 問」(https://atcoder.jp/contests/typical90) では、プログラミングコンテストで扱われる典型的な 90  問の問題に挑戦可能です。
+「C++入門 AtCoder Programming Guide for beginners (APG4b)」(https://atcoder.jp/contests/APG4b) は、競技プログラマー向けのC++入門用コンテンツです。
+
+
+
+この問題では累乗の計算を行う必要があります。多くの言語では pow という関数を用いて累乗を計算することができますが、計算結果が浮動小数点数型になるものが多いため場合によっては誤差に注意が必要です。今回のように \(2\) の累乗に限っては、ビットシフトによって累乗を計算することもできます。
+
+実装例(C)(ビットシフト)
+
+
+
+実装例(C)(pow)
+
+
+
+実装例(Python)
+
+
+
+実装例(Python)
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

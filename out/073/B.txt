@@ -1,0 +1,43 @@
+
+Theater
+
+li 番目から ri 番目までの連続した席に人が座っているとき、それらは
+ri − li + 1 人
+∑
+である。 条件より、同じ席に複数の人が座ることはないので、 N
+i=1 (ri − li + 1) が答え
+となる。よって、これを計算して出力すればよい。
+それ以外にも、席数と人数が高々100000 なため、席 1 から席 100000 までのすべての席
+において、人がいるかいないかをフラグで持っておき、各 i において li から ri までにフ
+ラグを立てていく方法でも解くことができる。
+# include < cstdio >
+int N , res ,l , r ;
+int main ()
+{
+scanf ( " % d " ,& N );
+for ( int i =0; i < N ; i ++) scanf ( " % d % d " ,&l ,& r ) , res += r - l +1;
+printf ( " % d \ n " , res );
+}
+
+1
+
+
+Theater
+
+When one group occupies Seat li to ri , there are
+r − li + 1 people in the group.
+∑ i
+No seat is occupied by more than one person, so N
+i=1 (ri − li + 1) is the answer.
+So, you can get 200 points by output it.
+And,it is OK to simulate it because the number of seat and audiences is no more than
+100000.
+# include < cstdio >
+int N , res ,l , r ;
+int main ()
+{
+scanf ( " % d " ,& N );
+for ( int i =0; i < N ; i ++) scanf ( " % d % d " ,&l ,& r ) , res += r - l +1;
+printf ( " % d \ n " , res );
+}
+

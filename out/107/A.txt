@@ -1,0 +1,11 @@
+答えは N + 1 − i です．
+
+• C++ のコード例: https://beta.atcoder.jp/contests/abc107/submissions/3070852
+• Java のコード例: https://beta.atcoder.jp/contests/abc107/submissions/3070854
+• Python 3 のコード例: https://beta.atcoder.jp/contests/abc107/submissions/3070856
+
+The answer is N + 1 − i.
+• C++ Code Example: https://beta.atcoder.jp/contests/abc107/submissions/3070852
+• Java Code Example: https://beta.atcoder.jp/contests/abc107/submissions/3070854
+• Python 3 Code Example: https://beta.atcoder.jp/contests/abc107/submissions/3070856
+

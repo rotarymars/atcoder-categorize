@@ -1,0 +1,19 @@
+整数 a, b を読み込み、a × b を計算し、2 で割ったあまりを計算すればいいです。
+int main (){
+int a , b ;
+cin > >a > > b ;
+int c = a * b ;
+if ( c %2 == 0) puts (" Even ");
+else puts (" Odd ");
+return 0;
+}
+
+int main (){
+int a , b ;
+cin > >a > > b ;
+int c = a * b ;
+if ( c %2 == 0) puts (" Even ");
+else puts (" Odd ");
+return 0;
+}
+

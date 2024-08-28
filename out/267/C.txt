@@ -1,0 +1,41 @@
+
+		公式
+		
+			
+				C - Index × A(Continuous ver.) 解説
+			
+			by PCTprobability
+			
+		
+		
+		
+		
+			まず、長さ \(M\) の連続部分列は \(N-M+1\) 通りしかないため、全ての連続部分列に対して \(\displaystyle \sum_{i=1}^{M} i \times B_i\) を愚直に求めることで \(\mathrm{O}(N^2)\) で本問題を解くことができますが、このままだと制限実行時間に間に合いません。
+
+ですが、\(\displaystyle \sum_{i=1}^{M} i \times A_i-\displaystyle \sum_{i=1}^{M} i \times A_{i+1} = \left(\sum_{i=1}^{M} A_i\right)-M \times A_{M+1}\) であるため、前もって \(\displaystyle A_1,A_1+A_2,A_1+A_2+A_3,\dots,\sum_{i=1}^{N} A_i\) を \(\mathrm{O}(N)\) で計算しておくことにより、\(\displaystyle \sum_{i=1}^{M} i \times A_{i+j}\) から \(\displaystyle \sum_{i=1}^{M} i \times A_{i+j+1}\) を \(\mathrm{O}(1)\) で求めることができます。
+
+よって、\(\displaystyle \sum_{i=1}^{M} i \times A_i\) をはじめに \(\mathrm{O}(M)\) で求め、上記の式を使うことにより \(\mathrm{O}(N)\) 時間で全ての連続部分列に対して \(\displaystyle \sum_{i=1}^{M} i \times B_i\) を求めることができます。
+
+あとはこれらの最大値を出力すればよいです。計算量は \(\mathrm{O}(N)\) です。
+
+答えや \(A\) の累積和は最大で \(4 \times 10^{15}\) 程になるため、32 bit 型整数を使うとオーバーフローしてしまうことに注意してください。また、答えは負にもなり得るため最大値を求める際に初期値を \(0\) にしてしまう間違いにも注意してください。
+
+実装例(C++)
+
+
+
+		
+		
+			
+				投稿日時:
+				
+				
+			
+				
+				最終更新:
+				
+				
+			
+			
+		
+	

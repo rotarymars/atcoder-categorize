@@ -1,0 +1,26 @@
+必要なら上の桁を 0 で埋めることで、N と同じ桁数の数だけを考えれば良いです。
+桁 DP と呼ばれる考え方を用いて解くことができます。
+
+dp0[i][j] = 上から i 桁目まで決めて、0 でない桁が j 個あり、
+N より小さいことが確定している
+dp1[i][j] = 上から i 桁目まで決めて、0 でない桁が j 個あり、
+N より小さいことが確定していない
+として、i が小さい方から順に計算していきます。求める答えは N の桁数を L として、dp0[L][K]+
+
+dp1[L][K] です。計算量は O(LK) です (実装によっては基数 10 が定数倍としてつきます)。
+
+5
+
+It is enough to consider the integers of N digits, by ﬁlling the higher digits with 0 if necessary.
+This problem can be solved by applying the method called digit DP. Let
+dp0[i][j] = The higher i digits has already been decided, and there are j non-zero digits,
+and it has already been determined that it is less than N ,
+dp1[i][j] = The higher i digits has already been decided, and there are j non-zero digits,
+and it has not yet been determined that it is less than N ,
+
+and calculate them in the ascending order of i. The desired answer is dp0[L][K] + dp1[L][K],
+where L is the number of digits of N . The total time complexity is O(LK) (depending on
+implementation, radix 10 may be multiplied as a constant).
+
+11
+

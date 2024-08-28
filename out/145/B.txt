@@ -1,0 +1,18 @@
+N が奇数のときの答えは, 明らかに No です.
+N が偶数のとき, 0-indexed で, S の 0 文字目から始まる N/2 文字分の部分文字列と, S の N/2 文字
+目から始まる N/2 文字分の部分文字列が一致していれば答えは Yes であり, そうでなければ No で
+す.
+文字列の部分文字列は, 例えば C++ であれば substr 関数を使うことで容易に取得出来ます.
+
+C++ による解答例:https://atcoder.jp/contests/abc145/submissions/8474441
+
+2
+
+If N is odd, then it’s obviously No.
+When N is even, if the substring of S of length N/2 beginning at 0-th letter (0-indexed) and
+that of length N/2 beginning at N/2-th letter is the same, the answer is Yes, and otherwise No.
+The substring of a string can be easily obtained, by using substr function in C++ for example.
+Sample code in C++:https://atcoder.jp/contests/abc145/submissions/8474441
+
+8
+

@@ -1,0 +1,95 @@
+N が大きくないので、素直な全探索解で正答できます。
+つまり、食べるたこ焼き 2 個の選び方を全探索して、それぞれの体力回復量の和をとればいいです。
+この問題のように「順番を考慮しない 2 要素の選び方」を全探索する際のポイントとして、下記
+コードにあるように、内側のループ変数の始点を外側のループ変数 +1 から始めるといいです。こう
+することで、内側のループで選ぶインデックスが必ず外側のループで選ぶインデックスより大きくな
+り、同じ選び方を 2 回見てしまうことを回避できます。
+以上の全探索解の計算量は O(N 2 ) ですが、この問題は工夫すると O(N ) で解くこともできます。
+考えてみてください。
+Listing 1 C++ による実装例
+1
+2
+
+#include <bits/stdc++.h>
+using namespace std;
+
+3
+
+int main() {
+5
+int n;
+6
+cin >> n;
+7
+vector<int> d(n);
+8
+for(int i = 0; i < n; i++) cin >> d[i];
+9
+int ans = 0;
+10
+for(int i = 0; i < n; i++) {
+11
+for(int j = i + 1; j < n; j++) {
+12
+ans += d[i] * d[j];
+13
+}
+14
+}
+15
+cout << ans << endl;
+16
+return 0;
+17 }
+4
+
+2
+
+Since N is not so large, you can got acccepting by simple brute force.
+That is, you can perform a brute-force searching such that iterating all the possible pair of
+takoyaki and sum up the health points restored by them.
+In order to iterate through ”all the pair chosen from element,” it is eﬀectual to let the starting
+index of the inner loop be the current index of outer loop added by +1, just like the listing shown
+below. This way, the index of the inner loop is always strictly larger than that of outer loop,
+and you can avoid choosing the same pair twice.
+The solution mentioned above has O(N 2 ) complexity, but with more eﬀort you can also solve
+this problem in a total of O(N ) time. Can you achieve it?
+Listing 2 Implementation example in C++
+1
+2
+
+#include <bits/stdc++.h>
+using namespace std;
+
+3
+
+int main() {
+5
+int n;
+6
+cin >> n;
+7
+vector<int> d(n);
+8
+for(int i = 0; i < n; i++) cin >> d[i];
+9
+int ans = 0;
+10
+for(int i = 0; i < n; i++) {
+11
+for(int j = i + 1; j < n; j++) {
+12
+ans += d[i] * d[j];
+13
+}
+14
+}
+15
+cout << ans << endl;
+16
+return 0;
+17 }
+4
+
+8
+

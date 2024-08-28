@@ -1,0 +1,33 @@
+
+Good Integer
+
+N は 4 桁の整数なので、3 つ以上の同じ数字が連続して並ぶ時、前の 3 つの数字か、後の 3 つ
+の数字の少なくともどちらかは必ず等しくなります。
+よって、この 2 つの条件の少なくともどちらかを満たしたときに ‘Yes‘、そうでないときに ‘No‘
+を出力するとよいです。
+# include < cstdio >
+char s [5];
+int main ()
+{
+scanf ("% s " ,& s );
+if ( s [0]== s [1]&& s [1]== s [2]) puts (" Yes ");
+else if ( s [1]== s [2]&& s [2]== s [3]) puts (" Yes ");
+else puts (" No ");
+}
+
+
+Good Integer
+
+N has 4 digits, so first 3 or last 3 digits are same when N is good.
+So, you can get 100 points by output ‘Yes‘ when at least one of these conditions are met, ’No’
+when they didn’t.
+# include < cstdio >
+char s [5];
+int main ()
+{
+scanf ("% s " ,& s );
+if ( s [0]== s [1]&& s [1]== s [2]) puts (" Yes ");
+else if ( s [1]== s [2]&& s [2]== s [3]) puts (" Yes ");
+else puts (" No ");
+}
+

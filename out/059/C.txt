@@ -1,0 +1,23 @@
+偶数番目と奇数番目どちらを正にするかで 2 通り考え、小さい方を答えることにします。番号の小さい順に
+数を確定させていきます。
+
+i 桁目までの和の符号が欲しい符号と同じ場合、i 番目の数を変更する必要はありません。すでに i 番目まで
+の和の符号が合致しているのに i 番目の数を変更して最適解が得られるなら、i 番目の数に対する変更を i + 1
+番目の数に持ってくることで同じ最適解が得られるからです。
+
+i 桁目までの和の符号が欲しい符号と異なる場合、まず欲しい符号のうち絶対値最小までは変更しなくては
+いけません (1 か −1)。これ以後は上と同様の議論が成り立つので、1 か −1 まで変更すれば十分です。
+この規則で前から順に決めコストを求めていくことで答えが求まります。
+
+1
+
+Try two possibilities independently: even-length prefixes are positive or odd-length prefixes are positive.
+You determine the numbers greedily from left to right. When you check the i-th term, if the sum of the
+first i terms already has the desired sign, you don’t need to change the i-th term. (Instead of changing
+it, you can do the same thing by performing the same operation for the i + 1-th term).
+Otherwise, you should change it such that the sum of the first i terms becomes 1 (in case the desired
+sign is positive) or -1 (in case the desired sign is negative).
+This way, you can compute the optimal cost.
+
+1
+

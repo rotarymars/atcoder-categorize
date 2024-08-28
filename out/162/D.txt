@@ -1,0 +1,20 @@
+1 つ目の条件を満たす組の数は、S に含まれる R, G, B の数をそれぞれ r, g, b としたとき rgb
+です。
+このうち 2 つ目の条件を満たさない組がいくつあるかを考えます。j − i = k − j を満たすような
+組 (i, j, k) の個数は O(N 2 ) です。よって、例えば i, j を固定するといった方法で、この全てを調
+べて、それが 1 つ目の条件を満たしているかを確認すればいいです。このアルゴリズムの計算量は、
+後半の全探索がボトルネックになり O(N 2 ) です。
+
+4
+
+The number of pairs that satisﬁes the ﬁrst condition is rgb, where r, g and b denotes the
+number of appearances of R, G, B in S, respectively. Now let’s consider how many of them do
+not satisﬁes the second condition. The number of tuples (i, j, k) such that j − i = k − j is
+O(N 2 ). Therefore, you can iterate through all the of them by, for example, ﬁxing i and j, and
+then check if it satisﬁes the ﬁrst condition. このアルゴリズムの計算量は、後半の全探索がボト
+ルネックになり O(N 2 ) です。The time complexity of this algorithm is O(N 2 ), where the latter
+
+brute force is the bottle neck.
+
+10
+

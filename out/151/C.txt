@@ -1,0 +1,15 @@
+各問題について, 「その問題で既に AC が出たか」及び「その問題で WA が出た回数」を記録しな
+がら, 提出を順に調べて処理します.
+
+WA が出たときは, その問題の WA 回数を 1 増加させます
+For each problem, record ”whether AC has already appeared for the problem or not” and ”the
+number of WAs appeared so far for the problem,” while processing the submissions in order.
+If the verdict was WA, then increase the number of WAs for the problem by one.
+If the verdict was AC, then if it is not the ﬁrst AC for the problem, then do nothing. If it was the
+ﬁrst one, the number of Takahashi’s correct answers increases by one, and the penalties increases
+by ”the number of WAs appeared so far for the problem.”
+The process above is O (N + M ) and fast enough.
+Sample Code in C++: https://atcoder.jp/contests/abc151/submissions/9430678
+
+9
+

@@ -1,0 +1,108 @@
+gcd(a, b, c) = gcd(gcd(a, b), c) が成立します。
+K 以下の 2 つの数の最大公約数は、ユークリッドの互除法を用いることで O(log K) で求めること
+が出来ます。したがって、実際に全ての (a, b, c) の組に対して最大公約数を計算することで、この問
+題は O(K 3 log K) で解けました。
+
+C 言語でのユークリッドの互除法の実装例は次のとおりです。
+再帰版
+1
+
+int gcd(int p, int q){
+if(p % q == 0)return q;
+
+2
+
+return gcd(q, p % q);
+
+3
+4
+
+}
+
+非再帰版
+1
+
+int gcd(int p, int q){
+
+2
+
+while(q != 0){
+
+3
+
+int r = p % q;
+
+4
+
+p = q;
+q = r;
+
+5
+
+}
+
+6
+
+return p;
+
+7
+8
+
+}
+
+3
+
+It holds that gcd(a, b, c) = gcd(gcd(a, b), c).
+The greatest common divisor between two numbers less than or equal to K can be found in a
+total O(log K) time using the Euclidean Algorithm.
+Therefore, by actually calculating the greatest common divisors for all (a, b, c), this problem
+could be solved in a total of O(K 3 log K) time.
+The following are implementation examples of Euclidean Algorithm in C Language.
+Recurrent version
+1
+
+int gcd(int p, int q){
+if(p % q == 0)return q;
+
+2
+
+return gcd(q, p % q);
+
+3
+4
+
+}
+
+Non-recurrent version
+1
+
+int gcd(int p, int q){
+
+2
+
+while(q != 0){
+
+3
+
+int r = p % q;
+
+4
+
+p = q;
+q = r;
+
+5
+6
+
+}
+
+7
+
+return p;
+
+8
+
+}
+
+9
+
